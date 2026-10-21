@@ -3,7 +3,7 @@
 
   python3 qa_templates.py [slug ...] [--workers 4]
 결과: data/qa_templates.json — 템플릿마다 캡처 장 수 · 한글이 시스템 서체로 그려진 장 · 넘침/잘림 장 · 한 장 모음 경로.
-Jev 호출 없음. Playwright·Pillow 필요. 한 장 모음은 META_SLIDE_QA_DIR(기본 /tmp 아래)에 둔다.
+Jev 호출 없음. Playwright·Pillow 필요. 한 장 모음은 META_SLIDE_QA_DIR(기본: 시스템 임시 폴더의 meta-slide-qa)에 둔다.
 """
 import json
 import os
@@ -39,6 +39,7 @@ def one(slug):
 
 
 def main(argv):
+    slide.utf8_console()
     workers = int(argv[argv.index("--workers") + 1]) if "--workers" in argv else 4
     only = [a for a in argv if not a.startswith("--") and not a.isdigit()]
     slugs = only or list(slide.load_templates())

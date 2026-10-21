@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """meta-slide — 내용에 맞는 슬라이드 템플릿·한글 서체를 Jev 가 고르고, 원칙대로 덱을 만들고 점검한다.
 
-  python3 slide.py templates [--json]                      # 템플릿 목록(인터넷 34종 + 사내 키노트 기반 house)
+  python3 slide.py [--local] [--port 8766] [--no-open]       # 인자 없이 = 로컬 갤러리(템플릿·인포그래픽·색·서체) — serve.py
+                                                           #   --local: SSH 로 붙은 내 PC 브라우저에서 열 주소(Tailscale)
+  python3 slide.py templates [--json]                      # 템플릿 목록(인터넷 MIT 230종 + 사내 키노트 기반 house)
   python3 slide.py layouts <템플릿>                         # 그 템플릿의 장(슬라이드)별 레이아웃 종류
   python3 slide.py pick <브리프|개요.md|-> [--n 3] [--scheme light|dark] [--template id] [--exclude a,b]
                           [--title-font id] [--body-font id] [--series 이름] [--no-jev] [--json]
@@ -16,6 +18,7 @@
 """
 import json
 import os
+import pathlib
 import re
 import shutil
 import sys
@@ -27,7 +30,6 @@ DATA = os.path.join(HERE, "data")
 TEMPLATE_DIRS = (os.path.join(DATA, "house"), os.path.join(DATA, "templates"))
 INDEX_PATH = os.path.join(DATA, "index.json")  # build_index.py 가 만든다(레이아웃·한국어 요약)
 FONTS_PATH = os.path.join(DATA, "fonts.json")
-SHARED_JEV = os.path.expanduser("~/workspace/shared/jev.py")
 HISTORY_PATH = os.environ.get("META_SLIDE_HISTORY", os.path.expanduser("~/.local/share/meta-slide/history.jsonl"))
 DEFAULT_TEMPLATE = {"light": "blue-professional", "dark": "cheil-dark-point", "mixed": "signal", None: "cheil-dark-point"}
 DEFAULT_FONTS = ("pretendard", "pretendard")
@@ -71,6 +73,21 @@ def _read(path):
 def _write(path, text):
     with open(path, "w", encoding="utf-8") as f:
         f.write(text)
+
+
+def file_url(path):
+    """로컬 파일 → file:// 주소. Windows 드라이브 경로(C:\\…)와 한글 경로도 맞게 만든다."""
+    return pathlib.Path(os.path.abspath(path)).as_uri()
+
+
+def utf8_console():
+    """Windows 콘솔·파이프 기본 인코딩(cp949)에서 한글·기호(✓) 출력이 깨지거나 멈추지 않게."""
+    if os.name == "nt":
+        for s in (sys.stdout, sys.stderr):
+            try:
+                s.reconfigure(encoding="utf-8", errors="replace")
+            except (AttributeError, ValueError):
+                pass
 
 
 # ── 공통 ─────────────────────────────────────────────────────────
@@ -142,7 +159,7 @@ def load_fonts():
 
 def load_jev():
     import importlib.util
-    path = SHARED_JEV if os.path.exists(SHARED_JEV) else os.path.join(HERE, "jev.py")
+    path = os.path.join(HERE, "jev.py")  # 번들 사본만 — PC 마다 같게(키 저장소는 setup.py)
     spec = importlib.util.spec_from_file_location("meta_slide_jev", path)
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
@@ -1129,7 +1146,7 @@ def shots(deck, out_dir=None, pdf=False, wait_ms=700, ko_sample=False):
     with sync_playwright() as p:
         b = p.chromium.launch()
         pg = b.new_page(viewport={"width": 1920, "height": 1080})
-        pg.goto("file://" + deck, wait_until="networkidle", timeout=60000)
+        pg.goto(file_url(deck), wait_until="networkidle", timeout=60000)
         pg.evaluate("document.fonts.ready.then(() => true)")
         pg.wait_for_timeout(600)
         if ko_sample:  # 템플릿 검사용 — 예시 글을 비슷한 폭의 한글로 바꿔 한국어 덱처럼 본다
@@ -1171,12 +1188,14 @@ def shots(deck, out_dir=None, pdf=False, wait_ms=700, ko_sample=False):
                 ids = cdp.send("DOM.querySelectorAll", {"nodeId": doc["root"]["nodeId"], "selector": "[data-ms-k]"})["nodeIds"]
                 sysfont = re.compile(r"(Apple ?SD|Gothic Neo|Malgun|Gulim|Batang|Dotum|Arial Unicode)", re.I)
                 fallback = set()
+                unchecked = 0
                 for nid in ids:
                     try:
                         attrs = cdp.send("DOM.describeNode", {"nodeId": nid})["node"].get("attributes", [])
                         kk = int(attrs[attrs.index("data-ms-k") + 1])
                         fonts_n = cdp.send("CSS.getPlatformFontsForNode", {"nodeId": nid})["fonts"]
-                    except Exception:
+                    except Exception:  # 장을 넘기는 사이 사라진 요소 등 — 건너뛰되 센다(조용히 숨기지 않게)
+                        unchecked += 1
                         continue
                     sym = chk["ko"][kk]["sym"] if kk < len(chk["ko"]) else 0
                     for f in fonts_n:
@@ -1185,10 +1204,10 @@ def shots(deck, out_dir=None, pdf=False, wait_ms=700, ko_sample=False):
                             fallback.add(f["familyName"])
                 fallback = sorted(fallback)
             else:
-                fallback = []
+                fallback, unchecked = [], 0
             fixes = pg.evaluate("() => document.querySelectorAll('[data-ms-fix]').length")
             report["slides"].append({"n": i + 1, "issues": chk["issues"][:8], "fonts_used": used, "fallback_fonts": fallback,
-                                     "ms_fixes": fixes})
+                                     "ms_fixes": fixes, "ko_unchecked": unchecked})
         if pdf:
             from PIL import Image
             ims = [Image.open(s).convert("RGB") for s in report["shots"]]
@@ -1218,6 +1237,8 @@ def cmd_shots(argv):
         msgs = [f"{x['kind']}「{x['text']}」" for x in s["issues"]]
         if s["fallback_fonts"]:
             msgs.append("한글이 대체 서체로 그려짐: " + ", ".join(s["fallback_fonts"]))
+        if s.get("ko_unchecked"):
+            msgs.append(f"한글 요소 {s['ko_unchecked']}개는 서체를 재지 못함(다시 shots)")
         if msgs:
             bad += 1
             print(f"  {s['n']:>2}장: " + " · ".join(msgs))
@@ -1310,9 +1331,13 @@ def cmd_history(argv):
 
 
 def main(argv):
+    utf8_console()
     cmds = {"templates": cmd_templates, "layouts": cmd_layouts, "pick": cmd_pick, "new": cmd_new, "outline": cmd_outline,
             "shots": cmd_shots, "fonts": cmd_fonts, "colors": cmd_colors, "ig": cmd_ig, "record": cmd_record, "history": cmd_history}
-    if not argv or argv[0] not in cmds:
+    if not argv or argv[0].startswith("--") and argv[0] not in ("--help",):  # 인자 없이(옵션만) — 갤러리 띄우기
+        import serve
+        return serve.main(argv)
+    if argv[0] not in cmds:
         print(__doc__)
         return 0 if not argv or argv[0] in ("help", "-h", "--help") else 2
     cmds[argv[0]](argv[1:])

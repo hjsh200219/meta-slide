@@ -15,7 +15,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import slide  # noqa: E402
-from slide import _read, _write  # noqa: E402
+from slide import _write  # noqa: E402
 
 SLIDES_JS = r"""() => {
   const ds = document.querySelector('deck-stage');
@@ -32,7 +32,7 @@ def file_hash(path):
 
 
 def slides_of(page, html_path):
-    page.goto("file://" + html_path, wait_until="domcontentloaded", timeout=60000)
+    page.goto(slide.file_url(html_path), wait_until="domcontentloaded", timeout=60000)
     page.wait_for_timeout(400)
     return page.evaluate(SLIDES_JS)
 
@@ -56,6 +56,7 @@ def classify(jev, t, slides_):
 
 
 def main(argv):
+    slide.utf8_console()
     force = "--force" in argv
     only = [a for a in argv if not a.startswith("--")]
     templates = slide.load_templates()

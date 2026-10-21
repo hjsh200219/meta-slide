@@ -67,10 +67,10 @@ data
     return out;
   }
 
-  function renderAll() {
+  function renderAll(root) {  // root 를 주면 그 안만(갤러리처럼 보이는 것만 차례로 그릴 때)
     var body = cssVar('--ms-body', '').replace(/["']/g, '');
     if (body && IG.setDefaultFont) IG.setDefaultFont(body);
-    var els = document.querySelectorAll('.ms-ig');
+    var els = (root && root.querySelectorAll ? root : document).querySelectorAll('.ms-ig');
     for (var i = 0; i < els.length; i++) {
       var el = els[i], s = el.querySelector('script[type="text/x-infographic"]');
       if (!s) continue;

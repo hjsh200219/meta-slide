@@ -14,16 +14,17 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import slide  # noqa: E402
-from slide import _read, _write  # noqa: E402
+from slide import _write  # noqa: E402
 
 IG = slide.IG_DIR
 
 
 def main(argv):
+    slide.utf8_console()
     from playwright.sync_api import sync_playwright
     cat = slide.load_ig()
     page_html = os.path.join(IG, "_qa.html")
-    open(page_html, "w").write('<!doctype html><meta charset="utf-8"><style>:root{--ms-body:"Pretendard";--ms-ig-1:#2563EB;--ms-ig-2:#EA580C;--ms-ig-3:#64748B;--ms-ig-4:#334155}'
+    _write(page_html, '<!doctype html><meta charset="utf-8"><style>:root{--ms-body:"Pretendard";--ms-ig-1:#2563EB;--ms-ig-2:#EA580C;--ms-ig-3:#64748B;--ms-ig-4:#334155}'
                                'body{margin:0}.ms-ig{width:1600px;height:700px}</style>'
                                '<script src="infographic.min.js"></script><script src="icons.js"></script>'
                                '<div class="ms-ig" id="box"></div><script src="meta-slide-ig.js"></script>')
@@ -35,7 +36,7 @@ def main(argv):
     with sync_playwright() as p:
         b = p.chromium.launch()
         pg = b.new_page(viewport={"width": 1600, "height": 700})
-        pg.goto("file://" + page_html)
+        pg.goto(slide.file_url(page_html))
         for name in cat:
             src = slide.ig_example(name, cat)
             data_words = set(re.findall(r"[A-Za-z]{3,}", src.split("\n", 1)[1]))

@@ -9,7 +9,7 @@ import unittest
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import slide  # noqa: E402
-from slide import _read, _write  # noqa: E402
+from slide import _read  # noqa: E402
 
 OUTLINE = """---
 title: 시험 덱
@@ -144,6 +144,65 @@ class Shots(unittest.TestCase):
         self.assertIn("pushedOut", slide.META_JS)
         self.assertIn("finish()", slide.FINISH_ANIM_JS)
         self.assertIn("const deco", slide.CHECK_JS)
+
+
+class KeyStore(unittest.TestCase):
+    def test_file_backend_roundtrip(self):  # 키체인·자격 증명 관리자를 끄고 파일 저장소만(모든 OS 공통 경로)
+        import jev
+        d = tempfile.mkdtemp()
+        saved = (jev._mac, jev._win_write, jev._win_read, jev._win_delete, jev.KEY_FILE)
+        try:
+            jev._mac, jev._win_write, jev._win_read, jev._win_delete = (lambda: False), (lambda k: False), (lambda: None), (lambda: False)
+            jev.KEY_FILE = jev.Path(d) / "typesafe-jev" / "key"
+            self.assertEqual(jev.save_key(" test-key-0123456789 "), str(jev.KEY_FILE))
+            self.assertEqual(jev.stored_key()[0], "test-key-0123456789")
+            if os.name != "nt":
+                self.assertEqual(os.stat(jev.KEY_FILE).st_mode & 0o777, 0o600)
+            self.assertEqual(jev.forget_key(), [str(jev.KEY_FILE)])
+            self.assertEqual(jev.stored_key(), (None, ""))
+            with self.assertRaises(jev.JevError):
+                jev.save_key("bad\nkey")
+        finally:
+            jev._mac, jev._win_write, jev._win_read, jev._win_delete, jev.KEY_FILE = saved
+            shutil.rmtree(d)
+
+
+class Gallery(unittest.TestCase):
+    def test_gate(self):
+        import localnet
+        status = {"Self": {"UserID": 1, "TailscaleIPs": ["100.1.1.1", "fd7a::1"], "DNSName": "edb-mac.tail.ts.net."},
+                  "Peer": {"a": {"UserID": 1, "TailscaleIPs": ["100.2.2.2"]}, "b": {"UserID": 2, "TailscaleIPs": ["100.3.3.3"]}}}
+        ip, dns, hosts, peers = localnet.allowlist(status)
+        self.assertEqual((ip, dns), ("100.1.1.1", "edb-mac.tail.ts.net"))
+        g = localnet.Gate(8766, hosts, peers)
+        self.assertTrue(g.allowed("100.2.2.2", "edb-mac.tail.ts.net:8766"))   # 내 PC
+        self.assertFalse(g.allowed("100.3.3.3", "edb-mac.tail.ts.net:8766"))  # 같은 tailnet 다른 사람
+        self.assertFalse(g.allowed("127.0.0.1", "evil.com:8766"))            # DNS rebinding
+        self.assertTrue(g.allowed("127.0.0.1", "127.0.0.1:8766"))
+        self.assertFalse(localnet.Gate(8766).allowed("100.2.2.2", "127.0.0.1:8766"))  # --local 아니면 밖에서 못 들어옴
+
+    def test_build_page(self):
+        import serve
+        d = tempfile.mkdtemp()
+        try:
+            html = _read(serve.build(d))
+            data = serve.gallery_data()
+            self.assertEqual(len(data["templates"]), len(slide.load_templates()))
+            self.assertTrue(all(t["thumb"] for t in data["templates"]), [t["slug"] for t in data["templates"] if not t["thumb"]])
+            self.assertEqual(len(data["igs"]), sum(1 for v in slide.load_ig().values() if v.get("qa", "ok") == "ok"))
+            self.assertIn("data/infographics/meta-slide-ig.js", html)
+            self.assertNotIn("</script><", html.split("const D = ")[1].split(";\nconst TABS")[0])  # 자료 안 </ 는 이스케이프
+        finally:
+            shutil.rmtree(d)
+
+    def test_routes(self):
+        import serve
+        h = type("H", (serve.Handler,), {"root": "/r"})
+        tp = lambda p: serve.Handler.translate_path(h.__new__(h), p)  # noqa: E731
+        self.assertEqual(tp("/data/thumbs/x.jpg"), os.path.join(slide.DATA, "thumbs", "x.jpg"))
+        self.assertEqual(tp("/data/../slide.py"), os.path.join(slide.DATA, "slide.py"))  # .. 는 버린다
+        self.assertEqual(tp("/"), os.path.join("/r", "gallery"))
+        self.assertEqual(tp("/preview/없는-id/deck.html"), os.path.join("/r", "_none"))
 
 
 class NewDeck(unittest.TestCase):

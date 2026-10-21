@@ -1,5 +1,6 @@
-"""meta-slide 사본(2026-10-21 workspace shared/jev.py 에서 복사 · 키 폴백에 ~/workspace/.env 추가).
-slide.py 는 ~/workspace/shared/jev.py 가 있으면 그쪽을 먼저 쓴다.
+"""meta-slide·meta-motion 사본(2026-10-21 workspace shared/jev.py 에서 복사). 두 플러그인은 이 사본만 쓴다(PC 마다 같게).
+원본과 다른 점: 키를 `setup.py` 가 저장한 곳(macOS 키체인 · 그 밖 ~/.config/typesafe-jev/key)에서도 읽고,
+workspace .env 폴백에 ~/workspace/.env 를 더했다. 저장소는 두 플러그인이 같이 쓴다 — 한 번 setup 하면 둘 다 된다.
 
 TypeSafe Jev (System One) 클라이언트 — 타입 붙은 판정 + 보정된 확률.
 
@@ -32,7 +33,7 @@ criteria 모양이 primitive마다 다르다(자주 틀리는 자리):
 `model`(실제로 답한 버전) 키도 담는데 복사본은 안 담는다(_vault/vault-classify.py 원장이 쓴다).
 cloud-jobs 를 다음에 만질 때 그쪽으로 옮겨 맞춘다 — 방향은 여기 → 복사본이다.
 
-키: 환경변수 JEV_API_KEY. 없으면 workspace 루트 .env 에서 읽는다.
+키: 환경변수 JEV_API_KEY → setup.py 저장소(키체인/파일) → workspace 루트 .env 순서.
 """
 
 from __future__ import annotations
@@ -40,6 +41,8 @@ from __future__ import annotations
 import base64
 import json
 import os
+import subprocess
+import sys
 import time
 import urllib.error
 import urllib.request
@@ -123,19 +126,165 @@ def _scrub(msg: str, key: str) -> str:
     return out
 
 
+# ---- 키 저장소(setup.py 가 쓴다) ----
+KEY_SERVICE = "typesafe-jev"          # 키체인 서비스·자격 증명 이름 — meta-slide·meta-motion 공용
+KEY_ACCOUNT = "JEV_API_KEY"
+# 키체인·자격 증명 관리자를 못 쓸 때의 파일(0600) — Windows 는 %APPDATA%, 그 밖은 ~/.config
+KEY_FILE = (Path(os.environ["APPDATA"]) if os.name == "nt" and os.environ.get("APPDATA") else Path.home() / ".config") / "typesafe-jev" / "key"
+SECURITY_BIN = "/usr/bin/security"
+
+
+def _mac() -> bool:
+    return sys.platform == "darwin" and os.path.exists(SECURITY_BIN)
+
+
+def _q(v: str) -> str:  # `security -i` 줄 해석: 큰따옴표 안에서 \ 와 " 만 이스케이프
+    return '"' + v.replace("\\", "\\\\").replace('"', '\\"') + '"'
+
+
+# Windows 자격 증명 관리자(일반 자격 증명) — 표준 라이브러리 ctypes 로 advapi32 Cred* 를 부른다.
+_WIN_TARGET = f"{KEY_SERVICE}/{KEY_ACCOUNT}"
+
+
+def _win_api():
+    if os.name != "nt":
+        return None
+    import ctypes
+    from ctypes import wintypes
+
+    class CREDENTIAL(ctypes.Structure):
+        _fields_ = [("Flags", wintypes.DWORD), ("Type", wintypes.DWORD), ("TargetName", wintypes.LPWSTR),
+                    ("Comment", wintypes.LPWSTR), ("LastWritten", wintypes.FILETIME),
+                    ("CredentialBlobSize", wintypes.DWORD), ("CredentialBlob", ctypes.POINTER(ctypes.c_ubyte)),
+                    ("Persist", wintypes.DWORD), ("AttributeCount", wintypes.DWORD), ("Attributes", ctypes.c_void_p),
+                    ("TargetAlias", wintypes.LPWSTR), ("UserName", wintypes.LPWSTR)]
+    try:
+        adv = ctypes.WinDLL("advapi32", use_last_error=True)
+    except OSError:
+        return None
+    return ctypes, CREDENTIAL, adv
+
+
+def _win_read() -> str | None:
+    api = _win_api()
+    if not api:
+        return None
+    ctypes, CREDENTIAL, adv = api
+    p = ctypes.POINTER(CREDENTIAL)()
+    if not adv.CredReadW(_WIN_TARGET, 1, 0, ctypes.byref(p)):  # 1 = CRED_TYPE_GENERIC
+        return None
+    try:
+        blob = ctypes.string_at(p.contents.CredentialBlob, p.contents.CredentialBlobSize)
+        return blob.decode("utf-16-le").strip() or None
+    finally:
+        adv.CredFree(p)
+
+
+def _win_write(key: str) -> bool:
+    api = _win_api()
+    if not api:
+        return False
+    ctypes, CREDENTIAL, adv = api
+    blob = key.encode("utf-16-le")
+    buf = ctypes.create_string_buffer(blob, len(blob))
+    c = CREDENTIAL()
+    c.Type, c.TargetName, c.UserName, c.Persist = 1, _WIN_TARGET, KEY_ACCOUNT, 2  # 2 = CRED_PERSIST_LOCAL_MACHINE
+    c.CredentialBlobSize = len(blob)
+    c.CredentialBlob = ctypes.cast(buf, ctypes.POINTER(ctypes.c_ubyte))
+    return bool(adv.CredWriteW(ctypes.byref(c), 0)) and _win_read() == key
+
+
+def _win_delete() -> bool:
+    api = _win_api()
+    return bool(api and api[2].CredDeleteW(_WIN_TARGET, 1, 0))
+
+
+def stored_key() -> tuple[str | None, str]:
+    """(저장된 키, 어디서 읽었는지). 없으면 (None, "")."""
+    if _mac():
+        try:
+            r = subprocess.run([SECURITY_BIN, "find-generic-password", "-s", KEY_SERVICE, "-a", KEY_ACCOUNT, "-w"],
+                               capture_output=True, text=True, timeout=15)
+            if r.returncode == 0 and r.stdout.strip():
+                return r.stdout.strip(), f"macOS 키체인 서비스 {KEY_SERVICE}"
+        except subprocess.TimeoutExpired:
+            pass
+    k = _win_read()
+    if k:
+        return k, f"Windows 자격 증명 관리자 {_WIN_TARGET}"
+    if KEY_FILE.exists():
+        k = KEY_FILE.read_text(encoding="utf-8").strip()
+        if k:
+            return k, str(KEY_FILE)
+    return None, ""
+
+
+def save_key(key: str) -> str:
+    """키를 저장하고 저장한 곳을 돌려준다. 키는 명령 인자(ps 로 보임)로 넘기지 않는다."""
+    key = _valid_key(key)
+    if _mac():
+        line = f"add-generic-password -U -s {_q(KEY_SERVICE)} -a {_q(KEY_ACCOUNT)} -T {SECURITY_BIN} -w {_q(key)}\n"
+        r = subprocess.run([SECURITY_BIN, "-i"], input=line, capture_output=True, text=True, timeout=30)
+        if r.returncode == 0 and stored_key()[0] == key:
+            return f"macOS 키체인 서비스 {KEY_SERVICE}"
+    if _win_write(key):
+        return f"Windows 자격 증명 관리자 {_WIN_TARGET}"
+    KEY_FILE.parent.mkdir(parents=True, exist_ok=True)
+    fd = os.open(str(KEY_FILE), os.O_WRONLY | os.O_CREAT | os.O_TRUNC, 0o600)
+    with os.fdopen(fd, "w", encoding="utf-8") as f:
+        f.write(key + "\n")
+    os.chmod(KEY_FILE, 0o600)
+    return str(KEY_FILE)
+
+
+def forget_key() -> list[str]:
+    """저장된 키를 지우고 지운 곳 목록을 돌려준다(환경변수·workspace .env 는 건드리지 않는다)."""
+    gone = []
+    if _mac() and subprocess.run([SECURITY_BIN, "delete-generic-password", "-s", KEY_SERVICE, "-a", KEY_ACCOUNT],
+                                 capture_output=True, text=True).returncode == 0:
+        gone.append(f"macOS 키체인 서비스 {KEY_SERVICE}")
+    if _win_delete():
+        gone.append(f"Windows 자격 증명 관리자 {_WIN_TARGET}")
+    if KEY_FILE.exists():
+        KEY_FILE.unlink()
+        gone.append(str(KEY_FILE))
+    return gone
+
+
+def _env_files():
+    # workspace 루트 .env 폴백. 원본은 shared/ 에 있어 부모가 루트다 — 이 사본은 ~/workspace/.env 도 본다.
+    return (Path(__file__).resolve().parent.parent / ".env", Path.home() / "workspace" / ".env")
+
+
+def key_source() -> str:
+    """키를 어디서 읽게 되는지(값 없이). 없으면 ""."""
+    if os.environ.get("JEV_API_KEY", "").strip():
+        return "환경변수 JEV_API_KEY"
+    k, where = stored_key()
+    if k:
+        return where
+    for env in _env_files():
+        if env.exists() and any(l.strip().startswith("JEV_API_KEY=")
+                                for l in env.read_text(encoding="utf-8", errors="replace").splitlines()):
+            return str(env)
+    return ""
+
+
 def _load_key() -> str:
     key = os.environ.get("JEV_API_KEY", "").strip()
     if key:
         return key
-    # workspace 루트 .env 폴백. 원본은 shared/ 에 있어 부모가 루트다 — meta-slide 사본은 ~/workspace/.env 도 본다.
-    for env in (Path(__file__).resolve().parent.parent / ".env", Path.home() / "workspace" / ".env"):
+    key, _ = stored_key()
+    if key:
+        return key
+    for env in _env_files():
         if not env.exists():
             continue
         for line in env.read_text(encoding="utf-8", errors="replace").splitlines():
             line = line.strip()
             if line.startswith("JEV_API_KEY="):
                 return line.split("=", 1)[1].strip().strip("'\"")
-    raise JevError("JEV_API_KEY 없음 (환경변수 또는 workspace/.env)")
+    raise JevError("JEV_API_KEY 없음 — `python3 setup.py` 로 저장하거나 환경변수 JEV_API_KEY 를 주세요")
 
 
 def ask(

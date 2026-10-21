@@ -3,3 +3,4 @@ __pycache__/
 graphify-out/
 .omc/
 .DS_Store
+_workspace/

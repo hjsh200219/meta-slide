@@ -10,20 +10,15 @@
 """
 import json
 import os
+import pathlib
 import shutil
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "data", "infographics")
 
-def _read(path):
-    with open(path, encoding="utf-8", errors="replace") as f:
-        return f.read()
-
-
-def _write(path, text):
-    with open(path, "w", encoding="utf-8") as f:
-        f.write(text)
+sys.path.insert(0, HERE)
+from slide import _read, _write  # noqa: E402
 
 
 # 템플릿 이름 앞부분 → 무엇을 보여 주는지(Jev choice 설명). 이름 뒤 낱말은 모양(카드·화살표·3D 등).
@@ -90,14 +85,14 @@ def field_of(name):
 def build_assets(antv_pkg, tabler_pkg):
     os.makedirs(OUT, exist_ok=True)
     shutil.copy2(os.path.join(antv_pkg, "dist", "infographic.min.js"), os.path.join(OUT, "infographic.min.js"))
-    antv_ver = json.load(open(os.path.join(antv_pkg, "package.json")))["version"]
-    tab_ver = json.load(open(os.path.join(tabler_pkg, "package.json")))["version"]
+    antv_ver = json.loads(_read(os.path.join(antv_pkg, "package.json")))["version"]
+    tab_ver = json.loads(_read(os.path.join(tabler_pkg, "package.json")))["version"]
     lic_src = os.path.join(antv_pkg, "LICENSE")
     if os.path.exists(lic_src):
         shutil.copy2(lic_src, os.path.join(OUT, "LICENSE-antv-infographic"))
     shutil.copy2(os.path.join(tabler_pkg, "LICENSE"), os.path.join(OUT, "LICENSE-tabler-icons"))
-    meta = json.load(open(os.path.join(tabler_pkg, "icons.json")))
-    nodes = json.load(open(os.path.join(tabler_pkg, "tabler-nodes-outline.json")))
+    meta = json.loads(_read(os.path.join(tabler_pkg, "icons.json")))
+    nodes = json.loads(_read(os.path.join(tabler_pkg, "tabler-nodes-outline.json")))
     icons = {}
     for name, ns in nodes.items():
         body = "".join("<%s %s/>" % (tag, " ".join(f'{k}="{v}"' for k, v in attrs.items() if k != "key")) for tag, attrs in ns)
@@ -106,19 +101,18 @@ def build_assets(antv_pkg, tabler_pkg):
     js = ("/* Tabler Icons %s (MIT, https://tabler.io/icons) — outline 아이콘 이름·태그·경로. meta-slide 가 로컬 아이콘 검색에 쓴다. */\n"
           "window.MS_ICONS=%s;\n") % (tab_ver, json.dumps(icons, ensure_ascii=False, separators=(",", ":")))
     _write(os.path.join(OUT, "icons.js"), js)
-    json.dump({"antv_infographic": antv_ver, "tabler_icons": tab_ver, "icons": len(icons)},
-              open(os.path.join(OUT, "versions.json"), "w"), indent=1)
+    _write(os.path.join(OUT, "versions.json"), json.dumps({"antv_infographic": antv_ver, "tabler_icons": tab_ver, "icons": len(icons)}, indent=1))
     print(f"AntV {antv_ver} · Tabler {tab_ver} 아이콘 {len(icons)}개 → {OUT}")
 
 
 def build_catalog():
     from playwright.sync_api import sync_playwright
     html = os.path.join(OUT, "_probe.html")
-    open(html, "w").write('<!doctype html><meta charset="utf-8"><script src="infographic.min.js"></script>')
+    _write(html, '<!doctype html><meta charset="utf-8"><script src="infographic.min.js"></script>')
     with sync_playwright() as p:
         b = p.chromium.launch()
         pg = b.new_page()
-        pg.goto("file://" + html)
+        pg.goto(pathlib.Path(html).as_uri())
         names = pg.evaluate("() => { const t = AntVInfographic.getTemplates(); return Array.isArray(t) ? t : Object.keys(t); }")
         b.close()
     os.remove(html)
