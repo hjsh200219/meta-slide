@@ -1,0 +1,47 @@
+{
+  "slug": "ns-watercolor",
+  "name": "Watercolor Wash",
+  "tagline": "Cream paper with soft blue, peach, sage and lavender watercolor blobs and Gilda Display serif",
+  "mood": [
+    "gentle",
+    "artistic",
+    "airy",
+    "soft"
+  ],
+  "occasion": [
+    "art class",
+    "wellness or yoga brand",
+    "children or craft workshop",
+    "nature story",
+    "boutique pitch"
+  ],
+  "tone": [
+    "soft",
+    "calm",
+    "creative"
+  ],
+  "formality": "low",
+  "density": "low",
+  "scheme": "light",
+  "palette": {
+    "bg": "#fdf9f3",
+    "text": "#5a5a5a",
+    "accent": "#f0b49e",
+    "description": "Light Watercolor Wash palette: #fdf9f3 background, #5a5a5a text, #f0b49e accent"
+  },
+  "typography": {
+    "display": "Gilda Display",
+    "body": "Gilda Display",
+    "style": "Gilda Display headings over Gilda Display body"
+  },
+  "best_for": "Watercolor Wash suits art class and wellness or yoga brand. It reads as gentle, artistic, airy.",
+  "avoid_for": "Dense data-heavy reports where the decorative look would compete with content.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/watercolor.html",
+    "license": "MIT"
+  }
+}

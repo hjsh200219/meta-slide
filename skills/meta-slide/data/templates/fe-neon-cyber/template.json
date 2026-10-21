@@ -1,0 +1,48 @@
+{
+  "slug": "fe-neon-cyber",
+  "name": "Neon Cyber",
+  "tagline": "Midnight navy radial stage with cyan-mint neon cards and thin glowing rules.",
+  "mood": [
+    "futuristic",
+    "techy",
+    "sharp",
+    "night-mode"
+  ],
+  "occasion": [
+    "AI product demo",
+    "security briefing",
+    "developer conference talk",
+    "infrastructure review",
+    "game or crypto pitch"
+  ],
+  "tone": [
+    "innovative",
+    "technical",
+    "bold"
+  ],
+  "formality": "medium-low",
+  "density": "medium",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#0a0f1c",
+    "text": "#e2e8f0",
+    "accent": "#00ffcc",
+    "muted": "#7a92b8",
+    "description": "Deep midnight navy with neon cyan-mint accent."
+  },
+  "typography": {
+    "display": "Sora",
+    "body": "DM Sans",
+    "style": "Wide techno sans headings with a neutral grotesque body."
+  },
+  "best_for": "Technology-forward decks about AI, security or infrastructure. Dark stage makes neon accents pop.",
+  "avoid_for": "Traditional, formal or print-style contexts.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/Down/Space, scroll-snap sections)",
+  "source": {
+    "repo": "archlizheng/frontend-slides-editable",
+    "commit": "e5663e6",
+    "path": "examples/generated/presets/neon-cyber.html",
+    "license": "MIT"
+  }
+}

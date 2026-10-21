@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Liquid Glass — Deck Template</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap');
+  :root{
+    --text-primary:#FFFFFF; --text-secondary:rgba(255,255,255,0.85); --text-tertiary:rgba(255,255,255,0.65);
+    --glass-bg:rgba(255,255,255,0.15); --glass-border:rgba(255,255,255,0.35);
+    --display-font:'Inter Tight',-apple-system,'SF Pro Display',BlinkMacSystemFont,sans-serif;
+    --body-font:'Inter',-apple-system,'SF Pro Text',BlinkMacSystemFont,sans-serif;
+    --serif-italic-font:'Instrument Serif','Fraunces',Georgia,serif;
+    --mono-font:'JetBrains Mono','SF Mono','Courier New',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{margin:0;background:#000}
+  deck-stage>section{width:1920px;height:1080px;position:relative;overflow:hidden;box-sizing:border-box;
+    background:linear-gradient(135deg,#1a73e8 0%,#34a0ff 38%,#ff6b9d 78%,#ffb74d 100%);
+    color:var(--text-primary);font-family:var(--body-font);font-feature-settings:"kern","liga","ss01","cv11","calt","ccmp";-webkit-font-smoothing:antialiased}
+  .blob{position:absolute;border-radius:50%;pointer-events:none;z-index:1}
+  .b1{top:-180px;left:-150px;width:690px;height:690px;background:radial-gradient(circle at 35% 35%,rgba(255,200,240,.85) 0%,rgba(255,160,220,.55) 45%,rgba(255,160,220,0) 75%);filter:blur(60px)}
+  .b2{bottom:-240px;right:90px;width:780px;height:780px;background:radial-gradient(circle at 50% 50%,rgba(255,220,120,.78) 0%,rgba(255,180,80,.42) 45%,rgba(255,180,80,0) 78%);filter:blur(70px)}
+  .b3{top:38%;right:-270px;width:720px;height:720px;background:radial-gradient(circle at 50% 50%,rgba(160,210,255,.7) 0%,rgba(120,180,255,.35) 45%,rgba(120,180,255,0) 78%);filter:blur(64px)}
+  .b4{top:18%;left:36%;width:480px;height:480px;background:radial-gradient(circle at 50% 50%,rgba(255,255,255,.45) 0%,rgba(255,255,255,.15) 50%,rgba(255,255,255,0) 80%);filter:blur(56px)}
+  .b5{bottom:18%;left:-120px;width:540px;height:540px;background:radial-gradient(circle at 50% 50%,rgba(180,130,255,.55) 0%,rgba(150,110,230,.28) 50%,rgba(150,110,230,0) 80%);filter:blur(60px)}
+  .grain{position:absolute;inset:0;background-image:radial-gradient(circle at 25% 30%,rgba(255,255,255,.06) .9px,transparent 1.8px),radial-gradient(circle at 75% 60%,rgba(255,255,255,.04) .9px,transparent 1.8px);background-size:9px 9px,12px 12px;opacity:.5;z-index:1}
+  .stage{position:relative;z-index:5;width:100%;height:100%;padding:54px 84px;display:flex;flex-direction:column}
+  .top-bar{display:flex;justify-content:space-between;align-items:center;padding:18px 33px;border-radius:999px;background:rgba(255,255,255,.14);backdrop-filter:blur(28px) saturate(180%);-webkit-backdrop-filter:blur(28px) saturate(180%);border:1px solid rgba(255,255,255,.3);box-shadow:0 15px 48px rgba(20,30,80,.18),inset 0 1px 0 rgba(255,255,255,.5)}
+  .logo{font-family:var(--display-font);font-size:26px;font-weight:600;letter-spacing:-.015em;display:flex;align-items:center;gap:14px}
+  .logo-dot{width:21px;height:21px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#fff 0%,rgba(255,255,255,.55) 60%,rgba(255,255,255,.2) 100%);box-shadow:0 0 18px rgba(255,255,255,.6),inset 0 0 6px rgba(255,255,255,.8)}
+  .nav{font-size:20px;color:var(--text-secondary);letter-spacing:.22em;font-weight:500;display:flex;gap:33px}
+  .nav .sep{opacity:.55}
+  .hero{margin-top:84px;display:flex;flex-direction:column;gap:27px;max-width:1500px}
+  .label{font-size:20px;font-weight:600;letter-spacing:.28em;display:inline-flex;align-items:center;gap:18px;text-transform:uppercase}
+  .label .bar{display:inline-block;width:42px;height:1px;background:rgba(255,255,255,.85)}
+  .label .dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:#fff;box-shadow:0 0 15px rgba(255,255,255,.9)}
+  .headline{font-family:var(--display-font);font-size:180px;font-weight:600;letter-spacing:-.045em;line-height:.98;margin-top:9px;text-shadow:0 3px 30px rgba(20,40,90,.18)}
+  .headline em,.h2 em{font-family:var(--serif-italic-font);font-style:italic;font-weight:400;color:rgba(255,255,255,.95);letter-spacing:-.02em}
+  .h2{font-family:var(--display-font);font-size:112px;font-weight:600;letter-spacing:-.04em;line-height:1;margin-top:18px;text-shadow:0 3px 30px rgba(20,40,90,.18)}
+  .deck{font-size:34px;line-height:1.5;color:var(--text-secondary);letter-spacing:-.005em;max-width:1000px;margin-top:12px}
+  .deck em{font-family:var(--serif-italic-font);font-style:italic;color:#fff;font-weight:400;font-size:1.1em}
+  .cards{margin-top:66px;display:grid;grid-template-columns:1.05fr 1fr 1fr;gap:30px;max-width:1380px}
+  .glass{background:var(--glass-bg);backdrop-filter:blur(30px) saturate(180%);-webkit-backdrop-filter:blur(30px) saturate(180%);border:1px solid var(--glass-border);border-radius:33px;padding:33px 36px;box-shadow:0 27px 60px rgba(20,30,80,.18),0 3px 9px rgba(20,30,80,.08),inset 0 1px 0 rgba(255,255,255,.55),inset 0 -1px 0 rgba(255,255,255,.08);position:relative;overflow:hidden}
+  .glass .sheen{position:absolute;top:0;left:0;right:0;height:60%;background:linear-gradient(180deg,rgba(255,255,255,.25) 0%,rgba(255,255,255,0) 100%);pointer-events:none;border-radius:33px 33px 0 0}
+  .card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;position:relative}
+  .card-tag{font-size:18px;color:var(--text-secondary);letter-spacing:.22em;font-weight:600;text-transform:uppercase}
+  .glyph{width:33px;height:33px;border-radius:10px;background:rgba(255,255,255,.28);border:1px solid rgba(255,255,255,.5);display:flex;align-items:center;justify-content:center;box-shadow:inset 0 1px 0 rgba(255,255,255,.6)}
+  .glyph i{width:12px;height:12px;border-radius:50%;background:#fff;box-shadow:0 0 12px rgba(255,255,255,.9)}
+  .stat-row{display:flex;align-items:baseline;gap:9px;position:relative}
+  .stat-num{font-family:var(--display-font);font-size:96px;font-weight:600;letter-spacing:-.045em;line-height:1;font-variant-numeric:tabular-nums;text-shadow:0 3px 21px rgba(20,40,90,.18)}
+  .stat-unit{font-family:var(--display-font);font-size:36px;font-weight:500;color:rgba(255,255,255,.78);letter-spacing:-.01em}
+  .stat-label{margin-top:18px;font-size:24px;color:var(--text-secondary);line-height:1.4;position:relative}
+  .stat-label em{font-family:var(--serif-italic-font);font-style:italic;color:#fff;font-size:1.1em}
+  .meter{margin-top:21px;height:6px;border-radius:999px;background:rgba(255,255,255,.18);overflow:hidden;position:relative}
+  .meter>div{height:100%;border-radius:999px;background:linear-gradient(90deg,rgba(255,255,255,.95),rgba(255,255,255,.55));box-shadow:0 0 12px rgba(255,255,255,.55)}
+  .badge{position:absolute;bottom:90px;right:84px;z-index:6;background:rgba(255,255,255,.22);backdrop-filter:blur(28px) saturate(200%);-webkit-backdrop-filter:blur(28px) saturate(200%);border:1px solid rgba(255,255,255,.45);border-radius:999px;padding:15px 27px 15px 21px;display:flex;align-items:center;gap:15px;box-shadow:0 21px 48px rgba(20,30,80,.22),inset 0 1px 0 rgba(255,255,255,.6);font-size:20px;letter-spacing:.24em;font-weight:600}
+  .badge .pulse{width:12px;height:12px;border-radius:50%;background:#fff;box-shadow:0 0 0 5px rgba(255,255,255,.28),0 0 18px rgba(255,255,255,.95)}
+  .footer{position:absolute;bottom:27px;left:84px;right:84px;display:flex;justify-content:space-between;align-items:center;font-size:17px;color:rgba(255,255,255,.75);letter-spacing:.22em;text-transform:uppercase;z-index:5;font-weight:500}
+  .footer .sep{margin:0 15px;opacity:.55}
+  /* extra layouts */
+  .rows{display:flex;flex-direction:column;gap:18px;margin-top:45px;max-width:1500px}
+  .row{display:flex;align-items:center;gap:42px;padding:18px 45px}
+  .row .n{font-family:var(--serif-italic-font);font-style:italic;font-size:66px;width:90px;position:relative}
+  .row .t{font-family:var(--display-font);font-size:50px;font-weight:600;letter-spacing:-.03em;flex:1;position:relative}
+  .row .m{font-size:20px;letter-spacing:.22em;color:var(--text-secondary);position:relative}
+  .giant{font-family:var(--display-font);font-size:420px;font-weight:600;letter-spacing:-.06em;line-height:.85;text-shadow:0 6px 60px rgba(20,40,90,.22)}
+  .giant em{font-family:var(--serif-italic-font);font-style:italic;font-weight:400}
+  .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;margin-top:84px}
+  .step{min-height:430px}
+  .step .ic{width:90px;height:90px;border-radius:50%;background:rgba(255,255,255,.28);border:1px solid rgba(255,255,255,.55);display:flex;align-items:center;justify-content:center;font-family:var(--serif-italic-font);font-style:italic;font-size:54px;box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 9px 24px rgba(20,30,80,.15);position:relative}
+  .step .t{font-family:var(--display-font);font-size:48px;font-weight:600;letter-spacing:-.03em;margin-top:36px;position:relative}
+  .step .d{font-size:26px;line-height:1.5;color:var(--text-secondary);margin-top:18px;position:relative}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:66px}
+  .pane{min-height:480px;padding:48px 54px}
+  .pane .k{font-size:20px;letter-spacing:.24em;font-weight:600;color:var(--text-secondary);text-transform:uppercase;position:relative}
+  .pane .big{font-family:var(--display-font);font-size:210px;font-weight:600;letter-spacing:-.05em;line-height:1;margin-top:30px;position:relative;text-shadow:0 3px 30px rgba(20,40,90,.18)}
+  .pane .big small{font-family:var(--serif-italic-font);font-style:italic;font-weight:400;font-size:.32em;letter-spacing:-.01em;margin-left:12px;color:rgba(255,255,255,.85)}
+  .pane .d{font-size:28px;line-height:1.5;color:var(--text-secondary);margin-top:24px;position:relative}
+  .pane.strong{background:var(--glass-bg);background:rgba(255,255,255,.24)}
+  .center{align-items:center;justify-content:center;text-align:center}
+  .quote{font-family:var(--serif-italic-font);font-style:italic;font-size:120px;line-height:1.1;letter-spacing:-.02em;max-width:1500px;text-shadow:0 3px 30px rgba(20,40,90,.18)}
+  .attr{font-size:22px;letter-spacing:.28em;font-weight:600;margin-top:54px;color:var(--text-secondary);text-transform:uppercase}
+</style>
+<script src="deck-stage.js"></script>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+
+<section data-label="01 Cover">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="blob b4"></div><div class="blob b5"></div><div class="grain"></div>
+  <div class="stage">
+    <div class="top-bar"><div class="logo"><span class="logo-dot"></span>vision</div><div class="nav"><span>GUIDES</span><span class="sep">&middot;</span><span>SHOWCASE</span><span class="sep">&middot;</span><span>DEVELOPERS</span></div></div>
+    <div class="hero">
+      <div class="label"><span class="bar"></span><span>VISIONOS</span><span class="dot"></span><span>2026</span></div>
+      <h1 class="headline">Liquid <em>Glass.</em></h1>
+      <p class="deck">Blend the interface into space. <em>Layers of glass</em>, layers of depth &mdash; every pixel <em>breathes light</em>.</p>
+    </div>
+    <div class="cards">
+      <div class="glass"><div class="sheen"></div><div class="card-head"><span class="card-tag">Display</span><span class="glyph"><i></i></span></div><div class="stat-row"><span class="stat-num">98.4</span><span class="stat-unit">%</span></div><div class="stat-label">Display clarity &mdash; <em>true space</em> perception</div><div class="meter"><div style="width:98.4%"></div></div></div>
+      <div class="glass"><div class="sheen"></div><div class="card-head"><span class="card-tag">Depth</span><span class="glyph"><i></i></span></div><div class="stat-row"><span class="stat-num">12</span><span class="stat-unit">layers</span></div><div class="stat-label">Glass depth &mdash; <em>stacked</em> refraction</div><div class="meter"><div style="width:72%"></div></div></div>
+      <div class="glass"><div class="sheen"></div><div class="card-head"><span class="card-tag">Render</span><span class="glyph"><i></i></span></div><div class="stat-row"><span class="stat-num">120</span><span class="stat-unit">fps</span></div><div class="stat-label">Fluid rendering &mdash; <em>zero tearing</em> sync</div><div class="meter"><div style="width:88%"></div></div></div>
+    </div>
+  </div>
+  <div class="badge"><span class="pulse"></span>LIVE NOW</div>
+  <div class="footer"><span>VISIONOS &middot; LIQUID GLASS DESIGN SYSTEM</span><span>01 / 07<span class="sep">|</span>SPATIAL COMPUTING</span></div>
+</section>
+
+<section data-label="02 Agenda">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="blob b4"></div><div class="blob b5"></div><div class="grain"></div>
+  <div class="stage">
+    <div class="top-bar"><div class="logo"><span class="logo-dot"></span>vision</div><div class="nav"><span>GUIDES</span><span class="sep">&middot;</span><span>SHOWCASE</span><span class="sep">&middot;</span><span>DEVELOPERS</span></div></div>
+    <div class="hero" style="margin-top:57px">
+      <div class="label"><span class="bar"></span><span>AGENDA</span></div>
+      <h2 class="h2">In this <em>session.</em></h2>
+    </div>
+    <div class="rows">
+      <div class="glass row"><div class="sheen"></div><span class="n">01</span><span class="t">What liquid glass is</span><span class="m">5 MIN</span></div>
+      <div class="glass row"><div class="sheen"></div><span class="n">02</span><span class="t">How depth and light work</span><span class="m">10 MIN</span></div>
+      <div class="glass row"><div class="sheen"></div><span class="n">03</span><span class="t">Building your first layer</span><span class="m">12 MIN</span></div>
+      <div class="glass row"><div class="sheen"></div><span class="n">04</span><span class="t">Performance and next steps</span><span class="m">8 MIN</span></div>
+    </div>
+  </div>
+  <div class="footer"><span>VISIONOS &middot; LIQUID GLASS DESIGN SYSTEM</span><span>02 / 07<span class="sep">|</span>SPATIAL COMPUTING</span></div>
+</section>
+
+<section data-label="03 Section Divider">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="blob b4"></div><div class="blob b5"></div><div class="grain"></div>
+  <div class="stage center">
+    <div class="giant">02<em>.</em></div>
+    <div class="label" style="margin-top:54px"><span class="bar"></span><span>PART TWO</span><span class="dot"></span><span>DEPTH</span><span class="bar"></span></div>
+    <h2 class="h2" style="font-size:120px">Layers that <em>breathe light</em></h2>
+  </div>
+  <div class="footer"><span>VISIONOS &middot; LIQUID GLASS DESIGN SYSTEM</span><span>03 / 07<span class="sep">|</span>SPATIAL COMPUTING</span></div>
+</section>
+
+<section data-label="04 Key Points">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="blob b4"></div><div class="blob b5"></div><div class="grain"></div>
+  <div class="stage">
+    <div class="top-bar"><div class="logo"><span class="logo-dot"></span>vision</div><div class="nav"><span>GUIDES</span><span class="sep">&middot;</span><span>SHOWCASE</span><span class="sep">&middot;</span><span>DEVELOPERS</span></div></div>
+    <div class="hero" style="margin-top:57px">
+      <div class="label"><span class="bar"></span><span>PRINCIPLES</span></div>
+      <h2 class="h2">Three rules of <em>glass.</em></h2>
+    </div>
+    <div class="cards" style="grid-template-columns:repeat(3,1fr);max-width:none;margin-top:72px">
+      <div class="glass" style="min-height:420px"><div class="sheen"></div><div class="card-head"><span class="card-tag">Rule 01</span><span class="glyph"><i></i></span></div><div class="stat-num" style="font-size:60px;position:relative">Translucent</div><div class="stat-label" style="font-size:27px">Let the world show through, never block it.</div></div>
+      <div class="glass" style="min-height:420px"><div class="sheen"></div><div class="card-head"><span class="card-tag">Rule 02</span><span class="glyph"><i></i></span></div><div class="stat-num" style="font-size:60px;position:relative">Layered</div><div class="stat-label" style="font-size:27px">Use depth to show what is in front and what is behind.</div></div>
+      <div class="glass" style="min-height:420px"><div class="sheen"></div><div class="card-head"><span class="card-tag">Rule 03</span><span class="glyph"><i></i></span></div><div class="stat-num" style="font-size:60px;position:relative">Luminous</div><div class="stat-label" style="font-size:27px">Edges catch light so every surface feels alive.</div></div>
+    </div>
+  </div>
+  <div class="footer"><span>VISIONOS &middot; LIQUID GLASS DESIGN SYSTEM</span><span>04 / 07<span class="sep">|</span>SPATIAL COMPUTING</span></div>
+</section>
+
+<section data-label="05 Process">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="blob b4"></div><div class="blob b5"></div><div class="grain"></div>
+  <div class="stage">
+    <div class="top-bar"><div class="logo"><span class="logo-dot"></span>vision</div><div class="nav"><span>GUIDES</span><span class="sep">&middot;</span><span>SHOWCASE</span><span class="sep">&middot;</span><span>DEVELOPERS</span></div></div>
+    <div class="hero" style="margin-top:57px">
+      <div class="label"><span class="bar"></span><span>WORKFLOW</span></div>
+      <h2 class="h2">From flat to <em>spatial.</em></h2>
+    </div>
+    <div class="grid4">
+      <div class="glass step"><div class="sheen"></div><div class="ic">1</div><div class="t">Blur</div><div class="d">Soften the background behind each panel.</div></div>
+      <div class="glass step"><div class="sheen"></div><div class="ic">2</div><div class="t">Tint</div><div class="d">Add a faint white veil for legible text.</div></div>
+      <div class="glass step"><div class="sheen"></div><div class="ic">3</div><div class="t">Edge</div><div class="d">Draw a thin highlight along the top rim.</div></div>
+      <div class="glass step"><div class="sheen"></div><div class="ic">4</div><div class="t">Lift</div><div class="d">Cast a soft shadow so the glass floats.</div></div>
+    </div>
+  </div>
+  <div class="footer"><span>VISIONOS &middot; LIQUID GLASS DESIGN SYSTEM</span><span>05 / 07<span class="sep">|</span>SPATIAL COMPUTING</span></div>
+</section>
+
+<section data-label="06 Comparison">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="blob b4"></div><div class="blob b5"></div><div class="grain"></div>
+  <div class="stage">
+    <div class="top-bar"><div class="logo"><span class="logo-dot"></span>vision</div><div class="nav"><span>GUIDES</span><span class="sep">&middot;</span><span>SHOWCASE</span><span class="sep">&middot;</span><span>DEVELOPERS</span></div></div>
+    <div class="hero" style="margin-top:57px">
+      <div class="label"><span class="bar"></span><span>COMPARISON</span></div>
+      <h2 class="h2">Flat panel vs. <em>glass.</em></h2>
+    </div>
+    <div class="grid2">
+      <div class="glass pane"><div class="sheen"></div><div class="k">Flat panel</div><div class="big">41<small>% clear</small></div><div class="d">Opaque surfaces hide the room behind the interface.</div></div>
+      <div class="glass pane strong"><div class="sheen"></div><div class="k">Liquid glass</div><div class="big">98<small>% clear</small></div><div class="d">Translucent layers keep the space visible and present.</div></div>
+    </div>
+  </div>
+  <div class="footer"><span>VISIONOS &middot; LIQUID GLASS DESIGN SYSTEM</span><span>06 / 07<span class="sep">|</span>SPATIAL COMPUTING</span></div>
+</section>
+
+<section data-label="07 Closing">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="blob b4"></div><div class="blob b5"></div><div class="grain"></div>
+  <div class="stage center">
+    <div class="label" style="margin-bottom:54px"><span class="bar"></span><span>TAKEAWAY</span><span class="dot"></span><span>2026</span><span class="bar"></span></div>
+    <div class="quote">Design that lets light through.</div>
+    <div class="attr">vision &middot; Design Systems Team</div>
+  </div>
+  <div class="badge"><span class="pulse"></span>THANK YOU</div>
+  <div class="footer"><span>VISIONOS &middot; LIQUID GLASS DESIGN SYSTEM</span><span>07 / 07<span class="sep">|</span>SPATIAL COMPUTING</span></div>
+</section>
+
+</deck-stage>
+</body>
+</html>

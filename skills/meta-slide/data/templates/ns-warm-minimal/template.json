@@ -1,0 +1,47 @@
+{
+  "slug": "ns-warm-minimal",
+  "name": "Warm Minimal",
+  "tagline": "Warm white with tan accent rules, Libre Baskerville headings, sand cards and calm Nunito text",
+  "mood": [
+    "warm",
+    "minimal",
+    "calm",
+    "friendly"
+  ],
+  "occasion": [
+    "lifestyle brand",
+    "team retrospective",
+    "coaching or wellness",
+    "small business deck",
+    "personal story"
+  ],
+  "tone": [
+    "gentle",
+    "honest",
+    "relaxed"
+  ],
+  "formality": "medium-low",
+  "density": "low",
+  "scheme": "light",
+  "palette": {
+    "bg": "#faf8f5",
+    "text": "#2c2c2c",
+    "accent": "#a07040",
+    "description": "Light Warm Minimal palette: #faf8f5 background, #2c2c2c text, #a07040 accent"
+  },
+  "typography": {
+    "display": "Nunito",
+    "body": "Nunito",
+    "style": "Nunito headings over Nunito body"
+  },
+  "best_for": "Warm Minimal suits lifestyle brand and team retrospective. It reads as warm, minimal, calm.",
+  "avoid_for": "Dense data-heavy reports where the decorative look would compete with content.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/warm-minimal.html",
+    "license": "MIT"
+  }
+}

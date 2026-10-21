@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Benchmark Report - Studio Style</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Serif:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="deck-stage.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #000; }
+  body { font-family: 'Inter', sans-serif; color: #3A3A3A; }
+
+  deck-stage > section {
+    width: 1920px; height: 1080px;
+    background: #F5F0EB;
+    color: #3A3A3A;
+    position: relative;
+    overflow: hidden;
+  }
+  deck-stage > section::before {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(168,181,160,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 30%, rgba(200,190,175,0.06) 0%, transparent 50%);
+  }
+  .layout { position: absolute; inset: 0; display: grid; grid-template-columns: 560px 1fr; z-index: 1; }
+  .left-panel { padding: 72px 56px 64px 80px; display: flex; flex-direction: column; justify-content: space-between; border-right: 1px solid rgba(107,143,113,0.15); }
+  .right-panel { padding: 64px 80px 64px 72px; display: flex; flex-direction: column; position: relative; }
+
+  .category-label { font-size: 20px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; color: #6B8F71; margin-bottom: 32px; opacity: 0.8; }
+  .title-serif { font-family: 'Noto Serif', serif; font-size: 68px; font-weight: 400; color: #2D3436; line-height: 1.3; margin-bottom: 20px; letter-spacing: 0.5px; }
+  .title-en { font-size: 24px; font-weight: 300; color: #999; line-height: 1.7; max-width: 440px; }
+  .model-badge { display: inline-flex; align-items: center; gap: 12px; margin-top: 36px; padding: 12px 24px; background: rgba(107,143,113,0.08); border: 1px solid rgba(107,143,113,0.15); border-radius: 32px; }
+  .model-badge-dot { width: 12px; height: 12px; border-radius: 50%; background: #6B8F71; }
+  .model-badge-text { font-size: 20px; font-weight: 500; color: #6B8F71; letter-spacing: 1px; }
+  .key-insight { background: rgba(255,255,255,0.5); border-radius: 24px; padding: 28px 32px; border: 1px solid rgba(168,181,160,0.2); }
+  .key-insight-label { font-size: 18px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: #A8B5A0; margin-bottom: 12px; }
+  .key-insight-text { font-family: 'Noto Serif', serif; font-size: 24px; font-weight: 400; color: #555; line-height: 1.7; }
+  .left-bottom { display: flex; align-items: center; gap: 14px; }
+  .credit { font-size: 18px; color: #BBB; letter-spacing: 0.5px; }
+  .page-indicator { position: absolute; bottom: 40px; right: 80px; font-size: 18px; font-weight: 300; color: #C8C2B8; letter-spacing: 1.5px; z-index: 2; }
+
+  .viz-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; }
+  .viz-title { font-size: 22px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: #888; }
+  .viz-title small { font-weight: 300; color: #B0AAA0; font-size: 18px; margin-left: 12px; letter-spacing: 1px; text-transform: none; }
+  .legend { display: flex; gap: 28px; }
+  .legend-item { display: flex; align-items: center; gap: 10px; }
+  .legend-dot { width: 14px; height: 14px; border-radius: 50%; }
+  .legend-dot.a { background: #6B8F71; } .legend-dot.b { background: #D4A574; } .legend-dot.c { background: #C8C2B8; }
+  .legend-text { font-size: 20px; color: #999; }
+
+  .radar-area { flex: 1; min-height: 0; position: relative; }
+  .radar-svg { position: absolute; inset: 0; width: 100%; height: 100%; filter: drop-shadow(0 4px 20px rgba(0,0,0,0.04)); }
+
+  .metric-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-top: 16px; }
+  .m-card { background: rgba(255,255,255,0.6); border-radius: 24px; padding: 28px 32px; border: 1px solid rgba(168,181,160,0.15); position: relative; overflow: hidden; }
+  .m-card::before { content: ''; position: absolute; top: 0; left: 32px; width: 40px; height: 3px; background: #6B8F71; opacity: 0.4; border-radius: 2px; }
+  .m-card-name { font-size: 20px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: #999; margin-bottom: 4px; }
+  .m-card-type { font-size: 20px; font-weight: 300; color: #BBB; margin-bottom: 18px; }
+  .m-card-value { font-size: 72px; font-weight: 300; color: #2D3436; letter-spacing: -2px; line-height: 1; }
+  .m-card-value .unit { font-size: 32px; color: #6B8F71; font-weight: 400; }
+  .m-card-delta { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; font-size: 20px; font-weight: 500; color: #7D9B72; background: rgba(168,181,160,0.12); padding: 4px 16px; border-radius: 20px; }
+  .m-card-delta svg { width: 14px; height: 14px; }
+  .m-card-competitors { margin-top: 14px; display: flex; gap: 24px; }
+  .comp-mini { font-size: 20px; color: #AAA; }
+  .comp-mini span { font-weight: 500; color: #888; }
+
+  .rule { height: 1px; background: rgba(107,143,113,0.15); }
+  .serif { font-family: 'Noto Serif', serif; }
+
+  /* Cover */
+  .cover-art { position: absolute; right: -120px; top: 50%; transform: translateY(-50%); width: 1000px; height: 1000px; }
+  .cover-title { position: absolute; left: 120px; top: 50%; transform: translateY(-50%); width: 1100px; z-index: 2; }
+  .cover-title .category-label { margin-bottom: 40px; }
+  .cover-title h1 { font-family: 'Noto Serif', serif; font-weight: 400; font-size: 132px; line-height: 1.12; color: #2D3436; letter-spacing: 1px; }
+  .cover-title .title-en { font-size: 32px; max-width: 760px; margin-top: 32px; }
+  .cover-foot { position: absolute; left: 120px; bottom: 64px; z-index: 2; }
+
+  /* Contents */
+  .toc { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  .toc-row { display: flex; align-items: center; gap: 36px; padding: 30px 0; border-bottom: 1px solid rgba(107,143,113,0.15); }
+  .toc-row:first-child { border-top: 1px solid rgba(107,143,113,0.15); }
+  .toc-n { width: 64px; height: 64px; border-radius: 50%; background: rgba(107,143,113,0.08); border: 1px solid rgba(107,143,113,0.15); color: #6B8F71; font-size: 22px; font-weight: 500; display: flex; align-items: center; justify-content: center; }
+  .toc-name { font-family: 'Noto Serif', serif; font-size: 48px; color: #2D3436; flex: 1; }
+  .toc-cap { font-size: 22px; font-weight: 300; color: #999; }
+
+  /* Divider */
+  .div-art { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 1000px; height: 1000px; }
+  .div-text { position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); text-align: center; z-index: 2; }
+  .div-num { font-family: 'Noto Serif', serif; font-size: 240px; font-weight: 300; color: #6B8F71; line-height: 1; letter-spacing: -4px; }
+  .div-title { font-family: 'Noto Serif', serif; font-size: 72px; font-weight: 400; color: #2D3436; margin-top: 8px; }
+  .div-sub { font-size: 26px; font-weight: 300; color: #999; margin-top: 16px; }
+
+  /* Process */
+  .steps { flex: 1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; align-items: center; }
+  .step { background: rgba(255,255,255,0.6); border-radius: 24px; padding: 40px 36px 44px; border: 1px solid rgba(168,181,160,0.15); position: relative; overflow: hidden; min-height: 540px; }
+  .step::before { content: ''; position: absolute; top: 0; left: 36px; width: 40px; height: 3px; background: #6B8F71; opacity: 0.4; border-radius: 2px; }
+  .step-n { font-family: 'Noto Serif', serif; font-size: 110px; font-weight: 300; color: #6B8F71; line-height: 1; }
+  .step-name { font-size: 22px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: #999; margin: 28px 0 14px; }
+  .step-desc { font-family: 'Noto Serif', serif; font-size: 26px; line-height: 1.65; color: #555; }
+  .head-block { margin: 20px 0 36px; }
+  .head-block h2 { font-family: 'Noto Serif', serif; font-size: 80px; font-weight: 400; color: #2D3436; line-height: 1.2; }
+  .head-block p { font-size: 26px; font-weight: 300; color: #999; margin-top: 12px; }
+
+  /* Compare */
+  .cmp { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .cmp-card { background: rgba(255,255,255,0.6); border-radius: 24px; padding: 44px 52px; border: 1px solid rgba(168,181,160,0.15); position: relative; overflow: hidden; display: flex; flex-direction: column; }
+  .cmp-card::before { content: ''; position: absolute; top: 0; left: 52px; width: 48px; height: 3px; background: #6B8F71; opacity: 0.4; border-radius: 2px; }
+  .cmp-card.b::before { background: #D4A574; }
+  .cmp-name { font-size: 20px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: #999; }
+  .cmp-head { font-family: 'Noto Serif', serif; font-size: 80px; font-weight: 400; color: #2D3436; margin: 10px 0 24px; line-height: 1.1; }
+  .cmp-row { display: flex; justify-content: space-between; align-items: baseline; padding: 24px 0; border-top: 1px solid rgba(107,143,113,0.15); }
+  .cmp-row .k { font-size: 26px; font-weight: 300; color: #888; }
+  .cmp-row .v { font-size: 56px; font-weight: 300; color: #2D3436; letter-spacing: -1px; }
+  .cmp-card:not(.b) .cmp-row .v { color: #6B8F71; }
+
+  /* Closing */
+  .quote-wrap { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  .qmark { font-family: 'Noto Serif', serif; font-size: 200px; color: #A8B5A0; line-height: 0.7; height: 110px; }
+  .quote { font-family: 'Noto Serif', serif; font-size: 80px; font-weight: 400; color: #2D3436; line-height: 1.3; }
+  .quote em { font-style: normal; color: #6B8F71; }
+  .qby { font-size: 22px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: #999; margin-top: 36px; }
+  .takeaways { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+  .takeaways .m-card-value { font-size: 80px; }
+</style>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+
+<!-- 01 Cover -->
+<section data-label="01 Cover">
+  <svg class="cover-art" viewBox="0 0 560 560">
+    <circle cx="280" cy="280" r="250" fill="none" stroke="#E8E4DC" stroke-width="0.6" opacity="0.8"/>
+    <circle cx="280" cy="280" r="220" fill="none" stroke="#DDD9D2" stroke-width="0.8" stroke-dasharray="2,6"/>
+    <circle cx="280" cy="280" r="176" fill="none" stroke="#DDD9D2" stroke-width="0.7" stroke-dasharray="2,6"/>
+    <circle cx="280" cy="280" r="132" fill="none" stroke="#DDD9D2" stroke-width="0.6" stroke-dasharray="2,6"/>
+    <circle cx="280" cy="280" r="88" fill="none" stroke="#DDD9D2" stroke-width="0.6" stroke-dasharray="2,6"/>
+    <circle cx="280" cy="280" r="44" fill="none" stroke="#DDD9D2" stroke-width="0.5" stroke-dasharray="2,6"/>
+    <line x1="280" y1="280" x2="280" y2="55" stroke="#D4CFC6" stroke-width="0.6"/>
+    <line x1="280" y1="280" x2="475" y2="392" stroke="#D4CFC6" stroke-width="0.6"/>
+    <line x1="280" y1="280" x2="85" y2="392" stroke="#D4CFC6" stroke-width="0.6"/>
+    <polygon points="280,96.1 371.8,333 143.8,358.7" fill="rgba(219,219,219,0.12)" stroke="#D4CFC6" stroke-width="1.2" stroke-dasharray="4,3"/>
+    <polygon points="280,86 381.6,338.6 129.7,366.8" fill="rgba(212,165,116,0.08)" stroke="#D4A574" stroke-width="1.4"/>
+    <polygon points="280,69.5 420.6,361.2 113.5,376.2" fill="rgba(107,143,113,0.1)" stroke="#6B8F71" stroke-width="2.2"/>
+    <circle cx="280" cy="69.5" r="6" fill="#6B8F71" opacity="0.8"/><circle cx="280" cy="69.5" r="10" fill="none" stroke="#6B8F71" stroke-width="0.7" opacity="0.3"/>
+    <circle cx="420.6" cy="361.2" r="6" fill="#6B8F71" opacity="0.8"/><circle cx="420.6" cy="361.2" r="10" fill="none" stroke="#6B8F71" stroke-width="0.7" opacity="0.3"/>
+    <circle cx="113.5" cy="376.2" r="6" fill="#6B8F71" opacity="0.8"/><circle cx="113.5" cy="376.2" r="10" fill="none" stroke="#6B8F71" stroke-width="0.7" opacity="0.3"/>
+    <circle cx="280" cy="280" r="2.5" fill="#6B8F71" opacity="0.4"/>
+  </svg>
+  <div class="cover-title">
+    <div class="category-label">Benchmark Analysis</div>
+    <h1>Nova-4<br>Coding Breakthrough</h1>
+    <div class="title-en">Open-source model achieves state-of-the-art performance across all major coding benchmarks for the first time.</div>
+    <div class="model-badge" style="margin-top:44px;"><div class="model-badge-dot"></div><span class="model-badge-text">Nova-4 Open Source</span></div>
+  </div>
+  <div class="cover-foot left-bottom"><span class="credit">Data: Official benchmark evaluations, 2026</span></div>
+  <div class="page-indicator">01 / 07</div>
+</section>
+
+<!-- 02 Contents -->
+<section data-label="02 Contents">
+  <div class="layout">
+    <div class="left-panel">
+      <div>
+        <div class="category-label">Contents</div>
+        <div class="title-serif">What this report covers</div>
+        <div class="title-en">Five short sections, from the headline result to what comes next.</div>
+      </div>
+      <div class="left-bottom"><span class="credit">Data: Official benchmark evaluations, 2026</span></div>
+    </div>
+    <div class="right-panel">
+      <div class="toc">
+        <div class="toc-row"><div class="toc-n">01</div><div class="toc-name">Overview</div><div class="toc-cap">Context and goals</div></div>
+        <div class="toc-row"><div class="toc-n">02</div><div class="toc-name">Benchmark results</div><div class="toc-cap">Three headline metrics</div></div>
+        <div class="toc-row"><div class="toc-n">03</div><div class="toc-name">Evaluation method</div><div class="toc-cap">How we measured</div></div>
+        <div class="toc-row"><div class="toc-n">04</div><div class="toc-name">Head to head</div><div class="toc-cap">Open versus proprietary</div></div>
+        <div class="toc-row"><div class="toc-n">05</div><div class="toc-name">Summary</div><div class="toc-cap">Key takeaways</div></div>
+      </div>
+      <div class="page-indicator">02 / 07</div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 Section Divider -->
+<section data-label="03 Section Divider">
+  <svg class="div-art" viewBox="0 0 560 560">
+    <circle cx="280" cy="280" r="250" fill="none" stroke="#E8E4DC" stroke-width="0.6"/>
+    <circle cx="280" cy="280" r="220" fill="none" stroke="#DDD9D2" stroke-width="0.8" stroke-dasharray="2,6"/>
+    <circle cx="280" cy="280" r="176" fill="none" stroke="#DDD9D2" stroke-width="0.7" stroke-dasharray="2,6"/>
+    <circle cx="280" cy="280" r="132" fill="none" stroke="#DDD9D2" stroke-width="0.6" stroke-dasharray="2,6"/>
+    <circle cx="280" cy="55" r="5" fill="#6B8F71" opacity="0.6"/>
+    <circle cx="475" cy="392" r="4" fill="#D4A574" opacity="0.7"/>
+    <circle cx="85" cy="392" r="3" fill="#C8C2B8" opacity="0.8"/>
+  </svg>
+  <div class="div-text">
+    <div class="category-label" style="margin-bottom:0;">Section</div>
+    <div class="div-num">02</div>
+    <div class="div-title">Benchmark results</div>
+    <div class="div-sub">Mathematics, software engineering and agent tasks</div>
+  </div>
+  <div class="page-indicator">03 / 07</div>
+</section>
+
+<!-- 04 Radar + metric cards -->
+<section data-label="04 Radar and Metrics">
+  <div class="layout">
+    <div class="left-panel">
+      <div>
+        <div class="category-label">Benchmark Analysis</div>
+        <div class="title-serif" style="font-size:56px;">Nova-4<br>Coding Breakthrough</div>
+        <div class="title-en">Open-source model achieves state-of-the-art performance across all major coding benchmarks for the first time.</div>
+        <div class="model-badge"><div class="model-badge-dot"></div><span class="model-badge-text">Nova-4 Open Source</span></div>
+        <div class="key-insight" style="margin-top:36px;">
+          <div class="key-insight-label">Key Finding</div>
+          <div class="key-insight-text">On all three core coding benchmarks Nova-4 beats Model B and Model C, the first open-source model at SOTA level.</div>
+        </div>
+      </div>
+      <div class="left-bottom">
+        <svg width="24" height="24" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="14" height="14" rx="3" stroke="#BBBBBB" stroke-width="1"/><path d="M5 8L7 10L11 6" stroke="#A8B5A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="credit">Data: Official benchmark evaluations, 2026</span>
+      </div>
+    </div>
+    <div class="right-panel">
+      <div class="viz-header">
+        <div class="viz-title">Performance Comparison<small>&mdash; 03 benchmarks</small></div>
+        <div class="legend">
+          <div class="legend-item"><div class="legend-dot a"></div><span class="legend-text">Nova-4</span></div>
+          <div class="legend-item"><div class="legend-dot b"></div><span class="legend-text">Model B</span></div>
+          <div class="legend-item"><div class="legend-dot c"></div><span class="legend-text">Model C</span></div>
+        </div>
+      </div>
+      <div class="radar-area">
+        <svg class="radar-svg" viewBox="-110 -10 780 580" style="overflow:visible;">
+          <circle cx="280" cy="280" r="250" fill="none" stroke="#E8E4DC" stroke-width="0.5" opacity="0.6"/>
+          <circle cx="280" cy="280" r="220" fill="none" stroke="#DDD9D2" stroke-width="0.8" stroke-dasharray="2,6"/>
+          <circle cx="280" cy="280" r="176" fill="none" stroke="#DDD9D2" stroke-width="0.7" stroke-dasharray="2,6"/>
+          <circle cx="280" cy="280" r="132" fill="none" stroke="#DDD9D2" stroke-width="0.6" stroke-dasharray="2,6"/>
+          <circle cx="280" cy="280" r="88" fill="none" stroke="#DDD9D2" stroke-width="0.6" stroke-dasharray="2,6"/>
+          <circle cx="280" cy="280" r="44" fill="none" stroke="#DDD9D2" stroke-width="0.5" stroke-dasharray="2,6"/>
+          <circle cx="280" cy="280" r="2.5" fill="#6B8F71" opacity="0.4"/>
+          <text x="288" y="62" font-family="Inter" font-size="13" fill="#C8C2B8" font-weight="300">100</text>
+          <text x="288" y="106" font-family="Inter" font-size="13" fill="#C8C2B8" font-weight="300">80</text>
+          <text x="288" y="150" font-family="Inter" font-size="13" fill="#C8C2B8" font-weight="300">60</text>
+          <text x="288" y="194" font-family="Inter" font-size="13" fill="#C8C2B8" font-weight="300">40</text>
+          <line x1="280" y1="280" x2="280" y2="55" stroke="#D4CFC6" stroke-width="0.6"/>
+          <line x1="280" y1="280" x2="475" y2="392" stroke="#D4CFC6" stroke-width="0.6"/>
+          <line x1="280" y1="280" x2="85" y2="392" stroke="#D4CFC6" stroke-width="0.6"/>
+          <circle cx="280" cy="55" r="2" fill="none" stroke="#D4CFC6" stroke-width="0.8"/>
+          <circle cx="475" cy="392" r="2" fill="none" stroke="#D4CFC6" stroke-width="0.8"/>
+          <circle cx="85" cy="392" r="2" fill="none" stroke="#D4CFC6" stroke-width="0.8"/>
+          <text x="280" y="18" font-family="Inter" font-size="19" fill="#8A857D" font-weight="500" text-anchor="middle" letter-spacing="1.5">AIME 2025</text>
+          <text x="280" y="-2" font-family="Inter" font-size="13" fill="#B0AAA0" text-anchor="middle" letter-spacing="0.5">Mathematical Reasoning</text>
+          <text x="500" y="410" font-family="Inter" font-size="19" fill="#8A857D" font-weight="500" text-anchor="start" letter-spacing="1.5">SWE-bench</text>
+          <text x="500" y="430" font-family="Inter" font-size="13" fill="#B0AAA0" text-anchor="start" letter-spacing="0.5">Software Engineering</text>
+          <text x="60" y="410" font-family="Inter" font-size="19" fill="#8A857D" font-weight="500" text-anchor="end" letter-spacing="1.5">&tau;&sup2;-Bench</text>
+          <text x="60" y="430" font-family="Inter" font-size="13" fill="#B0AAA0" text-anchor="end" letter-spacing="0.5">Agent Tasks</text>
+          <polygon points="280,96.1 371.8,333 143.8,358.7" fill="rgba(219,219,219,0.12)" stroke="#D4CFC6" stroke-width="1" stroke-dasharray="4,3"/>
+          <polygon points="280,86 381.6,338.6 129.7,366.8" fill="rgba(212,165,116,0.08)" stroke="#D4A574" stroke-width="1.2"/>
+          <polygon points="280,69.5 420.6,361.2 113.5,376.2" fill="rgba(107,143,113,0.1)" stroke="#6B8F71" stroke-width="2"/>
+          <circle cx="280" cy="69.5" r="6" fill="#6B8F71" opacity="0.8"/><circle cx="280" cy="69.5" r="10" fill="none" stroke="#6B8F71" stroke-width="0.6" opacity="0.3"/>
+          <circle cx="420.6" cy="361.2" r="6" fill="#6B8F71" opacity="0.8"/><circle cx="420.6" cy="361.2" r="10" fill="none" stroke="#6B8F71" stroke-width="0.6" opacity="0.3"/>
+          <circle cx="113.5" cy="376.2" r="6" fill="#6B8F71" opacity="0.8"/><circle cx="113.5" cy="376.2" r="10" fill="none" stroke="#6B8F71" stroke-width="0.6" opacity="0.3"/>
+          <circle cx="280" cy="86" r="3.5" fill="#D4A574" opacity="0.7"/><circle cx="381.6" cy="338.6" r="3.5" fill="#D4A574" opacity="0.7"/><circle cx="129.7" cy="366.8" r="3.5" fill="#D4A574" opacity="0.7"/>
+          <circle cx="280" cy="96.1" r="2.5" fill="#C8C2B8" opacity="0.6"/><circle cx="371.8" cy="333" r="2.5" fill="#C8C2B8" opacity="0.6"/><circle cx="143.8" cy="358.7" r="2.5" fill="#C8C2B8" opacity="0.6"/>
+          <line x1="280" y1="69.5" x2="316" y2="52" stroke="#6B8F71" stroke-width="0.6" opacity="0.4"/>
+          <text x="322" y="52" font-family="Inter" font-size="22" fill="#6B8F71" font-weight="600">95.7</text>
+          <line x1="420.6" y1="361.2" x2="448" y2="348" stroke="#6B8F71" stroke-width="0.6" opacity="0.4"/>
+          <text x="454" y="352" font-family="Inter" font-size="22" fill="#6B8F71" font-weight="600">73.8%</text>
+          <line x1="113.5" y1="376.2" x2="82" y2="372" stroke="#6B8F71" stroke-width="0.6" opacity="0.4"/>
+          <text x="76" y="368" font-family="Inter" font-size="22" fill="#6B8F71" font-weight="600" text-anchor="end">87.4</text>
+          <text x="560" y="540" font-family="Inter" font-size="13" fill="#C8C2B8" font-weight="300" letter-spacing="1" text-anchor="end">Fig. 01 &mdash; Tri-axis Performance Map</text>
+        </svg>
+      </div>
+      <div class="metric-cards">
+        <div class="m-card"><div class="m-card-name">AIME 2025</div><div class="m-card-type">Mathematical Reasoning</div><div class="m-card-value">95.7</div>
+          <div class="m-card-delta"><svg viewBox="0 0 10 10" fill="none"><path d="M5 2L8 7H2L5 2Z" fill="#7D9B72"/></svg>+7.5 vs Model B</div>
+          <div class="m-card-competitors"><span class="comp-mini">Model B: <span>88.2</span></span><span class="comp-mini">Model C: <span>83.6</span></span></div></div>
+        <div class="m-card"><div class="m-card-name">SWE-bench Verified</div><div class="m-card-type">Software Engineering</div><div class="m-card-value">73.8<span class="unit">%</span></div>
+          <div class="m-card-delta"><svg viewBox="0 0 10 10" fill="none"><path d="M5 2L8 7H2L5 2Z" fill="#7D9B72"/></svg>+20.5 vs Model B</div>
+          <div class="m-card-competitors"><span class="comp-mini">Model B: <span>53.3%</span></span><span class="comp-mini">Model C: <span>48.2%</span></span></div></div>
+        <div class="m-card"><div class="m-card-name">&tau;&sup2;-Bench</div><div class="m-card-type">Agent Task Completion</div><div class="m-card-value">87.4</div>
+          <div class="m-card-delta"><svg viewBox="0 0 10 10" fill="none"><path d="M5 2L8 7H2L5 2Z" fill="#7D9B72"/></svg>+8.5 vs Model B</div>
+          <div class="m-card-competitors"><span class="comp-mini">Model B: <span>78.9</span></span><span class="comp-mini">Model C: <span>71.5</span></span></div></div>
+      </div>
+      <div class="page-indicator" style="bottom:20px;">04 / 07</div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 Process -->
+<section data-label="05 Process Steps">
+  <div class="layout" style="grid-template-columns:1fr;">
+    <div class="right-panel" style="padding:80px 120px 80px;">
+      <div class="category-label" style="margin-bottom:0;">Evaluation method</div>
+      <div class="head-block"><h2>Four steps, one protocol</h2><p>Every model runs the same pipeline under identical conditions.</p></div>
+      <div class="steps">
+        <div class="step"><div class="step-n">01</div><div class="step-name">Select</div><div class="step-desc">Public benchmarks with verifiable answers and a fixed test split.</div></div>
+        <div class="step"><div class="step-n">02</div><div class="step-name">Run</div><div class="step-desc">Default settings for every model, three runs per task.</div></div>
+        <div class="step"><div class="step-n">03</div><div class="step-name">Score</div><div class="step-desc">Automatic grading, with scores averaged across runs.</div></div>
+        <div class="step"><div class="step-n">04</div><div class="step-name">Verify</div><div class="step-desc">Top results reproduced independently before release.</div></div>
+      </div>
+      <div class="page-indicator">05 / 07</div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 Comparison -->
+<section data-label="06 Comparison">
+  <div class="layout" style="grid-template-columns:1fr;">
+    <div class="right-panel" style="padding:80px 120px 80px;">
+      <div class="viz-header" style="margin-bottom:0;">
+        <div class="category-label" style="margin-bottom:0;">Head to head</div>
+        <div class="legend">
+          <div class="legend-item"><div class="legend-dot a"></div><span class="legend-text">Open-source</span></div>
+          <div class="legend-item"><div class="legend-dot b"></div><span class="legend-text">Proprietary</span></div>
+        </div>
+      </div>
+      <div class="head-block"><h2>Open versus proprietary</h2><p>Nova-4 against the strongest closed model in each benchmark.</p></div>
+      <div class="cmp">
+        <div class="cmp-card"><div class="cmp-name">Open-source</div><div class="cmp-head">Nova-4</div>
+          <div class="cmp-row"><span class="k">AIME 2025</span><span class="v">95.7</span></div>
+          <div class="cmp-row"><span class="k">SWE-bench Verified</span><span class="v">73.8%</span></div>
+          <div class="cmp-row"><span class="k">&tau;&sup2;-Bench</span><span class="v">87.4</span></div></div>
+        <div class="cmp-card b"><div class="cmp-name">Proprietary</div><div class="cmp-head">Model B</div>
+          <div class="cmp-row"><span class="k">AIME 2025</span><span class="v">88.2</span></div>
+          <div class="cmp-row"><span class="k">SWE-bench Verified</span><span class="v">53.3%</span></div>
+          <div class="cmp-row"><span class="k">&tau;&sup2;-Bench</span><span class="v">78.9</span></div></div>
+      </div>
+      <div class="page-indicator">06 / 07</div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 Quote / Closing -->
+<section data-label="07 Quote and Summary">
+  <div class="layout" style="grid-template-columns:1fr;">
+    <div class="right-panel" style="padding:80px 120px 100px;">
+      <div class="category-label" style="margin-bottom:0;">Summary</div>
+      <div class="quote-wrap">
+        <div class="qmark">&ldquo;</div>
+        <div class="quote">The frontier is no longer <em>closed</em>.</div>
+        <div class="qby">Research team, 2025</div>
+      </div>
+      <div class="takeaways">
+        <div class="m-card"><div class="m-card-name">Benchmarks won</div><div class="m-card-value">3/3</div></div>
+        <div class="m-card"><div class="m-card-name">Open-source ranking</div><div class="m-card-value">#1</div></div>
+        <div class="m-card"><div class="m-card-name">Avg points above runner-up</div><div class="m-card-value">12.2</div></div>
+      </div>
+      <div class="page-indicator">07 / 07</div>
+    </div>
+  </div>
+</section>
+
+</deck-stage>
+</body>
+</html>

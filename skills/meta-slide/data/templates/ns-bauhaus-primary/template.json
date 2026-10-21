@@ -1,0 +1,47 @@
+{
+  "slug": "ns-bauhaus-primary",
+  "name": "Bauhaus Primary",
+  "tagline": "White grid paper with red, blue and yellow circles, squares and bars in heavy geometric sans type",
+  "mood": [
+    "geometric",
+    "playful",
+    "rigorous",
+    "graphic"
+  ],
+  "occasion": [
+    "design history lecture",
+    "design school talk",
+    "creative workshop",
+    "brand principles",
+    "architecture pitch"
+  ],
+  "tone": [
+    "bold",
+    "didactic",
+    "clean"
+  ],
+  "formality": "medium",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#ffffff",
+    "text": "#000000",
+    "accent": "#ff0000",
+    "description": "Light Bauhaus Primary palette: #ffffff background, #000000 text, #ff0000 accent"
+  },
+  "typography": {
+    "display": "Montserrat",
+    "body": "IBM Plex Sans",
+    "style": "Montserrat headings over IBM Plex Sans body"
+  },
+  "best_for": "Bauhaus Primary suits design history lecture and design school talk. It reads as geometric, playful, rigorous.",
+  "avoid_for": "Formal regulated or conservative corporate decks.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/bauhaus-primary.html",
+    "license": "MIT"
+  }
+}

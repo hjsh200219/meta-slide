@@ -1,0 +1,47 @@
+{
+  "slug": "ns-editorial-serif",
+  "name": "Editorial Serif",
+  "tagline": "Warm paper with Playfair headlines, big gold numerals, hairline rules and a tan hero image block",
+  "mood": [
+    "editorial",
+    "literary",
+    "calm",
+    "classic"
+  ],
+  "occasion": [
+    "thought leadership",
+    "magazine-style report",
+    "agency credentials",
+    "annual letter",
+    "keynote"
+  ],
+  "tone": [
+    "thoughtful",
+    "authoritative",
+    "warm"
+  ],
+  "formality": "medium-high",
+  "density": "low",
+  "scheme": "light",
+  "palette": {
+    "bg": "#f5f0eb",
+    "text": "#1a1a1a",
+    "accent": "#b8956a",
+    "description": "Light Editorial Serif palette: #f5f0eb background, #1a1a1a text, #b8956a accent"
+  },
+  "typography": {
+    "display": "Playfair Display",
+    "body": "Inter",
+    "style": "Playfair Display headings over Inter body"
+  },
+  "best_for": "Editorial Serif suits thought leadership and magazine-style report. It reads as editorial, literary, calm.",
+  "avoid_for": "Dense data-heavy reports where the decorative look would compete with content.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/editorial-serif.html",
+    "license": "MIT"
+  }
+}

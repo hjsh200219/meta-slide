@@ -1,0 +1,51 @@
+{
+  "tagline": "White rounded card on a powder-blue field, with a column of vertical pills in five heights on the right edge acting as progress tabs.",
+  "mood": [
+    "friendly",
+    "organized",
+    "modern",
+    "approachable"
+  ],
+  "occasion": [
+    "onboarding deck",
+    "team all-hands",
+    "product tour",
+    "education workshop",
+    "customer success review"
+  ],
+  "tone": [
+    "soft",
+    "clear",
+    "welcoming"
+  ],
+  "formality": "medium-low",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg_primary": "#c8d9e6",
+    "card_bg": "#faf9f7",
+    "pill_pink": "#f0b4d4",
+    "pill_mint": "#a8d4c4",
+    "pill_sage": "#5a7c6a",
+    "pill_lavender": "#9b8dc4",
+    "pill_violet": "#7c6aad",
+    "description": "powder blue backdrop, off-white card, five soft pill colours"
+  },
+  "typography": {
+    "display": "Plus Jakarta Sans",
+    "body": "Plus Jakarta Sans",
+    "style": "single rounded geometric sans, heavy for titles"
+  },
+  "best_for": "Friendly internal decks and tutorials where soft shapes and a visible progress indicator reassure the audience.",
+  "avoid_for": "Austere legal, financial or dark-room keynote contexts.",
+  "slug": "fs-pastel-geometry",
+  "name": "Pastel Geometry",
+  "slide_count": 10,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "zarazhangrui/frontend-slides",
+    "commit": "9906a34",
+    "path": "STYLE_PRESETS.md",
+    "license": "MIT"
+  }
+}

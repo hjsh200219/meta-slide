@@ -1,0 +1,47 @@
+{
+  "slug": "ns-campus-white",
+  "name": "Campus White",
+  "tagline": "White academic slides with navy header bar, serif body, stat boxes, tables and reading lists",
+  "mood": [
+    "academic",
+    "trustworthy",
+    "structured",
+    "calm"
+  ],
+  "occasion": [
+    "classroom lecture",
+    "thesis defense",
+    "research seminar",
+    "conference paper talk",
+    "training session"
+  ],
+  "tone": [
+    "scholarly",
+    "clear",
+    "measured"
+  ],
+  "formality": "high",
+  "density": "high",
+  "scheme": "light",
+  "palette": {
+    "bg": "#ffffff",
+    "text": "#2c2c2c",
+    "accent": "#2563eb",
+    "description": "Light Campus White palette: #ffffff background, #2c2c2c text, #2563eb accent"
+  },
+  "typography": {
+    "display": "Source Serif 4",
+    "body": "Atkinson Hyperlegible",
+    "style": "Source Serif 4 headings over Atkinson Hyperlegible body"
+  },
+  "best_for": "Campus White suits classroom lecture and thesis defense. It reads as academic, trustworthy, structured.",
+  "avoid_for": "Playful or casual talks where this look would feel too formal.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/campus-white.html",
+    "license": "MIT"
+  }
+}

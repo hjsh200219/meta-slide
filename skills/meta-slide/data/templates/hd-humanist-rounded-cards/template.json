@@ -1,0 +1,18 @@
+{
+  "slug": "hd-humanist-rounded-cards",
+  "name": "Humanist Rounded Cards",
+  "tagline": "Cream background, deep-green serif headlines, white pill-and-card layout with soft shadows and mint, apricot and sky-blue circle illustrations (extended from a single-slide specimen)",
+  "mood": ["friendly", "welcoming", "community", "gentle"],
+  "occasion": ["community program announcement", "school or course catalogue", "nonprofit outreach", "onboarding welcome", "workshop invitation", "family-oriented service"],
+  "tone": ["warm", "inclusive", "encouraging"],
+  "formality": "low",
+  "scheme": "light",
+  "density": "medium",
+  "palette": {"bg": "#FBF6EC", "text": "#21302B", "accent": "#0A5C4B", "heading": "#0A3D32", "mint": "#D9F2EA", "apricot": "#F9DDBB", "sky": "#D5E3F6", "note": "#FFF1CC", "description": "Warm cream page, deep green headings and buttons, pastel mint, apricot, sky and butter-yellow fills."},
+  "typography": {"display": "Source Serif 4", "body": "Nunito Sans", "style": "Bold serif headlines with rounded humanist sans body text and pill-shaped tags."},
+  "best_for": "Approachable announcements for the public: courses, programs and community services. Rounded cards with chips make schedules and options easy to scan.",
+  "avoid_for": "Formal financial or legal presentations.",
+  "slide_count": 8,
+  "navigation": "deck-stage runtime",
+  "source": {"repo": "alchaincyf/huashu-design", "commit": "798c423", "path": "assets/style-specimens/ppt/18-humanist-rounded-cards.html", "license": "MIT"}
+}

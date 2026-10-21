@@ -1,0 +1,50 @@
+{
+  "tagline": "Peach and lavender halves with a grid pattern on the right, mint, butter and pink badge pills, and rounded call-to-action buttons set in Outfit.",
+  "mood": [
+    "playful",
+    "modern",
+    "friendly",
+    "creative"
+  ],
+  "occasion": [
+    "startup demo day",
+    "product marketing review",
+    "design sprint readout",
+    "app walkthrough",
+    "community update"
+  ],
+  "tone": [
+    "light-hearted",
+    "upbeat",
+    "approachable"
+  ],
+  "formality": "low",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg_peach": "#f5e6dc",
+    "bg_lavender": "#e4dff0",
+    "text_dark": "#1a1a1a",
+    "badge_mint": "#c8f0d8",
+    "badge_yellow": "#f0f0c8",
+    "badge_pink": "#f0d4e0",
+    "description": "two pastel halves with three badge tints and black pills"
+  },
+  "typography": {
+    "display": "Outfit",
+    "body": "Outfit",
+    "style": "one friendly geometric sans in heavy and regular weights"
+  },
+  "best_for": "Upbeat product and community decks where titles sit on the left and evidence or numbers on the right. Badge colours separate items without heavy borders.",
+  "avoid_for": "Serious, regulated or dark-themed decks; the pastel split reads as informal.",
+  "slug": "fs-split-pastel",
+  "name": "Split Pastel",
+  "slide_count": 10,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "zarazhangrui/frontend-slides",
+    "commit": "9906a34",
+    "path": "STYLE_PRESETS.md",
+    "license": "MIT"
+  }
+}

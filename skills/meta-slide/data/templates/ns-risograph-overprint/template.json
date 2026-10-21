@@ -1,0 +1,47 @@
+{
+  "slug": "ns-risograph-overprint",
+  "name": "Risograph Overprint",
+  "tagline": "Warm paper with pink, indigo and yellow overprinted circles, halftone stripes and Space Grotesk",
+  "mood": [
+    "printed",
+    "artsy",
+    "layered",
+    "playful"
+  ],
+  "occasion": [
+    "creative studio deck",
+    "zine or print brand",
+    "art talk",
+    "poster-style pitch",
+    "community event"
+  ],
+  "tone": [
+    "expressive",
+    "crafty",
+    "lively"
+  ],
+  "formality": "medium-low",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#f5f0e8",
+    "text": "#1a1a1a",
+    "accent": "#ff5477",
+    "description": "Light Risograph Overprint palette: #f5f0e8 background, #1a1a1a text, #ff5477 accent"
+  },
+  "typography": {
+    "display": "Space Grotesk",
+    "body": "JetBrains Mono",
+    "style": "Space Grotesk headings over JetBrains Mono body"
+  },
+  "best_for": "Risograph Overprint suits creative studio deck and zine or print brand. It reads as printed, artsy, layered.",
+  "avoid_for": "Formal regulated or conservative corporate decks.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/risograph-overprint.html",
+    "license": "MIT"
+  }
+}

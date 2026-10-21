@@ -1,0 +1,47 @@
+{
+  "slug": "ns-art-nouveau-botanical",
+  "name": "Art Nouveau Botanical",
+  "tagline": "Cream paper with gold arched frames, burgundy serif headings and olive botanical accents",
+  "mood": [
+    "organic",
+    "romantic",
+    "refined",
+    "crafted"
+  ],
+  "occasion": [
+    "boutique brand story",
+    "wedding or event deck",
+    "garden and wellness brand",
+    "cultural talk",
+    "heritage storytelling"
+  ],
+  "tone": [
+    "gentle",
+    "artisanal",
+    "graceful"
+  ],
+  "formality": "medium",
+  "density": "low",
+  "scheme": "light",
+  "palette": {
+    "bg": "#faf6f0",
+    "text": "#4a4a4a",
+    "accent": "#c9a84c",
+    "description": "Light Art Nouveau Botanical palette: #faf6f0 background, #4a4a4a text, #c9a84c accent"
+  },
+  "typography": {
+    "display": "Cormorant Garamond",
+    "body": "Cormorant Garamond",
+    "style": "Cormorant Garamond headings over Cormorant Garamond body"
+  },
+  "best_for": "Art Nouveau Botanical suits boutique brand story and wedding or event deck. It reads as organic, romantic, refined.",
+  "avoid_for": "Dense data-heavy reports where the decorative look would compete with content.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/art-nouveau-botanical.html",
+    "license": "MIT"
+  }
+}

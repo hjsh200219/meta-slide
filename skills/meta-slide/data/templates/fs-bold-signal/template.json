@@ -1,0 +1,48 @@
+{
+  "tagline": "Orange signal card on a charcoal gradient, set in Archivo Black with large section numbers and a breadcrumb nav.",
+  "mood": [
+    "bold",
+    "confident",
+    "modern",
+    "high-impact"
+  ],
+  "occasion": [
+    "product launch",
+    "founder pitch",
+    "keynote",
+    "agency credentials",
+    "annual kickoff"
+  ],
+  "tone": [
+    "punchy",
+    "direct",
+    "assertive"
+  ],
+  "formality": "medium",
+  "density": "medium",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#1a1a1a",
+    "text": "#ffffff",
+    "accent": "#FF5722",
+    "text_on_card": "#1a1a1a",
+    "description": "charcoal gradient with one saturated orange card as the focal point"
+  },
+  "typography": {
+    "display": "Archivo Black",
+    "body": "Space Grotesk",
+    "style": "heavy grotesque display with a geometric body, numbers as navigation"
+  },
+  "best_for": "Launches and pitches that need one loud focal block per slide. Works for short decks where each slide makes a single claim.",
+  "avoid_for": "Quiet, text-heavy or academic material where the orange block would shout over the content.",
+  "slug": "fs-bold-signal",
+  "name": "Bold Signal",
+  "slide_count": 10,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "zarazhangrui/frontend-slides",
+    "commit": "9906a34",
+    "path": "STYLE_PRESETS.md",
+    "license": "MIT"
+  }
+}

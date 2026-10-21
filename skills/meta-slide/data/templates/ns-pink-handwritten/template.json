@@ -1,0 +1,47 @@
+{
+  "slug": "ns-pink-handwritten",
+  "name": "Pink Handwritten",
+  "tagline": "Beige desk with coral handwritten headings, sticky notes, a phone mockup and cartoon doodles",
+  "mood": [
+    "whimsical",
+    "personal",
+    "creative",
+    "scrapbook"
+  ],
+  "occasion": [
+    "creative portfolio",
+    "design thinking workshop",
+    "youth brand pitch",
+    "personal story",
+    "UX case study"
+  ],
+  "tone": [
+    "playful",
+    "casual",
+    "expressive"
+  ],
+  "formality": "low",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#ede3d6",
+    "text": "#2a2a2a",
+    "accent": "#e85d75",
+    "description": "Light Pink Handwritten palette: #ede3d6 background, #2a2a2a text, #e85d75 accent"
+  },
+  "typography": {
+    "display": "Caveat",
+    "body": "Inter",
+    "style": "Caveat headings over Inter body"
+  },
+  "best_for": "Pink Handwritten suits creative portfolio and design thinking workshop. It reads as whimsical, personal, creative.",
+  "avoid_for": "Formal regulated or conservative corporate decks.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/pink-handwritten.html",
+    "license": "MIT"
+  }
+}

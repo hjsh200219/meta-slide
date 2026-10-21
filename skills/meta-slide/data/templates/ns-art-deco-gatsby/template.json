@@ -1,0 +1,47 @@
+{
+  "slug": "ns-art-deco-gatsby",
+  "name": "Art Deco Gatsby",
+  "tagline": "Navy night sky with gold sunburst rays, thin gold frames and roman-numeral cards",
+  "mood": [
+    "glamorous",
+    "ornate",
+    "theatrical",
+    "luxurious"
+  ],
+  "occasion": [
+    "gala invitation",
+    "luxury brand story",
+    "awards ceremony",
+    "hospitality pitch",
+    "event keynote"
+  ],
+  "tone": [
+    "elegant",
+    "dramatic",
+    "celebratory"
+  ],
+  "formality": "medium-high",
+  "density": "low",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#1a1a2e",
+    "text": "#ffffff",
+    "accent": "#d4af37",
+    "description": "Dark Art Deco Gatsby palette: #1a1a2e background, #ffffff text, #d4af37 accent"
+  },
+  "typography": {
+    "display": "Playfair Display",
+    "body": "Playfair Display",
+    "style": "Playfair Display headings over Playfair Display body"
+  },
+  "best_for": "Art Deco Gatsby suits gala invitation and luxury brand story. It reads as glamorous, ornate, theatrical.",
+  "avoid_for": "Dense data-heavy reports where the decorative look would compete with content.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/art-deco-gatsby.html",
+    "license": "MIT"
+  }
+}

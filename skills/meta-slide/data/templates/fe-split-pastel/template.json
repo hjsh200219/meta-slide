@@ -1,0 +1,48 @@
+{
+  "slug": "fe-split-pastel",
+  "name": "Split Pastel",
+  "tagline": "Peach and lavender split background with white cards and a sage green accent block.",
+  "mood": [
+    "gentle",
+    "fresh",
+    "creative",
+    "balanced"
+  ],
+  "occasion": [
+    "design team update",
+    "brand workshop",
+    "wellness or lifestyle pitch",
+    "education program",
+    "community report"
+  ],
+  "tone": [
+    "friendly",
+    "calm",
+    "modern"
+  ],
+  "formality": "medium-low",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#f5e6dc",
+    "text": "#1a1a1a",
+    "accent": "#5a7c6a",
+    "secondary": "#e4dff0",
+    "description": "Peach and lavender halves with a sage green accent."
+  },
+  "typography": {
+    "display": "Outfit",
+    "body": "Outfit",
+    "style": "Round geometric sans, bold headings and regular body."
+  },
+  "best_for": "Soft, creative presentations that still need clear cards and lists. Fits lifestyle, education and design topics.",
+  "avoid_for": "Austere finance or legal decks.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/Down/Space, scroll-snap sections)",
+  "source": {
+    "repo": "archlizheng/frontend-slides-editable",
+    "commit": "e5663e6",
+    "path": "examples/generated/presets/split-pastel.html",
+    "license": "MIT"
+  }
+}

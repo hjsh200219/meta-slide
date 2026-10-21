@@ -1,0 +1,51 @@
+{
+  "slug": "hp-xhs-white-editorial",
+  "name": "White Editorial Rainbow",
+  "tagline": "Pure white magazine layout with a ten-colour rainbow bar, huge titles and macaron soft cards",
+  "mood": [
+    "editorial",
+    "fresh",
+    "bright",
+    "highlighted"
+  ],
+  "occasion": [
+    "content-rich explainer",
+    "knowledge sharing",
+    "social media style deck",
+    "educational overview",
+    "brand content post"
+  ],
+  "tone": [
+    "energetic",
+    "clear",
+    "friendly"
+  ],
+  "formality": "medium-low",
+  "density": "medium-high",
+  "scheme": "light",
+  "palette": {
+    "bg": "#ffffff",
+    "text": "#111318",
+    "accent": "#7b61ff",
+    "accent2": "#4e8cff",
+    "pink": "#ff5fa2",
+    "green": "#17b26a",
+    "orange": "#ff9d42",
+    "description": "White with ink black text and purple, blue, green, orange, pink accents"
+  },
+  "typography": {
+    "display": "Inter",
+    "body": "Inter",
+    "style": "Very large sans titles with gradient brand words"
+  },
+  "best_for": "Text-heavy content that must surface keywords instantly, using bold highlight blocks and soft colour cards.",
+  "avoid_for": "Dark-room keynotes or minimal one-word slides.",
+  "slide_count": 8,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "templates/full-decks/xhs-white-editorial",
+    "license": "MIT"
+  }
+}

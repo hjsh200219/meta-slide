@@ -1,0 +1,47 @@
+{
+  "slug": "ns-pop-art",
+  "name": "Pop Art",
+  "tagline": "Primary red, blue and yellow panels with comic Bangers titles, speech-bubble quotes and halftone energy",
+  "mood": [
+    "comic",
+    "loud",
+    "graphic",
+    "vivid"
+  ],
+  "occasion": [
+    "marketing campaign",
+    "youth or toy brand",
+    "creative pitch",
+    "event promo",
+    "pop culture talk"
+  ],
+  "tone": [
+    "bold",
+    "cheeky",
+    "energetic"
+  ],
+  "formality": "low",
+  "density": "medium",
+  "scheme": "mixed",
+  "palette": {
+    "bg": "#ffea00",
+    "text": "#0a0a0a",
+    "accent": "#d50032",
+    "description": "Mixed Pop Art palette: #ffea00 background, #0a0a0a text, #d50032 accent"
+  },
+  "typography": {
+    "display": "Bangers",
+    "body": "sans-serif",
+    "style": "Bangers headings over sans-serif body"
+  },
+  "best_for": "Pop Art suits marketing campaign and youth or toy brand. It reads as comic, loud, graphic.",
+  "avoid_for": "Formal regulated or conservative corporate decks.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/pop-art.html",
+    "license": "MIT"
+  }
+}

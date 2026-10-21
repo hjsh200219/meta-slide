@@ -1,0 +1,48 @@
+{
+  "slug": "fe-paper-ink",
+  "name": "Paper & Ink",
+  "tagline": "Warm off-white page, italic Cormorant Garamond headings and thin crimson hairlines.",
+  "mood": [
+    "literary",
+    "editorial",
+    "calm",
+    "classic"
+  ],
+  "occasion": [
+    "essay-style talk",
+    "publishing or media pitch",
+    "research seminar",
+    "humanities lecture",
+    "annual letter"
+  ],
+  "tone": [
+    "thoughtful",
+    "authoritative",
+    "measured"
+  ],
+  "formality": "medium-high",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#faf9f7",
+    "text": "#1a1a1a",
+    "accent": "#c41e3a",
+    "muted": "#7b7067",
+    "description": "Paper white, ink black, single crimson accent."
+  },
+  "typography": {
+    "display": "Cormorant Garamond",
+    "body": "Source Serif 4",
+    "style": "Italic display serif over a readable text serif."
+  },
+  "best_for": "Reading-oriented talks that lean on sentences and quotations. Gives a quiet, bookish credibility.",
+  "avoid_for": "Energetic product launches or dashboards.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/Down/Space, scroll-snap sections)",
+  "source": {
+    "repo": "archlizheng/frontend-slides-editable",
+    "commit": "e5663e6",
+    "path": "examples/generated/presets/paper-ink.html",
+    "license": "MIT"
+  }
+}

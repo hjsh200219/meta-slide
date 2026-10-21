@@ -1,0 +1,49 @@
+{
+  "slug": "hd-playful-collins-editorial",
+  "name": "Playful Collins Editorial",
+  "tagline": "Sunshine yellow field, black Fraunces display with a tilted label, plus coral circle, blue half-moon and a hand-drawn squiggle. (extended from a single-slide specimen)",
+  "mood": [
+    "whimsical",
+    "warm",
+    "human",
+    "editorial"
+  ],
+  "occasion": [
+    "community proposal",
+    "cultural or civic pitch",
+    "neighborhood project",
+    "creative studio concept",
+    "nonprofit story"
+  ],
+  "tone": [
+    "friendly",
+    "witty",
+    "hand-made"
+  ],
+  "formality": "low",
+  "density": "low",
+  "scheme": "light",
+  "palette": {
+    "bg": "#FFE01B",
+    "text": "#111111",
+    "accent": "#E8472B",
+    "blue": "#2B6BFF",
+    "paper": "#FFFFFF",
+    "description": "lemon yellow with ink black, tomato red and cobalt blue geometric shapes"
+  },
+  "typography": {
+    "display": "Fraunces",
+    "body": "Inter",
+    "style": "soft heavy serif headlines, rotated highlight chip, flat geometric stickers and a wavy line"
+  },
+  "best_for": "Human-scale stories and proposals that want warmth and a wink rather than polish. Works well for community and civic projects.",
+  "avoid_for": "Rigorous analytics or compliance reporting.",
+  "slide_count": 7,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "alchaincyf/huashu-design",
+    "commit": "798c423",
+    "path": "assets/style-specimens/ppt/06-playful-collins-editorial.html",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "slug": "hp-hermes-cyber-terminal",
+  "name": "Cyber Terminal Review",
+  "tagline": "Black terminal screen with scanlines, mint-green glowing mono type and window chrome",
+  "mood": [
+    "hacker",
+    "technical",
+    "retro-futuristic",
+    "honest"
+  ],
+  "occasion": [
+    "CLI tool review",
+    "benchmark results",
+    "agent evaluation",
+    "engineering postmortem",
+    "trace walkthrough"
+  ],
+  "tone": [
+    "candid",
+    "technical",
+    "geeky"
+  ],
+  "formality": "low",
+  "density": "high",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#0a0c10",
+    "text": "#e4e2d8",
+    "accent": "#7ed3a4",
+    "accent2": "#64dfdf",
+    "surface": "#12141a",
+    "description": "Terminal black with mint green, cyan and amber glow"
+  },
+  "typography": {
+    "display": "JetBrains Mono",
+    "body": "JetBrains Mono",
+    "style": "All-monospace with CRT scanlines and glow"
+  },
+  "best_for": "Tool reviews, benchmark numbers and long traces or code, in a developer-honest voice. Fits engineering audiences.",
+  "avoid_for": "Non-technical or consumer-facing audiences.",
+  "slide_count": 8,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "templates/full-decks/hermes-cyber-terminal",
+    "license": "MIT"
+  }
+}

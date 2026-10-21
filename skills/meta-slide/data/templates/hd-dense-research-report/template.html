@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Dense Research Report — Deck Template</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Geist+Mono:wght@500;600&display=swap">
+<script src="deck-stage.js"></script>
+<style>
+html,body{margin:0;background:#000}
+deck-stage>section{width:1920px;height:1080px;background:#fff;color:#111;position:relative;overflow:hidden;box-sizing:border-box;font-family:'Inter',sans-serif}
+.c{position:absolute;left:0;top:0;width:1200px;height:675px;transform:scale(1.6);transform-origin:0 0}
+.hd{position:absolute;left:36px;right:36px;top:20px;display:flex;justify-content:space-between;font-size:14px;color:#555;letter-spacing:.08em;font-weight:600;border-bottom:2px solid #0066FF;padding-bottom:6px}
+h1{position:absolute;left:36px;top:52px;margin:0;width:1130px;font-size:28px;font-weight:900;line-height:1.3}
+h1 em{font-style:normal;color:#0066FF}
+.g{position:absolute;left:36px;right:36px;top:142px;bottom:56px;display:grid;grid-template-columns:1.25fr 1fr 0.8fr;grid-template-rows:1fr 1fr;gap:12px 24px}
+.p{border-top:1px solid #111;padding-top:6px;position:relative;min-height:0}
+.p h4{margin:0 0 6px;font-size:15px;font-weight:700;line-height:1.35}
+.p h4 span{font-weight:400;color:#555}
+.big{grid-row:span 2}
+.kpi{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.k{background:#F2F6FF;padding:12px 12px}
+.k b{display:block;font-family:'Geist Mono','Inter',monospace;font-size:32px;font-weight:600;color:#0066FF;line-height:1.1}
+.k span{font-size:14px;color:#444;line-height:1.35;display:block;margin-top:2px}
+svg{display:block;width:100%}
+svg text{font-family:'Inter',sans-serif;font-size:13px;fill:#444}
+.fn{position:absolute;left:36px;right:36px;bottom:18px;font-size:14px;color:#555;line-height:1.4;border-top:1px solid #CCC;padding-top:6px;display:flex;justify-content:space-between}
+/* cover */
+.cv .t{position:absolute;left:36px;top:150px;width:900px;font-size:62px;font-weight:900;line-height:1.1;letter-spacing:-.02em}
+.cv .t em{font-style:normal;color:#0066FF}
+.cv .s{position:absolute;left:36px;top:400px;width:640px;font-size:20px;line-height:1.6;color:#444}
+.cv .kk{position:absolute;right:36px;top:150px;width:240px}
+.cv .kk .k{margin-bottom:12px}
+/* findings */
+.fd{position:absolute;left:36px;right:36px;top:130px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.fd .f{border-top:3px solid #0066FF;padding-top:10px}
+.fd .f:nth-child(n+4){margin-top:14px}
+.fd .n{font-family:'Geist Mono',monospace;font-weight:600;font-size:15px;color:#0066FF}
+.fd h3{margin:4px 0 6px;font-size:21px;line-height:1.3;font-weight:700}
+.fd p{margin:0;font-size:16px;line-height:1.6;color:#333}
+/* table */
+table{position:absolute;left:36px;right:36px;top:136px;width:1128px;border-collapse:collapse;font-size:20px}
+th{text-align:left;font-size:15px;letter-spacing:.06em;color:#555;border-bottom:2px solid #111;padding:8px 10px;font-weight:700}
+td{padding:17px 10px;border-bottom:1px solid #D5D9E0}
+td.n,th.n{text-align:right;font-family:'Geist Mono',monospace;font-weight:600}
+tr.hi td{background:#F2F6FF;font-weight:700}
+tr.hi td.n{color:#0066FF}
+/* two-col */
+.tc{position:absolute;left:36px;right:36px;top:124px;bottom:56px;display:grid;grid-template-columns:1.6fr 1fr;gap:28px}
+.tc .p{height:100%}
+.note p{margin:0 0 10px;font-size:16px;line-height:1.6;color:#333}
+.note b{color:#0066FF}
+</style></head><body>
+<deck-stage width="1920" height="1080">
+
+<section data-label="01 Cover"><div class="c cv">
+<div class="hd"><span>CITY CYCLING REPORT 2025 · TRENDS</span><span>RESEARCH SERIES</span></div>
+<div class="t">Cycling has more than doubled in five years, and <em>commuting</em> drove most of it</div>
+<div class="s">Annual trend report on citywide bicycle trips, lanes and safety, 2020 to 2025.</div>
+<div class="kk"><div class="k"><b>2.3x</b><span>annual trips versus 2020</span></div><div class="k"><b>58%</b><span>of growth is commuting</span></div><div class="k"><b>612 km</b><span>new protected lanes</span></div></div>
+<div class="fn"><span>Source: city transport monitoring centre; anonymised bike-share orders; author estimates.</span><span>1</span></div>
+</div></section>
+
+<section data-label="02 Chart Dashboard"><div class="c">
+<div class="hd"><span>CITY CYCLING REPORT 2025 · TRENDS</span><span>CITY CYCLING REPORT</span></div>
+<h1>Over five years cycling trips more than doubled, and <em>commuting</em> supplied nearly six-tenths of the growth</h1>
+<div class="g">
+<div class="p big"><h4>Fig. 1 Monthly citywide trips <span>(millions, 2025, May to October highlighted)</span></h4><svg id="c1" viewBox="0 0 520 470"></svg></div>
+<div class="p"><h4>Fig. 2 Annual trips <span>(hundred millions)</span></h4><svg id="c2" viewBox="0 0 400 210"></svg></div>
+<div class="p"><h4>Key indicators <span>(2025 vs 2020)</span></h4><div class="kpi">
+<div class="k"><b>2.3x</b><span>annual trips</span></div><div class="k"><b>58%</b><span>of growth from commuting</span></div>
+<div class="k"><b>612km</b><span>new protected lanes</span></div><div class="k"><b>−19%</b><span>rider injury rate</span></div></div></div>
+<div class="p"><h4>Fig. 3 Trip purpose <span>(%)</span></h4><svg id="c3" viewBox="0 0 400 210"></svg></div>
+<div class="p"><h4>Fig. 4 Growth by district <span>(2020–25, %/yr)</span></h4><svg id="c4" viewBox="0 0 300 210"></svg></div>
+</div>
+<div class="fn"><span>Source: city transport monitoring centre; anonymised bike-share orders; author estimates. Note: 2020 base is low because of the pandemic.</span><span>2</span></div>
+</div></section>
+
+<section data-label="03 Key Findings"><div class="c">
+<div class="hd"><span>CITY CYCLING REPORT 2025 · TRENDS</span><span>EXECUTIVE SUMMARY</span></div>
+<h1>Six findings from five years of trip data</h1>
+<div class="fd">
+<div class="f"><div class="n">01</div><h3>Trips are up 2.3 times</h3><p>Annual trips rose from 52 million to 121 million between 2020 and 2025.</p></div>
+<div class="f"><div class="n">02</div><h3>Commuting leads growth</h3><p>Commuting reached 46% of trips and supplied 58% of the added volume.</p></div>
+<div class="f"><div class="n">03</div><h3>Lanes follow demand</h3><p>612 km of protected lanes were added, mostly on existing commuter corridors.</p></div>
+<div class="f"><div class="n">04</div><h3>Safety improved</h3><p>The rider injury rate fell 19% even as exposure more than doubled.</p></div>
+<div class="f"><div class="n">05</div><h3>Growth is uneven</h3><p>The newest district grew three times faster than the old town.</p></div>
+<div class="f"><div class="n">06</div><h3>Summer still peaks</h3><p>May to October carry 66% of annual trips, with a clear August high.</p></div>
+</div>
+<div class="fn"><span>Source: city transport monitoring centre; anonymised bike-share orders; author estimates.</span><span>3</span></div>
+</div></section>
+
+<section data-label="04 Data Table"><div class="c">
+<div class="hd"><span>CITY CYCLING REPORT 2025 · TRENDS</span><span>TABLE 1</span></div>
+<h1>The newest districts grew fastest, but the old town still has the most trips</h1>
+<table>
+<tr><th>DISTRICT</th><th class="n">SHARE OF TRIPS 2025</th><th class="n">GROWTH A YEAR</th><th class="n">NEW LANES (KM)</th><th class="n">INJURY RATE CHANGE</th></tr>
+<tr class="hi"><td>East New Area</td><td class="n">13%</td><td class="n">21.4%</td><td class="n">148</td><td class="n">−24%</td></tr>
+<tr><td>South Lake</td><td class="n">16%</td><td class="n">14.2%</td><td class="n">121</td><td class="n">−21%</td></tr>
+<tr><td>Old Town</td><td class="n">25%</td><td class="n">9.8%</td><td class="n">96</td><td class="n">−18%</td></tr>
+<tr><td>West Suburb</td><td class="n">11%</td><td class="n">8.1%</td><td class="n">74</td><td class="n">−15%</td></tr>
+<tr><td>North Star</td><td class="n">10%</td><td class="n">6.5%</td><td class="n">53</td><td class="n">−12%</td></tr>
+<tr><td>Other districts</td><td class="n">25%</td><td class="n">n/a</td><td class="n">120</td><td class="n">−22%</td></tr>
+</table>
+<div class="fn"><span>Source: city transport monitoring centre. Note: figures are illustrative placeholders.</span><span>4</span></div>
+</div></section>
+
+<section data-label="05 Chart And Notes"><div class="c">
+<div class="hd"><span>CITY CYCLING REPORT 2025 · TRENDS</span><span>FIG. 5</span></div>
+<h1>Commuting grew from one third to nearly half of all trips</h1>
+<div class="tc">
+<div class="p"><h4>Fig. 5 Trip purpose, 2020 and 2025 <span>(% of trips)</span></h4><svg id="c5" viewBox="0 0 700 330"></svg></div>
+<div class="p note"><h4>Reading the chart</h4>
+<p><b>Commuting</b> rose 12 points, from 34% to 46%.</p>
+<p>Daily-life trips such as shopping and school runs fell 7 points as a share, but still grew in absolute numbers.</p>
+<p>Leisure and fitness lost 5 points of share while holding steady at about 24 million trips.</p></div>
+</div>
+<div class="fn"><span>Source: city transport monitoring centre; trip-purpose survey, n = 18,400.</span><span>5</span></div>
+</div></section>
+
+<section data-label="06 Bars And Targets"><div class="c">
+<div class="hd"><span>CITY CYCLING REPORT 2025 · TRENDS</span><span>FIG. 6</span></div>
+<h1>Injury rates fell every year while trips kept rising</h1>
+<div class="tc">
+<div class="p"><h4>Fig. 6 Injuries per million trips <span>(2020–2025)</span></h4><svg id="c6" viewBox="0 0 700 330"></svg></div>
+<div class="p"><h4>Targets for 2030</h4><div class="kpi">
+<div class="k"><b>200M</b><span>annual trips</span></div><div class="k"><b>55%</b><span>commuting share</span></div>
+<div class="k"><b>1,000km</b><span>protected lanes</span></div><div class="k"><b>−35%</b><span>injury rate vs 2020</span></div></div></div>
+</div>
+<div class="fn"><span>Source: city transport monitoring centre; police and hospital injury records.</span><span>6</span></div>
+</div></section>
+
+<section data-label="07 Conclusion"><div class="c">
+<div class="hd"><span>CITY CYCLING REPORT 2025 · TRENDS</span><span>CONCLUSIONS</span></div>
+<h1>What the data asks of the next five years</h1>
+<div class="fd" style="grid-template-columns:repeat(2,1fr);gap:24px 48px">
+<div class="f"><div class="n">A</div><h3>Keep building where people already ride</h3><p>Lanes on commuter corridors produced the largest gains per kilometre.</p></div>
+<div class="f"><div class="n">B</div><h3>Close the gap in slower districts</h3><p>North Star and West Suburb grew at less than half the rate of the newest area.</p></div>
+<div class="f"><div class="n">C</div><h3>Protect the safety record</h3><p>Injury rates fell only where separation from traffic was added.</p></div>
+<div class="f"><div class="n">D</div><h3>Measure the same way every year</h3><p>Keep the same sources and definitions so the trend stays comparable.</p></div>
+</div>
+<div class="fn"><span>Source: author analysis.</span><span>7</span></div>
+</div></section>
+
+</deck-stage>
+<script>
+const B='#0066FF',G='#C4CAD4';
+let s='';const m=[3.1,3.4,5.2,6.8,8.4,9.1,9.6,9.9,9.3,7.9,5.4,3.6];
+const mon=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+m.forEach((v,i)=>{const hi=i>=4&&i<=9,x=14+i*42,h=v*40;s+=`<rect x="${x}" y="${430-h}" width="32" height="${h}" fill="${hi?B:G}"/><text x="${x+16}" y="${424-h}" text-anchor="middle" style="fill:${hi?'#0050CC':'#444'};font-weight:${hi?700:400}">${v}</text><text x="${x+16}" y="452" text-anchor="middle">${mon[i]}</text>`});
+s+=`<line x1="10" y1="430" x2="518" y2="430" stroke="#111"/>`;
+document.getElementById('c1').innerHTML=s;
+s='';const y=[0.52,0.61,0.78,0.93,1.07,1.21];
+y.forEach((v,i)=>{const x=20+i*64,h=v*135,last=i==5;s+=`<rect x="${x}" y="${182-h}" width="44" height="${h}" fill="${last?B:G}"/><text x="${x+22}" y="${176-h}" text-anchor="middle" style="font-weight:${last?700:400};fill:${last?'#0050CC':'#444'}">${v}</text><text x="${x+22}" y="202" text-anchor="middle">${2020+i}</text>`});
+s+=`<line x1="14" y1="182" x2="400" y2="182" stroke="#111"/>`;document.getElementById('c2').innerHTML=s;
+s='';const rows=[['2020',[34,41,25]],['2025',[46,34,20]]];const cols=['#0066FF','#7FAEFF','#C4CAD4'];const names=['Commute','Daily life','Leisure'];
+rows.forEach(([n,a],r)=>{let x=44;s+=`<text x="0" y="${50+r*74}">${n}</text>`;a.forEach((v,i)=>{const w=v*3.4;s+=`<rect x="${x}" y="${28+r*74}" width="${w}" height="40" fill="${cols[i]}"/><text x="${x+w/2}" y="${53+r*74}" text-anchor="middle" style="fill:${i==0?'#fff':'#111'};font-weight:600">${v}</text>`;x+=w})});
+names.forEach((n,i)=>{s+=`<rect x="${44+i*100}" y="180" width="10" height="10" fill="${cols[i]}"/><text x="${60+i*100}" y="190">${n}</text>`});
+document.getElementById('c3').innerHTML=s;
+s='';const d=[['East New',21.4],['South Lake',14.2],['Old Town',9.8],['West Sub.',8.1],['North Star',6.5]];
+d.forEach(([n,v],i)=>{const yy=8+i*40,hi=i==0;s+=`<text x="0" y="${yy+19}">${n}</text><rect x="70" y="${yy}" width="${v*8}" height="28" fill="${hi?B:G}"/><text x="${70+v*8+6}" y="${yy+19}" style="font-weight:${hi?700:400}">${v}</text>`});
+document.getElementById('c4').innerHTML=s;
+// c5 stacked wide
+s='';[['2020',[34,41,25]],['2025',[46,34,20]]].forEach(([n,a],r)=>{let x=70;s+=`<text x="0" y="${88+r*130}" style="font-size:18px">${n}</text>`;a.forEach((v,i)=>{const w=v*9;s+=`<rect x="${x}" y="${50+r*130}" width="${w}" height="64" fill="${cols[i]}"/><text x="${x+w/2}" y="${90+r*130}" text-anchor="middle" style="fill:${i==0?'#fff':'#111'};font-weight:700;font-size:20px">${v}%</text>`;x+=w})});
+names.forEach((n,i)=>{s+=`<rect x="${70+i*150}" y="300" width="14" height="14" fill="${cols[i]}"/><text x="${92+i*150}" y="313" style="font-size:16px">${n}</text>`});
+document.getElementById('c5').innerHTML=s;
+// c6 injury bars
+s='';const inj=[41,38,34,31,28,26];
+inj.forEach((v,i)=>{const x=40+i*108,h=v*6,last=i==5;s+=`<rect x="${x}" y="${290-h}" width="76" height="${h}" fill="${last?B:G}"/><text x="${x+38}" y="${282-h}" text-anchor="middle" style="font-size:18px;font-weight:${last?700:400};fill:${last?'#0050CC':'#444'}">${v}</text><text x="${x+38}" y="316" text-anchor="middle" style="font-size:16px">${2020+i}</text>`});
+s+=`<line x1="30" y1="290" x2="690" y2="290" stroke="#111"/>`;
+document.getElementById('c6').innerHTML=s;
+</script>
+</body></html>

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Diagrammatic Minimalism — Deck Template</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;900&display=swap">
+<script src="deck-stage.js"></script>
+<style>
+html,body{margin:0;padding:0;background:#000}
+body{font-family:'Jost',sans-serif;color:#111}
+deck-stage>section{width:1920px;height:1080px;position:relative;overflow:hidden;box-sizing:border-box;background:#FAF9F6;color:#111}
+.t{position:absolute;left:100px;top:76px;font-size:24px;letter-spacing:.2em;font-weight:600;color:#6B6B6B;text-transform:uppercase}
+h1{position:absolute;left:100px;top:130px;margin:0;font-size:72px;font-weight:900;line-height:1.25;width:700px}
+.txt{position:absolute;left:100px;top:440px;width:700px;font-size:31px;line-height:1.8;color:#333}
+.txt b{color:#E4572E;font-weight:600}
+.cmp{position:absolute;left:100px;bottom:90px;width:700px;border-top:3px solid #111;padding-top:22px;font-size:27px;line-height:1.7;color:#333}
+.cmp span{font-weight:700;color:#111}
+svg.dia{position:absolute;left:870px;top:40px}
+svg text{font-family:'Jost',sans-serif}
+.pg{position:absolute;right:100px;bottom:60px;font-size:24px;letter-spacing:.2em;color:#6B6B6B;font-weight:600}
+.big{font-weight:900;line-height:.95;letter-spacing:-.02em}
+.acc{color:#E4572E}
+.col{position:absolute;top:360px;width:500px;border-top:3px solid #111;padding-top:30px}
+.col .n{font-size:110px;font-weight:900;line-height:1;color:#E4572E}
+.col h3{font-size:48px;font-weight:700;margin:20px 0 16px}
+.col p{font-size:29px;line-height:1.7;color:#333;margin:0}
+</style></head><body>
+<deck-stage width="1920" height="1080">
+
+<section data-label="01 Cover">
+ <div class="t">Neighborhood Market Renewal · Method</div>
+ <div class="big" style="position:absolute;left:100px;top:300px;font-size:150px;width:1000px">A good market grows from the center out</div>
+ <svg class="dia" style="left:1180px;top:200px" width="640" height="640" viewBox="0 0 640 640"><circle cx="320" cy="320" r="300" fill="#fff" stroke="#111" stroke-width="3"/><circle cx="320" cy="400" r="200" fill="#EDEBE6" stroke="#111" stroke-width="3"/><circle cx="320" cy="480" r="100" fill="#E4572E" stroke="#111" stroke-width="3"/></svg>
+ <div class="cmp" style="width:800px;border-top:3px solid #111">A method for city planners and market associations</div>
+</section>
+
+<section data-label="02 Concept Diagram">
+ <div class="t">Market Renewal · Method</div>
+ <h1>A good market grows from the center out</h1>
+ <div class="txt">Most renewals start at the outer ring: new stalls, matching signs. We work backward. Ask <b>why</b> the neighborhood needs a market, then decide how it runs, and only then what it looks like.</div>
+ <div class="cmp"><span>Case comparison</span><br>The East Road market was renewed from the outside in and had 31% vacancy two years later. The Locust Lane market started from the center, and vacancy is 4%.</div>
+ <svg class="dia" width="960" height="1035" viewBox="0 0 640 690">
+  <circle cx="320" cy="345" r="300" fill="#fff" stroke="#111" stroke-width="3"/>
+  <circle cx="320" cy="400" r="200" fill="#EDEBE6" stroke="#111" stroke-width="3"/>
+  <circle cx="320" cy="455" r="100" fill="#E4572E" stroke="#111" stroke-width="3"/>
+  <text x="320" y="82" text-anchor="middle" font-size="26" font-weight="700" letter-spacing="3">WHAT · STALLS AND SPACE</text>
+  <text x="320" y="116" text-anchor="middle" font-size="16" fill="#555">What you can see: signs, circulation, cold chain</text>
+  <text x="320" y="268" text-anchor="middle" font-size="26" font-weight="700" letter-spacing="3">HOW · OPERATIONS</text>
+  <text x="320" y="300" text-anchor="middle" font-size="16" fill="#555">Rent, opening hours, vendor mix</text>
+  <text x="320" y="452" text-anchor="middle" font-size="32" font-weight="700" fill="#fff" letter-spacing="3">WHY</text>
+  <text x="320" y="484" text-anchor="middle" font-size="16" fill="#fff">Daily table</text>
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#111"/></marker></defs>
+  <path d="M520 470 C 600 470 610 330 560 200" fill="none" stroke="#111" stroke-width="3" marker-end="url(#a)"/>
+  <text x="320" y="572" text-anchor="middle" font-size="16" font-weight="600" letter-spacing="3" fill="#111">INSIDE OUT →</text>
+ </svg>
+</section>
+
+<section data-label="03 Section Divider">
+ <div class="t">Part 02</div>
+ <svg class="dia" style="left:-420px;top:-520px" width="1000" height="1000" viewBox="0 0 1000 1000"><circle cx="500" cy="500" r="480" fill="#EDEBE6" stroke="#111" stroke-width="3"/><circle cx="500" cy="500" r="300" fill="#fff" stroke="#111" stroke-width="3"/></svg>
+ <div class="big" style="position:absolute;left:100px;top:420px;font-size:190px">Start with <span class="acc">why</span></div>
+ <div class="cmp" style="width:900px;bottom:120px">Three questions, asked in order, before any paint or signage</div>
+ <div class="pg">02</div>
+</section>
+
+<section data-label="04 Three Questions">
+ <div class="t">The sequence</div>
+ <h1 style="width:1500px">Three questions, in this order</h1>
+ <div class="col" style="left:100px"><div class="n">1</div><h3>Why</h3><p>Who depends on this market for daily food, and what would they lose without it?</p></div>
+ <div class="col" style="left:690px"><div class="n" style="color:#111">2</div><h3>How</h3><p>Which rent, hours and vendor mix keep those people coming back every week?</p></div>
+ <div class="col" style="left:1280px"><div class="n" style="color:#111">3</div><h3>What</h3><p>Only then: stalls, signs, circulation and cold chain that serve the answers above.</p></div>
+ <div class="pg">04</div>
+</section>
+
+<section data-label="05 Case Comparison">
+ <div class="t">Evidence</div>
+ <h1 style="width:1500px">Same budget, opposite results</h1>
+ <div style="position:absolute;left:100px;top:400px;width:760px;border-top:3px solid #111;padding-top:24px"><div style="font-size:30px;color:#6B6B6B;font-weight:600;letter-spacing:.12em">EAST ROAD · OUTSIDE IN</div><div class="big" style="font-size:240px;margin-top:20px">31%</div><div style="font-size:30px;color:#333">stall vacancy after two years</div></div>
+ <div style="position:absolute;left:1060px;top:400px;width:760px;border-top:3px solid #E4572E;padding-top:24px"><div style="font-size:30px;color:#E4572E;font-weight:600;letter-spacing:.12em">LOCUST LANE · INSIDE OUT</div><div class="big acc" style="font-size:240px;margin-top:20px">4%</div><div style="font-size:30px;color:#333">stall vacancy after two years</div></div>
+ <div class="pg">05</div>
+</section>
+
+<section data-label="06 Quote">
+ <div class="t">In a vendor's words</div>
+ <svg class="dia" style="left:1220px;top:210px" width="600" height="600" viewBox="0 0 600 600"><circle cx="300" cy="300" r="280" fill="#fff" stroke="#111" stroke-width="3"/><circle cx="300" cy="380" r="180" fill="#EDEBE6" stroke="#111" stroke-width="3"/><circle cx="300" cy="460" r="90" fill="#E4572E" stroke="#111" stroke-width="3"/></svg>
+ <div class="big" style="position:absolute;left:100px;top:240px;width:1000px;font-size:96px;line-height:1.2;letter-spacing:-.01em">People do not come for the stalls. They come for <span class="acc">each other.</span></div>
+ <div class="cmp" style="width:800px">Vendor, Locust Lane market, 22 years</div>
+ <div class="pg">06</div>
+</section>
+
+<section data-label="07 Summary">
+ <div class="t">Summary</div>
+ <h1 style="width:1500px">Work from the circle's center</h1>
+ <div class="txt" style="top:360px;width:1100px;font-size:40px;line-height:1.7">Define <b>why</b> first. Design <b style="color:#111">how</b> it runs next. Let <b style="color:#111">what</b> it looks like follow.</div>
+ <svg class="dia" style="left:1280px;top:420px" width="520" height="520" viewBox="0 0 520 520"><circle cx="260" cy="260" r="240" fill="#fff" stroke="#111" stroke-width="3"/><circle cx="260" cy="320" r="150" fill="#EDEBE6" stroke="#111" stroke-width="3"/><circle cx="260" cy="380" r="75" fill="#E4572E" stroke="#111" stroke-width="3"/></svg>
+ <div class="cmp" style="width:1000px">Next: choose two pilot markets and run the why-interview this quarter.</div>
+</section>
+
+</deck-stage>
+</body></html>

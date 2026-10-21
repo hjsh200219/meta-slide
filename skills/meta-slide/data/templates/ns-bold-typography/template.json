@@ -1,0 +1,47 @@
+{
+  "slug": "ns-bold-typography",
+  "name": "Bold Typography",
+  "tagline": "Black stage with oversized orange-and-white type, subtle glow and dark info cards",
+  "mood": [
+    "impactful",
+    "modern",
+    "poster-like",
+    "minimal"
+  ],
+  "occasion": [
+    "manifesto talk",
+    "marketing strategy",
+    "creative pitch",
+    "product vision",
+    "all-hands keynote"
+  ],
+  "tone": [
+    "declarative",
+    "energetic",
+    "modern"
+  ],
+  "formality": "medium",
+  "density": "medium",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#0a0a0a",
+    "text": "#ffffff",
+    "accent": "#ff6b35",
+    "description": "Dark Bold Typography palette: #0a0a0a background, #ffffff text, #ff6b35 accent"
+  },
+  "typography": {
+    "display": "Space Grotesk",
+    "body": "Inter",
+    "style": "Space Grotesk headings over Inter body"
+  },
+  "best_for": "Bold Typography suits manifesto talk and marketing strategy. It reads as impactful, modern, poster-like.",
+  "avoid_for": "Formal regulated or conservative corporate decks.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/bold-typography.html",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "slug": "hd-narrative-sparkline",
+  "name": "Narrative Sparkline",
+  "tagline": "Deep navy canvas with a single hand-drawn-feeling waveform, dotted what-is and what-could-be rails, gray history and one orange turning point (extended from a single-slide specimen)",
+  "mood": ["narrative", "dark", "elegant", "story-driven", "reflective"],
+  "occasion": ["founder story", "three-year review", "keynote talk", "investor narrative", "community impact story"],
+  "tone": ["storytelling", "reflective", "hopeful"],
+  "formality": "medium",
+  "density": "low",
+  "scheme": "dark",
+  "palette": {"bg": "#0D1320", "text": "#E8ECF3", "accent": "#FF8A1F", "line": "#B8C2D6", "muted": "#9AA6BA", "rail": "#3A4560", "description": "Midnight navy with pale steel lines and a single orange highlight for the turning point"},
+  "typography": {"display": "Inter", "body": "Inter", "style": "Heavy Inter titles with Geist Mono dates and tracked uppercase labels"},
+  "best_for": "Telling how something changed over time, with a rising and falling line as the main visual. Suits founder stories, retrospectives and talks that need an emotional arc.",
+  "avoid_for": "Reference-style decks with dense tables or many unrelated numbers.",
+  "slide_count": 7,
+  "navigation": "deck-stage runtime",
+  "source": {"repo": "alchaincyf/huashu-design", "commit": "798c423", "path": "assets/style-specimens/ppt/14-narrative-sparkline.html", "license": "MIT"}
+}

@@ -1,0 +1,49 @@
+{
+  "slug": "hp-theme-pitch-deck-vc",
+  "name": "Theme · Pitch Deck VC",
+  "tagline": "YC-style white with blue-purple gradient accent and ample whitespace",
+  "mood": [
+    "startup",
+    "airy",
+    "confident",
+    "modern"
+  ],
+  "occasion": [
+    "fundraising pitch",
+    "seed round",
+    "VC meeting",
+    "demo day",
+    "investor update"
+  ],
+  "tone": [
+    "persuasive",
+    "ambitious",
+    "crisp"
+  ],
+  "formality": "medium",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#ffffff",
+    "text": "#0b0d12",
+    "accent": "#0070f3",
+    "accent2": "#7928ca",
+    "surface": "#ffffff",
+    "description": "Theme tokens --bg, --text-1, --accent, --accent-2, --surface taken from pitch-deck-vc.css"
+  },
+  "typography": {
+    "display": "Inter",
+    "body": "Inter",
+    "style": "Theme font tokens --font-display / --font-sans"
+  },
+  "best_for": "Investor presentations with big numbers and plenty of white space.",
+  "avoid_for": "Dark-room technical deep-dives.",
+  "slide_count": 22,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "assets/themes/pitch-deck-vc.css + templates/single-page/*.html (22 layouts)",
+    "license": "MIT"
+  }
+}

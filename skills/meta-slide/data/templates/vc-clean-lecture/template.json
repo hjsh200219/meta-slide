@@ -1,0 +1,51 @@
+{
+  "name": "Clean Lecture",
+  "tagline": "White canvas with flat hand-drawn style SVG diagrams, bold black headings and blue, purple, green and amber accents.",
+  "mood": [
+    "clear",
+    "didactic",
+    "friendly",
+    "visual"
+  ],
+  "occasion": [
+    "classroom lecture",
+    "training workshop",
+    "process explanation",
+    "history or concept overview",
+    "onboarding session"
+  ],
+  "tone": [
+    "explanatory",
+    "approachable",
+    "structured"
+  ],
+  "formality": "medium-low",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#ffffff",
+    "text": "#111827",
+    "accent": "#1d4ed8",
+    "purple": "#7c3aed",
+    "green": "#059669",
+    "amber": "#d97706",
+    "red": "#dc2626",
+    "description": "White with ink text and five flat accent colours for diagrams."
+  },
+  "typography": {
+    "display": "Inter",
+    "body": "Inter",
+    "style": "Heavy sans titles and regular sans labels; replaces the original Chinese font."
+  },
+  "best_for": "Teaching-style decks built around timelines, before and after scenes, flow chains and bar comparisons. Works when one picture per slide carries the idea.",
+  "avoid_for": "Dense text reports or brand-heavy marketing decks.",
+  "slide_count": 8,
+  "navigation": "inline keyboard handler (ArrowRight/Space, click, touch); step reveals are shown on slide entry",
+  "slug": "vc-clean-lecture",
+  "source": {
+    "repo": "edu-ai-builders/visual-cognition-slides",
+    "commit": "83fc4b5",
+    "path": "examples/04_history_v2.html",
+    "license": "MIT"
+  }
+}

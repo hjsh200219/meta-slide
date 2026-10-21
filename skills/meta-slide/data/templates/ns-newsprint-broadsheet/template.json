@@ -1,0 +1,47 @@
+{
+  "slug": "ns-newsprint-broadsheet",
+  "name": "Newsprint Broadsheet",
+  "tagline": "Aged newsprint cream with masthead, multi-column serif text, hairline rules and a black quote page",
+  "mood": [
+    "journalistic",
+    "classic",
+    "dense",
+    "editorial"
+  ],
+  "occasion": [
+    "history lecture",
+    "annual report",
+    "media company deck",
+    "newsroom briefing",
+    "retro-themed event"
+  ],
+  "tone": [
+    "authoritative",
+    "traditional",
+    "informative"
+  ],
+  "formality": "high",
+  "density": "high",
+  "scheme": "light",
+  "palette": {
+    "bg": "#f3eee2",
+    "text": "#1a1a1a",
+    "accent": "#c41e25",
+    "description": "Light Newsprint Broadsheet palette: #f3eee2 background, #1a1a1a text, #c41e25 accent"
+  },
+  "typography": {
+    "display": "Playfair Display",
+    "body": "PT Serif",
+    "style": "Playfair Display headings over PT Serif body"
+  },
+  "best_for": "Newsprint Broadsheet suits history lecture and annual report. It reads as journalistic, classic, dense.",
+  "avoid_for": "Playful or casual talks where this look would feel too formal.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/newsprint-broadsheet.html",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "slug": "hp-theme-gruvbox-dark",
+  "name": "Theme · Gruvbox Dark",
+  "tagline": "Warm retro dark palette in earthy orange, yellow and green",
+  "mood": [
+    "retro",
+    "warm",
+    "earthy",
+    "dark"
+  ],
+  "occasion": [
+    "terminal and vim community talk",
+    "unix tooling session",
+    "developer meetup",
+    "open-source workshop",
+    "sysadmin sharing"
+  ],
+  "tone": [
+    "nerdy",
+    "cozy",
+    "practical"
+  ],
+  "formality": "medium-low",
+  "density": "medium-high",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#282828",
+    "text": "#ebdbb2",
+    "accent": "#fabd2f",
+    "accent2": "#fe8019",
+    "surface": "#3c3836",
+    "description": "Theme tokens --bg, --text-1, --accent, --accent-2, --surface taken from gruvbox-dark.css"
+  },
+  "typography": {
+    "display": "Inter",
+    "body": "Inter",
+    "style": "Theme font tokens --font-display / --font-sans"
+  },
+  "best_for": "Terminal and *nix themed talks with a warm retro dark feel.",
+  "avoid_for": "Bright corporate decks.",
+  "slide_count": 22,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "assets/themes/gruvbox-dark.css + templates/single-page/*.html (22 layouts)",
+    "license": "MIT"
+  }
+}

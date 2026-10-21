@@ -1,0 +1,48 @@
+{
+  "slug": "fe-terminal-green",
+  "name": "Terminal Green",
+  "tagline": "GitHub-dark background with phosphor green monospace text and thin green-outlined boxes.",
+  "mood": [
+    "hacker",
+    "technical",
+    "retro",
+    "focused"
+  ],
+  "occasion": [
+    "developer tooling talk",
+    "engineering postmortem",
+    "CLI product demo",
+    "open-source update",
+    "security training"
+  ],
+  "tone": [
+    "nerdy",
+    "precise",
+    "dry"
+  ],
+  "formality": "low",
+  "density": "medium",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#0d1117",
+    "text": "#39d353",
+    "accent": "#39d353",
+    "muted": "#5bc96a",
+    "description": "Dark GitHub navy with phosphor green text."
+  },
+  "typography": {
+    "display": "JetBrains Mono",
+    "body": "JetBrains Mono",
+    "style": "All-monospace with terminal feel."
+  },
+  "best_for": "Developer-audience talks that benefit from a terminal aesthetic. Short lines and code-like lists read best.",
+  "avoid_for": "Executive or non-technical audiences.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/Down/Space, scroll-snap sections)",
+  "source": {
+    "repo": "archlizheng/frontend-slides-editable",
+    "commit": "e5663e6",
+    "path": "examples/generated/presets/terminal-green.html",
+    "license": "MIT"
+  }
+}

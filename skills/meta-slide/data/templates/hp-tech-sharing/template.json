@@ -1,0 +1,49 @@
+{
+  "slug": "hp-tech-sharing",
+  "name": "Terminal Tech Talk",
+  "tagline": "GitHub-dark palette, mint green accent, JetBrains Mono details and highlighted terminal blocks",
+  "mood": [
+    "geeky",
+    "dark",
+    "dense",
+    "readable"
+  ],
+  "occasion": [
+    "engineering tech talk",
+    "lunch and learn",
+    "conference submission",
+    "internal wiki share",
+    "code walkthrough"
+  ],
+  "tone": [
+    "technical",
+    "casual",
+    "sharp"
+  ],
+  "formality": "medium-low",
+  "density": "medium-high",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#0d1117",
+    "text": "#e6edf3",
+    "accent": "#7ee787",
+    "accent2": "#79c0ff",
+    "surface": "#161b22",
+    "description": "GitHub dark with green and sky-blue accents"
+  },
+  "typography": {
+    "display": "Inter",
+    "body": "Inter",
+    "style": "Sans body with monospace headings and code blocks"
+  },
+  "best_for": "Engineering talks with code examples and takeaways, in a README-meets-conference look. Easy to screenshot and share.",
+  "avoid_for": "Non-technical or formal executive audiences.",
+  "slide_count": 8,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "templates/full-decks/tech-sharing",
+    "license": "MIT"
+  }
+}

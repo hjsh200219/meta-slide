@@ -1,0 +1,50 @@
+{
+  "slug": "pa-bauhaus-block",
+  "name": "Bauhaus Block",
+  "tagline": "Warm paper ground with primary red, deep blue and yellow geometric blocks, ruled grid lines and heavy Inter Tight headlines (extended from a single-slide specimen)",
+  "mood": [
+    "geometric",
+    "bold",
+    "orderly",
+    "modernist"
+  ],
+  "occasion": [
+    "design school lecture",
+    "museum or exhibition talk",
+    "architecture studio pitch",
+    "brand identity review",
+    "design-history seminar"
+  ],
+  "tone": [
+    "graphic",
+    "disciplined",
+    "confident"
+  ],
+  "formality": "medium",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#f4f0e8",
+    "text": "#1a1a1a",
+    "accent": "#d62828",
+    "blue": "#003049",
+    "yellow": "#ffd60a",
+    "paper": "#efe9dc",
+    "description": "warm off-white paper with ink-black rules and Bauhaus primary red, deep blue and yellow blocks"
+  },
+  "typography": {
+    "display": "Inter Tight",
+    "body": "Inter",
+    "style": "tight heavy grotesk headlines over a neutral sans body with wide-tracked uppercase labels"
+  },
+  "best_for": "Design-led talks that want a strong geometric identity: exhibitions, studio reviews, design-history lectures. Works for any content that benefits from big numbers and clear structure.",
+  "avoid_for": "Soft, emotional or luxury storytelling where hard geometry and primary colors feel too loud.",
+  "slide_count": 7,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "Akxan/ppt-agent-skill",
+    "commit": "01825de",
+    "path": "ppt-output/style-gallery/bauhaus_block.html",
+    "license": "MIT"
+  }
+}

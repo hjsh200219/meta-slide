@@ -1,0 +1,49 @@
+{
+  "slug": "hp-theme-magazine-bold",
+  "name": "Theme · Magazine Bold",
+  "tagline": "Cream background, oversized Playfair serif headlines and an orange spot colour",
+  "mood": [
+    "editorial",
+    "dramatic",
+    "bold",
+    "print-like"
+  ],
+  "occasion": [
+    "cover story",
+    "column article",
+    "brand monthly",
+    "keynote storytelling",
+    "culture feature"
+  ],
+  "tone": [
+    "assertive",
+    "stylish",
+    "narrative"
+  ],
+  "formality": "medium",
+  "density": "low",
+  "scheme": "light",
+  "palette": {
+    "bg": "#f5efe2",
+    "text": "#0a0a0a",
+    "accent": "#ea5a1a",
+    "accent2": "#0a0a0a",
+    "surface": "#fbf6e8",
+    "description": "Theme tokens --bg, --text-1, --accent, --accent-2, --surface taken from magazine-bold.css"
+  },
+  "typography": {
+    "display": "Playfair Display",
+    "body": "Inter",
+    "style": "Theme font tokens --font-display / --font-sans"
+  },
+  "best_for": "Statement-driven talks with huge serif headlines in a magazine cover style.",
+  "avoid_for": "Dense technical tables.",
+  "slide_count": 22,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "assets/themes/magazine-bold.css + templates/single-page/*.html (22 layouts)",
+    "license": "MIT"
+  }
+}

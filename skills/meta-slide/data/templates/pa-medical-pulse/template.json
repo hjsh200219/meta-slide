@@ -1,0 +1,52 @@
+{
+  "slug": "pa-medical-pulse",
+  "name": "Medical Pulse",
+  "tagline": "Clean white clinic canvas with teal gradient bar, mint metric cards, ECG line and a red cross accent (extended from a single-slide specimen)",
+  "mood": [
+    "clinical",
+    "trustworthy",
+    "clean",
+    "precise"
+  ],
+  "occasion": [
+    "healthcare product pitch",
+    "clinical study readout",
+    "hospital operations review",
+    "medical device briefing",
+    "health-tech investor update"
+  ],
+  "tone": [
+    "reassuring",
+    "scientific",
+    "modern"
+  ],
+  "formality": "medium-high",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#ffffff",
+    "text": "#0a2540",
+    "accent": "#00b4d8",
+    "accent_2": "#4ecdc4",
+    "accent_3": "#95e1d3",
+    "card": "#f0fdfa",
+    "alert": "#e63946",
+    "description": "white ground, navy text, cyan-to-mint accents, one red alert color"
+  },
+  "typography": {
+    "display": "Inter Tight",
+    "body": "Inter",
+    "mono": "IBM Plex Mono",
+    "style": "tight geometric sans headlines with mono instrument-style labels"
+  },
+  "best_for": "Medical, biotech, wellness and any science-led product where credibility and cleanliness matter. Strong for metric-heavy summaries with four clear numbers.",
+  "avoid_for": "Playful, artistic or luxury topics where the clinical grid would feel cold.",
+  "slide_count": 8,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "Akxan/ppt-agent-skill",
+    "commit": "01825de",
+    "path": "ppt-output/style-gallery/medical_pulse.html",
+    "license": "MIT"
+  }
+}

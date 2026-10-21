@@ -1,0 +1,49 @@
+{
+  "slug": "hd-mono-brand-type-hero",
+  "name": "Mono Brand Type Hero",
+  "tagline": "Saturated streaming-green field with ink-black ultra-heavy Archivo type and a black bottom band carrying a green number. (extended from a single-slide specimen)",
+  "mood": [
+    "loud",
+    "brand-led",
+    "punchy",
+    "youthful"
+  ],
+  "occasion": [
+    "brand year in review",
+    "consumer campaign",
+    "retail or music pitch",
+    "community update",
+    "creative agency pitch"
+  ],
+  "tone": [
+    "energetic",
+    "poster-like",
+    "direct"
+  ],
+  "formality": "low",
+  "density": "medium",
+  "scheme": "mixed",
+  "palette": {
+    "bg": "#1ED760",
+    "text": "#000000",
+    "accent": "#1ED760",
+    "inverse_bg": "#000000",
+    "inverse_text": "#FFFFFF",
+    "description": "one high-saturation green paired with pure black and white, no other hues"
+  },
+  "typography": {
+    "display": "Archivo",
+    "body": "Archivo",
+    "style": "black-weight grotesk set huge with negative tracking, green-on-black number band"
+  },
+  "best_for": "High-energy brand moments and year-in-review decks where a two-word slogan leads. Great for music, retail and campaign stories.",
+  "avoid_for": "Conservative, data-heavy or legal presentations.",
+  "slide_count": 7,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "alchaincyf/huashu-design",
+    "commit": "798c423",
+    "path": "assets/style-specimens/ppt/03-mono-brand-type-hero.html",
+    "license": "MIT"
+  }
+}

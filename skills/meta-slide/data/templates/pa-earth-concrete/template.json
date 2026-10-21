@@ -1,0 +1,49 @@
+{
+  "slug": "pa-earth-concrete",
+  "name": "Earth Concrete",
+  "tagline": "Warm concrete-grey paper with grid, crop marks, mono spec labels and one orange accent on black ink (extended from a single-slide specimen)",
+  "mood": [
+    "industrial",
+    "architectural",
+    "raw",
+    "disciplined"
+  ],
+  "occasion": [
+    "architecture portfolio",
+    "design studio pitch",
+    "construction project review",
+    "industrial product briefing",
+    "gallery or biennale presentation"
+  ],
+  "tone": [
+    "rigorous",
+    "understated",
+    "bold"
+  ],
+  "formality": "medium",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#c4bfb3",
+    "text": "#1a1a1a",
+    "accent": "#ff6b35",
+    "accent_deep": "#d8541f",
+    "paper": "#e8e3d8",
+    "description": "Cement greys with black ink and a single signal-orange accent"
+  },
+  "typography": {
+    "display": "Inter Tight",
+    "body": "Inter",
+    "style": "Heavy tight grotesk headlines, JetBrains Mono spec labels, crop marks and index numbers"
+  },
+  "best_for": "Suits architecture, engineering and studio work that wants a blueprint-like, file-numbered look. Big black type and orange punctuation give strong hierarchy.",
+  "avoid_for": "Avoid for soft, playful or emotional subjects.",
+  "slide_count": 7,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "Akxan/ppt-agent-skill",
+    "commit": "01825de",
+    "path": "ppt-output/style-gallery/earth_concrete.html",
+    "license": "MIT"
+  }
+}

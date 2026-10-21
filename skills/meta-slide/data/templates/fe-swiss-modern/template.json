@@ -1,0 +1,48 @@
+{
+  "slug": "fe-swiss-modern",
+  "name": "Swiss Modern",
+  "tagline": "Pure white grid with a vertical red edge bar, heavy Archivo headings and hairline-boxed cards.",
+  "mood": [
+    "rational",
+    "precise",
+    "minimal",
+    "graphic"
+  ],
+  "occasion": [
+    "technical deep-dive",
+    "architecture review",
+    "design system intro",
+    "engineering all-hands",
+    "consulting readout"
+  ],
+  "tone": [
+    "objective",
+    "disciplined",
+    "clear"
+  ],
+  "formality": "medium-high",
+  "density": "medium-high",
+  "scheme": "light",
+  "palette": {
+    "bg": "#ffffff",
+    "text": "#000000",
+    "accent": "#ff3300",
+    "muted": "#6c6c6c",
+    "description": "White, black, one signal red."
+  },
+  "typography": {
+    "display": "Archivo",
+    "body": "Nunito",
+    "style": "Tight heavy grotesque headings with a soft humanist body."
+  },
+  "best_for": "Structured, information-rich decks where grid and hierarchy carry the message. Good for technical and consulting content.",
+  "avoid_for": "Emotional or highly decorative storytelling.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/Down/Space, scroll-snap sections)",
+  "source": {
+    "repo": "archlizheng/frontend-slides-editable",
+    "commit": "e5663e6",
+    "path": "examples/generated/presets/swiss-modern.html",
+    "license": "MIT"
+  }
+}

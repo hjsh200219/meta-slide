@@ -1,0 +1,50 @@
+{
+  "name": "Paper Diagram",
+  "tagline": "Warm beige paper with dot grid, thick-outlined white diagram cards with hard shadows, vermilion and blue arrows.",
+  "mood": [
+    "handmade",
+    "warm",
+    "explanatory",
+    "playful"
+  ],
+  "occasion": [
+    "science lesson",
+    "how-it-works explainer",
+    "workshop handout deck",
+    "product concept walkthrough",
+    "study group talk"
+  ],
+  "tone": [
+    "curious",
+    "plain-spoken",
+    "friendly"
+  ],
+  "formality": "low",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#f5f0e8",
+    "text": "#1a1410",
+    "accent": "#c8432a",
+    "blue": "#2a5fc8",
+    "amber": "#e8a020",
+    "green": "#2a8c4a",
+    "description": "Warm paper beige with ink text and red and blue paired accents."
+  },
+  "typography": {
+    "display": "Inter",
+    "body": "Inter",
+    "style": "Heavy sans titles over plain sans labels; replaces the original Chinese font."
+  },
+  "best_for": "Explainer decks that compare two forces or ideas with simple diagrams and outlined cards. Gives a sketchbook feel to technical concepts.",
+  "avoid_for": "Polished corporate reporting.",
+  "slide_count": 8,
+  "navigation": "inline keyboard handler (ArrowRight/Space, click, touch); step reveals are shown on slide entry",
+  "slug": "vc-paper-diagram",
+  "source": {
+    "repo": "edu-ai-builders/visual-cognition-slides",
+    "commit": "83fc4b5",
+    "path": "examples/02_physics_v2.html",
+    "license": "MIT"
+  }
+}

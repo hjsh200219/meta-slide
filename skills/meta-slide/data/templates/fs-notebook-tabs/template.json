@@ -1,0 +1,52 @@
+{
+  "tagline": "Cream paper card on charcoal with five pastel index tabs on the right edge, binder holes on the left, Bodoni Moda italics.",
+  "mood": [
+    "editorial",
+    "organized",
+    "elegant",
+    "tactile"
+  ],
+  "occasion": [
+    "workshop handout",
+    "editorial review",
+    "portfolio walkthrough",
+    "curriculum overview",
+    "research notebook"
+  ],
+  "tone": [
+    "literary",
+    "tidy",
+    "analog"
+  ],
+  "formality": "medium",
+  "density": "medium",
+  "scheme": "mixed",
+  "palette": {
+    "bg_outer": "#2d2d2d",
+    "bg_page": "#f8f6f1",
+    "text": "#1a1a1a",
+    "tab_mint": "#98d4bb",
+    "tab_lavender": "#c7b8ea",
+    "tab_pink": "#f4b8c5",
+    "tab_sky": "#a8d8ea",
+    "tab_cream": "#ffe6a7",
+    "description": "cream page on charcoal, five pastel tabs mark the section"
+  },
+  "typography": {
+    "display": "Bodoni Moda",
+    "body": "DM Sans",
+    "style": "classic high-contrast serif over a clean geometric sans"
+  },
+  "best_for": "Material that is organised in sections and benefits from a physical-notebook feel: workshops, curricula, editorial reviews. The active tab tells the audience where they are.",
+  "avoid_for": "Dark-room keynotes or decks with full-bleed imagery; the paper frame uses a lot of the canvas.",
+  "slug": "fs-notebook-tabs",
+  "name": "Notebook Tabs",
+  "slide_count": 10,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "zarazhangrui/frontend-slides",
+    "commit": "9906a34",
+    "path": "STYLE_PRESETS.md",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "slug": "ns-amber-think",
+  "name": "Amber Think",
+  "tagline": "Warm off-white with amber accents, rounded sand cards and calm sans type",
+  "mood": [
+    "warm",
+    "friendly",
+    "thoughtful",
+    "clean"
+  ],
+  "occasion": [
+    "AI product demo",
+    "team update",
+    "research summary",
+    "workshop",
+    "internal strategy"
+  ],
+  "tone": [
+    "approachable",
+    "smart",
+    "calm"
+  ],
+  "formality": "medium",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#faf9f7",
+    "text": "#1a1a1a",
+    "accent": "#d97706",
+    "description": "Light Amber Think palette: #faf9f7 background, #1a1a1a text, #d97706 accent"
+  },
+  "typography": {
+    "display": "DM Sans",
+    "body": "DM Sans",
+    "style": "DM Sans headings over DM Sans body"
+  },
+  "best_for": "Amber Think suits AI product demo and team update. It reads as warm, friendly, thoughtful.",
+  "avoid_for": "Formal regulated or conservative corporate decks.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/claude.html",
+    "license": "MIT"
+  },
+  "renamed_from": "ns-claude"
+}

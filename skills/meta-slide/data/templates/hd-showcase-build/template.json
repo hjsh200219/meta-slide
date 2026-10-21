@@ -1,0 +1,49 @@
+{
+  "slug": "hd-showcase-build",
+  "name": "Build Studio Minimal",
+  "tagline": "Warm off-white canvas, ultra-light Inter numerals with a single gold dot and hairline rules (extended from a single-slide specimen)",
+  "mood": [
+    "quiet",
+    "refined",
+    "airy",
+    "precise"
+  ],
+  "occasion": [
+    "benchmark report",
+    "quarterly business review",
+    "product metrics update",
+    "research summary",
+    "investor update"
+  ],
+  "tone": [
+    "restrained",
+    "analytical",
+    "calm"
+  ],
+  "formality": "medium-high",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#FAFAF8",
+    "text": "#2A2A2A",
+    "accent": "#D4A574",
+    "muted": "#A0A09A",
+    "rule": "#EEECE8",
+    "description": "Warm paper white with charcoal text and one muted gold accent"
+  },
+  "typography": {
+    "display": "Inter",
+    "body": "Inter",
+    "style": "Weight 200 giant numerals and titles, 400 emphasis, small tracked uppercase labels"
+  },
+  "best_for": "Data-first presentations where a few big numbers should breathe on a nearly empty page. Suits calm, premium results reports.",
+  "avoid_for": "Loud, playful or image-heavy pitches.",
+  "slide_count": 7,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "alchaincyf/huashu-design",
+    "commit": "798c423",
+    "path": "assets/showcases/ppt/ppt-build.html",
+    "license": "MIT"
+  }
+}

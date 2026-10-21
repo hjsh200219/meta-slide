@@ -1,0 +1,57 @@
+{
+  "tagline": "Doc-style operating plan: warm off-white page, heavy Inter headlines with tight tracking, pastel-tinted rounded cards, coral circled numbers and Newsreader italic quotes.",
+  "mood": [
+    "calm",
+    "candid",
+    "organized",
+    "warm"
+  ],
+  "occasion": [
+    "operating plan",
+    "quarterly planning review",
+    "team retrospective",
+    "product strategy memo",
+    "internal all-hands"
+  ],
+  "tone": [
+    "plain-spoken",
+    "thoughtful",
+    "collaborative"
+  ],
+  "formality": "medium",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#FFFEFC",
+    "text": "#191919",
+    "accent": "#E8553B",
+    "body": "#5F5E5B",
+    "muted": "#9B9A97",
+    "yellow": "#F8DA7E",
+    "blue": "#8DBDEB",
+    "pink": "#F6C3CF",
+    "green": "#A6D4B2",
+    "tint_yellow": "#FBF3DB",
+    "tint_blue": "#E7F3F8",
+    "tint_pink": "#FAF1F5",
+    "tint_green": "#EDF3EC",
+    "description": "warm paper, ink text, one coral accent, four pastels with paler tints for cards"
+  },
+  "typography": {
+    "display": "Inter",
+    "body": "Inter",
+    "style": "heavy Inter headlines at minus four percent tracking with Newsreader italic reserved for quotes"
+  },
+  "best_for": "Operating plans and team reviews that want the calm of a well-kept notebook. Status words use fixed green, amber and blue; coral marks one thing per slide.",
+  "avoid_for": "Loud launches or dark-room keynotes; the page is deliberately quiet.",
+  "slug": "os-fieldwork",
+  "name": "Fieldwork Notes",
+  "slide_count": 10,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "open-slide/open-slide",
+    "commit": "1f18ab5",
+    "path": "apps/demo/themes/fieldwork.md",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "tagline": "Brand-blue to violet-blue gradient title bar over soft grey pages, white cards with blue top rules and solid blue cards for emphasis, cyan only as a tiny accent.",
+  "mood": [
+    "corporate",
+    "confident",
+    "fresh",
+    "orderly"
+  ],
+  "occasion": [
+    "company-wide update",
+    "external announcement",
+    "formal internal report",
+    "product marketing",
+    "customer briefing"
+  ],
+  "tone": [
+    "professional",
+    "bright",
+    "dependable"
+  ],
+  "formality": "medium-high",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "brand_blue": "#016BFF",
+    "violet_blue": "#565BFF",
+    "cyan": "#2ECCF7",
+    "bg": "#F6F6F6",
+    "white": "#FFFFFF",
+    "text": "#000000",
+    "text_secondary": "#666666",
+    "description": "60 percent blue, 25 percent violet-blue, 15 percent cyan on pale grey"
+  },
+  "typography": {
+    "display": "SF Pro Display",
+    "body": "SF Pro Display",
+    "style": "system grotesque stack, bold blue numerals"
+  },
+  "best_for": "Formal but bright corporate decks: company updates, announcements, customer briefings. The gradient title bar gives every content slide the same header.",
+  "avoid_for": "Creative or moody talks; the palette is deliberately one brand colour family.",
+  "slug": "psg-gradient-blue",
+  "name": "Gradient Title Band",
+  "slide_count": 10,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "vigorX777/ppt-svg-generator",
+    "commit": "c873b61",
+    "path": "styles/05-brand-blue.md",
+    "license": "MIT"
+  }
+}

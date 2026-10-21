@@ -1,0 +1,47 @@
+{
+  "slug": "ns-vintage-poster",
+  "name": "Vintage Poster",
+  "tagline": "Parchment with navy and red travel-poster panels, Alfa Slab titles, badges and sunburst",
+  "mood": [
+    "nostalgic",
+    "bold",
+    "crafted",
+    "poster-like"
+  ],
+  "occasion": [
+    "event or festival deck",
+    "restaurant or brewery brand",
+    "history lecture",
+    "travel story",
+    "heritage product launch"
+  ],
+  "tone": [
+    "charming",
+    "proud",
+    "theatrical"
+  ],
+  "formality": "medium-low",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#f5e6ca",
+    "text": "#2c3e50",
+    "accent": "#c0392b",
+    "description": "Light Vintage Poster palette: #f5e6ca background, #2c3e50 text, #c0392b accent"
+  },
+  "typography": {
+    "display": "Alfa Slab One",
+    "body": "Roboto Condensed",
+    "style": "Alfa Slab One headings over Roboto Condensed body"
+  },
+  "best_for": "Vintage Poster suits event or festival deck and restaurant or brewery brand. It reads as nostalgic, bold, crafted.",
+  "avoid_for": "Formal regulated or conservative corporate decks.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/vintage-poster.html",
+    "license": "MIT"
+  }
+}

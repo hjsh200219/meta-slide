@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Institutional Swiss — Deck Template</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<script src="deck-stage.js"></script>
+<style>
+html,body{margin:0;background:#000}
+deck-stage>section{width:1920px;height:1080px;background:#fff;color:#111;position:relative;overflow:hidden;box-sizing:border-box;font-family:'Inter',sans-serif}
+.c{position:absolute;left:0;top:0;width:1200px;height:675px;transform:scale(1.6);transform-origin:0 0}
+.top{position:absolute;left:0;right:0;top:0;height:192px;border-bottom:1px solid #111}
+.lbl{position:absolute;left:80px;top:40px;font-size:15px;font-weight:600;color:#E5452B;letter-spacing:.08em}
+h1{position:absolute;left:80px;top:68px;margin:0;width:1040px;font-size:38px;font-weight:700;line-height:1.3}
+.cols{position:absolute;left:80px;right:80px;top:236px;display:grid;grid-template-columns:repeat(3,1fr);gap:56px}
+.col{border-top:3px solid #111;padding-top:16px;display:flex;flex-direction:column;height:330px}
+.col.a{border-top-color:#E5452B}
+.col .n{font-size:15px;font-weight:600;color:#6A6A6A;letter-spacing:.08em}
+.col h2{margin:8px 0 18px;font-size:26px;font-weight:700}
+.col p{margin:0 0 12px;font-size:17px;line-height:1.65;color:#333}
+.big{margin-top:auto;font-size:60px;font-weight:700;line-height:1;letter-spacing:-.02em}
+.big small{font-size:16px;font-weight:500;color:#6A6A6A;display:block;margin-top:10px;letter-spacing:0;line-height:1.4}
+.foot{position:absolute;left:80px;right:80px;bottom:30px;display:flex;justify-content:space-between;font-size:15px;color:#6A6A6A}
+/* cover */
+.cv .t{position:absolute;left:80px;top:150px;width:900px;font-size:76px;font-weight:700;line-height:1.1;letter-spacing:-.02em}
+.cv .s{position:absolute;left:80px;top:420px;width:640px;font-size:22px;line-height:1.6;color:#333}
+.cv .bar{position:absolute;left:80px;top:120px;width:120px;border-top:6px solid #E5452B}
+/* agenda */
+.ag{position:absolute;left:80px;right:80px;top:200px}
+.ag .r{display:grid;grid-template-columns:100px 1fr 160px;align-items:baseline;border-top:1px solid #111;padding:20px 0}
+.ag .r:first-child{border-top:3px solid #E5452B}
+.ag .r b{font-size:15px;color:#6A6A6A;letter-spacing:.08em}
+.ag .r span{font-size:30px;font-weight:700}
+.ag .r i{font-style:normal;font-size:15px;color:#6A6A6A;text-align:right}
+/* divider */
+.dv{background:#E5452B;color:#fff}
+.dv .n{position:absolute;left:80px;top:60px;font-size:15px;letter-spacing:.1em;font-weight:600}
+.dv .t{position:absolute;left:80px;top:300px;width:900px;font-size:88px;font-weight:700;line-height:1.05;letter-spacing:-.02em}
+.dv .foot{color:#fff}
+/* metrics */
+.m{position:absolute;left:80px;right:80px;top:244px;display:grid;grid-template-columns:repeat(4,1fr);gap:40px}
+.m div{border-top:3px solid #111;padding-top:14px}
+.m div:first-child{border-top-color:#E5452B}
+.m b{display:block;font-size:64px;line-height:1;letter-spacing:-.02em}
+.m span{display:block;margin-top:12px;font-size:17px;line-height:1.5;color:#333}
+/* compare */
+.cmp{position:absolute;left:80px;right:80px;top:244px;display:grid;grid-template-columns:1fr 1fr;gap:80px}
+.cmp>div{border-top:3px solid #111;padding-top:16px}
+.cmp>div.a{border-top-color:#E5452B}
+.cmp h2{margin:0 0 14px;font-size:26px}
+.cmp ul{list-style:none;margin:0;padding:0}
+.cmp li{border-bottom:1px solid #D9D9D9;padding:12px 0;font-size:19px;line-height:1.5;color:#333}
+/* steps */
+.st{position:absolute;left:80px;right:80px;top:250px;display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.st>div{border-top:3px solid #111;padding:14px 24px 0 0}
+.st>div:first-child{border-top-color:#E5452B}
+.st .n{font-size:15px;font-weight:600;color:#6A6A6A;letter-spacing:.08em}
+.st h3{margin:8px 0 10px;font-size:24px}
+.st p{margin:0;font-size:17px;line-height:1.6;color:#333}
+/* quote */
+.qt{position:absolute;left:80px;top:250px;width:960px;font-size:46px;font-weight:700;line-height:1.3;letter-spacing:-.01em}
+.qt+.qa{position:absolute;left:80px;top:490px;font-size:18px;color:#6A6A6A;border-top:3px solid #E5452B;padding-top:12px;width:240px}
+</style></head><body>
+<deck-stage width="1920" height="1080">
+
+<section data-label="01 Cover"><div class="c cv">
+<div class="lbl" style="top:48px">SURFCAST · SEED ROUND</div>
+<div class="bar"></div>
+<div class="t">One number tells a surfer whether tomorrow is worth the drive</div>
+<div class="s">Investor briefing<br>Spring 2026</div>
+<div class="foot"><span>Surfcast · 2026</span><span>1</span></div>
+</div></section>
+
+<section data-label="02 Three Columns"><div class="c">
+<div class="top"><div class="lbl">SURFCAST · SEED ROUND</div>
+<h1>Surfers guess the surf across five websites before they leave home</h1></div>
+<div class="cols">
+<div class="col a"><div class="n">01</div><h2>Problem</h2><p>Wave height, wind, tide and water temperature live on different sites, in different formats, and often disagree.</p><p>One wrong call costs an early alarm, a two-hour drive and a flat sea.</p><div class="big">47%<small>of surveyed surfers wasted a trip last month</small></div></div>
+<div class="col"><div class="n">02</div><h2>Solution</h2><p>Surfcast answers one question: is this break worth going to at six tomorrow morning.</p><p>We merge six sources into one 0–10 score and show how confident it is.</p><div class="big">0–10<small>one number with a confidence range</small></div></div>
+<div class="col"><div class="n">03</div><h2>Proof</h2><p>A 14-week pilot at three coastal regions shows forecast error falling against on-site readings.</p><div class="big">0.6 m<small>average wave-height error, versus 1.1 m typical</small></div></div>
+</div>
+<div class="foot"><span>Surfcast · 2026</span><span>2</span></div>
+</div></section>
+
+<section data-label="03 Section Divider"><div class="c dv">
+<div class="n">PART 02</div>
+<div class="t">How the score is built</div>
+<div class="foot"><span>Surfcast · 2026</span><span>3</span></div>
+</div></section>
+
+<section data-label="04 Key Metrics"><div class="c">
+<div class="top"><div class="lbl">PILOT RESULTS</div><h1>Fourteen weeks in, the score beats the common forecast on every measure</h1></div>
+<div class="m">
+<div><b>0.6 m</b><span>average wave-height error</span></div>
+<div><b>82%</b><span>of sessions rated as predicted</span></div>
+<div><b>3</b><span>coastal regions in the pilot</span></div>
+<div><b>1,900</b><span>surfers who logged a session</span></div>
+</div>
+<div class="foot"><span>Surfcast · 2026</span><span>4</span></div>
+</div></section>
+
+<section data-label="05 Comparison"><div class="c">
+<div class="top"><div class="lbl">COMPARISON</div><h1>Today's workflow versus one score</h1></div>
+<div class="cmp">
+<div><h2>Five websites</h2><ul><li>Six numbers in six formats</li><li>No sense of confidence</li><li>Ten minutes of checking per trip</li><li>Easy to misread the tide</li></ul></div>
+<div class="a"><h2>Surfcast score</h2><ul><li>One 0–10 number</li><li>Confidence range shown</li><li>Ten seconds to decide</li><li>Tide and wind already combined</li></ul></div>
+</div>
+<div class="foot"><span>Surfcast · 2026</span><span>5</span></div>
+</div></section>
+
+<section data-label="06 Process Steps"><div class="c">
+<div class="top"><div class="lbl">METHOD</div><h1>Four steps from raw feeds to a morning decision</h1></div>
+<div class="st">
+<div><div class="n">01</div><h3>Collect</h3><p>Pull buoy, model, tide and wind feeds every hour.</p></div>
+<div><div class="n">02</div><h3>Align</h3><p>Put every source on one clock and one unit system.</p></div>
+<div><div class="n">03</div><h3>Weigh</h3><p>Trust each source by its recent error at that break.</p></div>
+<div><div class="n">04</div><h3>Score</h3><p>Publish a 0–10 value with a confidence range.</p></div>
+</div>
+<div class="foot"><span>Surfcast · 2026</span><span>6</span></div>
+</div></section>
+
+<section data-label="07 Quote"><div class="c">
+<div class="top"><div class="lbl">FIELD NOTE</div><h1>What a pilot surfer told us</h1></div>
+<div class="qt">“I stopped opening five tabs. I look at one number and I know whether to set the alarm.”</div>
+<div class="qa">Pilot participant</div>
+<div class="foot"><span>Surfcast · 2026</span><span>7</span></div>
+</div></section>
+
+<section data-label="08 Closing"><div class="c cv">
+<div class="lbl" style="top:48px">NEXT STEP</div>
+<div class="bar"></div>
+<div class="t">Thank you</div>
+<div class="s">Questions and discussion<br>hello@example.com</div>
+<div class="foot"><span>Surfcast · 2026</span><span>8</span></div>
+</div></section>
+
+</deck-stage>
+</body></html>

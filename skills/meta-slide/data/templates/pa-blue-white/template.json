@@ -1,0 +1,51 @@
+{
+  "slug": "pa-blue-white",
+  "name": "Blue White",
+  "tagline": "Clean white-to-ice gradient with a single electric blue accent, Inter Tight headlines, Instrument Serif italics and hairline frame corners (extended from a single-slide specimen)",
+  "mood": [
+    "clean",
+    "trustworthy",
+    "precise",
+    "enterprise"
+  ],
+  "occasion": [
+    "enterprise product pitch",
+    "SaaS sales deck",
+    "compliance or quality briefing",
+    "quarterly business review",
+    "investor update"
+  ],
+  "tone": [
+    "professional",
+    "calm",
+    "confident"
+  ],
+  "formality": "medium-high",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#ffffff",
+    "bg_tint": "#f6f8fb",
+    "text": "#0a1d3a",
+    "text_secondary": "#64748b",
+    "accent": "#2563EB",
+    "accent_deep": "#1D4ED8",
+    "description": "white to pale blue-grey ground, deep navy text and one saturated blue accent with soft glows"
+  },
+  "typography": {
+    "display": "Inter Tight",
+    "body": "Inter",
+    "serif_italic": "Instrument Serif",
+    "style": "tight bold grotesk headlines with Instrument Serif italic emphasis words and a quiet Inter body"
+  },
+  "best_for": "Enterprise and B2B decks that need to feel precise and credible: product pitches, compliance and quality reviews, business reviews. Italic serif emphasis words give a touch of editorial polish.",
+  "avoid_for": "Playful, emotional or dark cinematic stories where a clinical white look feels cold.",
+  "slide_count": 7,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "Akxan/ppt-agent-skill",
+    "commit": "01825de",
+    "path": "ppt-output/style-gallery/blue_white.html",
+    "license": "MIT"
+  }
+}

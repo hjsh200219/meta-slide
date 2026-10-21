@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Black Big Number Stage — Deck Template</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<script src="deck-stage.js"></script>
+<style>
+html,body{margin:0;background:#000}
+body{font-family:Inter,sans-serif;color:#fff}
+deck-stage>section{width:1920px;height:1080px;background:#000;position:relative;overflow:hidden;box-sizing:border-box}
+.blue{color:#2997FF}
+.gray{color:#a1a1a6}
+.foot{position:absolute;left:96px;right:96px;bottom:58px;display:flex;justify-content:space-between;font:400 24px Inter,sans-serif;color:#86868b;letter-spacing:.08em}
+.n{position:absolute;left:0;right:0;text-align:center;font:800 576px/1 Inter,sans-serif;letter-spacing:-.07em;font-variant-numeric:tabular-nums}
+.n .u2{font:800 208px Inter,sans-serif;letter-spacing:0;margin-left:22px}
+.u{position:absolute;left:0;right:0;text-align:center;font:700 70px Inter,sans-serif;letter-spacing:.02em}
+.note{position:absolute;left:0;right:0;text-align:center;font:400 36px Inter,sans-serif;color:#a1a1a6}
+.h{position:absolute;left:96px;right:96px;top:120px;font:800 110px/1.05 Inter,sans-serif;letter-spacing:-.04em}
+.eyebrow{position:absolute;left:96px;top:70px;font:600 26px Inter,sans-serif;letter-spacing:.2em;color:#2997FF}
+
+.list{position:absolute;left:96px;right:96px;top:290px}
+.li{display:flex;align-items:baseline;gap:60px;padding:36px 0;border-bottom:2px solid #1d1d1f}
+.li span{font:800 54px Inter,sans-serif;color:#2997FF;font-variant-numeric:tabular-nums;width:90px}
+.li b{font:700 78px Inter,sans-serif;letter-spacing:-.02em}
+.li em{margin-left:auto;font:400 32px Inter,sans-serif;font-style:normal;color:#a1a1a6}
+
+.tri{position:absolute;left:96px;right:96px;top:400px;display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.tri>div{text-align:center;padding:40px 20px;border-top:2px solid #333}
+.tri .v{font:800 220px/1 Inter,sans-serif;letter-spacing:-.06em;font-variant-numeric:tabular-nums}
+.tri .v small{font-size:80px;letter-spacing:0}
+.tri b{display:block;margin-top:24px;font:700 44px Inter,sans-serif}
+.tri p{margin:12px 0 0;font:400 30px/1.4 Inter,sans-serif;color:#a1a1a6}
+
+.cmp{position:absolute;left:0;right:0;top:240px;display:flex;justify-content:center;align-items:center;gap:120px}
+.cmp .v{font:800 400px/1 Inter,sans-serif;letter-spacing:-.07em;font-variant-numeric:tabular-nums}
+.cmp .v small{font-size:130px;letter-spacing:0;margin-left:10px}
+.cmp .a{color:#424245}
+.cmp .ar{font:800 150px Inter,sans-serif;color:#2997FF}
+.cap{position:absolute;left:0;right:0;top:700px;display:flex;justify-content:center;gap:560px;font:600 36px Inter,sans-serif;color:#a1a1a6;letter-spacing:.04em}
+
+.q{position:absolute;left:200px;right:200px;top:230px;text-align:center;font:800 120px/1.12 Inter,sans-serif;letter-spacing:-.04em}
+.by{position:absolute;left:0;right:0;top:760px;text-align:center;font:400 34px Inter,sans-serif;color:#a1a1a6}
+</style>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+
+<section data-label="01 Cover">
+  <div class="eyebrow">TOWN HALL · 2026</div>
+  <div class="u" style="top:300px;font-size:200px;font-weight:800;letter-spacing:-.05em;line-height:1">Faster<span class="blue">.</span></div>
+  <div class="u" style="top:520px;font-size:200px;font-weight:800;letter-spacing:-.05em;line-height:1;color:#424245">Then faster<span class="blue">.</span></div>
+  <div class="note" style="top:800px">The new camera, one year of work.</div>
+  <div class="foot"><span>TOWN HALL · 2026</span><span>01</span></div>
+</section>
+
+<section data-label="02 Agenda">
+  <div class="eyebrow">TODAY</div>
+  <div class="h">Four things.<br><span class="gray">Ten minutes.</span></div>
+  <div class="list" style="top:450px">
+    <div class="li"><span>01</span><b>The one number</b><em>Shutter to photo</em></div>
+    <div class="li"><span>02</span><b>How we got there</b><em>Three changes</em></div>
+    <div class="li"><span>03</span><b>What you will notice</b><em>Daily use</em></div>
+  </div>
+  <div class="foot"><span>TOWN HALL · 2026</span><span>02</span></div>
+</section>
+
+<section data-label="03 Big Number">
+  <div class="n" style="top:170px">1<span class="blue">.</span>9<span class="u2">s</span></div>
+  <div class="u" style="top:780px">From pressing the shutter to a finished photo</div>
+  <div class="note" style="top:880px">The previous generation took 4.7 seconds.</div>
+  <div class="foot"><span>TOWN HALL · 2026</span><span>03</span></div>
+</section>
+
+<section data-label="04 Three Changes">
+  <div class="eyebrow">HOW</div>
+  <div class="h">Three changes<br><span class="gray">made the second.</span></div>
+  <div class="tri">
+    <div><div class="v blue">1</div><b>Capture in parallel</b><p>Sensor readout and processing now overlap.</p></div>
+    <div><div class="v">2</div><b>Smaller models</b><p>The enhancement step runs on-device.</p></div>
+    <div><div class="v">3</div><b>Faster storage</b><p>Write finishes before you lower the camera.</p></div>
+  </div>
+  <div class="foot"><span>TOWN HALL · 2026</span><span>04</span></div>
+</section>
+
+<section data-label="05 Before After">
+  <div class="cmp">
+    <div class="v a">4.7<small>s</small></div>
+    <div class="ar">→</div>
+    <div class="v">1<span class="blue">.</span>9<small>s</small></div>
+  </div>
+  <div class="cap"><span>LAST GENERATION</span><span class="blue">THIS GENERATION</span></div>
+  <div class="foot"><span>TOWN HALL · 2026</span><span>05</span></div>
+</section>
+
+<section data-label="06 Three Numbers">
+  <div class="eyebrow">BESIDE THE HEADLINE</div>
+  <div class="h">The rest of the year,<br><span class="gray">in three numbers.</span></div>
+  <div class="tri">
+    <div><div class="v blue">62<small>%</small></div><b>Less waiting</b><p>Average idle time between shots</p></div>
+    <div><div class="v">3<small>x</small></div><b>Longer bursts</b><p>Frames per second held for a full minute</p></div>
+    <div><div class="v">0</div><b>Spinners</b><p>Not one loading indicator left</p></div>
+  </div>
+  <div class="foot"><span>TOWN HALL · 2026</span><span>06</span></div>
+</section>
+
+<section data-label="07 Quote">
+  <div class="q">“It stopped feeling like a computer<span class="blue">.</span> It just feels like a camera<span class="blue">.</span>”</div>
+  <div class="by">Beta tester, week six</div>
+  <div class="foot"><span>TOWN HALL · 2026</span><span>07</span></div>
+</section>
+
+<section data-label="08 Closing">
+  <div class="u" style="top:330px;font-size:240px;font-weight:800;letter-spacing:-.05em;line-height:1">Thank you<span class="blue">.</span></div>
+  <div class="note" style="top:700px">Questions after the break.</div>
+  <div class="foot"><span>TOWN HALL · 2026</span><span>08</span></div>
+</section>
+
+</deck-stage>
+</body>
+</html>

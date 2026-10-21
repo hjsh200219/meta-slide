@@ -1,0 +1,49 @@
+{
+  "slug": "hp-theme-academic-paper",
+  "name": "Theme · Academic Paper",
+  "tagline": "Paper white with serif body text, black ink and blue links like a journal page",
+  "mood": [
+    "scholarly",
+    "plain",
+    "serif",
+    "rigorous"
+  ],
+  "occasion": [
+    "research talk",
+    "conference paper presentation",
+    "thesis defense",
+    "lab meeting",
+    "literature review"
+  ],
+  "tone": [
+    "rigorous",
+    "objective",
+    "measured"
+  ],
+  "formality": "high",
+  "density": "medium-high",
+  "scheme": "light",
+  "palette": {
+    "bg": "#fdfcf8",
+    "text": "#0a0a0a",
+    "accent": "#1a3a7a",
+    "accent2": "#0a0a0a",
+    "surface": "#ffffff",
+    "description": "Theme tokens --bg, --text-1, --accent, --accent-2, --surface taken from academic-paper.css"
+  },
+  "typography": {
+    "display": "Latin Modern Roman",
+    "body": "Latin Modern Roman",
+    "style": "Theme font tokens --font-display / --font-sans"
+  },
+  "best_for": "Academic and research presentations that should look like a typeset paper. Fits citation-heavy, text-forward talks.",
+  "avoid_for": "Flashy product launches.",
+  "slide_count": 22,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "assets/themes/academic-paper.css + templates/single-page/*.html (22 layouts)",
+    "license": "MIT"
+  }
+}

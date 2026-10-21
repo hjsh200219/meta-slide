@@ -1,0 +1,47 @@
+{
+  "slug": "ns-scrapbook-portfolio",
+  "name": "Scrapbook Portfolio",
+  "tagline": "Stone-gray pages with italic Playfair titles, polaroid photos, tags and taped book covers",
+  "mood": [
+    "crafty",
+    "personal",
+    "curated",
+    "editorial"
+  ],
+  "occasion": [
+    "designer portfolio",
+    "case study walkthrough",
+    "photography story",
+    "creative resume",
+    "project retrospective"
+  ],
+  "tone": [
+    "personal",
+    "reflective",
+    "artistic"
+  ],
+  "formality": "medium-low",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#e8e4de",
+    "text": "#111111",
+    "accent": "#dcd2b4",
+    "description": "Light Scrapbook Portfolio palette: #e8e4de background, #111111 text, #dcd2b4 accent"
+  },
+  "typography": {
+    "display": "Playfair Display",
+    "body": "Space Grotesk",
+    "style": "Playfair Display headings over Space Grotesk body"
+  },
+  "best_for": "Scrapbook Portfolio suits designer portfolio and case study walkthrough. It reads as crafty, personal, curated.",
+  "avoid_for": "Formal regulated or conservative corporate decks.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/scrapbook-portfolio.html",
+    "license": "MIT"
+  }
+}

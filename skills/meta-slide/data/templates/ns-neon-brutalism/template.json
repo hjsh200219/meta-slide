@@ -1,0 +1,47 @@
+{
+  "slug": "ns-neon-brutalism",
+  "name": "Neon Brutalism",
+  "tagline": "Midnight blue with glitchy neon green, magenta and cyan type, hard borders and a magenta shard slide",
+  "mood": [
+    "raw",
+    "glitchy",
+    "loud",
+    "hacker"
+  ],
+  "occasion": [
+    "hackathon pitch",
+    "crypto or web3 talk",
+    "underground event",
+    "gaming brand",
+    "rebellious keynote"
+  ],
+  "tone": [
+    "aggressive",
+    "edgy",
+    "playful"
+  ],
+  "formality": "low",
+  "density": "medium",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#0a0e27",
+    "text": "#ffffff",
+    "accent": "#00ff41",
+    "description": "Dark Neon Brutalism palette: #0a0e27 background, #ffffff text, #00ff41 accent"
+  },
+  "typography": {
+    "display": "Space Mono",
+    "body": "Inter",
+    "style": "Space Mono headings over Inter body"
+  },
+  "best_for": "Neon Brutalism suits hackathon pitch and crypto or web3 talk. It reads as raw, glitchy, loud.",
+  "avoid_for": "Formal regulated or conservative corporate decks.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/neon-brutalism.html",
+    "license": "MIT"
+  }
+}

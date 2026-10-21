@@ -1,0 +1,31 @@
+{
+  "slug": "pa-vibrant-rainbow",
+  "name": "Vibrant Rainbow",
+  "tagline": "Full-bleed pink, violet, blue and teal gradient with glossy glass orbs, frosted-glass cards and tight Inter Tight headlines with Instrument Serif italic accents (extended from a single-slide specimen)",
+  "mood": ["vibrant", "optimistic", "glossy", "energetic", "modern"],
+  "occasion": ["product launch keynote", "fintech or SaaS pitch", "developer conference talk", "brand campaign kickoff", "startup demo day"],
+  "tone": ["bold", "confident", "friendly"],
+  "formality": "medium-low",
+  "density": "medium",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#b266ff",
+    "text": "#ffffff",
+    "accent": "#ffd16b",
+    "pink": "#ff5b9d",
+    "blue": "#4a8cff",
+    "teal": "#00d8d4",
+    "description": "diagonal pink-to-teal rainbow gradient with white text, amber highlights and translucent glass panels"
+  },
+  "typography": {
+    "display": "Inter Tight",
+    "body": "Inter",
+    "accent": "Instrument Serif",
+    "style": "tight heavy grotesque headlines with elegant serif italic emphasis words and clean sans body"
+  },
+  "best_for": "Energetic launches and keynote openers that should feel premium and optimistic: fintech, SaaS and creator products. Glass cards make metrics and feature steps pop.",
+  "avoid_for": "Serious legal, medical or academic material where a colorful gradient would undercut credibility.",
+  "slide_count": 8,
+  "navigation": "deck-stage runtime",
+  "source": {"repo": "Akxan/ppt-agent-skill", "commit": "01825de", "path": "ppt-output/style-gallery/vibrant_rainbow.html", "license": "MIT"}
+}

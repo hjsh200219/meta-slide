@@ -1,0 +1,49 @@
+{
+  "slug": "hp-xhs-pastel-card",
+  "name": "Pastel Macaron Cards",
+  "tagline": "Warm cream with soft blurred blobs, Playfair italic accents and solid macaron-coloured cards",
+  "mood": [
+    "soft",
+    "gentle",
+    "magazine-like",
+    "handmade"
+  ],
+  "occasion": [
+    "lifestyle talk",
+    "personal growth sharing",
+    "wellbeing workshop",
+    "light brand story",
+    "creative portfolio intro"
+  ],
+  "tone": [
+    "tender",
+    "relaxed",
+    "personal"
+  ],
+  "formality": "low",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#fef8f1",
+    "text": "#2a2340",
+    "accent": "#f48b5c",
+    "accent2": "#7b5dc4",
+    "surface": "#ffd8c2",
+    "description": "Cream background, plum ink, peach, mint, sky, lilac, lemon and rose cards"
+  },
+  "typography": {
+    "display": "Playfair Display",
+    "body": "Inter",
+    "style": "Serif italic accent words over sans body"
+  },
+  "best_for": "Slow, gentle or lifestyle topics that want an editorial, handcrafted look rather than a techy one.",
+  "avoid_for": "Technical benchmarks or serious compliance topics.",
+  "slide_count": 8,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "templates/full-decks/xhs-pastel-card",
+    "license": "MIT"
+  }
+}

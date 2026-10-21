@@ -1,0 +1,18 @@
+{
+  "slug": "hd-y2k-inflated-wrapped",
+  "name": "Y2K Inflated Wrapped",
+  "tagline": "Hot-pink, cyan and orange blocks with a giant yellow extruded 3D number and black pill tags, Spotify-Wrapped-style (extended from a single-slide specimen)",
+  "mood": ["loud", "playful", "nostalgic", "energetic", "pop"],
+  "occasion": ["year-in-review recap", "consumer app wrapped report", "campaign launch", "community event", "student club presentation"],
+  "tone": ["celebratory", "cheeky", "social-first"],
+  "formality": "low",
+  "density": "low",
+  "scheme": "mixed",
+  "palette": {"bg": "#FF2E93", "text": "#FFFFFF", "accent": "#FFE600", "cyan": "#00D9E8", "orange": "#FF8A00", "blue": "#2B1BFF", "ink": "#000000", "description": "Hot pink ground with cyan wedge, orange footer band, yellow extruded numerals and black tags"},
+  "typography": {"display": "Archivo Black", "body": "Archivo", "style": "Inflated heavy grotesque numerals with condensed Anton headlines and bold Archivo captions"},
+  "best_for": "Single-number-hero recaps and playful year-in-review stories where one big figure carries the slide. Great for consumer, youth and social audiences.",
+  "avoid_for": "Serious financial, legal or clinical reporting that needs a sober tone.",
+  "slide_count": 7,
+  "navigation": "deck-stage runtime",
+  "source": {"repo": "alchaincyf/huashu-design", "commit": "798c423", "path": "assets/style-specimens/ppt/08-y2k-inflated-wrapped.html", "license": "MIT"}
+}

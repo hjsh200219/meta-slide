@@ -1,0 +1,49 @@
+{
+  "slug": "hp-product-launch",
+  "name": "Orange Product Launch",
+  "tagline": "Dark hero slides mixed with light detail slides, warm orange-to-peach gradient accent",
+  "mood": [
+    "bold",
+    "tactile",
+    "confident",
+    "human"
+  ],
+  "occasion": [
+    "consumer product launch",
+    "version announcement",
+    "all-hands reveal",
+    "pricing presentation",
+    "press briefing"
+  ],
+  "tone": [
+    "exciting",
+    "polished",
+    "warm"
+  ],
+  "formality": "medium",
+  "density": "low",
+  "scheme": "mixed",
+  "palette": {
+    "bg": "#ffffff",
+    "text": "#0a0a12",
+    "accent": "#ff5a36",
+    "accent2": "#ff8c5a",
+    "surface": "#ffffff",
+    "description": "White and near-black with a vivid orange to peach gradient"
+  },
+  "typography": {
+    "display": "Playfair Display",
+    "body": "Inter",
+    "style": "Serif hero headlines over clean sans body"
+  },
+  "best_for": "Announcing a product with show-off dark hero moments and light feature and pricing slides. Apple-event feel on a budget.",
+  "avoid_for": "Dense technical documentation.",
+  "slide_count": 8,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "templates/full-decks/product-launch",
+    "license": "MIT"
+  }
+}

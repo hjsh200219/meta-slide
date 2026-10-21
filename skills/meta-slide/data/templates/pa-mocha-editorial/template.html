@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Mocha Editorial — Deck Template</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script src="deck-stage.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=Instrument+Serif:ital@0;1&family=Fraunces:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+  :root{
+    --bg:#f3ebde; --bg-warm:#ede2d0; --ink-primary:#2a1810; --ink-deep:#1f1410; --ink-secondary:#4a3a30;
+    --ink-label:#8b5a3c; --accent:#c1502e; --rule:rgba(42,24,16,.12);
+    --display-font:'Source Serif 4','Tiempos Text','Iowan Old Style',Georgia,serif;
+    --italic-font:'Instrument Serif','Fraunces','Source Serif 4',Georgia,serif;
+    --body-font:'Source Serif 4','Iowan Old Style',Georgia,serif;
+    --label-font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --mono-font:'JetBrains Mono','DM Mono','Courier New',monospace;
+    --drop-font:'Fraunces','Source Serif 4',Georgia,serif;
+  }
+  html,body{margin:0;padding:0;background:#000}
+  deck-stage > section{
+    width:1920px;height:1080px;position:relative;overflow:hidden;box-sizing:border-box;
+    background:var(--bg);color:var(--ink-primary);font-family:var(--body-font);
+    font-feature-settings:'kern','liga','onum','ss01';text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;
+  }
+  section *{margin:0;padding:0;box-sizing:border-box}
+  .grain{position:absolute;inset:0;background-image:radial-gradient(circle at 18% 22%,rgba(193,80,46,.04) 0%,transparent 38%),radial-gradient(circle at 88% 78%,rgba(139,90,60,.05) 0%,transparent 42%);z-index:1}
+  .fl{position:absolute;left:120px;right:120px;height:1px;background:var(--rule);z-index:2}
+  .fl.t{top:54px}.fl.b{bottom:54px}
+  .mast{position:absolute;top:75px;left:120px;right:120px;display:flex;justify-content:space-between;align-items:center;z-index:3;font-family:var(--label-font);font-size:17px;color:var(--ink-secondary);letter-spacing:.22em;text-transform:uppercase;font-weight:500}
+  .mast .brand{font-family:var(--display-font);font-style:italic;font-size:24px;letter-spacing:.01em;text-transform:none;color:var(--ink-primary);font-weight:400}
+  .mast .bm{display:flex;gap:42px;align-items:center}
+  .stage{position:relative;z-index:2;width:100%;height:100%;padding:195px 120px 130px;display:grid;grid-template-columns:1fr 1.5fr;gap:90px}
+  .full{position:relative;z-index:2;width:100%;height:100%;padding:195px 120px 130px;display:flex;flex-direction:column}
+  .col-left{display:flex;flex-direction:column}
+  .rule-a{width:36px;height:2px;background:var(--accent);margin-bottom:27px}
+  .label{font-family:var(--label-font);font-size:18px;color:var(--ink-label);font-weight:600;letter-spacing:.25em;text-transform:uppercase;margin-bottom:54px}
+  .headline{font-family:var(--display-font);font-size:104px;font-weight:500;color:var(--ink-deep);line-height:1.04;letter-spacing:-.025em}
+  .headline.m{font-size:88px}
+  .headline em{font-family:var(--italic-font);font-style:italic;font-weight:400;color:var(--accent);letter-spacing:-.015em;padding-right:3px}
+  .byline{margin-top:66px;display:flex;align-items:center;gap:21px;font-family:var(--label-font);font-size:17px;color:var(--ink-secondary);letter-spacing:.18em;text-transform:uppercase;font-weight:500}
+  .byline .dash{width:27px;height:1px;background:var(--ink-secondary);opacity:.5}
+  .col-right{padding-top:195px;display:flex;flex-direction:column}
+  .essay{font-size:32px;line-height:1.7;text-align:justify;hyphens:auto;max-width:960px}
+  .essay::first-letter{float:left;font-family:var(--drop-font);font-size:120px;line-height:.85;padding:9px 15px 0 0;font-weight:600;color:var(--ink-deep)}
+  .essay em,.em{font-family:var(--italic-font);font-style:italic;color:var(--accent);font-weight:400;letter-spacing:-.005em}
+  .essay em{font-size:34px}
+  .essay .num{font-variant-numeric:tabular-nums oldstyle-nums;font-weight:600}
+  .meta-row{margin-top:57px;display:flex;align-items:center;gap:24px;font-family:var(--label-font);font-size:17px;color:var(--ink-deep);letter-spacing:.22em;text-transform:uppercase;font-weight:600}
+  .meta-row .sep{width:6px;height:6px;border-radius:50%;background:var(--ink-label);opacity:.6}
+  .meta-row .cta{color:var(--accent);display:inline-flex;align-items:center;gap:12px}
+  .pull-quote{margin-top:45px;padding-left:27px;border-left:2px solid var(--accent);font-family:var(--italic-font);font-style:italic;font-size:32px;line-height:1.5;color:var(--ink-secondary);max-width:760px}
+  .folio{position:absolute;bottom:90px;right:120px;font-family:var(--mono-font);font-size:17px;color:var(--ink-label);letter-spacing:.08em;z-index:3}
+  .left-foot{position:absolute;bottom:90px;left:120px;font-family:var(--label-font);font-size:16px;color:var(--ink-secondary);letter-spacing:.28em;text-transform:uppercase;font-weight:500;opacity:.7;z-index:3;display:flex;align-items:center;gap:18px}
+  .left-foot .glyph{font-family:var(--display-font);font-style:italic;font-size:20px;letter-spacing:0;color:var(--ink-label);text-transform:none;opacity:1}
+  .toc{margin-top:48px;border-top:1px solid var(--rule);max-width:1500px}
+  .toc .it{display:grid;grid-template-columns:120px 1fr auto;align-items:baseline;padding:30px 0;border-bottom:1px solid var(--rule)}
+  .toc .n{font-family:var(--italic-font);font-style:italic;font-size:48px;color:var(--accent)}
+  .toc .t{font-family:var(--display-font);font-size:50px;font-weight:500;letter-spacing:-.02em;color:var(--ink-deep)}
+  .toc .p{font-family:var(--mono-font);font-size:20px;color:var(--ink-label)}
+  .bignum{font-family:var(--italic-font);font-style:italic;font-weight:400;font-size:560px;line-height:.8;color:var(--accent);letter-spacing:-.04em}
+  .notes{display:grid;grid-template-columns:repeat(3,1fr);gap:72px;margin-top:66px;padding-top:42px;border-top:1px solid var(--rule)}
+  .note .k{font-family:var(--label-font);font-size:17px;letter-spacing:.25em;text-transform:uppercase;color:var(--ink-label);font-weight:600;margin-bottom:21px}
+  .note h3{font-family:var(--display-font);font-weight:500;font-size:54px;line-height:1.08;letter-spacing:-.02em;color:var(--ink-deep);margin-bottom:21px}
+  .note h3 em{font-family:var(--italic-font);font-style:italic;color:var(--accent);font-weight:400}
+  .note p{font-size:28px;line-height:1.6;color:var(--ink-secondary)}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);margin-top:66px;border-top:1px solid var(--ink-deep)}
+  .st{padding:42px 48px 0;border-left:1px solid var(--rule)}.st:first-child{border-left:none;padding-left:0}
+  .st .v{font-family:var(--display-font);font-weight:500;font-size:190px;letter-spacing:-.045em;line-height:1;color:var(--ink-deep)}
+  .st .v em{font-family:var(--italic-font);font-style:italic;color:var(--accent);font-weight:400}
+  .st .k{font-family:var(--label-font);font-size:17px;letter-spacing:.25em;text-transform:uppercase;color:var(--ink-label);font-weight:600;margin-top:21px}
+  .st .d{font-size:28px;line-height:1.55;color:var(--ink-secondary);margin-top:15px}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:96px;margin-top:60px;flex:1}
+  .side{border-top:2px solid var(--ink-deep);padding-top:30px}.side.b{border-top-color:var(--accent)}
+  .side h3{font-family:var(--display-font);font-weight:500;font-size:66px;letter-spacing:-.025em;line-height:1.05;color:var(--ink-deep);margin-bottom:27px}
+  .side h3 em{font-family:var(--italic-font);font-style:italic;color:var(--accent);font-weight:400}
+  .side ul{list-style:none}
+  .side li{font-size:32px;line-height:1.5;padding:21px 0;border-bottom:1px solid var(--rule)}
+  .side .tg{font-family:var(--label-font);font-size:17px;letter-spacing:.25em;text-transform:uppercase;color:var(--ink-label);font-weight:600;margin-bottom:15px}
+  .qwrap{flex:1;display:flex;flex-direction:column;justify-content:center;gap:45px;max-width:1500px}
+  .q{font-family:var(--italic-font);font-style:italic;font-weight:400;font-size:128px;line-height:1.08;letter-spacing:-.02em;color:var(--ink-deep)}
+  .q em{color:var(--accent)}
+</style>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+
+<section data-label="01 Cover">
+  <div class="grain"></div><div class="fl t"></div><div class="fl b"></div>
+
+  <div class="mast"><div class="bm"><span class="brand">Mocha Review</span><span>VOL. XII</span></div><div class="bm"><span>ALIGNMENT</span><span>INTERPRETABILITY</span><span>MAY 2026</span></div></div>
+  <div class="stage">
+    <div class="col-left">
+      <div class="rule-a"></div><div class="label">Research Paper · 2026</div>
+      <h1 class="headline">Models that <em>think</em><br>before they<br>speak.</h1>
+      <div class="byline"><span class="dash"></span><span>An Essay on Latent Deliberation</span></div>
+    </div>
+    <div class="col-right">
+      <p class="essay">Extended reasoning (<em>extended reasoning</em>) lets a language model deliberate internally over many rounds before it produces an answer. This study shows how a <span class="num">4.7×</span> gain in reasoning depth translates into a markedly lower hallucination rate and stronger <em>alignability</em> in high-stakes deployments.</p>
+      <div class="pull-quote">“ The space between question and answer is where alignment lives. ”</div>
+      <div class="meta-row"><span>By Research Team</span><span class="sep"></span><span class="cta">Continue Reading <span>→</span></span></div>
+    </div>
+  </div>
+  <div class="left-foot"><span class="glyph">M.R.</span><span>Editorial · Long Form</span></div><div class="folio">§ 01</div>
+</section>
+
+<section data-label="02 Contents">
+  <div class="grain"></div><div class="fl t"></div><div class="fl b"></div>
+
+  <div class="mast"><div class="bm"><span class="brand">Mocha Review</span><span>VOL. XII</span></div><div class="bm"><span>CONTENTS</span><span>MAY 2026</span></div></div>
+  <div class="full">
+    <div class="rule-a"></div><div class="label" style="margin-bottom:30px">In this essay</div>
+    <h2 class="headline m">Four <em>movements</em></h2>
+    <div class="toc">
+      <div class="it"><span class="n">i.</span><span class="t">The question before the answer</span><span class="p">§ 02</span></div>
+      <div class="it"><span class="n">ii.</span><span class="t">What deliberation changes</span><span class="p">§ 04</span></div>
+      <div class="it"><span class="n">iii.</span><span class="t">Measured effects</span><span class="p">§ 05</span></div>
+      <div class="it"><span class="n">iv.</span><span class="t">Before and after</span><span class="p">§ 06</span></div>
+    </div>
+  </div>
+  <div class="left-foot"><span class="glyph">M.R.</span><span>Contents</span></div><div class="folio">§ 02</div>
+</section>
+
+<section data-label="03 Section Divider">
+  <div class="grain"></div><div class="fl t"></div><div class="fl b"></div>
+
+  <div class="mast"><div class="bm"><span class="brand">Mocha Review</span><span>VOL. XII</span></div><div class="bm"><span>PART ONE</span><span>MAY 2026</span></div></div>
+  <div class="full" style="flex-direction:row;align-items:center;gap:120px;padding-top:150px">
+    <div class="bignum">i</div>
+    <div><div class="rule-a"></div><div class="label" style="margin-bottom:30px">Part One</div><h2 class="headline">The question<br>before the <em>answer</em></h2><div class="byline" style="margin-top:42px"><span class="dash"></span><span>On latent deliberation</span></div></div>
+  </div>
+  <div class="left-foot"><span class="glyph">M.R.</span><span>Part One</span></div><div class="folio">§ 03</div>
+</section>
+
+<section data-label="04 Three Notes">
+  <div class="grain"></div><div class="fl t"></div><div class="fl b"></div>
+
+  <div class="mast"><div class="bm"><span class="brand">Mocha Review</span><span>VOL. XII</span></div><div class="bm"><span>PART TWO</span><span>MAY 2026</span></div></div>
+  <div class="full">
+    <div class="rule-a"></div><div class="label" style="margin-bottom:30px">ii. What deliberation changes</div>
+    <h2 class="headline m">Three things the model <em>does</em> differently</h2>
+    <div class="notes">
+      <div class="note"><div class="k">Note 01</div><h3>It <em>drafts</em> first</h3><p>Candidate answers are produced and compared internally before any is committed to the reader.</p></div>
+      <div class="note"><div class="k">Note 02</div><h3>It <em>checks</em> itself</h3><p>Claims are traced back to their premises, and weak links are flagged instead of smoothed over.</p></div>
+      <div class="note"><div class="k">Note 03</div><h3>It <em>declines</em> well</h3><p>When the evidence is thin, the model says so plainly rather than inventing a confident answer.</p></div>
+    </div>
+  </div>
+  <div class="left-foot"><span class="glyph">M.R.</span><span>Editorial · Long Form</span></div><div class="folio">§ 04</div>
+</section>
+
+<section data-label="05 Key Numbers">
+  <div class="grain"></div><div class="fl t"></div><div class="fl b"></div>
+
+  <div class="mast"><div class="bm"><span class="brand">Mocha Review</span><span>VOL. XII</span></div><div class="bm"><span>PART THREE</span><span>MAY 2026</span></div></div>
+  <div class="full">
+    <div class="rule-a"></div><div class="label" style="margin-bottom:30px">iii. Measured effects</div>
+    <h2 class="headline m">What <em>extra</em> thinking buys</h2>
+    <div class="stats">
+      <div class="st"><div class="v">4.7<em>×</em></div><div class="k">Reasoning depth</div><div class="d">Average internal deliberation steps versus the baseline.</div></div>
+      <div class="st"><div class="v">−38<em>%</em></div><div class="k">Hallucination rate</div><div class="d">Fewer unsupported claims on the held-out evaluation set.</div></div>
+      <div class="st"><div class="v">92<em>%</em></div><div class="k">Alignment pass</div><div class="d">High-stakes scenarios handled within policy.</div></div>
+    </div>
+  </div>
+  <div class="left-foot"><span class="glyph">M.R.</span><span>Editorial · Long Form</span></div><div class="folio">§ 05</div>
+</section>
+
+<section data-label="06 Comparison">
+  <div class="grain"></div><div class="fl t"></div><div class="fl b"></div>
+
+  <div class="mast"><div class="bm"><span class="brand">Mocha Review</span><span>VOL. XII</span></div><div class="bm"><span>PART FOUR</span><span>MAY 2026</span></div></div>
+  <div class="full">
+    <div class="rule-a"></div><div class="label" style="margin-bottom:30px">iv. Before and after</div>
+    <h2 class="headline m">Speaking at once, or <em>thinking</em> first</h2>
+    <div class="two">
+      <div class="side"><div class="tg">Without deliberation</div><h3>Answer on the first pass</h3><ul><li>Fluent, fast and sometimes wrong</li><li>Confidence unrelated to evidence</li><li>Errors surface only after deployment</li></ul></div>
+      <div class="side b"><div class="tg">With deliberation</div><h3>Answer after <em>thinking</em></h3><ul><li>Slower, with a visible chain of checks</li><li>Confidence tracks the evidence</li><li>Errors caught before the reader sees them</li></ul></div>
+    </div>
+  </div>
+  <div class="left-foot"><span class="glyph">M.R.</span><span>Editorial · Long Form</span></div><div class="folio">§ 06</div>
+</section>
+
+<section data-label="07 Pull Quote">
+  <div class="grain"></div><div class="fl t"></div><div class="fl b"></div>
+
+  <div class="mast"><div class="bm"><span class="brand">Mocha Review</span><span>VOL. XII</span></div><div class="bm"><span>EPIGRAPH</span><span>MAY 2026</span></div></div>
+  <div class="full">
+    <div class="qwrap"><div class="rule-a" style="width:60px;margin-bottom:0"></div><div class="q">“The space between question and <em>answer</em> is where alignment lives.”</div><div class="byline" style="margin-top:0"><span class="dash"></span><span>The research team</span></div></div>
+  </div>
+  <div class="left-foot"><span class="glyph">M.R.</span><span>Editorial · Long Form</span></div><div class="folio">§ 07</div>
+</section>
+
+<section data-label="08 Closing">
+  <div class="grain"></div><div class="fl t"></div><div class="fl b"></div>
+
+  <div class="mast"><div class="bm"><span class="brand">Mocha Review</span><span>VOL. XII</span></div><div class="bm"><span>FIN</span><span>MAY 2026</span></div></div>
+  <div class="full" style="justify-content:center">
+    <div class="rule-a"></div><div class="label" style="margin-bottom:30px">Thank you</div>
+    <h2 class="headline" style="font-size:150px">Think <em>first.</em><br>Then speak.</h2>
+    <div class="byline" style="margin-top:54px"><span class="dash"></span><span>Correspondence: research@example.com</span></div>
+  </div>
+  <div class="left-foot"><span class="glyph">M.R.</span><span>Editorial · Long Form</span></div><div class="folio">§ 08</div>
+</section>
+
+</deck-stage>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "slug": "hd-diagrammatic-minimalism",
+  "name": "Diagrammatic Minimalism",
+  "tagline": "Off-white page with black hairline-outlined nested circles, a single vermilion core, bold Jost titles and generous whitespace (extended from a single-slide specimen)",
+  "mood": ["minimal", "conceptual", "calm", "thoughtful", "graphic"],
+  "occasion": ["methodology explanation", "design or strategy framework", "urban planning workshop", "concept pitch", "classroom lecture"],
+  "tone": ["reflective", "clear", "authored"],
+  "formality": "medium",
+  "density": "low",
+  "scheme": "light",
+  "palette": {"bg": "#FAF9F6", "text": "#111111", "accent": "#E4572E", "body": "#333333", "muted": "#6B6B6B", "tint": "#EDEBE6", "description": "Warm off-white, black ink outlines, light taupe ring and one vermilion accent"},
+  "typography": {"display": "Jost", "body": "Jost", "style": "Geometric Jost throughout, heavy 900 titles over tracked uppercase kickers"},
+  "best_for": "Explaining one core idea or framework through a single master diagram, with sparse supporting text. Suits workshops, planning and design-thinking talks.",
+  "avoid_for": "Data-dense reports or dashboards that need many numbers per slide.",
+  "slide_count": 7,
+  "navigation": "deck-stage runtime",
+  "source": {"repo": "alchaincyf/huashu-design", "commit": "798c423", "path": "assets/style-specimens/ppt/13-diagrammatic-minimalism.html", "license": "MIT"}
+}

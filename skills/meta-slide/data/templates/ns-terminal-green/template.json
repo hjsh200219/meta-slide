@@ -1,0 +1,47 @@
+{
+  "slug": "ns-terminal-green",
+  "name": "Terminal Green",
+  "tagline": "GitHub-dark terminal windows with green monospace headlines, code-style metrics and comments",
+  "mood": [
+    "hacker",
+    "technical",
+    "focused",
+    "geeky"
+  ],
+  "occasion": [
+    "developer talk",
+    "engineering all-hands",
+    "CLI or open-source launch",
+    "security briefing",
+    "code walkthrough"
+  ],
+  "tone": [
+    "nerdy",
+    "precise",
+    "dry"
+  ],
+  "formality": "medium-low",
+  "density": "medium",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#0d1117",
+    "text": "#e6edf3",
+    "accent": "#39d353",
+    "description": "Dark Terminal Green palette: #0d1117 background, #e6edf3 text, #39d353 accent"
+  },
+  "typography": {
+    "display": "JetBrains Mono",
+    "body": "JetBrains Mono",
+    "style": "JetBrains Mono headings over JetBrains Mono body"
+  },
+  "best_for": "Terminal Green suits developer talk and engineering all-hands. It reads as hacker, technical, focused.",
+  "avoid_for": "Formal regulated or conservative corporate decks.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/terminal-green.html",
+    "license": "MIT"
+  }
+}

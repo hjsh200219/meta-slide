@@ -1,0 +1,51 @@
+{
+  "slug": "pa-cyberpunk-neon",
+  "name": "Cyberpunk Neon",
+  "tagline": "Black-violet night with cyan, magenta and yellow neon glow, glitch-split Orbitron headlines, chamfered HUD panels and a pixel skyline (extended from a single-slide specimen)",
+  "mood": [
+    "neon",
+    "aggressive",
+    "digital",
+    "high-energy"
+  ],
+  "occasion": [
+    "gaming or esports pitch",
+    "cybersecurity briefing",
+    "hackathon or developer-conference talk",
+    "sci-fi product launch",
+    "tech-culture meetup"
+  ],
+  "tone": [
+    "edgy",
+    "technical",
+    "futuristic"
+  ],
+  "formality": "low",
+  "density": "medium",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#0a0014",
+    "bg_alt": "#1a0020",
+    "text": "#ffffff",
+    "accent": "#00ffff",
+    "magenta": "#ff00c8",
+    "yellow": "#ffd60a",
+    "violet": "#b56bff",
+    "description": "near-black violet ground with cyan, magenta and yellow neon accents and faint cyan grid lines"
+  },
+  "typography": {
+    "display": "Orbitron",
+    "body": "JetBrains Mono",
+    "style": "wide geometric display caps with RGB-split glitch shadow over a tracked monospace body"
+  },
+  "best_for": "Security, gaming and developer-culture talks that want an unapologetic neon terminal look, with chamfered metric panels for numbers.",
+  "avoid_for": "Formal, conservative or emotional audiences where glow and glitch effects feel noisy.",
+  "slide_count": 7,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "Akxan/ppt-agent-skill",
+    "commit": "01825de",
+    "path": "ppt-output/style-gallery/cyberpunk_neon.html",
+    "license": "MIT"
+  }
+}

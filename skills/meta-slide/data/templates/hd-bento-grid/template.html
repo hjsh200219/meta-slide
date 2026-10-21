@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Bento Grid — Deck Template</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="deck-stage.js"></script>
+<style>
+html,body{margin:0;padding:0;background:#000}
+body{font-family:Inter,sans-serif;color:#1d1d1f}
+deck-stage>section{width:1920px;height:1080px;position:relative;overflow:hidden;box-sizing:border-box;background:#F5F5F7;color:#1d1d1f}
+h1{position:absolute;left:90px;top:56px;margin:0;font:900 64px/1.1 Inter;letter-spacing:-.02em}
+.sub{position:absolute;right:90px;top:80px;font:500 22px "Geist Mono";color:#6e6e73;letter-spacing:.06em}
+.g{position:absolute;left:90px;right:90px;top:180px;bottom:76px;display:grid;gap:26px}
+.k{background:#fff;border-radius:38px;border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 4px rgba(0,0,0,.04),0 13px 38px rgba(0,0,0,.04);padding:35px 38px;position:relative;overflow:hidden;box-sizing:border-box}
+.l{font:500 20px "Geist Mono";color:#6e6e73;letter-spacing:.08em}
+.v{font:800 84px/1 Inter;letter-spacing:-.04em;margin-top:16px;font-variant-numeric:tabular-nums}
+.v small{font:700 32px Inter;letter-spacing:0;margin-left:6px}
+.t{font:400 26px/1.5 Inter;color:#424245;margin-top:13px}
+.blue{background:#0071E3;color:#fff;border-color:transparent}
+.blue .l,.blue .t{color:rgba(255,255,255,.88)}
+.k svg.sp{position:absolute;left:0;bottom:0;width:100%}
+.bar{height:16px;border-radius:8px;background:#e8e8ed;margin-top:32px;position:relative}
+.bar i{position:absolute;left:0;top:0;bottom:0;border-radius:8px;background:#0071E3}
+.dots{display:grid;grid-template-columns:repeat(16,1fr);gap:10px;margin-top:26px}
+.dots i{aspect-ratio:1;border-radius:50%;background:#0071E3}.dots i.o{background:#e1e1e6}
+.ic{width:54px;height:54px;border-radius:16px;background:#EAF3FF;display:flex;align-items:center;justify-content:center;margin-bottom:19px}
+.ic svg{width:32px}
+.pg{position:absolute;right:90px;bottom:30px;font:500 20px "Geist Mono";color:#6e6e73}
+.big{font:900 150px/1 Inter;letter-spacing:-.05em}
+.eyebrow{font:500 24px "Geist Mono";color:#6e6e73;letter-spacing:.08em}
+</style></head><body>
+<deck-stage width="1920" height="1080">
+
+<section data-label="01 Cover">
+ <div class="g" style="top:90px;bottom:90px;grid-template-columns:1.6fr 1fr 1fr;grid-template-rows:1fr 1fr;grid-template-areas:'a b b' 'a c d'">
+  <div class="k blue" style="grid-area:a;padding:70px 64px;display:flex;flex-direction:column;justify-content:space-between">
+   <div class="l">ANNUAL REPORT · 2026</div>
+   <div><div style="font:900 128px/1.02 Inter;letter-spacing:-.035em">Ocean Care<br>Year in Review</div><div class="t" style="font-size:34px;margin-top:30px">Blue Isle Marine Foundation</div></div>
+  </div>
+  <div class="k" style="grid-area:b"><div class="l">COASTLINE CLEANED</div><div class="v" style="font-size:150px">312<small style="font-size:48px">km</small></div></div>
+  <div class="k" style="grid-area:c"><div class="l">VOLUNTEERS</div><div class="v">4,215</div></div>
+  <div class="k" style="grid-area:d"><div class="l">MONITORING SITES</div><div class="v">48</div></div>
+ </div>
+</section>
+
+<section data-label="02 Bento Overview">
+ <h1>2026 Ocean Conservation Report</h1><div class="sub">BLUE ISLE MARINE FOUNDATION · FULL YEAR</div>
+ <div class="g" style="grid-template-columns:1.25fr 1fr 1fr 1fr;grid-template-rows:1fr 1fr 1fr;grid-template-areas:'a b b c' 'a d e c' 'f f e g'">
+  <div class="k blue" style="grid-area:a"><div class="l">COASTLINE CLEANED</div><div class="v" style="font-size:173px;margin-top:42px">312<small style="font-size:54px">km</small></div><div class="t">Roughly the length of a coast road from end to end.</div></div>
+  <div class="k" style="grid-area:b"><div class="l">MARINE DEBRIS RECOVERED</div><div class="v">86.4<small>t</small></div><div class="t">Up 27% on last year.</div>
+   <svg class="sp" viewBox="0 0 400 70" preserveAspectRatio="none" height="70"><path d="M0 60 L50 52 L100 56 L150 40 L200 44 L250 28 L300 30 L350 14 L400 10 L400 70 L0 70Z" fill="#0071E3" opacity=".1"/><path d="M0 60 L50 52 L100 56 L150 40 L200 44 L250 28 L300 30 L350 14 L400 10" fill="none" stroke="#0071E3" stroke-width="3"/></svg></div>
+  <div class="k" style="grid-area:c"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#0071E3" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6M15 14.5c3 0 6 1.6 6 5"/></svg></div><div class="l">VOLUNTEERS</div><div class="v">4,215</div><div class="t">Six in ten were first-timers; 34 campus clubs joined.</div></div>
+  <div class="k" style="grid-area:d"><div class="l">MONITORING SITES</div><div class="v">48</div><div class="t">12 added</div></div>
+  <div class="k" style="grid-area:e"><div class="l">CORAL SURVIVAL</div><div class="v">71<small>%</small></div><div class="bar"><i style="width:71%"></i></div><div class="t">1,800 colonies transplanted, tracked for 12 months.</div></div>
+  <div class="k" style="grid-area:f"><div class="l">BEACH CLEANUPS · 16 THIS YEAR</div><div class="dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="o"></i><i class="o"></i><i class="o"></i><i class="o"></i></div><div class="t" style="margin-top:22px">12 completed; the 13th is in November.</div></div>
+  <div class="k" style="grid-area:g"><div class="l">DONATIONS</div><div class="v" style="font-size:70px">$1.86<small>M</small></div></div>
+ </div>
+ <div class="pg">02</div>
+</section>
+
+<section data-label="03 Agenda">
+ <h1>What we cover</h1><div class="sub">FOUR MODULES</div>
+ <div class="g" style="grid-template-columns:repeat(4,1fr);grid-template-rows:1fr">
+  <div class="k blue" style="padding:44px"><div class="l">01</div><div style="font:800 64px/1.1 Inter;letter-spacing:-.03em;margin-top:150px">Impact<br>at a glance</div></div>
+  <div class="k" style="padding:44px"><div class="l">02</div><div style="font:800 64px/1.1 Inter;letter-spacing:-.03em;margin-top:150px">Field<br>programs</div></div>
+  <div class="k" style="padding:44px"><div class="l">03</div><div style="font:800 64px/1.1 Inter;letter-spacing:-.03em;margin-top:150px">Funding<br>and costs</div></div>
+  <div class="k" style="padding:44px"><div class="l">04</div><div style="font:800 64px/1.1 Inter;letter-spacing:-.03em;margin-top:150px">Next-year<br>roadmap</div></div>
+ </div>
+ <div class="pg">03</div>
+</section>
+
+<section data-label="04 Key Metric">
+ <h1>Debris recovered is climbing</h1><div class="sub">TONS PER QUARTER</div>
+ <div class="g" style="grid-template-columns:1fr 1.7fr;grid-template-rows:1fr">
+  <div class="k blue" style="padding:60px"><div class="l">FULL-YEAR TOTAL</div><div class="big" style="margin-top:60px;font-size:220px">86.4<small style="font-size:70px;font-weight:700;letter-spacing:0">t</small></div><div class="t" style="font-size:34px;margin-top:40px">27% more than last year, with nets and buoys the largest share.</div></div>
+  <div class="k" style="padding:50px 56px"><div class="l">QUARTERLY RECOVERY</div>
+   <svg viewBox="0 0 800 420" style="position:absolute;left:56px;right:56px;bottom:46px;width:calc(100% - 112px)"><g stroke="#e8e8ed" stroke-width="2"><line x1="0" y1="100" x2="800" y2="100"/><line x1="0" y1="200" x2="800" y2="200"/><line x1="0" y1="300" x2="800" y2="300"/><line x1="0" y1="400" x2="800" y2="400"/></g>
+    <path d="M0 330 L200 270 L400 210 L600 130 L800 40 L800 400 L0 400Z" fill="#0071E3" opacity=".1"/><path d="M0 330 L200 270 L400 210 L600 130 L800 40" fill="none" stroke="#0071E3" stroke-width="6" stroke-linecap="round"/>
+    <g fill="#fff" stroke="#0071E3" stroke-width="5"><circle cx="0" cy="330" r="10"/><circle cx="200" cy="270" r="10"/><circle cx="400" cy="210" r="10"/><circle cx="600" cy="130" r="10"/><circle cx="800" cy="40" r="10"/></g></svg>
+  </div>
+ </div>
+ <div class="pg">04</div>
+</section>
+
+<section data-label="05 Comparison">
+ <h1>Two cleanup models, side by side</h1><div class="sub">PILOT RESULTS</div>
+ <div class="g" style="grid-template-columns:1fr 1fr;grid-template-rows:1fr">
+  <div class="k" style="padding:56px"><div class="l">MODEL A · WEEKEND EVENTS</div><div class="v" style="font-size:130px;margin-top:40px">38<small style="font-size:44px">kg / person</small></div><div class="bar" style="margin-top:50px"><i style="width:48%;background:#a1a1a6"></i></div><div class="t" style="margin-top:40px;font-size:36px">High turnout and strong awareness, but uneven coverage of remote coves.</div></div>
+  <div class="k blue" style="padding:56px"><div class="l">MODEL B · BOAT-SUPPORTED CREWS</div><div class="v" style="font-size:130px;margin-top:40px">79<small style="font-size:44px;color:#fff">kg / person</small></div><div class="bar" style="margin-top:50px;background:rgba(255,255,255,.25)"><i style="width:100%;background:#fff"></i></div><div class="t" style="margin-top:40px;font-size:36px">Smaller crews reach remote shoreline, and recover twice the weight.</div></div>
+ </div>
+ <div class="pg">05</div>
+</section>
+
+<section data-label="06 Summary">
+ <h1>Three takeaways</h1><div class="sub">SUMMARY</div>
+ <div class="g" style="grid-template-columns:1.4fr 1fr 1fr;grid-template-rows:1fr 1fr;grid-template-areas:'a b c' 'a d d'">
+  <div class="k blue" style="grid-area:a;padding:56px"><div class="l">TAKEAWAY 1</div><div style="font:800 76px/1.1 Inter;letter-spacing:-.03em;margin-top:70px">Scale is working: every metric grew this year.</div></div>
+  <div class="k" style="grid-area:b"><div class="l">TAKEAWAY 2</div><div style="font:800 46px/1.15 Inter;letter-spacing:-.02em;margin-top:30px">Boat crews double the yield per person.</div></div>
+  <div class="k" style="grid-area:c"><div class="l">TAKEAWAY 3</div><div style="font:800 46px/1.15 Inter;letter-spacing:-.02em;margin-top:30px">Coral survival is above target at 71%.</div></div>
+  <div class="k" style="grid-area:d;display:flex;align-items:center;justify-content:space-between"><div><div class="l">NEXT STEP</div><div class="t" style="font-size:34px;margin-top:14px">Add 12 monitoring sites and 4 boat crews in 2027.</div></div><div class="v" style="font-size:110px;margin:0">+16</div></div>
+ </div>
+ <div class="pg">06</div>
+</section>
+
+<section data-label="07 Closing">
+ <div class="g" style="top:90px;bottom:90px;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr 1fr;grid-template-areas:'a b' 'a c' 'a d'">
+  <div class="k blue" style="grid-area:a;padding:70px 64px;display:flex;flex-direction:column;justify-content:space-between"><div class="l">THANK YOU</div><div style="font:900 120px/1 Inter;letter-spacing:-.04em">Questions?</div></div>
+  <div class="k" style="grid-area:b"><div class="l">CONTACT</div><div class="t" style="font-size:36px">hello@example.org</div></div>
+  <div class="k" style="grid-area:c"><div class="l">FULL REPORT</div><div class="t" style="font-size:36px">example.org/report-2026</div></div>
+  <div class="k" style="grid-area:d"><div class="l">JOIN A CLEANUP</div><div class="t" style="font-size:36px">Next date: November 14</div></div>
+ </div>
+</section>
+
+</deck-stage>
+</body></html>

@@ -1,0 +1,47 @@
+{
+  "slug": "ns-notebook-tabs",
+  "name": "Notebook Tabs",
+  "tagline": "Charcoal desk with a cream notebook page, colored side tabs and Bodoni headings",
+  "mood": [
+    "tactile",
+    "analog",
+    "organized",
+    "cozy"
+  ],
+  "occasion": [
+    "workshop playbook",
+    "design thinking session",
+    "study guide",
+    "team retro",
+    "how-to talk"
+  ],
+  "tone": [
+    "friendly",
+    "practical",
+    "warm"
+  ],
+  "formality": "medium-low",
+  "density": "medium",
+  "scheme": "mixed",
+  "palette": {
+    "bg": "#f5f3ee",
+    "text": "#1a1a1a",
+    "accent": "#4a90d9",
+    "description": "Mixed Notebook Tabs palette: #f5f3ee background, #1a1a1a text, #4a90d9 accent"
+  },
+  "typography": {
+    "display": "Bodoni Moda",
+    "body": "Atkinson Hyperlegible",
+    "style": "Bodoni Moda headings over Atkinson Hyperlegible body"
+  },
+  "best_for": "Notebook Tabs suits workshop playbook and design thinking session. It reads as tactile, analog, organized.",
+  "avoid_for": "Formal regulated or conservative corporate decks.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/notebook-tabs.html",
+    "license": "MIT"
+  }
+}

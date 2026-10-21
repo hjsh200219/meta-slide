@@ -1,0 +1,50 @@
+{
+  "slug": "pa-liquid-glass",
+  "name": "Liquid Glass",
+  "tagline": "Blue-to-pink-to-amber gradient with soft blurred blobs and frosted translucent glass cards, visionOS style (extended from a single-slide specimen)",
+  "mood": [
+    "airy",
+    "modern",
+    "luminous",
+    "dreamy"
+  ],
+  "occasion": [
+    "product launch",
+    "app or OS feature showcase",
+    "design system talk",
+    "creative agency pitch",
+    "keynote with big numbers"
+  ],
+  "tone": [
+    "optimistic",
+    "polished",
+    "futuristic"
+  ],
+  "formality": "medium-low",
+  "density": "medium",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#34a0ff",
+    "text": "#FFFFFF",
+    "accent": "#ff6b9d",
+    "accent2": "#ffb74d",
+    "base": "#1a73e8",
+    "glass": "rgba(255,255,255,0.15)",
+    "description": "Vivid blue-pink-amber gradient with white frosted glass and white type"
+  },
+  "typography": {
+    "display": "Inter Tight",
+    "body": "Inter",
+    "style": "Semibold tight grotesk headlines with Instrument Serif italic accents on frosted panels"
+  },
+  "best_for": "Works for consumer tech and design topics that want a spatial, glossy feel. Glass cards hold short metrics and headlines cleanly.",
+  "avoid_for": "Avoid for long text, print handouts or conservative audiences.",
+  "slide_count": 7,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "Akxan/ppt-agent-skill",
+    "commit": "01825de",
+    "path": "ppt-output/style-gallery/liquid_glass.html",
+    "license": "MIT"
+  }
+}

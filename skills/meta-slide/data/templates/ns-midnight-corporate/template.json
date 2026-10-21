@@ -1,0 +1,47 @@
+{
+  "slug": "ns-midnight-corporate",
+  "name": "Midnight Corporate",
+  "tagline": "Deep navy slides with blue accent, slate cards, KPI tiles and bar rows",
+  "mood": [
+    "professional",
+    "calm",
+    "data-driven",
+    "trusted"
+  ],
+  "occasion": [
+    "quarterly business review",
+    "board update",
+    "strategy review",
+    "enterprise sales deck",
+    "fintech pitch"
+  ],
+  "tone": [
+    "serious",
+    "confident",
+    "measured"
+  ],
+  "formality": "high",
+  "density": "high",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#0f1219",
+    "text": "#f0f0f0",
+    "accent": "#3d7cf5",
+    "description": "Dark Midnight Corporate palette: #0f1219 background, #f0f0f0 text, #3d7cf5 accent"
+  },
+  "typography": {
+    "display": "Inter",
+    "body": "Inter",
+    "style": "Inter headings over Inter body"
+  },
+  "best_for": "Midnight Corporate suits quarterly business review and board update. It reads as professional, calm, data-driven.",
+  "avoid_for": "Playful or casual talks where this look would feel too formal.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/midnight-corporate.html",
+    "license": "MIT"
+  }
+}

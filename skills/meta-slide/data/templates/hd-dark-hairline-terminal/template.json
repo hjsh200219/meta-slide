@@ -1,0 +1,18 @@
+{
+  "slug": "hd-dark-hairline-terminal",
+  "name": "Dark Hairline Terminal",
+  "tagline": "Near-black canvas framed by one-pixel gray hairlines, tight Inter Tight headlines, indigo accent and mono terminal blocks (extended from a single-slide specimen)",
+  "mood": ["technical", "minimal", "precise", "dark", "developer-grade"],
+  "occasion": ["developer tool launch", "open-source project intro", "engineering all-hands", "API product overview", "technical deep-dive"],
+  "tone": ["precise", "understated", "confident"],
+  "formality": "medium",
+  "density": "medium",
+  "scheme": "dark",
+  "palette": {"bg": "#0D0D0F", "text": "#EDEDEF", "accent": "#7C7CFF", "hairline": "#262629", "panel": "#111113", "muted": "#8B8B93", "description": "Neo-Swiss near-black with gray hairline grid and a single indigo accent"},
+  "typography": {"display": "Inter Tight", "body": "Inter Tight", "style": "Tight-tracked semibold Inter Tight with JetBrains Mono uppercase labels and command blocks"},
+  "best_for": "Developer tools, CLIs and infrastructure products that want a quiet, terminal-flavored look. Suits technical audiences who prefer data over decoration.",
+  "avoid_for": "Warm consumer or celebratory stories that need color and personality.",
+  "slide_count": 7,
+  "navigation": "deck-stage runtime",
+  "source": {"repo": "alchaincyf/huashu-design", "commit": "798c423", "path": "assets/style-specimens/ppt/10-dark-hairline-terminal.html", "license": "MIT"}
+}

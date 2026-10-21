@@ -1,0 +1,49 @@
+{
+  "slug": "hp-theme-dracula",
+  "name": "Theme · Dracula",
+  "tagline": "Classic Dracula dark theme with purple and pink accents",
+  "mood": [
+    "dark",
+    "vivid",
+    "code-friendly",
+    "moody"
+  ],
+  "occasion": [
+    "code-heavy tech talk",
+    "live coding session",
+    "developer conference",
+    "engineering deep-dive",
+    "tooling tutorial"
+  ],
+  "tone": [
+    "technical",
+    "energetic",
+    "casual"
+  ],
+  "formality": "medium-low",
+  "density": "medium-high",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#282a36",
+    "text": "#f8f8f2",
+    "accent": "#bd93f9",
+    "accent2": "#ff79c6",
+    "surface": "#343746",
+    "description": "Theme tokens --bg, --text-1, --accent, --accent-2, --surface taken from dracula.css"
+  },
+  "typography": {
+    "display": "Inter",
+    "body": "Inter",
+    "style": "Theme font tokens --font-display / --font-sans"
+  },
+  "best_for": "Code-dense technical sharing where syntax-highlight colours matter.",
+  "avoid_for": "Light corporate decks.",
+  "slide_count": 22,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "assets/themes/dracula.css + templates/single-page/*.html (22 layouts)",
+    "license": "MIT"
+  }
+}

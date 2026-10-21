@@ -1,0 +1,47 @@
+{
+  "slug": "ns-gradient-dreams",
+  "name": "Gradient Dreams",
+  "tagline": "Full-bleed violet, pink, sky and mint gradients with frosted glass cards and bold grotesk titles",
+  "mood": [
+    "vibrant",
+    "trendy",
+    "social",
+    "fresh"
+  ],
+  "occasion": [
+    "social media strategy",
+    "creator or content pitch",
+    "app marketing",
+    "campaign recap",
+    "youth brand deck"
+  ],
+  "tone": [
+    "upbeat",
+    "friendly",
+    "lively"
+  ],
+  "formality": "low",
+  "density": "medium",
+  "scheme": "mixed",
+  "palette": {
+    "bg": "#667eea",
+    "text": "#ffffff",
+    "accent": "#4facfe",
+    "description": "Mixed Gradient Dreams palette: #667eea background, #ffffff text, #4facfe accent"
+  },
+  "typography": {
+    "display": "Bricolage Grotesque",
+    "body": "Figtree",
+    "style": "Bricolage Grotesque headings over Figtree body"
+  },
+  "best_for": "Gradient Dreams suits social media strategy and creator or content pitch. It reads as vibrant, trendy, social.",
+  "avoid_for": "Formal regulated or conservative corporate decks.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/gradient-dreams.html",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Full Bleed Gradient Manifesto — Deck Template</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;800;900&family=Anton&display=swap" rel="stylesheet">
+<script src="deck-stage.js"></script>
+<style>
+html,body{margin:0;background:#C2186B}
+body{font-family:Archivo,sans-serif;color:#fff}
+deck-stage>section{width:1920px;height:1080px;background:linear-gradient(118deg,#FF7A18 0%,#F4413F 46%,#C2186B 100%);color:#fff;position:relative;overflow:hidden;box-sizing:border-box;font-family:Archivo,sans-serif}
+.eyebrow{position:absolute;left:115px;top:80px;font:800 26px Archivo,sans-serif;letter-spacing:.2em}
+.big{position:absolute;left:109px;top:150px;font:400 232px/.92 Anton,sans-serif;text-transform:uppercase;letter-spacing:-.005em}
+.big span{display:block;white-space:nowrap}
+.line{position:absolute;left:115px;right:115px;height:3px;background:rgba(255,255,255,.7)}
+.sub{position:absolute;left:115px;font:900 74px/1.15 Archivo,sans-serif}
+.tagrow{position:absolute;left:115px;right:115px;bottom:64px;display:flex;justify-content:space-between;font:800 29px Archivo,sans-serif;letter-spacing:.14em}
+
+.list{position:absolute;left:115px;right:115px;top:430px}
+.li{display:flex;align-items:baseline;gap:60px;padding:30px 0;border-top:3px solid rgba(255,255,255,.7)}
+.li:last-child{border-bottom:3px solid rgba(255,255,255,.7)}
+.li span{font:400 80px Anton,sans-serif;width:120px}
+.li b{font:400 96px Anton,sans-serif;text-transform:uppercase;letter-spacing:.005em;font-weight:400}
+.li em{margin-left:auto;font:800 28px Archivo,sans-serif;font-style:normal;letter-spacing:.14em}
+
+.stat{position:absolute;left:109px;top:130px;font:400 640px/1 Anton,sans-serif;letter-spacing:-.01em}
+.stat small{font-size:260px}
+.stxt{position:absolute;left:115px;top:790px;width:1500px;font:900 74px/1.15 Archivo,sans-serif}
+
+.cols{position:absolute;left:115px;right:115px;top:430px;display:grid;grid-template-columns:repeat(3,1fr);gap:60px}
+.cols>div{border-top:3px solid rgba(255,255,255,.7);padding-top:30px}
+.cols .k{font:400 220px/1 Anton,sans-serif}
+.cols h3{margin:10px 0 0;font:900 52px/1.15 Archivo,sans-serif}
+.cols p{margin:16px 0 0;font:500 32px/1.45 Archivo,sans-serif}
+
+.cmp{position:absolute;left:115px;right:115px;top:250px;display:grid;grid-template-columns:1fr 1fr;gap:90px}
+.cmp>div{border-top:3px solid rgba(255,255,255,.7);padding-top:30px}
+.cmp .lab{font:800 28px Archivo,sans-serif;letter-spacing:.2em}
+.cmp .v{font:400 400px/1 Anton,sans-serif;margin-top:20px}
+.cmp .a{opacity:.55}
+.cmp p{margin:20px 0 0;font:900 52px/1.2 Archivo,sans-serif}
+
+.q{position:absolute;left:109px;top:160px;width:1700px;font:400 190px/.98 Anton,sans-serif;text-transform:uppercase}
+.endh{position:absolute;left:109px;top:150px;font:400 400px/.92 Anton,sans-serif;text-transform:uppercase}
+</style>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+
+<section data-label="01 Manifesto">
+  <div class="eyebrow">THE PROMISE · RIVERSIDE LITTLE THEATER 2027</div>
+  <div class="big"><span>We don't sell</span><span>seats. We sell</span><span>the night.</span></div>
+  <div class="line" style="top:830px"></div>
+  <div class="sub" style="top:855px;font-size:66px">Not a seat. The whole evening.</div>
+  <div class="tagrow"><span>#TonightIsOn</span><span>48 SEATS · FIVE SHOWS A WEEK · LIGHTS STAY ON AFTER</span></div>
+</section>
+
+<section data-label="02 Agenda">
+  <div class="eyebrow">THE SEASON · AT A GLANCE</div>
+  <div class="big" style="font-size:210px"><span>Four</span><span>promises.</span></div>
+  <div class="list" style="top:620px">
+    <div class="li" style="padding:16px 0"><span style="font-size:60px">01</span><b style="font-size:70px">Small room</b><em>48 SEATS</em></div>
+    <div class="li" style="padding:16px 0"><span style="font-size:60px">02</span><b style="font-size:70px">Real conversation</b><em>AFTER EVERY SHOW</em></div>
+    <div class="li" style="padding:16px 0"><span style="font-size:60px">03</span><b style="font-size:70px">Fair prices</b><em>PAY WHAT YOU CAN</em></div>
+  </div>
+</section>
+
+<section data-label="03 Big Number">
+  <div class="eyebrow">THE ROOM</div>
+  <div class="stat">48</div>
+  <div class="line" style="top:770px"></div>
+  <div class="stxt" style="top:800px">seats, five nights a week, and nobody sits further than six rows back.</div>
+  <div class="tagrow"><span>#TonightIsOn</span><span>RIVERSIDE LITTLE THEATER</span></div>
+</section>
+
+<section data-label="04 Three Promises">
+  <div class="eyebrow">HOW WE DO IT</div>
+  <div class="big" style="font-size:210px"><span>Three rules.</span></div>
+  <div class="cols">
+    <div><div class="k">1</div><h3>Start on time</h3><p>Doors at seven, curtain at half past.</p></div>
+    <div><div class="k">2</div><h3>Stay after</h3><p>The cast joins the audience in the lobby.</p></div>
+    <div><div class="k">3</div><h3>Keep it close</h3><p>No seat is more than six rows from the stage.</p></div>
+  </div>
+  <div class="tagrow"><span>#TonightIsOn</span><span>RIVERSIDE LITTLE THEATER</span></div>
+</section>
+
+<section data-label="05 Comparison">
+  <div class="eyebrow">THEN AND NOW</div>
+  <div class="cmp">
+    <div><div class="lab">LAST SEASON</div><div class="v a">2</div><p>Shows a week, mostly weekends.</p></div>
+    <div><div class="lab">NEXT SEASON</div><div class="v">5</div><p>Shows a week, one for every night but Monday and Tuesday.</p></div>
+  </div>
+  <div class="tagrow"><span>#TonightIsOn</span><span>RIVERSIDE LITTLE THEATER</span></div>
+</section>
+
+<section data-label="06 Quote">
+  <div class="eyebrow">FROM THE LOBBY</div>
+  <div class="q">“We came for the play. We left with <span style="opacity:.6">new friends.</span>”</div>
+  <div class="line" style="top:860px"></div>
+  <div class="sub" style="top:885px;font-size:40px">Audience member, opening week</div>
+  <div class="tagrow"><span>#TonightIsOn</span><span>RIVERSIDE LITTLE THEATER</span></div>
+</section>
+
+<section data-label="07 Closing">
+  <div class="eyebrow">SEE YOU THERE</div>
+  <div class="endh">Be there<br>tonight.</div>
+  <div class="tagrow"><span>#TonightIsOn</span><span>48 SEATS · FIVE SHOWS A WEEK · LIGHTS STAY ON AFTER</span></div>
+</section>
+
+</deck-stage>
+</body>
+</html>

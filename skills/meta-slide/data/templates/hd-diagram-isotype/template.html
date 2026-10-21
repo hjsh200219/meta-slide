@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Diagram Isotype — Deck Template</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<script src="deck-stage.js"></script>
+<style>
+html,body{margin:0;padding:0;background:#000}
+body{font-family:'IBM Plex Sans',sans-serif;color:#0B2545}
+deck-stage>section{width:1920px;height:1080px;position:relative;overflow:hidden;box-sizing:border-box;background:#F4F7FB;color:#0B2545}
+h1{position:absolute;left:90px;top:50px;margin:0;font-size:56px;font-weight:700;letter-spacing:-.01em;width:1740px;line-height:1.15}
+.sub{position:absolute;left:90px;top:128px;font-size:28px;color:#4A5F7A}
+.sec{position:absolute;left:90px;font-size:21px;font-weight:700;letter-spacing:.12em;color:#1B6FD1}
+.flow{position:absolute;left:90px;display:flex;width:1740px}
+.step{flex:1;height:150px;background:#1B6FD1;color:#fff;display:flex;flex-direction:column;justify-content:center;padding:0 0 0 64px;clip-path:polygon(0 0,calc(100% - 44px) 0,100% 50%,calc(100% - 44px) 100%,0 100%,44px 50%);margin-right:-20px;box-sizing:border-box}
+.step:first-child{clip-path:polygon(0 0,calc(100% - 44px) 0,100% 50%,calc(100% - 44px) 100%,0 100%);padding-left:40px}
+.step b{font-size:36px}.step span{font-size:24px;opacity:.9;margin-top:5px}
+.step:nth-child(2){background:#2E83E0}.step:nth-child(3){background:#4A98EC}.step:nth-child(4){background:#0B2545}
+.lay{display:flex;margin-bottom:12px;height:112px}
+.lay .tag{width:210px;background:#0B2545;color:#fff;font-size:24px;font-weight:600;display:flex;align-items:center;padding-left:26px;box-sizing:border-box}
+.lay .cells{flex:1;display:flex;gap:10px;border:3px solid #0B2545;padding:8px;box-sizing:border-box;background:#fff}
+.cell{flex:1;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:600;color:#fff}
+.c1{background:#1B6FD1}.c2{background:#E8833A}.c3{background:#2BA58A}.c4{background:#7B5CC4}
+.lay.base .cells{background:#DDE6F2}.lay.base .cell{background:#8FA6C4;color:#0B2545}
+.grid{position:absolute;display:grid;gap:16px}
+.ic{background:#fff;border:3px solid #0B2545;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;font-size:23px;font-weight:600;box-sizing:border-box}
+.ic svg{width:64px;height:64px;fill:none;stroke:#1B6FD1;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.legend{position:absolute;left:90px;bottom:44px;font-size:21px;color:#4A5F7A;display:flex;gap:35px}
+.legend i{display:inline-block;width:19px;height:19px;margin-right:10px;vertical-align:-2px}
+.pg{position:absolute;right:90px;bottom:44px;font-size:21px;color:#4A5F7A}
+.txt{position:absolute;font-size:28px;line-height:1.7;color:#27405F}
+.bigno{font-size:140px;font-weight:700;letter-spacing:-.03em;line-height:1}
+.box{position:absolute;background:#fff;border:3px solid #0B2545;padding:36px 40px;box-sizing:border-box}
+</style></head><body>
+<deck-stage width="1920" height="1080">
+
+<section data-label="01 Cover">
+ <div style="position:absolute;left:0;top:0;bottom:0;width:36px;background:#1B6FD1"></div>
+ <div class="flow" style="top:130px;width:1740px;opacity:1">
+  <div class="step" style="background:#1B6FD1"><b>&nbsp;</b></div><div class="step" style="background:#2E83E0"><b>&nbsp;</b></div><div class="step" style="background:#4A98EC"><b>&nbsp;</b></div><div class="step" style="background:#0B2545"><b>&nbsp;</b></div>
+ </div>
+ <div class="sec" style="top:390px">PLATFORM OVERVIEW</div>
+ <div style="position:absolute;left:90px;top:440px;width:1500px;font-size:100px;font-weight:700;line-height:1.1;letter-spacing:-.02em">One platform for the whole writing journey, from idea to publish</div>
+ <div class="sub" style="top:800px;font-size:34px">Quill AI Writing Platform capabilities · for content teams</div>
+</section>
+
+<section data-label="02 Journey and Platform">
+ <h1>One platform covers the whole writing flow, from idea to publish</h1>
+ <div class="sub" style="top:120px;font-size:26px">Quill AI Writing Platform capabilities overview · for content teams</div>
+ <div class="sec" style="top:186px">JOURNEY</div>
+ <div class="flow" style="top:224px;width:1740px;height:120px">
+  <div class="step" style="height:120px"><b>1 Topic</b><span>Trends and reader questions</span></div>
+  <div class="step" style="height:120px"><b>2 Draft</b><span>Outline to first draft</span></div>
+  <div class="step" style="height:120px"><b>3 Polish</b><span>Style and fact-checking</span></div>
+  <div class="step" style="height:120px"><b>4 Publish</b><span>Distribution and review</span></div>
+ </div>
+ <div class="sec" style="top:380px">PLATFORM</div>
+ <div style="position:absolute;left:90px;top:420px;width:1020px">
+  <div class="lay"><div class="tag">Apps</div><div class="cells"><div class="cell c1">Topic Radar</div><div class="cell c2">Co-writing</div><div class="cell c3">Fact Check</div><div class="cell c4">Publish Hub</div></div></div>
+  <div class="lay"><div class="tag">Intelligence</div><div class="cells"><div class="cell c1">Semantic Search</div><div class="cell c2">Style Model</div><div class="cell c3">Citations</div><div class="cell c4">Reader Profiles</div></div></div>
+  <div class="lay base"><div class="tag" style="background:#4A5F7A">Data</div><div class="cells"><div class="cell">Drafts · Assets · Brand terms · Reading data</div></div></div>
+  <div class="txt" style="position:static;margin-top:24px;font-size:24px;width:1000px;line-height:1.55">All four product lines share one data base. Material saved during topic research flows into the drafting library, then feeds back into the style model after publishing.</div>
+ </div>
+ <div class="grid" style="left:1160px;top:420px;width:670px;grid-template-columns:repeat(3,1fr)">
+  <div class="ic" style="height:200px"><svg viewBox="0 0 40 40"><circle cx="18" cy="18" r="10"/><path d="M26 26l9 9"/></svg>Topic search</div>
+  <div class="ic" style="height:200px"><svg viewBox="0 0 40 40"><rect x="6" y="5" width="28" height="30" rx="2"/><path d="M12 14h16M12 21h16M12 28h9"/></svg>Outline</div>
+  <div class="ic" style="height:200px"><svg viewBox="0 0 40 40"><path d="M8 32l4-1L32 11l-3-3L9 28z"/><path d="M26 14l3 3"/></svg>Style polish</div>
+  <div class="ic" style="height:200px"><svg viewBox="0 0 40 40"><path d="M7 21l9 9L33 11"/></svg>Fact check</div>
+  <div class="ic" style="height:200px"><svg viewBox="0 0 40 40"><circle cx="12" cy="20" r="5"/><circle cx="29" cy="10" r="5"/><circle cx="29" cy="30" r="5"/><path d="M16 18l9-6M16 22l9 6"/></svg>Distribution</div>
+  <div class="ic" style="height:200px"><svg viewBox="0 0 40 40"><path d="M6 33V20M16 33V10M26 33V16M36 33V6"/></svg>Analytics</div>
+ </div>
+ <div class="legend"><span><i style="background:#1B6FD1"></i>Topic line</span><span><i style="background:#E8833A"></i>Writing line</span><span><i style="background:#2BA58A"></i>Quality line</span><span><i style="background:#7B5CC4"></i>Distribution line</span></div>
+ <div class="pg">02</div>
+</section>
+
+<section data-label="03 Section Divider">
+ <div style="position:absolute;left:0;top:0;width:100%;height:100%;background:#0B2545"></div>
+ <div class="sec" style="top:300px;color:#4A98EC;font-size:28px">SECTION 02</div>
+ <div style="position:absolute;left:90px;top:360px;font-size:150px;font-weight:700;color:#fff;letter-spacing:-.02em;line-height:1.05">Architecture<br>in three layers</div>
+ <div class="flow" style="bottom:90px;width:1740px;left:90px"><div class="step" style="height:40px;background:#1B6FD1"></div><div class="step" style="height:40px;background:#E8833A"></div><div class="step" style="height:40px;background:#2BA58A"></div><div class="step" style="height:40px;background:#7B5CC4"></div></div>
+</section>
+
+<section data-label="04 Layers Detail">
+ <h1>Three layers share one data base</h1>
+ <div class="sub">How each layer depends on the one beneath it</div>
+ <div style="position:absolute;left:90px;top:230px;width:1160px">
+  <div class="lay" style="height:150px"><div class="tag" style="width:240px">Apps</div><div class="cells"><div class="cell c1">Topic Radar</div><div class="cell c2">Co-writing</div><div class="cell c3">Fact Check</div><div class="cell c4">Publish Hub</div></div></div>
+  <div class="lay" style="height:150px"><div class="tag" style="width:240px">Intelligence</div><div class="cells"><div class="cell c1">Semantic Search</div><div class="cell c2">Style Model</div><div class="cell c3">Citations</div><div class="cell c4">Reader Profiles</div></div></div>
+  <div class="lay base" style="height:150px"><div class="tag" style="background:#4A5F7A;width:240px">Data</div><div class="cells"><div class="cell">Drafts · Assets · Brand terms · Reading data</div></div></div>
+ </div>
+ <div class="box" style="left:1330px;top:230px;width:500px;height:474px"><div class="sec" style="position:static">WHY IT MATTERS</div><div class="txt" style="position:static;margin-top:18px">Assets collected at the topic stage appear automatically in the drafting library, and published results flow back to train the style model.</div></div>
+ <div class="legend"><span><i style="background:#1B6FD1"></i>Topic line</span><span><i style="background:#E8833A"></i>Writing line</span><span><i style="background:#2BA58A"></i>Quality line</span><span><i style="background:#7B5CC4"></i>Distribution line</span></div>
+ <div class="pg">04</div>
+</section>
+
+<section data-label="05 Icon Capabilities">
+ <h1>Six capabilities, one workspace</h1>
+ <div class="sub">Each icon maps to a step in the journey</div>
+ <div class="grid" style="left:90px;top:230px;width:1740px;grid-template-columns:repeat(3,1fr);gap:24px">
+  <div class="ic" style="height:360px;font-size:30px"><svg style="width:96px;height:96px" viewBox="0 0 40 40"><circle cx="18" cy="18" r="10"/><path d="M26 26l9 9"/></svg>Topic search</div>
+  <div class="ic" style="height:360px;font-size:30px"><svg style="width:96px;height:96px" viewBox="0 0 40 40"><rect x="6" y="5" width="28" height="30" rx="2"/><path d="M12 14h16M12 21h16M12 28h9"/></svg>Outline drafting</div>
+  <div class="ic" style="height:360px;font-size:30px"><svg style="width:96px;height:96px" viewBox="0 0 40 40"><path d="M8 32l4-1L32 11l-3-3L9 28z"/><path d="M26 14l3 3"/></svg>Style polish</div>
+  <div class="ic" style="height:360px;font-size:30px"><svg style="width:96px;height:96px" viewBox="0 0 40 40"><path d="M7 21l9 9L33 11"/></svg>Fact check</div>
+  <div class="ic" style="height:360px;font-size:30px"><svg style="width:96px;height:96px" viewBox="0 0 40 40"><circle cx="12" cy="20" r="5"/><circle cx="29" cy="10" r="5"/><circle cx="29" cy="30" r="5"/><path d="M16 18l9-6M16 22l9 6"/></svg>Multi-channel publishing</div>
+  <div class="ic" style="height:360px;font-size:30px"><svg style="width:96px;height:96px" viewBox="0 0 40 40"><path d="M6 33V20M16 33V10M26 33V16M36 33V6"/></svg>Performance review</div>
+ </div>
+ <div class="pg">05</div>
+</section>
+
+<section data-label="06 Numbers">
+ <h1>What teams see after one quarter</h1>
+ <div class="sub">Pilot with 24 content teams</div>
+ <div class="box" style="left:90px;top:230px;width:560px;height:520px"><div class="sec" style="position:static">DRAFT TIME</div><div class="bigno" style="color:#1B6FD1;margin-top:40px">−38%</div><div class="txt" style="position:static;margin-top:20px">from topic to first draft</div></div>
+ <div class="box" style="left:680px;top:230px;width:560px;height:520px"><div class="sec" style="position:static">ERRORS CAUGHT</div><div class="bigno" style="color:#2BA58A;margin-top:40px">92%</div><div class="txt" style="position:static;margin-top:20px">of factual flags resolved before publishing</div></div>
+ <div class="box" style="left:1270px;top:230px;width:560px;height:520px;background:#0B2545;color:#fff"><div class="sec" style="position:static;color:#4A98EC">REACH</div><div class="bigno" style="color:#fff;margin-top:40px">2.4x</div><div class="txt" style="position:static;margin-top:20px;color:#DDE6F2">more channels per article</div></div>
+ <div class="legend"><span>Source: internal pilot, 24 teams, one quarter (placeholder data)</span></div>
+ <div class="pg">06</div>
+</section>
+
+<section data-label="07 Closing">
+ <div style="position:absolute;left:0;top:0;bottom:0;width:36px;background:#1B6FD1"></div>
+ <div class="sec" style="top:260px">NEXT STEPS</div>
+ <div style="position:absolute;left:90px;top:310px;width:1500px;font-size:110px;font-weight:700;line-height:1.1;letter-spacing:-.02em">Start with one team and one journey step</div>
+ <div class="flow" style="top:700px;width:1740px;height:120px">
+  <div class="step" style="height:120px"><b>1 Pilot</b><span>One team, four weeks</span></div>
+  <div class="step" style="height:120px"><b>2 Expand</b><span>Add steps and teams</span></div>
+  <div class="step" style="height:120px"><b>3 Integrate</b><span>Connect existing tools</span></div>
+  <div class="step" style="height:120px"><b>4 Review</b><span>Measure and adjust</span></div>
+ </div>
+ <div class="pg">07</div>
+</section>
+
+</deck-stage>
+</body></html>

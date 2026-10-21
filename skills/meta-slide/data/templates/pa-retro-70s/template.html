@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Retro 70s — Deck Template</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Bowlby+One&family=Inter+Tight:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="deck-stage.js"></script>
+<style>
+  :root {
+    --bg-cream: #f4e9d0;
+    --brown: #6b4423;
+    --orange: #e07a3e;
+    --mustard: #d4a82a;
+    --vermilion: #c14d3f;
+    --ink: #2a1810;
+    --ink-soft: rgba(42, 24, 16, 0.72);
+    --display-font: 'Bagel Fat One', 'Bowlby One', 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
+    --body-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --mono-font: 'JetBrains Mono', 'DM Mono', 'Courier New', monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: #000; }
+  body { font-family: var(--body-font); color: var(--ink); -webkit-font-smoothing: antialiased; }
+
+  deck-stage > section { font-family: var(--body-font);
+    width: 1920px; height: 1080px; position: relative; overflow: hidden;
+    background:
+      radial-gradient(ellipse 60% 45% at 18% 22%, rgba(212,168,42,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 55% 40% at 86% 84%, rgba(224,122,62,0.14) 0%, transparent 65%),
+      var(--bg-cream);
+    color: var(--ink);
+  }
+  deck-stage > section.dark { background: var(--brown); color: var(--bg-cream); }
+
+  .stripe { position: absolute; left: 0; right: 0; height: 21px; z-index: 1; opacity: .78;
+    background: repeating-linear-gradient(90deg, var(--brown) 0 54px, var(--orange) 54px 108px, var(--mustard) 108px 162px, var(--vermilion) 162px 216px); }
+  .stripe.t { top: 0; } .stripe.b { bottom: 0; }
+
+  .stage { position: absolute; inset: 0; padding: 84px 120px 100px; z-index: 5; display: flex; flex-direction: column; }
+  .top { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-family: var(--mono-font); font-size: 20px; font-weight: 700; letter-spacing: .22em; color: var(--brown); text-transform: uppercase; display: flex; align-items: center; gap: 18px; }
+  .dark .logo, .dark .nav { color: var(--bg-cream); }
+  .logo-mark { width: 33px; height: 33px; border-radius: 50%; background: var(--brown); display: inline-flex; align-items: center; justify-content: center; }
+  .dark .logo-mark { background: var(--mustard); }
+  .logo-mark i { width: 9px; height: 9px; border-radius: 50%; background: var(--bg-cream); }
+  .dark .logo-mark i { background: var(--brown); }
+  .nav { font-family: var(--mono-font); font-size: 20px; color: var(--brown); letter-spacing: .28em; text-transform: uppercase; font-weight: 500; display: flex; gap: 33px; opacity: .8; }
+
+  .label-row { display: inline-flex; align-items: center; gap: 18px; margin-top: 40px; }
+  .label-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--vermilion); box-shadow: 0 0 0 5px rgba(193,77,63,.18); }
+  .label-line { width: 42px; height: 3px; background: var(--brown); border-radius: 2px; }
+  .dark .label-line { background: var(--mustard); }
+  .label { font-size: 22px; color: var(--brown); letter-spacing: .4em; font-weight: 700; text-transform: uppercase; }
+  .dark .label { color: var(--mustard); }
+
+  .headline { font-family: var(--display-font); font-weight: 400; font-size: 174px; line-height: .92; letter-spacing: -.035em; color: var(--brown); margin-top: 27px; text-shadow: 6px 6px 0 rgba(193,77,63,.18); }
+  .headline .accent { color: var(--vermilion); } .headline .dot { color: var(--mustard); }
+  .h2 { font-family: var(--display-font); font-weight: 400; font-size: 104px; line-height: .98; letter-spacing: -.03em; color: var(--brown); margin-top: 24px; text-shadow: 5px 5px 0 rgba(193,77,63,.18); }
+  .h2 .accent { color: var(--vermilion); }
+  .dark .h2 { color: var(--bg-cream); text-shadow: 5px 5px 0 rgba(0,0,0,.25); }
+  .deck { font-size: 28px; line-height: 1.55; color: var(--ink-soft); max-width: 900px; margin-top: 33px; font-weight: 500; }
+  .deck b { color: var(--brown); font-weight: 700; }
+
+  .footer { position: absolute; bottom: 40px; left: 120px; right: 120px; display: flex; justify-content: space-between; font-family: var(--mono-font); font-size: 18px; color: var(--brown); letter-spacing: .32em; text-transform: uppercase; font-weight: 600; opacity: .75; z-index: 6; }
+  .dark .footer { color: var(--bg-cream); }
+
+  .cards { display: flex; gap: 33px; margin-top: 57px; }
+  .card { width: 252px; height: 198px; border-radius: 15px; padding: 27px; display: flex; flex-direction: column; justify-content: space-between; position: relative; border: 3px solid var(--ink); box-shadow: 6px 6px 0 rgba(42,24,16,.85); }
+  .card.brown { background: var(--brown); color: var(--bg-cream); } .card.orange { background: var(--orange); color: var(--ink); } .card.mustard { background: var(--mustard); color: var(--ink); } .card.verm { background: var(--vermilion); color: var(--bg-cream); }
+  .card .num { font-family: var(--display-font); font-size: 66px; letter-spacing: -.04em; line-height: 1; }
+  .card .cl { font-family: var(--mono-font); font-size: 18px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+  .card .corner { position: absolute; top: 18px; right: 18px; width: 15px; height: 15px; border-radius: 50%; background: var(--mustard); }
+  .card.orange .corner { background: var(--brown); } .card.mustard .corner { background: var(--vermilion); }
+
+  /* decor */
+  .sun { position: absolute; border-radius: 50%; z-index: 2; }
+  .sun.o { right: 144px; top: 144px; width: 222px; height: 222px; background: radial-gradient(circle at 35% 32%, #ec946a 0%, var(--orange) 48%, #b75a23 100%); box-shadow: 0 0 0 12px var(--bg-cream), 0 0 0 14px rgba(107,68,35,.55); }
+  .sun-ring { position: absolute; right: 114px; top: 114px; width: 282px; height: 282px; border-radius: 50%; border: 3px dashed rgba(107,68,35,.42); z-index: 2; }
+  .sun.m { left: 117px; bottom: 165px; width: 144px; height: 144px; background: radial-gradient(circle at 38% 35%, #ecc35a 0%, var(--mustard) 55%, #9a7813 100%); box-shadow: 0 0 0 9px var(--bg-cream), 0 0 0 10px rgba(107,68,35,.45); }
+  .arc { position: absolute; left: 0; top: 435px; width: 117px; height: 234px; border-radius: 0 234px 234px 0; background: var(--vermilion); z-index: 2; }
+  .vinyl { position: absolute; border-radius: 50%; z-index: 4; box-shadow: 0 0 0 6px var(--bg-cream), 0 0 0 9px rgba(107,68,35,.55);
+    background: radial-gradient(circle at center, var(--vermilion) 0 27px, var(--ink) 27px 33px, #1d100a 33px 54px, var(--ink) 54px 57px, #1d100a 57px 84px, var(--ink) 84px 87px, #1d100a 87px 117px, var(--ink) 117px 120px, #1d100a 120px 126px); }
+  .vinyl::after { content: ""; position: absolute; left: 50%; top: 50%; width: 18px; height: 18px; margin: -9px; border-radius: 50%; background: var(--bg-cream); }
+  .vinyl.cover { right: 144px; bottom: 144px; width: 252px; height: 252px; }
+
+  /* contents */
+  .tracks { margin-top: 48px; display: flex; flex-direction: column; gap: 20px; width: 1250px; }
+  .track { display: flex; align-items: center; gap: 33px; background: rgba(255,255,255,.35); border: 3px solid var(--ink); border-radius: 15px; padding: 18px 33px; box-shadow: 6px 6px 0 rgba(42,24,16,.85); }
+  .track .n { width: 66px; height: 66px; border-radius: 50%; background: var(--vermilion); color: var(--bg-cream); font-family: var(--display-font); font-size: 34px; display: flex; align-items: center; justify-content: center; flex: none; }
+  .track:nth-child(2) .n { background: var(--orange); } .track:nth-child(3) .n { background: var(--mustard); color: var(--ink); } .track:nth-child(4) .n { background: var(--brown); }
+  .track .t { font-family: var(--display-font); font-size: 42px; color: var(--brown); flex: 1; }
+  .track .m { font-family: var(--mono-font); font-size: 22px; letter-spacing: .2em; color: var(--brown); font-weight: 700; }
+
+  /* divider */
+  .div-num { font-family: var(--display-font); font-size: 520px; line-height: .8; color: var(--mustard); position: absolute; left: 110px; bottom: 120px; letter-spacing: -.05em; text-shadow: 12px 12px 0 rgba(0,0,0,.25); z-index: 5; }
+  .vinyl.big { right: 150px; top: 250px; width: 520px; height: 520px; transform: scale(1); background: radial-gradient(circle at center, var(--vermilion) 0 60px, var(--ink) 60px 70px, #1d100a 70px 120px, var(--ink) 120px 126px, #1d100a 126px 180px, var(--ink) 180px 186px, #1d100a 186px 240px, var(--ink) 240px 246px, #1d100a 246px 260px); box-shadow: 0 0 0 9px var(--brown), 0 0 0 12px rgba(244,233,208,.6); }
+  .vinyl.big::after { width: 30px; height: 30px; margin: -15px; background: var(--brown); }
+  .div-text { position: absolute; left: 120px; top: 230px; z-index: 5; width: 900px; }
+
+  /* metrics */
+  .metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 54px; margin-top: 40px; align-items: stretch; }
+  .big-cards { display: flex; flex-direction: column; gap: 24px; }
+  .big-cards .card { width: 100%; height: 150px; flex-direction: row; align-items: center; }
+  .big-cards .card .num { font-size: 78px; }
+  .bars { background: rgba(255,255,255,.35); border: 3px solid var(--ink); border-radius: 15px; box-shadow: 6px 6px 0 rgba(42,24,16,.85); padding: 30px 40px 24px; display: flex; flex-direction: column; }
+  .bars h4 { font-family: var(--mono-font); font-size: 22px; letter-spacing: .2em; color: var(--brown); text-transform: uppercase; }
+  .bar-area { flex: 1; display: flex; align-items: flex-end; gap: 30px; padding-top: 24px; border-bottom: 3px solid var(--ink); }
+  .bar { flex: 1; border: 3px solid var(--ink); border-bottom: 0; border-radius: 12px 12px 0 0; display: flex; justify-content: center; padding-top: 12px; font-family: var(--display-font); font-size: 30px; }
+  .bar-lab { display: flex; gap: 30px; padding-top: 12px; font-family: var(--mono-font); font-size: 20px; font-weight: 700; letter-spacing: .1em; color: var(--brown); }
+  .bar-lab span { flex: 1; text-align: center; }
+
+  /* steps */
+  .steps { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px; margin-top: 90px; }
+  .steps::before { content: ""; position: absolute; left: 6%; right: 6%; top: 69px; border-top: 4px dashed rgba(107,68,35,.5); }
+  .step { position: relative; text-align: center; }
+  .step .disc { width: 140px; height: 140px; border-radius: 50%; margin: 0 auto; display: flex; align-items: center; justify-content: center; font-family: var(--display-font); font-size: 64px; border: 3px solid var(--ink); box-shadow: 6px 6px 0 rgba(42,24,16,.85); }
+  .step:nth-child(1) .disc { background: var(--brown); color: var(--bg-cream); } .step:nth-child(2) .disc { background: var(--orange); } .step:nth-child(3) .disc { background: var(--mustard); } .step:nth-child(4) .disc { background: var(--vermilion); color: var(--bg-cream); }
+  .step h3 { font-family: var(--display-font); font-weight: 400; font-size: 44px; color: var(--brown); margin-top: 36px; }
+  .step p { font-size: 26px; line-height: 1.5; color: var(--ink-soft); margin-top: 14px; font-weight: 500; }
+
+  /* compare */
+  .cmp { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 42px; }
+  .col { border: 3px solid var(--ink); border-radius: 18px; padding: 36px 42px; box-shadow: 8px 8px 0 rgba(42,24,16,.85); }
+  .col.a { background: var(--mustard); } .col.b { background: var(--brown); color: var(--bg-cream); }
+  .col .tag { font-family: var(--mono-font); font-size: 22px; letter-spacing: .3em; font-weight: 700; }
+  .col h3 { font-family: var(--display-font); font-weight: 400; font-size: 66px; margin: 12px 0 18px; letter-spacing: -.02em; }
+  .col ul { list-style: none; } .col li { font-size: 29px; line-height: 1.4; padding: 14px 0 14px 54px; border-top: 2px solid rgba(42,24,16,.3); position: relative; font-weight: 600; }
+  .col.b li { border-top-color: rgba(244,233,208,.3); }
+  .col li::before { content: ""; position: absolute; left: 6px; top: 26px; width: 22px; height: 22px; border-radius: 50%; background: var(--vermilion); }
+  .col.b li::before { background: var(--mustard); }
+
+  /* quote */
+  .quote { font-family: var(--display-font); font-size: 96px; line-height: 1.04; color: var(--brown); letter-spacing: -.02em; max-width: 1280px; margin-top: 54px; text-shadow: 5px 5px 0 rgba(193,77,63,.18); }
+  .quote .accent { color: var(--vermilion); }
+  .qmark { font-family: var(--display-font); font-size: 300px; line-height: .6; color: var(--orange); margin-top: 30px; }
+  .by { font-family: var(--mono-font); font-size: 24px; letter-spacing: .24em; color: var(--brown); font-weight: 700; margin-top: 42px; text-transform: uppercase; }
+  .vinyl.q { right: 140px; bottom: 150px; width: 330px; height: 330px; }
+</style>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+
+  <section data-label="01 Cover" class="s1">
+    <div class="stripe t"></div><div class="stripe b"></div>
+    <div class="sun-ring"></div><div class="sun o"></div><div class="sun m"></div><div class="arc"></div>
+    <div class="stage">
+      <div class="top"><div class="logo"><span class="logo-mark"><i></i></span>Vinyl &amp; Brew · Est. 1972</div><div class="nav"><span>Shop</span><span>Stories</span><span>Visit</span></div></div>
+      <div class="label-row"><span class="label-dot"></span><span class="label-line"></span><span class="label">Vol. 042 · Groove Time</span></div>
+      <h1 class="headline">STAY<br>GROOVY<span class="dot">.</span></h1>
+      <p class="deck">Coffee &amp; vinyl since the seventies. Hand-roasted beans, hand-picked records, served slow. Now spinning in <b>twelve cities</b> across the United States.</p>
+      <div class="cards">
+        <div class="card brown"><span class="corner"></span><div class="num">12</div><div class="cl">Cities spun</div></div>
+        <div class="card orange"><span class="corner"></span><div class="num">48</div><div class="cl">Records / wk</div></div>
+        <div class="card mustard"><span class="corner"></span><div class="num">1972</div><div class="cl">Est. Brooklyn</div></div>
+      </div>
+    </div>
+    <div class="vinyl cover"></div>
+    <div class="footer"><span>MMXXVI · Established in Brooklyn</span><span>Side A · 01 / 08</span></div>
+  </section>
+
+  <section data-label="02 Tracklist">
+    <div class="stripe t"></div><div class="stripe b"></div>
+    <div class="stage">
+      <div class="top"><div class="logo"><span class="logo-mark"><i></i></span>Vinyl &amp; Brew · Est. 1972</div><div class="nav"><span>Side A</span><span>Side B</span></div></div>
+      <div class="label-row"><span class="label-dot"></span><span class="label-line"></span><span class="label">Contents</span></div>
+      <h2 class="h2">Today's <span class="accent">Tracklist</span></h2>
+      <div class="tracks">
+        <div class="track"><span class="n">1</span><span class="t">Where we started</span><span class="m">03:12</span></div>
+        <div class="track"><span class="n">2</span><span class="t">What we pour and spin</span><span class="m">04:05</span></div>
+        <div class="track"><span class="n">3</span><span class="t">The numbers behind the groove</span><span class="m">02:48</span></div>
+        <div class="track"><span class="n">4</span><span class="t">Next stop on the tour</span><span class="m">03:30</span></div>
+      </div>
+    </div>
+    <div class="vinyl" style="right:140px;top:330px;width:300px;height:300px"></div>
+    <div class="footer"><span>MMXXVI · Tracklist</span><span>Side A · 02 / 08</span></div>
+  </section>
+
+  <section data-label="03 Section Divider" class="dark">
+    <div class="stripe t"></div><div class="stripe b"></div>
+    <div class="stage">
+      <div class="top"><div class="logo"><span class="logo-mark"><i></i></span>Vinyl &amp; Brew · Est. 1972</div><div class="nav"><span>Side B</span></div></div>
+    </div>
+    <div class="div-text">
+      <div class="label-row"><span class="label-dot"></span><span class="label-line"></span><span class="label">Part two</span></div>
+      <h2 class="h2">Flip the<br>record<span style="color:var(--mustard)">.</span></h2>
+    </div>
+    <div class="div-num">B</div>
+    <div class="vinyl big"></div>
+    <div class="footer"><span>MMXXVI · Side B</span><span>Side B · 03 / 08</span></div>
+  </section>
+
+  <section data-label="04 Numbers">
+    <div class="stripe t"></div><div class="stripe b"></div>
+    <div class="stage">
+      <div class="top"><div class="logo"><span class="logo-mark"><i></i></span>Vinyl &amp; Brew · Est. 1972</div><div class="nav"><span>Report</span></div></div>
+      <div class="label-row"><span class="label-dot"></span><span class="label-line"></span><span class="label">By the numbers</span></div>
+      <h2 class="h2">Spinning <span class="accent">faster</span> every year</h2>
+      <div class="metrics">
+        <div class="big-cards">
+          <div class="card brown"><span class="corner"></span><div class="num">214k</div><div class="cl">Cups poured</div></div>
+          <div class="card orange"><span class="corner"></span><div class="num">+38%</div><div class="cl">Vinyl sales</div></div>
+          <div class="card mustard"><span class="corner"></span><div class="num">4.9</div><div class="cl">Guest rating</div></div>
+        </div>
+        <div class="bars">
+          <h4>Records sold per year (k)</h4>
+          <div class="bar-area">
+            <div class="bar" style="height:25%;background:var(--brown);color:var(--bg-cream)">9</div>
+            <div class="bar" style="height:42%;background:var(--orange)">15</div>
+            <div class="bar" style="height:63%;background:var(--mustard)">23</div>
+            <div class="bar" style="height:100%;background:var(--vermilion);color:var(--bg-cream)">36</div>
+          </div>
+          <div class="bar-lab"><span>2023</span><span>2024</span><span>2025</span><span>2026</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer"><span>MMXXVI · Annual numbers</span><span>Side B · 04 / 08</span></div>
+  </section>
+
+  <section data-label="05 Process Steps">
+    <div class="stripe t"></div><div class="stripe b"></div>
+    <div class="stage">
+      <div class="top"><div class="logo"><span class="logo-mark"><i></i></span>Vinyl &amp; Brew · Est. 1972</div><div class="nav"><span>Method</span></div></div>
+      <div class="label-row"><span class="label-dot"></span><span class="label-line"></span><span class="label">How it works</span></div>
+      <h2 class="h2">From bean to <span class="accent">groove</span></h2>
+      <div class="steps">
+        <div class="step"><div class="disc">1</div><h3>Source</h3><p>Small farms and crate-digging trips.</p></div>
+        <div class="step"><div class="disc">2</div><h3>Roast</h3><p>Slow batches, hand-tuned each morning.</p></div>
+        <div class="step"><div class="disc">3</div><h3>Curate</h3><p>One record picked for every blend.</p></div>
+        <div class="step"><div class="disc">4</div><h3>Serve</h3><p>A warm cup and a needle drop.</p></div>
+      </div>
+    </div>
+    <div class="footer"><span>MMXXVI · Method</span><span>Side B · 05 / 08</span></div>
+  </section>
+
+  <section data-label="06 Comparison">
+    <div class="stripe t"></div><div class="stripe b"></div>
+    <div class="stage">
+      <div class="top"><div class="logo"><span class="logo-mark"><i></i></span>Vinyl &amp; Brew · Est. 1972</div><div class="nav"><span>Then / Now</span></div></div>
+      <div class="label-row"><span class="label-dot"></span><span class="label-line"></span><span class="label">Then vs. now</span></div>
+      <h2 class="h2">Same groove, <span class="accent">bigger room</span></h2>
+      <div class="cmp">
+        <div class="col a"><div class="tag">1972</div><h3>One corner shop</h3><ul><li>One roaster, one turntable</li><li>Regulars on a first-name basis</li><li>Hand-written chalkboard menu</li></ul></div>
+        <div class="col b"><div class="tag">2026</div><h3>Twelve cities</h3><ul><li>Roasted in small shared batches</li><li>Listening rooms in every store</li><li>Same slow pour, same warm welcome</li></ul></div>
+      </div>
+    </div>
+    <div class="footer"><span>MMXXVI · Comparison</span><span>Side B · 06 / 08</span></div>
+  </section>
+
+  <section data-label="07 Quote">
+    <div class="stripe t"></div><div class="stripe b"></div>
+    <div class="sun o" style="top:200px;right:140px;width:180px;height:180px"></div><div class="sun-ring" style="top:170px;right:110px;width:240px;height:240px"></div>
+    <div class="stage">
+      <div class="top"><div class="logo"><span class="logo-mark"><i></i></span>Vinyl &amp; Brew · Est. 1972</div><div class="nav"><span>Voices</span></div></div>
+      <div class="qmark">&ldquo;</div>
+      <div class="quote" style="margin-top:0">Good coffee, a good record, and nowhere <span class="accent">to be.</span></div>
+      <div class="by">— A regular, Brooklyn store</div>
+    </div>
+    <div class="vinyl q"></div>
+    <div class="footer"><span>MMXXVI · Voices</span><span>Side B · 07 / 08</span></div>
+  </section>
+
+  <section data-label="08 Closing">
+    <div class="stripe t"></div><div class="stripe b"></div>
+    <div class="sun m" style="left:150px;bottom:190px"></div><div class="arc" style="top:420px"></div>
+    <div class="stage">
+      <div class="top"><div class="logo"><span class="logo-mark"><i></i></span>Vinyl &amp; Brew · Est. 1972</div><div class="nav"><span>Shop</span><span>Stories</span><span>Visit</span></div></div>
+      <div class="label-row"><span class="label-dot"></span><span class="label-line"></span><span class="label">Thank you</span></div>
+      <h1 class="headline" style="font-size:150px">KEEP IT<br><span class="accent">SPINNING</span><span class="dot">.</span></h1>
+      <p class="deck">Find your nearest store, pick a record, and stay a while. <b>hello@example.com</b></p>
+    </div>
+    <div class="vinyl cover"></div>
+    <div class="footer"><span>MMXXVI · See you next side</span><span>Side B · 08 / 08</span></div>
+  </section>
+
+</deck-stage>
+</body>
+</html>

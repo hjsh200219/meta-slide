@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fresh Green — Deck Template</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap');
+  :root{
+    --bg-from:#f4ede0; --bg-to:#e8dec5; --paper:#efe6d2; --card-bg:#f7f1e3;
+    --card-border:rgba(168,91,58,0.18); --hairline:rgba(45,58,31,0.14);
+    --ink-primary:#2d3a1f; --ink-secondary:#5a6840; --ink-muted:rgba(45,58,31,0.55);
+    --sage:#859e5a; --sage-deep:#6b8344; --ochre:#a85b3a; --ochre-soft:rgba(168,91,58,0.12);
+    --display-font:'Source Serif 4','Fraunces',Georgia,'Times New Roman',serif;
+    --body-font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --label-font:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{margin:0;background:#000}
+  deck-stage>section{
+    width:1920px;height:1080px;position:relative;overflow:hidden;box-sizing:border-box;
+    background:radial-gradient(ellipse 90% 70% at 18% 8%,#fbf6ea 0%,transparent 60%),radial-gradient(ellipse 70% 60% at 90% 95%,#e3d7b8 0%,transparent 55%),linear-gradient(155deg,var(--bg-from) 0%,var(--bg-to) 100%);
+    color:var(--ink-primary);font-family:var(--body-font);font-feature-settings:'kern','liga','onum','calt','ss01';-webkit-font-smoothing:antialiased;
+  }
+  .grain{position:absolute;inset:0;background-image:radial-gradient(circle at 25% 30%,rgba(168,91,58,.04) 1px,transparent 1.5px),radial-gradient(circle at 75% 70%,rgba(133,158,90,.05) 1px,transparent 1.5px);background-size:90px 90px,120px 120px;pointer-events:none}
+  .frame-line{position:absolute;left:90px;right:90px;height:1px;background:var(--hairline)}
+  .ft{top:90px}.fb{bottom:84px}
+  .stage{position:relative;z-index:3;width:100%;height:100%;padding:42px 120px;display:flex;flex-direction:column}
+  .top{display:flex;justify-content:space-between;align-items:baseline;padding-top:9px;margin-bottom:105px}
+  .logo{font-family:var(--display-font);font-size:24px;font-weight:500;letter-spacing:.32em;text-transform:uppercase}
+  .logo em{font-style:italic;font-weight:400;color:var(--sage-deep)}
+  .nav{font-size:18px;font-weight:500;color:var(--ink-muted);letter-spacing:.32em;text-transform:uppercase;display:flex;gap:33px}
+  .nav .active{color:var(--ochre)}
+  .label{font-size:20px;font-weight:600;color:var(--sage-deep);letter-spacing:.4em;text-transform:uppercase;display:inline-flex;align-items:center;gap:21px}
+  .label .rule{display:inline-block;width:84px;height:1px;background:var(--sage)}
+  .headline{font-family:var(--display-font);font-size:132px;font-weight:400;letter-spacing:-.018em;line-height:1.02;margin-top:33px;max-width:1200px}
+  .headline em,.h2 em{font-style:italic;font-weight:400;color:var(--sage-deep);letter-spacing:-.02em}
+  .h2{font-family:var(--display-font);font-size:96px;font-weight:400;letter-spacing:-.018em;line-height:1.05;margin-top:30px;max-width:1500px}
+  .deck{font-size:28px;line-height:1.7;color:var(--ink-secondary);max-width:820px;margin-top:36px}
+  .deck em{font-family:var(--display-font);font-style:italic;color:var(--ochre);font-size:1.08em}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:27px;margin-top:63px;max-width:1170px}
+  .card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:6px;padding:30px 30px 27px;display:flex;flex-direction:column;gap:12px}
+  .card .num{font-size:18px;font-weight:500;color:var(--ochre);letter-spacing:.3em}
+  .card .name{font-family:var(--display-font);font-size:38px;font-weight:400;letter-spacing:-.012em;line-height:1.15;margin-top:3px}
+  .card .name em{font-style:italic;color:var(--sage-deep)}
+  .card .desc{font-size:22px;line-height:1.5;color:var(--ink-muted);margin-top:6px}
+  .card .price-row{display:flex;align-items:baseline;justify-content:space-between;margin-top:21px;padding-top:18px;border-top:1px solid var(--hairline)}
+  .card .price{font-family:var(--display-font);font-size:30px;font-weight:500}
+  .card .vol{font-size:18px;color:var(--ink-muted);letter-spacing:.18em;text-transform:uppercase}
+  .vig{position:absolute;right:144px;top:228px;width:480px;height:480px;z-index:4}
+  .vc{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 35% 30%,#f6efde 0%,#e8dcc0 45%,#d8c79d 100%);box-shadow:inset 0 0 90px rgba(168,91,58,.15),inset 12px 12px 60px rgba(255,255,255,.5),0 6px 36px rgba(45,58,31,.08)}
+  .vr{position:absolute;inset:-21px;border:1px solid var(--card-border);border-radius:50%}
+  .bottle{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:129px;height:252px}
+  .bb{position:absolute;left:0;right:0;top:39px;bottom:0;background:linear-gradient(160deg,#4a5a30 0%,#3a4823 60%,#2d3a1f 100%);border-radius:9px 9px 15px 15px;box-shadow:inset -12px 0 24px rgba(0,0,0,.25),inset 12px 0 21px rgba(255,255,255,.06)}
+  .bn{position:absolute;left:50%;transform:translateX(-50%);top:12px;width:42px;height:33px;background:linear-gradient(180deg,#2d3a1f,#3a4823);border-radius:4px 4px 0 0}
+  .bc{position:absolute;left:50%;transform:translateX(-50%);top:0;width:54px;height:18px;background:linear-gradient(180deg,#c8a87a,#a8865a);border-radius:3px}
+  .bl{position:absolute;left:18px;right:18px;top:117px;text-align:center;color:rgba(244,237,224,.85);font-family:var(--display-font);font-style:italic;font-size:18px;letter-spacing:.04em;line-height:1.2}
+  .bl span{display:block;font-family:var(--label-font);font-style:normal;font-size:11px;letter-spacing:.42em;color:rgba(244,237,224,.5);margin-top:9px}
+  .leaf{position:absolute;z-index:5;pointer-events:none}
+  .l1{right:84px;top:153px;transform:rotate(-22deg)}
+  .l2{right:498px;top:582px;transform:rotate(38deg);opacity:.9}
+  .l3{right:132px;bottom:165px;transform:rotate(14deg);opacity:.85}
+  .vcap{position:absolute;right:144px;top:732px;width:480px;text-align:center;z-index:4}
+  .vcap .ed{font-size:18px;font-weight:500;color:var(--ochre);letter-spacing:.42em;text-transform:uppercase}
+  .vcap .nm{font-family:var(--display-font);font-style:italic;font-size:30px;margin-top:9px}
+  .vcap .meta{font-size:18px;color:var(--ink-muted);letter-spacing:.16em;text-transform:uppercase;margin-top:9px}
+  .corner-mark{position:absolute;top:117px;right:120px;font-family:var(--display-font);font-style:italic;font-size:22px;color:var(--ochre);z-index:4}
+  .footer{position:absolute;bottom:42px;left:120px;right:120px;display:flex;justify-content:space-between;align-items:center;font-size:18px;font-weight:500;color:var(--ink-muted);letter-spacing:.28em;text-transform:uppercase;z-index:6}
+  .footer em{font-family:var(--display-font);font-style:italic;color:var(--sage-deep);letter-spacing:.05em;text-transform:none;font-size:20px;margin:0 6px}
+  .cov .top{margin-bottom:54px}
+  .cov .headline{font-size:116px;margin-top:24px}
+  .cov .deck{margin-top:24px;font-size:26px}
+  .cov .cards{margin-top:36px}
+  .cov .card{padding:24px 27px 21px}
+  .cov .card .desc{font-size:21px}
+  .cov .card .price-row{margin-top:12px;padding-top:12px}
+  /* extra layouts */
+  .list{margin-top:60px;border-top:1px solid var(--hairline)}
+  .li{display:grid;grid-template-columns:150px 1fr 1fr;gap:42px;align-items:baseline;padding:30px 0;border-bottom:1px solid var(--hairline)}
+  .li .n{font-size:20px;font-weight:500;color:var(--ochre);letter-spacing:.3em}
+  .li .t{font-family:var(--display-font);font-size:52px;letter-spacing:-.015em}
+  .li .t em{font-style:italic;color:var(--sage-deep)}
+  .li .d{font-size:24px;line-height:1.5;color:var(--ink-muted)}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;margin-top:84px;position:relative}
+  .steps::before{content:'';position:absolute;left:0;right:0;top:30px;height:1px;background:var(--sage)}
+  .st .dot{width:60px;height:60px;border-radius:50%;background:var(--sage);color:#fff;font-family:var(--display-font);font-style:italic;font-size:30px;display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 0 0 9px var(--bg-from)}
+  .st:nth-child(even) .dot{background:var(--ochre)}
+  .st .t{font-family:var(--display-font);font-size:44px;margin-top:36px;letter-spacing:-.012em}
+  .st .t em{font-style:italic;color:var(--sage-deep)}
+  .st .d{font-size:24px;line-height:1.55;color:var(--ink-muted);margin-top:15px;max-width:360px}
+  .cmp{display:grid;grid-template-columns:1fr 1fr;gap:45px;margin-top:66px}
+  .pane{background:var(--card-bg);border:1px solid var(--card-border);border-radius:6px;padding:54px 54px 48px;min-height:480px}
+  .pane.alt{background:var(--ink-primary);color:#f4ede0;border-color:var(--ink-primary)}
+  .pane .k{font-size:20px;font-weight:600;letter-spacing:.34em;text-transform:uppercase;color:var(--ochre)}
+  .pane.alt .k{color:#c8a87a}
+  .pane .big{font-family:var(--display-font);font-size:170px;line-height:1;letter-spacing:-.03em;margin-top:30px}
+  .pane .big em{font-style:italic;font-size:.4em;color:var(--sage-deep);margin-left:6px}
+  .pane.alt .big em{color:var(--sage)}
+  .pane .d{font-size:26px;line-height:1.55;color:var(--ink-muted);margin-top:24px}
+  .pane.alt .d{color:rgba(244,237,224,.7)}
+  .center{align-items:center;justify-content:center;text-align:center}
+  .quote{font-family:var(--display-font);font-style:italic;font-size:92px;line-height:1.15;letter-spacing:-.015em;max-width:1400px;color:var(--ink-primary)}
+  .qm{font-family:var(--display-font);font-size:240px;line-height:.6;color:var(--sage);height:110px}
+  .attr{font-size:20px;font-weight:500;letter-spacing:.4em;text-transform:uppercase;color:var(--ochre);margin-top:54px}
+  .giant{font-family:var(--display-font);font-style:italic;font-size:360px;line-height:.9;color:var(--sage-deep);letter-spacing:-.04em}
+</style>
+<script src="deck-stage.js"></script>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+
+<section data-label="01 Cover" class="cov">
+  <div class="grain"></div><div class="frame-line ft"></div><div class="frame-line fb"></div>
+  <div class="stage">
+    <div class="top"><div class="logo">AUR<em>&Eacute;</em>LIA &middot; APOTHECARY</div><div class="nav"><span class="active">Products</span><span>Stories</span><span>Journal</span></div></div>
+    <div class="label"><span class="rule"></span>Nature &middot; Essentials</div>
+    <h1 class="headline"><em>Quiet rituals,</em><br>thoughtful care.</h1>
+    <p class="deck">Botanical formulas for skin&rsquo;s quiet repair. <em>Twelve ingredients</em>, one attitude &mdash; turning every application into a ritual worth keeping. Cold-pressed, unscented, letting the plants speak.</p>
+    <div class="cards">
+      <div class="card"><div class="num">N&deg; 01</div><div class="name">Sage <em>&amp; Cedar</em></div><div class="desc">Gentle cleansing milk. Balances oil, clean without dryness.</div><div class="price-row"><span class="price">$ 32</span><span class="vol">200 ML</span></div></div>
+      <div class="card"><div class="num">N&deg; 02</div><div class="name">Olive <em>Renewal</em></div><div class="desc">Cold-pressed olive serum oil. Restores the barrier, slow glow.</div><div class="price-row"><span class="price">$ 48</span><span class="vol">50 ML</span></div></div>
+      <div class="card"><div class="num">N&deg; 03</div><div class="name">Moss <em>Hand Balm</em></div><div class="desc">Moss and shea balm. A forest morning left in your palm.</div><div class="price-row"><span class="price">$ 26</span><span class="vol">75 ML</span></div></div>
+    </div>
+  </div>
+  <div class="corner-mark">est. MMXIV</div>
+  <div class="vig"><div class="vr"></div><div class="vc"></div><div class="bottle"><div class="bc"></div><div class="bn"></div><div class="bb"><div class="bl">Aur&eacute;lia<span>N&deg; 02</span></div></div></div></div>
+  <svg class="leaf l1" width="180" height="240" viewBox="0 0 120 160"><path d="M60 8 C 28 36, 18 92, 60 152 C 102 92, 92 36, 60 8 Z" fill="#859e5a" opacity=".92"/><path d="M60 8 C 28 36, 18 92, 60 152" fill="none" stroke="#5a6840" stroke-width=".8" opacity=".6"/><path d="M60 22 L 42 50 M60 40 L 38 70 M60 58 L 36 90 M60 76 L 38 110 M60 94 L 42 128 M60 22 L 78 50 M60 40 L 82 70 M60 58 L 84 90 M60 76 L 82 110 M60 94 L 78 128" stroke="#5a6840" stroke-width=".6" opacity=".4" fill="none"/></svg>
+  <svg class="leaf l2" width="102" height="138" viewBox="0 0 120 160"><path d="M60 8 C 28 36, 18 92, 60 152 C 102 92, 92 36, 60 8 Z" fill="#6b8344" opacity=".85"/><path d="M60 8 C 28 36, 18 92, 60 152" fill="none" stroke="#2d3a1f" stroke-width=".8" opacity=".5"/></svg>
+  <svg class="leaf l3" width="126" height="168" viewBox="0 0 120 160"><path d="M60 8 C 28 36, 18 92, 60 152 C 102 92, 92 36, 60 8 Z" fill="#a85b3a" opacity=".78"/><path d="M60 8 C 28 36, 18 92, 60 152" fill="none" stroke="#6b3a25" stroke-width=".8" opacity=".55"/><path d="M60 30 L 42 56 M60 50 L 38 80 M60 70 L 38 102 M60 90 L 42 122 M60 30 L 78 56 M60 50 L 82 80 M60 70 L 82 102 M60 90 L 78 122" stroke="#6b3a25" stroke-width=".5" opacity=".4" fill="none"/></svg>
+  <div class="vcap"><div class="ed">Featured Edition</div><div class="nm">Olive Renewal Oil</div><div class="meta">N&deg; 02 &middot; 50 ML &middot; $ 48</div></div>
+  <div class="footer"><span>Chapter 02 &mdash; Botanical Essentials &middot; MMXXVI</span><span>01 / 07 <em>&mdash;</em> Aur&eacute;lia Apothecary</span></div>
+</section>
+
+<section data-label="02 Contents">
+  <div class="grain"></div><div class="frame-line ft"></div><div class="frame-line fb"></div>
+  <div class="stage">
+    <div class="top"><div class="logo">AUR<em>&Eacute;</em>LIA &middot; APOTHECARY</div><div class="nav"><span>Products</span><span class="active">Stories</span><span>Journal</span></div></div>
+    <div class="label"><span class="rule"></span>Contents</div>
+    <h2 class="h2">In this <em>edition.</em></h2>
+    <div class="list">
+      <div class="li"><span class="n">N&deg; 01</span><span class="t">Our <em>ingredients</em></span><span class="d">Where each plant is grown and how it is gathered.</span></div>
+      <div class="li"><span class="n">N&deg; 02</span><span class="t">The <em>ritual</em></span><span class="d">Four unhurried steps from morning to evening.</span></div>
+      <div class="li"><span class="n">N&deg; 03</span><span class="t">Season in <em>numbers</em></span><span class="d">What customers and the soil told us this year.</span></div>
+    </div>
+  </div>
+  <div class="footer"><span>Chapter 01 &mdash; Contents &middot; MMXXVI</span><span>02 / 07 <em>&mdash;</em> Aur&eacute;lia Apothecary</span></div>
+</section>
+
+<section data-label="03 Section Divider">
+  <div class="grain"></div><div class="frame-line ft"></div><div class="frame-line fb"></div>
+  <div class="stage" style="justify-content:center">
+    <div class="giant">No. 1</div>
+    <div class="label" style="margin-top:45px"><span class="rule"></span>Chapter One</div>
+    <h2 class="h2" style="font-size:120px">Grown <em>slowly,</em><br>gathered by hand.</h2>
+  </div>
+  <svg class="leaf" style="right:240px;top:210px;transform:rotate(-18deg)" width="300" height="400" viewBox="0 0 120 160"><path d="M60 8 C 28 36, 18 92, 60 152 C 102 92, 92 36, 60 8 Z" fill="#859e5a" opacity=".9"/><path d="M60 8 C 28 36, 18 92, 60 152" fill="none" stroke="#5a6840" stroke-width=".8" opacity=".6"/><path d="M60 22 L 42 50 M60 40 L 38 70 M60 58 L 36 90 M60 76 L 38 110 M60 94 L 42 128 M60 22 L 78 50 M60 40 L 82 70 M60 58 L 84 90 M60 76 L 82 110 M60 94 L 78 128" stroke="#5a6840" stroke-width=".6" opacity=".4" fill="none"/></svg>
+  <svg class="leaf" style="right:120px;top:600px;transform:rotate(30deg)" width="180" height="240" viewBox="0 0 120 160"><path d="M60 8 C 28 36, 18 92, 60 152 C 102 92, 92 36, 60 8 Z" fill="#a85b3a" opacity=".78"/><path d="M60 8 C 28 36, 18 92, 60 152" fill="none" stroke="#6b3a25" stroke-width=".8" opacity=".55"/></svg>
+  <div class="footer"><span>Chapter 01 &mdash; Ingredients &middot; MMXXVI</span><span>03 / 07 <em>&mdash;</em> Aur&eacute;lia Apothecary</span></div>
+</section>
+
+<section data-label="04 Key Points">
+  <div class="grain"></div><div class="frame-line ft"></div><div class="frame-line fb"></div>
+  <div class="stage">
+    <div class="top"><div class="logo">AUR<em>&Eacute;</em>LIA &middot; APOTHECARY</div><div class="nav"><span>Products</span><span class="active">Stories</span><span>Journal</span></div></div>
+    <div class="label"><span class="rule"></span>Our Promise</div>
+    <h2 class="h2">Three things we <em>never</em> compromise on.</h2>
+    <div class="cards" style="max-width:none;gap:36px;margin-top:66px">
+      <div class="card" style="padding:42px;min-height:360px"><div class="num">N&deg; 01</div><div class="name" style="font-size:50px">Cold <em>pressed</em></div><div class="desc" style="font-size:26px">Extracted without heat so the plant keeps its character.</div></div>
+      <div class="card" style="padding:42px;min-height:360px"><div class="num">N&deg; 02</div><div class="name" style="font-size:50px">No added <em>scent</em></div><div class="desc" style="font-size:26px">The only fragrance is the botanical itself.</div></div>
+      <div class="card" style="padding:42px;min-height:360px"><div class="num">N&deg; 03</div><div class="name" style="font-size:50px">Fully <em>traceable</em></div><div class="desc" style="font-size:26px">Every batch is traced to its farm and harvest date.</div></div>
+    </div>
+  </div>
+  <div class="footer"><span>Chapter 02 &mdash; Promise &middot; MMXXVI</span><span>04 / 07 <em>&mdash;</em> Aur&eacute;lia Apothecary</span></div>
+</section>
+
+<section data-label="05 Process">
+  <div class="grain"></div><div class="frame-line ft"></div><div class="frame-line fb"></div>
+  <div class="stage">
+    <div class="top"><div class="logo">AUR<em>&Eacute;</em>LIA &middot; APOTHECARY</div><div class="nav"><span>Products</span><span class="active">Stories</span><span>Journal</span></div></div>
+    <div class="label"><span class="rule"></span>The Ritual</div>
+    <h2 class="h2">Four <em>unhurried</em> steps.</h2>
+    <div class="steps">
+      <div class="st"><div class="dot">1</div><div class="t">Cleanse</div><div class="d">Warm water and a pea-sized amount of milk.</div></div>
+      <div class="st"><div class="dot">2</div><div class="t">Press</div><div class="d">Three drops of oil, warmed between the palms.</div></div>
+      <div class="st"><div class="dot">3</div><div class="t">Rest</div><div class="d">One quiet minute while the skin absorbs.</div></div>
+      <div class="st"><div class="dot">4</div><div class="t">Seal</div><div class="d">A touch of balm on hands and cuticles.</div></div>
+    </div>
+  </div>
+  <div class="footer"><span>Chapter 02 &mdash; Ritual &middot; MMXXVI</span><span>05 / 07 <em>&mdash;</em> Aur&eacute;lia Apothecary</span></div>
+</section>
+
+<section data-label="06 Comparison">
+  <div class="grain"></div><div class="frame-line ft"></div><div class="frame-line fb"></div>
+  <div class="stage">
+    <div class="top"><div class="logo">AUR<em>&Eacute;</em>LIA &middot; APOTHECARY</div><div class="nav"><span>Products</span><span class="active">Stories</span><span>Journal</span></div></div>
+    <div class="label"><span class="rule"></span>Season in Numbers</div>
+    <h2 class="h2" style="font-size:80px">Before the ritual, <em>after the ritual.</em></h2>
+    <div class="cmp">
+      <div class="pane"><div class="k">Week 0</div><div class="big">41<em>%</em></div><div class="d">Customers who described their skin as tight or dry.</div></div>
+      <div class="pane alt"><div class="k">Week 8</div><div class="big">12<em>%</em></div><div class="d">The same group after two months of the routine.</div></div>
+    </div>
+  </div>
+  <div class="footer"><span>Chapter 03 &mdash; Results &middot; MMXXVI</span><span>06 / 07 <em>&mdash;</em> Aur&eacute;lia Apothecary</span></div>
+</section>
+
+<section data-label="07 Closing">
+  <div class="grain"></div><div class="frame-line ft"></div><div class="frame-line fb"></div>
+  <div class="stage center">
+    <div class="qm">&ldquo;</div>
+    <div class="quote">Care is not a product. It is the time you give yourself.</div>
+    <div class="attr">Aur&eacute;lia &middot; Founder&rsquo;s Note</div>
+  </div>
+  <svg class="leaf" style="left:150px;bottom:150px;transform:rotate(-30deg)" width="150" height="200" viewBox="0 0 120 160"><path d="M60 8 C 28 36, 18 92, 60 152 C 102 92, 92 36, 60 8 Z" fill="#859e5a" opacity=".9"/></svg>
+  <svg class="leaf" style="right:150px;top:150px;transform:rotate(30deg)" width="130" height="173" viewBox="0 0 120 160"><path d="M60 8 C 28 36, 18 92, 60 152 C 102 92, 92 36, 60 8 Z" fill="#a85b3a" opacity=".78"/></svg>
+  <div class="footer"><span>Thank you &middot; MMXXVI</span><span>07 / 07 <em>&mdash;</em> Aur&eacute;lia Apothecary</span></div>
+</section>
+
+</deck-stage>
+</body>
+</html>

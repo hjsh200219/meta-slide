@@ -1,0 +1,47 @@
+{
+  "slug": "ns-paper-ink",
+  "name": "Paper & Ink",
+  "tagline": "Warm white page with Cormorant serif titles, crimson accent, rules and pull-quote boxes",
+  "mood": [
+    "literary",
+    "quiet",
+    "bookish",
+    "elegant"
+  ],
+  "occasion": [
+    "essay-style talk",
+    "humanities lecture",
+    "publishing pitch",
+    "long-form argument",
+    "typography talk"
+  ],
+  "tone": [
+    "thoughtful",
+    "calm",
+    "scholarly"
+  ],
+  "formality": "medium-high",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#faf8f5",
+    "text": "#1a1a1a",
+    "accent": "#c41e3a",
+    "description": "Light Paper & Ink palette: #faf8f5 background, #1a1a1a text, #c41e3a accent"
+  },
+  "typography": {
+    "display": "Cormorant Garamond",
+    "body": "Literata",
+    "style": "Cormorant Garamond headings over Literata body"
+  },
+  "best_for": "Paper & Ink suits essay-style talk and humanities lecture. It reads as literary, quiet, bookish.",
+  "avoid_for": "Playful or casual talks where this look would feel too formal.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/paper-ink.html",
+    "license": "MIT"
+  }
+}

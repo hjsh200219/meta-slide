@@ -1,0 +1,49 @@
+{
+  "slug": "hp-presenter-mode-reveal",
+  "name": "Presenter Mode Night",
+  "tagline": "Tokyo-Night blue dark theme with mono kickers, built for speaker-note driven talks",
+  "mood": [
+    "cool",
+    "technical",
+    "focused",
+    "dark"
+  ],
+  "occasion": [
+    "tech talk with script",
+    "conference session",
+    "course lecture",
+    "product keynote",
+    "brown-bag talk"
+  ],
+  "tone": [
+    "informative",
+    "calm",
+    "professional"
+  ],
+  "formality": "medium",
+  "density": "medium",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#1a1b26",
+    "text": "#c0caf5",
+    "accent": "#7aa2f7",
+    "accent2": "#bb9af7",
+    "surface": "#24283b",
+    "description": "Tokyo Night navy with periwinkle and violet accents"
+  },
+  "typography": {
+    "display": "Inter",
+    "body": "Inter",
+    "style": "Sans headlines with monospace kickers"
+  },
+  "best_for": "Technical talks that are delivered from a script and need a calm dark stage. Cooler infrastructure topics fit well.",
+  "avoid_for": "Bright, festive or consumer launches.",
+  "slide_count": 6,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "templates/full-decks/presenter-mode-reveal",
+    "license": "MIT"
+  }
+}

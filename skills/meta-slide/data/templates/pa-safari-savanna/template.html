@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Safari Savanna — Deck Template</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="deck-stage.js"></script>
+<style>
+  :root {
+    --bg-light: #f3e6cc; --bg-deep: #e8d4a8; --bg-edge: #ddc28a;
+    --accent-sun: #c44d2a; --accent-deep: #8b3a1f; --accent-amber: #b8732b;
+    --ink-primary: #2a1f0f; --ink-secondary: #5a4a30; --ink-tertiary: #7a6a4a;
+    --paper-line: rgba(90,74,48,.3);
+    --display-font: 'Playfair Display', 'Fraunces', Georgia, serif;
+    --body-font: 'Source Serif 4', Georgia, 'Iowan Old Style', serif;
+    --mono-font: 'JetBrains Mono', 'Courier New', monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: #000; }
+  body { font-family: var(--body-font); color: var(--ink-primary); -webkit-font-smoothing: antialiased; }
+  deck-stage > section { font-family: var(--body-font); width: 1920px; height: 1080px; position: relative; overflow: hidden; color: var(--ink-primary);
+    background: radial-gradient(ellipse 110% 80% at 30% 20%, #f6ead2 0%, transparent 55%), radial-gradient(ellipse 90% 70% at 80% 90%, #d9bd83 0%, transparent 60%), linear-gradient(135deg, var(--bg-light) 0%, var(--bg-deep) 60%, var(--bg-edge) 100%); }
+  .grain { position: absolute; inset: 0; opacity: .7; background-image: radial-gradient(circle at 20% 30%, rgba(139,58,31,.06) 0%, transparent 2%), radial-gradient(circle at 70% 60%, rgba(196,77,42,.05) 0%, transparent 2.5%), radial-gradient(circle at 45% 80%, rgba(90,74,48,.05) 0%, transparent 2%), radial-gradient(circle at 85% 15%, rgba(90,74,48,.04) 0%, transparent 2%); background-size: 21px 21px, 27px 27px, 33px 33px, 24px 24px; }
+  .horizon { position: absolute; left: 0; right: 0; bottom: 0; height: 330px; background: linear-gradient(180deg, transparent 0%, rgba(196,77,42,.08) 50%, rgba(139,58,31,.16) 100%); }
+  .frame { position: absolute; inset: 48px; border: 2px solid var(--ink-secondary); z-index: 1; }
+  .frame-inner { position: absolute; inset: 57px; border: 1px solid rgba(90,74,48,.45); z-index: 1; }
+  .cm { position: absolute; width: 33px; height: 33px; z-index: 2; border: 0 solid var(--accent-deep); }
+  .cm.tl { top: 39px; left: 39px; border-top-width: 2px; border-left-width: 2px; } .cm.tr { top: 39px; right: 39px; border-top-width: 2px; border-right-width: 2px; }
+  .cm.bl { bottom: 39px; left: 39px; border-bottom-width: 2px; border-left-width: 2px; } .cm.br { bottom: 39px; right: 39px; border-bottom-width: 2px; border-right-width: 2px; }
+  .vtext { position: absolute; left: 84px; top: 50%; transform: translateY(-50%) rotate(-90deg); transform-origin: center; font-family: var(--mono-font); font-size: 18px; letter-spacing: .46em; color: var(--ink-tertiary); text-transform: uppercase; z-index: 3; opacity: .7; white-space: nowrap; margin-left: -300px; }
+
+  .stage { position: absolute; inset: 0; padding: 132px 144px 150px; z-index: 3; display: flex; flex-direction: column; }
+  .top-bar { display: flex; justify-content: space-between; align-items: center; padding-bottom: 24px; border-bottom: 1px solid var(--paper-line); }
+  .maison { font-family: var(--mono-font); font-size: 20px; font-weight: 600; letter-spacing: .42em; color: var(--ink-secondary); text-transform: uppercase; }
+  .issue { font-family: var(--mono-font); font-size: 19px; font-weight: 500; letter-spacing: .28em; color: var(--ink-tertiary); text-transform: uppercase; display: flex; align-items: center; gap: 21px; }
+  .issue .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent-sun); }
+  .label-row { margin-top: 72px; display: flex; align-items: center; gap: 21px; }
+  .label { font-family: var(--mono-font); font-size: 21px; font-weight: 600; letter-spacing: .22em; color: var(--accent-sun); text-transform: uppercase; display: inline-flex; align-items: center; gap: 18px; }
+  .label .bar { width: 42px; height: 2px; background: var(--accent-sun); }
+  .label-meta { font-family: var(--mono-font); font-size: 18px; letter-spacing: .2em; color: var(--ink-tertiary); text-transform: uppercase; }
+  .headline { font-family: var(--display-font); font-weight: 700; font-size: 144px; line-height: .96; letter-spacing: -.035em; margin-top: 24px; max-width: 1200px; }
+  .headline em { font-style: italic; font-weight: 400; color: var(--accent-deep); letter-spacing: -.025em; }
+  .h2 { font-family: var(--display-font); font-weight: 700; font-size: 100px; line-height: 1; letter-spacing: -.03em; margin-top: 24px; }
+  .h2 em { font-style: italic; font-weight: 400; color: var(--accent-deep); }
+  .deck { font-style: italic; font-size: 30px; line-height: 1.5; color: var(--ink-secondary); margin-top: 30px; max-width: 900px; }
+  .deck .orn { color: var(--accent-sun); font-style: normal; margin: 0 8px; font-family: var(--display-font); }
+  .meta-rule { margin-top: 40px; width: 90px; height: 2px; background: var(--accent-sun); opacity: .7; }
+  .meta-grid { margin-top: 28px; display: flex; gap: 90px; }
+  .meta { display: flex; flex-direction: column; gap: 8px; }
+  .meta .key { font-family: var(--mono-font); font-size: 18px; font-weight: 600; letter-spacing: .3em; color: var(--ink-tertiary); text-transform: uppercase; }
+  .meta .val { font-family: var(--mono-font); font-size: 28px; font-weight: 500; letter-spacing: .04em; }
+  .stamp { position: absolute; top: 215px; right: 165px; transform: rotate(-12deg); padding: 15px 24px 12px; border: 3px solid var(--accent-sun); color: var(--accent-sun); font-family: var(--mono-font); font-size: 20px; letter-spacing: .2em; font-weight: 700; opacity: .78; text-transform: uppercase; text-align: center; z-index: 4; box-shadow: inset 0 0 0 1px rgba(196,77,42,.25); }
+  .stamp .r1 { display: flex; align-items: center; justify-content: center; gap: 12px; }
+  .stamp .r2 { margin-top: 6px; font-size: 18px; letter-spacing: .3em; font-weight: 500; color: var(--accent-deep); }
+  .stamp2 { position: absolute; top: 385px; right: 198px; transform: rotate(6deg); padding: 8px 15px; border: 2px solid var(--ink-secondary); color: var(--ink-secondary); font-family: var(--mono-font); font-size: 18px; letter-spacing: .24em; font-weight: 600; opacity: .55; z-index: 4; text-transform: uppercase; }
+  .map-wrap { position: absolute; z-index: 3; width: 300px; height: 360px; }
+  .map-wrap svg { width: 100%; height: 100%; display: block; }
+  .map-wrap .mc { position: absolute; font-family: var(--mono-font); font-size: 18px; letter-spacing: .12em; color: var(--ink-tertiary); text-transform: uppercase; }
+  .map-wrap .pin { position: absolute; top: 54%; left: 40%; font-family: var(--mono-font); font-size: 18px; font-weight: 700; letter-spacing: .14em; color: var(--accent-sun); }
+  .map-wrap .cap { position: absolute; bottom: -38px; left: 0; right: 0; text-align: center; font-style: italic; font-size: 20px; color: var(--ink-tertiary); }
+  .compass { position: absolute; width: 84px; height: 84px; z-index: 3; opacity: .55; }
+  .footer { position: absolute; bottom: 96px; left: 144px; right: 144px; display: flex; justify-content: space-between; align-items: center; z-index: 3; padding-top: 22px; border-top: 1px solid var(--paper-line); }
+  .field-editors { font-family: var(--mono-font); font-size: 19px; font-weight: 600; letter-spacing: .3em; color: var(--ink-secondary); text-transform: uppercase; }
+  .field-editors .sep { margin: 0 16px; color: var(--accent-sun); }
+  .page-mark { font-family: var(--mono-font); font-size: 19px; letter-spacing: .28em; color: var(--ink-tertiary); text-transform: uppercase; }
+
+  /* contents */
+  .index { margin-top: 42px; width: 1200px; }
+  .irow { display: flex; align-items: baseline; gap: 30px; padding: 22px 0; border-bottom: 1px dotted var(--ink-tertiary); }
+  .irow .no { font-family: var(--mono-font); font-size: 24px; font-weight: 600; letter-spacing: .15em; color: var(--accent-sun); width: 90px; }
+  .irow .tt { font-family: var(--display-font); font-size: 50px; font-weight: 700; flex: 1; letter-spacing: -.01em; }
+  .irow .tt em { font-weight: 400; color: var(--accent-deep); }
+  .irow .pg { font-family: var(--mono-font); font-size: 22px; color: var(--ink-tertiary); letter-spacing: .2em; }
+  /* divider */
+  .divnum { font-family: var(--display-font); font-style: italic; font-weight: 400; font-size: 480px; line-height: .85; color: var(--accent-deep); letter-spacing: -.05em; opacity: .9; }
+  /* numbers */
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 54px; }
+  .stat { padding: 18px 42px; border-left: 1px solid var(--paper-line); }
+  .stat:first-child { border-left: 0; padding-left: 0; }
+  .stat .k { font-family: var(--mono-font); font-size: 20px; font-weight: 600; letter-spacing: .3em; color: var(--ink-tertiary); text-transform: uppercase; }
+  .stat .v { font-family: var(--display-font); font-weight: 700; font-size: 150px; line-height: 1.05; letter-spacing: -.04em; margin-top: 12px; }
+  .stat .v em { font-style: italic; font-weight: 400; font-size: 66px; color: var(--accent-deep); letter-spacing: -.02em; }
+  .stat .d { font-style: italic; font-size: 28px; color: var(--ink-secondary); margin-top: 8px; }
+  /* route */
+  .route { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 90px; }
+  .route::before { content: ""; position: absolute; left: 6%; right: 6%; top: 36px; border-top: 3px dashed var(--ink-secondary); opacity: .6; }
+  .stop { position: relative; padding-right: 36px; }
+  .stop .pt { width: 72px; height: 72px; border-radius: 50%; border: 3px solid var(--accent-sun); background: var(--bg-light); display: flex; align-items: center; justify-content: center; font-family: var(--mono-font); font-weight: 700; font-size: 28px; color: var(--accent-sun); position: relative; }
+  .stop h3 { font-family: var(--display-font); font-size: 46px; font-weight: 700; margin-top: 30px; letter-spacing: -.01em; }
+  .stop .co { font-family: var(--mono-font); font-size: 19px; letter-spacing: .2em; color: var(--ink-tertiary); margin-top: 8px; text-transform: uppercase; }
+  .stop p { font-style: italic; font-size: 27px; line-height: 1.5; color: var(--ink-secondary); margin-top: 14px; }
+  /* compare */
+  .cmp { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; margin-top: 48px; }
+  .col { border: 2px solid var(--ink-secondary); padding: 36px 48px; background: rgba(255,250,235,.4); position: relative; }
+  .col.hl { border-color: var(--accent-sun); background: rgba(196,77,42,.07); }
+  .col .tag { font-family: var(--mono-font); font-size: 20px; letter-spacing: .3em; color: var(--accent-sun); font-weight: 700; text-transform: uppercase; }
+  .col h3 { font-family: var(--display-font); font-size: 64px; font-weight: 700; margin: 8px 0 14px; letter-spacing: -.02em; }
+  .col h3 em { font-weight: 400; color: var(--accent-deep); }
+  .col li { list-style: none; font-size: 29px; line-height: 1.4; padding: 15px 0 15px 36px; border-top: 1px solid var(--paper-line); position: relative; color: var(--ink-secondary); }
+  .col li::before { content: "\25C6"; position: absolute; left: 0; top: 15px; font-size: 18px; line-height: 2.2; color: var(--accent-sun); }
+  /* quote */
+  .qm { font-family: var(--display-font); font-size: 300px; line-height: .6; color: var(--accent-sun); height: 150px; margin-top: 66px; }
+  .quote { font-family: var(--display-font); font-style: italic; font-size: 92px; line-height: 1.1; letter-spacing: -.02em; max-width: 1300px; }
+  .quote b { font-weight: 700; font-style: normal; color: var(--accent-deep); }
+  .by { font-family: var(--mono-font); font-size: 21px; letter-spacing: .26em; color: var(--ink-tertiary); text-transform: uppercase; margin-top: 42px; }
+</style>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+<section data-label="01 Cover">
+  <div class="grain"></div><div class="horizon"></div><div class="frame"></div><div class="frame-inner"></div>
+  <div class="cm tl"></div><div class="cm tr"></div><div class="cm bl"></div><div class="cm br"></div>
+  <div class="vtext">Atlas Quarterly · Vol XII · MMXXVI</div>
+  <div class="stage"><div class="top-bar"><div class="maison">Atlas · Quarterly · MMXXVI</div><div class="issue"><span>Vol XII</span><span class="dot"></span><span>Issue 042</span><span class="dot"></span><span>East Africa</span></div></div>
+    <div class="label-row"><div class="label"><span class="bar"></span>Field Dispatch No. 042</div><div class="label-meta">— From the Great Rift Valley</div></div>
+    <h1 class="headline"><em>Serengeti</em><br>Sunrise.</h1>
+    <p class="deck" style="max-width:800px">Twelve days <span class="orn">·</span> six rivers <span class="orn">·</span> one pride of lions, traced from the Mara confluence to the kopjes of <em>Naabi Hill</em>.</p>
+    <div class="meta-rule"></div>
+    <div class="meta-grid">
+      <div class="meta"><div class="key">Latitude</div><div class="val">02° 19′ S</div></div>
+      <div class="meta"><div class="key">Longitude</div><div class="val">34° 49′ E</div></div>
+      <div class="meta"><div class="key">Elevation</div><div class="val">1,520 m</div></div>
+      <div class="meta"><div class="key">Time zone</div><div class="val">GMT +3</div></div>
+      <div class="meta"><div class="key">Season</div><div class="val">Dry · Sep</div></div>
+    </div>
+  </div>
+  <div class="stamp"><div class="r1"><span>▲</span><span>Expedition</span><span>◆</span><span>042</span></div><div class="r2">ENTERED · 09 · 2026</div></div>
+  <div class="stamp2">EAA · 2026 / 09 · Approved</div>
+  <svg class="compass" style="top:520px;right:200px;display:none" viewBox="0 0 56 56">
+    <circle cx="28" cy="28" r="24" fill="none" stroke="#5a4a30" stroke-width="0.8"/><circle cx="28" cy="28" r="18" fill="none" stroke="#5a4a30" stroke-width="0.4" stroke-dasharray="2 2"/>
+    <polygon points="28,8 31,28 28,26 25,28" fill="#c44d2a"/><polygon points="28,48 31,28 28,30 25,28" fill="#5a4a30" opacity="0.5"/><circle cx="28" cy="28" r="2" fill="#2a1f0f"/>
+    <line x1="28" y1="4" x2="28" y2="9" stroke="#5a4a30" stroke-width="0.6"/><line x1="28" y1="47" x2="28" y2="52" stroke="#5a4a30" stroke-width="0.6"/><line x1="4" y1="28" x2="9" y2="28" stroke="#5a4a30" stroke-width="0.6"/><line x1="47" y1="28" x2="52" y2="28" stroke="#5a4a30" stroke-width="0.6"/>
+  </svg><div class="map-wrap" style="right:144px;bottom:240px"><svg viewBox="0 0 200 240">
+      <rect x="0.5" y="0.5" width="199" height="239" fill="rgba(255,250,235,0.35)" stroke="#8b3a1f" stroke-width="0.6"/>
+      <line x1="0" y1="40" x2="200" y2="40" stroke="#8b3a1f" stroke-width="0.3" stroke-dasharray="1 3" opacity="0.4"/>
+      <line x1="0" y1="120" x2="200" y2="120" stroke="#8b3a1f" stroke-width="0.3" stroke-dasharray="1 3" opacity="0.4"/>
+      <line x1="0" y1="200" x2="200" y2="200" stroke="#8b3a1f" stroke-width="0.3" stroke-dasharray="1 3" opacity="0.4"/>
+      <line x1="60" y1="0" x2="60" y2="240" stroke="#8b3a1f" stroke-width="0.3" stroke-dasharray="1 3" opacity="0.4"/>
+      <line x1="140" y1="0" x2="140" y2="240" stroke="#8b3a1f" stroke-width="0.3" stroke-dasharray="1 3" opacity="0.4"/>
+      <path d="M95 30 Q60 50 50 95 Q42 130 55 165 Q70 195 100 200 Q135 198 150 170 Q165 135 158 95 Q150 55 120 38 Z" fill="rgba(196,77,42,0.06)" stroke="#5a4a30" stroke-width="1.2"/>
+      <path d="M95 30 Q60 50 50 95 Q42 130 55 165 Q70 195 100 200 Q135 198 150 170 Q165 135 158 95 Q150 55 120 38 Z" fill="none" stroke="#8b3a1f" stroke-width="0.6" stroke-dasharray="3 2" opacity="0.6"/>
+      <path d="M75 75 Q90 95 105 100 Q125 105 140 130 Q150 150 145 175" fill="none" stroke="#5a4a30" stroke-width="0.7" stroke-dasharray="4 3" opacity="0.7"/>
+      <path d="M60 110 Q80 125 100 120 Q115 118 130 105" fill="none" stroke="#5a4a30" stroke-width="0.5" stroke-dasharray="2 2" opacity="0.5"/>
+      <circle cx="100" cy="120" r="8" fill="none" stroke="#c44d2a" stroke-width="1"/>
+      <circle cx="100" cy="120" r="4" fill="#c44d2a"/>
+      <circle cx="100" cy="120" r="1.5" fill="#fff8e8"/>
+      <circle cx="75" cy="75" r="2.5" fill="#5a4a30"/><circle cx="140" cy="130" r="2.5" fill="#5a4a30"/><circle cx="145" cy="175" r="2.5" fill="#5a4a30"/><circle cx="60" cy="110" r="2" fill="#5a4a30" opacity="0.6"/>
+      <line x1="100" y1="120" x2="180" y2="120" stroke="#c44d2a" stroke-width="0.4" stroke-dasharray="1 2" opacity="0.6"/>
+      <line x1="100" y1="120" x2="100" y2="220" stroke="#c44d2a" stroke-width="0.4" stroke-dasharray="1 2" opacity="0.6"/>
+    </svg>
+    <div class="mc" style="top:8px;left:6px">N</div><div class="mc" style="top:8px;right:6px">02°S</div><div class="mc" style="bottom:8px;left:6px">34°E</div><div class="mc" style="bottom:8px;right:6px">35°E</div>
+    <div class="pin">SERENGETI</div><div class="cap">— survey sheet IV / vii —</div></div>
+  <div class="footer"><div class="field-editors">Field Editors<span class="sep">◆</span>Lara &amp; Tomás<span class="sep">◆</span>September 2026</div><div class="page-mark"><span>Folio · 01 / 08</span></div></div>
+</section>
+<section data-label="02 Contents">
+  <div class="grain"></div><div class="horizon"></div><div class="frame"></div><div class="frame-inner"></div>
+  <div class="cm tl"></div><div class="cm tr"></div><div class="cm bl"></div><div class="cm br"></div>
+  <div class="vtext">Atlas Quarterly · Vol XII · MMXXVI</div>
+  <div class="stage"><div class="top-bar"><div class="maison">Atlas · Quarterly · MMXXVI</div><div class="issue"><span>Vol XII</span><span class="dot"></span><span>Issue 042</span><span class="dot"></span><span>Field Index</span></div></div>
+    <div class="label-row"><div class="label"><span class="bar"></span>Field Index</div><div class="label-meta">— What the dispatch covers</div></div>
+    <h2 class="h2">In This <em>Dispatch</em></h2>
+    <div class="index">
+      <div class="irow"><span class="no">01</span><span class="tt">Crossing the <em>Mara</em></span><span class="pg">p. 03</span></div>
+      <div class="irow"><span class="no">02</span><span class="tt">The season in <em>numbers</em></span><span class="pg">p. 04</span></div>
+      <div class="irow"><span class="no">03</span><span class="tt">Route of the <em>expedition</em></span><span class="pg">p. 05</span></div>
+      <div class="irow"><span class="no">04</span><span class="tt">Dry season, <em>wet season</em></span><span class="pg">p. 06</span></div>
+    </div>
+  </div>
+  <div class="footer"><div class="field-editors">Field Editors<span class="sep">◆</span>Lara &amp; Tomás<span class="sep">◆</span>September 2026</div><div class="page-mark"><span>Folio · 02 / 08</span></div></div>
+</section>
+<section data-label="03 Section Divider">
+  <div class="grain"></div><div class="horizon"></div><div class="frame"></div><div class="frame-inner"></div>
+  <div class="cm tl"></div><div class="cm tr"></div><div class="cm bl"></div><div class="cm br"></div>
+  <div class="vtext">Atlas Quarterly · Vol XII · MMXXVI</div>
+  <div class="stage"><div class="top-bar"><div class="maison">Atlas · Quarterly · MMXXVI</div><div class="issue"><span>Vol XII</span><span class="dot"></span><span>Issue 042</span><span class="dot"></span><span>Part Two</span></div></div>
+    <div style="flex:1;display:flex;align-items:center;gap:90px">
+      <div class="divnum">02</div>
+      <div><div class="label-row"><div class="label"><span class="bar"></span>Part Two</div><div class="label-meta">— The Crossing</div></div><h2 class="h2" style="font-size:120px">Into the <em>open plain</em></h2><p class="deck">Where the river ends and the grass begins.</p></div>
+    </div>
+  </div>
+  <div class="footer"><div class="field-editors">Field Editors<span class="sep">◆</span>Lara &amp; Tomás<span class="sep">◆</span>September 2026</div><div class="page-mark"><span>Folio · 03 / 08</span></div></div>
+</section>
+<section data-label="04 Numbers">
+  <div class="grain"></div><div class="horizon"></div><div class="frame"></div><div class="frame-inner"></div>
+  <div class="cm tl"></div><div class="cm tr"></div><div class="cm bl"></div><div class="cm br"></div>
+  <div class="vtext">Atlas Quarterly · Vol XII · MMXXVI</div>
+  <div class="stage"><div class="top-bar"><div class="maison">Atlas · Quarterly · MMXXVI</div><div class="issue"><span>Vol XII</span><span class="dot"></span><span>Issue 042</span><span class="dot"></span><span>Season Log</span></div></div>
+    <div class="label-row"><div class="label"><span class="bar"></span>Season Log</div><div class="label-meta">— Dry season, September</div></div>
+    <h2 class="h2">The Season, <em>Counted</em></h2>
+    <div class="grid3">
+      <div class="stat"><div class="k">Distance covered</div><div class="v">1,240<em>km</em></div><div class="d">By jeep and on foot</div></div>
+      <div class="stat"><div class="k">Wildebeest crossings</div><div class="v">38<em>days</em></div><div class="d">Recorded at the Mara</div></div>
+      <div class="stat"><div class="k">Pride members tracked</div><div class="v">17<em>lions</em></div><div class="d">Across six territories</div></div>
+    </div>
+    <div class="meta-rule" style="margin-top:60px"></div>
+    <p class="deck" style="margin-top:24px">Counts from the field notebooks, logged each dusk.</p>
+  </div>
+  <div class="footer"><div class="field-editors">Field Editors<span class="sep">◆</span>Lara &amp; Tomás<span class="sep">◆</span>September 2026</div><div class="page-mark"><span>Folio · 04 / 08</span></div></div>
+</section>
+<section data-label="05 Route Steps">
+  <div class="grain"></div><div class="horizon"></div><div class="frame"></div><div class="frame-inner"></div>
+  <div class="cm tl"></div><div class="cm tr"></div><div class="cm bl"></div><div class="cm br"></div>
+  <div class="vtext">Atlas Quarterly · Vol XII · MMXXVI</div>
+  <div class="stage"><div class="top-bar"><div class="maison">Atlas · Quarterly · MMXXVI</div><div class="issue"><span>Vol XII</span><span class="dot"></span><span>Issue 042</span><span class="dot"></span><span>Route Plan</span></div></div>
+    <div class="label-row"><div class="label"><span class="bar"></span>Route Plan</div><div class="label-meta">— Mara confluence to Naabi Hill</div></div>
+    <h2 class="h2">The <em>Route</em></h2>
+    <div class="route">
+      <div class="stop"><div class="pt">1</div><h3>Mara River</h3><div class="co">01° 30′ S · Day 1–3</div><p>Camp at the confluence before first light.</p></div>
+      <div class="stop"><div class="pt">2</div><h3>Kopje Ridge</h3><div class="co">02° 05′ S · Day 4–6</div><p>Rocky outcrops, shade and lion watch.</p></div>
+      <div class="stop"><div class="pt">3</div><h3>Open Plain</h3><div class="co">02° 12′ S · Day 7–10</div><p>Long grass, herds on the move.</p></div>
+      <div class="stop"><div class="pt">4</div><h3>Naabi Hill</h3><div class="co">02° 19′ S · Day 11–12</div><p>The gate and the final survey sheet.</p></div>
+    </div>
+  </div>
+  <div class="footer"><div class="field-editors">Field Editors<span class="sep">◆</span>Lara &amp; Tomás<span class="sep">◆</span>September 2026</div><div class="page-mark"><span>Folio · 05 / 08</span></div></div>
+</section>
+<section data-label="06 Comparison">
+  <div class="grain"></div><div class="horizon"></div><div class="frame"></div><div class="frame-inner"></div>
+  <div class="cm tl"></div><div class="cm tr"></div><div class="cm bl"></div><div class="cm br"></div>
+  <div class="vtext">Atlas Quarterly · Vol XII · MMXXVI</div>
+  <div class="stage"><div class="top-bar"><div class="maison">Atlas · Quarterly · MMXXVI</div><div class="issue"><span>Vol XII</span><span class="dot"></span><span>Issue 042</span><span class="dot"></span><span>Two Seasons</span></div></div>
+    <div class="label-row"><div class="label"><span class="bar"></span>Two Seasons</div><div class="label-meta">— Same plain, different country</div></div>
+    <h2 class="h2">Dry <em>versus</em> Wet</h2>
+    <div class="cmp">
+      <div class="col hl"><div class="tag">June — October</div><h3>The <em>dry</em> season</h3><ul><li>Short grass, long sightlines</li><li>Herds gather near the rivers</li><li>Dust at noon, gold at dusk</li></ul></div>
+      <div class="col"><div class="tag">November — May</div><h3>The <em>wet</em> season</h3><ul><li>Green plains and newborn calves</li><li>Roads soften, camps move</li><li>Storms build over the kopjes</li></ul></div>
+    </div>
+  </div>
+  <div class="footer"><div class="field-editors">Field Editors<span class="sep">◆</span>Lara &amp; Tomás<span class="sep">◆</span>September 2026</div><div class="page-mark"><span>Folio · 06 / 08</span></div></div>
+</section>
+<section data-label="07 Quote">
+  <div class="grain"></div><div class="horizon"></div><div class="frame"></div><div class="frame-inner"></div>
+  <div class="cm tl"></div><div class="cm tr"></div><div class="cm bl"></div><div class="cm br"></div>
+  <div class="vtext">Atlas Quarterly · Vol XII · MMXXVI</div>
+  <div class="stage"><div class="top-bar"><div class="maison">Atlas · Quarterly · MMXXVI</div><div class="issue"><span>Vol XII</span><span class="dot"></span><span>Issue 042</span><span class="dot"></span><span>Field Notes</span></div></div>
+    <div class="qm">&ldquo;</div>
+    <div class="quote">The plain does not hurry. It simply <b>keeps time</b> for everyone who crosses it.</div>
+    <div class="by">— Field notebook, day nine</div>
+  </div>
+  <div class="footer"><div class="field-editors">Field Editors<span class="sep">◆</span>Lara &amp; Tomás<span class="sep">◆</span>September 2026</div><div class="page-mark"><span>Folio · 07 / 08</span></div></div>
+</section>
+<section data-label="08 Closing">
+  <div class="grain"></div><div class="horizon"></div><div class="frame"></div><div class="frame-inner"></div>
+  <div class="cm tl"></div><div class="cm tr"></div><div class="cm bl"></div><div class="cm br"></div>
+  <div class="vtext">Atlas Quarterly · Vol XII · MMXXVI</div>
+  <div class="stage"><div class="top-bar"><div class="maison">Atlas · Quarterly · MMXXVI</div><div class="issue"><span>Vol XII</span><span class="dot"></span><span>Issue 042</span><span class="dot"></span><span>Signing Off</span></div></div>
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:center">
+    <div class="label-row"><div class="label"><span class="bar"></span>End of Dispatch</div><div class="label-meta">— Thank you</div></div>
+    <h1 class="headline">Until the <em>next</em><br>sunrise.</h1>
+    <p class="deck">Questions, maps and field notes: <span class="orn">·</span> hello@example.com</p>
+    </div>
+  </div>
+  <div class="footer"><div class="field-editors">Field Editors<span class="sep">◆</span>Lara &amp; Tomás<span class="sep">◆</span>September 2026</div><div class="page-mark"><span>Folio · 08 / 08</span></div></div>
+</section>
+
+</deck-stage>
+</body>
+</html>

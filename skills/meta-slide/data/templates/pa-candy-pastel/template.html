@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Candy Pastel — Deck Template</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Fraunces:ital,wght@0,400;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="deck-stage.js"></script>
+<style>
+  :root { --bg-from:#fff5f0; --bg-to:#fff0e8; --bg-cream:#fbe9df; --text-primary:#4a2c2a; --text-secondary:rgba(74,44,42,.62); --text-muted:rgba(74,44,42,.42); --hairline:rgba(74,44,42,.14); --macaron-pink:#f8bbd0; --macaron-green:#c8e6c9; --macaron-yellow:#fff59d; --macaron-blue:#b3e5fc; --macaron-purple:#e1bee7; --rose-deep:#e89bb4;
+    --display-font:'Playfair Display','Fraunces',Georgia,serif; --body-font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { margin:0; background:#000; }
+  deck-stage > section { width:1920px; height:1080px; position:relative; overflow:hidden; color:var(--text-primary); font-family:var(--body-font);
+    background: radial-gradient(ellipse 90% 70% at 18% 12%, rgba(248,187,208,.28) 0%, transparent 55%), radial-gradient(ellipse 80% 60% at 88% 88%, rgba(255,245,157,.22) 0%, transparent 55%), linear-gradient(160deg,var(--bg-from) 0%,var(--bg-to) 100%);
+    font-feature-settings:"kern","liga","ss01","cv11","calt"; -webkit-font-smoothing:antialiased; }
+  .sp { position:absolute; border-radius:50%; opacity:.55; pointer-events:none; }
+  .sp.s1 { top:105px; right:360px; width:21px; height:21px; background:var(--macaron-yellow); } .sp.s2 { top:270px; right:165px; width:12px; height:12px; background:var(--macaron-purple); opacity:.7; }
+  .sp.s3 { bottom:420px; left:105px; width:15px; height:15px; background:var(--macaron-blue); } .sp.s4 { top:540px; left:38%; width:9px; height:9px; background:var(--rose-deep); opacity:.6; } .sp.s5 { bottom:180px; right:480px; width:18px; height:18px; background:var(--macaron-green); opacity:.5; }
+  .stage { position:absolute; inset:0; padding:66px 120px 0; }
+  .top { display:flex; justify-content:space-between; align-items:center; padding-bottom:33px; border-bottom:1.5px solid var(--hairline); }
+  .logo { font-size:20px; font-weight:600; letter-spacing:.42em; text-transform:uppercase; }
+  .nav { font-size:18px; font-weight:500; color:var(--text-secondary); letter-spacing:.28em; display:flex; gap:48px; }
+  .label-row { display:flex; align-items:center; gap:18px; margin-top:56px; }
+  .label-dot { width:11px; height:11px; border-radius:50%; background:var(--rose-deep); box-shadow:0 0 0 6px rgba(232,155,180,.18); }
+  .label { font-size:19px; font-weight:600; letter-spacing:.4em; color:var(--rose-deep); text-transform:uppercase; }
+  .headline { font-family:var(--display-font); font-style:italic; font-weight:500; font-size:128px; letter-spacing:-.025em; line-height:.96; margin-top:22px; }
+  .headline.h2 { font-size:96px; } .headline em { font-style:italic; font-weight:500; color:var(--rose-deep); }
+  .deck { font-size:28px; font-weight:400; line-height:1.55; color:var(--text-secondary); margin-top:30px; width:900px; }
+  .deck .accent { font-family:var(--display-font); font-style:italic; color:var(--rose-deep); }
+  .macarons { display:flex; justify-content:center; align-items:center; gap:33px; margin-top:44px; width:1300px; }
+  .macarons.left { justify-content:flex-start; margin-top:60px; }
+  .mac { width:87px; height:87px; border-radius:50%; position:relative; display:inline-flex; align-items:center; justify-content:center; font-family:var(--display-font); font-style:italic; font-size:40px; color:var(--text-primary);
+    box-shadow:0 12px 27px rgba(74,44,42,.08), inset 0 -9px 15px rgba(74,44,42,.06), inset 0 6px 12px rgba(255,255,255,.6); }
+  .mac::after { content:''; position:absolute; left:14%; top:18%; width:26%; height:18%; border-radius:50%; background:rgba(255,255,255,.5); }
+  .m1,.mac.pink { background:var(--macaron-pink); } .m2,.mac.green { background:var(--macaron-green); } .m3,.mac.yellow { background:var(--macaron-yellow); } .m4,.mac.blue { background:var(--macaron-blue); } .m5,.mac.purple { background:var(--macaron-purple); }
+  .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:27px; margin-top:42px; width:1300px; }
+  .card { border-radius:36px; padding:27px 30px; background:rgba(255,255,255,.55); border:1.5px solid rgba(255,255,255,.85); box-shadow:0 15px 39px rgba(232,155,180,.10), 0 1px 0 rgba(255,255,255,.9) inset; display:flex; align-items:center; gap:21px; }
+  .cd { display:inline-block; width:57px; height:57px; border-radius:50%; flex-shrink:0; box-shadow:inset 0 -4px 9px rgba(74,44,42,.06), inset 0 3px 6px rgba(255,255,255,.6); }
+  .cd.pink { background:var(--macaron-pink); } .cd.green { background:var(--macaron-green); } .cd.yellow { background:var(--macaron-yellow); } .cd.blue { background:var(--macaron-blue); } .cd.purple { background:var(--macaron-purple); }
+  .cn { font-family:var(--display-font); font-style:italic; font-weight:500; font-size:30px; letter-spacing:-.012em; line-height:1.1; }
+  .cm { display:flex; gap:14px; align-items:baseline; margin-top:6px; }
+  .tg { font-size:15px; font-weight:500; letter-spacing:.22em; text-transform:uppercase; color:var(--text-muted); }
+  .pr { font-size:21px; font-weight:600; letter-spacing:.02em; margin-left:auto; }
+  .pcirc, .rc { border-radius:50%; background: radial-gradient(circle at 32% 28%, rgba(255,255,255,.65) 0%, transparent 45%), radial-gradient(circle at 70% 80%, rgba(232,155,180,.5) 0%, transparent 60%), var(--macaron-pink); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; box-shadow:0 27px 60px rgba(232,155,180,.32), inset 0 -15px 30px rgba(74,44,42,.06), inset 0 12px 24px rgba(255,255,255,.45); }
+  .pcirc { position:absolute; bottom:144px; right:117px; width:282px; height:282px; z-index:3; }
+  .num { font-family:var(--display-font); font-style:italic; font-weight:500; font-size:81px; line-height:1; letter-spacing:-.03em; font-variant-numeric:tabular-nums; }
+  .lab { font-family:var(--display-font); font-style:italic; font-weight:400; font-size:21px; margin-top:9px; }
+  .sub { font-size:14px; font-weight:600; letter-spacing:.34em; color:rgba(74,44,42,.6); margin-top:12px; text-transform:uppercase; }
+  .ribbon { position:absolute; bottom:423px; right:243px; width:39px; height:39px; border-radius:50%; background:var(--macaron-yellow); box-shadow:0 9px 21px rgba(74,44,42,.08), inset 0 -5px 8px rgba(74,44,42,.05), inset 0 3px 6px rgba(255,255,255,.5); z-index:4; }
+  .footer { position:absolute; bottom:33px; left:120px; right:120px; display:flex; justify-content:space-between; align-items:center; font-size:17px; font-weight:500; color:var(--text-muted); letter-spacing:.26em; text-transform:uppercase; }
+  .footer .right { display:flex; align-items:center; gap:21px; } .footer .swatch { width:11px; height:11px; border-radius:50%; background:var(--rose-deep); }
+  /* s1 */
+  .s1 .headline { font-size:122px; margin-top:16px; } .s1 .label-row { margin-top:44px; } .s1 .deck { margin-top:22px; }
+  /* s2 */
+  .list { margin-top:50px; width:1680px; }
+  .row { display:grid; grid-template-columns:90px 90px 560px 1fr; align-items:center; height:112px; border-bottom:1.5px solid var(--hairline); }
+  .row:first-child { border-top:1.5px solid var(--hairline); }
+  .row .n { font-size:20px; font-weight:600; letter-spacing:.3em; color:var(--text-muted); }
+  .row .t { font-family:var(--display-font); font-style:italic; font-size:46px; font-weight:500; letter-spacing:-.015em; }
+  .row .d { font-size:26px; color:var(--text-secondary); }
+  .row .cd { width:48px; height:48px; }
+  /* s3 */
+  .hd { font-size:170px !important; line-height:.9; margin-top:46px; }
+  .bigmacs { position:absolute; right:100px; top:260px; width:560px; height:640px; }
+  .bm { position:absolute; border-radius:50%; box-shadow:0 30px 60px rgba(74,44,42,.10), inset 0 -18px 30px rgba(74,44,42,.06), inset 0 12px 24px rgba(255,255,255,.6); }
+  .bm::after { content:''; position:absolute; left:14%; top:18%; width:26%; height:18%; border-radius:50%; background:rgba(255,255,255,.5); }
+  .b1 { left:0; top:20px; width:330px; height:330px; background:var(--macaron-pink); } .b2 { right:0; top:0; width:230px; height:230px; background:var(--macaron-yellow); }
+  .b3 { right:60px; top:320px; width:300px; height:300px; background:var(--macaron-green); } .b4 { left:90px; bottom:0; width:200px; height:200px; background:var(--macaron-blue); }
+  /* s4 */
+  .big3 { display:grid; grid-template-columns:repeat(3,1fr); gap:36px; margin-top:60px; }
+  .fc { border-radius:48px; padding:48px 44px; height:500px; background:rgba(255,255,255,.55); border:1.5px solid rgba(255,255,255,.85); box-shadow:0 15px 39px rgba(232,155,180,.12), 0 1px 0 rgba(255,255,255,.9) inset; }
+  .cd.big { width:120px; height:120px; margin-bottom:34px; }
+  .fc .cn { font-size:50px; } .fc .tg { margin-top:12px; font-size:17px; }
+  .fc p { font-size:27px; line-height:1.5; color:var(--text-secondary); margin-top:22px; }
+  /* s5 */
+  .steps { position:relative; display:grid; grid-template-columns:repeat(4,1fr); gap:36px; margin-top:110px; }
+  .steps .ln { position:absolute; left:43px; right:260px; top:43px; height:0; border-top:3px dotted rgba(74,44,42,.22); }
+  .step .mac { width:87px; height:87px; }
+  .step .cn { font-size:46px; margin-top:34px; } .step p { font-size:26px; line-height:1.5; color:var(--text-secondary); margin-top:14px; width:360px; }
+  /* s6 */
+  .rounds { display:flex; gap:90px; justify-content:center; margin-top:60px; }
+  .rc { width:430px; height:430px; } .rc .num { font-size:140px; } .rc .num small { font-size:60px; } .rc .lab { font-size:30px; } .rc .sub { font-size:16px; }
+  .rc.green { background: radial-gradient(circle at 32% 28%, rgba(255,255,255,.65) 0%, transparent 45%), radial-gradient(circle at 70% 80%, rgba(160,210,165,.55) 0%, transparent 60%), var(--macaron-green); box-shadow:0 27px 60px rgba(120,180,125,.30), inset 0 -15px 30px rgba(74,44,42,.06), inset 0 12px 24px rgba(255,255,255,.45); }
+  .rc.yellow { background: radial-gradient(circle at 32% 28%, rgba(255,255,255,.65) 0%, transparent 45%), radial-gradient(circle at 70% 80%, rgba(240,220,100,.5) 0%, transparent 60%), var(--macaron-yellow); box-shadow:0 27px 60px rgba(220,200,90,.30), inset 0 -15px 30px rgba(74,44,42,.06), inset 0 12px 24px rgba(255,255,255,.45); }
+  /* s7 */
+  .qm { font-family:var(--display-font); font-style:italic; font-size:260px; color:var(--rose-deep); line-height:.8; height:130px; margin-top:50px; }
+  .quote { font-family:var(--display-font); font-style:italic; font-weight:500; font-size:116px; letter-spacing:-.025em; line-height:1.02; width:1200px; margin-top:20px; } .quote em { color:var(--rose-deep); }
+  .by { font-size:20px; font-weight:600; letter-spacing:.3em; color:var(--text-muted); margin-top:44px; }
+</style>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+<section class="s1" data-label="01 Cover"><i class="sp s1"></i><i class="sp s2"></i><i class="sp s3"></i><i class="sp s4"></i><i class="sp s5"></i><div class="stage"><div class="top"><div class="logo">MAISON SUCRÉE &middot; EST. 2018</div><div class="nav"><span>COLLECTION</span><span>ATELIER</span><span>BOUTIQUE</span></div></div><div class="label-row"><div class="label-dot"></div><div class="label">NOUVELLE COLLECTION &middot; 042</div></div><h1 class="headline"><em>Douceur</em><br>de printemps.</h1>
+<p class="deck">12 new flavors, hand-crafted in Provence — a <span class="accent">fleeting</span> collection that celebrates flowers, citrus and the patience of a French atelier.</p>
+<div class="macarons"><i class="mac m1"></i><i class="mac m2"></i><i class="mac m3"></i><i class="mac m4"></i><i class="mac m5"></i></div>
+<div class="cards"><div class="card"><i class="cd pink"></i><div><div class="cn">Rose Lychee</div><div class="cm"><span class="tg">N° 01</span><span class="pr">€ 48</span></div></div></div><div class="card"><i class="cd green"></i><div><div class="cn">Pistache Vanille</div><div class="cm"><span class="tg">N° 02</span><span class="pr">€ 48</span></div></div></div><div class="card"><i class="cd yellow"></i><div><div class="cn">Citron Yuzu</div><div class="cm"><span class="tg">N° 03</span><span class="pr">€ 52</span></div></div></div></div></div><i class="ribbon"></i><div class="pcirc"><div class="num">12</div><div class="lab">flavors</div><div class="sub">SPRING · 2026</div></div><div class="footer"><span>PART 042 — NOUVELLE COLLECTION DE PRINTEMPS</span><div class="right"><span class="swatch"></span><span>01 / 07 &nbsp;·&nbsp; MAISON SUCRÉE</span></div></div></section>
+<section class="s2" data-label="02 Contents"><i class="sp s1"></i><i class="sp s2"></i><i class="sp s3"></i><i class="sp s4"></i><i class="sp s5"></i><div class="stage"><div class="top"><div class="logo">MAISON SUCRÉE &middot; EST. 2018</div><div class="nav"><span>COLLECTION</span><span>ATELIER</span><span>BOUTIQUE</span></div></div><div class="label-row"><div class="label-dot"></div><div class="label">INDEX &middot; SOMMAIRE</div></div><h1 class="headline h2">À la <em>carte.</em></h1><div class="list"><div class="row"><i class="cd pink"></i><span class="n">01</span><span class="t">Our Atelier</span><span class="d">Three generations, one kitchen in Provence.</span></div><div class="row"><i class="cd green"></i><span class="n">02</span><span class="t">The Collection</span><span class="d">Twelve spring flavors, each with its own story.</span></div><div class="row"><i class="cd yellow"></i><span class="n">03</span><span class="t">The Method</span><span class="d">From almond flour to the final filling.</span></div><div class="row"><i class="cd blue"></i><span class="n">04</span><span class="t">Numbers &amp; Seasons</span><span class="d">What a spring batch looks like in figures.</span></div><div class="row"><i class="cd purple"></i><span class="n">05</span><span class="t">Visit &amp; Order</span><span class="d">Boutique hours and gift boxes.</span></div></div></div><div class="footer"><span>SOMMAIRE — À LA CARTE</span><div class="right"><span class="swatch"></span><span>02 / 07 &nbsp;·&nbsp; MAISON SUCRÉE</span></div></div></section>
+<section class="s3" data-label="03 Section Divider"><i class="sp s1"></i><i class="sp s2"></i><i class="sp s3"></i><i class="sp s4"></i><i class="sp s5"></i><div class="stage"><div class="top"><div class="logo">MAISON SUCRÉE &middot; EST. 2018</div><div class="nav"><span>COLLECTION</span><span>ATELIER</span><span>BOUTIQUE</span></div></div><div class="label-row"><div class="label-dot"></div><div class="label">CHAPITRE &middot; 02</div></div><h1 class="headline hd"><em>La</em> collection.</h1><p class="deck">Twelve small flavors for one short season — pastel, floral and a little bit bright.</p></div><div class="bigmacs"><i class="bm b1"></i><i class="bm b2"></i><i class="bm b3"></i><i class="bm b4"></i></div><div class="footer"><span>CHAPITRE 02 — LA COLLECTION</span><div class="right"><span class="swatch"></span><span>03 / 07 &nbsp;·&nbsp; MAISON SUCRÉE</span></div></div></section>
+<section class="s4" data-label="04 Three Flavors"><i class="sp s1"></i><i class="sp s2"></i><i class="sp s3"></i><i class="sp s4"></i><i class="sp s5"></i><div class="stage"><div class="top"><div class="logo">MAISON SUCRÉE &middot; EST. 2018</div><div class="nav"><span>COLLECTION</span><span>ATELIER</span><span>BOUTIQUE</span></div></div><div class="label-row"><div class="label-dot"></div><div class="label">NOS SAVEURS &middot; 03</div></div><h1 class="headline h2">Three <em>favorites</em> this spring.</h1><div class="big3"><div class="fc"><i class="cd big pink"></i><div class="cn">Rose Lychee</div><div class="tg">N° 01</div><p>Rose petal ganache with a heart of fresh lychee.</p></div><div class="fc"><i class="cd big green"></i><div class="cn">Pistache Vanille</div><div class="tg">N° 02</div><p>Sicilian pistachio cream and Tahitian vanilla bean.</p></div><div class="fc"><i class="cd big yellow"></i><div class="cn">Citron Yuzu</div><div class="tg">N° 03</div><p>Bright yuzu curd, finished with candied lemon zest.</p></div></div></div><div class="footer"><span>NOS SAVEURS — LES TROIS PRÉFÉRÉES</span><div class="right"><span class="swatch"></span><span>04 / 07 &nbsp;·&nbsp; MAISON SUCRÉE</span></div></div></section>
+<section class="s5" data-label="05 Four Steps"><i class="sp s1"></i><i class="sp s2"></i><i class="sp s3"></i><i class="sp s4"></i><i class="sp s5"></i><div class="stage"><div class="top"><div class="logo">MAISON SUCRÉE &middot; EST. 2018</div><div class="nav"><span>COLLECTION</span><span>ATELIER</span><span>BOUTIQUE</span></div></div><div class="label-row"><div class="label-dot"></div><div class="label">LA MÉTHODE</div></div><h1 class="headline h2">From flower to <em>macaron.</em></h1><div class="steps"><div class="ln"></div><div class="step"><i class="mac pink">1</i><div class="cn">Select</div><p>Fresh flowers and fruit from local growers.</p></div><div class="step"><i class="mac green">2</i><div class="cn">Whisk</div><p>Almond flour and egg whites, folded by hand.</p></div><div class="step"><i class="mac yellow">3</i><div class="cn">Rest</div><p>Shells rest overnight for the perfect crust.</p></div><div class="step"><i class="mac blue">4</i><div class="cn">Fill</div><p>Ganache piped and matured for 24 hours.</p></div></div></div><div class="footer"><span>LA MÉTHODE — QUATRE ÉTAPES</span><div class="right"><span class="swatch"></span><span>05 / 07 &nbsp;·&nbsp; MAISON SUCRÉE</span></div></div></section>
+<section class="s6" data-label="06 Key Numbers"><i class="sp s1"></i><i class="sp s2"></i><i class="sp s3"></i><i class="sp s4"></i><i class="sp s5"></i><div class="stage"><div class="top"><div class="logo">MAISON SUCRÉE &middot; EST. 2018</div><div class="nav"><span>COLLECTION</span><span>ATELIER</span><span>BOUTIQUE</span></div></div><div class="label-row"><div class="label-dot"></div><div class="label">EN CHIFFRES</div></div><h1 class="headline h2">The season, <em>by numbers.</em></h1><div class="rounds"><div class="rc pink"><div class="num">12</div><div class="lab">flavors</div><div class="sub">SPRING · 2026</div></div><div class="rc green"><div class="num">480</div><div class="lab">boxes a day</div><div class="sub">HAND-FILLED</div></div><div class="rc yellow"><div class="num">96<small>%</small></div><div class="lab">regional produce</div><div class="sub">PROVENCE</div></div></div></div><div class="footer"><span>EN CHIFFRES — PRINTEMPS 2026</span><div class="right"><span class="swatch"></span><span>06 / 07 &nbsp;·&nbsp; MAISON SUCRÉE</span></div></div></section>
+<section class="s7" data-label="07 Quote and Close"><i class="sp s1"></i><i class="sp s2"></i><i class="sp s3"></i><i class="sp s4"></i><i class="sp s5"></i><div class="stage"><div class="top"><div class="logo">MAISON SUCRÉE &middot; EST. 2018</div><div class="nav"><span>COLLECTION</span><span>ATELIER</span><span>BOUTIQUE</span></div></div><div class="qm">&ldquo;</div><blockquote class="quote">Patience is the <em>secret</em> ingredient.</blockquote><div class="by">— MAISON SUCRÉE · LE LIVRE DES SAVEURS</div><div class="macarons left"><i class="mac m1"></i><i class="mac m2"></i><i class="mac m3"></i><i class="mac m4"></i><i class="mac m5"></i></div></div><div class="pcirc"><div class="num" style="font-size:60px;line-height:1.1">Merci</div><div class="lab">à bientôt</div><div class="sub">PRINTEMPS · 2026</div></div><div class="footer"><span>MERCI — À BIENTÔT</span><div class="right"><span class="swatch"></span><span>07 / 07 &nbsp;·&nbsp; MAISON SUCRÉE</span></div></div></section>
+</deck-stage>
+</body>
+</html>

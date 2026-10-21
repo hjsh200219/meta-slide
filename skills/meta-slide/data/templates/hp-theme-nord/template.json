@@ -1,0 +1,49 @@
+{
+  "slug": "hp-theme-nord",
+  "name": "Theme · Nord",
+  "tagline": "Cool Nordic blue-grey dark palette",
+  "mood": [
+    "cool",
+    "calm",
+    "frosty",
+    "dark"
+  ],
+  "occasion": [
+    "infrastructure talk",
+    "cloud product overview",
+    "DevOps session",
+    "platform engineering review",
+    "technical roadmap"
+  ],
+  "tone": [
+    "calm",
+    "professional",
+    "technical"
+  ],
+  "formality": "medium",
+  "density": "medium",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#2e3440",
+    "text": "#eceff4",
+    "accent": "#88c0d0",
+    "accent2": "#81a1c1",
+    "surface": "#3b4252",
+    "description": "Theme tokens --bg, --text-1, --accent, --accent-2, --surface taken from nord.css"
+  },
+  "typography": {
+    "display": "Inter",
+    "body": "Inter",
+    "style": "Theme font tokens --font-display / --font-sans"
+  },
+  "best_for": "Infrastructure and cloud topics with a restrained cold dark look.",
+  "avoid_for": "Warm lifestyle or festive content.",
+  "slide_count": 22,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "assets/themes/nord.css + templates/single-page/*.html (22 layouts)",
+    "license": "MIT"
+  }
+}

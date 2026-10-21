@@ -1,0 +1,52 @@
+{
+  "tagline": "Near-black canvas with a faint square grid, square-cornered panels outlined in cyan and violet, gradient headlines and a syntax-coloured code block.",
+  "mood": [
+    "techy",
+    "cyberpunk",
+    "avant-garde",
+    "sharp"
+  ],
+  "occasion": [
+    "developer talk",
+    "product demo",
+    "hackathon pitch",
+    "engineering roadmap",
+    "security briefing"
+  ],
+  "tone": [
+    "futuristic",
+    "precise",
+    "edgy"
+  ],
+  "formality": "low",
+  "density": "medium",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#0D0D0D",
+    "panel": "#1A1A2E",
+    "accent_cyan": "#00F2FF",
+    "accent_purple": "#8A2BE2",
+    "accent_magenta": "#FF00FF",
+    "text": "#FFFFFF",
+    "text_secondary": "#B0B0B0",
+    "text_dim": "#666666",
+    "description": "deep black, dark indigo panels, fluorescent cyan primary and tech violet secondary"
+  },
+  "typography": {
+    "display": "SF Pro Display",
+    "body": "SF Pro Display",
+    "style": "system grotesque headlines with JetBrains Mono for labels and code"
+  },
+  "best_for": "Developer and product-demo decks that include code or pseudo-code. Cyan marks the primary signal, violet the secondary.",
+  "avoid_for": "Warm, human or print-first material; neon outlines do not survive greyscale.",
+  "slug": "psg-tech-dark",
+  "name": "Tech Dark Grid",
+  "slide_count": 10,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "vigorX777/ppt-svg-generator",
+    "commit": "c873b61",
+    "path": "styles/03-tech-dark.md",
+    "license": "MIT"
+  }
+}

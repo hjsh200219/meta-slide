@@ -1,0 +1,2312 @@
+{
+ "8-bit-orbit": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "8-bit-orbit/shots/sheet.png",
+  "detail": []
+ },
+ "biennale-yellow": {
+  "shots": 8,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "biennale-yellow/shots/sheet.png",
+  "detail": []
+ },
+ "block-frame": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "block-frame/shots/sheet.png",
+  "detail": []
+ },
+ "blue-professional": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "blue-professional/shots/sheet.png",
+  "detail": []
+ },
+ "bold-poster": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "bold-poster/shots/sheet.png",
+  "detail": []
+ },
+ "broadside": {
+  "shots": 16,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "broadside/shots/sheet.png",
+  "detail": []
+ },
+ "capsule": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "capsule/shots/sheet.png",
+  "detail": []
+ },
+ "cartesian": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "cartesian/shots/sheet.png",
+  "detail": []
+ },
+ "cheil-dark-point": {
+  "shots": 14,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "cheil-dark-point/shots/sheet.png",
+  "detail": []
+ },
+ "cobalt-grid": {
+  "shots": 8,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "cobalt-grid/shots/sheet.png",
+  "detail": []
+ },
+ "coral": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "coral/shots/sheet.png",
+  "detail": []
+ },
+ "creative-mode": {
+  "shots": 8,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "creative-mode/shots/sheet.png",
+  "detail": []
+ },
+ "daisy-days": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "daisy-days/shots/sheet.png",
+  "detail": []
+ },
+ "editorial-forest": {
+  "shots": 8,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "editorial-forest/shots/sheet.png",
+  "detail": []
+ },
+ "editorial-tri-tone": {
+  "shots": 8,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "editorial-tri-tone/shots/sheet.png",
+  "detail": []
+ },
+ "emerald-editorial": {
+  "shots": 8,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "emerald-editorial/shots/sheet.png",
+  "detail": []
+ },
+ "fe-bold-signal": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "fe-bold-signal/shots/sheet.png",
+  "detail": []
+ },
+ "fe-creative-voltage": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "fe-creative-voltage/shots/sheet.png",
+  "detail": []
+ },
+ "fe-dark-botanical": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "fe-dark-botanical/shots/sheet.png",
+  "detail": []
+ },
+ "fe-electric-studio": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "fe-electric-studio/shots/sheet.png",
+  "detail": []
+ },
+ "fe-neon-cyber": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "fe-neon-cyber/shots/sheet.png",
+  "detail": []
+ },
+ "fe-paper-ink": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "fe-paper-ink/shots/sheet.png",
+  "detail": []
+ },
+ "fe-pastel-geometry": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "fe-pastel-geometry/shots/sheet.png",
+  "detail": []
+ },
+ "fe-split-pastel": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "fe-split-pastel/shots/sheet.png",
+  "detail": []
+ },
+ "fe-swiss-modern": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "fe-swiss-modern/shots/sheet.png",
+  "detail": []
+ },
+ "fe-terminal-green": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "fe-terminal-green/shots/sheet.png",
+  "detail": []
+ },
+ "fe-vintage-editorial": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "fe-vintage-editorial/shots/sheet.png",
+  "detail": []
+ },
+ "fs-bold-signal": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "fs-bold-signal/shots/sheet.png",
+  "detail": []
+ },
+ "fs-creative-voltage": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "fs-creative-voltage/shots/sheet.png",
+  "detail": []
+ },
+ "fs-dark-botanical": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "fs-dark-botanical/shots/sheet.png",
+  "detail": []
+ },
+ "fs-electric-studio": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "fs-electric-studio/shots/sheet.png",
+  "detail": []
+ },
+ "fs-neon-cyber": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "fs-neon-cyber/shots/sheet.png",
+  "detail": []
+ },
+ "fs-notebook-tabs": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "fs-notebook-tabs/shots/sheet.png",
+  "detail": []
+ },
+ "fs-paper-ink": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "fs-paper-ink/shots/sheet.png",
+  "detail": []
+ },
+ "fs-pastel-geometry": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "fs-pastel-geometry/shots/sheet.png",
+  "detail": []
+ },
+ "fs-split-pastel": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "fs-split-pastel/shots/sheet.png",
+  "detail": []
+ },
+ "fs-swiss-modern": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "fs-swiss-modern/shots/sheet.png",
+  "detail": []
+ },
+ "fs-terminal-green": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "fs-terminal-green/shots/sheet.png",
+  "detail": []
+ },
+ "fs-vintage-editorial": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "fs-vintage-editorial/shots/sheet.png",
+  "detail": []
+ },
+ "grove": {
+  "shots": 12,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "grove/shots/sheet.png",
+  "detail": []
+ },
+ "hd-all-text-manifesto": {
+  "shots": 7,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hd-all-text-manifesto/shots/sheet.png",
+  "detail": []
+ },
+ "hd-assertion-evidence": {
+  "shots": 7,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hd-assertion-evidence/shots/sheet.png",
+  "detail": []
+ },
+ "hd-bento-grid": {
+  "shots": 7,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hd-bento-grid/shots/sheet.png",
+  "detail": []
+ },
+ "hd-black-big-number-stage": {
+  "shots": 8,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hd-black-big-number-stage/shots/sheet.png",
+  "detail": []
+ },
+ "hd-candy-lecture-stage": {
+  "shots": 7,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hd-candy-lecture-stage/shots/sheet.png",
+  "detail": []
+ },
+ "hd-dark-hairline-terminal": {
+  "shots": 7,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hd-dark-hairline-terminal/shots/sheet.png",
+  "detail": []
+ },
+ "hd-dense-research-report": {
+  "shots": 7,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hd-dense-research-report/shots/sheet.png",
+  "detail": []
+ },
+ "hd-diagram-isotype": {
+  "shots": 7,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hd-diagram-isotype/shots/sheet.png",
+  "detail": []
+ },
+ "hd-diagrammatic-minimalism": {
+  "shots": 7,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hd-diagrammatic-minimalism/shots/sheet.png",
+  "detail": []
+ },
+ "hd-editorial-longform": {
+  "shots": 8,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hd-editorial-longform/shots/sheet.png",
+  "detail": []
+ },
+ "hd-full-bleed-gradient-manifesto": {
+  "shots": 7,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hd-full-bleed-gradient-manifesto/shots/sheet.png",
+  "detail": []
+ },
+ "hd-humanist-rounded-cards": {
+  "shots": 8,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hd-humanist-rounded-cards/shots/sheet.png",
+  "detail": []
+ },
+ "hd-institutional-swiss": {
+  "shots": 8,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hd-institutional-swiss/shots/sheet.png",
+  "detail": []
+ },
+ "hd-irreverent-pop": {
+  "shots": 7,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hd-irreverent-pop/shots/sheet.png",
+  "detail": []
+ },
+ "hd-mono-brand-type-hero": {
+  "shots": 7,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hd-mono-brand-type-hero/shots/sheet.png",
+  "detail": []
+ },
+ "hd-narrative-sparkline": {
+  "shots": 7,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hd-narrative-sparkline/shots/sheet.png",
+  "detail": []
+ },
+ "hd-neo-swiss-billboard": {
+  "shots": 7,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hd-neo-swiss-billboard/shots/sheet.png",
+  "detail": []
+ },
+ "hd-playful-collins-editorial": {
+  "shots": 7,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hd-playful-collins-editorial/shots/sheet.png",
+  "detail": []
+ },
+ "hd-sage-linen": {
+  "shots": 7,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hd-sage-linen/shots/sheet.png",
+  "detail": []
+ },
+ "hd-showcase-build": {
+  "shots": 7,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hd-showcase-build/shots/sheet.png",
+  "detail": []
+ },
+ "hd-signal-red-grid": {
+  "shots": 7,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hd-signal-red-grid/shots/sheet.png",
+  "detail": []
+ },
+ "hd-two-font-consulting": {
+  "shots": 7,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hd-two-font-consulting/shots/sheet.png",
+  "detail": []
+ },
+ "hd-y2k-inflated-wrapped": {
+  "shots": 7,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hd-y2k-inflated-wrapped/shots/sheet.png",
+  "detail": []
+ },
+ "hp-course-module": {
+  "shots": 7,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-course-module/shots/sheet.png",
+  "detail": []
+ },
+ "hp-dir-key-nav-minimal": {
+  "shots": 8,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-dir-key-nav-minimal/shots/sheet.png",
+  "detail": []
+ },
+ "hp-graphify-dark-graph": {
+  "shots": 8,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-graphify-dark-graph/shots/sheet.png",
+  "detail": []
+ },
+ "hp-hermes-cyber-terminal": {
+  "shots": 8,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-hermes-cyber-terminal/shots/sheet.png",
+  "detail": []
+ },
+ "hp-knowledge-arch-blueprint": {
+  "shots": 8,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-knowledge-arch-blueprint/shots/sheet.png",
+  "detail": []
+ },
+ "hp-pitch-deck": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-pitch-deck/shots/sheet.png",
+  "detail": []
+ },
+ "hp-presenter-mode-reveal": {
+  "shots": 6,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-presenter-mode-reveal/shots/sheet.png",
+  "detail": []
+ },
+ "hp-product-launch": {
+  "shots": 8,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-product-launch/shots/sheet.png",
+  "detail": []
+ },
+ "hp-tech-sharing": {
+  "shots": 8,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-tech-sharing/shots/sheet.png",
+  "detail": []
+ },
+ "hp-testing-safety-alert": {
+  "shots": 8,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-testing-safety-alert/shots/sheet.png",
+  "detail": []
+ },
+ "hp-theme-academic-paper": {
+  "shots": 22,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-theme-academic-paper/shots/sheet.png",
+  "detail": []
+ },
+ "hp-theme-arctic-cool": {
+  "shots": 22,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-theme-arctic-cool/shots/sheet.png",
+  "detail": []
+ },
+ "hp-theme-aurora": {
+  "shots": 22,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-theme-aurora/shots/sheet.png",
+  "detail": []
+ },
+ "hp-theme-bauhaus": {
+  "shots": 22,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-theme-bauhaus/shots/sheet.png",
+  "detail": []
+ },
+ "hp-theme-blueprint": {
+  "shots": 22,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-theme-blueprint/shots/sheet.png",
+  "detail": []
+ },
+ "hp-theme-catppuccin-latte": {
+  "shots": 22,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-theme-catppuccin-latte/shots/sheet.png",
+  "detail": []
+ },
+ "hp-theme-catppuccin-mocha": {
+  "shots": 22,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-theme-catppuccin-mocha/shots/sheet.png",
+  "detail": []
+ },
+ "hp-theme-corporate-clean": {
+  "shots": 22,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-theme-corporate-clean/shots/sheet.png",
+  "detail": []
+ },
+ "hp-theme-cyberpunk-neon": {
+  "shots": 22,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-theme-cyberpunk-neon/shots/sheet.png",
+  "detail": []
+ },
+ "hp-theme-dracula": {
+  "shots": 22,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-theme-dracula/shots/sheet.png",
+  "detail": []
+ },
+ "hp-theme-editorial-serif": {
+  "shots": 22,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-theme-editorial-serif/shots/sheet.png",
+  "detail": []
+ },
+ "hp-theme-engineering-whiteprint": {
+  "shots": 22,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-theme-engineering-whiteprint/shots/sheet.png",
+  "detail": []
+ },
+ "hp-theme-glassmorphism": {
+  "shots": 22,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-theme-glassmorphism/shots/sheet.png",
+  "detail": []
+ },
+ "hp-theme-gruvbox-dark": {
+  "shots": 22,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-theme-gruvbox-dark/shots/sheet.png",
+  "detail": []
+ },
+ "hp-theme-japanese-minimal": {
+  "shots": 22,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-theme-japanese-minimal/shots/sheet.png",
+  "detail": []
+ },
+ "hp-theme-magazine-bold": {
+  "shots": 22,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-theme-magazine-bold/shots/sheet.png",
+  "detail": []
+ },
+ "hp-theme-memphis-pop": {
+  "shots": 22,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-theme-memphis-pop/shots/sheet.png",
+  "detail": []
+ },
+ "hp-theme-midcentury": {
+  "shots": 22,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-theme-midcentury/shots/sheet.png",
+  "detail": []
+ },
+ "hp-theme-minimal-white": {
+  "shots": 22,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-theme-minimal-white/shots/sheet.png",
+  "detail": []
+ },
+ "hp-theme-neo-brutalism": {
+  "shots": 22,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-theme-neo-brutalism/shots/sheet.png",
+  "detail": []
+ },
+ "hp-theme-news-broadcast": {
+  "shots": 22,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-theme-news-broadcast/shots/sheet.png",
+  "detail": []
+ },
+ "hp-theme-nord": {
+  "shots": 22,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-theme-nord/shots/sheet.png",
+  "detail": []
+ },
+ "hp-theme-pitch-deck-vc": {
+  "shots": 22,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-theme-pitch-deck-vc/shots/sheet.png",
+  "detail": []
+ },
+ "hp-theme-rainbow-gradient": {
+  "shots": 22,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-theme-rainbow-gradient/shots/sheet.png",
+  "detail": []
+ },
+ "hp-theme-retro-tv": {
+  "shots": 22,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-theme-retro-tv/shots/sheet.png",
+  "detail": []
+ },
+ "hp-theme-rose-pine": {
+  "shots": 22,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-theme-rose-pine/shots/sheet.png",
+  "detail": []
+ },
+ "hp-theme-sharp-mono": {
+  "shots": 22,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-theme-sharp-mono/shots/sheet.png",
+  "detail": []
+ },
+ "hp-theme-soft-pastel": {
+  "shots": 22,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-theme-soft-pastel/shots/sheet.png",
+  "detail": []
+ },
+ "hp-theme-solarized-light": {
+  "shots": 22,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-theme-solarized-light/shots/sheet.png",
+  "detail": []
+ },
+ "hp-theme-sunset-warm": {
+  "shots": 22,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-theme-sunset-warm/shots/sheet.png",
+  "detail": []
+ },
+ "hp-theme-swiss-grid": {
+  "shots": 22,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-theme-swiss-grid/shots/sheet.png",
+  "detail": []
+ },
+ "hp-theme-terminal-green": {
+  "shots": 22,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-theme-terminal-green/shots/sheet.png",
+  "detail": []
+ },
+ "hp-theme-tokyo-night": {
+  "shots": 22,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-theme-tokyo-night/shots/sheet.png",
+  "detail": []
+ },
+ "hp-theme-vaporwave": {
+  "shots": 22,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-theme-vaporwave/shots/sheet.png",
+  "detail": []
+ },
+ "hp-theme-xiaohongshu-white": {
+  "shots": 22,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-theme-xiaohongshu-white/shots/sheet.png",
+  "detail": []
+ },
+ "hp-theme-y2k-chrome": {
+  "shots": 22,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-theme-y2k-chrome/shots/sheet.png",
+  "detail": []
+ },
+ "hp-violet-glow-tutorial": {
+  "shots": 8,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-violet-glow-tutorial/shots/sheet.png",
+  "detail": []
+ },
+ "hp-weekly-report": {
+  "shots": 7,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-weekly-report/shots/sheet.png",
+  "detail": []
+ },
+ "hp-xhs-pastel-card": {
+  "shots": 8,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-xhs-pastel-card/shots/sheet.png",
+  "detail": []
+ },
+ "hp-xhs-white-editorial": {
+  "shots": 8,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "hp-xhs-white-editorial/shots/sheet.png",
+  "detail": []
+ },
+ "kd-bento-white": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "kd-bento-white/shots/sheet.png",
+  "detail": []
+ },
+ "long-table": {
+  "shots": 8,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "long-table/shots/sheet.png",
+  "detail": []
+ },
+ "mat": {
+  "shots": 9,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "mat/shots/sheet.png",
+  "detail": []
+ },
+ "monochrome": {
+  "shots": 16,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "monochrome/shots/sheet.png",
+  "detail": []
+ },
+ "neo-grid-bold": {
+  "shots": 12,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "neo-grid-bold/shots/sheet.png",
+  "detail": []
+ },
+ "ns-amber-think": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-amber-think/shots/sheet.png",
+  "detail": []
+ },
+ "ns-art-deco-gatsby": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-art-deco-gatsby/shots/sheet.png",
+  "detail": []
+ },
+ "ns-art-nouveau-botanical": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-art-nouveau-botanical/shots/sheet.png",
+  "detail": []
+ },
+ "ns-aurora-mesh": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-aurora-mesh/shots/sheet.png",
+  "detail": []
+ },
+ "ns-bauhaus-primary": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-bauhaus-primary/shots/sheet.png",
+  "detail": []
+ },
+ "ns-blue-collage": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-blue-collage/shots/sheet.png",
+  "detail": []
+ },
+ "ns-blueprint-tech": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-blueprint-tech/shots/sheet.png",
+  "detail": []
+ },
+ "ns-bold-signal": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-bold-signal/shots/sheet.png",
+  "detail": []
+ },
+ "ns-bold-typography": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-bold-typography/shots/sheet.png",
+  "detail": []
+ },
+ "ns-campus-white": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-campus-white/shots/sheet.png",
+  "detail": []
+ },
+ "ns-chinese-ink-wash": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-chinese-ink-wash/shots/sheet.png",
+  "detail": []
+ },
+ "ns-cinema-scope": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-cinema-scope/shots/sheet.png",
+  "detail": []
+ },
+ "ns-claymorphism-3d": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-claymorphism-3d/shots/sheet.png",
+  "detail": []
+ },
+ "ns-clean-slate": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-clean-slate/shots/sheet.png",
+  "detail": []
+ },
+ "ns-creative-voltage": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-creative-voltage/shots/sheet.png",
+  "detail": []
+ },
+ "ns-dark-botanical": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-dark-botanical/shots/sheet.png",
+  "detail": []
+ },
+ "ns-dark-cinema": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-dark-cinema/shots/sheet.png",
+  "detail": []
+ },
+ "ns-dark-premium": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-dark-premium/shots/sheet.png",
+  "detail": []
+ },
+ "ns-ecommerce-promo": {
+  "shots": 8,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-ecommerce-promo/shots/sheet.png",
+  "detail": []
+ },
+ "ns-editorial-serif": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-editorial-serif/shots/sheet.png",
+  "detail": []
+ },
+ "ns-electric-studio": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-electric-studio/shots/sheet.png",
+  "detail": []
+ },
+ "ns-fashion-editorial": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-fashion-editorial/shots/sheet.png",
+  "detail": []
+ },
+ "ns-futuristic-blue": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-futuristic-blue/shots/sheet.png",
+  "detail": []
+ },
+ "ns-gradient-dreams": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-gradient-dreams/shots/sheet.png",
+  "detail": []
+ },
+ "ns-grainy-retro": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-grainy-retro/shots/sheet.png",
+  "detail": []
+ },
+ "ns-ink-wash": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-ink-wash/shots/sheet.png",
+  "detail": []
+ },
+ "ns-keynote-noir": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-keynote-noir/shots/sheet.png",
+  "detail": []
+ },
+ "ns-korean-soft": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-korean-soft/shots/sheet.png",
+  "detail": []
+ },
+ "ns-memphis-pop": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-memphis-pop/shots/sheet.png",
+  "detail": []
+ },
+ "ns-midnight-corporate": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-midnight-corporate/shots/sheet.png",
+  "detail": []
+ },
+ "ns-morning-brief": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-morning-brief/shots/sheet.png",
+  "detail": []
+ },
+ "ns-neon-brutalism": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-neon-brutalism/shots/sheet.png",
+  "detail": []
+ },
+ "ns-neon-cyber": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-neon-cyber/shots/sheet.png",
+  "detail": []
+ },
+ "ns-newsprint-broadsheet": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-newsprint-broadsheet/shots/sheet.png",
+  "detail": []
+ },
+ "ns-nihon-modern": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-nihon-modern/shots/sheet.png",
+  "detail": []
+ },
+ "ns-notebook-tabs": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-notebook-tabs/shots/sheet.png",
+  "detail": []
+ },
+ "ns-paper-ink": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-paper-ink/shots/sheet.png",
+  "detail": []
+ },
+ "ns-pastel-geometry": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-pastel-geometry/shots/sheet.png",
+  "detail": []
+ },
+ "ns-pink-handwritten": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-pink-handwritten/shots/sheet.png",
+  "detail": []
+ },
+ "ns-pop-art": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-pop-art/shots/sheet.png",
+  "detail": []
+ },
+ "ns-retro-arcade": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-retro-arcade/shots/sheet.png",
+  "detail": []
+ },
+ "ns-risograph-overprint": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-risograph-overprint/shots/sheet.png",
+  "detail": []
+ },
+ "ns-scrapbook-portfolio": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-scrapbook-portfolio/shots/sheet.png",
+  "detail": []
+ },
+ "ns-soft-dreamy": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-soft-dreamy/shots/sheet.png",
+  "detail": []
+ },
+ "ns-soft-landing": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-soft-landing/shots/sheet.png",
+  "detail": []
+ },
+ "ns-split-pastel": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-split-pastel/shots/sheet.png",
+  "detail": []
+ },
+ "ns-starfield": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-starfield/shots/sheet.png",
+  "detail": []
+ },
+ "ns-surrealism-gallery": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-surrealism-gallery/shots/sheet.png",
+  "detail": []
+ },
+ "ns-swiss-grid": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-swiss-grid/shots/sheet.png",
+  "detail": []
+ },
+ "ns-swiss-modern": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-swiss-modern/shots/sheet.png",
+  "detail": []
+ },
+ "ns-terminal-green": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-terminal-green/shots/sheet.png",
+  "detail": []
+ },
+ "ns-terracotta-earth": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-terracotta-earth/shots/sheet.png",
+  "detail": []
+ },
+ "ns-vintage-editorial": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-vintage-editorial/shots/sheet.png",
+  "detail": []
+ },
+ "ns-vintage-poster": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-vintage-poster/shots/sheet.png",
+  "detail": []
+ },
+ "ns-wabi-sabi-zen": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-wabi-sabi-zen/shots/sheet.png",
+  "detail": []
+ },
+ "ns-warm-minimal": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-warm-minimal/shots/sheet.png",
+  "detail": []
+ },
+ "ns-watercolor": {
+  "shots": 5,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ns-watercolor/shots/sheet.png",
+  "detail": []
+ },
+ "os-aero": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "os-aero/shots/sheet.png",
+  "detail": []
+ },
+ "os-fieldwork": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "os-fieldwork/shots/sheet.png",
+  "detail": []
+ },
+ "os-pommi": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "os-pommi/shots/sheet.png",
+  "detail": []
+ },
+ "pa-bauhaus-block": {
+  "shots": 7,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "pa-bauhaus-block/shots/sheet.png",
+  "detail": []
+ },
+ "pa-blue-white": {
+  "shots": 7,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "pa-blue-white/shots/sheet.png",
+  "detail": []
+ },
+ "pa-botanic-forest": {
+  "shots": 7,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "pa-botanic-forest/shots/sheet.png",
+  "detail": []
+ },
+ "pa-candy-pastel": {
+  "shots": 7,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "pa-candy-pastel/shots/sheet.png",
+  "detail": []
+ },
+ "pa-champagne-gold": {
+  "shots": 7,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "pa-champagne-gold/shots/sheet.png",
+  "detail": []
+ },
+ "pa-chrome-y2k": {
+  "shots": 7,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "pa-chrome-y2k/shots/sheet.png",
+  "detail": []
+ },
+ "pa-cyberpunk-neon": {
+  "shots": 7,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "pa-cyberpunk-neon/shots/sheet.png",
+  "detail": []
+ },
+ "pa-dark-tech": {
+  "shots": 7,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "pa-dark-tech/shots/sheet.png",
+  "detail": []
+ },
+ "pa-earth-concrete": {
+  "shots": 7,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "pa-earth-concrete/shots/sheet.png",
+  "detail": []
+ },
+ "pa-ember-orange": {
+  "shots": 8,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "pa-ember-orange/shots/sheet.png",
+  "detail": []
+ },
+ "pa-fresh-green": {
+  "shots": 7,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "pa-fresh-green/shots/sheet.png",
+  "detail": []
+ },
+ "pa-gov-authority": {
+  "shots": 7,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "pa-gov-authority/shots/sheet.png",
+  "detail": []
+ },
+ "pa-ink-jade": {
+  "shots": 7,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "pa-ink-jade/shots/sheet.png",
+  "detail": []
+ },
+ "pa-kindergarten-pop": {
+  "shots": 7,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "pa-kindergarten-pop/shots/sheet.png",
+  "detail": []
+ },
+ "pa-liquid-glass": {
+  "shots": 7,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "pa-liquid-glass/shots/sheet.png",
+  "detail": []
+ },
+ "pa-luxury-purple": {
+  "shots": 8,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "pa-luxury-purple/shots/sheet.png",
+  "detail": []
+ },
+ "pa-medical-pulse": {
+  "shots": 8,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "pa-medical-pulse/shots/sheet.png",
+  "detail": []
+ },
+ "pa-minimal-gray": {
+  "shots": 8,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "pa-minimal-gray/shots/sheet.png",
+  "detail": []
+ },
+ "pa-mocha-editorial": {
+  "shots": 8,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "pa-mocha-editorial/shots/sheet.png",
+  "detail": []
+ },
+ "pa-nocturne-violet": {
+  "shots": 8,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "pa-nocturne-violet/shots/sheet.png",
+  "detail": []
+ },
+ "pa-noir-film": {
+  "shots": 8,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "pa-noir-film/shots/sheet.png",
+  "detail": []
+ },
+ "pa-retro-70s": {
+  "shots": 8,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "pa-retro-70s/shots/sheet.png",
+  "detail": []
+ },
+ "pa-royal-red": {
+  "shots": 8,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "pa-royal-red/shots/sheet.png",
+  "detail": []
+ },
+ "pa-safari-savanna": {
+  "shots": 8,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "pa-safari-savanna/shots/sheet.png",
+  "detail": []
+ },
+ "pa-sakura-wabi": {
+  "shots": 8,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "pa-sakura-wabi/shots/sheet.png",
+  "detail": []
+ },
+ "pa-vibrant-rainbow": {
+  "shots": 8,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "pa-vibrant-rainbow/shots/sheet.png",
+  "detail": []
+ },
+ "peoples-platform": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "peoples-platform/shots/sheet.png",
+  "detail": []
+ },
+ "pin-and-paper": {
+  "shots": 11,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "pin-and-paper/shots/sheet.png",
+  "detail": []
+ },
+ "pink-script": {
+  "shots": 9,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "pink-script/shots/sheet.png",
+  "detail": []
+ },
+ "playful": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "playful/shots/sheet.png",
+  "detail": []
+ },
+ "pm-blueprint": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "pm-blueprint/shots/sheet.png",
+  "detail": []
+ },
+ "pm-duty-grid": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "pm-duty-grid/shots/sheet.png",
+  "detail": []
+ },
+ "pm-scorecard": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "pm-scorecard/shots/sheet.png",
+  "detail": []
+ },
+ "pm-strategy-doc": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "pm-strategy-doc/shots/sheet.png",
+  "detail": []
+ },
+ "psg-consulting-navy": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "psg-consulting-navy/shots/sheet.png",
+  "detail": []
+ },
+ "psg-gradient-blue": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "psg-gradient-blue/shots/sheet.png",
+  "detail": []
+ },
+ "psg-minimalism": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "psg-minimalism/shots/sheet.png",
+  "detail": []
+ },
+ "psg-swiss-poster": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "psg-swiss-poster/shots/sheet.png",
+  "detail": []
+ },
+ "psg-tech-dark": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "psg-tech-dark/shots/sheet.png",
+  "detail": []
+ },
+ "raw-grid": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "raw-grid/shots/sheet.png",
+  "detail": []
+ },
+ "retro-windows": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "retro-windows/shots/sheet.png",
+  "detail": []
+ },
+ "retro-zine": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "retro-zine/shots/sheet.png",
+  "detail": []
+ },
+ "sakura-chroma": {
+  "shots": 8,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "sakura-chroma/shots/sheet.png",
+  "detail": []
+ },
+ "scatterbrain": {
+  "shots": 10,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "scatterbrain/shots/sheet.png",
+  "detail": []
+ },
+ "signal": {
+  "shots": 18,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "signal/shots/sheet.png",
+  "detail": []
+ },
+ "soft-editorial": {
+  "shots": 12,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "soft-editorial/shots/sheet.png",
+  "detail": []
+ },
+ "stencil-tablet": {
+  "shots": 11,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "stencil-tablet/shots/sheet.png",
+  "detail": []
+ },
+ "studio": {
+  "shots": 12,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "studio/shots/sheet.png",
+  "detail": []
+ },
+ "sw-enterprise-blue": {
+  "shots": 13,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "sw-enterprise-blue/shots/sheet.png",
+  "detail": []
+ },
+ "vc-clean-lecture": {
+  "shots": 8,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "vc-clean-lecture/shots/sheet.png",
+  "detail": []
+ },
+ "vc-paper-diagram": {
+  "shots": 8,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "vc-paper-diagram/shots/sheet.png",
+  "detail": []
+ },
+ "ve-editorial-serif": {
+  "shots": 7,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "ve-editorial-serif/shots/sheet.png",
+  "detail": []
+ },
+ "vellum": {
+  "shots": 9,
+  "fallback_slides": [],
+  "fallback_fonts": [],
+  "overflow_slides": [],
+  "overflow_kinds": [],
+  "note": null,
+  "sheet": "vellum/shots/sheet.png",
+  "detail": []
+ }
+}

@@ -1,0 +1,18 @@
+{
+  "slug": "hd-diagram-isotype",
+  "name": "Diagram Isotype",
+  "tagline": "Pale-blue canvas with chevron process arrows, stacked layer bars in blue, orange, teal and violet, and outlined line-icon tiles (extended from a single-slide specimen)",
+  "mood": ["structured", "clear", "enterprise", "friendly", "diagrammatic"],
+  "occasion": ["platform capability overview", "product architecture briefing", "sales enablement", "process walkthrough", "internal tooling rollout"],
+  "tone": ["clear", "organized", "pragmatic"],
+  "formality": "medium-high",
+  "density": "medium-high",
+  "scheme": "light",
+  "palette": {"bg": "#F4F7FB", "text": "#0B2545", "accent": "#1B6FD1", "orange": "#E8833A", "teal": "#2BA58A", "violet": "#7B5CC4", "muted": "#4A5F7A", "description": "Pale blue ground, navy ink, one primary blue plus orange, teal and violet category colors"},
+  "typography": {"display": "IBM Plex Sans", "body": "IBM Plex Sans", "style": "Single-family IBM Plex Sans with bold titles, tracked blue section labels and semibold diagram text"},
+  "best_for": "Explaining a platform, process or architecture with arrows, layers and icons. Suits enterprise and product audiences who need the structure understood quickly.",
+  "avoid_for": "Emotional storytelling or minimalist keynotes where one image should carry the slide.",
+  "slide_count": 7,
+  "navigation": "deck-stage runtime",
+  "source": {"repo": "alchaincyf/huashu-design", "commit": "798c423", "path": "assets/style-specimens/ppt/12-diagram-isotype.html", "license": "MIT"}
+}

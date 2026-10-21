@@ -1,0 +1,47 @@
+{
+  "slug": "ns-claymorphism-3d",
+  "name": "Claymorphism 3D",
+  "tagline": "Pastel mint-lavender-peach gradients with puffy clay cards, soft shadows and colored balls",
+  "mood": [
+    "soft",
+    "playful",
+    "friendly",
+    "tactile"
+  ],
+  "occasion": [
+    "kids or education product",
+    "consumer app launch",
+    "onboarding deck",
+    "community update",
+    "creative workshop"
+  ],
+  "tone": [
+    "cheerful",
+    "gentle",
+    "approachable"
+  ],
+  "formality": "low",
+  "density": "low",
+  "scheme": "light",
+  "palette": {
+    "bg": "#e8f5e9",
+    "text": "#3a3a3a",
+    "accent": "#ff9a76",
+    "description": "Light Claymorphism 3D palette: #e8f5e9 background, #3a3a3a text, #ff9a76 accent"
+  },
+  "typography": {
+    "display": "Nunito",
+    "body": "Nunito",
+    "style": "Nunito headings over Nunito body"
+  },
+  "best_for": "Claymorphism 3D suits kids or education product and consumer app launch. It reads as soft, playful, friendly.",
+  "avoid_for": "Dense data-heavy reports where the decorative look would compete with content.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/claymorphism-3d.html",
+    "license": "MIT"
+  }
+}

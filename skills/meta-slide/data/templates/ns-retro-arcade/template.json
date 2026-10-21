@@ -1,0 +1,47 @@
+{
+  "slug": "ns-retro-arcade",
+  "name": "Retro Arcade",
+  "tagline": "Navy game-screen frame with pixel Silkscreen type, green health bars and skill cards",
+  "mood": [
+    "pixel",
+    "gamified",
+    "nostalgic",
+    "playful"
+  ],
+  "occasion": [
+    "game studio pitch",
+    "gamification workshop",
+    "developer meetup",
+    "esports or arcade event",
+    "onboarding quest deck"
+  ],
+  "tone": [
+    "playful",
+    "geeky",
+    "fun"
+  ],
+  "formality": "low",
+  "density": "medium",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#1a1c2c",
+    "text": "#e8e8e8",
+    "accent": "#38b764",
+    "description": "Dark Retro Arcade palette: #1a1c2c background, #e8e8e8 text, #38b764 accent"
+  },
+  "typography": {
+    "display": "Silkscreen",
+    "body": "sans-serif",
+    "style": "Silkscreen headings over sans-serif body"
+  },
+  "best_for": "Retro Arcade suits game studio pitch and gamification workshop. It reads as pixel, gamified, nostalgic.",
+  "avoid_for": "Formal regulated or conservative corporate decks.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/retro-arcade.html",
+    "license": "MIT"
+  }
+}

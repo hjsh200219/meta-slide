@@ -1,0 +1,51 @@
+{
+  "slug": "pa-kindergarten-pop",
+  "name": "Kindergarten Pop",
+  "tagline": "Cream background with pastel blobs, rounded bubble cards, candy pills and friendly rounded type (extended from a single-slide specimen)",
+  "mood": [
+    "playful",
+    "friendly",
+    "bright",
+    "soft"
+  ],
+  "occasion": [
+    "early-childhood education",
+    "parent newsletter",
+    "kids activity report",
+    "classroom lecture",
+    "family-oriented product pitch"
+  ],
+  "tone": [
+    "cheerful",
+    "gentle",
+    "encouraging"
+  ],
+  "formality": "low",
+  "density": "low",
+  "scheme": "light",
+  "palette": {
+    "bg": "#fff8e7",
+    "text": "#2a2a3a",
+    "accent": "#ff7a92",
+    "pink": "#ffb6c1",
+    "blue": "#87ceeb",
+    "green": "#06d6a0",
+    "yellow": "#ffd166",
+    "description": "Warm cream with pink, sky blue, mint and sunny yellow candy colors"
+  },
+  "typography": {
+    "display": "Quicksand",
+    "body": "Nunito",
+    "style": "Round friendly sans, bold Quicksand headlines, soft Nunito body"
+  },
+  "best_for": "Great for children, parents and learning topics where warmth and encouragement matter. Rounded cards and big numbers keep it easy to read.",
+  "avoid_for": "Avoid for serious corporate, legal or financial content.",
+  "slide_count": 7,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "Akxan/ppt-agent-skill",
+    "commit": "01825de",
+    "path": "ppt-output/style-gallery/kindergarten_pop.html",
+    "license": "MIT"
+  }
+}

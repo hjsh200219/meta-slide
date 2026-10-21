@@ -1,0 +1,49 @@
+{
+  "slug": "hp-theme-retro-tv",
+  "name": "Theme · Retro TV",
+  "tagline": "Warm cream with CRT scanlines and an amber-orange accent",
+  "mood": [
+    "nostalgic",
+    "warm",
+    "scanlined",
+    "vintage"
+  ],
+  "occasion": [
+    "nostalgia story",
+    "80s and 90s theme",
+    "retro game talk",
+    "media history",
+    "throwback event"
+  ],
+  "tone": [
+    "nostalgic",
+    "playful",
+    "warm"
+  ],
+  "formality": "medium-low",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#f5ecd7",
+    "text": "#2a1a08",
+    "accent": "#e67e14",
+    "accent2": "#c73a1f",
+    "surface": "#fbf5e2",
+    "description": "Theme tokens --bg, --text-1, --accent, --accent-2, --surface taken from retro-tv.css"
+  },
+  "typography": {
+    "display": "Playfair Display",
+    "body": "Inter",
+    "style": "Theme font tokens --font-display / --font-sans"
+  },
+  "best_for": "Nostalgic narratives about the eighties and nineties with a CRT screen texture.",
+  "avoid_for": "Clinical or ultra-modern topics.",
+  "slide_count": 22,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "assets/themes/retro-tv.css + templates/single-page/*.html (22 layouts)",
+    "license": "MIT"
+  }
+}

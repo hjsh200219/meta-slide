@@ -1,0 +1,49 @@
+{
+  "slug": "hp-theme-rainbow-gradient",
+  "name": "Theme · Rainbow Gradient",
+  "tagline": "White base with flowing rainbow gradient accents",
+  "mood": [
+    "joyful",
+    "colourful",
+    "festive",
+    "light"
+  ],
+  "occasion": [
+    "celebration",
+    "festival event",
+    "team party",
+    "award highlights",
+    "community milestone"
+  ],
+  "tone": [
+    "cheerful",
+    "celebratory",
+    "warm"
+  ],
+  "formality": "low",
+  "density": "low",
+  "scheme": "light",
+  "palette": {
+    "bg": "#ffffff",
+    "text": "#0c0d10",
+    "accent": "#ff4d8b",
+    "accent2": "#7a5cff",
+    "surface": "#ffffff",
+    "description": "Theme tokens --bg, --text-1, --accent, --accent-2, --surface taken from rainbow-gradient.css"
+  },
+  "typography": {
+    "display": "Inter",
+    "body": "Inter",
+    "style": "Theme font tokens --font-display / --font-sans"
+  },
+  "best_for": "Celebratory or festive decks that want a bright flowing rainbow accent.",
+  "avoid_for": "Solemn or regulated topics.",
+  "slide_count": 22,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "assets/themes/rainbow-gradient.css + templates/single-page/*.html (22 layouts)",
+    "license": "MIT"
+  }
+}

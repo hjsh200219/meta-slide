@@ -1,0 +1,50 @@
+{
+  "tagline": "Deep technical navy with a faint blueprint grid, a drawn frame with ruler ticks, measured connectors and one cyan component in focus while failure paths run dashed amber.",
+  "mood": [
+    "precise",
+    "schematic",
+    "engineered",
+    "calm"
+  ],
+  "occasion": [
+    "architecture review",
+    "technical deep-dive",
+    "design doc walkthrough",
+    "incident-prevention briefing",
+    "API or platform overview"
+  ],
+  "tone": [
+    "analytical",
+    "exact",
+    "dense"
+  ],
+  "formality": "medium-high",
+  "density": "high",
+  "scheme": "dark",
+  "palette": {
+    "field": "#0F1C2B",
+    "surface": "#16283C",
+    "ink": "#E6EDF5",
+    "structure": "#4A7BA7",
+    "focus": "#4FC9E8",
+    "caution": "#E8A54F",
+    "description": "technical navy, steel-blue structure, cyan for the component in focus, amber for failure paths"
+  },
+  "typography": {
+    "display": "Arial",
+    "body": "Arial",
+    "style": "neutral sans for labels with a monospaced companion for identifiers (families not named in the specification)"
+  },
+  "best_for": "Engineering explanations where the diagram is the main region: architecture, data flow, failure modes. Cyan highlights the one component under discussion.",
+  "avoid_for": "Marketing or emotional storytelling; decoration is intentionally limited to measuring lines.",
+  "slug": "pm-blueprint",
+  "name": "Blueprint Schematic",
+  "slide_count": 10,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "hugohe3/ppt-master",
+    "commit": "604ecde",
+    "path": "skills/ppt-master/templates/styles/technical-deepdive/templates/design_spec.md",
+    "license": "MIT"
+  }
+}

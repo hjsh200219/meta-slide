@@ -1,0 +1,47 @@
+{
+  "tagline": "Warm paper white with charcoal ink and one crimson accent: double rules, drop caps, pull quotes and Cormorant Garamond italics.",
+  "mood": [
+    "editorial",
+    "literary",
+    "thoughtful",
+    "classic"
+  ],
+  "occasion": [
+    "book or essay talk",
+    "law or policy briefing",
+    "humanities lecture",
+    "annual report narrative",
+    "museum curation"
+  ],
+  "tone": [
+    "measured",
+    "erudite",
+    "calm"
+  ],
+  "formality": "high",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#faf9f7",
+    "text": "#1a1a1a",
+    "accent": "#c41e3a",
+    "description": "warm cream, charcoal ink and a single crimson accent"
+  },
+  "typography": {
+    "display": "Cormorant Garamond",
+    "body": "Source Serif 4",
+    "style": "elegant old-style display serif with a sturdy text serif"
+  },
+  "best_for": "Argument-led talks that read like long-form essays: policy, legal, cultural or academic material. Pull quotes and drop caps give hierarchy without colour.",
+  "avoid_for": "Fast, product-style or data-dashboard decks.",
+  "slug": "fs-paper-ink",
+  "name": "Paper and Ink",
+  "slide_count": 10,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "zarazhangrui/frontend-slides",
+    "commit": "9906a34",
+    "path": "STYLE_PRESETS.md",
+    "license": "MIT"
+  }
+}

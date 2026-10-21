@@ -1,0 +1,48 @@
+{
+  "slug": "hp-theme-glassmorphism",
+  "name": "Theme · Glassmorphism",
+  "tagline": "Frosted glass panels over multicolour light blobs",
+  "mood": [
+    "glassy",
+    "airy",
+    "premium",
+    "colourful"
+  ],
+  "occasion": [
+    "product feature showcase",
+    "Apple-style launch",
+    "app demo",
+    "design system intro",
+    "brand reveal"
+  ],
+  "tone": [
+    "polished",
+    "modern",
+    "sleek"
+  ],
+  "formality": "medium",
+  "density": "low",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#0b1024",
+    "text": "#f2f4ff",
+    "accent": "#7dd3fc",
+    "accent2": "#c084fc",
+    "description": "Theme tokens --bg, --text-1, --accent, --accent-2, --surface taken from glassmorphism.css"
+  },
+  "typography": {
+    "display": "Inter",
+    "body": "Inter",
+    "style": "Theme font tokens --font-display / --font-sans"
+  },
+  "best_for": "Launch-style presentations that show off features on frosted glass cards.",
+  "avoid_for": "Print-friendly or very dense content.",
+  "slide_count": 22,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "assets/themes/glassmorphism.css + templates/single-page/*.html (22 layouts)",
+    "license": "MIT"
+  }
+}

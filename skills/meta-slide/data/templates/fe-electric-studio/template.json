@@ -1,0 +1,48 @@
+{
+  "slug": "fe-electric-studio",
+  "name": "Electric Studio",
+  "tagline": "Clean white upper half over an electric blue lower band, Manrope throughout with thin blue-ruled cards.",
+  "mood": [
+    "clean",
+    "energetic",
+    "professional",
+    "crisp"
+  ],
+  "occasion": [
+    "agency capabilities deck",
+    "client presentation",
+    "product overview",
+    "team intro",
+    "quarterly update"
+  ],
+  "tone": [
+    "polished",
+    "direct",
+    "upbeat"
+  ],
+  "formality": "medium",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#ffffff",
+    "text": "#0a0a0a",
+    "accent": "#4361ee",
+    "secondary": "#1b2858",
+    "description": "White with ink text and a single electric blue accent."
+  },
+  "typography": {
+    "display": "Manrope",
+    "body": "Manrope",
+    "style": "One geometric sans in heavy and regular weights."
+  },
+  "best_for": "Business decks that need a bright, confident, modern look. Handles cards and short lists well.",
+  "avoid_for": "Moody or editorial storytelling.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/Down/Space, scroll-snap sections)",
+  "source": {
+    "repo": "archlizheng/frontend-slides-editable",
+    "commit": "e5663e6",
+    "path": "examples/generated/presets/electric-studio.html",
+    "license": "MIT"
+  }
+}

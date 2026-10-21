@@ -1,0 +1,31 @@
+{
+  "slug": "pa-safari-savanna",
+  "name": "Safari Savanna",
+  "tagline": "Sun-baked parchment with burnt-sienna accents, double hairline frames, expedition stamps, a survey map and Playfair Display headlines over tracked mono labels (extended from a single-slide specimen)",
+  "mood": ["adventurous", "editorial", "warm", "explorative", "vintage"],
+  "occasion": ["travel or expedition report", "field research briefing", "magazine-style feature", "nonprofit or conservation story", "annual retrospective"],
+  "tone": ["literary", "curious", "grounded"],
+  "formality": "medium",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#f3e6cc",
+    "text": "#2a1f0f",
+    "accent": "#c44d2a",
+    "accent_deep": "#8b3a1f",
+    "ink_secondary": "#5a4a30",
+    "bg_edge": "#ddc28a",
+    "description": "sandy parchment gradient with dark brown ink and burnt-sienna sun accents"
+  },
+  "typography": {
+    "display": "Playfair Display",
+    "body": "Source Serif 4",
+    "mono": "JetBrains Mono",
+    "style": "high-contrast serif headlines with italic accents, readable serif body and small tracked mono field labels"
+  },
+  "best_for": "Storytelling decks with a field-notebook or travel-magazine feel: expeditions, research trips, conservation and place-based stories. Works for narratives with a few clear numbers and a route or timeline.",
+  "avoid_for": "High-energy product launches or data-dense dashboards that need a modern, high-contrast look.",
+  "slide_count": 8,
+  "navigation": "deck-stage runtime",
+  "source": {"repo": "Akxan/ppt-agent-skill", "commit": "01825de", "path": "ppt-output/style-gallery/safari_savanna.html", "license": "MIT"}
+}

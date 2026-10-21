@@ -1,0 +1,48 @@
+{
+  "slug": "fe-pastel-geometry",
+  "name": "Pastel Geometry",
+  "tagline": "Powder-blue canvas with a floating white card, coloured edge tabs and soft rounded panels.",
+  "mood": [
+    "friendly",
+    "soft",
+    "approachable",
+    "tidy"
+  ],
+  "occasion": [
+    "onboarding session",
+    "product walkthrough",
+    "education workshop",
+    "customer success review",
+    "team all-hands"
+  ],
+  "tone": [
+    "warm",
+    "clear",
+    "encouraging"
+  ],
+  "formality": "medium-low",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#c8d9e6",
+    "text": "#1a1a1a",
+    "accent": "#7c6aad",
+    "card": "#faf9f7",
+    "description": "Powder blue backdrop, off-white cards, soft violet accent."
+  },
+  "typography": {
+    "display": "Plus Jakarta Sans",
+    "body": "Plus Jakarta Sans",
+    "style": "Friendly rounded geometric sans in heavy and regular weights."
+  },
+  "best_for": "Approachable decks for onboarding, training and product tours. Soft cards keep dense content calm.",
+  "avoid_for": "High-drama keynotes or formal board material.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/Down/Space, scroll-snap sections)",
+  "source": {
+    "repo": "archlizheng/frontend-slides-editable",
+    "commit": "e5663e6",
+    "path": "examples/generated/presets/pastel-geometry.html",
+    "license": "MIT"
+  }
+}

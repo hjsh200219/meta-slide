@@ -1,0 +1,53 @@
+{
+  "slug": "pa-candy-pastel",
+  "name": "Candy Pastel",
+  "tagline": "Peach-cream gradient with glossy macaron-colored spheres, Playfair Display italics in cocoa brown and rose-pink accents (extended from a single-slide specimen)",
+  "mood": [
+    "sweet",
+    "soft",
+    "playful",
+    "boutique"
+  ],
+  "occasion": [
+    "food and dessert brand deck",
+    "boutique product launch",
+    "wedding or event concept",
+    "beauty and lifestyle pitch",
+    "seasonal collection presentation"
+  ],
+  "tone": [
+    "friendly",
+    "delicate",
+    "indulgent"
+  ],
+  "formality": "low",
+  "density": "low",
+  "scheme": "light",
+  "palette": {
+    "bg": "#fff5f0",
+    "bg_to": "#fff0e8",
+    "text": "#4a2c2a",
+    "accent": "#e89bb4",
+    "pink": "#f8bbd0",
+    "green": "#c8e6c9",
+    "yellow": "#fff59d",
+    "blue": "#b3e5fc",
+    "purple": "#e1bee7",
+    "description": "warm peach-cream ground with cocoa-brown text, rose-pink accent and five macaron pastels"
+  },
+  "typography": {
+    "display": "Playfair Display",
+    "body": "Inter",
+    "style": "high-contrast italic serif headlines with widely tracked small-caps Inter labels"
+  },
+  "best_for": "Soft, delicate brand stories: patisserie, beauty, gifts, weddings, seasonal collections. Glossy pastel spheres give each slide a sweet, tactile accent.",
+  "avoid_for": "Serious financial, technical or compliance material where the pastel sweetness undermines credibility.",
+  "slide_count": 7,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "Akxan/ppt-agent-skill",
+    "commit": "01825de",
+    "path": "ppt-output/style-gallery/candy_pastel.html",
+    "license": "MIT"
+  }
+}

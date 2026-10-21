@@ -1,0 +1,18 @@
+{
+  "slug": "hd-dense-research-report",
+  "name": "Dense Research Report",
+  "tagline": "White page with a blue hairline header, bold sans headline claims, a grid of small bar charts and mono KPI tiles in electric blue and cool grey (extended from a single-slide specimen)",
+  "mood": ["analytical", "dense", "data-rich", "professional"],
+  "occasion": ["market research report", "equity or industry analysis", "annual data review", "policy evidence briefing", "analytics team readout", "technical deep-dive"],
+  "tone": ["objective", "evidence-first", "precise"],
+  "formality": "high",
+  "density": "high",
+  "scheme": "light",
+  "palette": {"bg": "#FFFFFF", "text": "#111111", "accent": "#0066FF", "accent_dark": "#0050CC", "tile": "#F2F6FF", "bar_grey": "#C4CAD4", "bar_light": "#7FAEFF", "muted": "#555555", "description": "White page, near-black text, one electric blue for emphasis and highlighted bars, cool grey for context data."},
+  "typography": {"display": "Inter", "body": "Inter", "style": "Heavy sans headline stating the finding, small sans chart labels and Geist Mono for KPI numbers."},
+  "best_for": "Report-style slides that carry several charts, a table or a KPI block at once, where the headline is the conclusion. Good for analysts presenting trends to informed readers.",
+  "avoid_for": "Keynotes with one idea per slide or audiences far from the screen.",
+  "slide_count": 7,
+  "navigation": "deck-stage runtime",
+  "source": {"repo": "alchaincyf/huashu-design", "commit": "798c423", "path": "assets/style-specimens/ppt/19-dense-research-report.html", "license": "MIT"}
+}

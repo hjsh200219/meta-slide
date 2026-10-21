@@ -1,0 +1,50 @@
+{
+  "slug": "hd-neo-swiss-billboard",
+  "name": "Neo Swiss Billboard",
+  "tagline": "White page, hairline rules, cobalt-blue billboard numerals in tight heavy Inter with Geist Mono labels. (extended from a single-slide specimen)",
+  "mood": [
+    "precise",
+    "confident",
+    "clean",
+    "editorial"
+  ],
+  "occasion": [
+    "quarterly business review",
+    "operations report",
+    "data-led briefing",
+    "city or public-sector update",
+    "investor metrics update"
+  ],
+  "tone": [
+    "analytical",
+    "direct",
+    "modern"
+  ],
+  "formality": "medium-high",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#FFFFFF",
+    "text": "#0A0A0A",
+    "accent": "#2D5BFF",
+    "muted": "#555555",
+    "rule": "#E5E5E5",
+    "description": "pure white with ink-black type and one cobalt-blue accent for the hero number"
+  },
+  "typography": {
+    "display": "Inter",
+    "body": "Inter",
+    "mono": "Geist Mono",
+    "style": "oversized black-weight sans numerals + mono caps labels + hairline grid"
+  },
+  "best_for": "Heavy results where one headline number must dominate and four supporting metrics sit in a ruled strip. Good for quarterly reviews and impact reports.",
+  "avoid_for": "Playful or emotional storytelling with photos.",
+  "slide_count": 7,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "alchaincyf/huashu-design",
+    "commit": "798c423",
+    "path": "assets/style-specimens/ppt/01-neo-swiss-billboard.html",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "tagline": "White tabular pages for dense operating data: actual, plan and variance columns, status always paired with a shape and a label, one blue for the metric in focus.",
+  "mood": [
+    "sober",
+    "orderly",
+    "factual",
+    "compact"
+  ],
+  "occasion": [
+    "monthly operating review",
+    "weekly business review",
+    "KPI scorecard",
+    "finance and ops readout",
+    "programme status report"
+  ],
+  "tone": [
+    "neutral",
+    "exact",
+    "no-drama"
+  ],
+  "formality": "high",
+  "density": "high",
+  "scheme": "light",
+  "palette": {
+    "field": "#FFFFFF",
+    "surface": "#F4F6F8",
+    "ink": "#1E293B",
+    "on_plan": "#2E7D5B",
+    "watch": "#B7791F",
+    "off_plan": "#B4342C",
+    "focus": "#2B6CB0",
+    "description": "neutral white with three fixed status colours and one blue for the metric under discussion"
+  },
+  "typography": {
+    "display": "Arial",
+    "body": "Arial",
+    "style": "compact neutral sans with tabular figures so number columns align"
+  },
+  "best_for": "Recurring operating reviews where the audience returns to the same layout each period and reads by position. Colour appears only to encode status.",
+  "avoid_for": "One-off persuasion or inspiring talks; the deck deliberately avoids emphasis.",
+  "slug": "pm-scorecard",
+  "name": "Operating Scorecard",
+  "slide_count": 10,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "hugohe3/ppt-master",
+    "commit": "604ecde",
+    "path": "skills/ppt-master/templates/styles/operating-review/templates/design_spec.md",
+    "license": "MIT"
+  }
+}

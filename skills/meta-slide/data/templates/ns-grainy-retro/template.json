@@ -1,0 +1,47 @@
+{
+  "slug": "ns-grainy-retro",
+  "name": "Grainy Retro",
+  "tagline": "Cream paper with tomato-orange panels, DM Serif headlines, monospace labels and pill tags",
+  "mood": [
+    "retro",
+    "warm",
+    "graphic",
+    "confident"
+  ],
+  "occasion": [
+    "hiring or culture deck",
+    "brand story",
+    "creative studio intro",
+    "community event",
+    "product storytelling"
+  ],
+  "tone": [
+    "friendly",
+    "bold",
+    "nostalgic"
+  ],
+  "formality": "medium-low",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#f1ede5",
+    "text": "#1a1a1a",
+    "accent": "#e85d3a",
+    "description": "Light Grainy Retro palette: #f1ede5 background, #1a1a1a text, #e85d3a accent"
+  },
+  "typography": {
+    "display": "DM Serif Display",
+    "body": "Space Mono",
+    "style": "DM Serif Display headings over Space Mono body"
+  },
+  "best_for": "Grainy Retro suits hiring or culture deck and brand story. It reads as retro, warm, graphic.",
+  "avoid_for": "Formal regulated or conservative corporate decks.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/grainy-retro.html",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "tagline": "Flat signal-red slabs, black and white halves and a circle, square and triangle in the three primaries, set in uppercase Helvetica Neue Black with hard edges.",
+  "mood": [
+    "bold",
+    "graphic",
+    "uncompromising",
+    "flat"
+  ],
+  "occasion": [
+    "art or design exhibition talk",
+    "creative proposal",
+    "brand manifesto",
+    "event identity pitch",
+    "cultural institution update"
+  ],
+  "tone": [
+    "loud",
+    "rational",
+    "poster-like"
+  ],
+  "formality": "low",
+  "density": "low",
+  "scheme": "mixed",
+  "palette": {
+    "signal_red": "#E2001A",
+    "bg": "#FFFFFF",
+    "black": "#000000",
+    "text_secondary": "#333333",
+    "grey": "#808080",
+    "yellow": "#FFD700",
+    "blue": "#0057B8",
+    "description": "red, black and white with yellow and blue only as small geometric accents"
+  },
+  "typography": {
+    "display": "Helvetica Neue",
+    "body": "Helvetica Neue",
+    "style": "uppercase black-weight Helvetica at 3:1 size contrast"
+  },
+  "best_for": "Short, high-impact decks where whole-slide colour blocks do the talking: manifestos, exhibitions, identity pitches.",
+  "avoid_for": "Dense reports or soft, personal stories; there are no gradients or rounded forms to soften the content.",
+  "slug": "psg-swiss-poster",
+  "name": "Swiss Poster Blocks",
+  "slide_count": 10,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "vigorX777/ppt-svg-generator",
+    "commit": "c873b61",
+    "path": "styles/04-swiss-style.md",
+    "license": "MIT"
+  }
+}

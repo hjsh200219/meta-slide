@@ -1,0 +1,49 @@
+{
+  "slug": "hp-course-module",
+  "name": "Course Module",
+  "tagline": "Warm off-white paper, Playfair headlines, green and terracotta accents with a checklist sidebar",
+  "mood": [
+    "academic",
+    "friendly",
+    "structured",
+    "warm"
+  ],
+  "occasion": [
+    "classroom lecture",
+    "online course module",
+    "onboarding curriculum",
+    "workshop unit",
+    "training session"
+  ],
+  "tone": [
+    "encouraging",
+    "instructive",
+    "calm"
+  ],
+  "formality": "medium",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#fbfaf6",
+    "text": "#2a2418",
+    "accent": "#2d7d6e",
+    "accent2": "#d88a3a",
+    "surface": "#ffffff",
+    "description": "Warm paper white with ink brown text, teal green and terracotta accents"
+  },
+  "typography": {
+    "display": "Playfair Display",
+    "body": "Inter",
+    "style": "Serif display on a clean sans body, textbook feel"
+  },
+  "best_for": "Teaching material and training sessions that need learning objectives, worked examples and a quiet textbook mood. Works for lectures, workshops and onboarding.",
+  "avoid_for": "High-energy pitches or dark-room keynotes.",
+  "slide_count": 7,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "templates/full-decks/course-module",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notebook Tabs</title>
+<script src="deck-stage.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500&display=swap');
+:root{--bg:#2d2d2d;--fg:#1a1a1a;--accent:#1a1a1a;--muted:#5d5a54;--surface:rgba(26,26,26,.05);--line:rgba(26,26,26,.22);--fd:'Bodoni Moda', serif;--fb:'DM Sans', sans-serif;--fw:700}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#000}
+deck-stage{background:#111}
+section.slide{position:relative;overflow:hidden;background:var(--bg);color:var(--fg);font-family:var(--fb);font-size:30px;line-height:1.4}
+h1,h2,h3{font-family:var(--fd);font-weight:var(--fw,700)}
+.wrap{position:absolute;inset:0;padding:120px 140px;display:flex;flex-direction:column;justify-content:center}
+.kicker,.eyebrow{font-size:24px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:150px;line-height:1;letter-spacing:-.02em;margin:28px 0}
+h2{font-size:80px;line-height:1.05;letter-spacing:-.015em}
+h3{font-size:38px;line-height:1.15}
+.sub{font-size:36px;max-width:1100px;color:var(--muted)}
+.meta{font-size:24px;color:var(--muted);margin-top:48px}
+.num{font-family:var(--fd);font-size:340px;line-height:.9;color:var(--accent)}
+.hd{position:absolute;left:140px;right:140px;top:96px}
+.hd h2{margin-top:14px;max-width:1500px}
+.bd{position:absolute;left:140px;right:140px;top:330px;bottom:130px}
+.ft{position:absolute;left:140px;right:140px;bottom:46px;display:flex;justify-content:space-between;font-size:20px;color:var(--muted);letter-spacing:.06em}
+/* toc */
+.toc{list-style:none}
+.toc li{display:flex;align-items:baseline;gap:40px;padding:26px 0;border-bottom:2px solid var(--line)}
+.toc b{font-family:var(--fd);font-size:56px;min-width:110px;color:var(--accent)}
+.toc span{font-family:var(--fd);font-size:54px;min-width:520px}
+.toc i{font-style:normal;color:var(--muted);font-size:30px}
+/* points */
+.pts,.sum{list-style:none}
+.pts li,.sum li{display:flex;gap:44px;padding:26px 0;border-bottom:2px solid var(--line);align-items:flex-start}
+.pts b,.sum b{font-family:var(--fd);font-size:60px;line-height:1;min-width:110px;color:var(--accent)}
+.pts p,.sum p{color:var(--muted);margin-top:6px}
+/* steps */
+.steps{display:flex;gap:32px;height:100%;align-items:stretch}
+.step{flex:1;padding:36px 32px;border-top:6px solid var(--accent);background:var(--surface)}
+.step b{font-family:var(--fd);font-size:96px;line-height:1;color:var(--accent);display:block;margin-bottom:24px}
+.step p{margin-top:12px;color:var(--muted);font-size:28px}
+/* metrics */
+.mets{display:flex;gap:36px;height:100%;align-items:stretch}
+.met{flex:1;padding:36px 32px;background:var(--surface);display:flex;flex-direction:column;justify-content:flex-end}
+.met:first-child{flex:1.5}
+.met .v{font-family:var(--fd);font-size:150px;line-height:.95;color:var(--accent);letter-spacing:-.03em}
+.met:first-child .v{font-size:200px}
+.met .l{font-family:var(--fd);font-size:38px;margin-top:20px}
+.met p{color:var(--muted);margin-top:8px;font-size:26px}
+/* compare */
+.cmp{display:flex;gap:0;height:100%;align-items:stretch}
+.col{flex:1;padding:44px 52px;background:var(--surface)}
+.col h3{font-size:54px;margin-bottom:28px}
+.col ul{list-style:none}
+.col li{padding:16px 0;border-bottom:2px solid var(--line);font-size:32px}
+.col.b h3{color:var(--accent)}
+.vs{align-self:center;font-family:var(--fd);font-size:40px;padding:0 24px;color:var(--muted);text-transform:uppercase}
+/* quote */
+blockquote p{font-family:var(--fd);font-size:92px;line-height:1.12;max-width:1500px;letter-spacing:-.01em}
+blockquote cite{display:block;margin-top:44px;font-style:normal;font-size:28px;color:var(--accent);letter-spacing:.1em;text-transform:uppercase}
+
+
+.nt-page{position:absolute;left:90px;top:70px;right:170px;bottom:70px;background:#f8f6f1;box-shadow:0 18px 50px rgba(0,0,0,.45)}
+.nt-holes i{position:absolute;left:128px;width:34px;height:34px;border-radius:50%;background:#2d2d2d;box-shadow:inset 0 3px 6px rgba(0,0,0,.6)}
+.nt-tab{position:absolute;right:112px;width:132px;height:126px;border-radius:0 18px 18px 0;writing-mode:vertical-rl;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:500;letter-spacing:.12em;color:#1a1a1a;text-transform:uppercase;box-shadow:2px 3px 8px rgba(0,0,0,.3);left:auto}
+.nt-tab{right:96px;width:104px}
+.nt-tab.on{right:70px;width:130px;font-weight:700}
+.wrap{left:230px;right:290px;inset:70px 170px 70px 230px;padding:0}
+.hd{left:230px;right:300px;top:140px}.hd h2{font-size:84px}.hd .eyebrow{color:#5d5a54}
+.bd{left:230px;right:300px;top:360px;bottom:150px}
+.ft{left:230px;right:300px;bottom:100px}
+.kicker,.eyebrow{font-family:var(--fb);color:#5d5a54;font-size:22px}
+h1{font-size:160px;font-style:italic;font-weight:400;line-height:.98}.sub{font-size:34px;color:#5d5a54}.meta{color:#5d5a54;font-size:22px;letter-spacing:.1em;text-transform:uppercase}
+.num{font-size:360px;font-style:italic;font-weight:400;color:#1a1a1a}.s-divider h2{font-size:110px}
+.toc b,.pts b,.sum b{color:#1a1a1a;font-style:italic;font-weight:400}.toc li{padding:20px 0}.toc i{font-size:26px}
+.step{background:#fff;border:1.5px solid var(--line);border-top:10px solid var(--tc,#98d4bb)}
+.step:nth-child(1){--tc:#98d4bb}.step:nth-child(2){--tc:#c7b8ea}.step:nth-child(3){--tc:#f4b8c5}.step:nth-child(4){--tc:#a8d8ea}
+.step b{color:#1a1a1a;font-style:italic;font-weight:400}.step{border-top-color:var(--tc)}
+.mets{gap:24px}.met{background:#fff;border:1.5px solid var(--line)}.met .v{color:#1a1a1a;font-style:italic;font-weight:400;font-size:110px}.met:first-child .v{font-size:130px}
+.met:nth-child(1){border-top:10px solid #98d4bb}.met:nth-child(2){border-top:10px solid #c7b8ea}.met:nth-child(3){border-top:10px solid #f4b8c5}.met:nth-child(4){border-top:10px solid #a8d8ea}
+.col{background:#fff;border:1.5px solid var(--line)}.col.a{border-top:10px solid #f4b8c5}.col.b{border-top:10px solid #98d4bb}.col.b h3{color:#1a1a1a}
+.col h3{font-style:italic;font-weight:400}.vs{color:#5d5a54;font-style:italic;text-transform:none}
+blockquote p{font-style:italic;font-weight:400;font-size:80px}blockquote cite{color:#5d5a54}
+.s-closing h2{font-size:190px;font-style:italic;font-weight:400}
+
+</style>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+<section class="slide s-cover" data-label="01 Cover" data-om-validate="false"><div class="nt-page"></div><div class="nt-holes"><i style="top:200px"></i><i style="top:470px"></i><i style="top:740px"></i></div><div class="nt-tab on" style="background:#98d4bb;top:150px">Context</div><div class="nt-tab" style="background:#c7b8ea;top:300px">Plan</div><div class="nt-tab" style="background:#f4b8c5;top:450px">Proof</div><div class="nt-tab" style="background:#a8d8ea;top:600px">Next</div><div class="nt-tab" style="background:#ffe6a7;top:750px">Close</div><div class="wrap"><p class="kicker">Annual Review 2026</p><h1>Ideas Worth Building</h1><p class="sub">A short placeholder subtitle that explains the deck in one line.</p><p class="meta">Placeholder Speaker · October 2026</p></div></section>
+<section class="slide s-toc" data-label="02 Contents" data-om-validate="false"><div class="nt-page"></div><div class="nt-holes"><i style="top:200px"></i><i style="top:470px"></i><i style="top:740px"></i></div><div class="nt-tab on" style="background:#98d4bb;top:150px">Context</div><div class="nt-tab" style="background:#c7b8ea;top:300px">Plan</div><div class="nt-tab" style="background:#f4b8c5;top:450px">Proof</div><div class="nt-tab" style="background:#a8d8ea;top:600px">Next</div><div class="nt-tab" style="background:#ffe6a7;top:750px">Close</div><header class="hd"><p class="eyebrow">Agenda</p><h2>Contents</h2></header><div class="bd"><ol class="toc"><li><b>01</b><span>Context</span><i>Where we stand today</i></li><li><b>02</b><span>Approach</span><i>How the plan works</i></li><li><b>03</b><span>Results</span><i>What the numbers say</i></li><li><b>04</b><span>Next steps</span><i>What happens from here</i></li></ol></div><footer class="ft"><span>Placeholder Deck</span><span class="pg">02 / 10</span></footer></section>
+<section class="slide s-divider" data-label="03 Section Divider" data-om-validate="false"><div class="nt-page"></div><div class="nt-holes"><i style="top:200px"></i><i style="top:470px"></i><i style="top:740px"></i></div><div class="nt-tab" style="background:#98d4bb;top:150px">Context</div><div class="nt-tab on" style="background:#c7b8ea;top:300px">Plan</div><div class="nt-tab" style="background:#f4b8c5;top:450px">Proof</div><div class="nt-tab" style="background:#a8d8ea;top:600px">Next</div><div class="nt-tab" style="background:#ffe6a7;top:750px">Close</div><div class="wrap"><div class="num">02</div><h2>Approach</h2><p class="sub">Four moves that turn the idea into something shippable.</p></div></section>
+<section class="slide s-points" data-label="04 Evidence List" data-om-validate="false"><div class="nt-page"></div><div class="nt-holes"><i style="top:200px"></i><i style="top:470px"></i><i style="top:740px"></i></div><div class="nt-tab" style="background:#98d4bb;top:150px">Context</div><div class="nt-tab on" style="background:#c7b8ea;top:300px">Plan</div><div class="nt-tab" style="background:#f4b8c5;top:450px">Proof</div><div class="nt-tab" style="background:#a8d8ea;top:600px">Next</div><div class="nt-tab" style="background:#ffe6a7;top:750px">Close</div><header class="hd"><p class="eyebrow">Evidence</p><h2>Three reasons the plan holds</h2></header><div class="bd"><ul class="pts"><li><b>01</b><div><h3>Clear demand</h3><p>Customers asked for it three times in the last quarter.</p></div></li><li><b>02</b><div><h3>Small first step</h3><p>The first release fits inside one sprint and one team.</p></div></li><li><b>03</b><div><h3>Measured risk</h3><p>Every step has a stop rule written down in advance.</p></div></li><li><b>04</b><div><h3>Shared ownership</h3><p>One owner per step and one weekly check-in.</p></div></li></ul></div><footer class="ft"><span>Placeholder Deck</span><span class="pg">04 / 10</span></footer></section>
+<section class="slide s-steps" data-label="05 Process Diagram" data-om-validate="false"><div class="nt-page"></div><div class="nt-holes"><i style="top:200px"></i><i style="top:470px"></i><i style="top:740px"></i></div><div class="nt-tab" style="background:#98d4bb;top:150px">Context</div><div class="nt-tab" style="background:#c7b8ea;top:300px">Plan</div><div class="nt-tab on" style="background:#f4b8c5;top:450px">Proof</div><div class="nt-tab" style="background:#a8d8ea;top:600px">Next</div><div class="nt-tab" style="background:#ffe6a7;top:750px">Close</div><header class="hd"><p class="eyebrow">Process</p><h2>From idea to launch in four steps</h2></header><div class="bd"><div class="steps"><div class="step"><b>1</b><h3>Frame</h3><p>Write the problem in one sentence.</p></div><div class="step"><b>2</b><h3>Prototype</h3><p>Build the smallest thing that can be tested.</p></div><div class="step"><b>3</b><h3>Test</h3><p>Put it in front of ten real users.</p></div><div class="step"><b>4</b><h3>Launch</h3><p>Ship, measure, and keep what works.</p></div></div></div><footer class="ft"><span>Placeholder Deck</span><span class="pg">05 / 10</span></footer></section>
+<section class="slide s-metrics" data-label="06 Key Numbers" data-om-validate="false"><div class="nt-page"></div><div class="nt-holes"><i style="top:200px"></i><i style="top:470px"></i><i style="top:740px"></i></div><div class="nt-tab" style="background:#98d4bb;top:150px">Context</div><div class="nt-tab" style="background:#c7b8ea;top:300px">Plan</div><div class="nt-tab on" style="background:#f4b8c5;top:450px">Proof</div><div class="nt-tab" style="background:#a8d8ea;top:600px">Next</div><div class="nt-tab" style="background:#ffe6a7;top:750px">Close</div><header class="hd"><p class="eyebrow">Results</p><h2>Numbers that moved this year</h2></header><div class="bd"><div class="mets"><div class="met"><div class="v">42%</div><div class="l">Faster delivery</div><p>Median cycle time, down from 11 days to 6.</p></div><div class="met"><div class="v">3.1x</div><div class="l">Pipeline growth</div><p>Qualified leads versus the previous year.</p></div><div class="met"><div class="v">98%</div><div class="l">Retention</div><p>Accounts renewed at the last review.</p></div><div class="met"><div class="v">12</div><div class="l">New markets</div><p>Opened with the same core team.</p></div></div></div><footer class="ft"><span>Placeholder Deck</span><span class="pg">06 / 10</span></footer></section>
+<section class="slide s-compare" data-label="07 Comparison" data-om-validate="false"><div class="nt-page"></div><div class="nt-holes"><i style="top:200px"></i><i style="top:470px"></i><i style="top:740px"></i></div><div class="nt-tab" style="background:#98d4bb;top:150px">Context</div><div class="nt-tab" style="background:#c7b8ea;top:300px">Plan</div><div class="nt-tab" style="background:#f4b8c5;top:450px">Proof</div><div class="nt-tab on" style="background:#a8d8ea;top:600px">Next</div><div class="nt-tab" style="background:#ffe6a7;top:750px">Close</div><header class="hd"><p class="eyebrow">Comparison</p><h2>Before and after the change</h2></header><div class="bd"><div class="cmp"><div class="col a"><h3>Before</h3><ul><li>Work arrives from five channels</li><li>Reviews happen at the end</li><li>Status lives in private notes</li></ul></div><div class="vs">vs</div><div class="col b"><h3>After</h3><ul><li>One shared intake queue</li><li>Reviews happen every step</li><li>Status is visible to everyone</li></ul></div></div></div><footer class="ft"><span>Placeholder Deck</span><span class="pg">07 / 10</span></footer></section>
+<section class="slide s-quote" data-label="08 Quote" data-om-validate="false"><div class="nt-page"></div><div class="nt-holes"><i style="top:200px"></i><i style="top:470px"></i><i style="top:740px"></i></div><div class="nt-tab" style="background:#98d4bb;top:150px">Context</div><div class="nt-tab" style="background:#c7b8ea;top:300px">Plan</div><div class="nt-tab" style="background:#f4b8c5;top:450px">Proof</div><div class="nt-tab on" style="background:#a8d8ea;top:600px">Next</div><div class="nt-tab" style="background:#ffe6a7;top:750px">Close</div><div class="wrap"><blockquote><p>The best plan is the one a whole team can explain in a single breath.</p><cite>Placeholder Speaker, Role</cite></blockquote></div></section>
+<section class="slide s-summary" data-label="09 Summary" data-om-validate="false"><div class="nt-page"></div><div class="nt-holes"><i style="top:200px"></i><i style="top:470px"></i><i style="top:740px"></i></div><div class="nt-tab" style="background:#98d4bb;top:150px">Context</div><div class="nt-tab" style="background:#c7b8ea;top:300px">Plan</div><div class="nt-tab" style="background:#f4b8c5;top:450px">Proof</div><div class="nt-tab" style="background:#a8d8ea;top:600px">Next</div><div class="nt-tab on" style="background:#ffe6a7;top:750px">Close</div><header class="hd"><p class="eyebrow">Summary</p><h2>What to remember</h2></header><div class="bd"><ul class="sum"><li><b>01</b><div><h3>Start small</h3><p>Pick the first step that fits in one sprint.</p></div></li><li><b>02</b><div><h3>Measure early</h3><p>Write the stop rule before you begin.</p></div></li><li><b>03</b><div><h3>Share the load</h3><p>One owner per step, one weekly check-in.</p></div></li></ul></div><footer class="ft"><span>Placeholder Deck</span><span class="pg">09 / 10</span></footer></section>
+<section class="slide s-closing" data-label="10 Closing" data-om-validate="false"><div class="nt-page"></div><div class="nt-holes"><i style="top:200px"></i><i style="top:470px"></i><i style="top:740px"></i></div><div class="nt-tab" style="background:#98d4bb;top:150px">Context</div><div class="nt-tab" style="background:#c7b8ea;top:300px">Plan</div><div class="nt-tab" style="background:#f4b8c5;top:450px">Proof</div><div class="nt-tab" style="background:#a8d8ea;top:600px">Next</div><div class="nt-tab on" style="background:#ffe6a7;top:750px">Close</div><div class="wrap"><h2>Thank you</h2><p class="sub">Questions and next steps</p><p class="meta">hello@example.com · example.com</p></div></section>
+</deck-stage>
+</body>
+</html>

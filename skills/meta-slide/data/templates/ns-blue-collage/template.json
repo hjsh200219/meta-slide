@@ -1,0 +1,47 @@
+{
+  "slug": "ns-blue-collage",
+  "name": "Blue Collage",
+  "tagline": "Warm paper background with torn-paper shapes, cobalt ink accents and big Playfair serif headings",
+  "mood": [
+    "handmade",
+    "editorial",
+    "artsy",
+    "tactile"
+  ],
+  "occasion": [
+    "portfolio review",
+    "creative case study",
+    "art direction pitch",
+    "zine-style talk",
+    "personal brand"
+  ],
+  "tone": [
+    "expressive",
+    "personal",
+    "curated"
+  ],
+  "formality": "medium-low",
+  "density": "low",
+  "scheme": "light",
+  "palette": {
+    "bg": "#f0ebe0",
+    "text": "#111111",
+    "accent": "#2b4cdb",
+    "description": "Light Blue Collage palette: #f0ebe0 background, #111111 text, #2b4cdb accent"
+  },
+  "typography": {
+    "display": "Playfair Display",
+    "body": "Lato",
+    "style": "Playfair Display headings over Lato body"
+  },
+  "best_for": "Blue Collage suits portfolio review and creative case study. It reads as handmade, editorial, artsy.",
+  "avoid_for": "Dense data-heavy reports where the decorative look would compete with content.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/blue-collage.html",
+    "license": "MIT"
+  }
+}

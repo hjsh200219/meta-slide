@@ -1,0 +1,47 @@
+{
+  "slug": "ns-cinema-scope",
+  "name": "Cinema Scope",
+  "tagline": "Letterboxed black frame with tall condensed gold-and-white headlines and chapter numbering",
+  "mood": [
+    "cinematic",
+    "dramatic",
+    "premium",
+    "moody"
+  ],
+  "occasion": [
+    "film or media pitch",
+    "brand film reveal",
+    "keynote with chapters",
+    "product teaser",
+    "awards presentation"
+  ],
+  "tone": [
+    "dramatic",
+    "confident",
+    "refined"
+  ],
+  "formality": "medium",
+  "density": "low",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#0a0a0a",
+    "text": "#e8e4df",
+    "accent": "#d4a843",
+    "description": "Dark Cinema Scope palette: #0a0a0a background, #e8e4df text, #d4a843 accent"
+  },
+  "typography": {
+    "display": "Bebas Neue",
+    "body": "Lato",
+    "style": "Bebas Neue headings over Lato body"
+  },
+  "best_for": "Cinema Scope suits film or media pitch and brand film reveal. It reads as cinematic, dramatic, premium.",
+  "avoid_for": "Dense data-heavy reports where the decorative look would compete with content.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/cinema-scope.html",
+    "license": "MIT"
+  }
+}

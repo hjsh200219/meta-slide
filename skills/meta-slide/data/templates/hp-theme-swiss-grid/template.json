@@ -1,0 +1,49 @@
+{
+  "slug": "hp-theme-swiss-grid",
+  "name": "Theme · Swiss Grid",
+  "tagline": "Swiss typographic grid with Helvetica-like type and a 12-column overlay",
+  "mood": [
+    "rational",
+    "typographic",
+    "grid-based",
+    "modernist"
+  ],
+  "occasion": [
+    "design industry talk",
+    "typography lecture",
+    "brand guideline review",
+    "architecture presentation",
+    "portfolio review"
+  ],
+  "tone": [
+    "disciplined",
+    "precise",
+    "serious"
+  ],
+  "formality": "medium-high",
+  "density": "medium-high",
+  "scheme": "light",
+  "palette": {
+    "bg": "#ffffff",
+    "text": "#111111",
+    "accent": "#d6001c",
+    "accent2": "#111111",
+    "surface": "#ffffff",
+    "description": "Theme tokens --bg, --text-1, --accent, --accent-2, --surface taken from swiss-grid.css"
+  },
+  "typography": {
+    "display": "Inter",
+    "body": "Inter",
+    "style": "Theme font tokens --font-display / --font-sans"
+  },
+  "best_for": "Serious layout-driven presentations aimed at design professionals.",
+  "avoid_for": "Playful casual talks.",
+  "slide_count": 22,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "assets/themes/swiss-grid.css + templates/single-page/*.html (22 layouts)",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strategy Document</title>
+<script src="deck-stage.js"></script>
+<style>
+:root{--bg:#FFFFFF;--fg:#333333;--accent:#2251FF;--muted:#7F7F7F;--surface:#F7F7F7;--line:#E3E3E3;--fd:Arial, 'Helvetica Neue', Helvetica, sans-serif;--fb:Arial, 'Helvetica Neue', Helvetica, sans-serif;--fw:700}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#000}
+deck-stage{background:#111}
+section.slide{position:relative;overflow:hidden;background:var(--bg);color:var(--fg);font-family:var(--fb);font-size:30px;line-height:1.4}
+h1,h2,h3{font-family:var(--fd);font-weight:var(--fw,700)}
+.wrap{position:absolute;inset:0;padding:120px 140px;display:flex;flex-direction:column;justify-content:center}
+.kicker,.eyebrow{font-size:24px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:150px;line-height:1;letter-spacing:-.02em;margin:28px 0}
+h2{font-size:80px;line-height:1.05;letter-spacing:-.015em}
+h3{font-size:38px;line-height:1.15}
+.sub{font-size:36px;max-width:1100px;color:var(--muted)}
+.meta{font-size:24px;color:var(--muted);margin-top:48px}
+.num{font-family:var(--fd);font-size:340px;line-height:.9;color:var(--accent)}
+.hd{position:absolute;left:140px;right:140px;top:96px}
+.hd h2{margin-top:14px;max-width:1500px}
+.bd{position:absolute;left:140px;right:140px;top:330px;bottom:130px}
+.ft{position:absolute;left:140px;right:140px;bottom:46px;display:flex;justify-content:space-between;font-size:20px;color:var(--muted);letter-spacing:.06em}
+/* toc */
+.toc{list-style:none}
+.toc li{display:flex;align-items:baseline;gap:40px;padding:26px 0;border-bottom:2px solid var(--line)}
+.toc b{font-family:var(--fd);font-size:56px;min-width:110px;color:var(--accent)}
+.toc span{font-family:var(--fd);font-size:54px;min-width:520px}
+.toc i{font-style:normal;color:var(--muted);font-size:30px}
+/* points */
+.pts,.sum{list-style:none}
+.pts li,.sum li{display:flex;gap:44px;padding:26px 0;border-bottom:2px solid var(--line);align-items:flex-start}
+.pts b,.sum b{font-family:var(--fd);font-size:60px;line-height:1;min-width:110px;color:var(--accent)}
+.pts p,.sum p{color:var(--muted);margin-top:6px}
+/* steps */
+.steps{display:flex;gap:32px;height:100%;align-items:stretch}
+.step{flex:1;padding:36px 32px;border-top:6px solid var(--accent);background:var(--surface)}
+.step b{font-family:var(--fd);font-size:96px;line-height:1;color:var(--accent);display:block;margin-bottom:24px}
+.step p{margin-top:12px;color:var(--muted);font-size:28px}
+/* metrics */
+.mets{display:flex;gap:36px;height:100%;align-items:stretch}
+.met{flex:1;padding:36px 32px;background:var(--surface);display:flex;flex-direction:column;justify-content:flex-end}
+.met:first-child{flex:1.5}
+.met .v{font-family:var(--fd);font-size:150px;line-height:.95;color:var(--accent);letter-spacing:-.03em}
+.met:first-child .v{font-size:200px}
+.met .l{font-family:var(--fd);font-size:38px;margin-top:20px}
+.met p{color:var(--muted);margin-top:8px;font-size:26px}
+/* compare */
+.cmp{display:flex;gap:0;height:100%;align-items:stretch}
+.col{flex:1;padding:44px 52px;background:var(--surface)}
+.col h3{font-size:54px;margin-bottom:28px}
+.col ul{list-style:none}
+.col li{padding:16px 0;border-bottom:2px solid var(--line);font-size:32px}
+.col.b h3{color:var(--accent)}
+.vs{align-self:center;font-family:var(--fd);font-size:40px;padding:0 24px;color:var(--muted);text-transform:uppercase}
+/* quote */
+blockquote p{font-family:var(--fd);font-size:92px;line-height:1.12;max-width:1500px;letter-spacing:-.01em}
+blockquote cite{display:block;margin-top:44px;font-style:normal;font-size:28px;color:var(--accent);letter-spacing:.1em;text-transform:uppercase}
+
+
+section.s-cover,section.s-closing,section.s-divider{background:#051C2C;color:#fff}
+.kicker{color:#8FB8FF;font-size:22px;font-weight:700;letter-spacing:.14em}
+.s-cover h1,.s-divider h2,.s-closing h2{color:#fff}.s-cover h1{font-size:120px;max-width:1300px}.s-cover .sub,.s-divider .sub,.s-closing .sub{color:#8FB8FF}.meta{color:#8FB8FF}
+.wrap{padding:0 140px}.num{color:#2251FF;font-size:300px}.s-divider .num{color:#8FB8FF}
+.s-cover .wrap::after{content:"DRAFT FOR DISCUSSION";position:absolute;right:140px;top:80px;font-size:20px;letter-spacing:.18em;color:#8FB8FF;border:1px solid #8FB8FF;padding:6px 16px}
+.s-cover .wrap::before{content:"";position:absolute;left:140px;top:300px;width:120px;height:6px;background:#2251FF}
+.sd-top{position:absolute;left:100px;right:100px;top:40px;display:flex;justify-content:space-between;font-size:18px;color:#7F7F7F;letter-spacing:.1em;text-transform:uppercase}
+.sd-track span{margin-right:28px}.sd-track span.on{color:#2251FF;font-weight:700;border-bottom:3px solid #2251FF;padding-bottom:4px}.sd-draft{border:1px solid #B7B7B7;padding:2px 14px;color:#B7B7B7}
+.hd{left:100px;right:100px;top:90px;border-bottom:2px solid #B7B7B7;padding-bottom:16px}.hd h2{font-size:48px;line-height:1.15;color:#051C2C;margin:0;max-width:1500px}.hd .unit{font-size:20px;color:#7F7F7F;margin-top:10px}
+.bd{left:100px;right:100px;top:290px;bottom:100px}.ft{left:100px;right:100px;bottom:36px;font-size:16px;color:#7F7F7F;letter-spacing:0;border-top:1px solid #E3E3E3;padding-top:10px}
+.sd-grid{display:flex;gap:48px;height:100%}.sd-main{flex:1;display:flex;flex-direction:column;gap:26px;min-width:0}
+.sd-side{width:470px;display:flex;flex-direction:column;gap:20px}.sd-side h4{font-size:22px;color:#051C2C;border-bottom:2px solid #051C2C;padding-bottom:8px;letter-spacing:.1em;text-transform:uppercase}
+.sd-side ol{list-style:none}.sd-side li{display:flex;gap:16px;padding:12px 0;border-bottom:1px solid #E3E3E3;font-size:23px;line-height:1.3}.sd-side li b{width:34px;height:34px;flex:none;border-radius:50%;background:#051C2C;color:#fff;text-align:center;line-height:34px;font-size:19px}
+.sd-impl{margin-top:auto;background:#F7F7F7;border-left:6px solid #2251FF;padding:20px 24px}.sd-impl b{font-size:19px;color:#2251FF;letter-spacing:.1em;text-transform:uppercase}.sd-impl p{font-size:25px;margin-top:6px;color:#051C2C;font-weight:700;line-height:1.3}
+.sd-exh{display:flex;align-items:center;gap:14px;margin-bottom:12px}.sd-exh .badge{width:34px;height:34px;background:#051C2C;color:#fff;text-align:center;line-height:34px;font-weight:700;font-size:19px;flex:none}.sd-exh b{font-size:25px;color:#051C2C}.sd-exh em{font-style:normal;font-size:18px;color:#7F7F7F;margin-left:auto}
+.sd-t{width:100%;border-collapse:collapse;font-size:24px}.sd-t th{font-size:17px;text-align:left;color:#7F7F7F;letter-spacing:.1em;text-transform:uppercase;padding:8px 10px;border-bottom:2px solid #051C2C}.sd-t td{padding:16px 10px;border-bottom:1px solid #E3E3E3}.sd-t td.n{color:#2251FF;font-weight:700;width:50px}.sd-t .r{text-align:right;font-variant-numeric:lining-nums}.sd-t td b{color:#051C2C}
+.sd-chev{display:flex;gap:4px}.chev{flex:1;background:#051C2C;color:#fff;padding:20px 20px 20px 36px;font-size:24px;font-weight:700;clip-path:polygon(0 0,calc(100% - 26px) 0,100% 50%,calc(100% - 26px) 100%,0 100%,22px 50%)}.chev.hi{background:#2251FF}.chev b{display:block;font-size:18px;color:#8FB8FF;font-weight:400}
+.sd-outs{display:flex;gap:4px;margin-top:10px}.sd-outs div{flex:1;font-size:21px;color:#333;padding:10px 12px;border-top:1px solid #B7B7B7;line-height:1.3}
+.sd-gate{background:#F7F7F7;border-left:6px solid #B3261E;padding:16px 22px;font-size:23px;margin-top:16px}.sd-gate b{color:#B3261E;margin-right:12px}
+.sd-kpis{display:flex;gap:0;border-top:2px solid #051C2C;border-bottom:1px solid #B7B7B7}.kp{flex:1;padding:18px 20px;border-right:1px solid #E3E3E3}.kp:last-child{border:none}.kp b{display:block;font-size:64px;color:#2251FF;line-height:1}.kp span{font-size:19px;color:#7F7F7F}
+.sd-bar{display:flex;align-items:center;gap:14px;font-size:21px;margin:8px 0}.sd-bar span{width:230px;color:#333}.sd-bar i{flex:1;height:22px;background:#E3E3E3;display:block}.sd-bar u{display:block;height:100%;background:#8FB8FF}.sd-bar u.hi{background:#2251FF}.sd-bar em{font-style:normal;width:50px;text-align:right;font-weight:700;color:#051C2C}
+.sd-two{display:flex;gap:36px}.sd-ex.half{flex:1}.sd-note{font-size:19px;color:#7F7F7F;border-top:1px solid #E3E3E3;padding-top:12px}
+.s-quote .wrap{background:#fff}blockquote{border-left:8px solid #2251FF;padding-left:50px}blockquote p{font-size:64px;color:#051C2C}blockquote cite{color:#7F7F7F}
+
+</style>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+<section class="slide s-cover" data-label="01 Cover" data-om-validate="false"><div class="wrap"><p class="kicker">Annual Review 2026</p><h1>Ideas Worth Building</h1><p class="sub">A short placeholder subtitle that explains the deck in one line.</p><p class="meta">Placeholder Speaker · October 2026</p></div></section>
+<section class="slide s-toc" data-label="02 Contents" data-om-validate="false"><div class="sd-top"><span class="sd-track"><span class="on">Context</span><span class="">Approach</span><span class="">Results</span><span class="">Next</span></span><span class="sd-draft">DRAFT</span></div><header class="hd"><h2>The document answers four questions in four sections</h2><p class="unit">Exhibit index A · pages</p></header><div class="bd"><div class="sd-grid"><div class="sd-main"><div class="sd-ex"><div class="sd-exh"><span class="badge">A</span><b>Document structure</b><em>Section, scope and page</em></div><table class="sd-t"><tr><th></th><th>Section</th><th>Scope</th><th class="r">Page</th></tr><tr><td class="n">01</td><td><b>Context</b></td><td>Where we stand today</td><td class="r">3</td></tr><tr><td class="n">02</td><td><b>Approach</b></td><td>How the plan works</td><td class="r">6</td></tr><tr><td class="n">03</td><td><b>Results</b></td><td>What the numbers say</td><td class="r">9</td></tr><tr><td class="n">04</td><td><b>Next steps</b></td><td>What happens from here</td><td class="r">12</td></tr></table></div></div><aside class="sd-side"><h4>Key messages</h4><ol><li><b>1</b><span>Start from the context, not the solution.</span></li><li><b>2</b><span>Each section ends with one decision.</span></li><li><b>3</b><span>Evidence sits in the exhibits on the left.</span></li></ol><div class="sd-impl"><b>Implication</b><p>Read section 03 first if time is short.</p></div></aside></div></div><footer class="ft"><span>1. Placeholder footnote.  Source: placeholder data, 2026</span><span class="pg">2</span></footer></section>
+<section class="slide s-divider" data-label="03 Section Divider" data-om-validate="false"><div class="wrap"><div class="num">02</div><h2>Approach</h2><p class="sub">Four moves that turn the idea into something shippable.</p></div></section>
+<section class="slide s-points" data-label="04 Evidence List" data-om-validate="false"><div class="sd-top"><span class="sd-track"><span class="">Context</span><span class="on">Approach</span><span class="">Results</span><span class="">Next</span></span><span class="sd-draft">DRAFT</span></div><header class="hd"><h2>Four drivers support the plan, and demand is the strongest</h2><p class="unit">Exhibit A · evidence index, 0-100</p></header><div class="bd"><div class="sd-grid"><div class="sd-main"><div class="sd-ex"><div class="sd-exh"><span class="badge">A</span><b>Drivers ranked by evidence strength</b><em>Index, 0-100</em></div><table class="sd-t"><tr><th></th><th>Driver</th><th>Evidence</th><th class="r">Index</th></tr><tr><td class="n">1</td><td><b>Clear demand</b></td><td>Customers asked for it three times in the last quarter.</td><td class="r">84</td></tr><tr><td class="n">2</td><td><b>Small first step</b></td><td>The first release fits inside one sprint and one team.</td><td class="r">71</td></tr><tr><td class="n">3</td><td><b>Measured risk</b></td><td>Every step has a stop rule written down in advance.</td><td class="r">63</td></tr><tr><td class="n">4</td><td><b>Shared ownership</b></td><td>One owner per step and one weekly check-in.</td><td class="r">55</td></tr></table></div></div><aside class="sd-side"><h4>Key messages</h4><ol><li><b>1</b><span>Demand is the driver with the strongest evidence.</span></li><li><b>2</b><span>The first release is small enough to test cheaply.</span></li><li><b>3</b><span>Risk is capped by pre-agreed stop rules.</span></li></ol><div class="sd-impl"><b>Implication</b><p>Proceed with a first release scoped to one team.</p></div></aside></div></div><footer class="ft"><span>1. Placeholder footnote.  Source: placeholder data, 2026</span><span class="pg">4</span></footer></section>
+<section class="slide s-steps" data-label="05 Process Diagram" data-om-validate="false"><div class="sd-top"><span class="sd-track"><span class="">Context</span><span class="on">Approach</span><span class="">Results</span><span class="">Next</span></span><span class="sd-draft">DRAFT</span></div><header class="hd"><h2>A four-stage path reaches launch with one decision gate</h2><p class="unit">Exhibit B · stage plan</p></header><div class="bd"><div class="sd-grid"><div class="sd-main"><div class="sd-ex"><div class="sd-exh"><span class="badge">B</span><b>Four stages from idea to launch</b><em>Stage, output and gate</em></div><div class="sd-chev"><div class="chev"><b>1</b>Frame</div><div class="chev hi"><b>2</b>Prototype</div><div class="chev"><b>3</b>Test</div><div class="chev"><b>4</b>Launch</div></div><div class="sd-outs"><div>Write the problem in one sentence.</div><div>Build the smallest thing that can be tested.</div><div>Put it in front of ten real users.</div><div>Ship, measure, and keep what works.</div></div><div class="sd-gate"><b>Decision gate</b> Continue only if ten of ten test users complete the task.</div></div></div><aside class="sd-side"><h4>Key messages</h4><ol><li><b>1</b><span>Prototype is the stage that sets the budget.</span></li><li><b>2</b><span>Testing precedes any commitment of spend.</span></li><li><b>3</b><span>One gate protects the launch decision.</span></li></ol><div class="sd-impl"><b>Implication</b><p>Fund stages one and two now; release stages three and four after the gate.</p></div></aside></div></div><footer class="ft"><span>1. Placeholder footnote.  Source: placeholder data, 2026</span><span class="pg">5</span></footer></section>
+<section class="slide s-metrics" data-label="06 Key Numbers" data-om-validate="false"><div class="sd-top"><span class="sd-track"><span class="">Context</span><span class="">Approach</span><span class="on">Results</span><span class="">Next</span></span><span class="sd-draft">DRAFT</span></div><header class="hd"><h2>Results improved on all four measures, led by pipeline growth</h2><p class="unit">Exhibits C and D · results</p></header><div class="bd"><div class="sd-grid"><div class="sd-main"><div class="sd-ex"><div class="sd-exh"><span class="badge">C</span><b>Headline results versus last year</b><em>Index, last year = 100</em></div><div class="sd-kpis"><div class="kp"><b>42%</b><span>Faster delivery</span></div><div class="kp"><b>3.1x</b><span>Pipeline growth</span></div><div class="kp"><b>98%</b><span>Retention</span></div><div class="kp"><b>12</b><span>New markets</span></div></div></div><div class="sd-ex"><div class="sd-exh"><span class="badge">D</span><b>Where the movement came from</b><em>Share of total change, %</em></div><div class="sd-bar"><span>Cycle time, days</span><i><u class="" style="width:55%"></u></i><em>55</em></div><div class="sd-bar"><span>Pipeline index</span><i><u class="hi" style="width:82%"></u></i><em>82</em></div><div class="sd-bar"><span>Retention, %</span><i><u class="" style="width:98%"></u></i><em>98</em></div><div class="sd-bar"><span>New markets</span><i><u class="" style="width:24%"></u></i><em>24</em></div></div></div><aside class="sd-side"><h4>Key messages</h4><ol><li><b>1</b><span>Pipeline growth is the largest single move.</span></li><li><b>2</b><span>Retention held at the last review level.</span></li><li><b>3</b><span>New markets were opened without extra headcount.</span></li></ol><div class="sd-impl"><b>Implication</b><p>Keep the pipeline programme; review retention quarterly.</p></div></aside></div></div><footer class="ft"><span>1. Placeholder footnote.  Source: placeholder data, 2026</span><span class="pg">6</span></footer></section>
+<section class="slide s-compare" data-label="07 Comparison" data-om-validate="false"><div class="sd-top"><span class="sd-track"><span class="">Context</span><span class="">Approach</span><span class="on">Results</span><span class="">Next</span></span><span class="sd-draft">DRAFT</span></div><header class="hd"><h2>All three practices score higher after the change</h2><p class="unit">Exhibits A and B · practice index</p></header><div class="bd"><div class="sd-grid"><div class="sd-main"><div class="sd-two"><div class="sd-ex half"><div class="sd-exh"><span class="badge">A</span><b>Before</b><em>Index</em></div><div class="sd-bar"><span>Work arrives from five channels</span><i><u class="" style="width:34%"></u></i><em>34</em></div><div class="sd-bar"><span>Reviews happen at the end</span><i><u class="" style="width:28%"></u></i><em>28</em></div><div class="sd-bar"><span>Status lives in private notes</span><i><u class="" style="width:22%"></u></i><em>22</em></div></div><div class="sd-ex half"><div class="sd-exh"><span class="badge">B</span><b>After</b><em>Index</em></div><div class="sd-bar"><span>One shared intake queue</span><i><u class="hi" style="width:88%"></u></i><em>88</em></div><div class="sd-bar"><span>Reviews happen every step</span><i><u class="hi" style="width:81%"></u></i><em>81</em></div><div class="sd-bar"><span>Status is visible to everyone</span><i><u class="hi" style="width:76%"></u></i><em>76</em></div></div></div><div class="sd-note"><b>Note.</b> Index values are placeholders and should be replaced with measured figures.</div></div><aside class="sd-side"><h4>Key messages</h4><ol><li><b>1</b><span>Intake consolidation shows the largest gain.</span></li><li><b>2</b><span>Review timing now sits inside each step.</span></li><li><b>3</b><span>Status is visible without a meeting.</span></li></ol><div class="sd-impl"><b>Implication</b><p>Standardise the three practices across teams.</p></div></aside></div></div><footer class="ft"><span>1. Placeholder footnote.  Source: placeholder data, 2026</span><span class="pg">7</span></footer></section>
+<section class="slide s-quote" data-label="08 Quote" data-om-validate="false"><div class="wrap"><blockquote><p>The best plan is the one a whole team can explain in a single breath.</p><cite>Placeholder Speaker, Role</cite></blockquote></div></section>
+<section class="slide s-summary" data-label="09 Summary" data-om-validate="false"><div class="sd-top"><span class="sd-track"><span class="">Context</span><span class="">Approach</span><span class="">Results</span><span class="on">Next</span></span><span class="sd-draft">DRAFT</span></div><header class="hd"><h2>Three decisions are requested to start in week two</h2><p class="unit">Exhibit A · decision table</p></header><div class="bd"><div class="sd-grid"><div class="sd-main"><div class="sd-ex"><div class="sd-exh"><span class="badge">A</span><b>Decisions requested</b><em>Ask, action, owner, timing</em></div><table class="sd-t"><tr><th></th><th>Ask</th><th>Action</th><th>Owner</th><th class="r">Timing</th></tr><tr><td class="n">1</td><td><b>Start small</b></td><td>Pick the first step that fits in one sprint.</td><td>Owner 1</td><td class="r">Week 2</td></tr><tr><td class="n">2</td><td><b>Measure early</b></td><td>Write the stop rule before you begin.</td><td>Owner 2</td><td class="r">Week 3</td></tr><tr><td class="n">3</td><td><b>Share the load</b></td><td>One owner per step, one weekly check-in.</td><td>Owner 3</td><td class="r">Week 4</td></tr></table></div></div><aside class="sd-side"><h4>Key messages</h4><ol><li><b>1</b><span>Approve the first release scope.</span></li><li><b>2</b><span>Name one owner per step.</span></li><li><b>3</b><span>Schedule the weekly check-in.</span></li></ol><div class="sd-impl"><b>Implication</b><p>Decisions today keep the first release on its week-two date.</p></div></aside></div></div><footer class="ft"><span>1. Placeholder footnote.  Source: placeholder data, 2026</span><span class="pg">9</span></footer></section>
+<section class="slide s-closing" data-label="10 Closing" data-om-validate="false"><div class="wrap"><h2>Thank you</h2><p class="sub">Questions and next steps</p><p class="meta">hello@example.com · example.com</p></div></section>
+</deck-stage>
+</body>
+</html>

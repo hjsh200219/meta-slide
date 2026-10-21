@@ -1,0 +1,49 @@
+{
+  "slug": "hd-full-bleed-gradient-manifesto",
+  "name": "Full Bleed Gradient Manifesto",
+  "tagline": "Orange-to-crimson-to-magenta gradient with white Anton condensed capitals and thin white rules. (extended from a single-slide specimen)",
+  "mood": [
+    "passionate",
+    "declarative",
+    "warm",
+    "theatrical"
+  ],
+  "occasion": [
+    "brand manifesto",
+    "cultural event pitch",
+    "season announcement",
+    "campaign launch",
+    "mission statement"
+  ],
+  "tone": [
+    "emotional",
+    "assertive",
+    "poster-like"
+  ],
+  "formality": "low",
+  "density": "medium",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#FF7A18",
+    "bg_mid": "#F4413F",
+    "bg_end": "#C2186B",
+    "text": "#FFFFFF",
+    "accent": "#FFFFFF",
+    "description": "118-degree gradient from orange through red to magenta, all type in white"
+  },
+  "typography": {
+    "display": "Anton",
+    "body": "Archivo",
+    "style": "tall condensed capitals over a full-bleed gradient with Archivo captions"
+  },
+  "best_for": "Promises, manifestos and one-sentence positions for arts, events and brands. The gradient carries the mood so type can stay stark.",
+  "avoid_for": "Tables, charts or long explanatory text.",
+  "slide_count": 7,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "alchaincyf/huashu-design",
+    "commit": "798c423",
+    "path": "assets/style-specimens/ppt/04-full-bleed-gradient-manifesto.html",
+    "license": "MIT"
+  }
+}

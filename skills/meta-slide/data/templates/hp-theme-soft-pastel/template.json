@@ -1,0 +1,49 @@
+{
+  "slug": "hp-theme-soft-pastel",
+  "name": "Theme · Soft Pastel",
+  "tagline": "Gentle macaron three-colour gradients",
+  "mood": [
+    "soft",
+    "sweet",
+    "light",
+    "friendly"
+  ],
+  "occasion": [
+    "consumer product launch",
+    "lifestyle brand talk",
+    "casual workshop",
+    "community update",
+    "light-hearted pitch"
+  ],
+  "tone": [
+    "friendly",
+    "relaxed",
+    "approachable"
+  ],
+  "formality": "low",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#fdf7fb",
+    "text": "#3a1f33",
+    "accent": "#f49bb8",
+    "accent2": "#b5d5f0",
+    "surface": "#ffffff",
+    "description": "Theme tokens --bg, --text-1, --accent, --accent-2, --surface taken from soft-pastel.css"
+  },
+  "typography": {
+    "display": "Inter",
+    "body": "Inter",
+    "style": "Theme font tokens --font-display / --font-sans"
+  },
+  "best_for": "Consumer-facing and relaxed topics in soft macaron colours.",
+  "avoid_for": "Serious security or compliance briefings.",
+  "slide_count": 22,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "assets/themes/soft-pastel.css + templates/single-page/*.html (22 layouts)",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "slug": "ns-electric-studio",
+  "name": "Electric Studio",
+  "tagline": "Stark white and black halves with electric blue rules and a full-bleed blue quote slide",
+  "mood": [
+    "crisp",
+    "agency",
+    "contrasty",
+    "modern"
+  ],
+  "occasion": [
+    "design agency credentials",
+    "brand strategy pitch",
+    "studio intro",
+    "portfolio",
+    "client proposal"
+  ],
+  "tone": [
+    "confident",
+    "clean",
+    "professional"
+  ],
+  "formality": "medium",
+  "density": "low",
+  "scheme": "mixed",
+  "palette": {
+    "bg": "#ffffff",
+    "text": "#0a0a0a",
+    "accent": "#4361ee",
+    "description": "Mixed Electric Studio palette: #ffffff background, #0a0a0a text, #4361ee accent"
+  },
+  "typography": {
+    "display": "Manrope",
+    "body": "Manrope",
+    "style": "Manrope headings over Manrope body"
+  },
+  "best_for": "Electric Studio suits design agency credentials and brand strategy pitch. It reads as crisp, agency, contrasty.",
+  "avoid_for": "Dense data-heavy reports where the decorative look would compete with content.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/electric-studio.html",
+    "license": "MIT"
+  }
+}

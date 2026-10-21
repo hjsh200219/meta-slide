@@ -1,0 +1,50 @@
+{
+  "slug": "pa-luxury-purple",
+  "name": "Luxury Noir Gold",
+  "tagline": "Near-black stage with champagne-gold hairlines, italic Playfair headlines and diamond ornaments, like a perfume house invitation (extended from a single-slide specimen)",
+  "mood": [
+    "luxurious",
+    "quiet",
+    "ceremonial",
+    "refined"
+  ],
+  "occasion": [
+    "luxury brand launch",
+    "jewelry or fragrance presentation",
+    "gala invitation",
+    "private client briefing",
+    "hospitality concept pitch"
+  ],
+  "tone": [
+    "elegant",
+    "exclusive",
+    "slow"
+  ],
+  "formality": "high",
+  "density": "low",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#060606",
+    "text": "#f5e8c8",
+    "accent": "#c9a960",
+    "gold_bright": "#d8bd7a",
+    "gold_deep": "#8a6f3a",
+    "cream_soft": "#e8dcb8",
+    "description": "noir black with cream text and a gold gradient accent"
+  },
+  "typography": {
+    "display": "Playfair Display",
+    "body": "Inter",
+    "style": "high-contrast italic serif headlines with widely tracked uppercase sans labels"
+  },
+  "best_for": "Luxury, fashion, fragrance, jewelry and premium hospitality stories that should feel unhurried and exclusive. Works for any short, image-light talk that wants ceremony.",
+  "avoid_for": "Data-dense reports and technical talks that need small text and many numbers.",
+  "slide_count": 8,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "Akxan/ppt-agent-skill",
+    "commit": "01825de",
+    "path": "ppt-output/style-gallery/luxury_purple.html",
+    "license": "MIT"
+  }
+}

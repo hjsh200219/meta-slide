@@ -1,0 +1,50 @@
+{
+  "slug": "pa-dark-tech",
+  "name": "Dark Tech",
+  "tagline": "Midnight navy with cyan-indigo aurora glow, dot grid, gradient headline and serif-italic accents (extended from a single-slide specimen)",
+  "mood": [
+    "futuristic",
+    "precise",
+    "luminous",
+    "confident"
+  ],
+  "occasion": [
+    "AI product launch",
+    "cloud infrastructure briefing",
+    "technical deep-dive",
+    "developer conference keynote",
+    "investor update"
+  ],
+  "tone": [
+    "technical",
+    "ambitious",
+    "sleek"
+  ],
+  "formality": "medium",
+  "density": "medium",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#050b1f",
+    "text": "#FFFFFF",
+    "accent": "#22D3EE",
+    "accent2": "#3B82F6",
+    "accent3": "#6366f1",
+    "highlight": "#FDE047",
+    "description": "Deep navy field with cyan and indigo glow, white gradient type and a yellow spark"
+  },
+  "typography": {
+    "display": "Inter Tight",
+    "body": "Inter",
+    "style": "Tight bold grotesk headlines with Instrument Serif italic accents, mono labels"
+  },
+  "best_for": "Fits AI, cloud and developer-tool stories that need a premium night-mode feel. Large metrics and glowing cards carry numbers well.",
+  "avoid_for": "Avoid for warm, human or print-style topics such as education or heritage.",
+  "slide_count": 7,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "Akxan/ppt-agent-skill",
+    "commit": "01825de",
+    "path": "ppt-output/style-gallery/dark_tech.html",
+    "license": "MIT"
+  }
+}

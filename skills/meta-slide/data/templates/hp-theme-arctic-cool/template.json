@@ -1,0 +1,49 @@
+{
+  "slug": "hp-theme-arctic-cool",
+  "name": "Theme · Arctic Cool",
+  "tagline": "Light slate, blue and cyan palette that feels calm and analytical",
+  "mood": [
+    "cool",
+    "calm",
+    "analytical",
+    "clean"
+  ],
+  "occasion": [
+    "business analysis",
+    "financial review",
+    "market report",
+    "strategy readout",
+    "quarterly business review"
+  ],
+  "tone": [
+    "rational",
+    "composed",
+    "trustworthy"
+  ],
+  "formality": "medium-high",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#f2f6fb",
+    "text": "#0e1f33",
+    "accent": "#1e6fb0",
+    "accent2": "#17b1b1",
+    "surface": "#ffffff",
+    "description": "Theme tokens --bg, --text-1, --accent, --accent-2, --surface taken from arctic-cool.css"
+  },
+  "typography": {
+    "display": "Inter",
+    "body": "Inter",
+    "style": "Theme font tokens --font-display / --font-sans"
+  },
+  "best_for": "Business and finance presentations that want a cold, rational mood. Good for analysis-heavy decks.",
+  "avoid_for": "Warm lifestyle or playful topics.",
+  "slide_count": 22,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "assets/themes/arctic-cool.css + templates/single-page/*.html (22 layouts)",
+    "license": "MIT"
+  }
+}

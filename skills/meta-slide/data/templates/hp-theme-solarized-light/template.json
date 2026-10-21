@@ -1,0 +1,49 @@
+{
+  "slug": "hp-theme-solarized-light",
+  "name": "Theme · Solarized Light",
+  "tagline": "Classic low-glare Solarized beige and teal palette",
+  "mood": [
+    "low-glare",
+    "gentle",
+    "classic",
+    "warm"
+  ],
+  "occasion": [
+    "long workshop",
+    "teaching session",
+    "training day",
+    "reading-group talk",
+    "extended lecture"
+  ],
+  "tone": [
+    "patient",
+    "calm",
+    "instructive"
+  ],
+  "formality": "medium",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#fdf6e3",
+    "text": "#073642",
+    "accent": "#268bd2",
+    "accent2": "#2aa198",
+    "surface": "#ffffff",
+    "description": "Theme tokens --bg, --text-1, --accent, --accent-2, --surface taken from solarized-light.css"
+  },
+  "typography": {
+    "display": "Inter",
+    "body": "Inter",
+    "style": "Theme font tokens --font-display / --font-sans"
+  },
+  "best_for": "Long sessions where low eye strain matters, such as workshops and teaching.",
+  "avoid_for": "Bold marketing launches.",
+  "slide_count": 22,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "assets/themes/solarized-light.css + templates/single-page/*.html (22 layouts)",
+    "license": "MIT"
+  }
+}

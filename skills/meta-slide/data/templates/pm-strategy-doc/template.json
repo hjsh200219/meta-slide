@@ -1,0 +1,54 @@
+{
+  "tagline": "A white strategy-document page ruled by hairlines, with an action title, exhibit badges, a numbered key-message column and a grey implication panel; only the cover is dark.",
+  "mood": [
+    "analytical",
+    "dense",
+    "authoritative",
+    "document-like"
+  ],
+  "occasion": [
+    "strategy recommendation",
+    "board paper",
+    "diagnostic readout",
+    "investment memo",
+    "transformation roadmap"
+  ],
+  "tone": [
+    "evidence-led",
+    "formal",
+    "answer-first"
+  ],
+  "formality": "high",
+  "density": "high",
+  "scheme": "light",
+  "palette": {
+    "field": "#FFFFFF",
+    "dominant": "#051C2C",
+    "accent": "#2251FF",
+    "accent_tint": "#8FB8FF",
+    "body": "#333333",
+    "muted": "#7F7F7F",
+    "hairline": "#B7B7B7",
+    "grid": "#E3E3E3",
+    "surface": "#F7F7F7",
+    "negative": "#B3261E",
+    "description": "deep navy dominant, one saturated blue accent per exhibit, grey ramp for context"
+  },
+  "typography": {
+    "display": "Arial",
+    "body": "Arial",
+    "style": "specification names Arial for numerals and a compact neutral sans for text; no display face"
+  },
+  "best_for": "Decision papers read at a desk, where each page carries five to seven modules on one grid and the action title states the answer.",
+  "avoid_for": "Keynote-style talks to a large room; the density is meant for reading, not projecting.",
+  "slug": "pm-strategy-doc",
+  "name": "Strategy Document",
+  "slide_count": 10,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "hugohe3/ppt-master",
+    "commit": "604ecde",
+    "path": "skills/ppt-master/templates/styles/mbb-consulting/templates/design_spec.md",
+    "license": "MIT"
+  }
+}

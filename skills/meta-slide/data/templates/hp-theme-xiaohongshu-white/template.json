@@ -1,0 +1,49 @@
+{
+  "slug": "hp-theme-xiaohongshu-white",
+  "name": "Theme · Soft Red Editorial",
+  "tagline": "White with warm red accent and serif titles in a lifestyle-magazine style",
+  "mood": [
+    "fresh",
+    "aesthetic",
+    "warm",
+    "lifestyle"
+  ],
+  "occasion": [
+    "lifestyle sharing",
+    "beauty and aesthetics talk",
+    "social media content deck",
+    "personal brand story",
+    "travel and food review"
+  ],
+  "tone": [
+    "friendly",
+    "stylish",
+    "personal"
+  ],
+  "formality": "low",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#fffdfb",
+    "text": "#1a1210",
+    "accent": "#ff2742",
+    "accent2": "#ff7a90",
+    "surface": "#ffffff",
+    "description": "Theme tokens --bg, --text-1, --accent, --accent-2, --surface taken from xiaohongshu-white.css"
+  },
+  "typography": {
+    "display": "Playfair Display",
+    "body": "Inter",
+    "style": "Theme font tokens --font-display / --font-sans"
+  },
+  "best_for": "Lifestyle and aesthetics content that wants a clean white page with a warm red accent.",
+  "avoid_for": "Dark technical deep-dives.",
+  "slide_count": 22,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "assets/themes/xiaohongshu-white.css + templates/single-page/*.html (22 layouts)",
+    "license": "MIT"
+  }
+}

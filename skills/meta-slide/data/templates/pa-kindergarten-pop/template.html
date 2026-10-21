@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kindergarten Pop — Deck Template</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap');
+  :root{
+    --bg-from:#fff8e7; --bg-to:#ffeed4; --cream:#fffaf0;
+    --pink:#ffb6c1; --pink-soft:#ffe0e6; --blue:#87ceeb; --blue-soft:#d6efff;
+    --green:#06d6a0; --green-soft:#d6f8ec; --yellow:#ffd166; --yellow-soft:#fff1c9;
+    --ink:#2a2a3a; --ink-soft:#6a6a7a; --coral:#ff7a92;
+    --display-font:'Quicksand','Nunito',-apple-system,BlinkMacSystemFont,sans-serif;
+    --body-font:'Nunito','Quicksand',-apple-system,BlinkMacSystemFont,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{margin:0;background:#000}
+  deck-stage>section{width:1920px;height:1080px;position:relative;overflow:hidden;box-sizing:border-box;
+    background:linear-gradient(160deg,var(--bg-from) 0%,var(--bg-to) 100%);color:var(--ink);font-family:var(--body-font);-webkit-font-smoothing:antialiased}
+  .blob{position:absolute;border-radius:50%;z-index:0;opacity:.85}
+  .b-pink{top:-60px;right:-45px;width:330px;height:330px;background:radial-gradient(circle at 35% 35%,#ffd0d8 0%,var(--pink) 70%);opacity:.55}
+  .b-blue{bottom:-75px;left:-60px;width:270px;height:270px;background:radial-gradient(circle at 35% 35%,#b8e5f5 0%,var(--blue) 75%);opacity:.5}
+  .b-green{top:420px;right:360px;width:105px;height:105px;background:radial-gradient(circle at 35% 35%,#6ce5c0 0%,var(--green) 80%);opacity:.35}
+  .b-yellow{top:270px;right:-42px;width:135px;height:135px;background:radial-gradient(circle at 35% 35%,#ffe6a0 0%,var(--yellow) 80%);opacity:.6}
+  .star{position:absolute;z-index:1}
+  .s1{top:144px;right:480px;transform:rotate(12deg)}
+  .s2{bottom:165px;right:135px;transform:rotate(-14deg)}
+  .stage{position:relative;z-index:2;width:100%;height:100%;padding:84px 108px 0;display:flex;flex-direction:column}
+  .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:54px}
+  .logo{font-family:var(--display-font);font-size:30px;font-weight:700;display:flex;align-items:center;gap:18px}
+  .logo-i{width:66px;height:66px;border-radius:24px;background:var(--cream);display:flex;align-items:center;justify-content:center;font-size:33px;box-shadow:0 6px 21px rgba(255,182,193,.35),inset 0 0 0 3px rgba(255,255,255,.6)}
+  .done{display:inline-flex;align-items:center;gap:12px;padding:15px 27px;background:var(--green);color:#fff;border-radius:999px;font-family:var(--display-font);font-size:24px;font-weight:700;box-shadow:0 9px 27px rgba(6,214,160,.32)}
+  .done .ck{display:inline-flex;width:30px;height:30px;border-radius:50%;background:#fff;color:var(--green);align-items:center;justify-content:center;font-size:18px;font-weight:900}
+  .label{display:inline-flex;align-items:center;gap:15px;font-family:var(--display-font);font-size:22px;font-weight:700;letter-spacing:.18em;color:var(--coral);text-transform:uppercase}
+  .label i{width:12px;height:12px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 6px rgba(255,122,146,.18)}
+  .headline{font-family:var(--display-font);font-weight:700;font-size:96px;line-height:1.08;letter-spacing:-.015em;margin-top:27px}
+  .headline .a,.h2 .a{color:var(--coral)}
+  .h2{font-family:var(--display-font);font-weight:700;font-size:84px;line-height:1.08;letter-spacing:-.015em;margin-top:24px}
+  .deck{font-size:30px;line-height:1.6;color:var(--ink-soft);max-width:1000px;margin-top:24px;font-weight:500}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:33px;margin-top:57px;max-width:1380px}
+  .card{background:var(--cream);border-radius:42px;padding:36px 36px 42px;box-shadow:0 15px 45px rgba(255,200,130,.18),inset 0 0 0 2px rgba(255,255,255,.9);display:flex;flex-direction:column;gap:18px;position:relative;overflow:hidden}
+  .ci{width:84px;height:84px;border-radius:27px;display:flex;align-items:center;justify-content:center;font-size:42px}
+  .ci.g{background:var(--green-soft)}.ci.p{background:var(--pink-soft)}.ci.b{background:var(--blue-soft)}.ci.y{background:var(--yellow-soft)}
+  .cn{font-family:var(--display-font);font-size:60px;font-weight:700;letter-spacing:-.02em;line-height:1;display:flex;align-items:baseline;gap:9px}
+  .cn .u{font-family:var(--body-font);font-size:26px;font-weight:600;color:var(--ink-soft)}
+  .cl{font-size:26px;font-weight:600;color:var(--ink-soft)}
+  .card .line{position:absolute;left:36px;bottom:18px;width:42px;height:6px;border-radius:999px}
+  .c1 .line{background:var(--green)}.c2 .line{background:var(--pink)}.c3 .line{background:var(--blue)}.c4 .line{background:var(--yellow)}
+  .pills{position:absolute;bottom:54px;left:108px;display:flex;gap:18px;z-index:3}
+  .pill{display:inline-flex;align-items:center;gap:12px;padding:15px 27px;border-radius:999px;font-family:var(--display-font);font-size:24px;font-weight:700}
+  .pill.y{background:var(--yellow);color:#6b4a00;box-shadow:0 9px 24px rgba(255,209,102,.4)}
+  .pill.y i{width:11px;height:11px;border-radius:50%;background:#6b4a00}
+  .pill.p{background:var(--pink-soft);color:#b14a5e}.pill.p i{width:11px;height:11px;border-radius:50%;background:var(--coral)}
+  .prog{position:absolute;bottom:54px;right:108px;background:var(--cream);border-radius:36px;padding:21px 30px 21px 21px;display:flex;align-items:center;gap:21px;box-shadow:0 15px 39px rgba(135,206,235,.28),inset 0 0 0 2px rgba(255,255,255,.9);z-index:3}
+  .rw{position:relative;width:84px;height:84px}
+  .rt{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--display-font);font-size:22px;font-weight:700}
+  .pt{font-family:var(--display-font);font-size:24px;font-weight:700}
+  .ps{font-size:18px;font-weight:600;color:var(--ink-soft);letter-spacing:.06em;text-transform:uppercase;margin-top:3px}
+  /* extra layouts */
+  .rows{display:flex;flex-direction:column;gap:27px;margin-top:54px;max-width:1500px}
+  .row{display:flex;align-items:center;gap:36px;background:var(--cream);border-radius:42px;padding:27px 42px;box-shadow:0 12px 36px rgba(255,200,130,.18),inset 0 0 0 2px rgba(255,255,255,.9)}
+  .row .nb{width:84px;height:84px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--display-font);font-size:42px;font-weight:700;color:#fff}
+  .row:nth-child(1) .nb{background:var(--green)}.row:nth-child(2) .nb{background:var(--coral)}.row:nth-child(3) .nb{background:var(--blue)}.row:nth-child(4) .nb{background:var(--yellow);color:#6b4a00}
+  .row .t{font-family:var(--display-font);font-size:48px;font-weight:700;flex:1}
+  .row .m{font-size:24px;font-weight:700;color:var(--ink-soft)}
+  .giant{font-family:var(--display-font);font-size:420px;font-weight:700;line-height:.85;color:var(--coral);letter-spacing:-.04em}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;margin-top:84px}
+  .st{background:var(--cream);border-radius:42px;padding:42px 36px 48px;box-shadow:0 15px 45px rgba(255,200,130,.18),inset 0 0 0 2px rgba(255,255,255,.9);position:relative;min-height:400px}
+  .st .dot{width:90px;height:90px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--display-font);font-size:48px;font-weight:700;color:#fff;margin-top:-84px;margin-bottom:30px;box-shadow:0 9px 24px rgba(0,0,0,.1)}
+  .st:nth-child(1) .dot{background:var(--green)}.st:nth-child(2) .dot{background:var(--coral)}.st:nth-child(3) .dot{background:var(--blue)}.st:nth-child(4) .dot{background:var(--yellow);color:#6b4a00}
+  .st .t{font-family:var(--display-font);font-size:46px;font-weight:700}
+  .st .d{font-size:27px;line-height:1.5;color:var(--ink-soft);margin-top:18px;font-weight:500}
+  .cmp{display:grid;grid-template-columns:1fr 1fr;gap:42px;margin-top:63px}
+  .pane{border-radius:54px;padding:54px 60px;min-height:480px;position:relative;overflow:hidden}
+  .pane.a{background:var(--pink-soft)}.pane.b{background:var(--blue-soft)}
+  .pane .k{display:inline-block;padding:12px 27px;border-radius:999px;background:#fff;font-family:var(--display-font);font-size:24px;font-weight:700}
+  .pane.a .k{color:#b14a5e}.pane.b .k{color:#2f7fa5}
+  .pane .big{font-family:var(--display-font);font-size:210px;font-weight:700;line-height:1;margin-top:36px;letter-spacing:-.03em}
+  .pane .big small{font-family:var(--body-font);font-size:54px;font-weight:700;color:var(--ink-soft);margin-left:12px}
+  .pane .d{font-size:30px;font-weight:600;color:var(--ink-soft);margin-top:21px}
+  .center{align-items:center;justify-content:center;text-align:center}
+  .quote{font-family:var(--display-font);font-size:96px;font-weight:700;line-height:1.15;max-width:1400px}
+  .quote .a{color:var(--coral)}
+  .sub{font-size:34px;font-weight:600;color:var(--ink-soft);margin-top:42px}
+</style>
+<script src="deck-stage.js"></script>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+
+<section data-label="01 Cover">
+  <div class="blob b-pink"></div><div class="blob b-blue"></div><div class="blob b-green"></div><div class="blob b-yellow"></div>
+  <div class="star s1" style="font-size:27px">&#11088;</div><div class="star s2" style="font-size:39px">&#11088;</div>
+  <div class="stage">
+    <div class="top"><div class="logo"><div class="logo-i">&#127880;</div>Little Explorer</div><div class="done"><span class="ck">&#10003;</span>Done today</div></div>
+    <div class="label"><i></i>Learning diary &middot; Day 12</div>
+    <h1 class="headline">Let&rsquo;s explore <span>&#127880;</span><br>the <span class="a">wonders</span> of the world</h1>
+    <p class="deck">Today we found so many little secrets in the garden &mdash; soft moss, busy ants, and tiny flowers turning toward the sun &#10084;&#65039;</p>
+    <div class="cards">
+      <div class="card c1"><div class="ci g">&#127807;</div><div class="cn">12<span class="u">kinds</span></div><div class="cl">Plants we met</div><div class="line"></div></div>
+      <div class="card c2"><div class="ci p">&#128027;</div><div class="cn">5<span class="u">bugs</span></div><div class="cl">Insects we watched</div><div class="line"></div></div>
+      <div class="card c3"><div class="ci b">&#127800;</div><div class="cn">3<span class="u">blooms</span></div><div class="cl">Flowers we picked</div><div class="line"></div></div>
+    </div>
+  </div>
+  <div class="pills"><div class="pill y"><i></i>Day 12 &middot; Nature watch</div><div class="pill p"><i></i>Spring Discovery Camp</div></div>
+  <div class="prog"><div class="rw"><svg viewBox="0 0 56 56" style="width:100%;height:100%"><circle cx="28" cy="28" r="22" fill="none" stroke="#fff1c9" stroke-width="6"/><circle cx="28" cy="28" r="22" fill="none" stroke="#ffd166" stroke-width="6" stroke-dasharray="103 138" stroke-linecap="round" transform="rotate(-90 28 28)"/></svg><div class="rt">75%</div></div><div><div class="pt">This week</div><div class="ps">Week 03 / 04</div></div></div>
+</section>
+
+<section data-label="02 Agenda">
+  <div class="blob b-pink"></div><div class="blob b-blue"></div><div class="blob b-yellow"></div>
+  <div class="stage">
+    <div class="top"><div class="logo"><div class="logo-i">&#127880;</div>Little Explorer</div><div class="done" style="background:var(--coral);box-shadow:0 9px 27px rgba(255,122,146,.32)">Today&rsquo;s plan</div></div>
+    <div class="label"><i></i>Agenda</div>
+    <h2 class="h2">What we will <span class="a">do</span> today</h2>
+    <div class="rows">
+      <div class="row"><span class="nb">1</span><span class="t">Garden walk</span><span class="m">20 min</span></div>
+      <div class="row"><span class="nb">2</span><span class="t">Bug watching</span><span class="m">15 min</span></div>
+      <div class="row"><span class="nb">3</span><span class="t">Flower drawing</span><span class="m">25 min</span></div>
+      <div class="row"><span class="nb">4</span><span class="t">Story circle</span><span class="m">10 min</span></div>
+    </div>
+  </div>
+</section>
+
+<section data-label="03 Section Divider">
+  <div class="blob b-pink"></div><div class="blob b-blue"></div><div class="blob b-green"></div><div class="blob b-yellow"></div>
+  <div class="star s1" style="font-size:39px">&#11088;</div><div class="star s2" style="font-size:54px">&#11088;</div>
+  <div class="stage center">
+    <div class="giant">2</div>
+    <div class="label" style="margin-top:36px"><i></i>Chapter two</div>
+    <h2 class="h2" style="font-size:120px">Meet the <span class="a">little ones</span></h2>
+  </div>
+</section>
+
+<section data-label="04 Key Points">
+  <div class="blob b-pink"></div><div class="blob b-blue"></div><div class="blob b-yellow"></div>
+  <div class="stage">
+    <div class="top"><div class="logo"><div class="logo-i">&#127880;</div>Little Explorer</div><div class="done" style="background:var(--blue);box-shadow:0 9px 27px rgba(135,206,235,.4)">Garden notes</div></div>
+    <div class="label"><i></i>What we learned</div>
+    <h2 class="h2">Three things we <span class="a">noticed</span></h2>
+    <div class="cards" style="max-width:none;margin-top:48px;gap:39px">
+      <div class="card c1" style="min-height:420px"><div class="ci g">&#127807;</div><div class="cn" style="font-size:48px">Moss is soft</div><div class="cl" style="font-size:28px;line-height:1.45">It grows where it is cool and damp, and it feels like velvet.</div><div class="line"></div></div>
+      <div class="card c2" style="min-height:420px"><div class="ci p">&#128027;</div><div class="cn" style="font-size:48px">Ants share</div><div class="cl" style="font-size:28px;line-height:1.45">They carry food together and follow a scent trail home.</div><div class="line"></div></div>
+      <div class="card c3" style="min-height:420px"><div class="ci b">&#127800;</div><div class="cn" style="font-size:48px">Flowers follow</div><div class="cl" style="font-size:28px;line-height:1.45">Petals turn toward the sunshine all day long.</div><div class="line"></div></div>
+    </div>
+  </div>
+</section>
+
+<section data-label="05 Process">
+  <div class="blob b-pink"></div><div class="blob b-blue"></div><div class="blob b-yellow"></div>
+  <div class="stage">
+    <div class="top"><div class="logo"><div class="logo-i">&#127880;</div>Little Explorer</div><div class="done" style="background:var(--yellow);color:#6b4a00;box-shadow:0 9px 27px rgba(255,209,102,.4)">How to explore</div></div>
+    <div class="label"><i></i>Step by step</div>
+    <h2 class="h2">Four steps to be a <span class="a">scientist</span></h2>
+    <div class="steps" style="margin-top:132px">
+      <div class="st"><div class="dot">1</div><div class="t">Look</div><div class="d">Slow down and look closely at one small thing.</div></div>
+      <div class="st"><div class="dot">2</div><div class="t">Ask</div><div class="d">What is it? Why is it here? What does it do?</div></div>
+      <div class="st"><div class="dot">3</div><div class="t">Try</div><div class="d">Touch gently, count, measure, and draw.</div></div>
+      <div class="st"><div class="dot">4</div><div class="t">Share</div><div class="d">Tell a friend what you discovered today.</div></div>
+    </div>
+  </div>
+</section>
+
+<section data-label="06 Comparison">
+  <div class="blob b-pink"></div><div class="blob b-blue"></div><div class="blob b-yellow"></div>
+  <div class="stage">
+    <div class="top"><div class="logo"><div class="logo-i">&#127880;</div>Little Explorer</div><div class="done">Great progress</div></div>
+    <div class="label"><i></i>Then and now</div>
+    <h2 class="h2">Look how we have <span class="a">grown</span></h2>
+    <div class="cmp">
+      <div class="pane a"><span class="k">Week 1</span><div class="big">4<small>plants</small></div><div class="d">We could name only a few garden friends.</div></div>
+      <div class="pane b"><span class="k">Week 3</span><div class="big">12<small>plants</small></div><div class="d">Now we know a whole garden by name!</div></div>
+    </div>
+  </div>
+</section>
+
+<section data-label="07 Closing">
+  <div class="blob b-pink"></div><div class="blob b-blue"></div><div class="blob b-green"></div><div class="blob b-yellow"></div>
+  <div class="star s1" style="font-size:39px">&#11088;</div><div class="star s2" style="font-size:54px">&#11088;</div>
+  <div class="stage center">
+    <div class="label"><i></i>See you tomorrow</div>
+    <div class="quote" style="margin-top:42px">Every day is a <span class="a">new adventure</span></div>
+    <div class="sub">Thank you, little explorers!</div>
+  </div>
+</section>
+
+</deck-stage>
+</body>
+</html>

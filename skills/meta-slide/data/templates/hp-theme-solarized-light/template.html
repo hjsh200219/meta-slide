@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="solarized-light">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>html-ppt · solarized-light</title>
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="assets/base.css">
+<link rel="stylesheet" id="theme-link" href="assets/themes/solarized-light.css">
+<link rel="stylesheet" href="assets/animations/animations.css">
+<style>
+/* cover */
+
+/* toc */
+
+/* section-divider */
+
+/* bullets */
+
+/* two-column */
+
+/* three-column */
+
+/* kpi-grid */
+
+/* stat-highlight */
+
+/* chart-bar */
+.hp-bars{height:520px;padding:28px}
+.hp-bar-grid{display:flex;align-items:flex-end;gap:28px;height:100%;border-bottom:1px solid var(--border-strong)}
+.hp-col{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;position:relative;padding-bottom:0}
+.hp-bar{width:100%;max-width:88px;background:var(--accent);border-radius:8px 8px 0 0}
+.hp-v{font-size:16px;font-weight:600;color:var(--text-2);margin-bottom:8px}
+.hp-l{position:absolute;bottom:-34px;font-size:15px;color:var(--text-2)}
+.hp-bar-grid{margin-bottom:34px;height:calc(100% - 34px)}
+/* table */
+.t{width:100%;border-collapse:collapse;font-size:16px}
+.t th,.t td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--border)}
+.t th{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-3);font-weight:600}
+.t tr:hover td{background:var(--surface-2)}
+.t td.num{font-variant-numeric:tabular-nums;text-align:right}
+.up{color:var(--good)}.dn{color:var(--bad)}
+/* comparison */
+.vs{display:grid;grid-template-columns:1fr 90px 1fr;gap:28px;align-items:stretch;margin-top:30px}
+.vs .side{padding:30px}
+.vs .mid{font-size:56px;font-weight:800;color:var(--text-3);display:flex;align-items:center;justify-content:center}
+.vs .bad-side{border-top:3px solid var(--bad)}
+.vs .good-side{border-top:3px solid var(--good)}
+.vs h3{font-size:24px}
+.vs ul{padding-left:20px;font-size:15px;line-height:1.8;color:var(--text-2)}
+.vs li::marker{color:var(--bad)}
+.vs .good-side li::marker{color:var(--good)}
+/* pros-cons */
+.pc{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:30px}
+.pc .card h3{display:flex;align-items:center;gap:10px}
+.pc .card h3 .b{display:inline-flex;width:36px;height:36px;border-radius:10px;align-items:center;justify-content:center;font-size:20px}
+.pc .pro h3 .b{background:color-mix(in srgb,var(--good) 18%,transparent);color:var(--good)}
+.pc .con h3 .b{background:color-mix(in srgb,var(--bad) 18%,transparent);color:var(--bad)}
+.pc ul{padding-left:22px;line-height:1.8;color:var(--text-2)}
+.pc .pro{border-top:3px solid var(--good)}
+.pc .con{border-top:3px solid var(--bad)}
+/* process-steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:24px}
+.step{position:relative;padding:24px 26px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);box-shadow:var(--shadow)}
+.step .num{position:absolute;top:-24px;left:22px;width:48px;height:48px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;box-shadow:var(--shadow)}
+.step h4{margin:18px 0 8px;font-size:17px}
+.step p{font-size:13px;color:var(--text-2);line-height:1.6}
+.step .tag{display:inline-block;margin-top:10px;font-size:11px;padding:3px 10px;border-radius:999px;background:var(--surface-2);color:var(--text-3)}
+/* flow-diagram */
+.flow{display:flex;align-items:center;gap:16px;margin-top:40px;max-width:1200px}
+.flow .node{flex:1;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px;text-align:center;box-shadow:var(--shadow);position:relative}
+.flow .node .ic{font-size:32px;margin-bottom:6px}
+.flow .node h4{font-size:16px}
+.flow .node p{font-size:12px;color:var(--text-3);margin:0}
+.flow .arr{color:var(--text-3);font-size:28px;flex-shrink:0}
+.flow .node.hl{border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent),var(--shadow)}
+/* arch-diagram */
+.arch{margin-top:20px;display:grid;grid-template-rows:auto auto auto;gap:22px}
+.arch .tier{display:grid;grid-template-columns:120px 1fr;align-items:stretch;gap:22px}
+.arch .tname{display:flex;align-items:center;justify-content:center;background:var(--surface-2);border-radius:var(--radius);padding:18px;font-weight:600;font-size:13px;color:var(--text-2);text-transform:uppercase;letter-spacing:.1em;text-align:center}
+.arch .cells{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.arch .cells.three{grid-template-columns:repeat(3,1fr)}
+.arch .cell{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center;box-shadow:var(--shadow)}
+.arch .cell .ic{font-size:24px}
+.arch .cell h4{font-size:14px;margin:6px 0 2px}
+.arch .cell p{font-size:11px;color:var(--text-3);margin:0}
+.arch .tier.hl .cell{border-top:3px solid var(--accent)}
+/* timeline */
+.tl{position:relative;margin-top:40px}
+.tl::before{content:"";position:absolute;left:0;right:0;top:48px;height:2px;background:var(--border)}
+.tl .row{display:grid;grid-template-columns:repeat(5,1fr);gap:22px;align-items:start}
+.tl .item{position:relative;padding-top:80px;text-align:center}
+.tl .dot{position:absolute;top:36px;left:50%;transform:translateX(-50%);width:24px;height:24px;border-radius:50%;background:var(--accent);border:4px solid var(--bg);box-shadow:0 0 0 2px var(--accent)}
+.tl .year{font-size:14px;color:var(--text-3);letter-spacing:.12em;text-transform:uppercase;position:absolute;top:0;left:0;right:0;font-weight:600}
+.tl h4{font-size:18px}
+.tl p{font-size:13px;color:var(--text-2)}
+/* roadmap */
+.rm{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:28px;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.rm .col{padding:20px 22px;border-right:1px solid var(--border);background:var(--surface);position:relative}
+.rm .col:last-child{border-right:none}
+.rm .col .tag{display:inline-block;padding:3px 12px;border-radius:999px;font-size:11px;background:var(--surface-2);color:var(--text-2);margin-bottom:10px}
+.rm .col.now{background:color-mix(in srgb,var(--accent) 6%,var(--surface))}
+.rm .col.now .tag{background:var(--accent);color:var(--accent-ink)}
+.rm h4{font-size:15px;margin:8px 0 4px}
+.rm ul{padding-left:18px;margin:8px 0 0;font-size:13px;color:var(--text-2)}
+.rm li{margin-bottom:6px;line-height:1.5}
+/* mindmap */
+.mm{position:relative;margin:30px auto 0;max-width:1200px;height:520px}
+.mm .n{position:absolute;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:12px 18px;box-shadow:var(--shadow);font-weight:600}
+.mm .root{top:calc(50% - 34px);left:calc(50% - 100px);width:200px;padding:22px;background:var(--accent);color:var(--accent-ink);border:none;text-align:center;font-size:20px;border-radius:24px}
+.mm .n.sm{font-size:13px}
+.mm svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.mm svg path{stroke:var(--border-strong);stroke-width:1.5;fill:none}
+/* big-quote */
+
+/* image-text-split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:18px;flex:1;min-height:0}
+.split.flip > .col-img{order:2}
+.split > div{display:flex;flex-direction:column;justify-content:center;min-height:0}
+/* Height first, width follows the ratio. A tall image can then never push past
+   the slide's padding box, whatever its natural aspect ratio is. */
+.split .img-frame{--img-ratio:4/5;height:100%;width:auto;max-width:100%;align-self:center}
+.split ul{margin:18px 0 0;padding-left:20px}
+.split li{margin:10px 0;color:var(--text-2);font-size:19px}
+/* cta */
+.cta .btn{display:inline-flex;align-items:center;gap:10px;padding:20px 32px;border-radius:999px;background:var(--accent);color:var(--accent-ink);font-weight:700;font-size:20px;box-shadow:var(--shadow-lg);text-decoration:none;border:none;cursor:pointer}
+.cta .btn.outline{background:transparent;color:var(--text-1);border:1.5px solid var(--border-strong)}
+/* thanks */
+
+</style>
+</head>
+<body>
+<div class="deck">
+
+<section data-label="01 Cover" class="slide" data-title="Cover">
+    <div class="deck-header"><span class="eyebrow">Keynote · 2026</span><span class="eyebrow">html-ppt</span></div>
+    <div class="anim-stagger-list">
+      <p class="kicker">Tech Sharing · 纯干货</p>
+      <h1 class="h1 anim-fade-up" data-anim="fade-up">
+        设计一套<span class="gradient-text">属于你</span>的<br>HTML 演讲系统
+      </h1>
+      <p class="lede">从主题、版式到动效，全部由模板驱动。一行命令即可开场。</p>
+      <div class="row wrap mt-l">
+        <span class="pill pill-accent">24 themes</span>
+        <span class="pill">30 layouts</span>
+        <span class="pill">25 animations</span>
+        <span class="pill">零构建</span>
+      </div>
+    </div>
+    <div class="deck-footer"><span class="dim2">lewis · 2026-04-15</span><span class="slide-number" data-current="1" data-total="1"></span></div>
+    <div class="notes">封面页口播：大家好，今天给大家带来一套开箱即用的 HTML 演讲系统。</div>
+  </section>
+
+<section data-label="02 Agenda" class="slide" data-title="Contents">
+  <p class="eyebrow">Contents · 目录</p>
+  <h2 class="h2">今天的五件事</h2>
+  <div class="grid g2 mt-l anim-stagger-list" data-anim-target>
+    <div class="card"><div class="row"><div class="h3 dim2" style="width:56px">01</div><div><h4>为什么需要设计系统</h4><p class="dim">从模板到 token，减少重复。</p></div></div></div>
+    <div class="card"><div class="row"><div class="h3 dim2" style="width:56px">02</div><div><h4>主题与 tokens</h4><p class="dim">24 个可切换的主题，一键换装。</p></div></div></div>
+    <div class="card"><div class="row"><div class="h3 dim2" style="width:56px">03</div><div><h4>版式目录</h4><p class="dim">30 种单页类型，覆盖 95% 场景。</p></div></div></div>
+    <div class="card"><div class="row"><div class="h3 dim2" style="width:56px">04</div><div><h4>入场动效</h4><p class="dim">25 种命名动画，可挑可组合。</p></div></div></div>
+    <div class="card" style="grid-column:span 2"><div class="row"><div class="h3 dim2" style="width:56px">05</div><div><h4>现场演示 &amp; 问答</h4><p class="dim">打开模板就能讲。</p></div></div></div>
+  </div>
+  <div class="deck-footer"><span class="dim2">html-ppt</span><span>目录</span></div>
+</section>
+
+<section data-label="03 Section Divider" class="slide tc center" data-title="Section 02">
+  <div style="max-width:780px;margin:0 auto">
+    <p class="kicker anim-fade-down" data-anim="fade-down">Section · 02</p>
+    <h1 class="h1 anim-rise-in" data-anim="rise-in" style="font-size:112px">主题与 <span class="gradient-text">Tokens</span></h1>
+    <div class="divider-accent" style="margin:24px auto"></div>
+    <p class="lede" style="margin:0 auto">换主题 = 换一份 CSS 变量。其他一切保持不变。</p>
+  </div>
+</section>
+
+<section data-label="04 Bullets" class="slide" data-title="Why">
+  <p class="kicker">Why · 为什么</p>
+  <h2 class="h2">好的演讲系统，帮你做三件事</h2>
+  <p class="lede mb-l">不是做不出漂亮的 slide，是每次都要重新做。</p>
+  <ul class="grid g1 anim-stagger-list" style="list-style:none;padding:0;margin:0;gap:14px" data-anim-target>
+    <li class="card card-accent"><h4>① 统一设计语言</h4><p class="dim">所有页共用同一套 tokens，字号、颜色、阴影不会跑偏。</p></li>
+    <li class="card card-accent"><h4>② 降低复用成本</h4><p class="dim">下一次讲同类话题，复制 deck、换数据、换主题即可。</p></li>
+    <li class="card card-accent"><h4>③ 可切换，可演示</h4><p class="dim">按 T 即可循环切主题、按 A 可切动效，汇报现场加分。</p></li>
+  </ul>
+</section>
+
+<section data-label="05 Two Column" class="slide" data-title="Two column">
+  <p class="kicker">Pattern · 双栏</p>
+  <h2 class="h2">概念 <span class="dim2">⟷</span> 示例</h2>
+  <div class="grid g2 mt-l" style="align-items:start">
+    <div class="card anim-fade-left" data-anim="fade-left">
+      <h3>左栏 · 概念</h3>
+      <p class="dim">一个主题 = 一组 CSS 变量。把颜色、字体、圆角、阴影全部收到 <code>:root</code> 里。</p>
+      <ul class="mt-m">
+        <li>— tokens 定义语义，不写具体色值</li>
+        <li>— base.css 用 tokens 排版</li>
+        <li>— 每个主题只改变量</li>
+      </ul>
+    </div>
+    <div class="card anim-fade-right" data-anim="fade-right">
+      <h3>右栏 · 示例</h3>
+<pre class="mono" style="font-size:13px;background:var(--surface-2);padding:14px;border-radius:var(--radius-sm);overflow:auto">
+:root {
+  --bg: #fff;
+  --text-1: #0c0d10;
+  --accent: #3b6cff;
+  --radius: 18px;
+}
+.card {
+  background: var(--bg);
+  color: var(--text-1);
+  border-radius: var(--radius);
+}</pre>
+    </div>
+  </div>
+</section>
+
+<section data-label="06 Three Column" class="slide" data-title="Three column">
+  <p class="kicker">Pillars · 三根支柱</p>
+  <h2 class="h2">一个 html-ppt，三件装备</h2>
+  <div class="grid g3 mt-l anim-stagger-list" data-anim-target>
+    <div class="card"><div style="font-size:40px">🎨</div><h4 class="mt-s">Themes</h4><p class="dim">克制 · 编辑 · 霓虹 · 终端 …… 随场景换装。</p></div>
+    <div class="card"><div style="font-size:40px">🧱</div><h4 class="mt-s">Layouts</h4><p class="dim">30 种页型，从封面到结语一次给齐。</p></div>
+    <div class="card"><div style="font-size:40px">✨</div><h4 class="mt-s">Animations</h4><p class="dim">25 个命名动效，每一个都克制、每一个都上台。</p></div>
+  </div>
+</section>
+
+<section data-label="07 KPI Grid" class="slide" data-title="KPIs">
+  <p class="kicker">Metrics · 关键数字</p>
+  <h2 class="h2">这一季度，我们做到了什么</h2>
+  <div class="grid g4 mt-l anim-stagger-list" data-anim-target>
+    <div class="card"><p class="eyebrow">Revenue</p><div style="font-size:56px;font-weight:800"><span class="counter" data-to="1248">0</span>K</div><p class="dim" style="color:var(--good)">↑ 38% YoY</p></div>
+    <div class="card"><p class="eyebrow">Active users</p><div style="font-size:56px;font-weight:800"><span class="counter" data-to="82">0</span>K</div><p class="dim" style="color:var(--good)">↑ 12% QoQ</p></div>
+    <div class="card"><p class="eyebrow">Retention</p><div style="font-size:56px;font-weight:800"><span class="counter" data-to="74">0</span>%</div><p class="dim" style="color:var(--good)">↑ 3 pts</p></div>
+    <div class="card"><p class="eyebrow">NPS</p><div style="font-size:56px;font-weight:800"><span class="counter" data-to="61">0</span></div><p class="dim" style="color:var(--warn)">→ 持平</p></div>
+  </div>
+</section>
+
+<section data-label="08 Big Stat" class="slide center tc" data-title="Stat">
+  <p class="kicker">Impact · 一个数字</p>
+  <div style="font-size:260px;line-height:1;font-weight:900;letter-spacing:-.05em">
+    <span class="counter gradient-text" data-to="92">0</span><span class="gradient-text">%</span>
+  </div>
+  <h3 class="mt-s">的准备时间被你省下</h3>
+  <p class="lede" style="margin:16px auto 0">在 10 个真实项目中，使用 html-ppt 的平均 deck 制作时间从 4 小时降到了 20 分钟。</p>
+</section>
+
+<section data-label="09 Bar Chart" class="slide" data-title="Bar chart">
+  <p class="kicker">Chart · Bars</p>
+  <h2 class="h2">Quarterly MRR trend</h2>
+  <div class="card mt-l hp-bars"><div class="hp-bar-grid">
+    <div class="hp-col"><span class="hp-v">42</span><div class="hp-bar" style="height:16.1%"></div><span class="hp-l">Q1</span></div><div class="hp-col"><span class="hp-v">58</span><div class="hp-bar" style="height:22.2%"></div><span class="hp-l">Q2</span></div><div class="hp-col"><span class="hp-v">73</span><div class="hp-bar" style="height:28.0%"></div><span class="hp-l">Q3</span></div><div class="hp-col"><span class="hp-v">96</span><div class="hp-bar" style="height:36.8%"></div><span class="hp-l">Q4</span></div><div class="hp-col"><span class="hp-v">124</span><div class="hp-bar" style="height:47.5%"></div><span class="hp-l">Q1+1</span></div><div class="hp-col"><span class="hp-v">158</span><div class="hp-bar" style="height:60.5%"></div><span class="hp-l">Q2+1</span></div><div class="hp-col"><span class="hp-v">204</span><div class="hp-bar" style="height:78.2%"></div><span class="hp-l">Q3+1</span></div><div class="hp-col"><span class="hp-v">261</span><div class="hp-bar" style="height:100.0%"></div><span class="hp-l">Q4+1</span></div>
+  </div></div>
+</section>
+
+<section data-label="10 Table" class="slide" data-title="Table">
+  <p class="kicker">Comparison · 数据表</p>
+  <h2 class="h2">主流 HTML 演讲框架对比</h2>
+  <div class="card mt-l" style="padding:4px 12px">
+  <table class="t">
+    <thead><tr><th>框架</th><th>学习曲线</th><th>自定义</th><th class="num">体积</th><th class="num">GitHub ⭐</th><th>适合</th></tr></thead>
+    <tbody>
+      <tr><td><b>html-ppt</b></td><td>极低</td><td>★★★★★</td><td class="num">~80 KB</td><td class="num">—</td><td>快速出稿、换主题</td></tr>
+      <tr><td>reveal.js</td><td>低</td><td>★★★★</td><td class="num">~450 KB</td><td class="num">67k</td><td>长讲座、互动</td></tr>
+      <tr><td>Slidev</td><td>中</td><td>★★★★★</td><td class="num">需构建</td><td class="num">31k</td><td>开发者、技术分享</td></tr>
+      <tr><td>Marp</td><td>极低</td><td>★★</td><td class="num">~10 MB</td><td class="num">13k</td><td>Markdown 出稿</td></tr>
+      <tr><td>Impress.js</td><td>中</td><td>★★★</td><td class="num">~60 KB</td><td class="num">38k</td><td>3D 展示</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section data-label="11 Comparison" class="slide" data-title="Comparison">
+  <p class="kicker">Before vs After · 对比</p>
+  <h2 class="h2">从「每次重做」到「一键起稿」</h2>
+  <div class="vs">
+    <div class="card bad-side side anim-fade-left" data-anim="fade-left">
+      <h3>📉 过去</h3>
+      <ul>
+        <li>每次都要重新做封面、目录、结语</li>
+        <li>颜色、字号跨 slide 不一致</li>
+        <li>想换主题？手动改每一页</li>
+        <li>动效全靠 transition 硬写</li>
+        <li>截图导出还要一张一张截</li>
+      </ul>
+    </div>
+    <div class="mid">→</div>
+    <div class="card good-side side anim-fade-right" data-anim="fade-right">
+      <h3>📈 现在</h3>
+      <ul>
+        <li>复制模板、换数据、完事</li>
+        <li>所有页共享 tokens</li>
+        <li>按 <b>T</b> 循环切主题</li>
+        <li>25 个命名动效直接挑</li>
+        <li>一条 render.sh 全部出图</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section data-label="12 Pros and Cons" class="slide" data-title="Pros Cons">
+  <p class="kicker">Trade-offs · 诚实的取舍</p>
+  <h2 class="h2">纯 HTML 演讲：好在哪里，痛在哪里</h2>
+  <div class="pc">
+    <div class="card pro anim-fade-up" data-anim="fade-up"><h3><span class="b">✓</span> 好处</h3>
+      <ul><li>零构建：一个文件就能跑</li><li>可 diff：Git 友好，好 review</li><li>可编程：动效自由定制</li><li>可分发：URL / PDF / PNG 都行</li></ul>
+    </div>
+    <div class="card con anim-fade-up" data-anim="fade-up"><h3><span class="b">✗</span> 痛点</h3>
+      <ul><li>协作不像 Keynote 那样实时</li><li>非程序员上手稍陡</li><li>复杂动效仍需写 JS</li><li>部分字体在离线环境缺失</li></ul>
+    </div>
+  </div>
+</section>
+
+<section data-label="13 Process Steps" class="slide" data-title="Process">
+  <p class="kicker">How-to · 四步做一个 deck</p>
+  <h2 class="h2">从零到一，只需要十分钟</h2>
+  <div class="steps anim-stagger-list" data-anim-target>
+    <div class="step"><div class="num">1</div><h4>起稿</h4><p>运行 <code>new-deck.sh</code> 创建脚手架，默认 6 页。</p><span class="tag">~30s</span></div>
+    <div class="step"><div class="num">2</div><h4>选版式</h4><p>从 <code>templates/single-page/</code> 里复制你需要的页型。</p><span class="tag">~2min</span></div>
+    <div class="step"><div class="num">3</div><h4>写内容</h4><p>替换 demo 数据，保留结构。</p><span class="tag">~6min</span></div>
+    <div class="step"><div class="num">4</div><h4>换主题</h4><p>按 <b>T</b> 循环看 24 个主题，挑一个定稿。</p><span class="tag">~1min</span></div>
+  </div>
+</section>
+
+<section data-label="14 Flow Diagram" class="slide" data-title="Flow">
+  <p class="kicker">Pipeline · 渲染管线</p>
+  <h2 class="h2">从 Markdown 到 PNG，共 5 步</h2>
+  <div class="flow anim-stagger-list" data-anim-target>
+    <div class="node"><div class="ic">📝</div><h4>Markdown</h4><p>你的内容源</p></div>
+    <div class="arr">→</div>
+    <div class="node"><div class="ic">🧩</div><h4>Layouts</h4><p>选择页型</p></div>
+    <div class="arr">→</div>
+    <div class="node hl"><div class="ic">🎨</div><h4>Theme</h4><p>换装</p></div>
+    <div class="arr">→</div>
+    <div class="node"><div class="ic">🌐</div><h4>HTML</h4><p>运行时接管</p></div>
+    <div class="arr">→</div>
+    <div class="node"><div class="ic">📸</div><h4>PNG</h4><p>headless Chrome</p></div>
+  </div>
+</section>
+
+<section data-label="15 Architecture" class="slide" data-title="Architecture">
+  <p class="kicker">Architecture · 系统总览</p>
+  <h2 class="h2">一套三层栈</h2>
+  <div class="arch anim-stagger-list" data-anim-target>
+    <div class="tier"><div class="tname">UI Layer</div>
+      <div class="cells"><div class="cell"><div class="ic">🧱</div><h4>Layouts</h4><p>30 个单页</p></div>
+        <div class="cell"><div class="ic">🎨</div><h4>Themes</h4><p>24 tokens 主题</p></div>
+        <div class="cell"><div class="ic">✨</div><h4>Animations</h4><p>25 个命名动效</p></div>
+        <div class="cell"><div class="ic">⌨️</div><h4>Runtime</h4><p>键盘导航</p></div>
+      </div>
+    </div>
+    <div class="tier hl"><div class="tname">Core · tokens</div>
+      <div class="cells three"><div class="cell"><div class="ic">🎯</div><h4>base.css</h4><p>排版 + 网格</p></div>
+        <div class="cell"><div class="ic">🔤</div><h4>fonts.css</h4><p>中英字体</p></div>
+        <div class="cell"><div class="ic">🪞</div><h4>:root vars</h4><p>语义颜色</p></div>
+      </div>
+    </div>
+    <div class="tier"><div class="tname">Tooling</div>
+      <div class="cells three"><div class="cell"><div class="ic">🧪</div><h4>render.sh</h4><p>headless Chrome</p></div>
+        <div class="cell"><div class="ic">🆕</div><h4>new-deck.sh</h4><p>脚手架</p></div>
+        <div class="cell"><div class="ic">📦</div><h4>AgentSkill</h4><p>Claude 接入点</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-label="16 Timeline" class="slide" data-title="Timeline">
+  <p class="kicker">Roadmap · 时间线</p>
+  <h2 class="h2">html-ppt 是怎么长大的</h2>
+  <div class="tl">
+    <div class="row anim-stagger-list" data-anim-target>
+      <div class="item"><div class="year">2025 Q3</div><div class="dot"></div><h4>起源</h4><p>一套个人 reveal.js 模板</p></div>
+      <div class="item"><div class="year">2025 Q4</div><div class="dot"></div><h4>tokens 化</h4><p>把颜色全部收进 :root</p></div>
+      <div class="item"><div class="year">2026 Q1</div><div class="dot"></div><h4>Agent 接入</h4><p>开放为 AgentSkill</p></div>
+      <div class="item"><div class="year">2026 Q2</div><div class="dot"></div><h4>24 themes</h4><p>从克制到霓虹一应俱全</p></div>
+      <div class="item"><div class="year">2026 Q3</div><div class="dot"></div><h4>渲染管线</h4><p>headless Chrome PNG 出稿</p></div>
+    </div>
+  </div>
+</section>
+
+<section data-label="17 Roadmap" class="slide" data-title="Roadmap">
+  <p class="kicker">Roadmap · 2026</p>
+  <h2 class="h2">接下来四个季度，我们会做什么</h2>
+  <div class="rm">
+    <div class="col now">
+      <span class="tag">NOW · Q2</span>
+      <h4>主题系统</h4>
+      <ul><li>24 个官方主题</li><li>tokens 语义文档</li><li>T 键循环切换</li></ul>
+    </div>
+    <div class="col">
+      <span class="tag">NEXT · Q3</span>
+      <h4>导出</h4>
+      <ul><li>PNG 批量</li><li>PDF 打包</li><li>小红书 3:4 切片</li></ul>
+    </div>
+    <div class="col">
+      <span class="tag">LATER · Q4</span>
+      <h4>交互</h4>
+      <ul><li>Presenter 模式</li><li>Notes 同屏</li><li>遥控器配对</li></ul>
+    </div>
+    <div class="col">
+      <span class="tag">VISION</span>
+      <h4>AI 写稿</h4>
+      <ul><li>从 md 自动分页</li><li>智能选版式</li><li>智能选主题</li></ul>
+    </div>
+  </div>
+</section>
+
+<section data-label="18 Mind Map" class="slide" data-title="Mindmap">
+  <p class="kicker">Concept map · 心智图</p>
+  <h2 class="h2">html-ppt 的知识地图</h2>
+  <div class="mm">
+    <svg class="anim-path-draw" viewBox="0 0 1200 520" preserveAspectRatio="none">
+      <path d="M600,260 C400,140 280,100 160,90"/>
+      <path d="M600,260 C400,380 280,420 160,430"/>
+      <path d="M600,260 C800,140 920,100 1040,90"/>
+      <path d="M600,260 C800,380 920,420 1040,430"/>
+      <path d="M600,260 C600,140 600,100 600,60"/>
+      <path d="M600,260 C600,380 600,420 600,460"/>
+    </svg>
+    <div class="n root">html-ppt</div>
+    <div class="n" style="top:60px;left:40px">Themes</div>
+    <div class="n sm" style="top:410px;left:40px">Layouts</div>
+    <div class="n sm" style="top:60px;right:40px">Animations</div>
+    <div class="n sm" style="top:410px;right:40px">Runtime</div>
+    <div class="n sm" style="top:30px;left:calc(50% - 50px)">Tokens</div>
+    <div class="n sm" style="top:450px;left:calc(50% - 60px)">Render.sh</div>
+  </div>
+</section>
+
+<section data-label="19 Big Quote" class="slide center tc" data-title="Quote">
+  <div style="max-width:1040px">
+    <div class="serif" style="font-size:140px;line-height:.9;color:var(--accent);opacity:.6">"</div>
+    <blockquote class="serif anim-fade-up" data-anim="fade-up" style="font-size:56px;line-height:1.25;margin:-40px 0 24px;font-style:italic;font-weight:600">
+      好的设计不是把东西加得更多，<br>而是把一切不需要的东西拿掉。
+    </blockquote>
+    <p class="dim" style="font-size:20px;letter-spacing:.08em">— Dieter Rams</p>
+  </div>
+</section>
+
+<section data-label="20 Image and Text" class="slide" data-title="Image + Text">
+  <div class="split">
+    <div class="col-img anim-fade-right" data-anim="fade-right">
+      <figure class="img-frame">
+        <img src="assets/demo-images/photo-portrait.svg" alt="产品实拍">
+        <span class="img-tag">Product</span>
+      </figure>
+    </div>
+    <div class="col-text">
+      <p class="kicker">Product · 03</p>
+      <h2 class="h2">左图右文，最常用的一页</h2>
+      <ul class="anim-stagger-list" data-anim-target>
+        <li>图占一半，说明占一半 —— 视觉与论述各不抢戏</li>
+        <li>竖图、方图、横图都能放：框决定比例，图自己 <code>cover</code></li>
+        <li>想把图放右边：给 <code>.split</code> 加 <code>flip</code></li>
+      </ul>
+    </div>
+  </div>
+  <div class="notes">图文各半。框比例由 <code>--img-ratio</code> 控制，这里用 4/5 竖构图；图片换成横图也不会破版。</div>
+</section>
+
+<section data-label="21 Call to Action" class="slide center tc cta" data-title="CTA">
+  <div style="max-width:900px">
+    <p class="kicker">Call to action</p>
+    <h1 class="h1 anim-rise-in" data-anim="rise-in" style="font-size:96px">
+      <span class="gradient-text">动手做你的</span><br>第一份 html-ppt
+    </h1>
+    <p class="lede" style="margin:16px auto 30px">复制模板、换上你的内容、按 <b>T</b> 挑一个最对味的主题，讲完还能一键导出 PNG。</p>
+    <div class="row" style="justify-content:center">
+      <a class="btn" href="#">🚀 ./new-deck.sh my-talk</a>
+      <a class="btn outline" href="#">查看 SKILL.md</a>
+    </div>
+    <p class="dim mt-l" style="font-size:14px">键盘： ← → 翻页 · T 主题 · A 动效 · F 全屏 · O 概览 · S 备注</p>
+  </div>
+</section>
+
+<section data-label="22 Thanks" class="slide center tc" data-title="Thanks">
+  <div>
+    <div class="anim-confetti-burst" style="display:inline-block;padding:40px"></div>
+    <h1 class="h1 anim-fade-up" data-anim="fade-up" style="font-size:180px;line-height:1"><span class="gradient-text">Thanks</span></h1>
+    <p class="lede" style="margin:18px auto 0">愿你每一次上台，都少一点紧张，多一点从容。</p>
+    <div class="row mt-l" style="justify-content:center;gap:32px">
+      <div class="dim"><b>lewis</b> · hello@example.com</div>
+      <div class="dim">github.com/lewis/html-ppt</div>
+      <div class="dim">2026 · MIT</div>
+    </div>
+  </div>
+</section>
+
+</div>
+<script src="assets/runtime.js"></script>
+</body>
+</html>

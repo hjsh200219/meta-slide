@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bauhaus Block — Deck Template</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="deck-stage.js"></script>
+<style>
+  :root {
+    --bg: #f4f0e8; --ink: #1a1a1a; --ink-soft: #5a5a5a; --ink-mute: #8a8a85;
+    --red: #d62828; --blue: #003049; --yellow: #ffd60a; --paper: #efe9dc;
+    --display-font: 'Helvetica Neue', 'Inter Tight', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    --body-font: 'Helvetica Neue', 'Inter Tight', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { margin: 0; background: #000; }
+  deck-stage > section {
+    width: 1920px; height: 1080px; position: relative; overflow: hidden;
+    background: var(--bg); color: var(--ink); font-family: var(--body-font);
+    font-feature-settings: 'kern','liga','calt','ss01','cv11';
+    -webkit-font-smoothing: antialiased;
+  }
+  .top-bar { position: absolute; top: 42px; left: 120px; right: 120px; height: 42px; border-top: 2px solid var(--ink); display: flex; justify-content: space-between; padding-top: 12px; font-size: 18px; letter-spacing: .3em; text-transform: uppercase; font-weight: 700; }
+  .top-bar .l { color: var(--red); }
+  .top-bar .r { color: var(--ink); font-weight: 500; }
+  .bottom-rule { position: absolute; left: 120px; right: 120px; bottom: 54px; height: 2px; background: var(--ink); }
+  .footer { position: absolute; left: 120px; right: 120px; bottom: 22px; display: flex; justify-content: space-between; font-size: 18px; font-weight: 600; letter-spacing: .26em; text-transform: uppercase; }
+  .footer .r { color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+  .label-row { display: inline-flex; align-items: center; gap: 20px; }
+  .label-row .sw { width: 22px; height: 22px; background: var(--red); display: inline-block; }
+  .label-row .tx { font-size: 22px; font-weight: 700; letter-spacing: .26em; text-transform: uppercase; }
+  .label-row .tx .acc { color: var(--red); }
+  .h1 { font-family: var(--display-font); font-weight: 800; letter-spacing: -.035em; line-height: .92; }
+  .body-t { font-size: 28px; line-height: 1.5; color: var(--ink-soft); }
+  .body-t b { color: var(--ink); font-weight: 600; }
+  .abs { position: absolute; }
+
+  /* S1 cover */
+  .s1 .left { position: absolute; left: 120px; top: 150px; width: 1000px; }
+  .s1 .h1 { font-size: 150px; margin-top: 34px; }
+  .s1 .deck { margin-top: 36px; width: 800px; }
+  .s1 .pr { position: absolute; left: 120px; top: 730px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 27px; width: 840px; }
+  .pcard { position: relative; height: 250px; background: #fff; border: 2px solid var(--ink); overflow: hidden; padding: 16px 18px; display: flex; flex-direction: column; justify-content: space-between; }
+  .pcard .num { font-size: 18px; font-weight: 700; letter-spacing: .2em; }
+  .pcard .pname { font-size: 24px; font-weight: 700; line-height: 1.1; letter-spacing: -.01em; }
+  .pcard .pmeta { font-size: 16px; font-weight: 500; letter-spacing: .18em; color: var(--ink-mute); margin-top: 6px; }
+  .pcard svg { position: absolute; left: 0; top: 0; width: 100%; height: 62%; }
+  .poster { position: absolute; background: var(--paper); border: 2px solid var(--ink); overflow: hidden; }
+  .poster .gl { position: absolute; inset: 0; background-image: linear-gradient(rgba(26,26,26,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(26,26,26,.05) 1px, transparent 1px); background-size: 60px 60px; }
+  .poster .circ { position: absolute; right: -90px; top: -90px; width: 390px; height: 390px; border-radius: 50%; background: var(--red); }
+  .poster .sq { position: absolute; left: -36px; bottom: -36px; width: 252px; height: 252px; background: var(--blue); }
+  .poster .tri { position: absolute; right: 90px; top: 195px; width: 144px; height: 180px; }
+  .poster .qtr { position: absolute; right: 135px; bottom: 165px; width: 165px; height: 165px; }
+  .poster .bar { position: absolute; left: 50%; top: 0; bottom: 0; width: 6px; background: var(--ink); transform: translateX(-50%); }
+  .poster .dot { position: absolute; left: 50%; top: 50%; width: 33px; height: 33px; border-radius: 50%; background: var(--ink); transform: translate(-50%,-50%); }
+  .poster .tl { position: absolute; top: 24px; left: 27px; font-size: 16px; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; }
+  .poster .bl { position: absolute; bottom: 27px; right: 33px; font-size: 18px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--ink); text-align: right; line-height: 1.4; }
+  .poster .bl small { display: block; font-size: 15px; font-weight: 500; letter-spacing: .3em; color: var(--ink-soft); margin-top: 6px; }
+  .s1 .poster { left: 1200px; top: 150px; width: 600px; height: 720px; }
+  .s1 .foot { position: absolute; left: 1200px; top: 905px; width: 600px; border-top: 1.5px solid rgba(26,26,26,.25); padding-top: 18px; display: flex; justify-content: space-between; }
+  .s1 .foot .k { font-size: 15px; font-weight: 600; letter-spacing: .26em; color: var(--ink-mute); text-transform: uppercase; }
+  .s1 .foot .v { font-size: 22px; font-weight: 700; margin-top: 4px; }
+  .s1 .foot .v .r { color: var(--red); } .s1 .foot .v .b { color: var(--blue); }
+
+  /* S2 contents */
+  .s2 .h1 { position: absolute; left: 120px; top: 150px; font-size: 120px; }
+  .s2 .list { position: absolute; left: 120px; right: 120px; top: 420px; }
+  .s2 .row { display: grid; grid-template-columns: 160px 1fr 420px 70px; align-items: center; height: 130px; border-top: 2px solid var(--ink); }
+  .s2 .row:last-child { border-bottom: 2px solid var(--ink); }
+  .s2 .row .n { font-size: 64px; font-weight: 800; letter-spacing: -.03em; }
+  .s2 .row .t { font-size: 48px; font-weight: 700; letter-spacing: -.02em; }
+  .s2 .row .d { font-size: 24px; color: var(--ink-soft); line-height: 1.4; }
+  .s2 .row .s { width: 54px; height: 54px; justify-self: end; }
+  .s2 .row .s.c { border-radius: 50%; background: var(--red); } .s2 .row .s.q { background: var(--blue); }
+  .s2 .row .s.t { background: transparent; }
+  .s2 .row .s.y { background: var(--yellow); border: 2px solid var(--ink); }
+
+  /* S3 divider */
+  .s3 { background: var(--blue); color: #fff; }
+  .s3 .top-bar { border-top-color: #fff; } .s3 .top-bar .l { color: var(--yellow); } .s3 .top-bar .r, .s3 .footer, .s3 .footer .r { color: #fff; }
+  .s3 .bottom-rule { background: #fff; }
+  .s3 .circ { position: absolute; right: 140px; top: 150px; width: 660px; height: 660px; border-radius: 50%; background: var(--red); }
+  .s3 .sqr { position: absolute; right: 560px; top: 560px; width: 340px; height: 340px; background: var(--yellow); }
+  .s3 .tri { position: absolute; right: 120px; top: 600px; width: 300px; height: 300px; }
+  .s3 .bar { position: absolute; right: 470px; top: 84px; bottom: 54px; width: 8px; background: #fff; }
+  .s3 .big { position: absolute; left: 120px; top: 190px; font-size: 360px; font-weight: 900; letter-spacing: -.06em; line-height: .8; color: var(--yellow); }
+  .s3 .h1 { position: absolute; left: 120px; top: 560px; font-size: 130px; color: #fff; width: 900px; }
+  .s3 .sub { position: absolute; left: 120px; top: 880px; font-size: 28px; letter-spacing: .26em; text-transform: uppercase; font-weight: 600; color: rgba(255,255,255,.8); }
+
+  /* S4 principles */
+  .s4 .head { position: absolute; left: 120px; top: 150px; }
+  .s4 .h1 { font-size: 100px; margin-top: 24px; }
+  .s4 .grid { position: absolute; left: 120px; right: 120px; top: 440px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; }
+  .s4 .card { position: relative; height: 470px; background: #fff; border: 2px solid var(--ink); padding: 32px; display: flex; flex-direction: column; justify-content: flex-end; }
+  .s4 .card .no { position: absolute; top: 28px; left: 32px; font-size: 22px; font-weight: 700; letter-spacing: .22em; }
+  .s4 .card .shape { position: absolute; right: 36px; top: 36px; width: 150px; height: 150px; }
+  .s4 .card h3 { font-size: 48px; font-weight: 800; letter-spacing: -.02em; line-height: 1; }
+  .s4 .card p { font-size: 26px; line-height: 1.45; color: var(--ink-soft); margin-top: 16px; }
+  .s4 .card .m { font-size: 18px; font-weight: 600; letter-spacing: .24em; color: var(--ink-mute); text-transform: uppercase; margin-top: 18px; }
+
+  /* S5 process */
+  .s5 .axis { position: absolute; left: 120px; right: 120px; top: 600px; height: 8px; background: var(--ink); }
+  .s5 .steps { position: absolute; left: 120px; right: 120px; top: 440px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 48px; }
+  .s5 .step { position: relative; height: 460px; }
+  .s5 .step svg { position: absolute; left: 0; top: 80px; width: 110px; height: 110px; }
+  .s5 .step .num { font-size: 22px; font-weight: 700; letter-spacing: .24em; color: var(--red); }
+  .s5 .step h3 { position: absolute; top: 240px; font-size: 46px; font-weight: 800; letter-spacing: -.02em; }
+  .s5 .step p { position: absolute; top: 310px; font-size: 25px; line-height: 1.45; color: var(--ink-soft); }
+
+  /* S6 metrics */
+  .s6 .h1 { position: absolute; left: 120px; top: 150px; font-size: 100px; }
+  .s6 .blocks { position: absolute; left: 120px; right: 120px; top: 400px; height: 520px; display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 0; border: 2px solid var(--ink); }
+  .s6 .blk { padding: 40px; display: flex; flex-direction: column; justify-content: space-between; border-right: 2px solid var(--ink); }
+  .s6 .blk:last-child { border-right: none; }
+  .s6 .blk .num { font-size: 190px; font-weight: 900; letter-spacing: -.05em; line-height: .9; }
+  .s6 .blk .num small { font-size: 70px; letter-spacing: -.02em; }
+  .s6 .blk .l { font-size: 26px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+  .s6 .blk .d { font-size: 24px; line-height: 1.4; margin-top: 10px; opacity: .85; }
+  .s6 .b1 { background: var(--red); color: #fff; } .s6 .b2 { background: var(--yellow); } .s6 .b3 { background: var(--blue); color: #fff; }
+
+  /* S7 quote / closing */
+  .s7 .qmark { position: absolute; left: 120px; top: 120px; font-size: 400px; font-weight: 900; color: var(--red); line-height: 1; }
+  .s7 .q { position: absolute; left: 120px; top: 360px; width: 1100px; font-size: 92px; font-weight: 800; letter-spacing: -.03em; line-height: 1; }
+  .s7 .by { position: absolute; left: 120px; top: 800px; font-size: 24px; letter-spacing: .26em; text-transform: uppercase; font-weight: 600; color: var(--ink-soft); }
+  .s7 .poster { left: 1340px; top: 150px; width: 460px; height: 780px; }
+  .s7 .poster .circ { width: 300px; height: 300px; right: -70px; top: -70px; }
+  .s7 .poster .sq { width: 200px; height: 200px; }
+  .s7 .poster .tri { top: 260px; right: 60px; }
+  .s7 .poster .qtr { bottom: 200px; right: 100px; }
+</style>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+
+<section class="s1" data-label="01 Cover">
+  <div class="top-bar"><span class="l">FORM &nbsp;·&nbsp; FUNCTION &nbsp;·&nbsp; 042</span><span class="r">BAUHAUS &nbsp;ARCHIVE &nbsp;/ &nbsp;EST. 1919</span></div>
+  <div class="left">
+    <div class="label-row"><span class="sw"></span><span class="tx">Exhibition <span class="acc">/ 03</span> — Design Principles</span></div>
+    <h1 class="h1">Less is more,<br>more or less.</h1>
+    <p class="body-t deck">An exhibition on <b>Bauhaus principles</b>, opening spring 2026 at the Dessau Foundation. Three rooms, ninety works, one rule: form follows function, and color follows form.</p>
+  </div>
+  <div class="pr">
+    <div class="pcard"><div class="num">01</div><svg viewBox="0 0 160 138"><circle cx="80" cy="62" r="34" fill="#d62828"/></svg><div><div class="pname">Primary<br>Circle</div><div class="pmeta">RED · 360°</div></div></div>
+    <div class="pcard"><div class="num">02</div><svg viewBox="0 0 160 138"><rect x="46" y="28" width="68" height="68" fill="#003049"/></svg><div><div class="pname">Primary<br>Square</div><div class="pmeta">BLUE · 4×90°</div></div></div>
+    <div class="pcard"><div class="num">03</div><svg viewBox="0 0 160 138"><polygon points="80,22 118,96 42,96" fill="#ffd60a"/></svg><div><div class="pname">Primary<br>Triangle</div><div class="pmeta">YELLOW · 3×60°</div></div></div>
+  </div>
+  <div class="poster">
+    <div class="gl"></div><div class="tl">PLATE 07 · 2026</div>
+    <div class="circ"></div><div class="sq"></div>
+    <svg class="tri" viewBox="0 0 96 120"><polygon points="0,0 96,0 0,120" fill="#ffd60a"/></svg>
+    <svg class="qtr" viewBox="0 0 110 110"><path d="M0,110 A110,110 0 0,1 110,0 L110,110 Z" fill="#ffd60a"/></svg>
+    <div class="bar"></div><div class="dot"></div>
+    <div class="bl">COMPOSITION No.07<small>CIRCLE · SQUARE · TRIANGLE</small></div>
+  </div>
+  <div class="foot">
+    <div><div class="k">Curator</div><div class="v">A. KANDINSKY</div></div>
+    <div><div class="k">Palette</div><div class="v"><span class="r">R</span> · <span class="b">B</span> · Y</div></div>
+    <div><div class="k">Run</div><div class="v">04 / 09 — 06 / 21</div></div>
+    <div><div class="k">Plate</div><div class="v">07 / 12</div></div>
+  </div>
+  <div class="bottom-rule"></div>
+  <div class="footer"><span>PART 03 — DESIGN PRINCIPLES</span><span class="r">01 / 07 &nbsp;·&nbsp; BAUHAUS 2026</span></div>
+</section>
+
+<section class="s2" data-label="02 Contents">
+  <div class="top-bar"><span class="l">CONTENTS</span><span class="r">FOUR ROOMS · ONE RULE</span></div>
+  <div class="abs" style="left:120px;top:128px"><div class="label-row"><span class="sw"></span><span class="tx">Exhibition <span class="acc">/ 03</span> — Index</span></div></div>
+  <h1 class="h1" style="position:absolute;left:120px;top:190px;font-size:120px">What we<br>will cover.</h1>
+  <div class="list">
+    <div class="row"><div class="n">01</div><div class="t">Form &amp; Function</div><div class="d">Why every shape earns its place on the page.</div><div class="s c"></div></div>
+    <div class="row"><div class="n">02</div><div class="t">Primary Palette</div><div class="d">Red, blue and yellow — and nothing else.</div><div class="s q"></div></div>
+    <div class="row"><div class="n">03</div><div class="t">Grid &amp; Rhythm</div><div class="d">Rules, bars and the quiet math behind order.</div><div class="s y"></div></div>
+    <div class="row"><div class="n">04</div><div class="t">Legacy Today</div><div class="d">What a century of modernism still teaches.</div><div class="s c" style="background:var(--ink)"></div></div>
+  </div>
+  <div class="bottom-rule"></div>
+  <div class="footer"><span>PART 03 — DESIGN PRINCIPLES</span><span class="r">02 / 07 &nbsp;·&nbsp; BAUHAUS 2026</span></div>
+</section>
+
+<section class="s3" data-label="03 Section Divider">
+  <div class="top-bar"><span class="l">ROOM 01</span><span class="r">FORM · FUNCTION</span></div>
+  <div class="circ"></div><div class="sqr"></div>
+  <svg class="tri" viewBox="0 0 96 96"><polygon points="0,96 96,96 96,0" fill="#003049" stroke="#fff" stroke-width="2"/></svg>
+  <div class="bar"></div>
+  <div class="big">01</div>
+  <h1 class="h1">Form follows function.</h1>
+  <div class="sub">Room one · The geometry of purpose</div>
+  <div class="bottom-rule"></div>
+  <div class="footer"><span>PART 03 — DESIGN PRINCIPLES</span><span class="r">03 / 07 &nbsp;·&nbsp; BAUHAUS 2026</span></div>
+</section>
+
+<section class="s4" data-label="04 Three Principles">
+  <div class="top-bar"><span class="l">PRINCIPLES</span><span class="r">THREE SHAPES · THREE RULES</span></div>
+  <div class="head"><div class="label-row"><span class="sw"></span><span class="tx">Room <span class="acc">/ 02</span> — Primary Shapes</span></div><h1 class="h1">Three shapes,<br>three rules.</h1></div>
+  <div class="grid">
+    <div class="card"><div class="no">01</div><svg class="shape" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#d62828"/></svg><h3>The Circle</h3><p>Continuity and motion. Used for emphasis, never for decoration.</p><div class="m">RED · 360°</div></div>
+    <div class="card"><div class="no">02</div><svg class="shape" viewBox="0 0 100 100"><rect x="6" y="6" width="88" height="88" fill="#003049"/></svg><h3>The Square</h3><p>Stability and structure. The unit from which the grid is built.</p><div class="m">BLUE · 4×90°</div></div>
+    <div class="card"><div class="no">03</div><svg class="shape" viewBox="0 0 100 100"><polygon points="50,6 94,92 6,92" fill="#ffd60a" stroke="#1a1a1a" stroke-width="2"/></svg><h3>The Triangle</h3><p>Tension and direction. Points the eye to what matters next.</p><div class="m">YELLOW · 3×60°</div></div>
+  </div>
+  <div class="bottom-rule"></div>
+  <div class="footer"><span>PART 03 — DESIGN PRINCIPLES</span><span class="r">04 / 07 &nbsp;·&nbsp; BAUHAUS 2026</span></div>
+</section>
+
+<section class="s5" data-label="05 Process Steps">
+  <div class="top-bar"><span class="l">METHOD</span><span class="r">FOUR STEPS TO ORDER</span></div>
+  <div class="abs" style="left:120px;top:128px"><div class="label-row"><span class="sw"></span><span class="tx">Room <span class="acc">/ 03</span> — Workshop</span></div></div>
+  <h1 class="h1" style="position:absolute;left:120px;top:190px;font-size:100px">From sketch<br>to plate.</h1>
+  <div class="axis"></div>
+  <div class="steps">
+    <div class="step"><div class="num">STEP 01</div><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#d62828"/></svg><h3>Sketch</h3><p>Reduce the idea to one shape and one color.</p></div>
+    <div class="step"><div class="num">STEP 02</div><svg viewBox="0 0 100 100"><rect x="6" y="6" width="88" height="88" fill="#003049"/></svg><h3>Construct</h3><p>Place it on the grid. Align every edge.</p></div>
+    <div class="step"><div class="num">STEP 03</div><svg viewBox="0 0 100 100"><polygon points="50,6 94,92 6,92" fill="#ffd60a" stroke="#1a1a1a" stroke-width="2"/></svg><h3>Test</h3><p>Remove anything that does not serve the purpose.</p></div>
+    <div class="step"><div class="num">STEP 04</div><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#1a1a1a"/><rect x="30" y="30" width="40" height="40" fill="#ffd60a"/></svg><h3>Print</h3><p>Fix the composition as a numbered plate.</p></div>
+  </div>
+  <div class="bottom-rule"></div>
+  <div class="footer"><span>PART 03 — DESIGN PRINCIPLES</span><span class="r">05 / 07 &nbsp;·&nbsp; BAUHAUS 2026</span></div>
+</section>
+
+<section class="s6" data-label="06 Key Numbers">
+  <div class="top-bar"><span class="l">BY THE NUMBERS</span><span class="r">EXHIBITION 042</span></div>
+  <div class="abs" style="left:120px;top:128px"><div class="label-row"><span class="sw"></span><span class="tx">Room <span class="acc">/ 04</span> — Figures</span></div></div>
+  <h1 class="h1" style="top:190px">A century,<br>in numbers.</h1>
+  <div class="blocks">
+    <div class="blk b1"><div class="l">Works on view</div><div><div class="num">90</div><div class="d">Posters, chairs, textiles and typefaces from three rooms.</div></div></div>
+    <div class="blk b2"><div class="l">Years of influence</div><div><div class="num">107</div><div class="d">Since the school opened in 1919.</div></div></div>
+    <div class="blk b3"><div class="l">Primary colors</div><div><div class="num">3</div><div class="d">Red, blue, yellow. One rule.</div></div></div>
+  </div>
+  <div class="bottom-rule"></div>
+  <div class="footer"><span>PART 03 — DESIGN PRINCIPLES</span><span class="r">06 / 07 &nbsp;·&nbsp; BAUHAUS 2026</span></div>
+</section>
+
+<section class="s7" data-label="07 Quote and Close">
+  <div class="top-bar"><span class="l">CLOSING</span><span class="r">THANK YOU</span></div>
+  <div class="qmark">“</div>
+  <div class="q">Color follows form, and form follows what the work is for.</div>
+  <div class="by">— Exhibition statement · Dessau Foundation</div>
+  <div class="poster">
+    <div class="gl"></div><div class="tl">PLATE 12 · 2026</div>
+    <div class="circ"></div><div class="sq"></div>
+    <svg class="tri" viewBox="0 0 96 120"><polygon points="0,0 96,0 0,120" fill="#ffd60a"/></svg>
+    <svg class="qtr" viewBox="0 0 110 110"><path d="M0,110 A110,110 0 0,1 110,0 L110,110 Z" fill="#ffd60a"/></svg>
+    <div class="bar"></div><div class="dot"></div>
+    <div class="bl">THANK YOU<small>Q &amp; A</small></div>
+  </div>
+  <div class="bottom-rule"></div>
+  <div class="footer"><span>PART 03 — DESIGN PRINCIPLES</span><span class="r">07 / 07 &nbsp;·&nbsp; BAUHAUS 2026</span></div>
+</section>
+
+</deck-stage>
+</body>
+</html>

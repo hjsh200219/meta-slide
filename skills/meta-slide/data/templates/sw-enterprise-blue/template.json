@@ -1,0 +1,50 @@
+{
+  "slug": "sw-enterprise-blue",
+  "name": "Enterprise Blue",
+  "tagline": "Blue gradient cover and section dividers, white content slides with soft shadow cards, pale dot grid and thin arc lines.",
+  "mood": [
+    "corporate",
+    "clean",
+    "trustworthy",
+    "bright"
+  ],
+  "occasion": [
+    "quarterly business review",
+    "internal strategy briefing",
+    "company-wide update",
+    "project kickoff",
+    "training session",
+    "product roadmap"
+  ],
+  "tone": [
+    "professional",
+    "clear",
+    "structured"
+  ],
+  "formality": "medium-high",
+  "density": "high",
+  "scheme": "mixed",
+  "palette": {
+    "bg": "#FFFFFF",
+    "text": "#141414",
+    "accent": "#1677FF",
+    "accent_dark": "#0950D9",
+    "page": "#F5F7FA",
+    "description": "White content pages with Alipay-style blue gradient covers and dividers."
+  },
+  "typography": {
+    "display": "Inter",
+    "body": "Inter",
+    "style": "Single neutral sans in heavy headings and regular body; replaces the original Chinese font stack."
+  },
+  "best_for": "Information-dense enterprise decks that need many card, step and keyword layouts under a calm blue brand look. Good for reviews, briefings and roadmaps.",
+  "avoid_for": "Emotional storytelling or design-led keynotes that need a distinctive personality.",
+  "slide_count": 13,
+  "navigation": "inline keyboard handler (ArrowRight/Space/PageDown, wheel, touch)",
+  "source": {
+    "repo": "FeeiCN/slide-writer",
+    "commit": "3c4524c",
+    "path": "examples/zhuge-liang-life.html",
+    "license": "MIT"
+  }
+}

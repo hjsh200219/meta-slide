@@ -1,0 +1,47 @@
+{
+  "slug": "ns-blueprint-tech",
+  "name": "Blueprint Tech",
+  "tagline": "Cyanotype blue grid with monospaced white labels, schematic boxes and spec tables",
+  "mood": [
+    "technical",
+    "precise",
+    "engineering",
+    "schematic"
+  ],
+  "occasion": [
+    "technical deep-dive",
+    "architecture review",
+    "engineering all-hands",
+    "hardware or systems pitch",
+    "developer talk"
+  ],
+  "tone": [
+    "analytical",
+    "exact",
+    "nerdy"
+  ],
+  "formality": "medium",
+  "density": "high",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#1b3a5c",
+    "text": "#ffffff",
+    "accent": "#5b9bd5",
+    "description": "Dark Blueprint Tech palette: #1b3a5c background, #ffffff text, #5b9bd5 accent"
+  },
+  "typography": {
+    "display": "Space Mono",
+    "body": "IBM Plex Mono",
+    "style": "Space Mono headings over IBM Plex Mono body"
+  },
+  "best_for": "Blueprint Tech suits technical deep-dive and architecture review. It reads as technical, precise, engineering.",
+  "avoid_for": "Formal regulated or conservative corporate decks.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/blueprint-tech.html",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "slug": "hp-pitch-deck",
+  "name": "Seed Pitch Deck",
+  "tagline": "Clean white with blue-to-purple gradient accent, oversized headlines and giant numbers",
+  "mood": [
+    "confident",
+    "clean",
+    "data-forward",
+    "startup"
+  ],
+  "occasion": [
+    "seed fundraising pitch",
+    "investor update",
+    "founder office hours",
+    "company state-of-the-union",
+    "product strategy"
+  ],
+  "tone": [
+    "ambitious",
+    "crisp",
+    "persuasive"
+  ],
+  "formality": "medium",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#ffffff",
+    "text": "#0d1130",
+    "accent": "#3b5bff",
+    "accent2": "#7a46ff",
+    "accent3": "#d94cff",
+    "surface": "#f6f7fb",
+    "description": "White with deep navy text and an indigo to magenta gradient"
+  },
+  "typography": {
+    "display": "Inter",
+    "body": "Inter",
+    "style": "Heavy sans headlines, big gradient numerals"
+  },
+  "best_for": "Classic problem, solution, market, traction and ask structure that investors skim quickly. Re-skin by changing the gradient.",
+  "avoid_for": "Long text-based academic talks.",
+  "slide_count": 10,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "templates/full-decks/pitch-deck",
+    "license": "MIT"
+  }
+}

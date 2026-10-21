@@ -1,0 +1,31 @@
+{
+  "slug": "pa-sakura-wabi",
+  "name": "Sakura Wabi",
+  "tagline": "Warm washi-paper off-white with soft ink greys, hairline rules, a single sakura-pink dot and airy light Cormorant Garamond serif, with vertical title type (extended from a single-slide specimen)",
+  "mood": ["quiet", "wabi-sabi", "refined", "contemplative", "airy"],
+  "occasion": ["tea, craft or ceramics brand story", "design philosophy talk", "hospitality or ryokan introduction", "mindfulness or wellness workshop", "art and culture feature"],
+  "tone": ["serene", "minimal", "poetic"],
+  "formality": "medium",
+  "density": "low",
+  "scheme": "light",
+  "palette": {
+    "bg": "#f5f0e8",
+    "text": "#2c2826",
+    "accent": "#d97a87",
+    "ink_light": "#7a6f66",
+    "sakura_light": "#ffb7c5",
+    "faint": "#c9b896",
+    "description": "washi off-white with charcoal ink and one restrained sakura pink accent"
+  },
+  "typography": {
+    "display": "Cormorant Garamond",
+    "body": "Cormorant Garamond",
+    "label": "Inter",
+    "style": "light elegant serif at large sizes, vertical display title, tiny widely tracked sans labels"
+  },
+  "best_for": "Calm, text-light decks about craft, philosophy, hospitality and slow living. Generous empty space and one soft pink accent carry the mood.",
+  "avoid_for": "Loud sales pitches or dense data decks that need strong contrast and many colors.",
+  "slide_count": 8,
+  "navigation": "deck-stage runtime",
+  "source": {"repo": "Akxan/ppt-agent-skill", "commit": "01825de", "path": "ppt-output/style-gallery/sakura_wabi.html", "license": "MIT"}
+}

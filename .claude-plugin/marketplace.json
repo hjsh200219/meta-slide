@@ -1,0 +1,12 @@
+{
+  "name": "meta-slide",
+  "description": "EDB 발표 자료 제작 플러그인",
+  "owner": { "name": "EDB Data Biz" },
+  "plugins": [
+    {
+      "name": "meta-slide",
+      "source": "./",
+      "description": "원칙 점검 + Jev 가 템플릿·인포그래픽·색·서체를 고르는 슬라이드 제작"
+    }
+  ]
+}

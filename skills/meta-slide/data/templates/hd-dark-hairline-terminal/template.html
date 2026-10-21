@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Dark Hairline Terminal — Deck Template</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="deck-stage.js"></script>
+<style>
+html,body{margin:0;padding:0;background:#000}
+body{font-family:"Inter Tight",sans-serif;color:#EDEDEF}
+deck-stage>section{width:1920px;height:1080px;position:relative;overflow:hidden;box-sizing:border-box;background:#0D0D0F;color:#EDEDEF}
+.frame{position:absolute;left:76px;right:76px;top:76px;bottom:76px;border:1px solid #262629}
+.row{position:absolute;left:0;right:0;border-top:1px solid #262629}
+.mono{font:400 21px "JetBrains Mono";color:#8B8B93;letter-spacing:.08em;text-transform:uppercase}
+.head{position:absolute;left:0;right:0;top:0;height:90px;display:flex;justify-content:space-between;align-items:center;padding:0 45px;border-bottom:1px solid #262629}
+.head b{font:500 22px "JetBrains Mono";color:#EDEDEF;letter-spacing:.04em}
+.head b::before{content:"";display:inline-block;width:13px;height:13px;background:#7C7CFF;margin-right:16px}
+h1{position:absolute;left:45px;top:160px;margin:0;font:600 132px/1.08 "Inter Tight";letter-spacing:-.035em;width:1450px}
+h1 span,h2 span{color:#7C7CFF}
+h2{position:absolute;left:45px;top:150px;margin:0;font:600 84px/1.1 "Inter Tight";letter-spacing:-.03em;width:1500px}
+.lead{position:absolute;left:45px;top:500px;font:400 32px/1.7 "Inter Tight";color:#A1A1AA;width:900px}
+.cmd{position:absolute;right:45px;top:500px;width:690px;border:1px solid #262629;padding:26px 32px;font:400 26px/1.8 "JetBrains Mono";color:#EDEDEF;background:#111113;box-sizing:border-box}
+.cmd .p{color:#7C7CFF}.cmd .m{color:#6B6B73}
+.grid{position:absolute;left:0;right:0;bottom:0;height:205px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #262629}
+.cell{padding:29px 45px;border-right:1px solid #262629}.cell:last-child{border:0}
+.cell b{display:block;font:500 64px/1 "Inter Tight";letter-spacing:-.03em;margin-top:22px}
+.list{position:absolute;left:0;right:0;top:340px}
+.li{display:grid;grid-template-columns:140px 1fr 520px;align-items:center;height:120px;border-top:1px solid #262629;padding:0 45px}
+.li:last-child{border-bottom:1px solid #262629}
+.li i{font:400 26px "JetBrains Mono";color:#7C7CFF;font-style:normal}
+.li b{font:500 54px "Inter Tight";letter-spacing:-.02em}
+.li span{font:400 28px "Inter Tight";color:#A1A1AA}
+.pg{position:absolute;right:45px;bottom:32px}
+.col{position:absolute;top:380px;bottom:150px;border-top:1px solid #262629}
+</style></head><body>
+<deck-stage width="1920" height="1080">
+
+<section data-label="01 Cover"><div class="frame">
+ <div class="head"><b>kuaigai</b><span class="mono">v1.0 · 2026.10 · MIT</span></div>
+ <h1>Rename in bulk,<br>with <span>one command</span>.</h1>
+ <div class="lead">A tiny Rust command-line tool that renames thousands of files for you. Preview first, then commit, and undo any time.</div>
+ <div class="cmd"><span class="m">$</span> <span class="p">kg</span> rename <span class="m">--dry</span> "*.jpg"<br><span class="m">  → 2,481 files, 0 conflicts</span><br><span class="m">$</span> <span class="p">kg</span> undo</div>
+ <div class="grid">
+  <div class="cell"><span class="mono">Stars</span><b>12.4k</b></div>
+  <div class="cell"><span class="mono">Cold start</span><b>3 ms</b></div>
+  <div class="cell"><span class="mono">Binary size</span><b>1.1 MB</b></div>
+  <div class="cell"><span class="mono">Contributors</span><b>87</b></div>
+ </div>
+</div></section>
+
+<section data-label="02 Contents"><div class="frame">
+ <div class="head"><b>kuaigai</b><span class="mono">00 · Contents</span></div>
+ <h2>What this <span>deck</span> covers</h2>
+ <div class="list">
+  <div class="li"><i>01</i><b>Why bulk renaming hurts</b><span>The problem in numbers</span></div>
+  <div class="li"><i>02</i><b>How it works</b><span>Dry-run, apply, undo</span></div>
+  <div class="li"><i>03</i><b>Benchmarks</b><span>Versus shell loops and GUI tools</span></div>
+  <div class="li"><i>04</i><b>Roadmap</b><span>Next two releases</span></div>
+ </div>
+ <span class="mono pg">02</span>
+</div></section>
+
+<section data-label="03 Section Divider"><div class="frame">
+ <div class="head"><b>kuaigai</b><span class="mono">Section 02</span></div>
+ <div style="position:absolute;left:45px;top:300px"><span class="mono" style="color:#7C7CFF">02 / How it works</span></div>
+ <h1 style="top:360px;font-size:190px">Preview.<br><span>Apply.</span> Undo.</h1>
+ <div class="row" style="bottom:205px"></div>
+ <span class="mono" style="position:absolute;left:45px;bottom:90px">Three verbs, nothing else to learn</span>
+</div></section>
+
+<section data-label="04 Feature List"><div class="frame">
+ <div class="head"><b>kuaigai</b><span class="mono">02 · Features</span></div>
+ <h2>Built for <span>safe</span> batch work</h2>
+ <div class="list" style="top:340px">
+  <div class="li"><i>A</i><b>Dry run by default</b><span>Shows every rename before touching disk</span></div>
+  <div class="li"><i>B</i><b>Conflict detection</b><span>Stops on duplicate target names</span></div>
+  <div class="li"><i>C</i><b>One-step undo</b><span>Journal stored next to the files</span></div>
+  <div class="li"><i>D</i><b>Regex and templates</b><span>Captures, counters, date tokens</span></div>
+ </div>
+ <span class="mono pg">04</span>
+</div></section>
+
+<section data-label="05 Terminal Diagram"><div class="frame">
+ <div class="head"><b>kuaigai</b><span class="mono">03 · Workflow</span></div>
+ <h2>From messy folder to <span>clean names</span></h2>
+ <div class="col" style="left:0;width:50%;border-right:1px solid #262629;padding:40px 45px;box-sizing:border-box"><span class="mono">Before</span>
+  <div class="cmd" style="position:static;width:auto;margin-top:26px;color:#8B8B93">IMG_0001.jpg<br>IMG_0002.jpg<br>IMG_0003 (copy).jpg<br>DSC9921.JPG<br>screenshot final v2.png</div></div>
+ <div class="col" style="left:50%;right:0;padding:40px 45px;box-sizing:border-box"><span class="mono">After</span>
+  <div class="cmd" style="position:static;width:auto;margin-top:26px"><span class="p">2026-10-01_trip_001.jpg</span><br><span class="p">2026-10-01_trip_002.jpg</span><br><span class="p">2026-10-01_trip_003.jpg</span><br><span class="p">2026-10-02_trip_004.jpg</span><br><span class="p">2026-10-02_trip_005.png</span></div></div>
+ <div class="row" style="bottom:100px"></div>
+ <span class="mono" style="position:absolute;left:45px;bottom:38px">$ kg rename --template "{date}_trip_{n:03}"</span>
+ <span class="mono pg">05</span>
+</div></section>
+
+<section data-label="06 Metrics"><div class="frame">
+ <div class="head"><b>kuaigai</b><span class="mono">04 · Benchmarks</span></div>
+ <h2>Faster than <span>anything</span> you scripted</h2>
+ <div class="list" style="top:340px">
+  <div class="li" style="grid-template-columns:140px 1fr 700px"><i>kg</i><b>kuaigai</b><span style="color:#7C7CFF;font:500 40px 'JetBrains Mono'">0.9 s · 10,000 files</span></div>
+  <div class="li" style="grid-template-columns:140px 1fr 700px"><i>sh</i><b>Shell loop</b><span style="font:400 40px 'JetBrains Mono'">14.2 s · 10,000 files</span></div>
+  <div class="li" style="grid-template-columns:140px 1fr 700px"><i>gui</i><b>Desktop GUI tool</b><span style="font:400 40px 'JetBrains Mono'">41.0 s · 10,000 files</span></div>
+ </div>
+ <div class="grid" style="height:170px;grid-template-columns:repeat(3,1fr)">
+  <div class="cell"><span class="mono">Speedup</span><b>15x</b></div>
+  <div class="cell"><span class="mono">Memory</span><b>9 MB</b></div>
+  <div class="cell"><span class="mono">Failures</span><b>0</b></div>
+ </div>
+</div></section>
+
+<section data-label="07 Closing"><div class="frame">
+ <div class="head"><b>kuaigai</b><span class="mono">Get started</span></div>
+ <h1 style="top:260px;font-size:170px">Try it <span>today</span>.</h1>
+ <div class="cmd" style="left:45px;right:auto;top:560px;width:900px"><span class="m">$</span> <span class="p">cargo</span> install kuaigai<br><span class="m">$</span> <span class="p">kg</span> rename --dry "*.jpg"</div>
+ <div class="lead" style="left:auto;right:45px;top:560px;width:640px;font-size:30px">Open source under MIT. Issues and pull requests welcome.</div>
+ <div class="grid" style="height:130px;grid-template-columns:repeat(2,1fr)"><div class="cell" style="padding-top:44px"><span class="mono">github.com/example/kuaigai</span></div><div class="cell" style="padding-top:44px"><span class="mono">v1.0 · 2026.10 · MIT</span></div></div>
+</div></section>
+
+</deck-stage>
+</body></html>

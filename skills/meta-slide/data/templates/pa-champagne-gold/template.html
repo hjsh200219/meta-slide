@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Champagne Gold — Deck Template</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Bodoni+Moda:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="deck-stage.js"></script>
+<style>
+  :root { --bg-from:#faf6ed; --bg-mid:#f6efd9; --bg-to:#f3ead0; --paper:#fbf7ec; --gold:#c9a35a; --gold-deep:#b88d3a; --gold-darker:#8e6a25; --gold-light:#f5e8c8; --gold-pale:#efe1b8; --ink:#2a2218; --ink-soft:#5a4a32; --ink-faint:#8a7855;
+    --display-font:'Playfair Display','Bodoni Moda','Didot',Georgia,serif; --body-font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; --script-font:'Playfair Display','Bodoni Moda',Georgia,serif; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { margin:0; background:#000; }
+  deck-stage > section { width:1920px; height:1080px; position:relative; overflow:hidden; color:var(--ink); font-family:var(--body-font);
+    background: radial-gradient(ellipse 70% 55% at 50% 38%, #fffaee 0%, transparent 60%), linear-gradient(160deg,var(--bg-from) 0%,var(--bg-mid) 55%,var(--bg-to) 100%);
+    font-feature-settings:'kern','liga','dlig','calt','onum'; -webkit-font-smoothing:antialiased; }
+  .grain { position:absolute; inset:0; background-image:radial-gradient(circle at 20% 30%,rgba(201,163,90,.05) 0%,transparent 35%),radial-gradient(circle at 80% 75%,rgba(184,141,58,.06) 0%,transparent 40%); pointer-events:none; }
+  .vig { position:absolute; inset:0; background:radial-gradient(ellipse 95% 75% at 50% 50%,transparent 55%,rgba(120,90,40,.10) 100%); pointer-events:none; }
+  .frame { position:absolute; top:54px; left:84px; right:84px; bottom:54px; border:1.5px solid rgba(201,163,90,.32); pointer-events:none; }
+  .frame-in { position:absolute; top:66px; left:96px; right:96px; bottom:66px; border:1.5px solid rgba(201,163,90,.18); pointer-events:none; }
+  .cn { position:absolute; width:33px; height:33px; border:0 solid var(--gold); }
+  .cn.c-tl { top:42px; left:72px; border-top-width:2px; border-left-width:2px; } .cn.c-tr { top:42px; right:72px; border-top-width:2px; border-right-width:2px; }
+  .cn.c-bl { bottom:42px; left:72px; border-bottom-width:2px; border-left-width:2px; } .cn.c-br { bottom:42px; right:72px; border-bottom-width:2px; border-right-width:2px; }
+  .fl { position:absolute; top:50%; transform:translateY(-50%); width:1.5px; height:420px; background:linear-gradient(180deg,transparent,rgba(201,163,90,.45) 30%,rgba(201,163,90,.45) 70%,transparent); }
+  .fl.l { left:144px; } .fl.r { right:144px; }
+  .fl::before,.fl::after { content:''; position:absolute; left:50%; transform:translateX(-50%) rotate(45deg); width:8px; height:8px; background:var(--gold-deep); } .fl::before { top:-4px; } .fl::after { bottom:-4px; }
+  .stage { position:absolute; inset:0; padding:100px 180px 130px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
+  .orn { display:flex; align-items:center; justify-content:center; gap:21px; margin-bottom:34px; }
+  .orn .line { width:90px; height:1.5px; background:linear-gradient(90deg,transparent,var(--gold) 60%,var(--gold-deep)); } .orn .line.r { background:linear-gradient(90deg,var(--gold-deep),var(--gold) 40%,transparent); }
+  .orn .diamond { width:9px; height:9px; background:var(--gold-deep); transform:rotate(45deg); box-shadow:0 0 0 4px rgba(201,163,90,.18); }
+  .maison { font-size:20px; font-weight:500; color:var(--gold-deep); letter-spacing:.65em; text-indent:.65em; text-transform:uppercase; margin-bottom:34px; }
+  .gold { background:linear-gradient(135deg,#b88d3a 0%,#e6cf91 30%,#f5e8c8 50%,#d8b86a 70%,#b88d3a 100%); -webkit-background-clip:text; background-clip:text; color:transparent; -webkit-text-fill-color:transparent; }
+  .headline { font-family:var(--display-font); font-style:italic; font-weight:500; font-size:150px; line-height:.95; letter-spacing:-.005em; background:linear-gradient(135deg,#b88d3a 0%,#e6cf91 30%,#f5e8c8 50%,#d8b86a 70%,#b88d3a 100%); -webkit-background-clip:text; background-clip:text; color:transparent; -webkit-text-fill-color:transparent; }
+  .headline .name { display:block; }
+  .headline .amp { display:block; font-weight:400; font-size:90px; line-height:1.1; background:linear-gradient(135deg,var(--gold-deep),var(--gold-light) 50%,var(--gold-deep)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .hl2 { font-family:var(--display-font); font-style:italic; font-weight:500; font-size:110px; line-height:1; color:var(--ink); }
+  .hl2 em { background:linear-gradient(135deg,#b88d3a 0%,#e6cf91 40%,#d8b86a 70%,#b88d3a 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; font-style:italic; padding-right:.08em; }
+  .gdiv { display:flex; align-items:center; justify-content:center; gap:21px; margin-top:34px; }
+  .gdiv .ln { width:165px; height:1.5px; background:linear-gradient(90deg,transparent,var(--gold)); } .gdiv .ln.r { background:linear-gradient(90deg,var(--gold),transparent); }
+  .gdiv .dot { width:9px; height:9px; background:var(--gold-deep); transform:rotate(45deg); }
+  .gdiv .swirl { font-family:var(--script-font); font-style:italic; font-size:33px; color:var(--gold-deep); line-height:1; }
+  .dateline { margin-top:34px; font-size:22px; font-weight:500; letter-spacing:.55em; text-indent:.55em; color:var(--ink-soft); text-transform:uppercase; }
+  .seal { width:132px; height:132px; border-radius:50%; border:2px solid var(--gold); display:flex; align-items:center; justify-content:center; margin:34px auto 0; position:relative; background:radial-gradient(circle at 35% 30%,rgba(255,250,235,.9) 0%,rgba(245,232,200,.5) 40%,transparent 70%); box-shadow:0 0 0 6px rgba(201,163,90,.06), 0 6px 27px rgba(184,141,58,.18), inset 0 1px 3px rgba(255,255,255,.6); }
+  .seal::after { content:''; position:absolute; inset:9px; border-radius:50%; border:1px solid rgba(184,141,58,.32); }
+  .seal .mono { font-family:var(--script-font); font-style:italic; font-weight:600; font-size:57px; line-height:1; background:linear-gradient(135deg,#8e6a25 0%,#d8b86a 50%,#8e6a25 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .venue { margin-top:36px; font-size:21px; font-weight:600; letter-spacing:.42em; text-indent:.42em; text-transform:uppercase; }
+  .venue .sep { color:var(--gold-deep); margin:0 6px; font-weight:400; }
+  .vsub { margin-top:16px; font-family:var(--script-font); font-style:italic; font-size:27px; color:var(--ink-soft); letter-spacing:.02em; }
+  .footer { position:absolute; bottom:84px; left:150px; right:150px; display:flex; justify-content:space-between; font-size:17px; font-weight:500; color:var(--gold-darker); opacity:.75; letter-spacing:.28em; text-transform:uppercase; }
+  /* s1 spacing */
+  .s1 .stage { padding-top:90px; padding-bottom:110px; } .s1 .orn { margin-bottom:20px; } .s1 .maison { margin-bottom:20px; } .s1 .headline { font-size:136px; } .s1 .gdiv { margin-top:20px; } .s1 .dateline { margin-top:20px; } .s1 .seal { margin-top:20px; width:112px; height:112px; } .s1 .venue { margin-top:20px; } .s1 .vsub { margin-top:10px; }
+  /* s2 */
+  .list { margin-top:48px; width:1200px; }
+  .row { display:grid; grid-template-columns:110px 440px 1fr; align-items:center; height:104px; border-bottom:1.5px solid rgba(201,163,90,.35); text-align:left; }
+  .row:first-child { border-top:1.5px solid rgba(201,163,90,.35); }
+  .row .n { font-family:var(--display-font); font-style:italic; font-size:48px; color:var(--gold-deep); } .row .t { font-family:var(--display-font); font-style:italic; font-size:44px; } .row .d { font-size:25px; color:var(--ink-soft); }
+  /* s3 */
+  .roman { font-family:var(--display-font); font-style:italic; font-weight:500; font-size:330px; line-height:1; background:linear-gradient(135deg,#b88d3a 0%,#d8b86a 35%,#e6cf91 50%,#c9a35a 70%,#b88d3a 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; padding-right:.1em; }
+  /* s4 */
+  .cols { display:grid; grid-template-columns:repeat(3,1fr); gap:60px; margin-top:56px; width:1400px; }
+  .col { padding:40px 30px; border:1.5px solid rgba(201,163,90,.35); background:rgba(255,250,236,.55); }
+  .tm { font-size:20px; letter-spacing:.4em; font-weight:600; color:var(--gold-deep); }
+  .ct { font-family:var(--display-font); font-style:italic; font-size:54px; margin-top:16px; }
+  .cl { width:60px; height:1.5px; background:var(--gold); margin:24px auto; }
+  .col p { font-size:25px; line-height:1.55; color:var(--ink-soft); }
+  /* s5 */
+  .tl { position:relative; display:grid; grid-template-columns:repeat(4,1fr); gap:30px; margin-top:76px; width:1440px; }
+  .tline { position:absolute; left:12%; right:12%; top:42px; height:1.5px; background:linear-gradient(90deg,transparent,var(--gold) 15%,var(--gold) 85%,transparent); }
+  .tn { width:86px; height:86px; margin:0 auto; border-radius:50%; border:2px solid var(--gold); background:var(--paper); display:flex; align-items:center; justify-content:center; font-family:var(--display-font); font-style:italic; font-size:38px; color:var(--gold-deep); position:relative; box-shadow:0 0 0 7px rgba(201,163,90,.08); }
+  .ts .ct { font-size:42px; margin-top:28px; } .ts p { font-size:24px; line-height:1.5; color:var(--ink-soft); margin-top:12px; }
+  /* s6 */
+  .figs { display:flex; gap:100px; margin-top:70px; }
+  .fg { text-align:center; } .fn { font-family:var(--display-font); font-style:italic; font-weight:500; font-size:190px; line-height:1; background:linear-gradient(135deg,#b88d3a 0%,#d8b86a 35%,#e6cf91 50%,#c9a35a 70%,#b88d3a 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; padding-right:.06em; }
+  .fl2 { font-size:21px; letter-spacing:.5em; text-indent:.5em; font-weight:600; color:var(--ink-soft); margin-top:12px; }
+  /* s7 */
+  .qm { font-family:var(--display-font); font-style:italic; font-size:200px; line-height:.6; height:100px; color:var(--gold-deep); }
+  .quote { font-family:var(--display-font); font-style:italic; font-weight:500; font-size:100px; line-height:1.05; color:var(--ink); }
+  .quote em { background:linear-gradient(135deg,#b88d3a 0%,#e6cf91 40%,#d8b86a 70%,#b88d3a 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; padding-right:.08em; }
+  .s7 .seal { width:104px; height:104px; margin-top:26px; } .s7 .seal .mono { font-size:46px; } .s7 .stage { padding-bottom:140px; }
+</style>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+<section class="s1" data-label="01 Cover"><div class="grain"></div><div class="vig"></div><div class="frame"></div><div class="frame-in"></div><i class="cn c-tl"></i><i class="cn c-tr"></i><i class="cn c-bl"></i><i class="cn c-br"></i><div class="fl l"></div><div class="fl r"></div><div class="stage"><div class="orn"><div class="line"></div><div class="diamond"></div><div class="line r"></div></div>
+<div class="maison">S A V E &middot; T H E &middot; D A T E</div>
+<h1 class="headline"><span class="name">Marie</span><span class="amp">&amp;</span><span class="name">&Eacute;tienne</span></h1>
+<div class="gdiv"><div class="ln"></div><div class="dot"></div><div class="swirl">&sect;</div><div class="dot"></div><div class="ln r"></div></div><div class="dateline">M M X X V I &middot; M A I &middot; X X I V</div>
+<div class="seal"><div class="mono">W</div></div>
+<div class="venue">VINEYARD <span class="sep">&middot;</span> CH&Acirc;TEAU MARGAUX <span class="sep">&middot;</span> 6 PM</div>
+<div class="vsub">A celebration of love, craft and timeless evenings</div></div><div class="footer"><span>MAISON WESTBROOK &middot; INVITATION N&deg; XXIV</span><span class="r">01 / 07 &middot; MAISON WESTBROOK</span></div></section>
+<section class="s2" data-label="02 Contents"><div class="grain"></div><div class="vig"></div><div class="frame"></div><div class="frame-in"></div><i class="cn c-tl"></i><i class="cn c-tr"></i><i class="cn c-bl"></i><i class="cn c-br"></i><div class="fl l"></div><div class="fl r"></div><div class="stage"><div class="maison">P R O G R A M M E</div><h1 class="hl2">The <em>evening</em> in order</h1><div class="gdiv"><div class="ln"></div><div class="dot"></div><div class="swirl">&sect;</div><div class="dot"></div><div class="ln r"></div></div><div class="list"><div class="row"><span class="n">I</span><span class="t">The Invitation</span><span class="d">Date, place and dress code.</span></div><div class="row"><span class="n">II</span><span class="t">The Ceremony</span><span class="d">Vows beneath the old oak at six.</span></div><div class="row"><span class="n">III</span><span class="t">The Dinner</span><span class="d">Five courses paired with estate wines.</span></div><div class="row"><span class="n">IV</span><span class="t">The Evening</span><span class="d">Dancing until the last candle.</span></div></div></div><div class="footer"><span>PROGRAMME &middot; CONTENTS</span><span class="r">02 / 07 &middot; MAISON WESTBROOK</span></div></section>
+<section class="s3" data-label="03 Section Divider"><div class="grain"></div><div class="vig"></div><div class="frame"></div><div class="frame-in"></div><i class="cn c-tl"></i><i class="cn c-tr"></i><i class="cn c-bl"></i><i class="cn c-br"></i><div class="fl l"></div><div class="fl r"></div><div class="stage"><div class="orn"><div class="line"></div><div class="diamond"></div><div class="line r"></div></div><div class="maison">C H A P T E R</div><div class="roman">II</div><div class="gdiv"><div class="ln"></div><div class="dot"></div><div class="swirl">&sect;</div><div class="dot"></div><div class="ln r"></div></div><h1 class="hl2" style="font-size:96px">The <em>Ceremony</em></h1><div class="vsub" style="margin-top:20px">Beneath the old oak, at six o&rsquo;clock</div></div><div class="footer"><span>CHAPTER II &middot; THE CEREMONY</span><span class="r">03 / 07 &middot; MAISON WESTBROOK</span></div></section>
+<section class="s4" data-label="04 Three Moments"><div class="grain"></div><div class="vig"></div><div class="frame"></div><div class="frame-in"></div><i class="cn c-tl"></i><i class="cn c-tr"></i><i class="cn c-bl"></i><i class="cn c-br"></i><div class="fl l"></div><div class="fl r"></div><div class="stage"><div class="maison">T H E &nbsp; E V E N I N G</div><h1 class="hl2">Three <em>moments</em></h1><div class="gdiv"><div class="ln"></div><div class="dot"></div><div class="swirl">&sect;</div><div class="dot"></div><div class="ln r"></div></div><div class="cols"><div class="col"><div class="tm">6:00 PM</div><div class="ct">Ceremony</div><div class="cl"></div><p>Vows beneath the oak, with strings and a single voice.</p></div><div class="col"><div class="tm">7:30 PM</div><div class="ct">Dinner</div><div class="cl"></div><p>Five courses in the barrel hall, paired with estate wines.</p></div><div class="col"><div class="tm">10:00 PM</div><div class="ct">Dancing</div><div class="cl"></div><p>The orchestra plays until the last candle burns down.</p></div></div></div><div class="footer"><span>THE EVENING &middot; THREE MOMENTS</span><span class="r">04 / 07 &middot; MAISON WESTBROOK</span></div></section>
+<section class="s5" data-label="05 Timeline"><div class="grain"></div><div class="vig"></div><div class="frame"></div><div class="frame-in"></div><i class="cn c-tl"></i><i class="cn c-tr"></i><i class="cn c-bl"></i><i class="cn c-br"></i><div class="fl l"></div><div class="fl r"></div><div class="stage"><div class="maison">T I M E L I N E</div><h1 class="hl2">An evening, <em>step by step</em></h1><div class="gdiv"><div class="ln"></div><div class="dot"></div><div class="swirl">&sect;</div><div class="dot"></div><div class="ln r"></div></div><div class="tl"><div class="tline"></div><div class="ts"><div class="tn">I</div><div class="ct">Arrive</div><p>Welcome glass on the terrace.</p></div><div class="ts"><div class="tn">II</div><div class="ct">Gather</div><p>Take your seats beneath the oak.</p></div><div class="ts"><div class="tn">III</div><div class="ct">Dine</div><p>Five courses, estate wines.</p></div><div class="ts"><div class="tn">IV</div><div class="ct">Celebrate</div><p>Music, dancing and candlelight.</p></div></div></div><div class="footer"><span>TIMELINE &middot; FOUR MOVEMENTS</span><span class="r">05 / 07 &middot; MAISON WESTBROOK</span></div></section>
+<section class="s6" data-label="06 Key Numbers"><div class="grain"></div><div class="vig"></div><div class="frame"></div><div class="frame-in"></div><i class="cn c-tl"></i><i class="cn c-tr"></i><i class="cn c-bl"></i><i class="cn c-br"></i><div class="fl l"></div><div class="fl r"></div><div class="stage"><div class="maison">I N &nbsp; N U M B E R S</div><h1 class="hl2">A night to <em>remember</em></h1><div class="gdiv"><div class="ln"></div><div class="dot"></div><div class="swirl">&sect;</div><div class="dot"></div><div class="ln r"></div></div><div class="figs"><div class="fg"><div class="fn">120</div><div class="fl2">GUESTS</div></div><div class="fg"><div class="fn">5</div><div class="fl2">COURSES</div></div><div class="fg"><div class="fn">24</div><div class="fl2">VINTAGES</div></div><div class="fg"><div class="fn">1</div><div class="fl2">EVENING</div></div></div></div><div class="footer"><span>IN NUMBERS &middot; THE NIGHT</span><span class="r">06 / 07 &middot; MAISON WESTBROOK</span></div></section>
+<section class="s7" data-label="07 Quote and Close"><div class="grain"></div><div class="vig"></div><div class="frame"></div><div class="frame-in"></div><i class="cn c-tl"></i><i class="cn c-tr"></i><i class="cn c-bl"></i><i class="cn c-br"></i><div class="fl l"></div><div class="fl r"></div><div class="stage"><div class="orn"><div class="line"></div><div class="diamond"></div><div class="line r"></div></div><div class="qm">&ldquo;</div><blockquote class="quote">Love is the <em>finest</em> vintage.</blockquote><div class="gdiv"><div class="ln"></div><div class="dot"></div><div class="swirl">&sect;</div><div class="dot"></div><div class="ln r"></div></div><div class="seal"><div class="mono">W</div></div><div class="venue" style="margin-top:24px">R S V P &nbsp;&middot;&nbsp; BY THE FIRST OF MAY</div><div class="vsub">With gratitude, Marie &amp; &Eacute;tienne</div></div><div class="footer"><span>THANK YOU &middot; WITH GRATITUDE</span><span class="r">07 / 07 &middot; MAISON WESTBROOK</span></div></section>
+</deck-stage>
+</body>
+</html>

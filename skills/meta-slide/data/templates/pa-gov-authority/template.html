@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gov Authority — Deck Template</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@400;500;600;700&display=swap');
+  :root{
+    --bg:#fffaf3; --bg-warm:#fdf3e3; --red:#c41e3a; --red-deep:#8b1721; --blue:#1a3a6e; --blue-deep:#0d2a5e;
+    --ink:#1a1a1a; --ink-soft:#3a3a3a; --ink-mute:#6a6a6a; --gold:#b8893a; --line:rgba(26,26,26,0.18);
+    --display-font:'Libre Baskerville','Georgia','Times New Roman',serif;
+    --body-font:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    --label-font:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{margin:0;background:#000}
+  deck-stage>section{width:1920px;height:1080px;position:relative;overflow:hidden;box-sizing:border-box;background:var(--bg);color:var(--ink);font-family:var(--body-font);-webkit-font-smoothing:antialiased}
+  .warm{position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(196,30,58,.04) 0%,transparent 60%),radial-gradient(ellipse 70% 50% at 50% 100%,rgba(26,58,110,.05) 0%,transparent 60%)}
+  .grain{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(26,26,26,.025) 1px,transparent 1px);background-size:6px 6px;opacity:.55}
+  .bar-t,.bar-b{position:absolute;left:0;right:0;display:flex;z-index:5}
+  .bar-t{top:0}.bar-b{bottom:0}
+  .bar-t i,.bar-b i{flex:1;height:9px}
+  .bar-t i:first-child,.bar-b i:last-child{background:var(--red)}
+  .bar-t i:last-child,.bar-b i:first-child{background:var(--blue)}
+  .thin-t,.thin-b{position:absolute;left:0;right:0;height:1px;background:var(--ink);opacity:.85;z-index:5}
+  .thin-t{top:9px}.thin-b{bottom:9px}
+  .cn{position:absolute;width:39px;height:39px;z-index:4;border:0 solid}
+  .cn.tl{top:42px;left:75px;border-top:2px solid var(--red);border-left:2px solid var(--red)}
+  .cn.tr{top:42px;right:75px;border-top:2px solid var(--blue);border-right:2px solid var(--blue)}
+  .cn.bl{bottom:42px;left:75px;border-bottom:2px solid var(--blue);border-left:2px solid var(--blue)}
+  .cn.br{bottom:42px;right:75px;border-bottom:2px solid var(--red);border-right:2px solid var(--red)}
+  .stage{position:relative;z-index:2;width:100%;height:100%;padding:90px 135px 75px;display:flex;flex-direction:column;align-items:center}
+  .hdr{display:flex;align-items:center;justify-content:center;gap:33px;margin-top:12px}
+  .emblem{width:84px;height:84px;border-radius:50%;border:3px solid var(--red);background:var(--bg);display:flex;align-items:center;justify-content:center;position:relative}
+  .emblem .ring{position:absolute;inset:6px;border-radius:50%;border:1px solid var(--red);opacity:.55}
+  .hdr-meta{font-family:var(--display-font);font-size:28px;font-weight:400;letter-spacing:.3em;padding-left:.3em}
+  .dbl{width:100%;margin-top:42px;display:flex;flex-direction:column;gap:5px}
+  .dbl .l1{height:2px;background:var(--ink);opacity:.85}.dbl .l2{height:1px;background:var(--ink);opacity:.55}
+  .overline{margin-top:42px;font-size:20px;color:var(--red-deep);letter-spacing:.45em;padding-left:.45em;font-weight:600;text-transform:uppercase;display:flex;align-items:center;gap:21px}
+  .overline .dash{width:42px;height:1px;background:var(--red-deep)}
+  .headline{margin-top:33px;font-family:var(--display-font);font-size:96px;font-weight:700;letter-spacing:.1em;padding-left:.1em;line-height:1.2;text-align:center;text-transform:uppercase}
+  .h2{font-family:var(--display-font);font-size:72px;font-weight:700;letter-spacing:.08em;padding-left:.08em;line-height:1.2;text-align:center;text-transform:uppercase;margin-top:30px}
+  .star-row{margin-top:45px;display:flex;align-items:center;justify-content:center;gap:27px}
+  .star-row .b{width:135px;height:1px;background:var(--red);opacity:.7}
+  .subtitle{margin-top:33px;font-family:var(--display-font);font-size:28px;color:var(--ink-soft);letter-spacing:.2em;padding-left:.2em;text-align:center}
+  .seal-row{margin-top:48px;display:flex;gap:21px;justify-content:center}
+  .seal{display:inline-block;padding:14px 30px 14px 33px;border:3px solid var(--red);color:var(--red);font-family:var(--display-font);font-size:22px;font-weight:700;letter-spacing:.4em;background:rgba(196,30,58,.04);text-transform:uppercase}
+  .seal.blue{border-color:var(--blue);color:var(--blue);background:rgba(26,58,110,.04)}
+  .meta-strip{position:absolute;bottom:117px;left:0;right:0;display:flex;justify-content:center;z-index:3}
+  .mc{padding:0 57px;text-align:center;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:9px;align-items:center}
+  .mc:last-child{border-right:none}
+  .mc .num{font-family:var(--display-font);font-size:54px;font-weight:700;letter-spacing:-.01em;line-height:1;display:flex;align-items:baseline;gap:6px}
+  .mc .num .u{font-family:var(--body-font);font-size:22px;font-weight:400;color:var(--ink-mute);letter-spacing:.1em}
+  .mc .num .a{color:var(--red)}
+  .mc .lbl{font-size:18px;color:var(--ink-mute);letter-spacing:.3em;padding-left:.3em;text-transform:uppercase}
+  .footer{position:absolute;bottom:33px;left:0;right:0;display:flex;justify-content:center;align-items:center;gap:24px;font-family:var(--display-font);font-size:20px;letter-spacing:.34em;padding-left:.34em;z-index:6;text-transform:uppercase}
+  .footer .dot{width:6px;height:6px;background:var(--red);border-radius:50%}
+  .footer .rn{font-family:var(--label-font);font-size:18px;color:var(--ink-mute);letter-spacing:.34em}
+  .side-l,.side-r{position:absolute;top:50%;font-size:15px;color:var(--ink-mute);letter-spacing:.5em;text-transform:uppercase;z-index:4;font-weight:500;white-space:nowrap}
+  .side-l{left:27px;transform:translate(-50%,-50%) rotate(-90deg);transform-origin:center;left:27px}
+  .side-r{right:27px;transform:translate(50%,-50%) rotate(90deg)}
+  .doc-no,.date-mark{position:absolute;top:48px;font-size:18px;color:var(--ink-mute);letter-spacing:.3em;text-transform:uppercase;font-weight:500;z-index:6}
+  .doc-no{right:90px}.date-mark{left:90px}
+  .doc-no b{color:var(--red);font-weight:700;margin-right:12px}.date-mark b{color:var(--blue);font-weight:700;margin-right:12px}
+  /* extra layouts */
+  .toc{width:100%;margin-top:45px}
+  .toc-row{display:grid;grid-template-columns:150px 1fr 180px;align-items:baseline;gap:30px;padding:27px 15px;border-bottom:1px solid var(--line)}
+  .toc-row .n{font-family:var(--display-font);font-size:42px;font-weight:700;color:var(--red)}
+  .toc-row .t{font-family:var(--display-font);font-size:44px;letter-spacing:.04em}
+  .toc-row .p{font-size:22px;color:var(--ink-mute);letter-spacing:.3em;text-align:right}
+  .cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;width:100%;margin-top:51px}
+  .panel{border:1px solid var(--line);border-top:6px solid var(--red);background:rgba(255,255,255,.55);padding:42px 39px 45px;min-height:420px}
+  .panel:nth-child(2){border-top-color:var(--blue)}
+  .panel .k{font-size:20px;font-weight:600;color:var(--red-deep);letter-spacing:.3em;text-transform:uppercase}
+  .panel:nth-child(2) .k{color:var(--blue)}
+  .panel .t{font-family:var(--display-font);font-size:40px;font-weight:700;line-height:1.2;margin-top:21px;letter-spacing:.02em}
+  .panel .d{font-size:25px;line-height:1.6;color:var(--ink-soft);margin-top:21px}
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;width:100%;margin-top:60px;position:relative}
+  .flow::before{content:'';position:absolute;left:12%;right:12%;top:54px;height:3px;background:linear-gradient(90deg,var(--red),var(--blue))}
+  .fs{text-align:center;padding:0 24px}
+  .fs .c{width:108px;height:108px;border-radius:50%;border:3px solid var(--red);background:var(--bg);margin:0 auto;display:flex;align-items:center;justify-content:center;font-family:var(--display-font);font-size:46px;font-weight:700;color:var(--red);position:relative}
+  .fs:nth-child(even) .c{border-color:var(--blue);color:var(--blue)}
+  .fs .t{font-family:var(--display-font);font-size:36px;font-weight:700;margin-top:33px;letter-spacing:.04em}
+  .fs .d{font-size:24px;line-height:1.55;color:var(--ink-soft);margin-top:15px}
+  .cmp{display:grid;grid-template-columns:1fr 1fr;gap:0;width:100%;margin-top:57px;border:1px solid var(--line)}
+  .cp{padding:54px 60px;text-align:center;min-height:430px}
+  .cp.r{background:rgba(196,30,58,.05);border-right:1px solid var(--line)}
+  .cp.b{background:rgba(26,58,110,.05)}
+  .cp .k{font-size:20px;font-weight:600;letter-spacing:.34em;text-transform:uppercase}
+  .cp.r .k{color:var(--red-deep)}.cp.b .k{color:var(--blue)}
+  .cp .big{font-family:var(--display-font);font-size:150px;font-weight:700;line-height:1;margin-top:33px}
+  .cp.r .big{color:var(--red)}.cp.b .big{color:var(--blue)}
+  .cp .big small{font-family:var(--body-font);font-size:42px;font-weight:400;color:var(--ink-mute);margin-left:9px}
+  .cp .d{font-size:26px;line-height:1.55;color:var(--ink-soft);margin-top:27px}
+  .quote{font-family:var(--display-font);font-size:64px;line-height:1.3;max-width:1400px;text-align:center;letter-spacing:.02em;margin-top:45px}
+  .qm{font-family:var(--display-font);font-size:200px;line-height:.5;color:var(--red);height:90px;margin-top:30px}
+  .attr{font-size:22px;letter-spacing:.34em;padding-left:.34em;color:var(--blue);margin-top:45px;font-weight:600;text-transform:uppercase}
+  .giant{font-family:var(--display-font);font-size:330px;font-weight:700;color:var(--red);line-height:1;margin-top:36px;letter-spacing:.04em}
+</style>
+<script src="deck-stage.js"></script>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+
+<section data-label="01 Cover">
+  <div class="warm"></div><div class="grain"></div>
+  <div class="bar-t"><i></i><i></i></div><div class="thin-t"></div><div class="bar-b"><i></i><i></i></div><div class="thin-b"></div>
+  <div class="cn tl"></div><div class="cn tr"></div><div class="cn bl"></div><div class="cn br"></div>
+  <div class="date-mark"><b>DOC</b>2026 &middot; Q3 &middot; 008</div><div class="doc-no"><b>Confidential</b>No. 2026-0073</div>
+  <div class="side-l">For internal circulation only</div><div class="side-r">Official Series &middot; MMXXVI</div>
+  <div class="stage">
+    <div class="hdr"><div class="emblem"><div class="ring"></div><svg width="45" height="45" viewBox="0 0 20 20"><polygon points="10,2 12.5,7.5 18.5,8 14,12 15.5,18 10,15 4.5,18 6,12 1.5,8 7.5,7.5" fill="#c41e3a"/></svg></div><div class="hdr-meta">2026 ANNUAL WORK REPORT</div></div>
+    <div class="dbl"><div class="l1"></div><div class="l2"></div></div>
+    <div class="overline"><span class="dash"></span><span>Part 01 &nbsp;&middot;&nbsp; Keynote Address</span><span class="dash"></span></div>
+    <h1 class="headline">Advancing High-<br>Quality Development</h1>
+    <div class="star-row"><span class="b"></span><svg width="33" height="33" viewBox="0 0 20 20"><polygon points="10,2 12.5,7.5 18.5,8 14,12 15.5,18 10,15 4.5,18 6,12 1.5,8 7.5,7.5" fill="#c41e3a"/></svg><span class="b"></span></div>
+    <div class="subtitle">&mdash; Joint Departmental Working Conference, Q3 2026 &mdash;</div>
+    <div class="seal-row"><div class="seal">Restricted &middot; Internal</div><div class="seal blue">Joint Seal</div></div>
+  </div>
+  <div class="meta-strip">
+    <div class="mc"><div class="num">28<span class="u">units</span></div><div class="lbl">Attending</div></div>
+    <div class="mc"><div class="num"><span class="a">156</span><span class="u">items</span></div><div class="lbl">Agenda</div></div>
+    <div class="mc"><div class="num">9.2<span class="u">%</span></div><div class="lbl">Year on Year</div></div>
+    <div class="mc"><div class="num">2026.09</div><div class="lbl">Convened</div></div>
+  </div>
+  <div class="footer"><span>Committee</span><svg width="21" height="21" viewBox="0 0 20 20"><polygon points="10,2 12.5,7.5 18.5,8 14,12 15.5,18 10,15 4.5,18 6,12 1.5,8 7.5,7.5" fill="#c41e3a"/></svg><svg width="21" height="21" viewBox="0 0 20 20"><polygon points="10,2 12.5,7.5 18.5,8 14,12 15.5,18 10,15 4.5,18 6,12 1.5,8 7.5,7.5" fill="#1a3a6e"/></svg><span>Secretariat</span><span class="dot"></span><span class="rn">01 / 07</span></div>
+</section>
+
+<section data-label="02 Agenda">
+  <div class="warm"></div><div class="grain"></div>
+  <div class="bar-t"><i></i><i></i></div><div class="thin-t"></div><div class="bar-b"><i></i><i></i></div><div class="thin-b"></div>
+  <div class="cn tl"></div><div class="cn tr"></div><div class="cn bl"></div><div class="cn br"></div>
+  <div class="date-mark"><b>DOC</b>2026 &middot; Q3 &middot; 008</div><div class="doc-no"><b>Confidential</b>No. 2026-0073</div>
+  <div class="side-l">For internal circulation only</div><div class="side-r">Official Series &middot; MMXXVI</div>
+  <div class="stage">
+    <div class="overline" style="margin-top:42px"><span class="dash"></span><span>Agenda</span><span class="dash"></span></div>
+    <h2 class="h2">Order of Business</h2>
+    <div class="dbl" style="margin-top:36px"><div class="l1"></div><div class="l2"></div></div>
+    <div class="toc">
+      <div class="toc-row"><span class="n">I</span><span class="t">Review of the year&rsquo;s results</span><span class="p">PAGE 03</span></div>
+      <div class="toc-row"><span class="n">II</span><span class="t">Key tasks and responsibilities</span><span class="p">PAGE 04</span></div>
+      <div class="toc-row"><span class="n">III</span><span class="t">Implementation timeline</span><span class="p">PAGE 05</span></div>
+      <div class="toc-row"><span class="n">IV</span><span class="t">Targets and commitments</span><span class="p">PAGE 06</span></div>
+    </div>
+  </div>
+  <div class="footer"><span>Committee</span><span class="dot"></span><span class="rn">02 / 07</span></div>
+</section>
+
+<section data-label="03 Section Divider">
+  <div class="warm"></div><div class="grain"></div>
+  <div class="bar-t"><i></i><i></i></div><div class="thin-t"></div><div class="bar-b"><i></i><i></i></div><div class="thin-b"></div>
+  <div class="cn tl"></div><div class="cn tr"></div><div class="cn bl"></div><div class="cn br"></div>
+  <div class="side-l">For internal circulation only</div><div class="side-r">Official Series &middot; MMXXVI</div>
+  <div class="stage" style="justify-content:center">
+    <div class="overline" style="margin-top:0"><span class="dash"></span><span>Part Two</span><span class="dash"></span></div>
+    <div class="giant">II</div>
+    <div class="star-row" style="margin-top:21px"><span class="b"></span><svg width="33" height="33" viewBox="0 0 20 20"><polygon points="10,2 12.5,7.5 18.5,8 14,12 15.5,18 10,15 4.5,18 6,12 1.5,8 7.5,7.5" fill="#c41e3a"/></svg><span class="b"></span></div>
+    <h2 class="h2" style="font-size:78px">Key Tasks and Responsibilities</h2>
+  </div>
+  <div class="footer"><span>Committee</span><span class="dot"></span><span class="rn">03 / 07</span></div>
+</section>
+
+<section data-label="04 Key Points">
+  <div class="warm"></div><div class="grain"></div>
+  <div class="bar-t"><i></i><i></i></div><div class="thin-t"></div><div class="bar-b"><i></i><i></i></div><div class="thin-b"></div>
+  <div class="cn tl"></div><div class="cn tr"></div><div class="cn bl"></div><div class="cn br"></div>
+  <div class="date-mark"><b>DOC</b>2026 &middot; Q3 &middot; 008</div><div class="doc-no"><b>Confidential</b>No. 2026-0073</div>
+  <div class="side-l">For internal circulation only</div><div class="side-r">Official Series &middot; MMXXVI</div>
+  <div class="stage">
+    <div class="overline" style="margin-top:42px"><span class="dash"></span><span>Priorities</span><span class="dash"></span></div>
+    <h2 class="h2">Three Priority Tasks</h2>
+    <div class="cols3">
+      <div class="panel"><div class="k">Task 01</div><div class="t">Strengthen coordination</div><div class="d">Align departmental plans under one calendar and one reporting line.</div></div>
+      <div class="panel"><div class="k">Task 02</div><div class="t">Raise service quality</div><div class="d">Publish standards, measure them quarterly and act on the results.</div></div>
+      <div class="panel"><div class="k">Task 03</div><div class="t">Ensure accountability</div><div class="d">Assign a named lead to every item and review progress in session.</div></div>
+    </div>
+  </div>
+  <div class="footer"><span>Committee</span><span class="dot"></span><span class="rn">04 / 07</span></div>
+</section>
+
+<section data-label="05 Process">
+  <div class="warm"></div><div class="grain"></div>
+  <div class="bar-t"><i></i><i></i></div><div class="thin-t"></div><div class="bar-b"><i></i><i></i></div><div class="thin-b"></div>
+  <div class="cn tl"></div><div class="cn tr"></div><div class="cn bl"></div><div class="cn br"></div>
+  <div class="date-mark"><b>DOC</b>2026 &middot; Q3 &middot; 008</div><div class="doc-no"><b>Confidential</b>No. 2026-0073</div>
+  <div class="side-l">For internal circulation only</div><div class="side-r">Official Series &middot; MMXXVI</div>
+  <div class="stage">
+    <div class="overline" style="margin-top:42px"><span class="dash"></span><span>Timeline</span><span class="dash"></span></div>
+    <h2 class="h2">Four Stages of Delivery</h2>
+    <div class="flow">
+      <div class="fs"><div class="c">1</div><div class="t">Mobilize</div><div class="d">Issue the directive and appoint leads.</div></div>
+      <div class="fs"><div class="c">2</div><div class="t">Deploy</div><div class="d">Allocate resources to each unit.</div></div>
+      <div class="fs"><div class="c">3</div><div class="t">Inspect</div><div class="d">Review progress at the mid-year session.</div></div>
+      <div class="fs"><div class="c">4</div><div class="t">Report</div><div class="d">Publish results and lessons learned.</div></div>
+    </div>
+  </div>
+  <div class="footer"><span>Committee</span><span class="dot"></span><span class="rn">05 / 07</span></div>
+</section>
+
+<section data-label="06 Comparison">
+  <div class="warm"></div><div class="grain"></div>
+  <div class="bar-t"><i></i><i></i></div><div class="thin-t"></div><div class="bar-b"><i></i><i></i></div><div class="thin-b"></div>
+  <div class="cn tl"></div><div class="cn tr"></div><div class="cn bl"></div><div class="cn br"></div>
+  <div class="date-mark"><b>DOC</b>2026 &middot; Q3 &middot; 008</div><div class="doc-no"><b>Confidential</b>No. 2026-0073</div>
+  <div class="side-l">For internal circulation only</div><div class="side-r">Official Series &middot; MMXXVI</div>
+  <div class="stage">
+    <div class="overline" style="margin-top:42px"><span class="dash"></span><span>Targets</span><span class="dash"></span></div>
+    <h2 class="h2">Last Year and This Year</h2>
+    <div class="cmp">
+      <div class="cp r"><div class="k">2025 Actual</div><div class="big">7.4<small>%</small></div><div class="d">Growth achieved across the participating units.</div></div>
+      <div class="cp b"><div class="k">2026 Target</div><div class="big">9.2<small>%</small></div><div class="d">Growth committed in the joint working plan.</div></div>
+    </div>
+  </div>
+  <div class="footer"><span>Committee</span><span class="dot"></span><span class="rn">06 / 07</span></div>
+</section>
+
+<section data-label="07 Closing">
+  <div class="warm"></div><div class="grain"></div>
+  <div class="bar-t"><i></i><i></i></div><div class="thin-t"></div><div class="bar-b"><i></i><i></i></div><div class="thin-b"></div>
+  <div class="cn tl"></div><div class="cn tr"></div><div class="cn bl"></div><div class="cn br"></div>
+  <div class="side-l">For internal circulation only</div><div class="side-r">Official Series &middot; MMXXVI</div>
+  <div class="stage" style="justify-content:center">
+    <div class="qm">&ldquo;</div>
+    <div class="quote">Let every unit act with one purpose and answer for every result.</div>
+    <div class="star-row"><span class="b"></span><svg width="33" height="33" viewBox="0 0 20 20"><polygon points="10,2 12.5,7.5 18.5,8 14,12 15.5,18 10,15 4.5,18 6,12 1.5,8 7.5,7.5" fill="#c41e3a"/></svg><span class="b"></span></div>
+    <div class="attr">Closing Remarks &middot; Joint Conference</div>
+    <div class="seal-row"><div class="seal">Restricted &middot; Internal</div><div class="seal blue">Joint Seal</div></div>
+  </div>
+  <div class="footer"><span>Committee</span><span class="dot"></span><span class="rn">07 / 07</span></div>
+</section>
+
+</deck-stage>
+</body>
+</html>

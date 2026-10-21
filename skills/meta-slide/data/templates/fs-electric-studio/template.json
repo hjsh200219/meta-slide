@@ -1,0 +1,49 @@
+{
+  "tagline": "Two-panel vertical split, white above and electric blue below, with a blue edge bar and Manrope ExtraBold.",
+  "mood": [
+    "bold",
+    "clean",
+    "professional",
+    "high-contrast"
+  ],
+  "occasion": [
+    "investor update",
+    "agency pitch",
+    "design review",
+    "quarterly business review",
+    "product keynote"
+  ],
+  "tone": [
+    "confident",
+    "minimal",
+    "crisp"
+  ],
+  "formality": "medium-high",
+  "density": "medium",
+  "scheme": "mixed",
+  "palette": {
+    "bg_dark": "#0a0a0a",
+    "bg_white": "#ffffff",
+    "accent_blue": "#4361ee",
+    "text_dark": "#0a0a0a",
+    "text_light": "#ffffff",
+    "description": "white top panel, saturated blue bottom panel, near-black for quote and closing"
+  },
+  "typography": {
+    "display": "Manrope",
+    "body": "Manrope",
+    "style": "single geometric sans in two weights, titles on the white panel"
+  },
+  "best_for": "Business updates that want a crisp, high-contrast look with generous spacing. The split makes titles and evidence read as two clear layers.",
+  "avoid_for": "Playful or warm brands, or decks with long paragraphs that need a calm page.",
+  "slug": "fs-electric-studio",
+  "name": "Electric Studio",
+  "slide_count": 10,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "zarazhangrui/frontend-slides",
+    "commit": "9906a34",
+    "path": "STYLE_PRESETS.md",
+    "license": "MIT"
+  }
+}

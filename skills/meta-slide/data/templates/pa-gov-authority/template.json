@@ -1,0 +1,49 @@
+{
+  "slug": "pa-gov-authority",
+  "name": "Gov Authority",
+  "tagline": "Ivory paper framed by red and blue bars, double rules, star emblem, tracked serif capitals and seal boxes (extended from a single-slide specimen)",
+  "mood": [
+    "official",
+    "solemn",
+    "authoritative",
+    "orderly"
+  ],
+  "occasion": [
+    "government work report",
+    "public-sector conference",
+    "policy briefing",
+    "annual institutional review",
+    "formal ceremony"
+  ],
+  "tone": [
+    "formal",
+    "serious",
+    "institutional"
+  ],
+  "formality": "high",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#fffaf3",
+    "text": "#1a1a1a",
+    "accent": "#c41e3a",
+    "accent2": "#1a3a6e",
+    "gold": "#b8893a",
+    "description": "Warm ivory with state red, deep blue and black ink"
+  },
+  "typography": {
+    "display": "Libre Baskerville",
+    "body": "Inter",
+    "style": "Widely tracked serif capitals, small tracked sans labels, centered formal composition"
+  },
+  "best_for": "Built for official reports and institutional occasions that call for gravity and ceremony. Symmetric layout and seals signal authority.",
+  "avoid_for": "Avoid for startup, creative or casual presentations.",
+  "slide_count": 7,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "Akxan/ppt-agent-skill",
+    "commit": "01825de",
+    "path": "ppt-output/style-gallery/gov_authority.html",
+    "license": "MIT"
+  }
+}

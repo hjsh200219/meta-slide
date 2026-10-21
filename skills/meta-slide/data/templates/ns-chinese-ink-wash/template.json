@@ -1,0 +1,47 @@
+{
+  "slug": "ns-chinese-ink-wash",
+  "name": "Ink Wash Landscape",
+  "tagline": "Rice-paper cream with blurred ink-mountain washes, vertical serif text and a red seal",
+  "mood": [
+    "serene",
+    "poetic",
+    "oriental",
+    "contemplative"
+  ],
+  "occasion": [
+    "cultural event",
+    "tea or art brand",
+    "heritage talk",
+    "philosophy lecture",
+    "tourism story"
+  ],
+  "tone": [
+    "quiet",
+    "lyrical",
+    "reflective"
+  ],
+  "formality": "medium",
+  "density": "low",
+  "scheme": "light",
+  "palette": {
+    "bg": "#f5f0e8",
+    "text": "#1a1a1a",
+    "accent": "#c23a2b",
+    "description": "Light Ink Wash Landscape palette: #f5f0e8 background, #1a1a1a text, #c23a2b accent"
+  },
+  "typography": {
+    "display": "serif",
+    "body": "serif",
+    "style": "serif headings over serif body"
+  },
+  "best_for": "Ink Wash Landscape suits cultural event and tea or art brand. It reads as serene, poetic, oriental.",
+  "avoid_for": "Dense data-heavy reports where the decorative look would compete with content.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/chinese-ink-wash.html",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "slug": "ns-split-pastel",
+  "name": "Split Pastel",
+  "tagline": "Peach, lavender, mint and pink color panels split side by side with Outfit headlines",
+  "mood": [
+    "fresh",
+    "soft",
+    "balanced",
+    "modern"
+  ],
+  "occasion": [
+    "creative agency intro",
+    "product comparison",
+    "education deck",
+    "brand overview",
+    "team introduction"
+  ],
+  "tone": [
+    "friendly",
+    "clean",
+    "upbeat"
+  ],
+  "formality": "medium-low",
+  "density": "low",
+  "scheme": "light",
+  "palette": {
+    "bg": "#e4dff0",
+    "text": "#1a1a1a",
+    "accent": "#c8f0d8",
+    "description": "Light Split Pastel palette: #e4dff0 background, #1a1a1a text, #c8f0d8 accent"
+  },
+  "typography": {
+    "display": "Outfit",
+    "body": "Outfit",
+    "style": "Outfit headings over Outfit body"
+  },
+  "best_for": "Split Pastel suits creative agency intro and product comparison. It reads as fresh, soft, balanced.",
+  "avoid_for": "Dense data-heavy reports where the decorative look would compete with content.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/split-pastel.html",
+    "license": "MIT"
+  }
+}

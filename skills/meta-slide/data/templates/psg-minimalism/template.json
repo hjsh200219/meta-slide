@@ -1,0 +1,50 @@
+{
+  "tagline": "Pure white page with charcoal text and one Klein-blue accent used under 10 percent: short rules, a thin vertical bar and ghosted section numbers, no radius.",
+  "mood": [
+    "restrained",
+    "refined",
+    "focused",
+    "premium"
+  ],
+  "occasion": [
+    "product launch",
+    "design proposal",
+    "TED-style talk",
+    "creative showcase",
+    "brand principles"
+  ],
+  "tone": [
+    "quiet",
+    "precise",
+    "minimal"
+  ],
+  "formality": "medium",
+  "density": "low",
+  "scheme": "light",
+  "palette": {
+    "bg": "#FFFFFF",
+    "text": "#333333",
+    "text_secondary": "#666666",
+    "accent": "#002FA7",
+    "surface": "#F5F5F5",
+    "hairline": "#E5E5E5",
+    "description": "white, charcoal and a single international Klein blue"
+  },
+  "typography": {
+    "display": "SF Pro Display",
+    "body": "SF Pro Display",
+    "style": "system grotesque stack (SF Pro Display, Helvetica Neue, Arial) in three size tiers"
+  },
+  "best_for": "Talks where whitespace carries the weight: design proposals, product reveals, short keynotes. Blue marks only the single thing that matters.",
+  "avoid_for": "Dense data decks or festive audiences; over 40 percent of every slide is intentionally empty.",
+  "slug": "psg-minimalism",
+  "name": "Klein Minimalism",
+  "slide_count": 10,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "vigorX777/ppt-svg-generator",
+    "commit": "c873b61",
+    "path": "styles/01-minimalism.md",
+    "license": "MIT"
+  }
+}

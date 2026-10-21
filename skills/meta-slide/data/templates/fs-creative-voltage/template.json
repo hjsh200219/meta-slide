@@ -1,0 +1,48 @@
+{
+  "tagline": "Electric blue left panel with halftone dots against a deep indigo right panel, neon yellow badges and Syne with Space Mono.",
+  "mood": [
+    "bold",
+    "creative",
+    "energetic",
+    "retro-modern"
+  ],
+  "occasion": [
+    "creative agency pitch",
+    "music or event launch",
+    "brand campaign",
+    "design talk",
+    "community meetup"
+  ],
+  "tone": [
+    "playful",
+    "loud",
+    "expressive"
+  ],
+  "formality": "low",
+  "density": "medium",
+  "scheme": "dark",
+  "palette": {
+    "bg_primary": "#0066ff",
+    "bg_dark": "#1a1a2e",
+    "accent_neon": "#d4ff00",
+    "text_light": "#ffffff",
+    "description": "electric blue and dark indigo split with a single neon yellow accent"
+  },
+  "typography": {
+    "display": "Syne",
+    "body": "Space Mono",
+    "style": "wide geometric display with a typewriter mono for labels"
+  },
+  "best_for": "Creative pitches, event decks and campaign reviews that should feel energetic and a little retro. The neon badge carries slide numbers and tags.",
+  "avoid_for": "Formal, financial or regulatory material, or any deck that must stay neutral.",
+  "slug": "fs-creative-voltage",
+  "name": "Creative Voltage",
+  "slide_count": 10,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "zarazhangrui/frontend-slides",
+    "commit": "9906a34",
+    "path": "STYLE_PRESETS.md",
+    "license": "MIT"
+  }
+}

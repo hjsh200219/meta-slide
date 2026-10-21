@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gradient Title Band</title>
+<script src="deck-stage.js"></script>
+<style>
+:root{--bg:#F6F6F6;--fg:#000000;--accent:#016BFF;--muted:#666666;--surface:#FFFFFF;--line:#016BFF;--fd:'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;--fb:'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;--fw:700}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#000}
+deck-stage{background:#111}
+section.slide{position:relative;overflow:hidden;background:var(--bg);color:var(--fg);font-family:var(--fb);font-size:30px;line-height:1.4}
+h1,h2,h3{font-family:var(--fd);font-weight:var(--fw,700)}
+.wrap{position:absolute;inset:0;padding:120px 140px;display:flex;flex-direction:column;justify-content:center}
+.kicker,.eyebrow{font-size:24px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:150px;line-height:1;letter-spacing:-.02em;margin:28px 0}
+h2{font-size:80px;line-height:1.05;letter-spacing:-.015em}
+h3{font-size:38px;line-height:1.15}
+.sub{font-size:36px;max-width:1100px;color:var(--muted)}
+.meta{font-size:24px;color:var(--muted);margin-top:48px}
+.num{font-family:var(--fd);font-size:340px;line-height:.9;color:var(--accent)}
+.hd{position:absolute;left:140px;right:140px;top:96px}
+.hd h2{margin-top:14px;max-width:1500px}
+.bd{position:absolute;left:140px;right:140px;top:330px;bottom:130px}
+.ft{position:absolute;left:140px;right:140px;bottom:46px;display:flex;justify-content:space-between;font-size:20px;color:var(--muted);letter-spacing:.06em}
+/* toc */
+.toc{list-style:none}
+.toc li{display:flex;align-items:baseline;gap:40px;padding:26px 0;border-bottom:2px solid var(--line)}
+.toc b{font-family:var(--fd);font-size:56px;min-width:110px;color:var(--accent)}
+.toc span{font-family:var(--fd);font-size:54px;min-width:520px}
+.toc i{font-style:normal;color:var(--muted);font-size:30px}
+/* points */
+.pts,.sum{list-style:none}
+.pts li,.sum li{display:flex;gap:44px;padding:26px 0;border-bottom:2px solid var(--line);align-items:flex-start}
+.pts b,.sum b{font-family:var(--fd);font-size:60px;line-height:1;min-width:110px;color:var(--accent)}
+.pts p,.sum p{color:var(--muted);margin-top:6px}
+/* steps */
+.steps{display:flex;gap:32px;height:100%;align-items:stretch}
+.step{flex:1;padding:36px 32px;border-top:6px solid var(--accent);background:var(--surface)}
+.step b{font-family:var(--fd);font-size:96px;line-height:1;color:var(--accent);display:block;margin-bottom:24px}
+.step p{margin-top:12px;color:var(--muted);font-size:28px}
+/* metrics */
+.mets{display:flex;gap:36px;height:100%;align-items:stretch}
+.met{flex:1;padding:36px 32px;background:var(--surface);display:flex;flex-direction:column;justify-content:flex-end}
+.met:first-child{flex:1.5}
+.met .v{font-family:var(--fd);font-size:150px;line-height:.95;color:var(--accent);letter-spacing:-.03em}
+.met:first-child .v{font-size:200px}
+.met .l{font-family:var(--fd);font-size:38px;margin-top:20px}
+.met p{color:var(--muted);margin-top:8px;font-size:26px}
+/* compare */
+.cmp{display:flex;gap:0;height:100%;align-items:stretch}
+.col{flex:1;padding:44px 52px;background:var(--surface)}
+.col h3{font-size:54px;margin-bottom:28px}
+.col ul{list-style:none}
+.col li{padding:16px 0;border-bottom:2px solid var(--line);font-size:32px}
+.col.b h3{color:var(--accent)}
+.vs{align-self:center;font-family:var(--fd);font-size:40px;padding:0 24px;color:var(--muted);text-transform:uppercase}
+/* quote */
+blockquote p{font-family:var(--fd);font-size:92px;line-height:1.12;max-width:1500px;letter-spacing:-.01em}
+blockquote cite{display:block;margin-top:44px;font-style:normal;font-size:28px;color:var(--accent);letter-spacing:.1em;text-transform:uppercase}
+
+
+.eyebrow,.kicker{color:#2ECCF7;font-weight:600;letter-spacing:.14em;font-size:22px}
+.hd{left:0;right:0;top:0;height:170px;background:linear-gradient(90deg,#016BFF 0%,#565BFF 100%);padding:50px 100px 0}.hd h2{color:#fff;font-size:60px;margin:0}.hd .eyebrow{color:#fff;opacity:.85;font-size:20px;margin-bottom:6px}
+.bd{left:100px;right:100px;top:240px;bottom:120px}.ft{left:100px;right:100px;color:#666}
+section.s-cover{background:linear-gradient(135deg,#016BFF 0%,#565BFF 100%)!important;color:#fff}.s-cover h1,.s-cover .sub,.s-cover .meta,.s-cover .kicker{color:#fff}.s-cover h1{font-size:130px}.s-cover .kicker{color:#2ECCF7}.s-cover .wrap{padding:0 130px}
+.s-cover .wrap::after{content:"";position:absolute;left:130px;top:230px;width:160px;height:8px;background:#2ECCF7}
+section.s-divider{background:#FFFFFF!important}.num{color:#016BFF;font-size:300px}.s-divider h2{color:#000;font-size:90px}.s-divider .wrap::before{content:"";position:absolute;left:0;top:0;width:36px;bottom:0;background:linear-gradient(180deg,#016BFF,#565BFF)}.s-divider .wrap{padding-left:160px}
+.toc li{background:#fff;border:2px solid #016BFF;border-bottom:2px solid #016BFF;margin-bottom:14px;padding:20px 36px}.toc li:nth-child(odd){background:#016BFF;color:#fff}.toc li:nth-child(odd) b,.toc li:nth-child(odd) i{color:#fff}.toc b{color:#016BFF;font-size:48px}.toc span{min-width:420px;font-size:44px}
+.pts li,.sum li{background:#fff;border:none;border-top:4px solid #016BFF;padding:22px 34px;margin-bottom:14px}.pts li:nth-child(2),.sum li:nth-child(2){border-top-color:#565BFF}.pts li:nth-child(3),.sum li:nth-child(3){border-top-color:#2ECCF7}.pts li:nth-child(4){border-top-color:#016BFF}.pts b,.sum b{color:#016BFF;font-size:48px}.pts p,.sum p{margin:0;color:#666}
+.step{background:#fff;border-top:4px solid #016BFF;border:2px solid #016BFF;border-top:4px solid #016BFF}.step:nth-child(2){background:#016BFF;color:#fff}.step:nth-child(2) b,.step:nth-child(2) p{color:#fff}.step:nth-child(3){border-color:#565BFF}.step:nth-child(4){background:linear-gradient(135deg,#016BFF,#565BFF);color:#fff;border:none}.step:nth-child(4) b,.step:nth-child(4) p{color:#fff}.step b{color:#016BFF}.step p{color:#666}
+.met{background:#fff;border-top:4px solid #016BFF;justify-content:flex-start}.met:first-child{background:linear-gradient(135deg,#016BFF,#565BFF);color:#fff;border:none}.met:first-child .v,.met:first-child p,.met:first-child .l{color:#fff}.met .v{color:#016BFF;font-size:100px}.met:first-child .v{font-size:150px}.met:nth-child(3) .v{color:#565BFF}.met p{color:#2ECCF7;font-size:24px}.met p{color:#666}
+.col{background:#fff;border-top:4px solid #016BFF}.col.b{background:#016BFF;color:#fff;border:none}.col.b h3{color:#fff}.col.b li{border-color:rgba(255,255,255,.4)}.col h3{color:#016BFF}.vs{display:none}.cmp{gap:30px}
+blockquote{border-left:10px solid #016BFF;padding-left:56px}blockquote p{font-size:72px;color:#016BFF}blockquote cite{color:#565BFF}
+section.slide.s-closing{background:linear-gradient(135deg,#016BFF 0%,#565BFF 100%)!important;color:#fff}.s-closing h2{color:#fff;font-size:190px}.s-closing .sub,.s-closing .meta{color:#fff}.s-closing .wrap{padding:0 130px}
+
+</style>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+<section class="slide s-cover" data-label="01 Cover" data-om-validate="false"><div class="wrap"><p class="kicker">Annual Review 2026</p><h1>Ideas Worth Building</h1><p class="sub">A short placeholder subtitle that explains the deck in one line.</p><p class="meta">Placeholder Speaker · October 2026</p></div></section>
+<section class="slide s-toc" data-label="02 Contents" data-om-validate="false"><header class="hd"><p class="eyebrow">Agenda</p><h2>Contents</h2></header><div class="bd"><ol class="toc"><li><b>01</b><span>Context</span><i>Where we stand today</i></li><li><b>02</b><span>Approach</span><i>How the plan works</i></li><li><b>03</b><span>Results</span><i>What the numbers say</i></li><li><b>04</b><span>Next steps</span><i>What happens from here</i></li></ol></div><footer class="ft"><span>Placeholder Deck</span><span class="pg">02 / 10</span></footer></section>
+<section class="slide s-divider" data-label="03 Section Divider" data-om-validate="false"><div class="wrap"><div class="num">02</div><h2>Approach</h2><p class="sub">Four moves that turn the idea into something shippable.</p></div></section>
+<section class="slide s-points" data-label="04 Evidence List" data-om-validate="false"><header class="hd"><p class="eyebrow">Evidence</p><h2>Three reasons the plan holds</h2></header><div class="bd"><ul class="pts"><li><b>01</b><div><h3>Clear demand</h3><p>Customers asked for it three times in the last quarter.</p></div></li><li><b>02</b><div><h3>Small first step</h3><p>The first release fits inside one sprint and one team.</p></div></li><li><b>03</b><div><h3>Measured risk</h3><p>Every step has a stop rule written down in advance.</p></div></li><li><b>04</b><div><h3>Shared ownership</h3><p>One owner per step and one weekly check-in.</p></div></li></ul></div><footer class="ft"><span>Placeholder Deck</span><span class="pg">04 / 10</span></footer></section>
+<section class="slide s-steps" data-label="05 Process Diagram" data-om-validate="false"><header class="hd"><p class="eyebrow">Process</p><h2>From idea to launch in four steps</h2></header><div class="bd"><div class="steps"><div class="step"><b>1</b><h3>Frame</h3><p>Write the problem in one sentence.</p></div><div class="step"><b>2</b><h3>Prototype</h3><p>Build the smallest thing that can be tested.</p></div><div class="step"><b>3</b><h3>Test</h3><p>Put it in front of ten real users.</p></div><div class="step"><b>4</b><h3>Launch</h3><p>Ship, measure, and keep what works.</p></div></div></div><footer class="ft"><span>Placeholder Deck</span><span class="pg">05 / 10</span></footer></section>
+<section class="slide s-metrics" data-label="06 Key Numbers" data-om-validate="false"><header class="hd"><p class="eyebrow">Results</p><h2>Numbers that moved this year</h2></header><div class="bd"><div class="mets"><div class="met"><div class="v">42%</div><div class="l">Faster delivery</div><p>Median cycle time, down from 11 days to 6.</p></div><div class="met"><div class="v">3.1x</div><div class="l">Pipeline growth</div><p>Qualified leads versus the previous year.</p></div><div class="met"><div class="v">98%</div><div class="l">Retention</div><p>Accounts renewed at the last review.</p></div><div class="met"><div class="v">12</div><div class="l">New markets</div><p>Opened with the same core team.</p></div></div></div><footer class="ft"><span>Placeholder Deck</span><span class="pg">06 / 10</span></footer></section>
+<section class="slide s-compare" data-label="07 Comparison" data-om-validate="false"><header class="hd"><p class="eyebrow">Comparison</p><h2>Before and after the change</h2></header><div class="bd"><div class="cmp"><div class="col a"><h3>Before</h3><ul><li>Work arrives from five channels</li><li>Reviews happen at the end</li><li>Status lives in private notes</li></ul></div><div class="vs">vs</div><div class="col b"><h3>After</h3><ul><li>One shared intake queue</li><li>Reviews happen every step</li><li>Status is visible to everyone</li></ul></div></div></div><footer class="ft"><span>Placeholder Deck</span><span class="pg">07 / 10</span></footer></section>
+<section class="slide s-quote" data-label="08 Quote" data-om-validate="false"><div class="wrap"><blockquote><p>The best plan is the one a whole team can explain in a single breath.</p><cite>Placeholder Speaker, Role</cite></blockquote></div></section>
+<section class="slide s-summary" data-label="09 Summary" data-om-validate="false"><header class="hd"><p class="eyebrow">Summary</p><h2>What to remember</h2></header><div class="bd"><ul class="sum"><li><b>01</b><div><h3>Start small</h3><p>Pick the first step that fits in one sprint.</p></div></li><li><b>02</b><div><h3>Measure early</h3><p>Write the stop rule before you begin.</p></div></li><li><b>03</b><div><h3>Share the load</h3><p>One owner per step, one weekly check-in.</p></div></li></ul></div><footer class="ft"><span>Placeholder Deck</span><span class="pg">09 / 10</span></footer></section>
+<section class="slide s-closing" data-label="10 Closing" data-om-validate="false"><div class="wrap"><h2>Thank you</h2><p class="sub">Questions and next steps</p><p class="meta">hello@example.com · example.com</p></div></section>
+</deck-stage>
+</body>
+</html>

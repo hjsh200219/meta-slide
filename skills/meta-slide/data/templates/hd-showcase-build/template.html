@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Benchmark Report - Build Studio Style</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<script src="deck-stage.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #000; }
+  body { font-family: 'Inter', sans-serif; color: #2A2A2A; }
+
+  deck-stage > section {
+    width: 1920px; height: 1080px;
+    background: #FAFAF8;
+    color: #2A2A2A;
+    position: relative;
+    overflow: hidden;
+    padding: 72px 96px 64px 96px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .top-row { display: flex; justify-content: space-between; align-items: flex-start; }
+  .eyebrow { font-size: 20px; font-weight: 400; letter-spacing: 6px; text-transform: uppercase; color: #B0ACA4; }
+  .source-note { font-size: 20px; font-weight: 300; color: #C0BCB6; text-align: right; line-height: 1.6; }
+
+  .title-area { padding-bottom: 32px; border-bottom: 1px solid #EEECE8; }
+  .main-title { font-size: 72px; font-weight: 200; color: #2A2A2A; letter-spacing: -1px; line-height: 1.2; }
+  .main-title .accent { font-weight: 400; }
+  .main-title .gold-dot { color: #D4A574; font-weight: 300; }
+  .subtitle { font-size: 28px; font-weight: 300; color: #A0A09A; margin-top: 14px; letter-spacing: 0.3px; }
+
+  .bottom-section { display: flex; justify-content: space-between; align-items: flex-end; padding-top: 28px; }
+  .insight-text { font-size: 26px; font-weight: 300; color: #999; line-height: 1.7; max-width: 1100px; }
+  .insight-text strong { font-weight: 500; color: #666; }
+  .brand-mark { display: flex; align-items: center; gap: 20px; }
+  .brand-line { width: 48px; height: 1px; background: #D4A574; opacity: 0.6; }
+  .brand-text { font-size: 20px; font-weight: 400; letter-spacing: 5px; color: #C8C4BC; }
+
+  .slide-indicator { position: absolute; top: 80px; right: 96px; display: flex; gap: 8px; align-items: center; }
+  .slide-dot { width: 6px; height: 6px; border-radius: 50%; background: #E0DCD6; }
+  .slide-dot.active { background: #D4A574; width: 24px; border-radius: 3px; }
+
+  /* Cover */
+  .cover .hero { flex: 1; display: flex; flex-direction: column; justify-content: center; border-bottom: 1px solid #EEECE8; margin: 48px 0 0; padding-bottom: 48px; }
+  .cover .hero-title { font-size: 168px; font-weight: 200; letter-spacing: -5px; line-height: 1.05; color: #2A2A2A; }
+  .cover .hero-title .accent { font-weight: 400; }
+  .cover .hero-title .gold-dot { color: #D4A574; font-weight: 300; }
+  .cover .hero-sub { font-size: 36px; font-weight: 300; color: #A0A09A; margin-top: 32px; max-width: 1200px; line-height: 1.5; }
+
+  /* Contents */
+  .toc { flex: 1; display: flex; flex-direction: column; justify-content: center; margin-top: 32px; }
+  .toc-row { display: flex; align-items: baseline; gap: 48px; padding: 30px 0; border-bottom: 1px solid #EEECE8; }
+  .toc-row:first-child { border-top: 1px solid #EEECE8; }
+  .toc-num { font-size: 28px; font-weight: 400; color: #D4A574; width: 72px; letter-spacing: 2px; }
+  .toc-name { font-size: 60px; font-weight: 200; letter-spacing: -0.5px; flex: 1; }
+  .toc-cap { font-size: 24px; font-weight: 300; color: #B0ACA4; letter-spacing: 0.5px; }
+
+  /* Divider */
+  .divider .center { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  .divider .big-num { font-size: 400px; font-weight: 200; letter-spacing: -16px; line-height: 0.9; color: #2A2A2A; }
+  .divider .big-num .gold-dot { color: #D4A574; font-weight: 300; }
+  .divider .div-title { font-size: 72px; font-weight: 200; margin-top: 40px; letter-spacing: -0.5px; }
+  .divider .div-title .accent { font-weight: 400; }
+  .divider .div-sub { font-size: 30px; font-weight: 300; color: #A0A09A; margin-top: 16px; }
+
+  /* Metrics */
+  .hero-data { flex: 1; display: flex; align-items: center; justify-content: center; position: relative; padding-bottom: 32px; border-bottom: 1px solid #EEECE8; }
+  .metric-card { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; padding: 32px 24px; }
+  .metric-card::after { content: ''; position: absolute; right: 0; top: 15%; height: 70%; width: 1px; background: linear-gradient(to bottom, transparent, #E0DCD6 50%, transparent); }
+  .metric-card:last-child::after { display: none; }
+  .metric-value { font-size: 176px; font-weight: 200; color: #2A2A2A; letter-spacing: -6px; line-height: 1; position: relative; }
+  .metric-value .dot { color: #D4A574; font-weight: 300; }
+  .metric-unit { font-size: 44px; font-weight: 200; color: #D4A574; vertical-align: super; margin-left: 4px; opacity: 0.8; }
+  .metric-name { font-size: 22px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: #888; margin-top: 24px; margin-bottom: 8px; }
+  .metric-category { font-size: 22px; font-weight: 300; color: #B8B4AE; letter-spacing: 0.5px; }
+  .comparison-group { margin-top: 36px; width: 480px; }
+  .comp-row { display: flex; align-items: center; margin-bottom: 14px; gap: 14px; }
+  .comp-label { font-size: 20px; font-weight: 400; color: #A8A4A0; width: 132px; text-align: right; flex-shrink: 0; }
+  .comp-track { flex: 1; height: 3px; background: #EEECEA; border-radius: 2px; position: relative; overflow: hidden; }
+  .comp-fill { height: 100%; border-radius: 2px; background: #D8D5D0; }
+  .comp-fill.gold { background: #D4A574; }
+  .comp-val { font-size: 20px; font-weight: 500; color: #999; width: 72px; flex-shrink: 0; }
+  .comp-val.gold { color: #D4A574; }
+
+  /* Process */
+  .steps { flex: 1; display: flex; align-items: center; border-bottom: 1px solid #EEECE8; margin-top: 24px; padding-bottom: 24px; }
+  .step { flex: 1; padding: 0 44px; position: relative; display: flex; flex-direction: column; align-self: center; height: 560px; }
+  .step:first-child { padding-left: 0; }
+  .step::after { content: ''; position: absolute; right: 0; top: 0; height: 100%; width: 1px; background: linear-gradient(to bottom, transparent, #E0DCD6 50%, transparent); }
+  .step:last-child::after { display: none; }
+  .step-num { font-size: 120px; font-weight: 200; letter-spacing: -4px; line-height: 1; color: #2A2A2A; }
+  .step-num .dot { color: #D4A574; font-weight: 300; }
+  .step-name { font-size: 22px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: #888; margin-top: 28px; margin-bottom: 14px; }
+  .step-desc { font-size: 26px; font-weight: 300; color: #999; line-height: 1.65; }
+  .step-bar { margin-top: 32px; width: 100%; height: 3px; background: #EEECEA; border-radius: 2px; overflow: hidden; }
+  .step-bar > div { height: 100%; background: #D4A574; border-radius: 2px; }
+
+  /* Comparison */
+  .compare { flex: 1; display: flex; margin-top: 24px; border-bottom: 1px solid #EEECE8; padding-bottom: 24px; }
+  .col { flex: 1; padding: 24px 64px 0 0; display: flex; flex-direction: column; }
+  .col + .col { padding: 24px 0 0 64px; border-left: 1px solid #EEECE8; }
+  .col-name { font-size: 22px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: #888; }
+  .col-head { font-size: 76px; font-weight: 200; letter-spacing: -1px; margin: 12px 0 32px; line-height: 1.1; }
+  .col-head .gold-dot { color: #D4A574; font-weight: 300; }
+  .row { display: flex; justify-content: space-between; align-items: baseline; padding: 24px 0; border-top: 1px solid #EEECE8; }
+  .row .k { font-size: 26px; font-weight: 300; color: #A0A09A; }
+  .row .v { font-size: 40px; font-weight: 200; color: #2A2A2A; }
+  .row .v.gold { color: #D4A574; font-weight: 300; }
+
+  /* Closing */
+  .quote { flex: 1; display: flex; flex-direction: column; justify-content: center; margin-top: 24px; border-bottom: 1px solid #EEECE8; padding-bottom: 32px; }
+  .quote-mark { font-size: 200px; font-weight: 200; color: #D4A574; line-height: 0.6; height: 100px; }
+  .quote-text { font-size: 76px; font-weight: 200; letter-spacing: -1px; line-height: 1.3; max-width: 1500px; }
+  .quote-text .accent { font-weight: 400; }
+  .quote-by { font-size: 22px; font-weight: 400; letter-spacing: 4px; text-transform: uppercase; color: #B0ACA4; margin-top: 40px; }
+  .takeaways { display: flex; gap: 64px; }
+  .takeaway { flex: 1; }
+  .takeaway .n { font-size: 56px; font-weight: 200; letter-spacing: -1px; line-height: 1; }
+  .takeaway .n .dot { color: #D4A574; font-weight: 300; }
+  .takeaway .t { font-size: 22px; font-weight: 300; color: #A0A09A; margin-top: 10px; }
+</style>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+
+<!-- 01 Cover -->
+<section class="cover" data-label="01 Cover">
+  <div class="top-row">
+    <div class="eyebrow">Nova-4 Open-Source Model</div>
+    <div class="source-note">Benchmark Evaluation 2025<br>Official Results</div>
+  </div>
+  <div class="hero">
+    <div class="hero-title">Coding Capability<br><span class="accent">Breakthrough</span><span class="gold-dot">.</span></div>
+    <div class="hero-sub">First open-source model to achieve state-of-the-art across all major coding benchmarks</div>
+  </div>
+  <div class="bottom-section">
+    <div class="insight-text">Annual benchmark review &middot; Engineering &amp; Research</div>
+    <div class="brand-mark"><div class="brand-line"></div><span class="brand-text">NORTHWIND LABS</span></div>
+  </div>
+</section>
+
+<!-- 02 Contents -->
+<section data-label="02 Contents">
+  <div class="top-row">
+    <div class="eyebrow">Contents</div>
+    <div class="slide-indicator"><div class="slide-dot"></div><div class="slide-dot active"></div><div class="slide-dot"></div><div class="slide-dot"></div><div class="slide-dot"></div><div class="slide-dot"></div><div class="slide-dot"></div></div>
+  </div>
+  <div class="title-area" style="margin-top:32px;">
+    <div class="main-title">What this report <span class="accent">covers</span><span class="gold-dot">.</span></div>
+    <div class="subtitle">Five sections, one clear result</div>
+  </div>
+  <div class="toc">
+    <div class="toc-row"><span class="toc-num">01</span><span class="toc-name">Overview</span><span class="toc-cap">Context and goals</span></div>
+    <div class="toc-row"><span class="toc-num">02</span><span class="toc-name">Benchmark results</span><span class="toc-cap">Three headline metrics</span></div>
+    <div class="toc-row"><span class="toc-num">03</span><span class="toc-name">Evaluation method</span><span class="toc-cap">How we measured</span></div>
+    <div class="toc-row"><span class="toc-num">04</span><span class="toc-name">Head-to-head</span><span class="toc-cap">Open versus proprietary</span></div>
+    <div class="toc-row"><span class="toc-num">05</span><span class="toc-name">Outlook</span><span class="toc-cap">What comes next</span></div>
+  </div>
+  <div class="bottom-section">
+    <div class="insight-text" style="font-size:22px;">Source: official evaluation reports, 2025</div>
+    <div class="brand-mark"><div class="brand-line"></div><span class="brand-text">NORTHWIND LABS</span></div>
+  </div>
+</section>
+
+<!-- 03 Section Divider -->
+<section class="divider" data-label="03 Section Divider">
+  <div class="top-row">
+    <div class="eyebrow">Section</div>
+    <div class="slide-indicator"><div class="slide-dot"></div><div class="slide-dot"></div><div class="slide-dot active"></div><div class="slide-dot"></div><div class="slide-dot"></div><div class="slide-dot"></div><div class="slide-dot"></div></div>
+  </div>
+  <div class="center">
+    <div class="big-num">02<span class="gold-dot">.</span></div>
+    <div class="div-title">Benchmark <span class="accent">results</span></div>
+    <div class="div-sub">Mathematics, software engineering and agent tasks</div>
+  </div>
+  <div class="bottom-section">
+    <div></div>
+    <div class="brand-mark"><div class="brand-line"></div><span class="brand-text">NORTHWIND LABS</span></div>
+  </div>
+</section>
+
+<!-- 04 Metrics -->
+<section data-label="04 Hero Metrics">
+  <div class="top-row">
+    <div class="eyebrow">Nova-4 Open-Source Model</div>
+    <div class="source-note" style="margin-right:200px;">Benchmark Evaluation 2025<br>Official Results</div>
+    <div class="slide-indicator"><div class="slide-dot"></div><div class="slide-dot"></div><div class="slide-dot"></div><div class="slide-dot active"></div><div class="slide-dot"></div><div class="slide-dot"></div><div class="slide-dot"></div></div>
+  </div>
+  <div class="title-area" style="margin-top:16px;">
+    <div class="main-title" style="font-size:64px;">Coding Capability <span class="accent">Breakthrough</span><span class="gold-dot">.</span></div>
+    <div class="subtitle">First open-source model to achieve state-of-the-art across all major coding benchmarks</div>
+  </div>
+  <div class="hero-data">
+    <div class="metric-card">
+      <div class="metric-value">95<span class="dot">.</span>7</div>
+      <div class="metric-name">AIME 2025</div>
+      <div class="metric-category">Mathematical Reasoning</div>
+      <div class="comparison-group">
+        <div class="comp-row"><span class="comp-label">Nova-4</span><div class="comp-track"><div class="comp-fill gold" style="width:100%;"></div></div><span class="comp-val gold">95.7</span></div>
+        <div class="comp-row"><span class="comp-label">Model B</span><div class="comp-track"><div class="comp-fill" style="width:92.2%;"></div></div><span class="comp-val">88.2</span></div>
+        <div class="comp-row"><span class="comp-label">Model C</span><div class="comp-track"><div class="comp-fill" style="width:87.4%;"></div></div><span class="comp-val">83.6</span></div>
+      </div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-value">73<span class="dot">.</span>8<span class="metric-unit">%</span></div>
+      <div class="metric-name">SWE-bench Verified</div>
+      <div class="metric-category">Software Engineering</div>
+      <div class="comparison-group">
+        <div class="comp-row"><span class="comp-label">Nova-4</span><div class="comp-track"><div class="comp-fill gold" style="width:100%;"></div></div><span class="comp-val gold">73.8%</span></div>
+        <div class="comp-row"><span class="comp-label">Model B</span><div class="comp-track"><div class="comp-fill" style="width:72.2%;"></div></div><span class="comp-val">53.3%</span></div>
+        <div class="comp-row"><span class="comp-label">Model C</span><div class="comp-track"><div class="comp-fill" style="width:65.3%;"></div></div><span class="comp-val">48.2%</span></div>
+      </div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-value">87<span class="dot">.</span>4</div>
+      <div class="metric-name">&tau;&sup2;-Bench</div>
+      <div class="metric-category">Agent Task Completion</div>
+      <div class="comparison-group">
+        <div class="comp-row"><span class="comp-label">Nova-4</span><div class="comp-track"><div class="comp-fill gold" style="width:100%;"></div></div><span class="comp-val gold">87.4</span></div>
+        <div class="comp-row"><span class="comp-label">Model B</span><div class="comp-track"><div class="comp-fill" style="width:90.3%;"></div></div><span class="comp-val">78.9</span></div>
+        <div class="comp-row"><span class="comp-label">Model C</span><div class="comp-track"><div class="comp-fill" style="width:81.8%;"></div></div><span class="comp-val">71.5</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom-section">
+    <div class="insight-text">Nova-4 demonstrates that <strong>open-source models can compete at the frontier</strong> of coding intelligence, with margins of <strong>+7.5 to +20.5 points</strong>.</div>
+    <div class="brand-mark"><div class="brand-line"></div><span class="brand-text">NORTHWIND LABS</span></div>
+  </div>
+</section>
+
+<!-- 05 Process -->
+<section data-label="05 Process Steps">
+  <div class="top-row">
+    <div class="eyebrow">Evaluation method</div>
+    <div class="slide-indicator"><div class="slide-dot"></div><div class="slide-dot"></div><div class="slide-dot"></div><div class="slide-dot"></div><div class="slide-dot active"></div><div class="slide-dot"></div><div class="slide-dot"></div></div>
+  </div>
+  <div class="title-area" style="margin-top:32px;">
+    <div class="main-title">Four steps, <span class="accent">one protocol</span><span class="gold-dot">.</span></div>
+    <div class="subtitle">Every model runs the same pipeline under identical conditions</div>
+  </div>
+  <div class="steps">
+    <div class="step"><div class="step-num">01<span class="dot">.</span></div><div class="step-name">Select</div><div class="step-desc">Pick public benchmarks with verifiable answers and a fixed test split.</div><div class="step-bar"><div style="width:25%;"></div></div></div>
+    <div class="step"><div class="step-num">02<span class="dot">.</span></div><div class="step-name">Run</div><div class="step-desc">Execute each model with default settings, three runs per task.</div><div class="step-bar"><div style="width:50%;"></div></div></div>
+    <div class="step"><div class="step-num">03<span class="dot">.</span></div><div class="step-name">Score</div><div class="step-desc">Grade outputs automatically and average the scores across runs.</div><div class="step-bar"><div style="width:75%;"></div></div></div>
+    <div class="step"><div class="step-num">04<span class="dot">.</span></div><div class="step-name">Verify</div><div class="step-desc">Reproduce the top results independently before publishing.</div><div class="step-bar"><div style="width:100%;"></div></div></div>
+  </div>
+  <div class="bottom-section">
+    <div class="insight-text" style="font-size:22px;">Same prompts, same hardware, same scoring scripts for every model</div>
+    <div class="brand-mark"><div class="brand-line"></div><span class="brand-text">NORTHWIND LABS</span></div>
+  </div>
+</section>
+
+<!-- 06 Comparison -->
+<section data-label="06 Comparison">
+  <div class="top-row">
+    <div class="eyebrow">Head-to-head</div>
+    <div class="slide-indicator"><div class="slide-dot"></div><div class="slide-dot"></div><div class="slide-dot"></div><div class="slide-dot"></div><div class="slide-dot"></div><div class="slide-dot active"></div><div class="slide-dot"></div></div>
+  </div>
+  <div class="title-area" style="margin-top:32px;">
+    <div class="main-title">Open versus <span class="accent">proprietary</span><span class="gold-dot">.</span></div>
+    <div class="subtitle">Nova-4 against the strongest closed model in each benchmark</div>
+  </div>
+  <div class="compare">
+    <div class="col">
+      <div class="col-name">Open-source</div>
+      <div class="col-head">Nova-4<span class="gold-dot">.</span></div>
+      <div class="row"><span class="k">AIME 2025</span><span class="v gold">95.7</span></div>
+      <div class="row"><span class="k">SWE-bench Verified</span><span class="v gold">73.8%</span></div>
+      <div class="row"><span class="k">&tau;&sup2;-Bench</span><span class="v gold">87.4</span></div>
+      <div class="row"><span class="k">Weights available</span><span class="v gold">Yes</span></div>
+    </div>
+    <div class="col">
+      <div class="col-name">Proprietary</div>
+      <div class="col-head">Model B</div>
+      <div class="row"><span class="k">AIME 2025</span><span class="v">88.2</span></div>
+      <div class="row"><span class="k">SWE-bench Verified</span><span class="v">53.3%</span></div>
+      <div class="row"><span class="k">&tau;&sup2;-Bench</span><span class="v">78.9</span></div>
+      <div class="row"><span class="k">Weights available</span><span class="v">No</span></div>
+    </div>
+  </div>
+  <div class="bottom-section">
+    <div class="insight-text" style="font-size:22px;">Higher is better on every row. Differences are in score points.</div>
+    <div class="brand-mark"><div class="brand-line"></div><span class="brand-text">NORTHWIND LABS</span></div>
+  </div>
+</section>
+
+<!-- 07 Quote / Closing -->
+<section data-label="07 Quote and Summary">
+  <div class="top-row">
+    <div class="eyebrow">Summary</div>
+    <div class="slide-indicator"><div class="slide-dot"></div><div class="slide-dot"></div><div class="slide-dot"></div><div class="slide-dot"></div><div class="slide-dot"></div><div class="slide-dot"></div><div class="slide-dot active"></div></div>
+  </div>
+  <div class="quote">
+    <div class="quote-mark">&ldquo;</div>
+    <div class="quote-text">The frontier is no longer <span class="accent">closed</span><span style="color:#D4A574;font-weight:300;">.</span></div>
+    <div class="quote-by">Research team, 2025</div>
+  </div>
+  <div class="takeaways">
+    <div class="takeaway"><div class="n">3<span class="dot">/</span>3</div><div class="t">Benchmarks won</div></div>
+    <div class="takeaway"><div class="n">#1</div><div class="t">Open-source ranking</div></div>
+    <div class="takeaway"><div class="n">12<span class="dot">.</span>2</div><div class="t">Average points above runner-up</div></div>
+    <div class="brand-mark" style="align-self:flex-end;"><div class="brand-line"></div><span class="brand-text">NORTHWIND LABS</span></div>
+  </div>
+</section>
+
+</deck-stage>
+</body>
+</html>

@@ -1,0 +1,47 @@
+{
+  "slug": "ns-aurora-mesh",
+  "name": "Aurora Mesh",
+  "tagline": "Deep navy canvas with drifting magenta, teal and violet gradient blobs and frosted glass cards",
+  "mood": [
+    "dreamy",
+    "futuristic",
+    "glowing",
+    "calm"
+  ],
+  "occasion": [
+    "AI product launch",
+    "tech keynote",
+    "creative studio pitch",
+    "app showcase",
+    "vision talk"
+  ],
+  "tone": [
+    "modern",
+    "inspiring",
+    "smooth"
+  ],
+  "formality": "medium",
+  "density": "low",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#0a1021",
+    "text": "#ffffff",
+    "accent": "#ff1493",
+    "description": "Dark Aurora Mesh palette: #0a1021 background, #ffffff text, #ff1493 accent"
+  },
+  "typography": {
+    "display": "Inter",
+    "body": "Inter",
+    "style": "Inter headings over Inter body"
+  },
+  "best_for": "Aurora Mesh suits AI product launch and tech keynote. It reads as dreamy, futuristic, glowing.",
+  "avoid_for": "Dense data-heavy reports where the decorative look would compete with content.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/aurora-mesh.html",
+    "license": "MIT"
+  }
+}

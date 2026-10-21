@@ -1,0 +1,49 @@
+{
+  "slug": "hd-black-big-number-stage",
+  "name": "Black Big Number Stage",
+  "tagline": "Pure black stage, one gigantic white numeral with a sky-blue accent dot, quiet gray captions in Inter. (extended from a single-slide specimen)",
+  "mood": [
+    "dramatic",
+    "minimal",
+    "keynote",
+    "bold"
+  ],
+  "occasion": [
+    "product keynote",
+    "town hall",
+    "launch announcement",
+    "single-metric reveal",
+    "all-hands highlight"
+  ],
+  "tone": [
+    "confident",
+    "cinematic",
+    "restrained"
+  ],
+  "formality": "medium",
+  "density": "low",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#000000",
+    "text": "#FFFFFF",
+    "accent": "#2997FF",
+    "muted": "#a1a1a6",
+    "footer": "#86868b",
+    "description": "black stage with white type, one electric blue accent and soft gray captions"
+  },
+  "typography": {
+    "display": "Inter",
+    "body": "Inter",
+    "style": "extra-bold sans, tight tracking, centered single-number stage"
+  },
+  "best_for": "Keynote-style moments built around one number or one sentence per slide. Works for launches and town halls.",
+  "avoid_for": "Dense reports with many figures per slide.",
+  "slide_count": 8,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "alchaincyf/huashu-design",
+    "commit": "798c423",
+    "path": "assets/style-specimens/ppt/02-black-big-number-stage.html",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "slug": "hp-theme-rose-pine",
+  "name": "Theme · Rose Pine",
+  "tagline": "Soft muted dark palette with rose, gold and pine tones",
+  "mood": [
+    "soft",
+    "moody",
+    "aesthetic",
+    "dark"
+  ],
+  "occasion": [
+    "design and dev crossover talk",
+    "aesthetic engineering sharing",
+    "creative coding demo",
+    "personal tooling talk",
+    "product design review"
+  ],
+  "tone": [
+    "gentle",
+    "thoughtful",
+    "stylish"
+  ],
+  "formality": "medium",
+  "density": "medium",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#191724",
+    "text": "#e0def4",
+    "accent": "#ebbcba",
+    "accent2": "#c4a7e7",
+    "surface": "#26233a",
+    "description": "Theme tokens --bg, --text-1, --accent, --accent-2, --surface taken from rose-pine.css"
+  },
+  "typography": {
+    "display": "Inter",
+    "body": "Inter",
+    "style": "Theme font tokens --font-display / --font-sans"
+  },
+  "best_for": "Dark decks at the border of design and development with a gentle muted tone.",
+  "avoid_for": "High-contrast safety or alert content.",
+  "slide_count": 22,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "assets/themes/rose-pine.css + templates/single-page/*.html (22 layouts)",
+    "license": "MIT"
+  }
+}

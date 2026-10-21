@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Two-Font Consulting — Deck Template</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap">
+<script src="deck-stage.js"></script>
+<style>
+html,body{margin:0;padding:0;background:#000}
+body{font-family:'Inter',sans-serif;color:#051C2C}
+deck-stage>section{width:1920px;height:1080px;position:relative;overflow:hidden;box-sizing:border-box;background:#EFEBE4;color:#051C2C}
+.pat{position:absolute;right:0;top:0;width:670px;height:400px;opacity:.9}
+.kick{position:absolute;left:100px;top:74px;font-size:21px;letter-spacing:.14em;color:#00805A;font-weight:600;text-transform:uppercase}
+h1{position:absolute;left:100px;top:134px;width:1120px;margin:0;font-family:'Fraunces',serif;font-weight:700;font-size:70px;line-height:1.28;letter-spacing:-.005em}
+h1 em{font-style:normal;color:#00805A}
+.rule{position:absolute;left:100px;top:464px;width:90px;height:5px;background:#051C2C}
+.body{position:absolute;left:100px;top:508px;width:700px;font-size:30px;line-height:1.8;color:#27394A}
+.body p{margin:0 0 26px}.body b{color:#051C2C;font-weight:700}
+.cards{position:absolute;left:896px;top:464px;width:922px;display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.card{background:#fff;padding:48px 45px 45px;border-top:5px solid #051C2C}
+.card.hl{background:#051C2C;color:#fff;border-top-color:#00805A}
+.num{font-family:'Fraunces',serif;font-weight:700;font-size:112px;line-height:1;letter-spacing:-.02em}
+.num small{font-size:45px;margin-left:3px}
+.hl .num{color:#5FD3A6}
+.lab{margin-top:16px;font-size:24px;line-height:1.55;color:#3C4C5B}
+.hl .lab{color:#D4DEE6}
+.card.wide{grid-column:span 2;display:flex;align-items:center;gap:35px;padding:42px 45px;margin-top:3px}
+.card.wide .num{font-size:77px;white-space:nowrap}.card.wide .num small{font-size:35px}
+.foot{position:absolute;left:100px;right:100px;bottom:48px;display:flex;justify-content:space-between;font-size:19px;color:#5A6875;border-top:1px solid #C9C2B6;padding-top:19px}
+.ti{position:absolute;left:100px;top:134px;width:1500px;margin:0;font-family:'Fraunces',serif;font-weight:700;font-size:64px;line-height:1.25}
+.step{position:absolute;top:400px;width:520px;background:#fff;border-top:5px solid #051C2C;padding:48px 45px;height:430px;box-sizing:border-box}
+.step .n{font-family:'Fraunces',serif;font-weight:700;font-size:96px;color:#00805A;line-height:1}
+.step h3{font-family:'Fraunces',serif;font-weight:700;font-size:40px;margin:22px 0 14px;line-height:1.2}
+.step p{font-size:24px;line-height:1.6;color:#3C4C5B;margin:0}
+.ag{position:absolute;left:100px;top:300px;width:1500px}
+.ag div{display:flex;align-items:baseline;gap:50px;border-top:1px solid #C9C2B6;padding:26px 0}
+.ag b{font-family:'Fraunces',serif;font-weight:700;font-size:56px;color:#00805A;width:100px}
+.ag span{font-family:'Fraunces',serif;font-weight:600;font-size:52px;flex:1}
+.ag i{font-style:normal;font-size:24px;color:#5A6875}
+.tbl{position:absolute;left:100px;right:100px;top:330px;border-collapse:collapse;font-size:30px}
+.tbl{width:1720px}
+.tbl th{font-size:20px;letter-spacing:.14em;text-transform:uppercase;text-align:left;color:#00805A;padding:0 0 18px}
+.tbl td{padding:30px 20px 30px 0;border-top:1px solid #C9C2B6;color:#27394A}
+.tbl td:first-child{font-weight:600;color:#051C2C}
+.tbl td.g{font-family:'Fraunces',serif;font-weight:700;font-size:44px;color:#00805A}
+</style></head><body>
+<deck-stage width="1920" height="1080">
+
+<section data-label="01 Cover">
+ <svg class="pat" viewBox="0 0 420 250"><defs><pattern id="p" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(-32)"><line x1="0" y1="0" x2="0" y2="14" stroke="#051C2C" stroke-width="1"/></pattern><linearGradient id="f" x1="0" x2="1"><stop offset="0" stop-color="#EFEBE4" stop-opacity="1"/><stop offset="1" stop-color="#EFEBE4" stop-opacity="0"/></linearGradient></defs><rect width="420" height="250" fill="url(#p)" opacity=".55"/><rect width="420" height="250" fill="url(#f)"/></svg>
+ <div class="kick">City Bus Network · 2026 Route Optimization Review</div>
+ <h1 style="top:300px;font-size:104px;width:1500px;line-height:1.18">Merging overlapping routes can cut <em>peak-hour</em> waits by a quarter</h1>
+ <div class="rule" style="top:760px"></div>
+ <div class="body" style="top:800px;width:1200px;font-size:30px">Findings and recommendations for the transit board</div>
+ <div class="foot"><span>Prepared by the Network Planning Team · October 2026</span><span>01</span></div>
+</section>
+
+<section data-label="02 Agenda">
+ <div class="kick">Agenda</div>
+ <h1 style="width:1500px">Four questions this review answers</h1>
+ <div class="ag" style="top:380px">
+  <div><b>01</b><span>Where do routes overlap?</span><i>Corridor analysis</i></div>
+  <div><b>02</b><span>What does it cost riders?</span><i>Wait-time data</i></div>
+  <div><b>03</b><span>What should we merge?</span><i>11 into 5 routes</i></div>
+  <div><b>04</b><span>What happens next?</span><i>Rollout plan</i></div>
+ </div>
+ <div class="foot"><span>Source: city transit group, Mar–Sep 2025 fare-card and GPS arrival data</span><span>02</span></div>
+</section>
+
+<section data-label="03 Key Findings">
+ <svg class="pat" viewBox="0 0 420 250"><defs><pattern id="p2" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(-32)"><line x1="0" y1="0" x2="0" y2="14" stroke="#051C2C" stroke-width="1"/></pattern><linearGradient id="f2" x1="0" x2="1"><stop offset="0" stop-color="#EFEBE4" stop-opacity="1"/><stop offset="1" stop-color="#EFEBE4" stop-opacity="0"/></linearGradient></defs><rect width="420" height="250" fill="url(#p2)" opacity=".55"/><rect width="420" height="250" fill="url(#f2)"/></svg>
+ <div class="kick">City Bus Network · 2026 Route Optimization Review</div>
+ <h1>Merging overlapping routes cuts <em>peak-hour</em> waits by a quarter</h1>
+ <div class="rule"></div>
+ <div class="body">
+  <p>A review of ridership and arrival data on 38 trunk routes shows that 11 overlap by more than 60% on the east–west corridor. At peak, buses arrive in bunches, followed by gaps of 20 minutes or more.</p>
+  <p>We recommend consolidating those 11 into 5 routes with <b>no change in fleet size</b>, and redeploying the saved headway to transfer hubs.</p>
+ </div>
+ <div class="cards">
+  <div class="card hl"><div class="num">−26<small>%</small></div><div class="lab">Average peak wait<br>from 11.4 min to 8.4 min</div></div>
+  <div class="card"><div class="num">11→5</div><div class="lab">Operating routes after consolidating overlaps</div></div>
+  <div class="card wide"><div class="num">+98K<small>trips</small></div><div class="lab" style="margin-top:0">Estimated new monthly trips reachable within 30 minutes, mainly for residents of the eastern district</div></div>
+ </div>
+ <div class="foot"><span>Source: city transit group, Mar–Sep 2025 fare-card and GPS arrival data; modeled estimate</span><span>03</span></div>
+</section>
+
+<section data-label="04 Approach Steps">
+ <div class="kick">Approach</div>
+ <h1 class="ti" style="width:1600px">Three steps from data to a new network</h1>
+ <div class="step" style="left:100px"><div class="n">1</div><h3>Measure overlap</h3><p>Match stop sequences across 38 routes and flag shared corridor segments above 60%.</p></div>
+ <div class="step" style="left:700px;border-top-color:#00805A"><div class="n">2</div><h3>Model headway</h3><p>Replay GPS arrivals to see bunching, then simulate merged timetables at constant fleet size.</p></div>
+ <div class="step" style="left:1300px"><div class="n">3</div><h3>Reallocate service</h3><p>Move the recovered trips to transfer hubs where waits are longest today.</p></div>
+ <div class="foot"><span>Source: Network Planning Team methodology note, 2026</span><span>04</span></div>
+</section>
+
+<section data-label="05 Before After">
+ <div class="kick">Comparison</div>
+ <h1 class="ti" style="width:1600px">Same fleet, better service</h1>
+ <table class="tbl">
+  <tr><th style="width:520px">Measure</th><th style="width:420px">Today</th><th style="width:420px">Proposed</th><th>Change</th></tr>
+  <tr><td>Operating routes</td><td>38 trunk</td><td>32 trunk</td><td class="g">−6</td></tr>
+  <tr><td>Peak average wait</td><td>11.4 min</td><td>8.4 min</td><td class="g">−26%</td></tr>
+  <tr><td>Gaps over 20 min</td><td>14 per day</td><td>3 per day</td><td class="g">−79%</td></tr>
+  <tr><td>Vehicles in service</td><td>412</td><td>412</td><td class="g">0</td></tr>
+ </table>
+ <div class="foot"><span>Source: city transit group, Mar–Sep 2025 data; modeled estimate</span><span>05</span></div>
+</section>
+
+<section data-label="06 Pull Quote">
+ <div class="pat" style="width:670px;height:400px;top:auto;bottom:0;background:none"></div>
+ <div class="kick">What riders told us</div>
+ <div style="position:absolute;left:100px;top:230px;font-family:'Fraunces',serif;font-weight:700;font-size:300px;line-height:1;color:#00805A">“</div>
+ <div style="position:absolute;left:230px;top:330px;width:1400px;font-family:'Fraunces',serif;font-weight:700;font-size:80px;line-height:1.3">I do not mind waiting. I mind not knowing whether <em style="font-style:normal;color:#00805A">three buses</em> will show up at once.</div>
+ <div style="position:absolute;left:236px;top:760px;font-size:26px;color:#3C4C5B">Rider survey respondent, east–west corridor, 2025</div>
+ <div class="foot"><span>Source: city transit group rider survey, n = 2,140</span><span>06</span></div>
+</section>
+
+<section data-label="07 Recommendations">
+ <div class="kick">Recommendations</div>
+ <h1 class="ti" style="width:1600px">Approve a phased consolidation starting in spring</h1>
+ <div class="cards" style="left:100px;top:380px;width:1720px;grid-template-columns:1fr 1fr 1fr">
+  <div class="card hl"><div class="num" style="font-size:80px">Q1</div><div class="lab">Pilot 3 of the 11 routes on the busiest east–west segment</div></div>
+  <div class="card"><div class="num" style="font-size:80px">Q2</div><div class="lab">Publish new timetables and update transfer-hub signage</div></div>
+  <div class="card"><div class="num" style="font-size:80px">Q3</div><div class="lab">Complete the remaining routes and review waits against target</div></div>
+ </div>
+ <div class="foot"><span>Decision requested at the November board meeting</span><span>07</span></div>
+</section>
+
+</deck-stage>
+</body></html>

@@ -1,0 +1,50 @@
+{
+  "slug": "hp-violet-glow-tutorial",
+  "name": "Violet Glow Tutorial",
+  "tagline": "GitHub-dark base with violet ambient glow, masked grid and purple-blue-green gradient headlines",
+  "mood": [
+    "developer-friendly",
+    "modern",
+    "dark",
+    "glowing"
+  ],
+  "occasion": [
+    "developer workflow tutorial",
+    "agent or MCP walkthrough",
+    "product changelog",
+    "internal tech training",
+    "tool onboarding"
+  ],
+  "tone": [
+    "helpful",
+    "modern",
+    "focused"
+  ],
+  "formality": "medium-low",
+  "density": "medium",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#0d1117",
+    "text": "#e6edf3",
+    "accent": "#7c3aed",
+    "accent2": "#a855f7",
+    "surface": "#161b22",
+    "description": "GitHub dark with violet accent and blue, green, orange highlights"
+  },
+  "typography": {
+    "display": "Inter",
+    "body": "Inter",
+    "style": "Centered sans titles with gradient text and code blocks"
+  },
+  "best_for": "Step-by-step developer tutorials and config walkthroughs with a Linear or GitHub blog feel.",
+  "avoid_for": "Warm lifestyle or traditional corporate topics.",
+  "slide_count": 8,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "templates/full-decks/obsidian-claude-gradient",
+    "license": "MIT"
+  },
+  "renamed_from": "hp-obsidian-claude-gradient"
+}

@@ -1,0 +1,51 @@
+{
+  "slug": "pa-mocha-editorial",
+  "name": "Mocha Editorial",
+  "tagline": "Warm mocha-cream paper with espresso ink, rust-orange italic emphasis, drop caps and thin folio rules (extended from a single-slide specimen)",
+  "mood": [
+    "warm",
+    "literary",
+    "thoughtful",
+    "unhurried"
+  ],
+  "occasion": [
+    "research paper walkthrough",
+    "long-form essay talk",
+    "product philosophy memo",
+    "AI safety or policy briefing",
+    "editorial pitch"
+  ],
+  "tone": [
+    "reflective",
+    "intellectual",
+    "humane"
+  ],
+  "formality": "medium",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#f3ebde",
+    "text": "#2a1810",
+    "accent": "#c1502e",
+    "label": "#8b5a3c",
+    "ink_deep": "#1f1410",
+    "description": "cream paper, dark coffee ink, rust accent and warm brown labels"
+  },
+  "typography": {
+    "display": "Source Serif 4",
+    "body": "Source Serif 4",
+    "italic": "Instrument Serif",
+    "label": "Inter",
+    "style": "book serif with a condensed italic serif for emphasis"
+  },
+  "best_for": "Reflective talks and essays where ideas matter more than charts: research findings, strategy memos, culture and values decks.",
+  "avoid_for": "Dashboards, KPI reviews and anything that must look technical or high-tech.",
+  "slide_count": 8,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "Akxan/ppt-agent-skill",
+    "commit": "01825de",
+    "path": "ppt-output/style-gallery/mocha_editorial.html",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "slug": "ns-pastel-geometry",
+  "name": "Pastel Geometry",
+  "tagline": "Lavender background with soft pink, mint and peach circles and squares and white rounded cards",
+  "mood": [
+    "friendly",
+    "soft",
+    "modern",
+    "light"
+  ],
+  "occasion": [
+    "design system intro",
+    "app product tour",
+    "education deck",
+    "startup onboarding",
+    "community update"
+  ],
+  "tone": [
+    "approachable",
+    "upbeat",
+    "tidy"
+  ],
+  "formality": "medium-low",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#f0e8ff",
+    "text": "#2a2a3a",
+    "accent": "#7c5cbf",
+    "description": "Light Pastel Geometry palette: #f0e8ff background, #2a2a3a text, #7c5cbf accent"
+  },
+  "typography": {
+    "display": "DM Sans",
+    "body": "DM Sans",
+    "style": "DM Sans headings over DM Sans body"
+  },
+  "best_for": "Pastel Geometry suits design system intro and app product tour. It reads as friendly, soft, modern.",
+  "avoid_for": "Formal regulated or conservative corporate decks.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/pastel-geometry.html",
+    "license": "MIT"
+  }
+}

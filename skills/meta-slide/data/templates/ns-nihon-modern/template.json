@@ -1,0 +1,47 @@
+{
+  "slug": "ns-nihon-modern",
+  "name": "Nihon Modern",
+  "tagline": "Off-white page with indigo and vermilion accents, serif titles, vertical captions and thin rules",
+  "mood": [
+    "minimal",
+    "japanese",
+    "quiet",
+    "refined"
+  ],
+  "occasion": [
+    "design studio deck",
+    "lifestyle brand",
+    "cultural talk",
+    "architecture presentation",
+    "tea or craft story"
+  ],
+  "tone": [
+    "calm",
+    "precise",
+    "understated"
+  ],
+  "formality": "medium",
+  "density": "low",
+  "scheme": "light",
+  "palette": {
+    "bg": "#fbfaf8",
+    "text": "#2c2c2c",
+    "accent": "#d05a4e",
+    "description": "Light Nihon Modern palette: #fbfaf8 background, #2c2c2c text, #d05a4e accent"
+  },
+  "typography": {
+    "display": "serif",
+    "body": "sans-serif",
+    "style": "serif headings over sans-serif body"
+  },
+  "best_for": "Nihon Modern suits design studio deck and lifestyle brand. It reads as minimal, japanese, quiet.",
+  "avoid_for": "Dense data-heavy reports where the decorative look would compete with content.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/nihon-modern.html",
+    "license": "MIT"
+  }
+}

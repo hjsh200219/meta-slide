@@ -1,0 +1,49 @@
+{
+  "slug": "hp-theme-bauhaus",
+  "name": "Theme · Bauhaus",
+  "tagline": "Geometric forms and primary red, yellow and blue",
+  "mood": [
+    "geometric",
+    "graphic",
+    "primary-colour",
+    "artistic"
+  ],
+  "occasion": [
+    "design talk",
+    "art history lecture",
+    "product aesthetics",
+    "creative studio pitch",
+    "museum presentation"
+  ],
+  "tone": [
+    "expressive",
+    "confident",
+    "artistic"
+  ],
+  "formality": "medium-low",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#f4efe3",
+    "text": "#111111",
+    "accent": "#e03c27",
+    "accent2": "#f4c430",
+    "surface": "#ffffff",
+    "description": "Theme tokens --bg, --text-1, --accent, --accent-2, --surface taken from bauhaus.css"
+  },
+  "typography": {
+    "display": "Archivo Black",
+    "body": "Space Grotesk",
+    "style": "Theme font tokens --font-display / --font-sans"
+  },
+  "best_for": "Design-focused talks that benefit from bold geometry and primary colours.",
+  "avoid_for": "Conservative corporate settings.",
+  "slide_count": 22,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "assets/themes/bauhaus.css + templates/single-page/*.html (22 layouts)",
+    "license": "MIT"
+  }
+}

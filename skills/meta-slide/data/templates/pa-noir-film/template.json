@@ -1,0 +1,52 @@
+{
+  "slug": "pa-noir-film",
+  "name": "Noir Film",
+  "tagline": "Black-and-white film-frame world with sprocket holes, grain, corner marks, mono timecodes and serif-italic titles (extended from a single-slide specimen)",
+  "mood": [
+    "cinematic",
+    "monochrome",
+    "moody",
+    "minimal"
+  ],
+  "occasion": [
+    "photo essay",
+    "film or video portfolio",
+    "documentary pitch",
+    "creative studio reel",
+    "brand storytelling"
+  ],
+  "tone": [
+    "artful",
+    "restrained",
+    "atmospheric"
+  ],
+  "formality": "medium",
+  "density": "medium",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#0a0a0a",
+    "text": "#fafafa",
+    "accent": "#fafafa",
+    "text_soft": "rgba(250,250,250,0.62)",
+    "neutral_mid": "#5a5a5a",
+    "neutral_deep": "#2a2a2a",
+    "description": "pure black and white with grey tints only; no color accent"
+  },
+  "typography": {
+    "display": "Inter Tight",
+    "body": "Inter",
+    "italic": "Source Serif 4",
+    "mono": "JetBrains Mono",
+    "style": "ultra-tight bold sans with light serif italics and monospaced film metadata"
+  },
+  "best_for": "Photography, film and storytelling decks where the content carries the color. Also a quiet, confident option for brand manifestos.",
+  "avoid_for": "Cheerful, colorful or data-heavy business reporting.",
+  "slide_count": 8,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "Akxan/ppt-agent-skill",
+    "commit": "01825de",
+    "path": "ppt-output/style-gallery/noir_film.html",
+    "license": "MIT"
+  }
+}

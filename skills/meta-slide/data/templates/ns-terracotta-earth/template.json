@@ -1,0 +1,47 @@
+{
+  "slug": "ns-terracotta-earth",
+  "name": "Terracotta Earth",
+  "tagline": "Cream pages with terracotta and sage organic blobs, Playfair headings and a chocolate quote slide",
+  "mood": [
+    "earthy",
+    "warm",
+    "natural",
+    "crafted"
+  ],
+  "occasion": [
+    "sustainability story",
+    "ceramics or home brand",
+    "food and hospitality",
+    "wellness retreat",
+    "nature-themed talk"
+  ],
+  "tone": [
+    "grounded",
+    "warm",
+    "gentle"
+  ],
+  "formality": "medium",
+  "density": "low",
+  "scheme": "light",
+  "palette": {
+    "bg": "#f4efe9",
+    "text": "#5c3d2e",
+    "accent": "#c67a52",
+    "description": "Light Terracotta Earth palette: #f4efe9 background, #5c3d2e text, #c67a52 accent"
+  },
+  "typography": {
+    "display": "Playfair Display",
+    "body": "Source Sans Pro",
+    "style": "Playfair Display headings over Source Sans Pro body"
+  },
+  "best_for": "Terracotta Earth suits sustainability story and ceramics or home brand. It reads as earthy, warm, natural.",
+  "avoid_for": "Dense data-heavy reports where the decorative look would compete with content.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/terracotta-earth.html",
+    "license": "MIT"
+  }
+}

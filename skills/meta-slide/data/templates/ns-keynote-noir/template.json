@@ -1,0 +1,47 @@
+{
+  "slug": "ns-keynote-noir",
+  "name": "Keynote Noir",
+  "tagline": "Pure black stage with Apple-style white Inter headlines, azure accent and soft glow orb",
+  "mood": [
+    "sleek",
+    "focused",
+    "premium",
+    "minimal"
+  ],
+  "occasion": [
+    "product keynote",
+    "tech conference talk",
+    "investor pitch",
+    "launch event",
+    "executive briefing"
+  ],
+  "tone": [
+    "confident",
+    "clean",
+    "modern"
+  ],
+  "formality": "medium",
+  "density": "low",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#000000",
+    "text": "#ffffff",
+    "accent": "#2997ff",
+    "description": "Dark Keynote Noir palette: #000000 background, #ffffff text, #2997ff accent"
+  },
+  "typography": {
+    "display": "Inter Tight",
+    "body": "Inter",
+    "style": "Inter Tight headings over Inter body"
+  },
+  "best_for": "Keynote Noir suits product keynote and tech conference talk. It reads as sleek, focused, premium.",
+  "avoid_for": "Dense data-heavy reports where the decorative look would compete with content.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/keynote-noir.html",
+    "license": "MIT"
+  }
+}

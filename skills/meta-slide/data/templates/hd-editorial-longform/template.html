@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Editorial Longform — Deck Template</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Inter:wght@400;500;600&display=swap">
+<script src="deck-stage.js"></script>
+<style>
+html,body{margin:0;background:#000}
+deck-stage>section{width:1920px;height:1080px;background:#FBFAF8;color:#1B1A22;position:relative;overflow:hidden;box-sizing:border-box;font-family:'Newsreader',serif}
+.c{position:absolute;left:0;top:0;width:1200px;height:675px;transform:scale(1.6);transform-origin:0 0}
+.mast{position:absolute;left:72px;right:72px;top:36px;display:flex;justify-content:space-between;font-family:'Inter',sans-serif;font-size:15px;letter-spacing:.14em;color:#6A6872;border-bottom:1px solid #1B1A22;padding-bottom:12px}
+.mast b{color:#635BFF;font-weight:600}
+h1{position:absolute;left:72px;top:84px;width:760px;margin:0;font-family:'Newsreader',serif;font-weight:600;font-size:46px;line-height:1.22}
+.by{position:absolute;left:72px;top:218px;font-family:'Inter',sans-serif;font-size:16px;color:#6A6872}
+.cols{position:absolute;left:72px;top:262px;width:700px;column-count:2;column-gap:44px;font-size:19px;line-height:1.7;color:#2B2A33}
+.cols p{margin:0 0 12px;text-align:justify}
+.pq{position:absolute;left:72px;top:540px;width:700px;border-left:4px solid #635BFF;padding:4px 0 4px 22px;font-size:28px;line-height:1.4;font-weight:600}
+.pq span{display:block;margin-top:6px;font-family:'Inter',sans-serif;font-size:15px;font-weight:400;color:#6A6872}
+.side{position:absolute;left:850px;top:84px;width:278px}
+.huge{font-family:'Newsreader',serif;font-weight:500;font-size:150px;line-height:.9;letter-spacing:-.04em;color:#635BFF}
+.huge small{font-size:48px;letter-spacing:0}
+.cap{margin-top:12px;font-family:'Inter',sans-serif;font-size:16px;line-height:1.6;color:#4A4852;border-top:1px solid #1B1A22;padding-top:12px}
+.card{margin-top:30px;background:#fff;border:1px solid #DAD7D0;padding:18px 20px;font-family:'Inter',sans-serif}
+.card .k{font-size:15px;letter-spacing:.12em;color:#6A6872;font-weight:600}
+.card .v{font-family:'Newsreader',serif;font-size:42px;font-weight:600;margin:4px 0 2px}
+.card .d{font-size:16px;color:#4A4852;line-height:1.55}
+.bar{height:6px;background:#E8E5DE;margin-top:10px}.bar i{display:block;height:6px;background:#635BFF;width:68%}
+.pg{position:absolute;left:72px;bottom:28px;font-family:'Inter',sans-serif;font-size:15px;color:#6A6872;letter-spacing:.1em}
+/* cover */
+.cv h1{top:190px;width:900px;font-size:74px;line-height:1.14}
+.cv .k{position:absolute;left:72px;top:150px;font-family:'Inter',sans-serif;font-size:15px;letter-spacing:.14em;color:#635BFF;font-weight:600}
+.cv .by{top:470px;font-size:18px;line-height:1.7}
+/* contents */
+.toc{position:absolute;left:72px;top:150px;width:900px}
+.toc .r{display:grid;grid-template-columns:90px 1fr 100px;align-items:baseline;border-top:1px solid #1B1A22;padding:18px 0}
+.toc .r b{font-family:'Inter',sans-serif;font-size:15px;color:#635BFF;letter-spacing:.1em}
+.toc .r span{font-size:32px;font-weight:600}
+.toc .r i{font-family:'Inter',sans-serif;font-style:normal;font-size:15px;color:#6A6872;text-align:right}
+/* chapter */
+.ch .n{position:absolute;left:72px;top:150px;font-size:240px;font-weight:500;color:#635BFF;letter-spacing:-.04em;line-height:1}
+.ch h1{top:400px;font-size:56px;width:900px}
+.ch .by{top:560px}
+/* cards row */
+.row{position:absolute;left:72px;right:72px;top:190px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.row .card{margin:0;padding:24px 24px 26px}
+.row .card .v{font-size:60px}
+.lede{position:absolute;left:72px;top:140px;width:780px;font-size:24px;line-height:1.55;color:#2B2A33}
+/* compare */
+.cmp{position:absolute;left:72px;right:72px;top:180px;display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.cmp h3{margin:0 0 10px;font-family:'Inter',sans-serif;font-size:15px;letter-spacing:.14em;color:#6A6872;border-bottom:1px solid #1B1A22;padding-bottom:10px}
+.cmp h3.a{color:#635BFF}
+.cmp p{margin:0 0 14px;font-size:21px;line-height:1.65;color:#2B2A33}
+/* quote */
+.big{position:absolute;left:72px;top:160px;width:900px;font-size:58px;font-weight:600;line-height:1.28;border-left:4px solid #635BFF;padding-left:34px}
+.big+.by{top:480px;left:106px}
+</style></head><body>
+<deck-stage width="1920" height="1080">
+
+<section data-label="01 Cover"><div class="c cv">
+<div class="mast"><span>BLUEWATER OCEAN FOUNDATION · <b>ANNUAL LETTER 2025</b></span><span>TO DONORS AND PARTNERS</span></div>
+<div class="k">A LETTER FROM THE CHAIR</div>
+<h1>We turned “protection” from a verb into a ledger anyone can check</h1>
+<div class="by">Chair of the Board<br>January 2026</div>
+</div></section>
+
+<section data-label="02 Letter Page"><div class="c">
+<div class="mast"><span>BLUEWATER OCEAN FOUNDATION · <b>ANNUAL LETTER 2025</b></span><span>TO DONORS AND PARTNERS</span></div>
+<h1>We turned “protection” from a verb into a ledger anyone can check</h1>
+<div class="by">Chair of the Board · January 2026</div>
+<div class="cols">
+<p>Three years ago, in our first interviews at the fishing harbor, an old captain asked one question: the sea you protect, can I go and see it? That question became the standard for all our work.</p>
+<p>In 2025 we stopped reporting “area covered”. Every protected patch of sea now has a public monitoring record: who measured what and when, where the data lives, and when it will be measured again.</p>
+<p>The result surprised us. Donors ask finer questions, and partner villages share their own data more readily, because they know the numbers come back to them.</p>
+</div>
+<div class="pq">“The sea you protect, can I go and see it?”<span>— Harbor captain, east island</span></div>
+<div class="side">
+<div class="huge">62<small> sites</small></div>
+<div class="cap">Monitoring sites now publish open data, 24 more than in 2024.</div>
+<div class="card"><div class="k">CORAL COVER RECOVERED</div><div class="v">38% → 46%</div><div class="d">East reef pilot zone, three consecutive surveys agree.</div><div class="bar"><i></i></div></div>
+</div>
+<div class="pg">— 02 —</div>
+</div></section>
+
+<section data-label="03 Contents"><div class="c">
+<div class="mast"><span>BLUEWATER OCEAN FOUNDATION · <b>ANNUAL LETTER 2025</b></span><span>CONTENTS</span></div>
+<h1 style="width:900px">In this letter</h1>
+<div class="toc" style="top:190px">
+<div class="r"><b>01</b><span>The ledger, in plain words</span><i>p. 2</i></div>
+<div class="r"><b>02</b><span>What the numbers show</span><i>p. 4</i></div>
+<div class="r"><b>03</b><span>What changed for partners</span><i>p. 6</i></div>
+<div class="r"><b>04</b><span>The year ahead</span><i>p. 8</i></div>
+</div>
+<div class="pg">— 03 —</div>
+</div></section>
+
+<section data-label="04 Chapter Opener"><div class="c ch">
+<div class="mast"><span>BLUEWATER OCEAN FOUNDATION · <b>ANNUAL LETTER 2025</b></span><span>PART TWO</span></div>
+<div class="n">02</div>
+<h1>What the numbers show</h1>
+<div class="by">Four measures, each with its public record</div>
+<div class="pg">— 04 —</div>
+</div></section>
+
+<section data-label="05 Key Figures"><div class="c">
+<div class="mast"><span>BLUEWATER OCEAN FOUNDATION · <b>ANNUAL LETTER 2025</b></span><span>THE YEAR IN FIGURES</span></div>
+<div class="lede">Every figure below links to a record that anyone can open and re-measure.</div>
+<div class="row">
+<div class="card"><div class="k">OPEN MONITORING SITES</div><div class="v">62</div><div class="d">Up from 38 in 2024.</div><div class="bar"><i style="width:100%"></i></div></div>
+<div class="card"><div class="k">CORAL COVER, EAST REEF</div><div class="v">46%</div><div class="d">Up from 38% at the first survey.</div><div class="bar"><i style="width:46%"></i></div></div>
+<div class="card"><div class="k">PARTNER VILLAGES SHARING DATA</div><div class="v">19</div><div class="d">Of 23 invited in the program.</div><div class="bar"><i style="width:83%"></i></div></div>
+</div>
+<div class="pg">— 05 —</div>
+</div></section>
+
+<section data-label="06 Two Columns"><div class="c">
+<div class="mast"><span>BLUEWATER OCEAN FOUNDATION · <b>ANNUAL LETTER 2025</b></span><span>PARTNERS</span></div>
+<h1 style="width:900px;font-size:40px">What changed for the people who live by the sea</h1>
+<div class="cmp" style="top:230px">
+<div><h3>BEFORE</h3><p>Surveys left the village and never came back. Fishers saw reports only when a donor asked for them.</p><p>Trust depended on who had visited last.</p></div>
+<div><h3 class="a">NOW</h3><p>Each village keeps a copy of its own record and can correct it. Results are posted at the harbor within a week.</p><p>Trust depends on a record anyone can read.</p></div>
+</div>
+<div class="pg">— 06 —</div>
+</div></section>
+
+<section data-label="07 Pull Quote"><div class="c">
+<div class="mast"><span>BLUEWATER OCEAN FOUNDATION · <b>ANNUAL LETTER 2025</b></span><span>IN THEIR WORDS</span></div>
+<div class="big">“Now when a stranger asks about our reef, I do not describe it. I show them the page.”</div>
+<div class="by">Fisher cooperative member, east island</div>
+<div class="pg">— 07 —</div>
+</div></section>
+
+<section data-label="08 Closing"><div class="c cv">
+<div class="mast"><span>BLUEWATER OCEAN FOUNDATION · <b>ANNUAL LETTER 2025</b></span><span>THANK YOU</span></div>
+<div class="k">THE YEAR AHEAD</div>
+<h1>Thank you for asking to see the sea</h1>
+<div class="by">Chair of the Board<br>hello@example.org</div>
+</div></section>
+
+</deck-stage>
+</body></html>

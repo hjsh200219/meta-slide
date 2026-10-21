@@ -1,0 +1,49 @@
+{
+  "slug": "hp-theme-neo-brutalism",
+  "name": "Theme · Neo Brutalism",
+  "tagline": "Thick outlines, hard shadows and a bright yellow accent",
+  "mood": [
+    "brutalist",
+    "loud",
+    "bold",
+    "raw"
+  ],
+  "occasion": [
+    "startup pitch",
+    "bold product launch",
+    "hackathon demo",
+    "creator brand talk",
+    "community event"
+  ],
+  "tone": [
+    "daring",
+    "direct",
+    "playful"
+  ],
+  "formality": "low",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#fffef0",
+    "text": "#000000",
+    "accent": "#ffd400",
+    "accent2": "#ff5ca8",
+    "surface": "#ffffff",
+    "description": "Theme tokens --bg, --text-1, --accent, --accent-2, --surface taken from neo-brutalism.css"
+  },
+  "typography": {
+    "display": "Archivo Black",
+    "body": "Space Grotesk",
+    "style": "Theme font tokens --font-display / --font-sans"
+  },
+  "best_for": "Founders and teams who want a daring, outspoken look with thick black borders.",
+  "avoid_for": "Conservative formal audiences.",
+  "slide_count": 22,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "assets/themes/neo-brutalism.css + templates/single-page/*.html (22 layouts)",
+    "license": "MIT"
+  }
+}

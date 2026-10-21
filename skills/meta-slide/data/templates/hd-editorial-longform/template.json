@@ -1,0 +1,18 @@
+{
+  "slug": "hd-editorial-longform",
+  "name": "Editorial Longform",
+  "tagline": "Cream paper, Newsreader serif headlines in magazine columns, thin ink rules and one electric-violet accent for numbers and pull quotes (extended from a single-slide specimen)",
+  "mood": ["literary", "thoughtful", "trustworthy", "magazine-like"],
+  "occasion": ["annual letter", "nonprofit impact report", "founder letter to investors", "long-form briefing", "research essay", "brand story"],
+  "tone": ["reflective", "warm", "credible"],
+  "formality": "medium-high",
+  "density": "medium-high",
+  "scheme": "light",
+  "palette": {"bg": "#FBFAF8", "text": "#1B1A22", "accent": "#635BFF", "muted": "#6A6872", "body": "#2B2A33", "card": "#FFFFFF", "description": "Warm paper white, deep ink, grey-violet secondary text and a single violet accent."},
+  "typography": {"display": "Newsreader", "body": "Newsreader", "style": "Serif headline and justified two-column body with small letter-spaced Inter labels for mastheads and captions."},
+  "best_for": "Narrative decks that read like a printed letter or feature story, with columns of prose, one large number and a pull quote. Suits foundations, annual reports and trust-building updates.",
+  "avoid_for": "Fast keynote-style talks with minimal text.",
+  "slide_count": 8,
+  "navigation": "deck-stage runtime",
+  "source": {"repo": "alchaincyf/huashu-design", "commit": "798c423", "path": "assets/style-specimens/ppt/17-editorial-longform.html", "license": "MIT"}
+}

@@ -1,0 +1,48 @@
+{
+  "slug": "hp-theme-blueprint",
+  "name": "Theme · Blueprint",
+  "tagline": "Engineering blueprint blue with a grid backdrop and technical lettering",
+  "mood": [
+    "technical",
+    "engineered",
+    "precise",
+    "gridded"
+  ],
+  "occasion": [
+    "system architecture",
+    "engineering blueprint review",
+    "infrastructure design",
+    "technical proposal",
+    "hardware overview"
+  ],
+  "tone": [
+    "precise",
+    "technical",
+    "methodical"
+  ],
+  "formality": "medium",
+  "density": "medium-high",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#0b3a6f",
+    "text": "#e8f3ff",
+    "accent": "#ffffff",
+    "accent2": "#aee1ff",
+    "description": "Theme tokens --bg, --text-1, --accent, --accent-2, --surface taken from blueprint.css"
+  },
+  "typography": {
+    "display": "JetBrains Mono",
+    "body": "JetBrains Mono",
+    "style": "Theme font tokens --font-display / --font-sans"
+  },
+  "best_for": "Architecture and engineering presentations that should look like drafting paper.",
+  "avoid_for": "Soft lifestyle content.",
+  "slide_count": 22,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "assets/themes/blueprint.css + templates/single-page/*.html (22 layouts)",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "slug": "ns-korean-soft",
+  "name": "Korean Soft",
+  "tagline": "Pale cream with soft beige blobs, thin serif titles and white frosted cards",
+  "mood": [
+    "gentle",
+    "airy",
+    "calm",
+    "delicate"
+  ],
+  "occasion": [
+    "beauty or lifestyle brand",
+    "wellness talk",
+    "boutique cafe concept",
+    "soft-sell pitch",
+    "journal-style story"
+  ],
+  "tone": [
+    "gentle",
+    "tender",
+    "quiet"
+  ],
+  "formality": "medium-low",
+  "density": "low",
+  "scheme": "light",
+  "palette": {
+    "bg": "#f5f3f0",
+    "text": "#333333",
+    "accent": "#c4a882",
+    "description": "Light Korean Soft palette: #f5f3f0 background, #333333 text, #c4a882 accent"
+  },
+  "typography": {
+    "display": "Playfair Display",
+    "body": "Inter",
+    "style": "Playfair Display headings over Inter body"
+  },
+  "best_for": "Korean Soft suits beauty or lifestyle brand and wellness talk. It reads as gentle, airy, calm.",
+  "avoid_for": "Dense data-heavy reports where the decorative look would compete with content.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/korean-soft.html",
+    "license": "MIT"
+  }
+}

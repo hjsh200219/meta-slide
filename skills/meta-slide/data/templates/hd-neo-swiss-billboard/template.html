@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Neo Swiss Billboard — Deck Template</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;900&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="deck-stage.js"></script>
+<style>
+html,body{margin:0;background:#fff}
+body{font-family:Inter,sans-serif;color:#0A0A0A}
+deck-stage>section{width:1920px;height:1080px;color:#0A0A0A;background:#fff;position:relative;overflow:hidden;box-sizing:border-box}
+.top{position:absolute;left:90px;right:90px;top:58px;display:flex;justify-content:space-between;font:500 24px "Geist Mono",monospace;letter-spacing:.06em;color:#0A0A0A;padding-bottom:22px;border-bottom:3px solid #0A0A0A}
+.top span:last-child{color:#555}
+.mono{font:500 22px "Geist Mono",monospace;letter-spacing:.06em;color:#666}
+.blue{color:#2D5BFF}
+.lead{position:absolute;left:90px;font:900 74px/1.2 Inter,sans-serif;letter-spacing:-.01em}
+.foot{position:absolute;left:90px;right:90px;bottom:52px;display:flex;justify-content:space-between;font:500 22px "Geist Mono",monospace;color:#666;letter-spacing:.06em}
+
+/* 3 big number */
+.num{position:absolute;left:70px;top:110px;font:900 480px/1 Inter,sans-serif;letter-spacing:-.075em;color:#2D5BFF;font-variant-numeric:tabular-nums}
+.num small{font-size:220px;letter-spacing:-.04em;margin-left:10px}
+.side{position:absolute;right:90px;top:170px;width:420px;text-align:right}
+.side p{margin:12px 0 0;font:500 28px/1.5 Inter,sans-serif;color:#222}
+.cols{position:absolute;left:90px;right:90px;bottom:56px;height:210px;display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid #0A0A0A}
+.c{padding:24px 30px 0 0;border-right:1px solid #E5E5E5;margin-right:30px}
+.c:last-child{border:0}
+.c b{display:block;font:700 70px/1 Inter,sans-serif;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.c b.up{color:#2D5BFF}
+.c b span{font-size:34px}
+.c p{margin:14px 0 0;font:400 25px/1.45 Inter,sans-serif;color:#444}
+.c i{font:500 20px "Geist Mono",monospace;font-style:normal;color:#666;letter-spacing:.06em;display:block;margin-bottom:14px}
+
+/* 2 contents */
+.rows{position:absolute;left:90px;right:90px;top:180px}
+.row{display:grid;grid-template-columns:200px 1fr 300px;align-items:baseline;padding:34px 0;border-bottom:2px solid #0A0A0A}
+.row:first-child{border-top:2px solid #0A0A0A}
+.row b{font:900 100px/1 Inter,sans-serif;letter-spacing:-.04em}
+.row .mono{text-align:right}
+.row .n{font:500 30px "Geist Mono",monospace;color:#2D5BFF}
+
+/* 4 steps */
+.steps{position:absolute;left:90px;right:90px;top:560px;display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.st{padding:0 50px 0 0;margin-right:50px;border-right:1px solid #E5E5E5}
+.st:last-child{border:0;margin:0}
+.st .k{font:900 190px/1 Inter,sans-serif;letter-spacing:-.07em;color:#2D5BFF}
+.st h3{margin:20px 0 0;font:900 56px/1.1 Inter,sans-serif;letter-spacing:-.02em}
+.st p{margin:18px 0 0;font:400 30px/1.5 Inter,sans-serif;color:#444}
+
+/* 5 compare */
+.cmp{position:absolute;left:90px;right:90px;top:200px;bottom:150px;display:grid;grid-template-columns:1fr 1fr;border-top:3px solid #0A0A0A}
+.cmp>div{padding:50px 60px 0 0}
+.cmp>div+div{padding:50px 0 0 60px;border-left:1px solid #0A0A0A}
+.cmp .big{font:900 330px/1 Inter,sans-serif;letter-spacing:-.075em;font-variant-numeric:tabular-nums;margin-top:20px}
+.cmp .big small{font-size:110px;letter-spacing:-.03em}
+.cmp p{margin:20px 0 0;font:500 34px/1.4 Inter,sans-serif;color:#222}
+
+/* 6 quote */
+.q{position:absolute;left:90px;top:230px;width:1500px;font:900 128px/1.1 Inter,sans-serif;letter-spacing:-.035em}
+.qm{position:absolute;right:90px;top:120px;font:900 520px/1 Inter,sans-serif;color:#2D5BFF;letter-spacing:-.07em}
+.by{position:absolute;left:90px;bottom:150px;border-top:3px solid #0A0A0A;padding-top:22px;width:760px;font:500 28px/1.5 Inter,sans-serif;color:#222}
+
+/* 7 closing */
+.end{position:absolute;left:70px;top:150px;font:900 440px/.9 Inter,sans-serif;letter-spacing:-.075em;color:#2D5BFF}
+</style>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+
+<section data-label="01 Cover">
+  <div class="top"><span>2026 Q3 · BUSINESS REVIEW</span><span>CITY BUS REROUTE / EASTSIDE DISTRICT</span></div>
+  <div class="num" style="top:130px;font-size:620px">Q3</div>
+  <div class="side" style="top:190px"><span class="mono">REPORT / 03</span><p>Ninety days after the reroute,<br>by the numbers</p></div>
+  <div class="lead" style="top:720px;font-size:96px;width:1500px">Not more buses.<br>Less detour.</div>
+  <div class="foot"><span>PRESENTED BY OPERATIONS</span><span>01</span></div>
+</section>
+
+<section data-label="02 Contents">
+  <div class="top"><span>2026 Q3 · BUSINESS REVIEW</span><span>CONTENTS</span></div>
+  <div class="rows">
+    <div class="row"><span class="n">01</span><b>On-time rate</b><span class="mono">HEADLINE</span></div>
+    <div class="row"><span class="n">02</span><b>What we changed</b><span class="mono">METHOD</span></div>
+    <div class="row"><span class="n">03</span><b>Before / after</b><span class="mono">COMPARISON</span></div>
+    <div class="row"><span class="n">04</span><b>Next quarter</b><span class="mono">OUTLOOK</span></div>
+  </div>
+  <div class="foot"><span>PRESENTED BY OPERATIONS</span><span>02</span></div>
+</section>
+
+<section data-label="03 Big Number">
+  <div class="top"><span>2026 Q3 · BUSINESS REVIEW</span><span>CITY BUS REROUTE / EASTSIDE DISTRICT</span></div>
+  <div class="num">94.6<small>%</small></div>
+  <div class="side"><span class="mono">ON-TIME RATE</span><p>Day 90 after the reroute<br>+21.3 points vs. before</p></div>
+  <div class="lead" style="top:620px">Not more buses.<br>We cut out the detour.</div>
+  <div class="cols">
+    <div class="c"><i>AVG. WAIT</i><b>6.2<span>min</span></b><p>Was 11.4 minutes</p></div>
+    <div class="c"><i>DAILY RIDERS</i><b class="up">+18%</b><p>38,400 trips per day</p></div>
+    <div class="c"><i>ROUTE LENGTH</i><b>−3.1<span>km</span></b><p>From 17.8 down to 14.7 km</p></div>
+    <div class="c"><i>COMPLAINTS</i><b>−62%</b><p>143 a month down to 54</p></div>
+  </div>
+</section>
+
+<section data-label="04 Three Steps">
+  <div class="top"><span>2026 Q3 · BUSINESS REVIEW</span><span>METHOD</span></div>
+  <div class="lead" style="top:170px;font-size:110px;letter-spacing:-.03em;width:1500px">Three changes,<br>one straighter line.</div>
+  <div class="steps">
+    <div class="st"><div class="k">01</div><h3>Remove the loop</h3><p>The 2.4 km detour past the old depot is gone.</p></div>
+    <div class="st"><div class="k blue">02</div><h3>Merge two stops</h3><p>Stops 7 and 8 became one, closer to the crossing.</p></div>
+    <div class="st"><div class="k">03</div><h3>Even out headways</h3><p>Departures every 8 minutes at peak, 12 off-peak.</p></div>
+  </div>
+  <div class="foot"><span>PRESENTED BY OPERATIONS</span><span>04</span></div>
+</section>
+
+<section data-label="05 Before After">
+  <div class="top"><span>2026 Q3 · BUSINESS REVIEW</span><span>BEFORE / AFTER</span></div>
+  <div class="cmp">
+    <div><span class="mono">BEFORE · AVG. WAIT</span><div class="big">11.4<small>min</small></div><p>Long loop, uneven gaps, crowded transfers.</p></div>
+    <div><span class="mono">AFTER · AVG. WAIT</span><div class="big blue">6.2<small>min</small></div><p>Direct line, steady gaps, one fewer transfer.</p></div>
+  </div>
+  <div class="foot"><span>PRESENTED BY OPERATIONS</span><span>05</span></div>
+</section>
+
+<section data-label="06 Quote">
+  <div class="top"><span>2026 Q3 · BUSINESS REVIEW</span><span>RIDER VOICE</span></div>
+  <div class="qm">“</div>
+  <div class="q">I stopped checking the app. <span class="blue">The bus is just there.</span></div>
+  <div class="by"><span class="mono">SURVEY RESPONDENT · DAY 90</span><br>Weekday commuter, Eastside</div>
+  <div class="foot"><span>PRESENTED BY OPERATIONS</span><span>06</span></div>
+</section>
+
+<section data-label="07 Summary">
+  <div class="top"><span>2026 Q3 · BUSINESS REVIEW</span><span>SUMMARY</span></div>
+  <div class="end">94.6<span style="font-size:200px">%</span></div>
+  <div class="lead" style="top:560px;font-size:92px;width:1500px">Keep the line straight.<br>Extend it next quarter.</div>
+  <div class="cols" style="grid-template-columns:repeat(3,1fr);height:180px">
+    <div class="c"><i>NEXT</i><p>Apply to the Westside line</p></div>
+    <div class="c"><i>BUDGET</i><p>No added vehicles needed</p></div>
+    <div class="c"><i>REVIEW</i><p>Re-measure at day 180</p></div>
+  </div>
+</section>
+
+</deck-stage>
+</body>
+</html>

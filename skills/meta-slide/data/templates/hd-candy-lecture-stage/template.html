@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Candy Lecture Stage — Deck Template</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script src="deck-stage.js"></script>
+<style>
+html,body{margin:0;background:#0A0A0A}
+body{font-family:Inter,sans-serif;color:#fff}
+deck-stage>section{width:1920px;height:1080px;background:radial-gradient(ellipse 62% 58% at 50% 42%,#1b1424 0%,#0A0A0A 72%);color:#fff;position:relative;overflow:hidden;box-sizing:border-box;font-family:Inter,sans-serif}
+.pk{color:#FF2D95}.cy{color:#00E5FF}.ye{color:#FFD500}.gr{color:#39FF14}.mu{color:#7a7a7a}
+.w{position:absolute;left:0;right:0;text-align:center;font:900 300px/1 Inter,sans-serif;letter-spacing:-.04em;color:#FF2D95}
+.cap{position:absolute;left:0;right:0;text-align:center;font:400 36px "JetBrains Mono",monospace;color:#00E5FF;letter-spacing:.04em}
+pre{position:absolute;left:50%;transform:translateX(-50%);margin:0;padding:28px 48px;background:#141414;border:2px solid #2a2a2a;border-radius:16px;font:400 32px/1.55 "JetBrains Mono",monospace;color:#e8e8e8}
+.f2{position:absolute;right:77px;bottom:48px;font:400 24px "JetBrains Mono",monospace;color:#8a8a8a}
+.h{position:absolute;left:0;right:0;top:100px;text-align:center;font:900 130px/1 Inter,sans-serif;letter-spacing:-.03em}
+
+.list{position:absolute;left:380px;right:380px;top:360px}
+.li{display:flex;align-items:baseline;gap:40px;padding:26px 0;border-bottom:2px solid #2a2a2a;font:400 44px "JetBrains Mono",monospace}
+.li span{color:#FF2D95;font-weight:700}
+.li b{font:900 64px Inter,sans-serif;letter-spacing:-.02em}
+.li em{margin-left:auto;font-style:normal;font-size:30px;color:#8a8a8a}
+
+.stack{position:absolute;left:0;right:0;top:340px;display:flex;justify-content:center;gap:36px;align-items:flex-start}
+.fr{width:340px;padding:30px 0;text-align:center;background:#141414;border:2px solid #2a2a2a;border-radius:16px;font:700 40px "JetBrains Mono",monospace}
+.fr small{display:block;margin-top:14px;font:400 26px "JetBrains Mono",monospace;color:#8a8a8a}
+.ar{align-self:center;font:700 56px "JetBrains Mono",monospace;color:#7a7a7a}
+
+.two{position:absolute;left:150px;right:150px;top:270px;display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.two pre{position:static;transform:none;margin:0;font-size:32px}
+.two .lb{font:700 30px "JetBrains Mono",monospace;letter-spacing:.06em;margin-bottom:22px}
+
+.q{position:absolute;left:250px;right:250px;top:270px;text-align:center;font:900 110px/1.12 Inter,sans-serif;letter-spacing:-.03em}
+.by{position:absolute;left:0;right:0;top:800px;text-align:center;font:400 34px "JetBrains Mono",monospace;color:#00E5FF}
+</style>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+
+<section data-label="01 Concept">
+  <div class="w" style="top:170px;font-size:280px">Recursion</div>
+  <div class="cap" style="top:520px">// a function calls itself, until someone says stop</div>
+  <pre style="top:620px"><span class="pk">def</span> <span class="ye">countdown</span>(n):
+    <span class="pk">if</span> n == <span class="gr">0</span>: <span class="pk">return</span>       <span class="mu"># stop</span>
+    <span class="ye">countdown</span>(n - <span class="gr">1</span>)</pre>
+  <div class="f2">CS 101 · LECTURE 4</div>
+</section>
+
+<section data-label="02 Agenda">
+  <div class="h">Today</div>
+  <div class="list">
+    <div class="li"><span>01</span><b>One idea</b><em>self-reference</em></div>
+    <div class="li"><span>02</span><b>The base case</b><em>when to stop</em></div>
+    <div class="li"><span>03</span><b>The call stack</b><em>what memory does</em></div>
+    <div class="li"><span>04</span><b>Loop or recursion?</b><em>choosing</em></div>
+  </div>
+  <div class="f2">CS 101 · LECTURE 4</div>
+</section>
+
+<section data-label="03 Base Case">
+  <div class="w ye" style="top:140px;font-size:420px;color:#FFD500">Stop.</div>
+  <div class="cap" style="top:600px">// every recursive call needs a base case</div>
+  <pre style="top:690px"><span class="pk">if</span> n == <span class="gr">0</span>: <span class="pk">return</span>   <span class="mu"># without this, it never ends</span></pre>
+  <div class="f2">CS 101 · LECTURE 4</div>
+</section>
+
+<section data-label="04 Call Stack">
+  <div class="h">The call stack</div>
+  <div class="stack">
+    <div class="fr">countdown(3)<small>waits</small></div><div class="ar">→</div>
+    <div class="fr">countdown(2)<small>waits</small></div><div class="ar">→</div>
+    <div class="fr">countdown(1)<small>waits</small></div><div class="ar">→</div>
+    <div class="fr" style="border-color:#39FF14;color:#39FF14">countdown(0)<small>returns</small></div>
+  </div>
+  <div class="cap" style="top:640px">// each call waits for the next one to finish</div>
+  <div class="f2">CS 101 · LECTURE 4</div>
+</section>
+
+<section data-label="05 Loop vs Recursion">
+  <div class="h" style="top:80px">Same job, two shapes</div>
+  <div class="two">
+    <div><div class="lb pk">LOOP</div><pre><span class="pk">def</span> <span class="ye">countdown</span>(n):
+    <span class="pk">while</span> n &gt; <span class="gr">0</span>:
+        n -= <span class="gr">1</span></pre></div>
+    <div><div class="lb cy">RECURSION</div><pre><span class="pk">def</span> <span class="ye">countdown</span>(n):
+    <span class="pk">if</span> n == <span class="gr">0</span>: <span class="pk">return</span>
+    <span class="ye">countdown</span>(n - <span class="gr">1</span>)</pre></div>
+  </div>
+  <div class="cap" style="top:760px">// pick the one that reads like the problem</div>
+  <div class="f2">CS 101 · LECTURE 4</div>
+</section>
+
+<section data-label="06 Quote">
+  <div class="q">“To understand recursion, you must first <span class="pk">understand recursion.</span>”</div>
+  <div class="by">// an old programmer's joke</div>
+  <div class="f2">CS 101 · LECTURE 4</div>
+</section>
+
+<section data-label="07 Recap">
+  <div class="w" style="top:140px;font-size:260px">Recap</div>
+  <pre style="top:520px;font-size:38px;line-height:1.7"><span class="gr">1</span>  call yourself with a smaller problem
+<span class="gr">2</span>  write the base case first
+<span class="gr">3</span>  trust the call stack</pre>
+  <div class="cap" style="top:880px">// next lecture: trees</div>
+  <div class="f2">CS 101 · LECTURE 4</div>
+</section>
+
+</deck-stage>
+</body>
+</html>

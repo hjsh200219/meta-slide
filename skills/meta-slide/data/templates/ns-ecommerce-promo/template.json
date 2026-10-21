@@ -1,0 +1,47 @@
+{
+  "slug": "ns-ecommerce-promo",
+  "name": "E-commerce Promo",
+  "tagline": "Dark charcoal sales deck with red CTA bands, gold price highlights and pain-point, comparison and pricing slides",
+  "mood": [
+    "urgent",
+    "persuasive",
+    "retail",
+    "high-energy"
+  ],
+  "occasion": [
+    "product launch sale",
+    "e-commerce campaign",
+    "sales pitch",
+    "flash promotion",
+    "merchant training"
+  ],
+  "tone": [
+    "promotional",
+    "direct",
+    "persuasive"
+  ],
+  "formality": "low",
+  "density": "high",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#1a1a1a",
+    "text": "#ffffff",
+    "accent": "#e53935",
+    "description": "Dark E-commerce Promo palette: #1a1a1a background, #ffffff text, #e53935 accent"
+  },
+  "typography": {
+    "display": "sans-serif",
+    "body": "sans-serif",
+    "style": "sans-serif headings over sans-serif body"
+  },
+  "best_for": "E-commerce Promo suits product launch sale and e-commerce campaign. It reads as urgent, persuasive, retail.",
+  "avoid_for": "Formal regulated or conservative corporate decks.",
+  "slide_count": 8,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "scenarios/originals-css-only/ecommerce-product.html",
+    "license": "MIT"
+  }
+}

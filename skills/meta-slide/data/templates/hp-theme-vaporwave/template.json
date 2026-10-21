@@ -1,0 +1,48 @@
+{
+  "slug": "hp-theme-vaporwave",
+  "name": "Theme · Vaporwave",
+  "tagline": "Deep purple with pink, cyan and blue gradients and glow blobs",
+  "mood": [
+    "dreamy",
+    "nostalgic",
+    "neon",
+    "surreal"
+  ],
+  "occasion": [
+    "music event",
+    "trend art talk",
+    "aesthetic culture lecture",
+    "creative studio showcase",
+    "digital art presentation"
+  ],
+  "tone": [
+    "dreamy",
+    "ironic",
+    "stylish"
+  ],
+  "formality": "low",
+  "density": "low",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#1a0938",
+    "text": "#fdf0ff",
+    "accent": "#ff6ec7",
+    "accent2": "#00f5ff",
+    "description": "Theme tokens --bg, --text-1, --accent, --accent-2, --surface taken from vaporwave.css"
+  },
+  "typography": {
+    "display": "Space Grotesk",
+    "body": "Space Grotesk",
+    "style": "Theme font tokens --font-display / --font-sans"
+  },
+  "best_for": "Music, internet-culture and digital art presentations with a vaporwave atmosphere.",
+  "avoid_for": "Corporate compliance or finance topics.",
+  "slide_count": 22,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "assets/themes/vaporwave.css + templates/single-page/*.html (22 layouts)",
+    "license": "MIT"
+  }
+}

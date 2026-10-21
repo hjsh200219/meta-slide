@@ -1,0 +1,53 @@
+{
+  "slug": "pa-chrome-y2k",
+  "name": "Chrome Y2K",
+  "tagline": "Midnight violet space with silver-chrome gradient type, glossy chrome orbs, cyan-pink neon horizon grid and mono HUD labels (extended from a single-slide specimen)",
+  "mood": [
+    "futuristic",
+    "glossy",
+    "nostalgic",
+    "techy"
+  ],
+  "occasion": [
+    "web3 or metaverse pitch",
+    "tech product launch",
+    "creative studio showreel",
+    "music or gaming event",
+    "future-of-technology keynote"
+  ],
+  "tone": [
+    "bold",
+    "cool",
+    "retro-futurist"
+  ],
+  "formality": "low",
+  "density": "low",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#0a0518",
+    "bg_mid": "#1a0d3a",
+    "text": "#e8eef6",
+    "accent": "#ff6bcd",
+    "electric_blue": "#00d4ff",
+    "silver": "#c0d0e0",
+    "violet": "#a0a0e8",
+    "description": "deep violet-black ground with silver chrome gradients and cyan plus hot-pink neon accents"
+  },
+  "typography": {
+    "display": "Inter Tight",
+    "body": "Inter",
+    "futuristic": "Orbitron",
+    "mono": "JetBrains Mono",
+    "style": "ultra-bold tight grotesk in silver gradient, Orbitron accents and tracked mono HUD labels"
+  },
+  "best_for": "Futuristic tech and web3 stories, creative launches and entertainment events that want a glossy Y2K chrome look with a perspective grid horizon.",
+  "avoid_for": "Conservative corporate, healthcare or finance material where neon and chrome feel unserious.",
+  "slide_count": 7,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "Akxan/ppt-agent-skill",
+    "commit": "01825de",
+    "path": "ppt-output/style-gallery/chrome_y2k.html",
+    "license": "MIT"
+  }
+}

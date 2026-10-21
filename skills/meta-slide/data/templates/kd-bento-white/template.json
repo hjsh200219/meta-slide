@@ -1,0 +1,55 @@
+{
+  "tagline": "Pure white canvas of rounded bento cards with one tinted hero card per slide, oversized Playfair numerals and tiny uppercase English labels.",
+  "mood": [
+    "clean",
+    "modern",
+    "editorial",
+    "airy"
+  ],
+  "occasion": [
+    "product launch",
+    "enterprise platform keynote",
+    "annual metrics review",
+    "dashboard-style update",
+    "partner briefing"
+  ],
+  "tone": [
+    "polished",
+    "confident",
+    "tech-forward"
+  ],
+  "formality": "medium-high",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#FFFFFF",
+    "text": "#373838",
+    "primary": "#2971EB",
+    "secondary": "#22AAFE",
+    "accent": "#00CCFE",
+    "dark": "#28245F",
+    "growth": "#05C8C8",
+    "challenge": "#966EFF",
+    "emphasis": "#FFB61A",
+    "muted": "#BFBFBF",
+    "ice": "#E7F1FF",
+    "description": "white ground, one blue with same-hue tints, five supporting hues used only as number colours"
+  },
+  "typography": {
+    "display": "Playfair Display",
+    "body": "Inter",
+    "style": "high-contrast serif for titles and giant numbers, neutral sans for labels and body"
+  },
+  "best_for": "Metrics-led presentations where each slide is a small dashboard of cards: product launches, platform keynotes, annual reviews.",
+  "avoid_for": "Narrative or quote-driven talks; the card grid breaks up long sentences.",
+  "slug": "kd-bento-white",
+  "name": "Bento White",
+  "slide_count": 10,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "WayneZhon/KingDee-PPT-Skill",
+    "commit": "28ca93a",
+    "path": "html-bento-components.md",
+    "license": "MIT"
+  }
+}

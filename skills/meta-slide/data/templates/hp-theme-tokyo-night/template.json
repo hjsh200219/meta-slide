@@ -1,0 +1,49 @@
+{
+  "slug": "hp-theme-tokyo-night",
+  "name": "Theme · Tokyo Night",
+  "tagline": "Tokyo Night blue dark palette",
+  "mood": [
+    "cool",
+    "nocturnal",
+    "technical",
+    "dark"
+  ],
+  "occasion": [
+    "infrastructure talk",
+    "backend architecture",
+    "developer conference",
+    "cloud platform session",
+    "technical deep-dive"
+  ],
+  "tone": [
+    "calm",
+    "technical",
+    "professional"
+  ],
+  "formality": "medium",
+  "density": "medium",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#1a1b26",
+    "text": "#c0caf5",
+    "accent": "#7aa2f7",
+    "accent2": "#bb9af7",
+    "surface": "#24283b",
+    "description": "Theme tokens --bg, --text-1, --accent, --accent-2, --surface taken from tokyo-night.css"
+  },
+  "typography": {
+    "display": "Inter",
+    "body": "Inter",
+    "style": "Theme font tokens --font-display / --font-sans"
+  },
+  "best_for": "Cool-toned technical talks on infrastructure and systems.",
+  "avoid_for": "Bright festive events.",
+  "slide_count": 22,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "assets/themes/tokyo-night.css + templates/single-page/*.html (22 layouts)",
+    "license": "MIT"
+  }
+}

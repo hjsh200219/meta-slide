@@ -1,0 +1,49 @@
+{
+  "slug": "hp-theme-sunset-warm",
+  "name": "Theme · Sunset Warm",
+  "tagline": "Orange, coral and amber three-colour gradients",
+  "mood": [
+    "warm",
+    "optimistic",
+    "vibrant",
+    "glowing"
+  ],
+  "occasion": [
+    "lifestyle talk",
+    "award ceremony",
+    "positive team update",
+    "brand celebration",
+    "community highlight"
+  ],
+  "tone": [
+    "upbeat",
+    "warm",
+    "inspiring"
+  ],
+  "formality": "low",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#fff7ef",
+    "text": "#2a160a",
+    "accent": "#e36a2d",
+    "accent2": "#f2a341",
+    "surface": "#ffffff",
+    "description": "Theme tokens --bg, --text-1, --accent, --accent-2, --surface taken from sunset-warm.css"
+  },
+  "typography": {
+    "display": "Inter",
+    "body": "Inter",
+    "style": "Theme font tokens --font-display / --font-sans"
+  },
+  "best_for": "Positive, human topics such as awards and lifestyle stories.",
+  "avoid_for": "Cold infrastructure or security topics.",
+  "slide_count": 22,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "assets/themes/sunset-warm.css + templates/single-page/*.html (22 layouts)",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "tagline": "Deep navy with cyan-mint and magenta neon glow, faint grid lines and drifting particle dots, in Sora and DM Sans (spec: Clash Display / Satoshi from Fontshare, swapped for Google Fonts).",
+  "mood": [
+    "futuristic",
+    "techy",
+    "confident",
+    "electric"
+  ],
+  "occasion": [
+    "AI product launch",
+    "developer conference talk",
+    "hackathon demo",
+    "fintech or crypto pitch",
+    "game studio update"
+  ],
+  "tone": [
+    "cutting-edge",
+    "fast",
+    "nocturnal"
+  ],
+  "formality": "low",
+  "density": "medium",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#0a0f1c",
+    "accent_cyan": "#00ffcc",
+    "accent_magenta": "#ff00aa",
+    "text": "#ffffff",
+    "description": "midnight navy with mint-cyan primary glow and magenta secondary glow"
+  },
+  "typography": {
+    "display": "Sora",
+    "body": "DM Sans",
+    "style": "sharp contemporary display grotesque with a neutral geometric body"
+  },
+  "best_for": "Technology launches and developer talks that want a nocturnal, glowing look. Cyan carries structure and numbers, magenta marks the secondary signal.",
+  "avoid_for": "Conservative audiences or printed handouts, where glow effects disappear.",
+  "slug": "fs-neon-cyber",
+  "name": "Neon Cyber",
+  "slide_count": 10,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "zarazhangrui/frontend-slides",
+    "commit": "9906a34",
+    "path": "STYLE_PRESETS.md",
+    "license": "MIT"
+  }
+}

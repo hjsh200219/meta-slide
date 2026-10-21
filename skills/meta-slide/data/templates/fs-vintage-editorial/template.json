@@ -1,0 +1,48 @@
+{
+  "tagline": "Cream page with black outlines, a geometric circle-line-dot mark, bordered call-out boxes and chunky Fraunces headlines.",
+  "mood": [
+    "witty",
+    "confident",
+    "editorial",
+    "personality-driven"
+  ],
+  "occasion": [
+    "thought-leadership talk",
+    "newsletter-style update",
+    "brand story",
+    "creator portfolio",
+    "founder letter"
+  ],
+  "tone": [
+    "conversational",
+    "dry-humoured",
+    "bookish"
+  ],
+  "formality": "low",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg_cream": "#f5f3ee",
+    "text": "#1a1a1a",
+    "text_secondary": "#555555",
+    "accent_warm": "#e8d4c0",
+    "description": "cream paper, black ink, one warm sand tint"
+  },
+  "typography": {
+    "display": "Fraunces",
+    "body": "Work Sans",
+    "style": "soft-serif display at black weight, plain grotesque body"
+  },
+  "best_for": "Decks with a voice: opinionated talks, newsletters and founder stories. Bordered boxes with hard shadows give a printed-poster feel.",
+  "avoid_for": "Highly formal or data-dense reports.",
+  "slug": "fs-vintage-editorial",
+  "name": "Vintage Editorial",
+  "slide_count": 10,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "zarazhangrui/frontend-slides",
+    "commit": "9906a34",
+    "path": "STYLE_PRESETS.md",
+    "license": "MIT"
+  }
+}

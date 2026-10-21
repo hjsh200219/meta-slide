@@ -1,0 +1,50 @@
+{
+  "slug": "hd-signal-red-grid",
+  "name": "Signal Red Grid",
+  "tagline": "White canvas with black top and bottom bars, Helvetica black-weight numerals in signal red and hard bar charts (extended from a single-slide specimen)",
+  "mood": [
+    "bold",
+    "graphic",
+    "confident",
+    "swiss"
+  ],
+  "occasion": [
+    "benchmark report",
+    "annual results",
+    "design studio talk",
+    "data journalism",
+    "product comparison"
+  ],
+  "tone": [
+    "assertive",
+    "direct",
+    "modern"
+  ],
+  "formality": "medium",
+  "density": "medium-high",
+  "scheme": "mixed",
+  "palette": {
+    "bg": "#FFFFFF",
+    "text": "#111111",
+    "accent": "#E63946",
+    "muted": "#999999",
+    "rule": "#E8E8E8",
+    "description": "White and near-black with one signal red; light grey bars and rules"
+  },
+  "typography": {
+    "display": "Helvetica Neue",
+    "body": "Helvetica Neue",
+    "style": "Weight 900 oversized numerals with negative tracking, 700 tracked uppercase labels"
+  },
+  "best_for": "Results and comparison decks that need big numbers and a strong grid. Works for confident, poster-like data stories.",
+  "avoid_for": "Soft, warm or narrative-heavy talks.",
+  "slide_count": 7,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "alchaincyf/huashu-design",
+    "commit": "798c423",
+    "path": "assets/showcases/ppt/ppt-pentagram.html",
+    "license": "MIT"
+  },
+  "renamed_from": "hd-showcase-pentagram"
+}

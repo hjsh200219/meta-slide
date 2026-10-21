@@ -1,0 +1,49 @@
+{
+  "slug": "hp-theme-japanese-minimal",
+  "name": "Theme · Japanese Minimal",
+  "tagline": "Ivory paper, vermilion accent, generous whitespace and a serif face",
+  "mood": [
+    "zen",
+    "quiet",
+    "minimal",
+    "refined"
+  ],
+  "occasion": [
+    "brand renewal",
+    "craftsmanship story",
+    "zen narrative",
+    "premium product intro",
+    "cultural talk"
+  ],
+  "tone": [
+    "serene",
+    "restrained",
+    "thoughtful"
+  ],
+  "formality": "medium-high",
+  "density": "low",
+  "scheme": "light",
+  "palette": {
+    "bg": "#fafaf5",
+    "text": "#1a1a18",
+    "accent": "#d93a2a",
+    "accent2": "#1a1a18",
+    "surface": "#ffffff",
+    "description": "Theme tokens --bg, --text-1, --accent, --accent-2, --surface taken from japanese-minimal.css"
+  },
+  "typography": {
+    "display": "Playfair Display",
+    "body": "Inter",
+    "style": "Theme font tokens --font-display / --font-sans"
+  },
+  "best_for": "Quiet storytelling with lots of whitespace, such as craft or heritage brands.",
+  "avoid_for": "Busy data-rich reports.",
+  "slide_count": 22,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "assets/themes/japanese-minimal.css + templates/single-page/*.html (22 layouts)",
+    "license": "MIT"
+  }
+}

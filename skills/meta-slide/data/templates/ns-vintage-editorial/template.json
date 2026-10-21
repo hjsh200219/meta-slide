@@ -1,0 +1,47 @@
+{
+  "slug": "ns-vintage-editorial",
+  "name": "Vintage Editorial",
+  "tagline": "Ivory paper with Fraunces headlines, orange numerals, boxed metrics and thin circle ornaments",
+  "mood": [
+    "retro",
+    "editorial",
+    "warm",
+    "crafted"
+  ],
+  "occasion": [
+    "brand story",
+    "creative agency deck",
+    "magazine-style review",
+    "hospitality concept",
+    "founder talk"
+  ],
+  "tone": [
+    "friendly",
+    "characterful",
+    "confident"
+  ],
+  "formality": "medium",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#f5f3ee",
+    "text": "#1a1a1a",
+    "accent": "#e07a3a",
+    "description": "Light Vintage Editorial palette: #f5f3ee background, #1a1a1a text, #e07a3a accent"
+  },
+  "typography": {
+    "display": "Fraunces",
+    "body": "Work Sans",
+    "style": "Fraunces headings over Work Sans body"
+  },
+  "best_for": "Vintage Editorial suits brand story and creative agency deck. It reads as retro, editorial, warm.",
+  "avoid_for": "Formal regulated or conservative corporate decks.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/vintage-editorial.html",
+    "license": "MIT"
+  }
+}

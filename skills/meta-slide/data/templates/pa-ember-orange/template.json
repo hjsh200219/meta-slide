@@ -1,0 +1,54 @@
+{
+  "slug": "pa-ember-orange",
+  "name": "Ember Orange",
+  "tagline": "Near-black stage with a glowing ember-orange horizon, a luminous orange sphere, faint grid lines and tight Inter Tight headlines with Instrument Serif italic emphasis (extended from a single-slide specimen)",
+  "mood": [
+    "sleek",
+    "high-performance",
+    "energetic",
+    "premium",
+    "futuristic"
+  ],
+  "occasion": [
+    "hardware or device launch event",
+    "engineering deep-dive",
+    "product spec presentation",
+    "tech keynote",
+    "investor product update"
+  ],
+  "tone": [
+    "confident",
+    "technical",
+    "cinematic"
+  ],
+  "formality": "medium",
+  "density": "medium",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#0a0a0a",
+    "text": "#ffffff",
+    "accent": "#FF6900",
+    "accent_2": "#ff9d4a",
+    "accent_3": "#ffb979",
+    "bg_secondary": "#1a1a1a",
+    "description": "near-black background with a single saturated ember orange and softer orange tints"
+  },
+  "typography": {
+    "display": "Inter Tight",
+    "body": "Inter",
+    "accent": "Instrument Serif",
+    "mono": "JetBrains Mono",
+    "style": "tight heavy grotesque headlines with serif italic emphasis words, clean sans body and mono spec labels"
+  },
+  "best_for": "Launch-style talks about hardware, chips, performance and engineering where a dark stage and one glowing orange accent make the numbers stand out.",
+  "avoid_for": "Warm, humane or text-heavy storytelling where a dark techno look would feel cold.",
+  "slide_count": 8,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "Akxan/ppt-agent-skill",
+    "commit": "01825de",
+    "path": "ppt-output/style-gallery/xiaomi_orange.html",
+    "license": "MIT"
+  },
+  "renamed_from": "pa-xiaomi-orange"
+}

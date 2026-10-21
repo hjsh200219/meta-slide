@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Humanist Rounded Cards — Deck Template</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=Nunito+Sans:wght@400;600;700;800&display=swap">
+<script src="deck-stage.js"></script>
+<style>
+html,body{margin:0;background:#000}
+deck-stage>section{width:1920px;height:1080px;background:#FBF6EC;color:#21302B;position:relative;overflow:hidden;box-sizing:border-box;font-family:'Nunito Sans',sans-serif}
+.c{position:absolute;left:0;top:0;width:1200px;height:675px;transform:scale(1.6);transform-origin:0 0}
+.eyebrow{position:absolute;left:64px;top:44px;display:inline-block;background:#D9F2EA;color:#0A5C4B;border-radius:999px;padding:7px 16px;font-size:15px;font-weight:700}
+h1{position:absolute;left:64px;top:92px;margin:0;width:760px;font-family:'Source Serif 4',serif;font-weight:700;font-size:44px;line-height:1.25;color:#0A3D32}
+.lead{position:absolute;left:64px;top:208px;width:640px;font-size:18px;line-height:1.7;color:#3E4F49}
+.cta{position:absolute;right:64px;top:54px;background:#0A5C4B;color:#fff;border-radius:999px;padding:12px 26px;font-size:17px;font-weight:700}
+.cards{position:absolute;left:64px;right:64px;top:318px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{background:#fff;border-radius:28px;padding:14px 14px 20px;box-shadow:0 6px 22px rgba(10,61,50,.10)}
+.ph{height:120px;border-radius:18px;position:relative;overflow:hidden}
+.ph span{position:absolute;left:14px;bottom:10px;font-size:15px;font-weight:700;background:rgba(255,255,255,.88);color:#0A5C4B;border-radius:999px;padding:3px 10px}
+.ph i{position:absolute;border-radius:50%}
+.p1{background:#BFE8DB}.p1 i:nth-child(1){width:150px;height:150px;background:#14BF96;right:-30px;top:-50px}.p1 i:nth-child(2){width:80px;height:80px;background:#F6C453;left:34px;top:46px}
+.p2{background:#F9DDBB}.p2 i:nth-child(1){width:170px;height:170px;background:#EE9B5B;left:-40px;top:20px}.p2 i:nth-child(2){width:90px;height:90px;background:#0A5C4B;right:34px;top:-24px}
+.p3{background:#D5E3F6}.p3 i:nth-child(1){width:140px;height:140px;background:#5B8BD6;right:20px;top:34px}.p3 i:nth-child(2){width:70px;height:70px;background:#F6C453;left:30px;top:-18px}
+.card h3{margin:16px 10px 6px;font-family:'Source Serif 4',serif;font-size:25px;font-weight:700;color:#0A3D32}
+.card p{margin:0 10px 12px;font-size:16px;line-height:1.6;color:#4A5B55}
+.chips{margin:0 10px;display:flex;gap:8px;flex-wrap:wrap}
+.chips b{font-size:15px;font-weight:700;background:#F1ECDF;color:#4B4A3F;border-radius:999px;padding:4px 12px}
+.chips b.g{background:#D9F2EA;color:#0A5C4B}
+.note{position:absolute;right:64px;top:168px;width:300px;background:#FFF1CC;border-radius:24px;padding:16px 20px;font-size:16px;line-height:1.55;color:#5A4A12;transform:rotate(1.2deg)}
+.note b{font-family:'Source Serif 4',serif;font-size:22px;color:#4B3C08}
+/* cover */
+.cv h1{top:150px;width:900px;font-size:78px;line-height:1.1}
+.cv .lead{top:420px;font-size:22px;width:720px}
+.cv .blob{position:absolute;border-radius:50%}
+/* schedule */
+.sc{position:absolute;left:64px;right:64px;top:190px;display:grid;gap:14px}
+.sc .r{background:#fff;border-radius:28px;box-shadow:0 6px 22px rgba(10,61,50,.10);padding:16px 26px;display:grid;grid-template-columns:130px 1fr auto;align-items:center;gap:20px}
+.sc .d{background:#D9F2EA;color:#0A5C4B;border-radius:999px;padding:6px 0;text-align:center;font-weight:800;font-size:17px}
+.sc .d.o{background:#F9DDBB;color:#7A3E0E}.sc .d.b{background:#D5E3F6;color:#1F4C8F}
+.sc h3{margin:0;font-family:'Source Serif 4',serif;font-size:25px;color:#0A3D32}
+.sc .t{font-size:17px;font-weight:700;color:#4A5B55}
+/* steps */
+.stp{position:absolute;left:64px;right:64px;top:210px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.stp .s{background:#fff;border-radius:28px;box-shadow:0 6px 22px rgba(10,61,50,.10);padding:28px 26px 30px}
+.stp .n{width:56px;height:56px;border-radius:50%;background:#0A5C4B;color:#fff;font-family:'Source Serif 4',serif;font-weight:700;font-size:28px;display:flex;align-items:center;justify-content:center}
+.stp .s:nth-child(2) .n{background:#EE9B5B}.stp .s:nth-child(3) .n{background:#5B8BD6}
+.stp h3{margin:18px 0 8px;font-family:'Source Serif 4',serif;font-size:27px;color:#0A3D32}
+.stp p{margin:0;font-size:17px;line-height:1.65;color:#4A5B55}
+/* numbers */
+.nm{position:absolute;left:64px;right:64px;top:200px;display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.nm .k{border-radius:28px;padding:26px 22px;text-align:left}
+.nm .k b{display:block;font-family:'Source Serif 4',serif;font-size:62px;line-height:1;color:#0A3D32}
+.nm .k span{display:block;margin-top:10px;font-size:17px;line-height:1.5;color:#3E4F49;font-weight:600}
+/* compare */
+.cp{position:absolute;left:64px;right:64px;top:200px;display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.cp .p{border-radius:28px;padding:26px 30px}
+.cp h3{margin:0 0 14px;font-family:'Source Serif 4',serif;font-size:28px;color:#0A3D32}
+.cp ul{margin:0;padding:0;list-style:none}
+.cp li{font-size:19px;line-height:1.5;padding:9px 0;color:#3E4F49}
+.cp li::before{content:"";display:inline-block;width:12px;height:12px;border-radius:50%;background:#0A5C4B;margin-right:12px}
+/* quote */
+.qb{position:absolute;left:64px;top:170px;width:700px;background:#fff;border-radius:34px;box-shadow:0 6px 22px rgba(10,61,50,.10);padding:42px 48px}
+.qb p{margin:0;font-family:'Source Serif 4',serif;font-weight:700;font-size:40px;line-height:1.35;color:#0A3D32}
+.qb span{display:block;margin-top:22px;font-size:17px;font-weight:700;color:#0A5C4B}
+</style></head><body>
+<deck-stage width="1920" height="1080">
+
+<section data-label="01 Cover"><div class="c cv">
+<div class="eyebrow">Maple Court Community Night School · Autumn Term</div>
+<div class="blob" style="width:300px;height:300px;background:#BFE8DB;right:-60px;top:-70px"></div>
+<div class="blob" style="width:150px;height:150px;background:#F6C453;right:230px;top:300px"></div>
+<div class="blob" style="width:220px;height:220px;background:#F9DDBB;right:40px;top:420px"></div>
+<h1>Learn something new with your neighbours after work</h1>
+<div class="lead">No exams, no grades, and nobody has to learn faster than anyone else. Twelve weeks, Tuesday and Thursday evenings.</div>
+<div class="cta" style="top:auto;right:auto;left:64px;bottom:70px">Classes start October 28</div>
+</div></section>
+
+<section data-label="02 Course Cards"><div class="c">
+<div class="eyebrow">Maple Court Community Night School · Autumn Term</div>
+<div class="cta">Enrol: classes start October 28</div>
+<h1>Learn something new with your neighbours after work</h1>
+<div class="lead" style="width:600px">No exams, no grades, and nobody has to learn faster than anyone else. Each course runs twelve weeks, Tuesday and Thursday at 7 pm, on the second floor of the community centre.</div>
+<div class="note"><b>New this year</b><br>A reading room for parents: children are looked after during class time.</div>
+<div class="cards">
+<div class="card"><div class="ph p1"><i></i><i></i><span>Photo</span></div><h3>Phone photography and the family album</h3><p>Start from light and learn to capture everyday home life.</p><div class="chips"><b class="g">No experience</b><b>Tue 19:00</b></div></div>
+<div class="card"><div class="ph p2"><i></i><i></i><span>Photo</span></div><h3>Everyday cooking with less salt</h3><p>Follow a retired canteen cook and season gently without losing flavour.</p><div class="chips"><b class="g">Great for seniors</b><b>Thu 19:00</b></div></div>
+<div class="card"><div class="ph p3"><i></i><i></i><span>Photo</span></div><h3>A letter to your future self</h3><p>Write a little each week and bind it into a booklet at term end.</p><div class="chips"><b class="g">No experience</b><b>Thu 19:00</b></div></div>
+</div>
+</div></section>
+
+<section data-label="03 Weekly Schedule"><div class="c">
+<div class="eyebrow">This term at a glance</div>
+<h1 style="width:900px">One evening a week, three ways to spend it</h1>
+<div class="sc" style="top:200px">
+<div class="r"><div class="d">TUE</div><h3>Phone photography and the family album</h3><div class="t">19:00 – 20:30</div></div>
+<div class="r"><div class="d o">THU</div><h3>Everyday cooking with less salt</h3><div class="t">19:00 – 20:30</div></div>
+<div class="r"><div class="d b">THU</div><h3>A letter to your future self</h3><div class="t">19:00 – 20:30</div></div>
+<div class="r"><div class="d">SAT</div><h3>Reading room for parents</h3><div class="t">10:00 – 12:00</div></div>
+</div>
+</div></section>
+
+<section data-label="04 How To Join"><div class="c">
+<div class="eyebrow">How to join</div>
+<h1 style="width:900px">Three small steps and you have a seat</h1>
+<div class="stp">
+<div class="s"><div class="n">1</div><h3>Pick a course</h3><p>Choose the evening and the topic that fit your week.</p></div>
+<div class="s"><div class="n">2</div><h3>Sign up</h3><p>Leave your name at the front desk or send us a short message.</p></div>
+<div class="s"><div class="n">3</div><h3>Come along</h3><p>Bring a notebook. Tea and a friendly neighbour are provided.</p></div>
+</div>
+</div></section>
+
+<section data-label="05 Key Numbers"><div class="c">
+<div class="eyebrow">Last term in numbers</div>
+<h1 style="width:900px">A small school with a lot of regulars</h1>
+<div class="nm">
+<div class="k" style="background:#D9F2EA"><b>186</b><span>neighbours took a course</span></div>
+<div class="k" style="background:#F9DDBB"><b>12</b><span>weeks in every course</span></div>
+<div class="k" style="background:#D5E3F6"><b>74%</b><span>came back for a second term</span></div>
+<div class="k" style="background:#FFF1CC"><b>9</b><span>volunteer teachers</span></div>
+</div>
+</div></section>
+
+<section data-label="06 Two Panels"><div class="c">
+<div class="eyebrow">What to expect</div>
+<h1 style="width:900px">A different kind of evening class</h1>
+<div class="cp">
+<div class="p" style="background:#F1ECDF"><h3>What we leave out</h3><ul><li>Exams and marks</li><li>Fast-paced syllabus</li><li>Expensive equipment</li><li>Pressure to keep up</li></ul></div>
+<div class="p" style="background:#D9F2EA"><h3>What we keep</h3><ul><li>Small groups of 10 to 15</li><li>Teachers from the neighbourhood</li><li>Tea and conversation</li><li>A finished piece to take home</li></ul></div>
+</div>
+</div></section>
+
+<section data-label="07 Testimonial"><div class="c">
+<div class="eyebrow">From a student</div>
+<div class="note" style="top:260px;right:56px;transform:rotate(-2deg);width:220px"><b>Tip</b><br>Bring a friend. Classes are warmer with two.</div>
+<div class="qb" style="top:200px"><p>“I came for the cooking and stayed for the people. Now I know the names of half my street.”</p><span>Student, autumn term</span></div>
+<div class="blob" style="position:absolute;border-radius:50%;width:200px;height:200px;background:#BFE8DB;right:60px;bottom:-60px"></div>
+</div></section>
+
+<section data-label="08 Closing"><div class="c cv">
+<div class="eyebrow">See you in October</div>
+<div class="blob" style="width:300px;height:300px;background:#F9DDBB;right:-60px;top:-70px"></div>
+<div class="blob" style="width:160px;height:160px;background:#BFE8DB;right:260px;top:330px"></div>
+<h1 style="top:190px">Come and learn with us</h1>
+<div class="lead" style="top:330px">Sign up at the front desk or write to hello@example.org. Classes start October 28.</div>
+<div class="cta" style="top:auto;right:auto;left:64px;bottom:90px">Reserve your seat</div>
+</div></section>
+
+</deck-stage>
+</body></html>

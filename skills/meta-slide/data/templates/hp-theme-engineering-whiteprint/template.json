@@ -1,0 +1,49 @@
+{
+  "slug": "hp-theme-engineering-whiteprint",
+  "name": "Theme · Engineering Whiteprint",
+  "tagline": "White background with graph-paper grid, navy ink lines and mono type",
+  "mood": [
+    "technical",
+    "drafted",
+    "precise",
+    "light"
+  ],
+  "occasion": [
+    "system design review",
+    "API documentation",
+    "architecture whitepaper",
+    "engineering handbook",
+    "technical onboarding"
+  ],
+  "tone": [
+    "precise",
+    "methodical",
+    "clear"
+  ],
+  "formality": "medium-high",
+  "density": "high",
+  "scheme": "light",
+  "palette": {
+    "bg": "#ffffff",
+    "text": "#0a1e46",
+    "accent": "#0a1e46",
+    "accent2": "#1e5ac4",
+    "surface": "#ffffff",
+    "description": "Theme tokens --bg, --text-1, --accent, --accent-2, --surface taken from engineering-whiteprint.css"
+  },
+  "typography": {
+    "display": "JetBrains Mono",
+    "body": "Inter",
+    "style": "Theme font tokens --font-display / --font-sans"
+  },
+  "best_for": "Light-mode technical documents that look like annotated drafting sheets.",
+  "avoid_for": "Emotional or consumer-brand content.",
+  "slide_count": 22,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "assets/themes/engineering-whiteprint.css + templates/single-page/*.html (22 layouts)",
+    "license": "MIT"
+  }
+}

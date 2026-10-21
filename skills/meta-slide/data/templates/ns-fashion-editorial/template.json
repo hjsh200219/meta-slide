@@ -1,0 +1,47 @@
+{
+  "slug": "ns-fashion-editorial",
+  "name": "Fashion Editorial",
+  "tagline": "Charcoal and ivory slides with colored blocks, Montserrat caps, serif italics and gold hairlines",
+  "mood": [
+    "chic",
+    "editorial",
+    "sleek",
+    "minimal"
+  ],
+  "occasion": [
+    "fashion lookbook",
+    "beauty brand deck",
+    "retail concept",
+    "creative direction",
+    "magazine pitch"
+  ],
+  "tone": [
+    "stylish",
+    "curated",
+    "understated"
+  ],
+  "formality": "medium-high",
+  "density": "low",
+  "scheme": "mixed",
+  "palette": {
+    "bg": "#1a1a1a",
+    "text": "#f5f1ed",
+    "accent": "#c4a265",
+    "description": "Mixed Fashion Editorial palette: #1a1a1a background, #f5f1ed text, #c4a265 accent"
+  },
+  "typography": {
+    "display": "Montserrat",
+    "body": "Montserrat",
+    "style": "Montserrat headings over Montserrat body"
+  },
+  "best_for": "Fashion Editorial suits fashion lookbook and beauty brand deck. It reads as chic, editorial, sleek.",
+  "avoid_for": "Dense data-heavy reports where the decorative look would compete with content.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/fashion-editorial.html",
+    "license": "MIT"
+  }
+}

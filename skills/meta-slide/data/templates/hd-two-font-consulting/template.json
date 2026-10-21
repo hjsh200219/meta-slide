@@ -1,0 +1,18 @@
+{
+  "slug": "hd-two-font-consulting",
+  "name": "Two-Font Consulting",
+  "tagline": "Warm paper-beige ground with navy Fraunces serif headlines, Inter body, emerald accent, hatched corner pattern and white stat cards (extended from a single-slide specimen)",
+  "mood": ["authoritative", "refined", "editorial", "calm", "analytical"],
+  "occasion": ["consulting recommendation", "board briefing", "policy review", "research findings readout", "strategy proposal"],
+  "tone": ["credible", "measured", "persuasive"],
+  "formality": "high",
+  "density": "medium-high",
+  "scheme": "light",
+  "palette": {"bg": "#EFEBE4", "text": "#051C2C", "accent": "#00805A", "highlight": "#5FD3A6", "card": "#FFFFFF", "rule": "#C9C2B6", "description": "Paper beige with deep navy ink, emerald accent and mint on navy cards"},
+  "typography": {"display": "Fraunces", "body": "Inter", "style": "Bold Fraunces serif action titles over small-caps Inter kickers, with Fraunces numerals in stat cards"},
+  "best_for": "Argument-led decks where each slide carries a full-sentence takeaway title and supporting evidence. Suits consulting, public-sector and finance audiences.",
+  "avoid_for": "Playful, youth-oriented or visually led launches that need big imagery.",
+  "slide_count": 7,
+  "navigation": "deck-stage runtime",
+  "source": {"repo": "alchaincyf/huashu-design", "commit": "798c423", "path": "assets/style-specimens/ppt/11-two-font-consulting.html", "license": "MIT"}
+}

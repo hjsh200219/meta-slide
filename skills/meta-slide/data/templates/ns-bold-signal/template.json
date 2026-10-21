@@ -1,0 +1,47 @@
+{
+  "slug": "ns-bold-signal",
+  "name": "Bold Signal",
+  "tagline": "Near-black slides with huge red-orange block headlines, ghost numerals and tight grotesk body",
+  "mood": [
+    "loud",
+    "confident",
+    "high-contrast",
+    "punchy"
+  ],
+  "occasion": [
+    "startup pitch",
+    "product launch",
+    "conference keynote",
+    "sales kickoff",
+    "brand reveal"
+  ],
+  "tone": [
+    "assertive",
+    "energetic",
+    "direct"
+  ],
+  "formality": "medium",
+  "density": "medium",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#161616",
+    "text": "#ffffff",
+    "accent": "#ff4444",
+    "description": "Dark Bold Signal palette: #161616 background, #ffffff text, #ff4444 accent"
+  },
+  "typography": {
+    "display": "Archivo Black",
+    "body": "Space Grotesk",
+    "style": "Archivo Black headings over Space Grotesk body"
+  },
+  "best_for": "Bold Signal suits startup pitch and product launch. It reads as loud, confident, high-contrast.",
+  "avoid_for": "Formal regulated or conservative corporate decks.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/bold-signal.html",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "slug": "hp-theme-memphis-pop",
+  "name": "Theme · Memphis Pop",
+  "tagline": "Memphis-style background dots and giant playful headlines",
+  "mood": [
+    "playful",
+    "trendy",
+    "loud",
+    "youthful"
+  ],
+  "occasion": [
+    "youth brand campaign",
+    "pop-culture talk",
+    "brand collaboration",
+    "creative workshop",
+    "event promotion"
+  ],
+  "tone": [
+    "fun",
+    "energetic",
+    "irreverent"
+  ],
+  "formality": "low",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#fef6e8",
+    "text": "#111111",
+    "accent": "#ff3d8b",
+    "accent2": "#37c2d7",
+    "surface": "#ffffff",
+    "description": "Theme tokens --bg, --text-1, --accent, --accent-2, --surface taken from memphis-pop.css"
+  },
+  "typography": {
+    "display": "Archivo Black",
+    "body": "Space Grotesk",
+    "style": "Theme font tokens --font-display / --font-sans"
+  },
+  "best_for": "Young, trendy brand presentations that want a pop graphic look.",
+  "avoid_for": "Conservative or regulated industries.",
+  "slide_count": 22,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "assets/themes/memphis-pop.css + templates/single-page/*.html (22 layouts)",
+    "license": "MIT"
+  }
+}

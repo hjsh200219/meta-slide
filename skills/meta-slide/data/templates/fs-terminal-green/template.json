@@ -1,0 +1,47 @@
+{
+  "tagline": "GitHub-dark terminal with phosphor green monospace type, scan lines, a blinking block cursor and shell-prompt decorations.",
+  "mood": [
+    "developer-focused",
+    "hacker",
+    "technical",
+    "minimal"
+  ],
+  "occasion": [
+    "engineering all-hands",
+    "open-source talk",
+    "security briefing",
+    "dev tooling pitch",
+    "CS lecture"
+  ],
+  "tone": [
+    "geeky",
+    "dry",
+    "precise"
+  ],
+  "formality": "medium-low",
+  "density": "medium-high",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#0d1117",
+    "accent": "#39d353",
+    "text": "#39d353",
+    "description": "terminal black with one phosphor green used for text, rules and cursor"
+  },
+  "typography": {
+    "display": "JetBrains Mono",
+    "body": "JetBrains Mono",
+    "style": "monospace only, prompts and comment markers as decoration"
+  },
+  "best_for": "Engineering and security audiences who read the terminal aesthetic as honest. Works for command-line demos and architecture walkthroughs.",
+  "avoid_for": "Brand, marketing or finance decks; a single green monospace voice is tiring for long prose.",
+  "slug": "fs-terminal-green",
+  "name": "Terminal Green",
+  "slide_count": 10,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "zarazhangrui/frontend-slides",
+    "commit": "9906a34",
+    "path": "STYLE_PRESETS.md",
+    "license": "MIT"
+  }
+}

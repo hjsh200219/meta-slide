@@ -1,0 +1,49 @@
+{
+  "slug": "hp-theme-catppuccin-latte",
+  "name": "Theme · Catppuccin Latte",
+  "tagline": "Light Catppuccin pastel palette friendly to developers",
+  "mood": [
+    "soft",
+    "geeky",
+    "light",
+    "pastel"
+  ],
+  "occasion": [
+    "developer talk",
+    "open-source meetup",
+    "tech sharing",
+    "code workshop",
+    "team demo"
+  ],
+  "tone": [
+    "friendly",
+    "casual",
+    "nerdy"
+  ],
+  "formality": "medium-low",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#eff1f5",
+    "text": "#4c4f69",
+    "accent": "#8839ef",
+    "accent2": "#1e66f5",
+    "surface": "#ffffff",
+    "description": "Theme tokens --bg, --text-1, --accent, --accent-2, --surface taken from catppuccin-latte.css"
+  },
+  "typography": {
+    "display": "Inter",
+    "body": "Inter",
+    "style": "Theme font tokens --font-display / --font-sans"
+  },
+  "best_for": "Light-mode technical talks for developer audiences that like the Catppuccin palette.",
+  "avoid_for": "Formal board meetings.",
+  "slide_count": 22,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "assets/themes/catppuccin-latte.css + templates/single-page/*.html (22 layouts)",
+    "license": "MIT"
+  }
+}

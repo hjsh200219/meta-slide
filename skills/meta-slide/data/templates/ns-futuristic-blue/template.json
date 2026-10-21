@@ -1,0 +1,47 @@
+{
+  "slug": "ns-futuristic-blue",
+  "name": "Futuristic Blue",
+  "tagline": "Near-black with glowing royal-blue Orbitron headlines, scanlines and monospace captions",
+  "mood": [
+    "sci-fi",
+    "technical",
+    "sleek",
+    "glowing"
+  ],
+  "occasion": [
+    "deep-tech launch",
+    "AI or robotics talk",
+    "hackathon keynote",
+    "security briefing",
+    "game or XR pitch"
+  ],
+  "tone": [
+    "futuristic",
+    "focused",
+    "sharp"
+  ],
+  "formality": "medium",
+  "density": "medium",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#090910",
+    "text": "#e0e3f0",
+    "accent": "#3d5afe",
+    "description": "Dark Futuristic Blue palette: #090910 background, #e0e3f0 text, #3d5afe accent"
+  },
+  "typography": {
+    "display": "Orbitron",
+    "body": "Space Mono",
+    "style": "Orbitron headings over Space Mono body"
+  },
+  "best_for": "Futuristic Blue suits deep-tech launch and AI or robotics talk. It reads as sci-fi, technical, sleek.",
+  "avoid_for": "Formal regulated or conservative corporate decks.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/futuristic-blue.html",
+    "license": "MIT"
+  }
+}

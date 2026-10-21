@@ -1,0 +1,47 @@
+{
+  "slug": "ns-dark-premium",
+  "name": "Dark Premium",
+  "tagline": "Charcoal slides with champagne-gold Cormorant serif titles, thin rules and boxed metrics",
+  "mood": [
+    "premium",
+    "restrained",
+    "sophisticated",
+    "quiet"
+  ],
+  "occasion": [
+    "luxury brand deck",
+    "private banking pitch",
+    "design studio proposal",
+    "investor update",
+    "product reveal"
+  ],
+  "tone": [
+    "polished",
+    "exclusive",
+    "measured"
+  ],
+  "formality": "high",
+  "density": "medium",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#0d0d0d",
+    "text": "#f5f0eb",
+    "accent": "#c4a87c",
+    "description": "Dark Dark Premium palette: #0d0d0d background, #f5f0eb text, #c4a87c accent"
+  },
+  "typography": {
+    "display": "Cormorant Garamond",
+    "body": "Outfit",
+    "style": "Cormorant Garamond headings over Outfit body"
+  },
+  "best_for": "Dark Premium suits luxury brand deck and private banking pitch. It reads as premium, restrained, sophisticated.",
+  "avoid_for": "Playful or casual talks where this look would feel too formal.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/dark-premium.html",
+    "license": "MIT"
+  }
+}

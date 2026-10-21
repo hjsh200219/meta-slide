@@ -1,0 +1,13 @@
+{
+  "_note": "AntV Infographic 문법 예시(데이터 필드별). 글은 덱 언어(한국어)로 쓴다. theme 블록은 쓰지 않는다 — meta-slide-ig.js 가 덱의 색 체계·한글 서체를 넣는다. 출처: antvis/Infographic skills/infographic-creator (MIT).",
+  "lists": "infographic {name}\ndata\n  title 세 단계로 성장한다\n  lists\n    - label 획득\n      desc 채널을 넓힌다\n      icon rocket\n    - label 전환\n      desc 이탈을 줄인다\n      icon chart line\n    - label 재구매\n      desc 회원 혜택을 준다\n      icon repeat",
+  "sequences": "infographic {name}\ndata\n  title 도입 절차\n  sequences\n    - label 요청 접수\n      desc 담당자 배정\n      icon clipboard check\n    - label 검토\n      desc 요건 확인\n      icon search\n    - label 적용\n      desc 현장 배포\n      icon rocket\n  order asc",
+  "sequences+relations": "infographic {name}\ndata\n  title 로그인 확인 흐름\n  sequences\n    - label 사용자\n      icon user\n      children\n        - label 로그인 요청\n          id u1\n          step 0\n        - label 결과 확인\n          id u2\n          step 2\n    - label 서버\n      icon server\n      children\n        - label 자격 확인\n          id s1\n          step 1\n  relations\n    u1 - 계정 전송 -> s1\n    s1 - 결과 반환 -> u2",
+  "compares": "infographic {name}\ndata\n  title 지금과 바뀐 뒤\n  compares\n    - label 지금\n      icon clock\n      children\n        - label 수작업 입력\n        - label 하루 걸림\n    - label 바뀐 뒤\n      icon bolt\n      children\n        - label 자동 수집\n        - label 10분",
+  "compares:swot": "infographic compare-swot\ndata\n  title 서비스 SWOT\n  compares\n    - label 강점\n      children\n        - label 약국 네트워크\n    - label 약점\n      children\n        - label 낮은 인지도\n    - label 기회\n      children\n        - label 비대면 확대\n    - label 위협\n      children\n        - label 대형 플랫폼",
+  "compares:quadrant": "infographic {name}\ndata\n  title 과제 우선순위\n  compares\n    - label 효과 크고 쉬움\n    - label 효과 크고 어려움\n    - label 효과 작고 쉬움\n    - label 효과 작고 어려움",
+  "root": "infographic {name}\ndata\n  title 조직 구성\n  root\n    label 데이터사업본부\n    children\n      - label 제품팀\n        children\n          - label 기획\n          - label 디자인\n      - label 기술팀\n      - label 운영팀",
+  "items": "infographic {name}\ndata\n  title 시스템 구성\n  items\n    - label 화면\n      desc 웹·앱\n    - label 서비스\n      desc API·작업 큐\n    - label 데이터\n      desc DB·검색 색인",
+  "nodes+relations": "infographic {name}\ndata\n  title 처리 흐름\n  nodes\n    - id src\n      label 원천 수집\n    - id clean\n      label 정제\n    - id model\n      label 분석 모델\n    - id out\n      label 리포트\n  relations\n    src -> clean\n    clean -> model\n    model - 매일 -> out",
+  "values": "infographic {name}\ndata\n  title 분기별 매출\n  desc 3분기에 가장 크게 늘었다\n  values\n    - label 1분기\n      value 120\n    - label 2분기\n      value 135\n    - label 3분기\n      value 182\n    - label 4분기\n      value 190"
+}

@@ -1,0 +1,48 @@
+{
+  "slug": "hp-theme-aurora",
+  "name": "Theme · Aurora",
+  "tagline": "Dark aurora gradients with blur and saturation glow",
+  "mood": [
+    "dreamy",
+    "luminous",
+    "dramatic",
+    "modern"
+  ],
+  "occasion": [
+    "product reveal",
+    "keynote opener",
+    "closing statement",
+    "brand story",
+    "call to action"
+  ],
+  "tone": [
+    "inspiring",
+    "bold",
+    "futuristic"
+  ],
+  "formality": "medium",
+  "density": "low",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#06091c",
+    "text": "#e8f0ff",
+    "accent": "#5ef2c6",
+    "accent2": "#7aa2ff",
+    "description": "Theme tokens --bg, --text-1, --accent, --accent-2, --surface taken from aurora.css"
+  },
+  "typography": {
+    "display": "Inter",
+    "body": "Inter",
+    "style": "Theme font tokens --font-display / --font-sans"
+  },
+  "best_for": "Cover, call-to-action and closing-heavy decks that want a glowing gradient atmosphere.",
+  "avoid_for": "Dense tables or print handouts.",
+  "slide_count": 22,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "assets/themes/aurora.css + templates/single-page/*.html (22 layouts)",
+    "license": "MIT"
+  }
+}

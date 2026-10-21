@@ -1,0 +1,48 @@
+{
+  "slug": "fe-creative-voltage",
+  "name": "Creative Voltage",
+  "tagline": "Electric blue split panel against deep navy with neon lime highlights and mono body text.",
+  "mood": [
+    "energetic",
+    "retro-modern",
+    "playful",
+    "techy"
+  ],
+  "occasion": [
+    "creative agency pitch",
+    "design portfolio",
+    "product demo",
+    "startup update",
+    "hackathon demo"
+  ],
+  "tone": [
+    "inventive",
+    "lively",
+    "confident"
+  ],
+  "formality": "medium-low",
+  "density": "medium",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#1a1a2e",
+    "text": "#ffffff",
+    "accent": "#d4ff00",
+    "secondary": "#0066ff",
+    "description": "Deep navy base, electric blue split, neon lime accent."
+  },
+  "typography": {
+    "display": "Syne",
+    "body": "Space Mono",
+    "style": "Wide expressive display with typewriter-style mono body."
+  },
+  "best_for": "Creative and tech-flavoured pitches that want a high-voltage look. Suits short statements and card grids.",
+  "avoid_for": "Conservative corporate or legal settings.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/Down/Space, scroll-snap sections)",
+  "source": {
+    "repo": "archlizheng/frontend-slides-editable",
+    "commit": "e5663e6",
+    "path": "examples/generated/presets/creative-voltage.html",
+    "license": "MIT"
+  }
+}

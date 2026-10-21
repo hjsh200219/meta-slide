@@ -1,0 +1,52 @@
+{
+  "slug": "hd-candy-lecture-stage",
+  "name": "Candy Lecture Stage",
+  "tagline": "Near-black radial stage with a neon pink concept word, cyan mono captions and syntax-colored code boxes. (extended from a single-slide specimen)",
+  "mood": [
+    "geeky",
+    "neon",
+    "focused",
+    "playful"
+  ],
+  "occasion": [
+    "programming lecture",
+    "coding bootcamp session",
+    "developer talk",
+    "technical tutorial",
+    "CS course"
+  ],
+  "tone": [
+    "instructive",
+    "energetic",
+    "technical"
+  ],
+  "formality": "low",
+  "density": "medium",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#0A0A0A",
+    "text": "#FFFFFF",
+    "accent": "#FF2D95",
+    "cyan": "#00E5FF",
+    "yellow": "#FFD500",
+    "green": "#39FF14",
+    "code_bg": "#141414",
+    "description": "dark violet-black stage with neon pink, cyan, yellow and green syntax colors"
+  },
+  "typography": {
+    "display": "Inter",
+    "body": "Inter",
+    "mono": "JetBrains Mono",
+    "style": "one huge pink concept word, mono comment captions, neon-highlighted code blocks"
+  },
+  "best_for": "One concept per slide for teaching code or technical ideas, with code boxes and call-stack diagrams.",
+  "avoid_for": "Formal business or finance presentations.",
+  "slide_count": 7,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "alchaincyf/huashu-design",
+    "commit": "798c423",
+    "path": "assets/style-specimens/ppt/05-candy-lecture-stage.html",
+    "license": "MIT"
+  }
+}

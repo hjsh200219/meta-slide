@@ -1,0 +1,50 @@
+{
+  "slug": "pa-ink-jade",
+  "name": "Ink Jade",
+  "tagline": "Rice-paper ink-wash ground with vermilion seal stamps, vertical title, brush stroke and fine hairline frame (extended from a single-slide specimen)",
+  "mood": [
+    "serene",
+    "literary",
+    "oriental",
+    "contemplative"
+  ],
+  "occasion": [
+    "tea or craft brand story",
+    "cultural heritage talk",
+    "hospitality concept",
+    "art exhibition",
+    "poetic keynote"
+  ],
+  "tone": [
+    "quiet",
+    "refined",
+    "traditional"
+  ],
+  "formality": "medium-high",
+  "density": "low",
+  "scheme": "light",
+  "palette": {
+    "bg": "#f5f1e8",
+    "text": "#1a1a1a",
+    "accent": "#c0392b",
+    "accent_deep": "#9c2a1f",
+    "gold": "#c9b896",
+    "muted": "#5a4f44",
+    "description": "Rice paper, black ink, vermilion seal red and faint gold"
+  },
+  "typography": {
+    "display": "Cormorant Garamond",
+    "body": "Cormorant Garamond",
+    "style": "Delicate high-contrast serif, stacked vertical title, tracked Inter micro labels"
+  },
+  "best_for": "Fits cultural, craft and hospitality stories that want stillness and a literary mood. Sparse text with one red accent per slide works best.",
+  "avoid_for": "Avoid for dense data, tech or bright consumer topics.",
+  "slide_count": 7,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "Akxan/ppt-agent-skill",
+    "commit": "01825de",
+    "path": "ppt-output/style-gallery/ink_jade.html",
+    "license": "MIT"
+  }
+}

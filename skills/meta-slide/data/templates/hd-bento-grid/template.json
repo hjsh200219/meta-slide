@@ -1,0 +1,18 @@
+{
+  "slug": "hd-bento-grid",
+  "name": "Bento Grid",
+  "tagline": "Light-gray canvas with rounded white modular cards, one electric-blue hero tile, mono labels and tiny sparklines (extended from a single-slide specimen)",
+  "mood": ["clean", "modular", "modern", "friendly", "product-like"],
+  "occasion": ["annual report", "product metrics review", "impact summary", "feature overview", "quarterly business review"],
+  "tone": ["confident", "approachable", "data-forward"],
+  "formality": "medium",
+  "density": "medium-high",
+  "scheme": "light",
+  "palette": {"bg": "#F5F5F7", "text": "#1d1d1f", "accent": "#0071E3", "card": "#FFFFFF", "muted": "#6e6e73", "tint": "#EAF3FF", "description": "Apple-style light gray ground, white cards, single blue accent"},
+  "typography": {"display": "Inter", "body": "Inter", "style": "Heavy tight-tracked Inter numerals with Geist Mono uppercase labels"},
+  "best_for": "Metric-rich summaries where many small facts must be seen at once, such as annual reports and product dashboards. Works for any audience that likes a calm, Apple-like look.",
+  "avoid_for": "Long narrative or emotional storytelling where a single image or sentence should dominate.",
+  "slide_count": 7,
+  "navigation": "deck-stage runtime",
+  "source": {"repo": "alchaincyf/huashu-design", "commit": "798c423", "path": "assets/style-specimens/ppt/09-bento-grid.html", "license": "MIT"}
+}

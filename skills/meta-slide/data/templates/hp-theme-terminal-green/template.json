@@ -1,0 +1,49 @@
+{
+  "slug": "hp-theme-terminal-green",
+  "name": "Theme · Terminal Green",
+  "tagline": "Green-screen terminal with monospace type and glowing text",
+  "mood": [
+    "hacker",
+    "retro",
+    "monochrome",
+    "glowing"
+  ],
+  "occasion": [
+    "CLI tool demo",
+    "black-hat style talk",
+    "retro-punk show",
+    "security workshop",
+    "command-line tutorial"
+  ],
+  "tone": [
+    "geeky",
+    "intense",
+    "playful"
+  ],
+  "formality": "low",
+  "density": "medium-high",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#030a04",
+    "text": "#8cff9a",
+    "accent": "#00ff88",
+    "accent2": "#67ffd0",
+    "surface": "#0a1b10",
+    "description": "Theme tokens --bg, --text-1, --accent, --accent-2, --surface taken from terminal-green.css"
+  },
+  "typography": {
+    "display": "JetBrains Mono",
+    "body": "JetBrains Mono",
+    "style": "Theme font tokens --font-display / --font-sans"
+  },
+  "best_for": "Command-line and hacker-culture talks with a classic green phosphor look.",
+  "avoid_for": "Pastel or consumer-brand content.",
+  "slide_count": 22,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "assets/themes/terminal-green.css + templates/single-page/*.html (22 layouts)",
+    "license": "MIT"
+  }
+}

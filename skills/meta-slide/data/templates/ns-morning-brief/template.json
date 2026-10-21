@@ -1,0 +1,47 @@
+{
+  "slug": "ns-morning-brief",
+  "name": "Morning Brief",
+  "tagline": "Newspaper-style white page with double rules, Playfair headlines, blue accent and callout boxes",
+  "mood": [
+    "journalistic",
+    "crisp",
+    "informed",
+    "light"
+  ],
+  "occasion": [
+    "weekly briefing",
+    "market update",
+    "newsletter-style review",
+    "team digest",
+    "research summary"
+  ],
+  "tone": [
+    "neutral",
+    "informative",
+    "clear"
+  ],
+  "formality": "high",
+  "density": "high",
+  "scheme": "light",
+  "palette": {
+    "bg": "#fefdfb",
+    "text": "#1c1c1c",
+    "accent": "#1a73e8",
+    "description": "Light Morning Brief palette: #fefdfb background, #1c1c1c text, #1a73e8 accent"
+  },
+  "typography": {
+    "display": "Playfair Display",
+    "body": "IBM Plex Sans",
+    "style": "Playfair Display headings over IBM Plex Sans body"
+  },
+  "best_for": "Morning Brief suits weekly briefing and market update. It reads as journalistic, crisp, informed.",
+  "avoid_for": "Playful or casual talks where this look would feel too formal.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/morning-brief.html",
+    "license": "MIT"
+  }
+}

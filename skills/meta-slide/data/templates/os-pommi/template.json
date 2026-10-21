@@ -1,0 +1,52 @@
+{
+  "tagline": "Cream paper with ink outlines on everything: tomato, butter, mint, periwinkle and pink stickers and slabs, hard offset shadows, tilted cards and chunky Gabarito.",
+  "mood": [
+    "playful",
+    "chunky",
+    "sticker-bright",
+    "consumer-friendly"
+  ],
+  "occasion": [
+    "consumer app launch",
+    "snack or beverage brand",
+    "community or creator update",
+    "kids and family product",
+    "retail campaign review"
+  ],
+  "tone": [
+    "cheeky",
+    "bold",
+    "friendly"
+  ],
+  "formality": "low",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#FFF3DF",
+    "text": "#151313",
+    "accent": "#FF5A2C",
+    "butter": "#FFD23F",
+    "mint": "#7EDDB0",
+    "periwinkle": "#98A6FF",
+    "pink": "#FFB0D0",
+    "paper": "#FFFCF6",
+    "description": "cream canvas, ink outlines, tomato as the one accent and four flat sticker fills; text on any fill is always ink"
+  },
+  "typography": {
+    "display": "Gabarito",
+    "body": "Gabarito",
+    "style": "weight 900 titles with a DM Mono label face"
+  },
+  "best_for": "Consumer-facing decks that should feel like stickers on a laptop. Every filled shape carries a 4 px ink outline and a hard shadow.",
+  "avoid_for": "Sober, regulated or data-dense contexts; the chunky outlines and tilted cards look informal.",
+  "slug": "os-pommi",
+  "name": "Pommi Sticker",
+  "slide_count": 10,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "open-slide/open-slide",
+    "commit": "1f18ab5",
+    "path": "apps/demo/themes/pommi.md",
+    "license": "MIT"
+  }
+}

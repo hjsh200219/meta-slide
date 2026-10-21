@@ -1,0 +1,49 @@
+{
+  "slug": "hd-irreverent-pop",
+  "name": "Irreverent Pop",
+  "tagline": "Blaze-orange field covered in cream retro desktop windows with hard black shadows, yellow stickers and outlined giant numerals. (extended from a single-slide specimen)",
+  "mood": [
+    "cheeky",
+    "loud",
+    "meme-aware",
+    "collage"
+  ],
+  "occasion": [
+    "startup launch",
+    "creator or product pitch",
+    "social campaign recap",
+    "hackathon demo",
+    "youth brand deck"
+  ],
+  "tone": [
+    "irreverent",
+    "ironic",
+    "energetic"
+  ],
+  "formality": "low",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#FF4500",
+    "text": "#000000",
+    "paper": "#FFF6D8",
+    "accent": "#FFE01B",
+    "green": "#39FF14",
+    "description": "orange-red ground with cream windows, black outlines and shadows, yellow stickers and a neon green counter"
+  },
+  "typography": {
+    "display": "Archivo",
+    "body": "Space Grotesk",
+    "style": "heavy outlined display, retro window frames with offset shadows, slightly rotated stickers"
+  },
+  "best_for": "Tongue-in-cheek product stories with a playful, internet-native voice. Windows and stickers give each slide a collage feel.",
+  "avoid_for": "Serious, regulated or board-level presentations.",
+  "slide_count": 7,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "alchaincyf/huashu-design",
+    "commit": "798c423",
+    "path": "assets/style-specimens/ppt/07-irreverent-pop.html",
+    "license": "MIT"
+  }
+}

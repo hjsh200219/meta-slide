@@ -1,0 +1,49 @@
+{
+  "slug": "hp-dir-key-nav-minimal",
+  "name": "Arrow-Key Minimal",
+  "tagline": "One bold mono-colour background per slide, 160px headlines, short accent bars and mono labels",
+  "mood": [
+    "minimal",
+    "bold",
+    "editorial",
+    "rhythmic"
+  ],
+  "occasion": [
+    "keynote talk",
+    "public speech",
+    "manifesto",
+    "conference opener",
+    "short pitch"
+  ],
+  "tone": [
+    "confident",
+    "dramatic",
+    "quiet"
+  ],
+  "formality": "medium-low",
+  "density": "low",
+  "scheme": "mixed",
+  "palette": {
+    "bg": "#0f172a",
+    "text": "#ffffff",
+    "accent": "#F5F0E8",
+    "accent2": "#991b1b",
+    "surface": "#1e1b4b",
+    "description": "Eight alternating solid or gradient backgrounds: indigo, cream, crimson, emerald, slate, violet, white, charcoal"
+  },
+  "typography": {
+    "display": "Inter",
+    "body": "Inter",
+    "style": "Huge sans headlines with JetBrains Mono labels"
+  },
+  "best_for": "Talks with a few strong statements and little imagery, where colour changes pace the story. Suits keynotes and speeches with one idea per slide.",
+  "avoid_for": "Dense data or table-heavy reports.",
+  "slide_count": 8,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "templates/full-decks/dir-key-nav-minimal",
+    "license": "MIT"
+  }
+}

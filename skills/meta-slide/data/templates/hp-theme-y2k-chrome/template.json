@@ -1,0 +1,48 @@
+{
+  "slug": "hp-theme-y2k-chrome",
+  "name": "Theme · Y2K Chrome",
+  "tagline": "Silver chrome gradients with rainbow accent, large rounded corners and Space Grotesk",
+  "mood": [
+    "chrome",
+    "playful",
+    "futuristic",
+    "nostalgic"
+  ],
+  "occasion": [
+    "millennial nostalgia event",
+    "fashion brand pitch",
+    "Gen-Z campaign",
+    "music launch",
+    "creative agency intro"
+  ],
+  "tone": [
+    "playful",
+    "trendy",
+    "bold"
+  ],
+  "formality": "low",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#dfe4ec",
+    "text": "#1a1f2e",
+    "accent": "#8a5cff",
+    "accent2": "#3ccfd8",
+    "description": "Theme tokens --bg, --text-1, --accent, --accent-2, --surface taken from y2k-chrome.css"
+  },
+  "typography": {
+    "display": "Space Grotesk",
+    "body": "Space Grotesk",
+    "style": "Theme font tokens --font-display / --font-sans"
+  },
+  "best_for": "Fashion and Gen-Z brand decks with a millennium-era chrome look.",
+  "avoid_for": "Conservative corporate reports.",
+  "slide_count": 22,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "assets/themes/y2k-chrome.css + templates/single-page/*.html (22 layouts)",
+    "license": "MIT"
+  }
+}

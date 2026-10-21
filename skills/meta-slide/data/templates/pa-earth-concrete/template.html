@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Earth Concrete — Deck Template</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+  :root{
+    --bg-from:#d4cfc4; --bg-mid:#c4bfb3; --bg-to:#b5b0a5; --paper:#e8e3d8;
+    --ink:#1a1a1a; --ink-soft:#3a3a3a; --ink-mute:rgba(26,26,26,0.55); --ink-faint:rgba(26,26,26,0.28); --rule:rgba(26,26,26,0.12);
+    --accent:#ff6b35; --accent-deep:#d8541f;
+    --display-font:'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    --body-font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --mono-font:'JetBrains Mono','DM Mono','Courier New',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{margin:0;background:#000}
+  deck-stage>section{
+    width:1920px;height:1080px;position:relative;overflow:hidden;box-sizing:border-box;
+    background:linear-gradient(135deg,var(--bg-from) 0%,var(--bg-mid) 55%,var(--bg-to) 100%);
+    color:var(--ink);font-family:var(--body-font);
+    font-feature-settings:"kern","liga","ss01","cv11","calt","ccmp";-webkit-font-smoothing:antialiased;
+  }
+  .tex{position:absolute;inset:0;background-image:
+    radial-gradient(circle at 20% 30%,rgba(0,0,0,.05) 1px,transparent 2px),
+    radial-gradient(circle at 70% 60%,rgba(0,0,0,.04) 1px,transparent 2px),
+    radial-gradient(circle at 40% 80%,rgba(0,0,0,.05) 1px,transparent 2px),
+    radial-gradient(circle at 85% 18%,rgba(0,0,0,.035) 1px,transparent 2px);
+    background-size:45px 45px,60px 60px,75px 75px,52px 52px;pointer-events:none}
+  .stain{position:absolute;inset:0;background:
+    radial-gradient(ellipse 60% 40% at 18% 22%,rgba(255,255,255,.18),transparent 65%),
+    radial-gradient(ellipse 55% 45% at 88% 78%,rgba(0,0,0,.07),transparent 60%);pointer-events:none}
+  .grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,0,0,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.05) 1px,transparent 1px);background-size:90px 90px;pointer-events:none}
+  .fr{position:absolute;background:rgba(26,26,26,.18)}
+  .fr.t,.fr.b{left:0;right:0;height:1px}.fr.t{top:0}.fr.b{bottom:0}
+  .fr.l,.fr.r{top:0;bottom:0;width:1px}.fr.l{left:0}.fr.r{right:0}
+  .crop{position:absolute;width:21px;height:21px;border:0 solid var(--ink)}
+  .crop.tl{top:39px;left:39px;border-top-width:2px;border-left-width:2px}
+  .crop.tr{top:39px;right:39px;border-top-width:2px;border-right-width:2px}
+  .crop.bl{bottom:39px;left:39px;border-bottom-width:2px;border-left-width:2px}
+  .crop.br{bottom:39px;right:39px;border-bottom-width:2px;border-right-width:2px}
+  .stage{position:relative;z-index:4;width:100%;height:100%;padding:84px 108px 72px;display:flex;flex-direction:column}
+  .top{display:flex;justify-content:space-between;align-items:center}
+  .logo{display:flex;align-items:center;gap:18px;font-family:var(--display-font);font-size:24px;font-weight:800;letter-spacing:.02em;text-transform:uppercase}
+  .logo-mark{width:33px;height:33px;background:var(--ink);position:relative;display:inline-block}
+  .logo-mark i{position:absolute;right:-1px;bottom:-1px;width:14px;height:14px;background:var(--accent)}
+  .nav{font-family:var(--mono-font);font-size:20px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);display:flex;gap:33px;align-items:center}
+  .nav .dot{width:5px;height:5px;background:var(--ink-faint);display:inline-block}
+  .nav .now{color:var(--ink);font-weight:600;display:inline-flex;align-items:center;gap:12px}
+  .nav .now i{width:9px;height:9px;background:var(--accent);display:inline-block}
+  .meta-row{display:flex;align-items:center;gap:27px;margin-top:21px;font-family:var(--mono-font);font-size:20px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mute)}
+  .meta-row .sep{width:21px;height:1px;background:var(--ink-faint)}
+  .label-row{display:inline-flex;align-items:center;gap:21px;margin-top:63px}
+  .label-row .bar{width:84px;height:3px;background:var(--accent);display:inline-block}
+  .label-row .txt{font-family:var(--display-font);font-size:22px;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:var(--accent-deep)}
+  .label-row .num{font-family:var(--mono-font);font-size:20px;font-weight:600;letter-spacing:.16em}
+  .headline{font-family:var(--display-font);font-size:174px;font-weight:800;letter-spacing:-.045em;line-height:.92;margin-top:27px}
+  .headline .p{color:var(--accent)}
+  .h2{font-family:var(--display-font);font-size:120px;font-weight:800;letter-spacing:-.045em;line-height:.95;margin-top:27px}
+  .h2 .p{color:var(--accent)}
+  .lower{display:flex;align-items:flex-end;justify-content:space-between;margin-top:42px;gap:60px}
+  .deck-col{max-width:880px}
+  .deck{font-size:28px;line-height:1.55;color:var(--ink-soft);letter-spacing:-.005em}
+  .deck .em{font-family:var(--display-font);font-weight:700;color:var(--ink)}
+  .ribbon-wrap{margin-top:33px;display:inline-flex;align-items:center}
+  .ribbon{background:var(--accent);color:#fff;padding:12px 27px 12px 21px;font-family:var(--display-font);font-size:20px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;clip-path:polygon(0 0,100% 0,calc(100% - 15px) 100%,0 100%)}
+  .ribbon-tail{background:var(--ink);color:#fff;padding:12px 21px 12px 27px;font-family:var(--mono-font);font-size:20px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;clip-path:polygon(15px 0,100% 0,100% 100%,0 100%);margin-left:-15px}
+  .ref-block{display:flex;flex-direction:column;align-items:flex-end;gap:9px}
+  .ref-num{font-family:var(--display-font);font-size:150px;font-weight:800;letter-spacing:-.05em;line-height:.85}
+  .ref-num .s{color:var(--accent)}
+  .ref-cap{font-family:var(--mono-font);font-size:20px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-mute)}
+  .chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:48px}
+  .chip{font-family:var(--mono-font);font-size:20px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;background:rgba(255,255,255,.4);border:1px solid rgba(26,26,26,.18);padding:11px 18px;display:inline-flex;align-items:center;gap:12px}
+  .chip.dark{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .chip .k{color:var(--ink-mute);font-weight:500}.chip.dark .k{color:rgba(255,255,255,.55)}
+  .chip i{width:8px;height:8px;background:var(--accent);display:inline-block}
+  .footer{position:absolute;bottom:27px;left:108px;right:108px;display:flex;justify-content:space-between;align-items:center;font-family:var(--mono-font);font-size:18px;font-weight:500;color:var(--ink-mute);letter-spacing:.18em;text-transform:uppercase;z-index:5}
+  .footer span{display:inline-flex;align-items:center;gap:18px}
+  .footer i{width:6px;height:6px;background:var(--accent);display:inline-block}
+  .stamp{position:absolute;right:108px;top:165px;width:117px;height:117px;border:2px solid var(--ink);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(-8deg);z-index:5;background:rgba(232,227,216,.5)}
+  .stamp .a{font-family:var(--mono-font);font-size:13px;font-weight:700;letter-spacing:.22em}
+  .stamp .b{font-family:var(--display-font);font-size:33px;font-weight:800;letter-spacing:-.03em;color:var(--accent-deep);line-height:1;margin:6px 0}
+  .stamp .c{font-family:var(--mono-font);font-size:11px;font-weight:600;letter-spacing:.18em;color:var(--ink-mute)}
+  /* content blocks */
+  .spec-table{margin-top:60px;border-top:3px solid var(--ink)}
+  .spec-row{display:grid;grid-template-columns:150px 1fr 280px;gap:36px;align-items:baseline;padding:27px 0;border-bottom:1px solid rgba(26,26,26,.25)}
+  .spec-row .n{font-family:var(--mono-font);font-size:24px;font-weight:600;color:var(--accent-deep);letter-spacing:.12em}
+  .spec-row .t{font-family:var(--display-font);font-size:50px;font-weight:700;letter-spacing:-.03em}
+  .spec-row .m{font-family:var(--mono-font);font-size:20px;color:var(--ink-mute);letter-spacing:.14em;text-transform:uppercase;text-align:right}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:66px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:66px}
+  .block{background:rgba(255,255,255,.35);border:1px solid rgba(26,26,26,.2);padding:42px 42px 48px;min-height:420px;position:relative}
+  .block .k{font-family:var(--mono-font);font-size:20px;font-weight:600;letter-spacing:.18em;color:var(--accent-deep);text-transform:uppercase}
+  .block .t{font-family:var(--display-font);font-size:48px;font-weight:800;letter-spacing:-.035em;line-height:1.05;margin-top:21px}
+  .block .d{font-size:26px;line-height:1.55;color:var(--ink-soft);margin-top:21px}
+  .block.dark{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .block.dark .d{color:rgba(255,255,255,.7)}
+  .block.dark .k{color:var(--accent)}
+  .bignum{font-family:var(--display-font);font-size:180px;font-weight:800;letter-spacing:-.05em;line-height:.9;margin-top:30px}
+  .bignum .s{color:var(--accent)}
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:90px;border-top:3px solid var(--ink)}
+  .flow .st{padding:36px 36px 0 0;position:relative}
+  .flow .st::before{content:'';position:absolute;top:-12px;left:0;width:21px;height:21px;background:var(--accent)}
+  .flow .st .n{font-family:var(--display-font);font-size:96px;font-weight:800;letter-spacing:-.05em;line-height:1;margin-top:18px}
+  .flow .st .t{font-family:var(--display-font);font-size:42px;font-weight:700;letter-spacing:-.03em;margin-top:15px}
+  .flow .st .d{font-size:26px;line-height:1.5;color:var(--ink-soft);margin-top:15px}
+  .quote{font-family:var(--display-font);font-size:112px;font-weight:800;letter-spacing:-.045em;line-height:1;max-width:1500px;margin-top:48px}
+  .quote .p{color:var(--accent)}
+  .attr{font-family:var(--mono-font);font-size:22px;font-weight:600;letter-spacing:.2em;color:var(--ink-mute);margin-top:48px;text-transform:uppercase}
+  .giant{font-family:var(--display-font);font-size:440px;font-weight:800;letter-spacing:-.07em;line-height:.8}
+  .giant .s{color:var(--accent)}
+</style>
+<script src="deck-stage.js"></script>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+
+<section data-label="01 Cover">
+  <div class="tex"></div><div class="stain"></div><div class="grid"></div>
+  <div class="fr t"></div><div class="fr b"></div><div class="fr l"></div><div class="fr r"></div>
+  <div class="crop tl"></div><div class="crop tr"></div><div class="crop bl"></div><div class="crop br"></div>
+  <div class="stage">
+    <div class="top"><div class="logo"><span class="logo-mark"><i></i></span>Atelier &middot; LM</div>
+      <div class="nav"><span>Projects</span><span class="dot"></span><span>Studio</span><span class="dot"></span><span>Journal</span><span class="dot"></span><span class="now"><i></i>Contact</span></div></div>
+    <div class="meta-row"><span>N 31&deg;14&prime;</span><span class="sep"></span><span>E 121&deg;28&prime;</span><span class="sep"></span><span>Harbor District</span><span class="sep"></span><span>Est. 2018</span><span class="sep"></span><span>File 042 / 12</span></div>
+    <div class="label-row"><span class="bar"></span><span class="txt">Architecture</span><span class="num">&middot; 042</span></div>
+    <h1 class="headline">Building the<br>city&rsquo;s grain<span class="p">.</span></h1>
+    <div class="lower">
+      <div class="deck-col">
+        <p class="deck">ATELIER LM, EST. <span class="em">2018</span>. Twelve completed projects across <span class="em">Shanghai</span>, <span class="em">Beijing</span>, and <span class="em">Tokyo</span> &mdash; concrete, steel and daylight, rewriting the scale and rhythm of the city from within.</p>
+        <div class="ribbon-wrap"><div class="ribbon">&#9650; 2026 Biennale</div><div class="ribbon-tail">Pavilion B / 03</div></div>
+      </div>
+      <div class="ref-block"><div class="ref-num">042<span class="s">/</span>12</div><div class="ref-cap">Project Index &middot; Phase 03</div></div>
+    </div>
+    <div class="chips">
+      <div class="chip"><i></i><span class="k">PRJ</span>&nbsp;042</div>
+      <div class="chip"><span class="k">AREA</span>&nbsp;1,200 m&sup2;</div>
+      <div class="chip"><span class="k">MAT</span>&nbsp;Steel &middot; Concrete</div>
+      <div class="chip"><span class="k">LOC</span>&nbsp;Harbor &middot; 2026</div>
+      <div class="chip dark"><span class="k">PHASE</span>&nbsp;03 &middot; Completed</div>
+    </div>
+  </div>
+  <div class="stamp"><div class="a">SEAL</div><div class="b">042</div><div class="c">2026 / 05</div></div>
+  <div class="footer"><span><i></i>Atelier LM &middot; Architecture Studio</span><span>F. 042 &middot; 01 / 07</span></div>
+</section>
+
+<section data-label="02 Contents">
+  <div class="tex"></div><div class="stain"></div><div class="grid"></div>
+  <div class="fr t"></div><div class="fr b"></div><div class="fr l"></div><div class="fr r"></div>
+  <div class="crop tl"></div><div class="crop tr"></div><div class="crop bl"></div><div class="crop br"></div>
+  <div class="stage">
+    <div class="label-row" style="margin-top:0"><span class="bar"></span><span class="txt">Contents</span><span class="num">&middot; 00</span></div>
+    <h2 class="h2">Index of works<span class="p">.</span></h2>
+    <div class="spec-table">
+      <div class="spec-row"><span class="n">01</span><span class="t">Material and method</span><span class="m">P. 03</span></div>
+      <div class="spec-row"><span class="n">02</span><span class="t">Site and structure</span><span class="m">P. 04</span></div>
+      <div class="spec-row"><span class="n">03</span><span class="t">Build sequence</span><span class="m">P. 05</span></div>
+      <div class="spec-row"><span class="n">04</span><span class="t">Before and after</span><span class="m">P. 06</span></div>
+    </div>
+  </div>
+  <div class="footer"><span><i></i>Atelier LM &middot; Architecture Studio</span><span>F. 042 &middot; 02 / 07</span></div>
+</section>
+
+<section data-label="03 Section Divider">
+  <div class="tex"></div><div class="stain"></div><div class="grid"></div>
+  <div class="fr t"></div><div class="fr b"></div><div class="fr l"></div><div class="fr r"></div>
+  <div class="crop tl"></div><div class="crop tr"></div><div class="crop bl"></div><div class="crop br"></div>
+  <div class="stage" style="justify-content:center">
+    <div class="giant">01<span class="s">/</span></div>
+    <div class="label-row" style="margin-top:54px"><span class="bar"></span><span class="txt">Chapter One</span><span class="num">&middot; Material</span></div>
+    <h2 class="h2" style="font-size:132px">Raw, honest, load-bearing<span class="p">.</span></h2>
+  </div>
+  <div class="footer"><span><i></i>Atelier LM &middot; Architecture Studio</span><span>F. 042 &middot; 03 / 07</span></div>
+</section>
+
+<section data-label="04 Key Points">
+  <div class="tex"></div><div class="stain"></div><div class="grid"></div>
+  <div class="fr t"></div><div class="fr b"></div><div class="fr l"></div><div class="fr r"></div>
+  <div class="crop tl"></div><div class="crop tr"></div><div class="crop bl"></div><div class="crop br"></div>
+  <div class="stage">
+    <div class="label-row" style="margin-top:0"><span class="bar"></span><span class="txt">Principles</span><span class="num">&middot; 01</span></div>
+    <h2 class="h2">Three rules of the<br>studio<span class="p">.</span></h2>
+    <div class="grid3">
+      <div class="block"><div class="k">Rule 01</div><div class="t">Show the structure</div><div class="d">Beams, slabs and joints stay visible. Nothing decorative hides how the building stands.</div></div>
+      <div class="block"><div class="k">Rule 02</div><div class="t">Let daylight work</div><div class="d">Openings are sized to the sun path first and to the facade grid second.</div></div>
+      <div class="block dark"><div class="k">Rule 03</div><div class="t">Build to last</div><div class="d">Specify materials that age well and need little maintenance for fifty years.</div></div>
+    </div>
+  </div>
+  <div class="footer"><span><i></i>Atelier LM &middot; Architecture Studio</span><span>F. 042 &middot; 04 / 07</span></div>
+</section>
+
+<section data-label="05 Process">
+  <div class="tex"></div><div class="stain"></div><div class="grid"></div>
+  <div class="fr t"></div><div class="fr b"></div><div class="fr l"></div><div class="fr r"></div>
+  <div class="crop tl"></div><div class="crop tr"></div><div class="crop bl"></div><div class="crop br"></div>
+  <div class="stage">
+    <div class="label-row" style="margin-top:0"><span class="bar"></span><span class="txt">Sequence</span><span class="num">&middot; 02</span></div>
+    <h2 class="h2">From survey to<br>handover<span class="p">.</span></h2>
+    <div class="flow">
+      <div class="st"><div class="n">01</div><div class="t">Survey</div><div class="d">Soil, light and neighbours measured on site.</div></div>
+      <div class="st"><div class="n">02</div><div class="t">Frame</div><div class="d">Steel and cast concrete erected in one season.</div></div>
+      <div class="st"><div class="n">03</div><div class="t">Envelope</div><div class="d">Facade, glazing and roof sealed and tested.</div></div>
+      <div class="st"><div class="n">04</div><div class="t">Handover</div><div class="d">Commissioning, record drawings and walkthrough.</div></div>
+    </div>
+  </div>
+  <div class="footer"><span><i></i>Atelier LM &middot; Architecture Studio</span><span>F. 042 &middot; 05 / 07</span></div>
+</section>
+
+<section data-label="06 Comparison">
+  <div class="tex"></div><div class="stain"></div><div class="grid"></div>
+  <div class="fr t"></div><div class="fr b"></div><div class="fr l"></div><div class="fr r"></div>
+  <div class="crop tl"></div><div class="crop tr"></div><div class="crop bl"></div><div class="crop br"></div>
+  <div class="stage">
+    <div class="label-row" style="margin-top:0"><span class="bar"></span><span class="txt">Outcome</span><span class="num">&middot; 03</span></div>
+    <h2 class="h2">Before and after<span class="p">.</span></h2>
+    <div class="grid2">
+      <div class="block" style="min-height:480px"><div class="k">Existing warehouse</div><div class="bignum">640<span class="s">m&sup2;</span></div><div class="d">Dark floor plate, one entrance, no public frontage.</div></div>
+      <div class="block dark" style="min-height:480px"><div class="k">Completed pavilion</div><div class="bignum">1,200<span class="s">m&sup2;</span></div><div class="d">Open atrium, three entrances, daylight on every floor.</div></div>
+    </div>
+  </div>
+  <div class="footer"><span><i></i>Atelier LM &middot; Architecture Studio</span><span>F. 042 &middot; 06 / 07</span></div>
+</section>
+
+<section data-label="07 Closing">
+  <div class="tex"></div><div class="stain"></div><div class="grid"></div>
+  <div class="fr t"></div><div class="fr b"></div><div class="fr l"></div><div class="fr r"></div>
+  <div class="crop tl"></div><div class="crop tr"></div><div class="crop bl"></div><div class="crop br"></div>
+  <div class="stage" style="justify-content:center">
+    <div class="label-row" style="margin-top:0"><span class="bar"></span><span class="txt">Closing</span><span class="num">&middot; 042</span></div>
+    <div class="quote">Concrete remembers<br>every hand that built it<span class="p">.</span></div>
+    <div class="attr">Atelier LM &middot; Studio Notes</div>
+  </div>
+  <div class="stamp" style="top:130px"><div class="a">SEAL</div><div class="b">042</div><div class="c">2026 / 05</div></div>
+  <div class="footer"><span><i></i>Atelier LM &middot; Architecture Studio</span><span>F. 042 &middot; 07 / 07</span></div>
+</section>
+
+</deck-stage>
+</body>
+</html>

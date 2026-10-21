@@ -1,0 +1,47 @@
+{
+  "slug": "ns-ink-wash",
+  "name": "Ink Wash Minimal",
+  "tagline": "Warm paper with serif black type, vermilion seal accents and soft ink smudges",
+  "mood": [
+    "calm",
+    "oriental",
+    "minimal",
+    "literary"
+  ],
+  "occasion": [
+    "cultural brand story",
+    "tea or design brand",
+    "lecture",
+    "poetry or art talk",
+    "quiet product reveal"
+  ],
+  "tone": [
+    "serene",
+    "considered",
+    "poised"
+  ],
+  "formality": "medium",
+  "density": "low",
+  "scheme": "light",
+  "palette": {
+    "bg": "#f2eee7",
+    "text": "#1a1a1a",
+    "accent": "#c53d43",
+    "description": "Light Ink Wash Minimal palette: #f2eee7 background, #1a1a1a text, #c53d43 accent"
+  },
+  "typography": {
+    "display": "serif",
+    "body": "sans-serif",
+    "style": "serif headings over sans-serif body"
+  },
+  "best_for": "Ink Wash Minimal suits cultural brand story and tea or design brand. It reads as calm, oriental, minimal.",
+  "avoid_for": "Dense data-heavy reports where the decorative look would compete with content.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/ink-wash.html",
+    "license": "MIT"
+  }
+}

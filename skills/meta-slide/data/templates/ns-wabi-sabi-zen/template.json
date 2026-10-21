@@ -1,0 +1,47 @@
+{
+  "slug": "ns-wabi-sabi-zen",
+  "name": "Wabi-Sabi Zen",
+  "tagline": "Stone-beige washes with faint Cormorant serif text, tiny brush marks and lots of empty space",
+  "mood": [
+    "serene",
+    "imperfect",
+    "quiet",
+    "minimal"
+  ],
+  "occasion": [
+    "mindfulness talk",
+    "craft or ceramics brand",
+    "design philosophy",
+    "poetry reading",
+    "slow-living brand"
+  ],
+  "tone": [
+    "contemplative",
+    "gentle",
+    "spare"
+  ],
+  "formality": "medium",
+  "density": "low",
+  "scheme": "light",
+  "palette": {
+    "bg": "#e5e1d7",
+    "text": "#2c2c2c",
+    "accent": "#8a7f70",
+    "description": "Light Wabi-Sabi Zen palette: #e5e1d7 background, #2c2c2c text, #8a7f70 accent"
+  },
+  "typography": {
+    "display": "Cormorant Garamond",
+    "body": "Cormorant Garamond",
+    "style": "Cormorant Garamond headings over Cormorant Garamond body"
+  },
+  "best_for": "Wabi-Sabi Zen suits mindfulness talk and craft or ceramics brand. It reads as serene, imperfect, quiet.",
+  "avoid_for": "Dense data-heavy reports where the decorative look would compete with content.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/wabi-sabi-zen.html",
+    "license": "MIT"
+  }
+}

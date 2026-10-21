@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Playful Collins Editorial — Deck Template</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500..900&family=Inter:wght@500;700&display=swap" rel="stylesheet">
+<script src="deck-stage.js"></script>
+<style>
+html,body{margin:0;background:#FFE01B}
+body{font-family:Inter,sans-serif;color:#111}
+deck-stage>section{width:1920px;height:1080px;background:#FFE01B;color:#111;position:relative;overflow:hidden;box-sizing:border-box;font-family:Inter,sans-serif}
+deck-stage>section.k{background:#111;color:#FFE01B}
+.kick{position:absolute;left:102px;top:76px;font:700 24px Inter,sans-serif;letter-spacing:.12em}
+h1{position:absolute;left:96px;top:150px;margin:0;font:900 170px/1.06 Fraunces,serif;letter-spacing:-.02em}
+h1 em{font-style:normal;display:inline-block;transform:rotate(-4deg);background:#111;color:#FFE01B;padding:0 22px;margin-left:10px}
+.sub{position:absolute;left:109px;top:760px;width:760px;font:500 36px/1.6 Fraunces,serif}
+.c1{position:absolute;right:130px;top:520px;width:400px;height:400px;border-radius:50%;background:#E8472B}
+.c2{position:absolute;right:480px;top:750px;width:272px;height:136px;border-radius:272px 272px 0 0;background:#2B6BFF;transform:rotate(14deg)}
+.sq{position:absolute;right:90px;top:800px;width:192px;height:192px;background:#111;transform:rotate(-8deg)}
+.sq i{position:absolute;left:28px;top:44px;font:900 80px Fraunces,serif;font-style:normal;color:#FFE01B;transform:rotate(8deg)}
+.wave{position:absolute;left:96px;bottom:44px}
+.note{position:absolute;right:115px;top:90px;transform:rotate(3deg);background:#fff;border:5px solid #111;padding:16px 26px;font:700 28px/1.4 Fraunces,serif}
+.h2{position:absolute;left:96px;top:150px;margin:0;font:900 150px/1.04 Fraunces,serif;letter-spacing:-.02em}
+
+.list{position:absolute;left:109px;top:500px;width:1000px}
+.li{display:flex;align-items:baseline;gap:40px;padding:22px 0;border-bottom:5px solid #111}
+.li span{font:900 60px Fraunces,serif;width:90px}
+.li b{font:900 76px Fraunces,serif;letter-spacing:-.02em}
+
+.huge{position:absolute;left:96px;top:90px;font:900 760px/1 Fraunces,serif;letter-spacing:-.05em;transform:rotate(-4deg)}
+.dot{position:absolute;right:130px;top:230px;width:520px;height:520px;border-radius:50%;background:#E8472B}
+.dot2{position:absolute;right:560px;top:700px;width:300px;height:150px;border-radius:300px 300px 0 0;background:#2B6BFF;transform:rotate(14deg)}
+.txt{position:absolute;left:109px;top:840px;width:900px;font:500 42px/1.5 Fraunces,serif}
+
+.cards{position:absolute;left:109px;right:109px;top:440px;display:grid;grid-template-columns:repeat(3,1fr);gap:56px}
+.cd{background:#fff;border:5px solid #111;padding:36px 40px 44px;box-shadow:12px 12px 0 #111}
+.cd:nth-child(1){transform:rotate(-2deg)}.cd:nth-child(2){transform:rotate(1.5deg)}.cd:nth-child(3){transform:rotate(-1deg)}
+.cd .k{display:inline-block;width:100px;height:100px;border-radius:50%;background:#E8472B;color:#FFE01B;text-align:center;line-height:100px;font:900 56px Fraunces,serif}
+.cd:nth-child(2) .k{background:#2B6BFF}.cd:nth-child(3) .k{background:#111}
+.cd h3{margin:26px 0 0;font:900 52px/1.1 Fraunces,serif}
+.cd p{margin:16px 0 0;font:500 30px/1.5 Fraunces,serif}
+
+.pair{position:absolute;left:109px;right:109px;top:330px;display:grid;grid-template-columns:1fr 1fr;gap:100px}
+.pr{padding:46px 50px 56px;border:5px solid #111}
+.pr.a{background:#fff;transform:rotate(-2deg)}
+.pr.b{background:#E8472B;color:#FFE01B;transform:rotate(2deg);box-shadow:12px 12px 0 #111}
+.pr .lab{font:700 24px Inter,sans-serif;letter-spacing:.12em}
+.pr h3{margin:20px 0 0;font:900 100px/1.05 Fraunces,serif;letter-spacing:-.02em}
+.pr p{margin:20px 0 0;font:500 34px/1.5 Fraunces,serif}
+
+.q{position:absolute;left:150px;right:150px;top:200px;font:900 130px/1.1 Fraunces,serif;letter-spacing:-.02em}
+.q em{font-style:normal;display:inline-block;transform:rotate(-3deg);background:#FFE01B;color:#111;padding:0 20px}
+.by{position:absolute;left:156px;bottom:110px;font:700 28px Inter,sans-serif;letter-spacing:.12em}
+</style>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+
+<section data-label="01 Cover">
+  <div class="kick">EAST GATE MARKET · RENOVATION PROPOSAL / DRAFT 3</div>
+  <div class="note">No renders<br>on this page.<br>On purpose.</div>
+  <h1>The market<br>is the city's<br>last <em>parlor</em>.</h1>
+  <div class="sub">Every morning at 6, eighty-seven stalls and two thousand people get to know each other here. Our job is not to tidy it too much.</div>
+  <div class="c1"></div><div class="c2"></div><div class="sq"><i>87</i></div>
+  <svg class="wave" width="576" height="64" viewBox="0 0 360 40"><path d="M2 20 Q 22 2 42 20 T 82 20 T 122 20 T 162 20 T 202 20 T 242 20 T 282 20 T 322 20 T 358 20" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round"/></svg>
+</section>
+
+<section data-label="02 Agenda">
+  <div class="kick">EAST GATE MARKET · DRAFT 3</div>
+  <div class="h2">What is<br>in here.</div>
+  <div class="list">
+    <div class="li"><span>1</span><b>Who is there at 6 am</b></div>
+    <div class="li"><span>2</span><b>What we will not touch</b></div>
+    <div class="li"><span>3</span><b>What we will fix</b></div>
+  </div>
+  <div class="c1" style="top:480px;width:360px;height:360px"></div><div class="c2" style="top:760px"></div>
+</section>
+
+<section data-label="03 Big Number">
+  <div class="kick">THE STALLS</div>
+  <div class="dot"></div><div class="dot2"></div>
+  <div class="huge">87</div>
+  <div class="txt">stalls open before sunrise, and most of them have been run by the same family for thirty years.</div>
+</section>
+
+<section data-label="04 Three Rules">
+  <div class="kick">HOW WE WILL DO IT</div>
+  <div class="h2" style="font-size:130px">Three small rules.</div>
+  <div class="cards">
+    <div class="cd"><span class="k">1</span><h3>Keep the noise</h3><p>Loud is how people find each other.</p></div>
+    <div class="cd"><span class="k">2</span><h3>Fix the roof</h3><p>Dry floors first. Everything else can wait.</p></div>
+    <div class="cd"><span class="k">3</span><h3>Add a bench</h3><p>Somewhere to sit with a coffee and a neighbor.</p></div>
+  </div>
+</section>
+
+<section data-label="05 Comparison">
+  <div class="kick">TWO FUTURES</div>
+  <div class="h2" style="font-size:120px;top:130px">Which market<br>do we want?</div>
+  <div class="pair" style="top:480px">
+    <div class="pr a"><div class="lab">TOO CLEAN</div><h3>A food hall.</h3><p>Nice lighting, nobody talks.</p></div>
+    <div class="pr b"><div class="lab">JUST LIVED-IN</div><h3>A living room.</h3><p>Same stalls, a little more shelter.</p></div>
+  </div>
+</section>
+
+<section data-label="06 Quote" class="k">
+  <div class="kick">FROM A STALL OWNER</div>
+  <div class="q">“Don't make it <em>pretty.</em> Make it so my customers stay for tea.”</div>
+  <div class="by">Vegetable stall · 31 years</div>
+  <div class="c1" style="top:760px;right:140px;width:300px;height:300px"></div>
+</section>
+
+<section data-label="07 Closing">
+  <div class="kick">THANK YOU</div>
+  <div class="note" style="top:100px">Draft 4<br>comes after<br>you tell us.</div>
+  <h1 style="font-size:230px;top:200px">Come by<br>at six.</h1>
+  <div class="c1" style="top:600px;right:200px"></div><div class="c2" style="top:860px"></div><div class="sq" style="top:850px"><i>87</i></div>
+  <svg class="wave" width="576" height="64" viewBox="0 0 360 40"><path d="M2 20 Q 22 2 42 20 T 82 20 T 122 20 T 162 20 T 202 20 T 242 20 T 282 20 T 322 20 T 358 20" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round"/></svg>
+</section>
+
+</deck-stage>
+</body>
+</html>

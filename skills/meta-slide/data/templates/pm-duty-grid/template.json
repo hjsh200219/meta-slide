@@ -1,0 +1,52 @@
+{
+  "tagline": "Dark navy field with a hairline grid, a segmented progress rail on the left edge lit in lime for the current level, square hairline boxes and a conclusion strip on every page.",
+  "mood": [
+    "strict",
+    "technical",
+    "instructional",
+    "serious"
+  ],
+  "occasion": [
+    "safety or operations manual",
+    "training courseware",
+    "standard-operating-procedure walkthrough",
+    "internal technical sharing",
+    "compliance briefing"
+  ],
+  "tone": [
+    "precise",
+    "authoritative",
+    "structured"
+  ],
+  "formality": "high",
+  "density": "high",
+  "scheme": "dark",
+  "palette": {
+    "background": "#0E1B2E",
+    "secondary_bg": "#1A2C46",
+    "primary": "#4A9FD8",
+    "accent": "#D8F04A",
+    "secondary_accent": "#E85D2B",
+    "body_text": "#DCE6F0",
+    "secondary_text": "#8FA3BC",
+    "divider": "#2A3F5C",
+    "description": "dark field, cool blue structure, lime for key numbers, orange only for danger"
+  },
+  "typography": {
+    "display": "Arial",
+    "body": "Arial",
+    "style": "neutral sans for structure and Arial Black for numbers and level marks"
+  },
+  "best_for": "Rules-heavy material that audiences must apply on site: manuals, training, standards. Titles are judgeable sentences and every page ends with one conclusion.",
+  "avoid_for": "Inspirational or brand storytelling; the grid and rail read as procedural.",
+  "slug": "pm-duty-grid",
+  "name": "Duty Grid",
+  "slide_count": 10,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "hugohe3/ppt-master",
+    "commit": "604ecde",
+    "path": "skills/ppt-master/templates/styles/duty-manual/templates/design_spec.md",
+    "license": "MIT"
+  }
+}

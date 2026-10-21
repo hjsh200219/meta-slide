@@ -1,0 +1,47 @@
+{
+  "slug": "ns-surrealism-gallery",
+  "name": "Surrealism Gallery",
+  "tagline": "Gallery-white pages with thin Cormorant titles, framed artworks and a black museum footer bar",
+  "mood": [
+    "curated",
+    "artsy",
+    "spare",
+    "museum"
+  ],
+  "occasion": [
+    "art exhibition",
+    "catalogue presentation",
+    "curatorial talk",
+    "design research",
+    "cultural institution deck"
+  ],
+  "tone": [
+    "contemplative",
+    "refined",
+    "intellectual"
+  ],
+  "formality": "medium-high",
+  "density": "low",
+  "scheme": "light",
+  "palette": {
+    "bg": "#f5f5f0",
+    "text": "#111111",
+    "accent": "#c9a86a",
+    "description": "Light Surrealism Gallery palette: #f5f5f0 background, #111111 text, #c9a86a accent"
+  },
+  "typography": {
+    "display": "IBM Plex Sans",
+    "body": "IBM Plex Sans",
+    "style": "IBM Plex Sans headings over IBM Plex Sans body"
+  },
+  "best_for": "Surrealism Gallery suits art exhibition and catalogue presentation. It reads as curated, artsy, spare.",
+  "avoid_for": "Dense data-heavy reports where the decorative look would compete with content.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/surrealism-gallery.html",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "tagline": "Navy-led white pages with a left title tick, pale blue-grey data cards, a bar chart in the navy-to-orange series and orange used only for the key figure.",
+  "mood": [
+    "professional",
+    "data-driven",
+    "serious",
+    "structured"
+  ],
+  "occasion": [
+    "strategy review",
+    "consulting report",
+    "investor roadshow",
+    "board update",
+    "market analysis"
+  ],
+  "tone": [
+    "analytical",
+    "trustworthy",
+    "formal"
+  ],
+  "formality": "high",
+  "density": "high",
+  "scheme": "light",
+  "palette": {
+    "navy": "#003366",
+    "bg": "#FFFFFF",
+    "card": "#F0F4F8",
+    "light_blue": "#ADD8E6",
+    "accent_orange": "#FF8C00",
+    "text": "#2C3E50",
+    "text_secondary": "#7F8C8D",
+    "series_2": "#005A9E",
+    "series_5": "#95A5A6",
+    "description": "navy 60 percent, light blue 25 percent, orange under 10 percent"
+  },
+  "typography": {
+    "display": "SF Pro Display",
+    "body": "SF Pro Display",
+    "style": "system grotesque stack with bold numbers on pale cards"
+  },
+  "best_for": "Formal, evidence-first decks with a chart and a source line on the key slide. Orange is reserved for the one number the audience must remember.",
+  "avoid_for": "Playful or story-first talks; the structure is deliberately sober.",
+  "slug": "psg-consulting-navy",
+  "name": "Consulting Navy",
+  "slide_count": 10,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "vigorX777/ppt-svg-generator",
+    "commit": "c873b61",
+    "path": "styles/02-consulting.md",
+    "license": "MIT"
+  }
+}

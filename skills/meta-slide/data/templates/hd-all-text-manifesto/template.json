@@ -1,0 +1,18 @@
+{
+  "slug": "hd-all-text-manifesto",
+  "name": "All-Text Manifesto",
+  "tagline": "Near-black page, heavy white serif statements with one red emphasised phrase, grey reading text and a thin Inter footer, no images at all (extended from a single-slide specimen)",
+  "mood": ["blunt", "serious", "cinematic", "uncompromising"],
+  "occasion": ["company manifesto", "staff handbook opener", "culture and values talk", "founder statement", "internal all-hands principle slide", "campaign brief"],
+  "tone": ["direct", "convictional", "spare"],
+  "formality": "medium",
+  "density": "low",
+  "scheme": "dark",
+  "palette": {"bg": "#0A0A0A", "text": "#F2F2F2", "accent": "#E50914", "body": "#C9C9C9", "muted": "#8A8A8A", "rule": "#333333", "description": "Near-black background, off-white type, grey paragraphs and a single signal red for the emphasised phrase."},
+  "typography": {"display": "Newsreader", "body": "Newsreader", "style": "Extra-bold serif statements at large size, regular serif body with generous leading and a small letter-spaced Inter footer."},
+  "best_for": "Talks built from sentences rather than visuals: values, principles and one-idea statements that should land hard. Works for internal culture and conviction-driven pitches.",
+  "avoid_for": "Data-heavy reports that need charts or tables.",
+  "slide_count": 7,
+  "navigation": "deck-stage runtime",
+  "source": {"repo": "alchaincyf/huashu-design", "commit": "798c423", "path": "assets/style-specimens/ppt/20-all-text-manifesto.html", "license": "MIT"}
+}

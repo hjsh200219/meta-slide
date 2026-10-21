@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Royal Red — Deck Template</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="deck-stage.js"></script>
+<style>
+  :root {
+    --bg-from: #6b0a0a; --bg-mid: #4a0606; --bg-to: #2d0303;
+    --gold: #c9a960; --gold-soft: rgba(201,169,96,.55); --gold-faint: rgba(201,169,96,.22);
+    --cream: #fff8e7; --cream-soft: rgba(255,248,231,.78); --cream-faint: rgba(255,248,231,.5);
+    --seal: #c0392b;
+    --display-font: 'Cormorant Garamond', 'Times New Roman', serif;
+    --body-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: #000; }
+  body { font-family: var(--body-font); color: var(--cream); -webkit-font-smoothing: antialiased; }
+  deck-stage > section { font-family: var(--body-font);
+    width: 1920px; height: 1080px; position: relative; overflow: hidden; color: var(--cream);
+    background: radial-gradient(ellipse 90% 75% at 50% 45%, var(--bg-from) 0%, var(--bg-mid) 45%, var(--bg-to) 100%);
+  }
+  .vig { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 45% at 50% 50%, transparent 0%, transparent 55%, rgba(0,0,0,.45) 100%); z-index: 1; }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,248,231,.025) 1.5px, transparent 1.5px); background-size: 9px 9px; opacity: .7; z-index: 1; }
+  .c { position: absolute; width: 75px; height: 75px; z-index: 4; border: 0 solid var(--gold); }
+  .c.tl { top: 36px; left: 36px; border-top-width: 2px; border-left-width: 2px; }
+  .c.tr { top: 36px; right: 36px; border-top-width: 2px; border-right-width: 2px; }
+  .c.bl { bottom: 36px; left: 36px; border-bottom-width: 2px; border-left-width: 2px; }
+  .c.br { bottom: 36px; right: 36px; border-bottom-width: 2px; border-right-width: 2px; }
+  .fl { position: absolute; left: 50%; transform: translateX(-50%); width: 330px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold-soft), transparent); z-index: 3; }
+  .fl.t { top: 72px; } .fl.b { bottom: 72px; }
+
+  .stage { position: absolute; inset: 0; padding: 150px 180px 170px; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+  .overline { font-family: var(--display-font); font-size: 28px; font-weight: 600; letter-spacing: .6em; text-indent: .6em; color: var(--gold); margin-bottom: 52px; display: inline-flex; align-items: center; gap: 27px; text-transform: uppercase; }
+  .overline .dot { width: 9px; height: 9px; background: var(--gold); transform: rotate(45deg); box-shadow: 0 0 12px rgba(201,169,96,.6); }
+  .headline { font-family: var(--display-font); font-size: 132px; font-weight: 500; line-height: 1.12; letter-spacing: .1em; text-indent: .1em; text-transform: uppercase; color: var(--cream); }
+  .headline .accent { color: var(--gold); font-weight: 600; }
+  .h2 { font-family: var(--display-font); font-size: 92px; font-weight: 500; line-height: 1.15; letter-spacing: .1em; text-indent: .1em; text-transform: uppercase; color: var(--cream); }
+  .h2 .accent { color: var(--gold); font-weight: 600; }
+  .gold-line { width: 2px; height: 90px; background: linear-gradient(to bottom, transparent, var(--gold), transparent); margin: 48px auto 0; }
+  .hr { width: 300px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 36px auto; }
+  .seal-row { display: flex; align-items: center; justify-content: center; gap: 33px; margin-top: 40px; }
+  .seal-side { width: 96px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold-faint), var(--gold-soft)); }
+  .seal-side.r { background: linear-gradient(90deg, var(--gold-soft), var(--gold-faint), transparent); }
+  .seal { display: inline-block; min-width: 66px; padding: 20px 24px; background: var(--seal); color: var(--cream); font-family: var(--display-font); font-size: 36px; font-weight: 700; letter-spacing: .1em; text-indent: .1em; border-radius: 3px; box-shadow: 0 6px 18px rgba(0,0,0,.35), inset 0 0 0 1px rgba(0,0,0,.15); border: 3px solid rgba(255,215,0,.32); line-height: 1; }
+  .subtitle { font-size: 24px; font-weight: 500; letter-spacing: .5em; text-indent: .5em; color: var(--cream-faint); margin-top: 48px; text-transform: uppercase; }
+  .lead { font-size: 30px; line-height: 1.6; color: var(--cream-soft); font-weight: 300; max-width: 1200px; margin-top: 20px; }
+  .footer { position: absolute; bottom: 96px; left: 0; right: 0; display: flex; justify-content: space-between; padding: 0 144px; font-size: 18px; letter-spacing: .3em; color: var(--cream-faint); text-transform: uppercase; z-index: 3; }
+  .footer .meta { font-family: var(--display-font); font-size: 22px; letter-spacing: .4em; color: var(--gold-soft); font-weight: 600; }
+
+  /* contents */
+  .toc { width: 1100px; margin-top: 54px; text-align: left; }
+  .toc .row { display: flex; align-items: center; gap: 36px; padding: 26px 0; border-top: 1px solid var(--gold-faint); }
+  .toc .row:last-child { border-bottom: 1px solid var(--gold-faint); }
+  .toc .rn { font-family: var(--display-font); font-size: 44px; font-weight: 600; color: var(--gold); width: 90px; }
+  .toc .rt { font-family: var(--display-font); font-size: 52px; font-weight: 500; letter-spacing: .06em; flex: 1; }
+  .toc .rp { font-size: 22px; letter-spacing: .3em; color: var(--cream-faint); }
+
+  /* divider */
+  .big-seal { width: 300px; height: 300px; background: var(--seal); border: 4px solid rgba(255,215,0,.32); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-family: var(--display-font); font-size: 190px; font-weight: 700; color: var(--cream); box-shadow: 0 12px 40px rgba(0,0,0,.45); margin-bottom: 60px; }
+
+  /* numbers */
+  .nums { display: grid; grid-template-columns: repeat(3, 1fr); width: 1500px; margin-top: 66px; }
+  .num { padding: 30px 30px; border-left: 1px solid var(--gold-faint); }
+  .num:first-child { border-left: 0; }
+  .num .v { font-family: var(--display-font); font-size: 168px; font-weight: 500; color: var(--gold); line-height: 1; }
+  .num .v small { font-size: 72px; color: var(--cream); font-weight: 500; }
+  .num .l { font-size: 24px; letter-spacing: .3em; text-transform: uppercase; color: var(--cream); margin-top: 24px; font-weight: 500; }
+  .num .d { font-size: 26px; color: var(--cream-faint); margin-top: 12px; font-weight: 300; }
+
+  /* process */
+  .steps { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); width: 1560px; margin-top: 84px; }
+  .steps::before { content: ""; position: absolute; left: 12.5%; right: 12.5%; top: 36px; height: 2px; background: linear-gradient(90deg, var(--gold-soft), var(--gold), var(--gold-soft)); }
+  .step { position: relative; padding: 0 24px; }
+  .step .node { width: 72px; height: 72px; margin: 0 auto; background: var(--bg-mid); border: 2px solid var(--gold); transform: rotate(45deg); display: flex; align-items: center; justify-content: center; }
+  .step .node span { transform: rotate(-45deg); font-family: var(--display-font); font-size: 36px; font-weight: 700; color: var(--gold); }
+  .step h3 { font-family: var(--display-font); font-size: 48px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; margin-top: 54px; }
+  .step p { font-size: 26px; line-height: 1.55; color: var(--cream-soft); font-weight: 300; margin-top: 16px; }
+
+  /* compare */
+  .cmp { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; width: 1560px; margin-top: 60px; text-align: left; }
+  .col { border: 2px solid var(--gold-soft); padding: 42px 54px; background: rgba(0,0,0,.18); position: relative; }
+  .col.hi { background: rgba(192,57,43,.28); border-color: var(--gold); }
+  .col .tag { font-size: 22px; letter-spacing: .4em; color: var(--gold); font-weight: 600; text-transform: uppercase; }
+  .col h3 { font-family: var(--display-font); font-size: 64px; font-weight: 600; letter-spacing: .06em; margin: 12px 0 18px; }
+  .col li { list-style: none; font-size: 28px; line-height: 1.4; padding: 18px 0 18px 42px; border-top: 1px solid var(--gold-faint); position: relative; color: var(--cream-soft); font-weight: 300; }
+  .col li::before { content: ""; position: absolute; left: 6px; top: 32px; width: 12px; height: 12px; background: var(--gold); transform: rotate(45deg); }
+
+  /* quote */
+  .qm { font-family: var(--display-font); font-size: 260px; line-height: .6; color: var(--gold); height: 120px; }
+  .quote { font-family: var(--display-font); font-size: 84px; font-weight: 500; line-height: 1.2; letter-spacing: .04em; max-width: 1400px; font-style: italic; }
+  .quote .accent { color: var(--gold); }
+  .by { font-size: 24px; letter-spacing: .4em; color: var(--cream-faint); text-transform: uppercase; margin-top: 12px; }
+</style>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+
+<section data-label="01 Cover">
+  <div class="vig"></div><div class="grain"></div>
+  <div class="c tl"></div><div class="c tr"></div><div class="c bl"></div><div class="c br"></div><div class="fl t"></div><div class="fl b"></div>
+  <div class="stage">
+    <div class="overline"><span>I</span><span class="dot"></span><span>Prologue</span></div>
+    <h1 class="headline">A Thousand Years<br>Of <span class="accent">Living Craft</span></h1>
+    <div class="gold-line"></div>
+    <div class="seal-row"><span class="seal-side"></span><span class="seal">I</span><span class="seal-side r"></span></div>
+    <div class="subtitle">Vermilion · Court · MMXXVI</div>
+  </div>
+  <div class="footer"><span>Chapter I — Prologue</span><span class="meta">The Court Collection · Opening</span><span>01 / 08</span></div>
+</section>
+
+<section data-label="02 Contents">
+  <div class="vig"></div><div class="grain"></div>
+  <div class="c tl"></div><div class="c tr"></div><div class="c bl"></div><div class="c br"></div><div class="fl t"></div><div class="fl b"></div>
+  <div class="stage">
+    <div class="overline"><span>Contents</span></div>
+    <h2 class="h2">The <span class="accent">Programme</span></h2>
+    <div class="toc">
+      <div class="row"><span class="rn">I</span><span class="rt">Origins of the craft</span><span class="rp">03</span></div>
+      <div class="row"><span class="rn">II</span><span class="rt">The collection in numbers</span><span class="rp">04</span></div>
+      <div class="row"><span class="rn">III</span><span class="rt">From workshop to hall</span><span class="rp">05</span></div>
+      <div class="row"><span class="rn">IV</span><span class="rt">Tradition and renewal</span><span class="rp">06</span></div>
+    </div>
+  </div>
+  <div class="footer"><span>Chapter I — Prologue</span><span class="meta">The Court Collection</span><span>02 / 08</span></div>
+</section>
+
+<section data-label="03 Section Divider">
+  <div class="vig"></div><div class="grain"></div>
+  <div class="c tl"></div><div class="c tr"></div><div class="c bl"></div><div class="c br"></div><div class="fl t"></div><div class="fl b"></div>
+  <div class="stage">
+    <div class="big-seal">II</div>
+    <div class="overline"><span>Chapter Two</span></div>
+    <h2 class="h2">The Collection<br><span class="accent">Unfolds</span></h2>
+  </div>
+  <div class="footer"><span>Chapter II</span><span class="meta">The Court Collection</span><span>03 / 08</span></div>
+</section>
+
+<section data-label="04 Numbers">
+  <div class="vig"></div><div class="grain"></div>
+  <div class="c tl"></div><div class="c tr"></div><div class="c bl"></div><div class="c br"></div><div class="fl t"></div><div class="fl b"></div>
+  <div class="stage">
+    <div class="overline"><span>II</span><span class="dot"></span><span>In Numbers</span></div>
+    <h2 class="h2">A Legacy <span class="accent">Counted</span></h2>
+    <div class="nums">
+      <div class="num"><div class="v">600<small>yrs</small></div><div class="l">Of continuous craft</div><div class="d">Unbroken workshop lineage</div></div>
+      <div class="num"><div class="v">9,999</div><div class="l">Pieces catalogued</div><div class="d">Each recorded by hand</div></div>
+      <div class="num"><div class="v">24<small>%</small></div><div class="l">Annual visitor growth</div><div class="d">Since the reopening</div></div>
+    </div>
+  </div>
+  <div class="footer"><span>Chapter II</span><span class="meta">The Court Collection</span><span>04 / 08</span></div>
+</section>
+
+<section data-label="05 Process Steps">
+  <div class="vig"></div><div class="grain"></div>
+  <div class="c tl"></div><div class="c tr"></div><div class="c bl"></div><div class="c br"></div><div class="fl t"></div><div class="fl b"></div>
+  <div class="stage">
+    <div class="overline"><span>III</span><span class="dot"></span><span>Method</span></div>
+    <h2 class="h2">From Workshop <span class="accent">To Hall</span></h2>
+    <div class="steps">
+      <div class="step"><div class="node"><span>1</span></div><h3>Gather</h3><p>Materials chosen by master artisans.</p></div>
+      <div class="step"><div class="node"><span>2</span></div><h3>Shape</h3><p>Forms refined over many seasons.</p></div>
+      <div class="step"><div class="node"><span>3</span></div><h3>Adorn</h3><p>Gold and lacquer applied by hand.</p></div>
+      <div class="step"><div class="node"><span>4</span></div><h3>Present</h3><p>Unveiled in the great hall.</p></div>
+    </div>
+  </div>
+  <div class="footer"><span>Chapter III</span><span class="meta">The Court Collection</span><span>05 / 08</span></div>
+</section>
+
+<section data-label="06 Comparison">
+  <div class="vig"></div><div class="grain"></div>
+  <div class="c tl"></div><div class="c tr"></div><div class="c bl"></div><div class="c br"></div><div class="fl t"></div><div class="fl b"></div>
+  <div class="stage">
+    <div class="overline"><span>IV</span><span class="dot"></span><span>Then &amp; Now</span></div>
+    <h2 class="h2">Tradition <span class="accent">&amp; Renewal</span></h2>
+    <div class="cmp">
+      <div class="col"><div class="tag">Heritage</div><h3>The Old Court</h3><ul><li>Commissioned for a single household</li><li>Knowledge passed from master to apprentice</li><li>Seen by a privileged few</li></ul></div>
+      <div class="col hi"><div class="tag">Today</div><h3>The Open Hall</h3><ul><li>Shared with visitors from everywhere</li><li>Techniques documented and taught</li><li>Pieces reimagined for modern life</li></ul></div>
+    </div>
+  </div>
+  <div class="footer"><span>Chapter IV</span><span class="meta">The Court Collection</span><span>06 / 08</span></div>
+</section>
+
+<section data-label="07 Quote">
+  <div class="vig"></div><div class="grain"></div>
+  <div class="c tl"></div><div class="c tr"></div><div class="c bl"></div><div class="c br"></div><div class="fl t"></div><div class="fl b"></div>
+  <div class="stage">
+    <div class="qm">&ldquo;</div>
+    <div class="quote">What endures is not the gold, but the <span class="accent">hands that shaped it.</span></div>
+    <div class="hr"></div>
+    <div class="by">A master artisan, the Court workshop</div>
+  </div>
+  <div class="footer"><span>Epilogue</span><span class="meta">The Court Collection</span><span>07 / 08</span></div>
+</section>
+
+<section data-label="08 Closing">
+  <div class="vig"></div><div class="grain"></div>
+  <div class="c tl"></div><div class="c tr"></div><div class="c bl"></div><div class="c br"></div><div class="fl t"></div><div class="fl b"></div>
+  <div class="stage">
+    <div class="overline"><span>Fin</span><span class="dot"></span><span>With Thanks</span></div>
+    <h1 class="headline">Thank <span class="accent">You</span></h1>
+    <div class="gold-line"></div>
+    <div class="seal-row"><span class="seal-side"></span><span class="seal">Fin</span><span class="seal-side r"></span></div>
+    <div class="subtitle">hello@example.com · MMXXVI</div>
+  </div>
+  <div class="footer"><span>Epilogue</span><span class="meta">The Court Collection · Closing</span><span>08 / 08</span></div>
+</section>
+
+</deck-stage>
+</body>
+</html>

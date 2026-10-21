@@ -1,0 +1,47 @@
+{
+  "slug": "ns-creative-voltage",
+  "name": "Creative Voltage",
+  "tagline": "Half-and-half electric blue and navy split panels with neon lime tags and Syne headlines",
+  "mood": [
+    "electric",
+    "youthful",
+    "bold",
+    "split-screen"
+  ],
+  "occasion": [
+    "creative agency pitch",
+    "design talk",
+    "startup launch",
+    "event promo",
+    "portfolio"
+  ],
+  "tone": [
+    "energetic",
+    "fresh",
+    "daring"
+  ],
+  "formality": "medium-low",
+  "density": "medium",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#1a1a2e",
+    "text": "#ffffff",
+    "accent": "#0066ff",
+    "description": "Dark Creative Voltage palette: #1a1a2e background, #ffffff text, #0066ff accent"
+  },
+  "typography": {
+    "display": "Syne",
+    "body": "sans-serif",
+    "style": "Syne headings over sans-serif body"
+  },
+  "best_for": "Creative Voltage suits creative agency pitch and design talk. It reads as electric, youthful, bold.",
+  "avoid_for": "Formal regulated or conservative corporate decks.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/creative-voltage.html",
+    "license": "MIT"
+  }
+}

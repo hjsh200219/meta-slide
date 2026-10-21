@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Benchmark Report - Studio Style</title>
+<script src="deck-stage.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #000; }
+  body { font-family: 'Helvetica Neue', Arial, sans-serif; color: #111; }
+
+  deck-stage > section {
+    width: 1920px; height: 1080px;
+    background: #FFFFFF;
+    color: #111;
+    position: relative;
+    overflow: hidden;
+  }
+  .red { color: #E63946; }
+
+  /* Bars */
+  .top-bar, .bottom-bar {
+    position: absolute; left: 0; right: 0; height: 80px; background: #111;
+    display: flex; align-items: center; justify-content: space-between; padding: 0 80px; z-index: 10;
+  }
+  .top-bar { top: 0; }
+  .bottom-bar { bottom: 0; }
+  .top-label { font-size: 20px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: #fff; }
+  .top-right, .bottom-right-text { font-size: 18px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #E63946; }
+  .bottom-left { display: flex; align-items: center; gap: 28px; }
+  .bottom-logo { font-size: 22px; font-weight: 900; color: #fff; letter-spacing: 1px; }
+  .bottom-divider { width: 1px; height: 28px; background: #444; }
+  .bottom-note { font-size: 18px; font-weight: 400; color: #8a8a8a; }
+
+  .grid-v { position: absolute; top: 80px; bottom: 80px; width: 1px; background: #000; opacity: 0.05; }
+  .grid-h { position: absolute; left: 80px; right: 80px; height: 1px; background: #000; opacity: 0.05; }
+
+  .tag { font-size: 18px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: #999; }
+  .badge { display: inline-flex; align-items: center; gap: 12px; padding: 12px 24px; border: 2px solid #E63946; font-size: 18px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #E63946; }
+
+  /* 01 Cover */
+  .cover .left { position: absolute; left: 80px; top: 140px; width: 1100px; }
+  .cover .giant { font-size: 300px; font-weight: 900; line-height: 0.85; letter-spacing: -14px; white-space: nowrap; color: #111; margin-top: 24px; }
+  .cover .giant .red { color: #E63946; }
+  .cover .context { font-size: 26px; font-weight: 500; color: #999; letter-spacing: 2px; text-transform: uppercase; margin-top: 28px; }
+  .cover .right { position: absolute; left: 1260px; right: 80px; top: 140px; bottom: 120px; border-left: 1px solid #E8E8E8; padding-left: 64px; display: flex; flex-direction: column; justify-content: space-between; }
+  .cover .msg { font-size: 40px; font-weight: 400; line-height: 1.5; color: #666; }
+  .cover .msg strong { color: #111; font-weight: 700; }
+  .cover .meta-n { font-size: 32px; font-weight: 900; color: #111; letter-spacing: -1px; }
+  .cover .meta-d { font-size: 18px; font-weight: 500; color: #999; letter-spacing: 2px; text-transform: uppercase; margin-top: 8px; }
+
+  /* 02 Contents */
+  .toc-left { position: absolute; left: 80px; top: 140px; width: 480px; }
+  .toc-title { font-size: 120px; font-weight: 900; letter-spacing: -5px; line-height: 0.95; margin-top: 16px; }
+  .toc-list { position: absolute; left: 620px; right: 80px; top: 120px; bottom: 100px; display: flex; flex-direction: column; justify-content: center; }
+  .toc-row { display: flex; align-items: center; gap: 40px; padding: 28px 0; border-bottom: 1px solid #E8E8E8; }
+  .toc-row:first-child { border-top: 2px solid #111; }
+  .toc-n { font-size: 32px; font-weight: 900; color: #E63946; width: 80px; letter-spacing: -1px; }
+  .toc-name { font-size: 56px; font-weight: 900; letter-spacing: -2px; flex: 1; text-transform: uppercase; }
+  .toc-cap { font-size: 20px; font-weight: 500; color: #999; letter-spacing: 2px; text-transform: uppercase; }
+
+  /* 03 Divider */
+  deck-stage > section.divider { background: #111; color: #fff; }
+  .divider .bn { position: absolute; left: 80px; top: 70px; font-size: 760px; font-weight: 900; letter-spacing: -40px; line-height: 0.9; color: #E63946; }
+  .divider .dt { position: absolute; left: 80px; bottom: 150px; font-size: 120px; font-weight: 900; letter-spacing: -4px; line-height: 0.95; text-transform: uppercase; color: #fff; }
+  .divider .ds { position: absolute; right: 80px; bottom: 160px; width: 480px; font-size: 28px; line-height: 1.5; color: #8a8a8a; }
+  .divider .top-bar, .divider .bottom-bar { background: #111; border-bottom: 1px solid #333; }
+  .divider .bottom-bar { border-top: 1px solid #333; border-bottom: none; }
+
+  /* 04 Data */
+  .data .left-col { position: absolute; left: 80px; top: 120px; width: 540px; }
+  .model-name { font-size: 72px; font-weight: 900; line-height: 1; letter-spacing: -3px; margin-top: 10px; }
+  .hero-number { font-size: 240px; font-weight: 900; line-height: 0.85; letter-spacing: -12px; margin-top: 32px; }
+  .hero-context { font-size: 20px; font-weight: 500; color: #999; letter-spacing: 2px; text-transform: uppercase; margin-top: 12px; }
+  .key-message { font-size: 28px; font-weight: 400; line-height: 1.55; color: #666; margin-top: 40px; max-width: 520px; }
+  .key-message strong { color: #111; font-weight: 700; }
+  .data .badge { margin-top: 32px; }
+  .data-area { position: absolute; left: 700px; top: 120px; right: 80px; display: flex; }
+  .bench-col { flex: 1; padding: 0 36px; border-left: 1px solid #E8E8E8; display: flex; flex-direction: column; }
+  .bench-col:first-child { padding-left: 0; border-left: none; }
+  .bench-title { font-size: 22px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 6px; }
+  .bench-type { font-size: 20px; color: #BBB; margin-bottom: 40px; }
+  .bench-hero { font-size: 120px; font-weight: 900; color: #E63946; letter-spacing: -5px; line-height: 1; margin-bottom: 44px; }
+  .bar-group { display: flex; flex-direction: column; gap: 20px; }
+  .bar-row { display: flex; flex-direction: column; gap: 8px; }
+  .bar-label { font-size: 20px; font-weight: 600; color: #888; }
+  .bar-label.highlight { color: #111; font-weight: 700; }
+  .bar-track { height: 64px; background: #F5F5F5; }
+  .bar-fill { height: 100%; display: flex; align-items: center; justify-content: flex-end; padding-right: 16px; }
+  .bar-fill.base { background: #E0E0E0; }
+  .bar-fill.dark { background: #111; }
+  .bar-fill.winner { background: #E63946; }
+  .bar-value { font-size: 24px; font-weight: 700; color: #fff; }
+  .bar-fill.base .bar-value { color: #888; }
+  .delta { font-size: 20px; font-weight: 700; color: #E63946; letter-spacing: 1px; text-transform: uppercase; margin-top: 28px; }
+  .summary-row { position: absolute; bottom: 116px; left: 700px; right: 80px; display: flex; border-top: 1px solid #E8E8E8; padding-top: 24px; }
+  .summary-item { flex: 1; padding: 0 36px; }
+  .summary-item:first-child { padding-left: 0; }
+  .summary-num { font-size: 64px; font-weight: 900; letter-spacing: -2px; line-height: 1; }
+  .summary-num small { font-size: 28px; color: #999; letter-spacing: 0; }
+  .summary-desc { font-size: 18px; font-weight: 500; color: #999; letter-spacing: 2px; text-transform: uppercase; margin-top: 10px; }
+
+  /* 05 Process */
+  .proc-head { position: absolute; left: 80px; top: 130px; right: 80px; }
+  .h1 { font-size: 104px; font-weight: 900; letter-spacing: -4px; line-height: 0.95; text-transform: uppercase; margin-top: 12px; }
+  .steps { position: absolute; left: 80px; right: 80px; top: 430px; bottom: 140px; display: flex; border-top: 2px solid #111; }
+  .step { flex: 1; padding: 36px 36px 0; border-left: 1px solid #E8E8E8; }
+  .step:first-child { padding-left: 0; border-left: none; }
+  .step-n { font-size: 160px; font-weight: 900; color: #E63946; letter-spacing: -8px; line-height: 0.9; }
+  .step-name { font-size: 24px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-top: 36px; }
+  .step-desc { font-size: 26px; line-height: 1.5; color: #666; margin-top: 14px; }
+
+  /* 06 Compare */
+  .cmp { position: absolute; left: 0; right: 0; top: 80px; bottom: 80px; display: flex; }
+  .panel { flex: 1; padding: 64px 80px; display: flex; flex-direction: column; }
+  .panel.dark { background: #111; color: #fff; }
+  .panel .pname { font-size: 18px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: #999; }
+  .panel .phead { font-size: 120px; font-weight: 900; letter-spacing: -5px; line-height: 1; margin: 16px 0 36px; }
+  .panel.dark .phead .v { color: #E63946; }
+  .prow { display: flex; justify-content: space-between; align-items: baseline; padding: 24px 0; border-top: 1px solid #E8E8E8; }
+  .panel.dark .prow { border-top-color: #333; }
+  .prow .k { font-size: 26px; font-weight: 500; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+  .prow .n { font-size: 64px; font-weight: 900; letter-spacing: -2px; line-height: 1; }
+  .panel.dark .prow .n { color: #E63946; }
+
+  /* 07 Closing */
+  .close .stmt { position: absolute; left: 80px; top: 140px; right: 80px; }
+  .quote { font-size: 148px; font-weight: 900; letter-spacing: -6px; line-height: 0.95; text-transform: uppercase; margin-top: 20px; }
+  .close .by { position: absolute; left: 80px; top: 640px; font-size: 22px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #999; }
+  .close .summary-row { left: 80px; bottom: 120px; }
+  .close .summary-row .summary-item { padding-right: 36px; }
+</style>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+
+<!-- 01 Cover -->
+<section class="cover" data-label="01 Cover">
+  <div class="top-bar"><span class="top-label">Benchmark Report <span class="red">/</span> 2025 Coding Performance</span><span class="top-right">Open-Source SOTA</span></div>
+  <div class="grid-v" style="left:80px;"></div><div class="grid-v" style="left:1260px;"></div><div class="grid-v" style="right:80px;"></div><div class="grid-h" style="top:120px;"></div>
+  <div class="left">
+    <div class="tag">Open-Source Model</div>
+    <div class="giant">NOVA<span class="red">-4</span></div>
+    <div class="context">Coding benchmark report &middot; 2025</div>
+  </div>
+  <div class="right">
+    <div class="msg"><strong>First open-source model to achieve SOTA</strong> across all three major coding benchmarks, surpassing Model B and Model C.</div>
+    <div>
+      <div class="badge"><svg width="22" height="22" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="#E63946" stroke-width="1.5"/><circle cx="7" cy="7" r="2.5" fill="#E63946"/></svg>Open Source</div>
+      <div style="margin-top:40px;"><div class="meta-n"><span class="red">3</span>/3</div><div class="meta-d">Benchmarks won</div></div>
+    </div>
+  </div>
+  <div class="bottom-bar"><div class="bottom-left"><span class="bottom-logo">NORTHWIND LABS</span><div class="bottom-divider"></div><span class="bottom-note">Data from official evaluation reports, 2025</span></div><span class="bottom-right-text">01 / 07</span></div>
+</section>
+
+<!-- 02 Contents -->
+<section data-label="02 Contents">
+  <div class="top-bar"><span class="top-label">Contents <span class="red">/</span> Index</span><span class="top-right">Open-Source SOTA</span></div>
+  <div class="grid-v" style="left:80px;"></div><div class="grid-v" style="left:620px;"></div><div class="grid-v" style="right:80px;"></div>
+  <div class="toc-left"><div class="tag">Report</div><div class="toc-title">IN<span class="red">/</span>DEX</div></div>
+  <div class="toc-list">
+    <div class="toc-row"><span class="toc-n">01</span><span class="toc-name">Overview</span><span class="toc-cap">Context</span></div>
+    <div class="toc-row"><span class="toc-n">02</span><span class="toc-name">Results</span><span class="toc-cap">Three benchmarks</span></div>
+    <div class="toc-row"><span class="toc-n">03</span><span class="toc-name">Method</span><span class="toc-cap">Four steps</span></div>
+    <div class="toc-row"><span class="toc-n">04</span><span class="toc-name">Head to head</span><span class="toc-cap">Open vs closed</span></div>
+    <div class="toc-row"><span class="toc-n">05</span><span class="toc-name">Summary</span><span class="toc-cap">Takeaways</span></div>
+  </div>
+  <div class="bottom-bar"><div class="bottom-left"><span class="bottom-logo">NORTHWIND LABS</span><div class="bottom-divider"></div><span class="bottom-note">Data from official evaluation reports, 2025</span></div><span class="bottom-right-text">02 / 07</span></div>
+</section>
+
+<!-- 03 Section Divider -->
+<section class="divider" data-label="03 Section Divider">
+  <div class="top-bar"><span class="top-label">Section <span class="red">/</span> 02</span><span class="top-right">Open-Source SOTA</span></div>
+  <div class="bn">02</div>
+  <div class="dt">Benchmark<br>results<span class="red">.</span></div>
+  <div class="ds">Mathematics, software engineering and agent tasks, measured side by side.</div>
+  <div class="bottom-bar"><div class="bottom-left"><span class="bottom-logo">NORTHWIND LABS</span></div><span class="bottom-right-text">03 / 07</span></div>
+</section>
+
+<!-- 04 Data -->
+<section class="data" data-label="04 Hero Number and Bars">
+  <div class="top-bar"><span class="top-label">Benchmark Report <span class="red">/</span> 2025 Coding Performance</span><span class="top-right">Open-Source SOTA</span></div>
+  <div class="grid-v" style="left:80px;"></div><div class="grid-v" style="left:660px;"></div><div class="grid-v" style="right:80px;"></div><div class="grid-h" style="top:100px;"></div>
+  <div class="left-col">
+    <div class="tag">Open-Source Model</div>
+    <div class="model-name">NOVA-<span class="red">4</span></div>
+    <div class="hero-number">95<span class="red">.</span>7</div>
+    <div class="hero-context">AIME 2025 Score</div>
+    <div class="key-message"><strong>First open-source model to achieve SOTA</strong> across all three major coding benchmarks.</div>
+    <div class="badge"><svg width="22" height="22" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="#E63946" stroke-width="1.5"/><circle cx="7" cy="7" r="2.5" fill="#E63946"/></svg>Open Source</div>
+  </div>
+  <div class="data-area">
+    <div class="bench-col">
+      <div class="bench-title">AIME 2025</div><div class="bench-type">Mathematical Reasoning</div><div class="bench-hero">95.7</div>
+      <div class="bar-group">
+        <div class="bar-row"><span class="bar-label highlight">Nova-4</span><div class="bar-track"><div class="bar-fill winner" style="width:95.7%;"><span class="bar-value">95.7</span></div></div></div>
+        <div class="bar-row"><span class="bar-label">Model B</span><div class="bar-track"><div class="bar-fill dark" style="width:88.2%;"><span class="bar-value">88.2</span></div></div></div>
+        <div class="bar-row"><span class="bar-label">Model C</span><div class="bar-track"><div class="bar-fill base" style="width:83.6%;"><span class="bar-value">83.6</span></div></div></div>
+      </div>
+      <div class="delta">+7.5 vs closed-source best</div>
+    </div>
+    <div class="bench-col">
+      <div class="bench-title">SWE-bench Verified</div><div class="bench-type">Software Engineering</div><div class="bench-hero">73.8</div>
+      <div class="bar-group">
+        <div class="bar-row"><span class="bar-label highlight">Nova-4</span><div class="bar-track"><div class="bar-fill winner" style="width:73.8%;"><span class="bar-value">73.8%</span></div></div></div>
+        <div class="bar-row"><span class="bar-label">Model B</span><div class="bar-track"><div class="bar-fill dark" style="width:53.3%;"><span class="bar-value">53.3%</span></div></div></div>
+        <div class="bar-row"><span class="bar-label">Model C</span><div class="bar-track"><div class="bar-fill base" style="width:48.2%;"><span class="bar-value">48.2%</span></div></div></div>
+      </div>
+      <div class="delta">+20.5 vs closed-source best</div>
+    </div>
+    <div class="bench-col">
+      <div class="bench-title">&tau;&sup2;-Bench</div><div class="bench-type">Agent Task Completion</div><div class="bench-hero">87.4</div>
+      <div class="bar-group">
+        <div class="bar-row"><span class="bar-label highlight">Nova-4</span><div class="bar-track"><div class="bar-fill winner" style="width:87.4%;"><span class="bar-value">87.4</span></div></div></div>
+        <div class="bar-row"><span class="bar-label">Model B</span><div class="bar-track"><div class="bar-fill dark" style="width:78.9%;"><span class="bar-value">78.9</span></div></div></div>
+        <div class="bar-row"><span class="bar-label">Model C</span><div class="bar-track"><div class="bar-fill base" style="width:71.5%;"><span class="bar-value">71.5</span></div></div></div>
+      </div>
+      <div class="delta">+8.5 vs closed-source best</div>
+    </div>
+  </div>
+  <div class="summary-row">
+    <div class="summary-item"><div class="summary-num"><span class="red">3</span>/3</div><div class="summary-desc">Benchmarks Won</div></div>
+    <div class="summary-item"><div class="summary-num"><span class="red">#1</span></div><div class="summary-desc">Open-Source Ranking</div></div>
+    <div class="summary-item"><div class="summary-num">12<span class="red">.</span>2<small>avg</small></div><div class="summary-desc">Points Above Runner-Up</div></div>
+  </div>
+  <div class="bottom-bar"><div class="bottom-left"><span class="bottom-logo">NORTHWIND LABS</span><div class="bottom-divider"></div><span class="bottom-note">Data from official evaluation reports, 2025</span></div><span class="bottom-right-text">04 / 07</span></div>
+</section>
+
+<!-- 05 Process -->
+<section data-label="05 Process Steps">
+  <div class="top-bar"><span class="top-label">Method <span class="red">/</span> Evaluation protocol</span><span class="top-right">Open-Source SOTA</span></div>
+  <div class="grid-v" style="left:80px;"></div><div class="grid-v" style="right:80px;"></div>
+  <div class="proc-head"><div class="tag">Evaluation method</div><div class="h1">Four steps<span class="red">.</span><br>One protocol<span class="red">.</span></div></div>
+  <div class="steps">
+    <div class="step"><div class="step-n">01</div><div class="step-name">Select</div><div class="step-desc">Public benchmarks with verifiable answers and a fixed test split.</div></div>
+    <div class="step"><div class="step-n">02</div><div class="step-name">Run</div><div class="step-desc">Default settings for every model, three runs per task.</div></div>
+    <div class="step"><div class="step-n">03</div><div class="step-name">Score</div><div class="step-desc">Automatic grading, scores averaged across runs.</div></div>
+    <div class="step"><div class="step-n">04</div><div class="step-name">Verify</div><div class="step-desc">Top results reproduced independently before release.</div></div>
+  </div>
+  <div class="bottom-bar"><div class="bottom-left"><span class="bottom-logo">NORTHWIND LABS</span><div class="bottom-divider"></div><span class="bottom-note">Same prompts, hardware and scoring scripts for every model</span></div><span class="bottom-right-text">05 / 07</span></div>
+</section>
+
+<!-- 06 Comparison -->
+<section data-label="06 Comparison">
+  <div class="top-bar"><span class="top-label">Head to head <span class="red">/</span> Open vs closed</span><span class="top-right">Open-Source SOTA</span></div>
+  <div class="cmp">
+    <div class="panel dark">
+      <div class="pname">Open-source</div>
+      <div class="phead">NOVA<span class="v">-4</span></div>
+      <div class="prow"><span class="k">AIME 2025</span><span class="n">95.7</span></div>
+      <div class="prow"><span class="k">SWE-bench Verified</span><span class="n">73.8%</span></div>
+      <div class="prow"><span class="k">&tau;&sup2;-Bench</span><span class="n">87.4</span></div>
+    </div>
+    <div class="panel">
+      <div class="pname">Proprietary</div>
+      <div class="phead">MODEL B</div>
+      <div class="prow"><span class="k">AIME 2025</span><span class="n">88.2</span></div>
+      <div class="prow"><span class="k">SWE-bench Verified</span><span class="n">53.3%</span></div>
+      <div class="prow"><span class="k">&tau;&sup2;-Bench</span><span class="n">78.9</span></div>
+    </div>
+  </div>
+  <div class="bottom-bar"><div class="bottom-left"><span class="bottom-logo">NORTHWIND LABS</span><div class="bottom-divider"></div><span class="bottom-note">Higher is better on every row</span></div><span class="bottom-right-text">06 / 07</span></div>
+</section>
+
+<!-- 07 Closing -->
+<section class="close" data-label="07 Statement and Summary">
+  <div class="top-bar"><span class="top-label">Summary <span class="red">/</span> Takeaways</span><span class="top-right">Open-Source SOTA</span></div>
+  <div class="grid-v" style="left:80px;"></div><div class="grid-v" style="right:80px;"></div>
+  <div class="stmt"><div class="tag">Bottom line</div><div class="quote">The frontier<br>is <span class="red">open</span>.</div></div>
+  <div class="by">Research team, 2025</div>
+  <div class="summary-row" style="right:80px;">
+    <div class="summary-item"><div class="summary-num"><span class="red">3</span>/3</div><div class="summary-desc">Benchmarks Won</div></div>
+    <div class="summary-item"><div class="summary-num"><span class="red">#1</span></div><div class="summary-desc">Open-Source Ranking</div></div>
+    <div class="summary-item"><div class="summary-num">12<span class="red">.</span>2<small>avg</small></div><div class="summary-desc">Points Above Runner-Up</div></div>
+  </div>
+  <div class="bottom-bar"><div class="bottom-left"><span class="bottom-logo">NORTHWIND LABS</span><div class="bottom-divider"></div><span class="bottom-note">Data from official evaluation reports, 2025</span></div><span class="bottom-right-text">07 / 07</span></div>
+</section>
+
+</deck-stage>
+</body>
+</html>

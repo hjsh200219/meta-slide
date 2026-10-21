@@ -1,0 +1,18 @@
+{
+  "slug": "hd-assertion-evidence",
+  "name": "Assertion-Evidence",
+  "tagline": "Warm off-white page, serif sentence headlines, range-frame line and bar charts with one brick-red accent (extended from a single-slide specimen)",
+  "mood": ["rigorous", "calm", "evidence-led", "scholarly"],
+  "occasion": ["research results talk", "scientific conference", "data-driven briefing", "policy review", "technical deep-dive", "classroom lecture"],
+  "tone": ["analytical", "plain-spoken", "precise"],
+  "formality": "medium-high",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {"bg": "#FFFEFB", "text": "#1A1A1A", "accent": "#A63A2B", "muted": "#666666", "rule": "#444444", "description": "Warm paper white, near-black ink, one brick-red accent for the trend and key number."},
+  "typography": {"display": "Source Serif 4", "body": "Inter", "style": "Full-sentence serif headline above a single figure with direct labels and thin range-frame axes."},
+  "best_for": "Talks where every slide makes one claim and shows one figure that proves it. Fits research results, data stories and analytical briefings.",
+  "avoid_for": "Decorative or emotional brand storytelling that needs imagery.",
+  "slide_count": 7,
+  "navigation": "deck-stage runtime",
+  "source": {"repo": "alchaincyf/huashu-design", "commit": "798c423", "path": "assets/style-specimens/ppt/15-assertion-evidence.html", "license": "MIT"}
+}

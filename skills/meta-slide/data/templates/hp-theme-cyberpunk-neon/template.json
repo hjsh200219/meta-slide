@@ -1,0 +1,49 @@
+{
+  "slug": "hp-theme-cyberpunk-neon",
+  "name": "Theme · Cyberpunk Neon",
+  "tagline": "Pure black with neon pink, cyan and yellow glow in mono type",
+  "mood": [
+    "neon",
+    "edgy",
+    "hacker",
+    "glowing"
+  ],
+  "occasion": [
+    "hacker talk",
+    "underground culture",
+    "cyber security show",
+    "game industry",
+    "sci-fi pitch"
+  ],
+  "tone": [
+    "rebellious",
+    "intense",
+    "futuristic"
+  ],
+  "formality": "low",
+  "density": "medium",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#000000",
+    "text": "#f5f7ff",
+    "accent": "#ff2bd6",
+    "accent2": "#00f0ff",
+    "surface": "#0f0f1a",
+    "description": "Theme tokens --bg, --text-1, --accent, --accent-2, --surface taken from cyberpunk-neon.css"
+  },
+  "typography": {
+    "display": "JetBrains Mono",
+    "body": "Inter",
+    "style": "Theme font tokens --font-display / --font-sans"
+  },
+  "best_for": "Cyber and subculture talks that want maximum neon atmosphere.",
+  "avoid_for": "Serious corporate or medical topics.",
+  "slide_count": 22,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "assets/themes/cyberpunk-neon.css + templates/single-page/*.html (22 layouts)",
+    "license": "MIT"
+  }
+}

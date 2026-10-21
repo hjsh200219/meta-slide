@@ -1,0 +1,18 @@
+{
+  "slug": "hd-institutional-swiss",
+  "name": "Institutional Swiss",
+  "tagline": "White ground, bold Inter headlines over hairline rules, three ruled columns and a single signal red. (extended from a single-slide specimen)",
+  "mood": ["rigorous", "clean", "institutional", "neutral"],
+  "occasion": ["annual report", "policy briefing", "board update", "research summary", "government or NGO presentation"],
+  "tone": ["authoritative", "plain", "orderly"],
+  "formality": "high",
+  "density": "medium-high",
+  "scheme": "light",
+  "palette": {"bg": "#FFFFFF", "text": "#111111", "accent": "#E5452B", "muted": "#6A6A6A", "rule": "#D9D9D9", "description": "white paper, near-black ink, one signal red accent, grey secondary text"},
+  "typography": {"display": "Inter", "body": "Inter", "style": "single grotesque family; bold headlines, small tracked caps labels"},
+  "best_for": "Reports and briefings that must read as neutral and trustworthy, with several parallel points per slide. Fits institutions, public bodies and research groups.",
+  "avoid_for": "Playful or emotional storytelling where a restrained grid would feel cold.",
+  "slide_count": 8,
+  "navigation": "deck-stage runtime",
+  "source": {"repo": "alchaincyf/huashu-design", "commit": "798c423", "path": "assets/style-specimens/ppt/16-institutional-swiss.html", "license": "MIT"}
+}

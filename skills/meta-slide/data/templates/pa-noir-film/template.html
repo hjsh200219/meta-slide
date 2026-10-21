@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Noir Film — Deck Template</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script src="deck-stage.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:ital,wght@1,300;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap');
+  :root{
+    --bg-primary:#0a0a0a; --bg-tone:#111111; --ink-white:#fafafa;
+    --ink-soft:rgba(250,250,250,.62); --ink-faint:rgba(250,250,250,.32); --ink-rule:rgba(250,250,250,.14); --ink-frame:rgba(250,250,250,.08);
+    --neutral-mid:#5a5a5a; --neutral-deep:#2a2a2a;
+    --display-font:'Inter Tight','Inter','Helvetica Now Display',-apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif;
+    --body-font:'Inter','Helvetica Now Text',-apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif;
+    --serif-italic-font:'Source Serif 4','Iowan Old Style',Georgia,serif;
+    --mono-font:'JetBrains Mono','IBM Plex Mono','Courier New',monospace;
+  }
+  html,body{margin:0;padding:0;background:#000}
+  deck-stage > section{
+    width:1920px;height:1080px;position:relative;overflow:hidden;box-sizing:border-box;
+    background:var(--bg-primary);color:var(--ink-white);font-family:var(--body-font);
+    font-feature-settings:"kern","liga","ss01","cv11","calt","ccmp";text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;
+  }
+  section *{margin:0;padding:0;box-sizing:border-box}
+  .grain{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
+  .gc{opacity:.10}.gf{opacity:.05}
+  .scan{position:absolute;inset:0;background-image:linear-gradient(180deg,rgba(250,250,250,.018) 1px,transparent 1px);background-size:100% 4px;z-index:2;opacity:.5}
+  .vig{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(250,250,250,.04) 0%,transparent 55%),radial-gradient(ellipse 100% 80% at 50% 110%,rgba(0,0,0,.6) 0%,transparent 50%),radial-gradient(ellipse 100% 80% at 50% -10%,rgba(0,0,0,.5) 0%,transparent 50%);z-index:1}
+  .matte{position:absolute;inset:42px;border:1px solid var(--ink-frame);z-index:3}
+  .corner{position:absolute;width:27px;height:27px;z-index:4}
+  .c-tl{top:66px;left:66px;border-top:1px solid var(--ink-white);border-left:1px solid var(--ink-white)}
+  .c-tr{top:66px;right:66px;border-top:1px solid var(--ink-white);border-right:1px solid var(--ink-white)}
+  .c-bl{bottom:66px;left:66px;border-bottom:1px solid var(--ink-white);border-left:1px solid var(--ink-white)}
+  .c-br{bottom:66px;right:66px;border-bottom:1px solid var(--ink-white);border-right:1px solid var(--ink-white)}
+  .sprocket{position:absolute;top:105px;bottom:105px;width:21px;display:flex;flex-direction:column;justify-content:space-between;z-index:4}
+  .sl{left:105px}.sr{right:105px}
+  .hole{width:21px;height:12px;background:var(--ink-white);opacity:.35;border-radius:2px}
+  .reel{position:absolute;top:105px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:12px;z-index:5}
+  .rt{display:block;width:1px;height:12px;background:var(--ink-soft)}.rt.t{height:21px;background:var(--ink-white)}.rt.f{opacity:.35}
+  .stage{position:relative;z-index:5;width:100%;height:100%;padding:135px 195px;display:flex;flex-direction:column}
+  .top-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:66px}
+  .signature{flex:1;text-align:center;font-family:var(--display-font);font-size:17px;font-weight:600;letter-spacing:.5em;text-transform:uppercase;text-indent:.5em}
+  .ts{font-family:var(--mono-font);font-size:15px;letter-spacing:.18em;color:var(--ink-soft);text-transform:uppercase;min-width:165px}
+  .ts.r{text-align:right}
+  .label-row{display:flex;align-items:center;gap:21px;margin-bottom:42px;font-family:var(--mono-font);font-size:16px;letter-spacing:.32em;color:var(--ink-soft);text-transform:uppercase;font-weight:500}
+  .label-row .bar{width:54px;height:1px;background:var(--ink-white);opacity:.55}
+  .label-row .pipe{color:var(--ink-faint)}
+  .headline{font-family:var(--display-font);font-size:144px;font-weight:700;letter-spacing:-.045em;line-height:.92;margin-bottom:45px}
+  .headline.m{font-size:104px}
+  .headline em{font-family:var(--serif-italic-font);font-style:italic;font-weight:300;letter-spacing:-.02em;padding-right:6px}
+  .deck{font-size:28px;line-height:1.62;color:var(--ink-soft);max-width:960px;letter-spacing:-.005em}
+  .deck em{font-family:var(--serif-italic-font);font-style:italic;color:var(--ink-white)}
+  .divider{margin-top:66px;height:1px;background:var(--ink-rule);position:relative}
+  .divider::after{content:"";position:absolute;left:0;top:0;width:144px;height:1px;background:var(--ink-white)}
+  .meta-row{display:flex;margin-top:39px}
+  .chip{display:flex;flex-direction:column;gap:9px;padding:0 33px;border-right:1px solid var(--ink-rule)}
+  .chip:first-child{padding-left:0}.chip:last-child{border-right:none;padding-right:0}
+  .chip .k{font-family:var(--mono-font);font-size:14px;letter-spacing:.28em;color:var(--ink-faint);text-transform:uppercase;font-weight:500}
+  .chip .v{font-family:var(--mono-font);font-size:19px;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+  .frame-stack{position:absolute;top:178px;right:195px;display:flex;flex-direction:column;gap:14px;align-items:flex-end;z-index:6}
+  .fcard{width:252px;border:1px solid var(--ink-rule);padding:15px 21px 18px;background:rgba(250,250,250,.015)}
+  .fcard.active{border-color:rgba(250,250,250,.55);background:rgba(250,250,250,.035)}
+  .fcard .tp{display:flex;justify-content:space-between;font-family:var(--mono-font);font-size:14px;letter-spacing:.22em;color:var(--ink-faint);text-transform:uppercase;margin-bottom:15px}
+  .fcard.active .tp{color:var(--ink-soft)}
+  .fcard .pv{width:100%;height:66px;position:relative;overflow:hidden;margin-bottom:15px}
+  .fcard .cap{font-family:var(--mono-font);font-size:15px;letter-spacing:.16em;color:var(--ink-soft);text-transform:uppercase;font-weight:500;display:flex;justify-content:space-between}
+  .fcard .cap .dot{width:9px;height:9px;border-radius:50%;background:var(--ink-white);opacity:.85;align-self:center}
+  .fcard.dim .cap .dot{background:var(--neutral-mid);opacity:.6}
+  .pv .bg{position:absolute;inset:0}
+  .pv svg{position:absolute;inset:0;width:100%;height:100%}
+  .bg-sky{background:linear-gradient(180deg,#1a1a1a 0%,#0d0d0d 60%,#050505 100%)}
+  .bg-rain{background:linear-gradient(180deg,#2a2a2a 0%,#141414 65%,#060606 100%)}
+  .bg-bridge{background:linear-gradient(180deg,#353535 0%,#1a1a1a 50%,#080808 100%)}
+  .copyright{position:absolute;bottom:84px;right:195px;font-family:var(--mono-font);font-size:14px;letter-spacing:.32em;color:var(--ink-faint);text-transform:uppercase;text-align:right;z-index:6}
+  .copyright .l2{margin-top:6px;color:var(--ink-soft);letter-spacing:.28em}
+  .lstamp{position:absolute;bottom:84px;left:195px;display:flex;align-items:center;gap:21px;z-index:6}
+  .snum{font-family:var(--display-font);font-size:84px;font-weight:800;letter-spacing:-.05em;line-height:.85}
+  .snum em{font-family:var(--serif-italic-font);font-style:italic;font-weight:300;color:var(--ink-soft);margin-left:3px;letter-spacing:-.02em}
+  .smeta{display:flex;flex-direction:column;gap:6px;border-left:1px solid var(--ink-rule);padding-left:21px}
+  .smeta .l1{font-family:var(--mono-font);font-size:14px;letter-spacing:.28em;color:var(--ink-faint);text-transform:uppercase}
+  .smeta .l2{font-family:var(--mono-font);font-size:17px;letter-spacing:.16em;font-weight:600;text-transform:uppercase}
+  .foot{position:absolute;bottom:84px;left:195px;right:195px;display:flex;justify-content:space-between;font-family:var(--mono-font);font-size:14px;letter-spacing:.32em;color:var(--ink-faint);text-transform:uppercase;z-index:6}
+  .toc{margin-top:30px;border-top:1px solid var(--ink-rule)}
+  .toc .it{display:grid;grid-template-columns:150px 1fr auto;align-items:baseline;padding:27px 0;border-bottom:1px solid var(--ink-rule)}
+  .toc .n{font-family:var(--mono-font);font-size:22px;letter-spacing:.2em;color:var(--ink-faint)}
+  .toc .t{font-family:var(--display-font);font-size:54px;font-weight:600;letter-spacing:-.03em}
+  .toc .t em{font-family:var(--serif-italic-font);font-style:italic;font-weight:300;letter-spacing:-.02em}
+  .toc .p{font-family:var(--mono-font);font-size:18px;letter-spacing:.2em;color:var(--ink-soft)}
+  .bigtc{font-family:var(--display-font);font-weight:800;font-size:420px;letter-spacing:-.07em;line-height:.8}
+  .bigtc em{font-family:var(--serif-italic-font);font-style:italic;font-weight:300;color:var(--ink-soft);letter-spacing:-.04em}
+  .film3{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;margin-top:30px}
+  .film3 .fc{border:1px solid var(--ink-rule);padding:24px 27px 30px;background:rgba(250,250,250,.015)}
+  .film3 .fc.active{border-color:rgba(250,250,250,.55);background:rgba(250,250,250,.035)}
+  .film3 .pv{width:100%;height:240px;position:relative;overflow:hidden;margin-bottom:27px}
+  .film3 .tp{display:flex;justify-content:space-between;font-family:var(--mono-font);font-size:16px;letter-spacing:.22em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:18px}
+  .film3 h3{font-family:var(--display-font);font-size:48px;font-weight:700;letter-spacing:-.035em;margin-bottom:12px}
+  .film3 h3 em{font-family:var(--serif-italic-font);font-style:italic;font-weight:300}
+  .film3 p{font-size:24px;line-height:1.5;color:var(--ink-soft)}
+  .nums{display:grid;grid-template-columns:repeat(3,1fr);margin-top:30px;border-top:1px solid var(--ink-rule)}
+  .nm{padding:48px 48px 0;border-left:1px solid var(--ink-rule)}.nm:first-child{border-left:none;padding-left:0}
+  .nm .v{font-family:var(--display-font);font-weight:800;font-size:200px;letter-spacing:-.06em;line-height:.9}
+  .nm .v em{font-family:var(--serif-italic-font);font-style:italic;font-weight:300;color:var(--ink-soft);letter-spacing:-.02em}
+  .nm .k{font-family:var(--mono-font);font-size:16px;letter-spacing:.28em;color:var(--ink-faint);text-transform:uppercase;margin-top:27px}
+  .nm .d{font-size:26px;line-height:1.5;color:var(--ink-soft);margin-top:15px}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:96px;margin-top:30px}
+  .side{border-top:1px solid var(--ink-rule);padding-top:36px;position:relative}
+  .side::before{content:"";position:absolute;left:0;top:-1px;width:144px;height:1px;background:var(--ink-white)}
+  .side.dim h3,.side.dim li{color:var(--ink-soft)}
+  .side .k{font-family:var(--mono-font);font-size:16px;letter-spacing:.28em;color:var(--ink-faint);text-transform:uppercase;margin-bottom:21px}
+  .side h3{font-family:var(--display-font);font-size:66px;font-weight:700;letter-spacing:-.04em;line-height:1;margin-bottom:30px}
+  .side h3 em{font-family:var(--serif-italic-font);font-style:italic;font-weight:300}
+  .side ul{list-style:none}
+  .side li{font-size:30px;line-height:1.45;padding:21px 0;border-bottom:1px solid var(--ink-rule)}
+  .quote{font-family:var(--display-font);font-size:124px;font-weight:700;letter-spacing:-.045em;line-height:.98;max-width:1500px}
+  .quote em{font-family:var(--serif-italic-font);font-style:italic;font-weight:300;letter-spacing:-.02em}
+</style>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+
+<section data-label="01 Cover">
+  <svg class="grain gc"><filter id="nc1"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/></filter><rect width="100%" height="100%" filter="url(#nc1)"/></svg>
+<svg class="grain gf"><filter id="nf1"><feTurbulence type="fractalNoise" baseFrequency="2.4" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/></filter><rect width="100%" height="100%" filter="url(#nf1)"/></svg>
+<div class="scan"></div><div class="vig"></div><div class="matte"></div>
+<div class="corner c-tl"></div><div class="corner c-tr"></div><div class="corner c-bl"></div><div class="corner c-br"></div>
+<div class="sprocket sl"><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div></div><div class="sprocket sr"><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div></div>
+<div class="reel"><i class="rt f"></i><i class="rt f"></i><i class="rt"></i><i class="rt"></i><i class="rt t"></i><i class="rt"></i><i class="rt"></i><i class="rt f"></i><i class="rt f"></i></div>
+
+  <div class="stage">
+    <div class="top-bar"><div class="ts">04:32:17 JST</div><div class="signature">MAGNUM &nbsp;×&nbsp; 2026</div><div class="ts r">N 35.6762°</div></div>
+    <div class="label-row"><span class="bar"></span><span>A Photographic Essay</span><span class="pipe">/</span><span>No. 042</span></div>
+    <h1 class="headline"><em>The&nbsp;City</em><br>Awakens.</h1>
+    <p class="deck">A photographic essay on Tokyo at first light. <em>Twelve frames,</em> one rotation of the earth — shot in silver gelatin between Shimbashi and the Sumida, from blue hour to the first commuter train.</p>
+    <div class="divider" style="margin-top:42px"></div>
+    <div class="meta-row">
+      <div class="chip"><div class="k">Roll</div><div class="v">042</div></div>
+      <div class="chip"><div class="k">Frame</div><div class="v">17 / 36</div></div>
+      <div class="chip"><div class="k">Body</div><div class="v">Leica M6</div></div>
+      <div class="chip"><div class="k">Stock</div><div class="v">Ilford HP5+</div></div>
+      <div class="chip"><div class="k">Location</div><div class="v">Tokyo · 04:32</div></div>
+      <div class="chip"><div class="k">Exposure</div><div class="v">f/2.8 · 1/60</div></div>
+    </div>
+  </div>
+  <div class="frame-stack">
+    <div class="fcard dim"><div class="tp"><span>FR 15</span><span>04:18</span></div><div class="pv"><div class="bg bg-bridge"></div><svg viewBox="0 0 168 88" preserveAspectRatio="none"><path d="M0,62 L168,46" stroke="#fafafa" stroke-width="0.5" opacity="0.5"/><path d="M0,72 L168,56" stroke="#fafafa" stroke-width="0.5" opacity="0.3"/><line x1="20" y1="20" x2="20" y2="62" stroke="#fafafa" stroke-width="0.4" opacity="0.6"/><line x1="48" y1="14" x2="48" y2="58" stroke="#fafafa" stroke-width="0.4" opacity="0.6"/><line x1="76" y1="10" x2="76" y2="54" stroke="#fafafa" stroke-width="0.4" opacity="0.55"/><line x1="104" y1="14" x2="104" y2="50" stroke="#fafafa" stroke-width="0.4" opacity="0.5"/><line x1="132" y1="20" x2="132" y2="48" stroke="#fafafa" stroke-width="0.4" opacity="0.45"/></svg></div><div class="cap"><span>Bridge</span><span class="dot"></span></div></div>
+    <div class="fcard active"><div class="tp"><span>FR 17</span><span>04:32</span></div><div class="pv"><div class="bg bg-sky"></div><svg viewBox="0 0 168 88" preserveAspectRatio="none"><rect x="0" y="58" width="14" height="30" fill="#000"/><rect x="14" y="48" width="20" height="40" fill="#0a0a0a"/><rect x="34" y="38" width="16" height="50" fill="#050505"/><rect x="50" y="30" width="22" height="58" fill="#000"/><rect x="72" y="22" width="18" height="66" fill="#0a0a0a"/><rect x="90" y="32" width="14" height="56" fill="#050505"/><rect x="104" y="26" width="20" height="62" fill="#000"/><rect x="124" y="40" width="16" height="48" fill="#0a0a0a"/><rect x="140" y="50" width="28" height="38" fill="#050505"/><rect x="18" y="56" width="2" height="2" fill="#fafafa" opacity="0.85"/><rect x="40" y="50" width="2" height="2" fill="#fafafa" opacity="0.7"/><rect x="58" y="42" width="2" height="2" fill="#fafafa" opacity="0.9"/><rect x="78" y="34" width="2" height="2" fill="#fafafa" opacity="0.8"/><rect x="80" y="48" width="2" height="2" fill="#fafafa" opacity="0.6"/><rect x="96" y="44" width="2" height="2" fill="#fafafa" opacity="0.7"/><rect x="112" y="38" width="2" height="2" fill="#fafafa" opacity="0.85"/><rect x="116" y="52" width="2" height="2" fill="#fafafa" opacity="0.55"/><rect x="130" y="50" width="2" height="2" fill="#fafafa" opacity="0.7"/><rect x="148" y="60" width="2" height="2" fill="#fafafa" opacity="0.6"/><line x1="0" y1="14" x2="168" y2="14" stroke="#fafafa" stroke-width="0.3" opacity="0.25"/></svg></div><div class="cap"><span>Skyline</span><span class="dot"></span></div></div>
+    <div class="fcard dim"><div class="tp"><span>FR 19</span><span>04:47</span></div><div class="pv"><div class="bg bg-rain"></div><svg viewBox="0 0 168 88" preserveAspectRatio="none"><line x1="10" y1="0" x2="2" y2="88" stroke="#fafafa" stroke-width="0.3" opacity="0.4"/><line x1="28" y1="0" x2="20" y2="88" stroke="#fafafa" stroke-width="0.3" opacity="0.5"/><line x1="46" y1="0" x2="38" y2="88" stroke="#fafafa" stroke-width="0.3" opacity="0.35"/><line x1="64" y1="0" x2="56" y2="88" stroke="#fafafa" stroke-width="0.3" opacity="0.45"/><line x1="82" y1="0" x2="74" y2="88" stroke="#fafafa" stroke-width="0.3" opacity="0.3"/><line x1="100" y1="0" x2="92" y2="88" stroke="#fafafa" stroke-width="0.3" opacity="0.5"/><line x1="118" y1="0" x2="110" y2="88" stroke="#fafafa" stroke-width="0.3" opacity="0.35"/><line x1="136" y1="0" x2="128" y2="88" stroke="#fafafa" stroke-width="0.3" opacity="0.4"/><line x1="154" y1="0" x2="146" y2="88" stroke="#fafafa" stroke-width="0.3" opacity="0.45"/><ellipse cx="60" cy="64" rx="18" ry="3" fill="#fafafa" opacity="0.18"/><ellipse cx="110" cy="74" rx="22" ry="3" fill="#fafafa" opacity="0.12"/></svg></div><div class="cap"><span>Rain Lane</span><span class="dot"></span></div></div>
+  </div>
+  <div class="lstamp"><div class="snum">17<em>/36</em></div><div class="smeta"><div class="l1">Frame Selected</div><div class="l2">042 · HP5+</div></div></div>
+  <div class="copyright"><div>© 2026 · All Rights Reserved</div><div class="l2">A. Marlowe · Silver Print Edition</div></div>
+</section>
+
+<section data-label="02 Contents">
+  <svg class="grain gc"><filter id="nc2"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/></filter><rect width="100%" height="100%" filter="url(#nc2)"/></svg>
+<svg class="grain gf"><filter id="nf2"><feTurbulence type="fractalNoise" baseFrequency="2.4" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/></filter><rect width="100%" height="100%" filter="url(#nf2)"/></svg>
+<div class="scan"></div><div class="vig"></div><div class="matte"></div>
+<div class="corner c-tl"></div><div class="corner c-tr"></div><div class="corner c-bl"></div><div class="corner c-br"></div>
+<div class="sprocket sl"><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div></div><div class="sprocket sr"><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div></div>
+<div class="reel"><i class="rt f"></i><i class="rt f"></i><i class="rt"></i><i class="rt"></i><i class="rt t"></i><i class="rt"></i><i class="rt"></i><i class="rt f"></i><i class="rt f"></i></div>
+
+  <div class="stage">
+    <div class="top-bar"><div class="ts">04:32:17 JST</div><div class="signature">MAGNUM &nbsp;×&nbsp; 2026</div><div class="ts r">CONTENTS</div></div>
+    <div class="label-row"><span class="bar"></span><span>Contact Sheet</span><span class="pipe">/</span><span>No. 042</span></div>
+    <h2 class="headline m">Four <em>sequences</em></h2>
+    <div class="toc">
+      <div class="it"><span class="n">SEQ 01</span><span class="t">Blue hour</span><span class="p">FR 01–09</span></div>
+      <div class="it"><span class="n">SEQ 02</span><span class="t">The <em>first</em> light</span><span class="p">FR 10–18</span></div>
+      <div class="it"><span class="n">SEQ 03</span><span class="t">Rain lanes</span><span class="p">FR 19–27</span></div>
+      <div class="it"><span class="n">SEQ 04</span><span class="t">First <em>train</em></span><span class="p">FR 28–36</span></div>
+    </div>
+  </div>
+  <div class="foot"><span>Roll 042 · HP5+</span><span>02 / 08</span></div>
+</section>
+
+<section data-label="03 Section Divider">
+  <svg class="grain gc"><filter id="nc3"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/></filter><rect width="100%" height="100%" filter="url(#nc3)"/></svg>
+<svg class="grain gf"><filter id="nf3"><feTurbulence type="fractalNoise" baseFrequency="2.4" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/></filter><rect width="100%" height="100%" filter="url(#nf3)"/></svg>
+<div class="scan"></div><div class="vig"></div><div class="matte"></div>
+<div class="corner c-tl"></div><div class="corner c-tr"></div><div class="corner c-bl"></div><div class="corner c-br"></div>
+<div class="sprocket sl"><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div></div><div class="sprocket sr"><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div></div>
+<div class="reel"><i class="rt f"></i><i class="rt f"></i><i class="rt"></i><i class="rt"></i><i class="rt t"></i><i class="rt"></i><i class="rt"></i><i class="rt f"></i><i class="rt f"></i></div>
+
+  <div class="stage" style="justify-content:center;align-items:flex-start">
+    <div class="label-row"><span class="bar"></span><span>Sequence</span><span class="pipe">/</span><span>04:32 JST</span></div>
+    <div style="display:flex;align-items:flex-end;gap:90px"><div class="bigtc">02<em>/04</em></div></div>
+    <div class="divider" style="width:100%;margin-top:60px"></div>
+    <h2 class="headline m" style="margin-top:45px;margin-bottom:0">The <em>first</em> light</h2>
+  </div>
+  <div class="foot"><span>Roll 042 · HP5+</span><span>03 / 08</span></div>
+</section>
+
+<section data-label="04 Three Frames">
+  <svg class="grain gc"><filter id="nc4"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/></filter><rect width="100%" height="100%" filter="url(#nc4)"/></svg>
+<svg class="grain gf"><filter id="nf4"><feTurbulence type="fractalNoise" baseFrequency="2.4" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/></filter><rect width="100%" height="100%" filter="url(#nf4)"/></svg>
+<div class="scan"></div><div class="vig"></div><div class="matte"></div>
+<div class="corner c-tl"></div><div class="corner c-tr"></div><div class="corner c-bl"></div><div class="corner c-br"></div>
+<div class="sprocket sl"><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div></div><div class="sprocket sr"><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div></div>
+<div class="reel"><i class="rt f"></i><i class="rt f"></i><i class="rt"></i><i class="rt"></i><i class="rt t"></i><i class="rt"></i><i class="rt"></i><i class="rt f"></i><i class="rt f"></i></div>
+
+  <div class="stage">
+    <div class="label-row"><span class="bar"></span><span>Sequence 02</span><span class="pipe">/</span><span>Three frames</span></div>
+    <h2 class="headline m" style="margin-bottom:30px">How a morning <em>develops</em></h2>
+    <div class="film3">
+      <div class="fc"><div class="tp"><span>FR 15</span><span>04:18</span></div><div class="pv"><div class="bg bg-bridge"></div><svg viewBox="0 0 168 88" preserveAspectRatio="none"><path d="M0,62 L168,46" stroke="#fafafa" stroke-width="0.5" opacity="0.5"/><path d="M0,72 L168,56" stroke="#fafafa" stroke-width="0.5" opacity="0.3"/><line x1="20" y1="20" x2="20" y2="62" stroke="#fafafa" stroke-width="0.4" opacity="0.6"/><line x1="48" y1="14" x2="48" y2="58" stroke="#fafafa" stroke-width="0.4" opacity="0.6"/><line x1="76" y1="10" x2="76" y2="54" stroke="#fafafa" stroke-width="0.4" opacity="0.55"/><line x1="104" y1="14" x2="104" y2="50" stroke="#fafafa" stroke-width="0.4" opacity="0.5"/><line x1="132" y1="20" x2="132" y2="48" stroke="#fafafa" stroke-width="0.4" opacity="0.45"/></svg></div><h3>The <em>bridge</em></h3><p>Streetlights still on; the river holds the last of the dark.</p></div>
+      <div class="fc active"><div class="tp"><span>FR 17</span><span>04:32</span></div><div class="pv"><div class="bg bg-sky"></div><svg viewBox="0 0 168 88" preserveAspectRatio="none"><rect x="0" y="58" width="14" height="30" fill="#000"/><rect x="14" y="48" width="20" height="40" fill="#0a0a0a"/><rect x="34" y="38" width="16" height="50" fill="#050505"/><rect x="50" y="30" width="22" height="58" fill="#000"/><rect x="72" y="22" width="18" height="66" fill="#0a0a0a"/><rect x="90" y="32" width="14" height="56" fill="#050505"/><rect x="104" y="26" width="20" height="62" fill="#000"/><rect x="124" y="40" width="16" height="48" fill="#0a0a0a"/><rect x="140" y="50" width="28" height="38" fill="#050505"/><rect x="18" y="56" width="2" height="2" fill="#fafafa" opacity="0.85"/><rect x="58" y="42" width="2" height="2" fill="#fafafa" opacity="0.9"/><rect x="78" y="34" width="2" height="2" fill="#fafafa" opacity="0.8"/><rect x="112" y="38" width="2" height="2" fill="#fafafa" opacity="0.85"/><rect x="130" y="50" width="2" height="2" fill="#fafafa" opacity="0.7"/></svg></div><h3>The <em>skyline</em></h3><p>The chosen frame: windows flicker on one by one across the grid.</p></div>
+      <div class="fc"><div class="tp"><span>FR 19</span><span>04:47</span></div><div class="pv"><div class="bg bg-rain"></div><svg viewBox="0 0 168 88" preserveAspectRatio="none"><line x1="10" y1="0" x2="2" y2="88" stroke="#fafafa" stroke-width="0.3" opacity="0.4"/><line x1="28" y1="0" x2="20" y2="88" stroke="#fafafa" stroke-width="0.3" opacity="0.5"/><line x1="46" y1="0" x2="38" y2="88" stroke="#fafafa" stroke-width="0.3" opacity="0.35"/><line x1="64" y1="0" x2="56" y2="88" stroke="#fafafa" stroke-width="0.3" opacity="0.45"/><line x1="82" y1="0" x2="74" y2="88" stroke="#fafafa" stroke-width="0.3" opacity="0.3"/><line x1="100" y1="0" x2="92" y2="88" stroke="#fafafa" stroke-width="0.3" opacity="0.5"/><line x1="118" y1="0" x2="110" y2="88" stroke="#fafafa" stroke-width="0.3" opacity="0.35"/><line x1="136" y1="0" x2="128" y2="88" stroke="#fafafa" stroke-width="0.3" opacity="0.4"/><line x1="154" y1="0" x2="146" y2="88" stroke="#fafafa" stroke-width="0.3" opacity="0.45"/><ellipse cx="60" cy="64" rx="18" ry="3" fill="#fafafa" opacity="0.18"/><ellipse cx="110" cy="74" rx="22" ry="3" fill="#fafafa" opacity="0.12"/></svg></div><h3>Rain <em>lane</em></h3><p>A narrow alley, wet asphalt, a single reflection of a lit sign.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span>Roll 042 · HP5+</span><span>04 / 08</span></div>
+</section>
+
+<section data-label="05 Key Numbers">
+  <svg class="grain gc"><filter id="nc5"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/></filter><rect width="100%" height="100%" filter="url(#nc5)"/></svg>
+<svg class="grain gf"><filter id="nf5"><feTurbulence type="fractalNoise" baseFrequency="2.4" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/></filter><rect width="100%" height="100%" filter="url(#nf5)"/></svg>
+<div class="scan"></div><div class="vig"></div><div class="matte"></div>
+<div class="corner c-tl"></div><div class="corner c-tr"></div><div class="corner c-bl"></div><div class="corner c-br"></div>
+<div class="sprocket sl"><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div></div><div class="sprocket sr"><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div></div>
+<div class="reel"><i class="rt f"></i><i class="rt f"></i><i class="rt"></i><i class="rt"></i><i class="rt t"></i><i class="rt"></i><i class="rt"></i><i class="rt f"></i><i class="rt f"></i></div>
+
+  <div class="stage">
+    <div class="label-row"><span class="bar"></span><span>Roll Notes</span><span class="pipe">/</span><span>No. 042</span></div>
+    <h2 class="headline m" style="margin-bottom:30px">The roll in <em>numbers</em></h2>
+    <div class="nums">
+      <div class="nm"><div class="v">36</div><div class="k">Frames exposed</div><div class="d">One roll of silver gelatin, no reshoots.</div></div>
+      <div class="nm"><div class="v">12</div><div class="k">Frames printed</div><div class="d">Selected after a single contact sheet.</div></div>
+      <div class="nm"><div class="v">4<em>h</em></div><div class="k">Blue hour to first train</div><div class="d">From 03:50 to the first commuter service.</div></div>
+    </div>
+  </div>
+  <div class="foot"><span>Roll 042 · HP5+</span><span>05 / 08</span></div>
+</section>
+
+<section data-label="06 Comparison">
+  <svg class="grain gc"><filter id="nc6"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/></filter><rect width="100%" height="100%" filter="url(#nc6)"/></svg>
+<svg class="grain gf"><filter id="nf6"><feTurbulence type="fractalNoise" baseFrequency="2.4" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/></filter><rect width="100%" height="100%" filter="url(#nf6)"/></svg>
+<div class="scan"></div><div class="vig"></div><div class="matte"></div>
+<div class="corner c-tl"></div><div class="corner c-tr"></div><div class="corner c-bl"></div><div class="corner c-br"></div>
+<div class="sprocket sl"><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div></div><div class="sprocket sr"><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div></div>
+<div class="reel"><i class="rt f"></i><i class="rt f"></i><i class="rt"></i><i class="rt"></i><i class="rt t"></i><i class="rt"></i><i class="rt"></i><i class="rt f"></i><i class="rt f"></i></div>
+
+  <div class="stage">
+    <div class="label-row"><span class="bar"></span><span>Process</span><span class="pipe">/</span><span>Two ways to shoot</span></div>
+    <h2 class="headline m" style="margin-bottom:30px">Silver or <em>pixels</em></h2>
+    <div class="two">
+      <div class="side dim"><div class="k">Digital</div><h3>Shoot many, pick later</h3><ul><li>Hundreds of frames per morning</li><li>Instant review on the back screen</li><li>Choice postponed to the edit</li></ul></div>
+      <div class="side"><div class="k">Silver gelatin</div><h3>Thirty-six, <em>decided</em></h3><ul><li>One roll, one morning</li><li>No preview, only patience</li><li>Every frame chosen in the moment</li></ul></div>
+    </div>
+  </div>
+  <div class="foot"><span>Roll 042 · HP5+</span><span>06 / 08</span></div>
+</section>
+
+<section data-label="07 Quote">
+  <svg class="grain gc"><filter id="nc7"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/></filter><rect width="100%" height="100%" filter="url(#nc7)"/></svg>
+<svg class="grain gf"><filter id="nf7"><feTurbulence type="fractalNoise" baseFrequency="2.4" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/></filter><rect width="100%" height="100%" filter="url(#nf7)"/></svg>
+<div class="scan"></div><div class="vig"></div><div class="matte"></div>
+<div class="corner c-tl"></div><div class="corner c-tr"></div><div class="corner c-bl"></div><div class="corner c-br"></div>
+<div class="sprocket sl"><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div></div><div class="sprocket sr"><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div></div>
+<div class="reel"><i class="rt f"></i><i class="rt f"></i><i class="rt"></i><i class="rt"></i><i class="rt t"></i><i class="rt"></i><i class="rt"></i><i class="rt f"></i><i class="rt f"></i></div>
+
+  <div class="stage" style="justify-content:center">
+    <div class="label-row"><span class="bar"></span><span>Photographer’s note</span></div>
+    <div class="quote">“The city does not wake up. It is <em>revealed.</em>”</div>
+    <div class="divider" style="width:100%"></div>
+    <div class="meta-row"><div class="chip"><div class="k">By</div><div class="v">A. Marlowe</div></div><div class="chip"><div class="k">Frame</div><div class="v">17 / 36</div></div></div>
+  </div>
+  <div class="foot"><span>Roll 042 · HP5+</span><span>07 / 08</span></div>
+</section>
+
+<section data-label="08 Closing">
+  <svg class="grain gc"><filter id="nc8"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/></filter><rect width="100%" height="100%" filter="url(#nc8)"/></svg>
+<svg class="grain gf"><filter id="nf8"><feTurbulence type="fractalNoise" baseFrequency="2.4" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/></filter><rect width="100%" height="100%" filter="url(#nf8)"/></svg>
+<div class="scan"></div><div class="vig"></div><div class="matte"></div>
+<div class="corner c-tl"></div><div class="corner c-tr"></div><div class="corner c-bl"></div><div class="corner c-br"></div>
+<div class="sprocket sl"><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div></div><div class="sprocket sr"><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div></div>
+<div class="reel"><i class="rt f"></i><i class="rt f"></i><i class="rt"></i><i class="rt"></i><i class="rt t"></i><i class="rt"></i><i class="rt"></i><i class="rt f"></i><i class="rt f"></i></div>
+
+  <div class="stage" style="justify-content:center">
+    <div class="label-row"><span class="bar"></span><span>End of roll</span><span class="pipe">/</span><span>36 / 36</span></div>
+    <h2 class="headline" style="font-size:190px"><em>Fin.</em><br>Thank you.</h2>
+    <p class="deck">Prints and enquiries — studio@example.com</p>
+  </div>
+  <div class="copyright"><div>© 2026 · All Rights Reserved</div><div class="l2">A. Marlowe · Silver Print Edition</div></div>
+  <div class="lstamp"><div class="snum">36<em>/36</em></div><div class="smeta"><div class="l1">Roll</div><div class="l2">042 · HP5+</div></div></div>
+</section>
+
+</deck-stage>
+</body>
+</html>

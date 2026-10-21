@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Luxury Noir Gold — Deck Template</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script src="deck-stage.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Bodoni+Moda:ital,wght@0,400;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
+  :root{
+    --bg-noir:#060606; --bg-graphite:#0d0d0d; --line-soft:#1a1a1a;
+    --gold:#c9a960; --gold-bright:#d8bd7a; --gold-deep:#8a6f3a;
+    --cream:#f5e8c8; --cream-soft:#e8dcb8;
+    --display-font:'Playfair Display','Bodoni Moda','Didot',Georgia,serif;
+    --label-font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  }
+  html,body{margin:0;padding:0;background:#000}
+  deck-stage > section{
+    width:1920px;height:1080px;position:relative;overflow:hidden;box-sizing:border-box;
+    background:radial-gradient(ellipse 80% 60% at 50% 50%,#0c0a07 0%,var(--bg-noir) 70%,#030303 100%);
+    color:var(--cream);font-family:var(--label-font);
+    font-feature-settings:'kern','liga','dlig','onum';text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;
+  }
+  section *{margin:0;padding:0;box-sizing:border-box}
+  section::before{content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(ellipse 60% 40% at 50% 50%,rgba(201,169,96,.06) 0%,transparent 70%),
+    radial-gradient(ellipse 100% 100% at 50% 100%,rgba(0,0,0,.6) 0%,transparent 50%),
+    linear-gradient(rgba(201,169,96,.012) 1px,transparent 1px),linear-gradient(90deg,rgba(201,169,96,.012) 1px,transparent 1px);
+    background-size:100% 100%,100% 100%,180px 180px,180px 180px}
+  .fr{position:absolute;width:27px;height:27px;opacity:.55;z-index:3}
+  .fr.tl{top:48px;left:48px;border-top:1px solid var(--gold-deep);border-left:1px solid var(--gold-deep)}
+  .fr.tr{top:48px;right:48px;border-top:1px solid var(--gold-deep);border-right:1px solid var(--gold-deep)}
+  .fr.bl{bottom:48px;left:48px;border-bottom:1px solid var(--gold-deep);border-left:1px solid var(--gold-deep)}
+  .fr.br{bottom:48px;right:48px;border-bottom:1px solid var(--gold-deep);border-right:1px solid var(--gold-deep)}
+  .stage{position:relative;z-index:2;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:96px 120px 84px}
+  .cluster{display:flex;flex-direction:column;align-items:center;gap:33px;width:100%}
+  .gline{width:90px;height:1px;background:linear-gradient(90deg,transparent,var(--gold) 50%,transparent)}
+  .maison{font-size:20px;font-weight:400;color:var(--cream-soft);letter-spacing:.65em;text-indent:.65em;text-transform:uppercase;opacity:.85}
+  .est{font-size:17px;font-weight:300;color:var(--gold);letter-spacing:.5em;text-indent:.5em;text-transform:uppercase;opacity:.75}
+  .center{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:57px;width:100%}
+  .headline{font-family:var(--display-font);font-style:italic;font-weight:500;font-size:252px;line-height:.92;letter-spacing:-.005em;color:var(--cream);text-align:center;text-shadow:0 1px 0 rgba(0,0,0,.4)}
+  .headline .lig,.gold-t{background:linear-gradient(180deg,#f5e8c8 0%,#d8bd7a 55%,#b58f4a 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .orn{display:flex;align-items:center;justify-content:center;gap:27px;width:100%;max-width:780px}
+  .orn .l{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold) 30%,var(--gold) 70%,transparent)}
+  .dia{width:12px;height:12px;background:var(--gold);transform:rotate(45deg);box-shadow:0 0 15px rgba(201,169,96,.5)}
+  .dia.s{width:6px;height:6px;background:var(--gold-deep);box-shadow:none}
+  .sub{font-size:24px;font-weight:400;color:var(--gold-bright);letter-spacing:.55em;text-indent:.55em;text-transform:uppercase;text-align:center}
+  .tag{font-family:var(--display-font);font-style:italic;font-size:30px;line-height:1.7;color:var(--cream-soft);letter-spacing:.02em;text-align:center;max-width:800px;opacity:.75}
+  .crest{font-family:var(--display-font);font-style:italic;font-size:33px;color:var(--gold);letter-spacing:.04em;line-height:1;text-align:center}
+  .crest-sub{font-size:15px;color:var(--cream-soft);letter-spacing:.4em;text-indent:.4em;text-transform:uppercase;margin-top:9px;opacity:.65;text-align:center}
+  .corner-meta{position:absolute;bottom:96px;z-index:4;font-size:16px;color:var(--cream-soft);letter-spacing:.4em;text-transform:uppercase;opacity:.7}
+  .corner-meta.left{left:120px}.corner-meta.right{right:120px}
+  .corner-meta .acc{color:var(--gold);margin-right:12px;font-family:var(--display-font);font-style:italic;letter-spacing:0;font-size:18px}
+  .folio{position:absolute;bottom:96px;left:0;right:0;text-align:center;z-index:4;font-size:16px;letter-spacing:.5em;text-indent:.5em;text-transform:uppercase;color:var(--gold);opacity:.7}
+  /* inner pages */
+  .page{position:relative;z-index:2;width:100%;height:100%;padding:150px 180px 150px;display:flex;flex-direction:column}
+  .eyebrow{font-size:20px;letter-spacing:.5em;text-transform:uppercase;color:var(--gold);opacity:.85;display:flex;align-items:center;gap:24px}
+  .eyebrow::before{content:"";width:60px;height:1px;background:var(--gold)}
+  .title{font-family:var(--display-font);font-style:italic;font-weight:500;font-size:108px;line-height:1;color:var(--cream);margin-top:30px}
+  .title.c{text-align:center}
+  .body-t{font-family:var(--display-font);font-size:30px;line-height:1.7;color:var(--cream-soft);opacity:.8}
+  .idx{margin-top:60px;display:flex;flex-direction:column}
+  .idx .row{display:grid;grid-template-columns:150px 1fr auto;align-items:baseline;padding:27px 0;border-bottom:1px solid rgba(201,169,96,.28)}
+  .idx .row:first-child{border-top:1px solid rgba(201,169,96,.28)}
+  .idx .n{font-family:var(--display-font);font-style:italic;font-size:48px;color:var(--gold)}
+  .idx .t{font-family:var(--display-font);font-size:54px;color:var(--cream)}
+  .idx .p{font-size:20px;letter-spacing:.4em;text-transform:uppercase;color:var(--cream-soft);opacity:.65}
+  .big-num{font-family:var(--display-font);font-style:italic;font-weight:400;font-size:480px;line-height:.9}
+  .cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:90px;flex:1}
+  .col{padding:0 54px;border-left:1px solid rgba(201,169,96,.28);display:flex;flex-direction:column;gap:27px}
+  .col:first-child{border-left:none;padding-left:0}
+  .col .k{font-family:var(--display-font);font-style:italic;font-size:42px;color:var(--gold)}
+  .col .h{font-family:var(--display-font);font-size:60px;color:var(--cream);line-height:1.05}
+  .col .d{font-family:var(--display-font);font-style:italic;font-size:28px;line-height:1.6;color:var(--cream-soft);opacity:.75}
+  .stat-row{display:grid;grid-template-columns:repeat(3,1fr);margin-top:100px}
+  .stat{text-align:center;padding:0 30px;border-left:1px solid rgba(201,169,96,.28)}
+  .stat:first-child{border-left:none}
+  .stat .v{font-family:var(--display-font);font-style:italic;font-weight:500;font-size:190px;line-height:1}
+  .stat .u{font-family:var(--display-font);font-style:italic;font-size:60px;color:var(--gold)}
+  .stat .l{font-size:20px;letter-spacing:.4em;text-indent:.4em;text-transform:uppercase;color:var(--cream-soft);opacity:.75;margin-top:24px}
+  .cmp{display:grid;grid-template-columns:1fr 1fr;gap:90px;margin-top:80px;flex:1}
+  .card{border:1px solid rgba(201,169,96,.4);padding:60px 66px;display:flex;flex-direction:column;gap:24px;background:rgba(201,169,96,.03);position:relative}
+  .card.hi{border-color:var(--gold);background:rgba(201,169,96,.07)}
+  .card .cn{font-family:var(--display-font);font-style:italic;font-size:90px;color:var(--gold-bright);line-height:1}
+  .card .cs{font-size:18px;letter-spacing:.4em;text-transform:uppercase;color:var(--cream-soft);opacity:.7}
+  .card ul{list-style:none;display:flex;flex-direction:column;gap:18px;margin-top:12px}
+  .card li{font-family:var(--display-font);font-size:32px;color:var(--cream);padding-left:36px;position:relative;line-height:1.35}
+  .card li::before{content:"";position:absolute;left:4px;top:.55em;width:9px;height:9px;background:var(--gold);transform:rotate(45deg)}
+  .quote{font-family:var(--display-font);font-style:italic;font-weight:400;font-size:96px;line-height:1.2;text-align:center;color:var(--cream);max-width:1450px}
+  .qmark{font-family:var(--display-font);font-size:240px;line-height:.6;color:var(--gold);opacity:.8}
+  .attr{font-size:20px;letter-spacing:.5em;text-indent:.5em;text-transform:uppercase;color:var(--gold-bright)}
+</style>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+
+<section data-label="01 Cover">
+  <i class="fr tl"></i><i class="fr tr"></i><i class="fr bl"></i><i class="fr br"></i>
+
+  <div class="stage">
+    <div class="cluster"><div class="gline"></div><div class="maison">M A I S O N &nbsp;·&nbsp; A E T E R N U M</div><div class="est">EST · MMXXVI &nbsp;·&nbsp; PARIS</div></div>
+    <div class="center">
+      <h1 class="headline"><span class="lig">Æ</span>ternum</h1>
+      <div class="orn"><div class="l"></div><div class="dia s"></div><div class="dia"></div><div class="dia s"></div><div class="l"></div></div>
+      <div class="sub">P A R F U M &nbsp;·&nbsp; A T E L I E R &nbsp;·&nbsp; M M X X V I</div>
+      <div class="tag">A fragrance composed by hand —<br>eternity, distilled into a single flask.</div>
+    </div>
+    <div class="cluster"><div><div class="crest">N°&nbsp;I</div><div class="crest-sub">EDITION PRIVÉE</div></div><div class="gline"></div></div>
+  </div>
+  <div class="corner-meta left"><span class="acc">∾</span>PARIS &nbsp;·&nbsp; MILAN &nbsp;·&nbsp; TOKYO</div>
+  <div class="corner-meta right">N°&nbsp;042 <span class="acc" style="margin-left:10px;margin-right:0">/</span> CCC</div>
+</section>
+
+<section data-label="02 Contents">
+  <i class="fr tl"></i><i class="fr tr"></i><i class="fr bl"></i><i class="fr br"></i>
+
+  <div class="page">
+    <div class="eyebrow">Table des matières</div>
+    <h2 class="title">Contents</h2>
+    <div class="idx">
+      <div class="row"><span class="n">I.</span><span class="t">The Atelier</span><span class="p">p. 03</span></div>
+      <div class="row"><span class="n">II.</span><span class="t">The Composition</span><span class="p">p. 04</span></div>
+      <div class="row"><span class="n">III.</span><span class="t">The Numbers</span><span class="p">p. 05</span></div>
+      <div class="row"><span class="n">IV.</span><span class="t">Two Editions</span><span class="p">p. 06</span></div>
+    </div>
+  </div>
+  <div class="folio">Maison Aeternum · II / VIII</div>
+</section>
+
+<section data-label="03 Section Divider">
+  <i class="fr tl"></i><i class="fr tr"></i><i class="fr bl"></i><i class="fr br"></i>
+
+  <div class="stage" style="justify-content:center;gap:45px">
+    <div class="maison">Chapitre</div>
+    <div class="big-num gold-t">I</div>
+    <div class="orn"><div class="l"></div><div class="dia s"></div><div class="dia"></div><div class="dia s"></div><div class="l"></div></div>
+    <div class="title c" style="margin-top:0">The Atelier</div>
+    <div class="tag">Where every note is weighed by hand.</div>
+  </div>
+  <div class="folio">Maison Aeternum · III / VIII</div>
+</section>
+
+<section data-label="04 Composition Steps">
+  <i class="fr tl"></i><i class="fr tr"></i><i class="fr bl"></i><i class="fr br"></i>
+
+  <div class="page">
+    <div class="eyebrow">II. The Composition</div>
+    <h2 class="title">Three <span class="gold-t">acts</span>, one flask</h2>
+    <div class="cols3">
+      <div class="col"><div class="k">Acte I</div><div class="h">Top notes</div><div class="d">Bergamot, pink pepper and a breath of saffron open the first ten minutes.</div></div>
+      <div class="col"><div class="k">Acte II</div><div class="h">Heart</div><div class="d">Damask rose and iris butter hold the centre for a full afternoon.</div></div>
+      <div class="col"><div class="k">Acte III</div><div class="h">Base</div><div class="d">Amber, oud and vetiver remain on the skin long after the evening ends.</div></div>
+    </div>
+  </div>
+  <div class="folio">Maison Aeternum · IV / VIII</div>
+</section>
+
+<section data-label="05 Key Numbers">
+  <i class="fr tl"></i><i class="fr tr"></i><i class="fr bl"></i><i class="fr br"></i>
+
+  <div class="page">
+    <div class="eyebrow" style="justify-content:center">III. The Numbers</div>
+    <h2 class="title c">In <span class="gold-t">figures</span></h2>
+    <div class="stat-row">
+      <div class="stat"><div class="v gold-t">72<span class="u">h</span></div><div class="l">Maceration</div></div>
+      <div class="stat"><div class="v gold-t">42</div><div class="l">Raw materials</div></div>
+      <div class="stat"><div class="v gold-t">300</div><div class="l">Flasks per edition</div></div>
+    </div>
+  </div>
+  <div class="folio">Maison Aeternum · V / VIII</div>
+</section>
+
+<section data-label="06 Comparison">
+  <i class="fr tl"></i><i class="fr tr"></i><i class="fr bl"></i><i class="fr br"></i>
+
+  <div class="page">
+    <div class="eyebrow">IV. Two Editions</div>
+    <h2 class="title">Édition <span class="gold-t">I</span> &amp; <span class="gold-t">II</span></h2>
+    <div class="cmp">
+      <div class="card hi"><div class="cn">N° I</div><div class="cs">Edition Privée</div><ul><li>Hand-numbered flask</li><li>Extrait de parfum, 30%</li><li>Warm amber and oud</li></ul></div>
+      <div class="card"><div class="cn">N° II</div><div class="cs">Edition Légère</div><ul><li>Machine-numbered flask</li><li>Eau de parfum, 18%</li><li>Fresh iris and vetiver</li></ul></div>
+    </div>
+  </div>
+  <div class="folio">Maison Aeternum · VI / VIII</div>
+</section>
+
+<section data-label="07 Quote">
+  <i class="fr tl"></i><i class="fr tr"></i><i class="fr bl"></i><i class="fr br"></i>
+
+  <div class="stage" style="justify-content:center;gap:48px">
+    <div class="qmark">“</div>
+    <div class="quote">Luxury is the quiet certainty that nothing was hurried.</div>
+    <div class="orn" style="max-width:420px"><div class="l"></div><div class="dia"></div><div class="l"></div></div>
+    <div class="attr">The Perfumer · Maison Aeternum</div>
+  </div>
+  <div class="folio">Maison Aeternum · VII / VIII</div>
+</section>
+
+<section data-label="08 Closing">
+  <i class="fr tl"></i><i class="fr tr"></i><i class="fr bl"></i><i class="fr br"></i>
+
+  <div class="stage">
+    <div class="cluster"><div class="gline"></div><div class="maison">M A I S O N &nbsp;·&nbsp; A E T E R N U M</div></div>
+    <div class="center">
+      <h2 class="headline" style="font-size:210px">Merci.</h2>
+      <div class="orn"><div class="l"></div><div class="dia s"></div><div class="dia"></div><div class="dia s"></div><div class="l"></div></div>
+      <div class="sub">Atelier · Paris · MMXXVI</div>
+      <div class="tag">By appointment only — atelier@example.com</div>
+    </div>
+    <div class="cluster"><div class="crest">N°&nbsp;I</div><div class="gline"></div></div>
+  </div>
+</section>
+
+</deck-stage>
+</body>
+</html>

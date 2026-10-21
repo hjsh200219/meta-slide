@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Ember Orange — Deck Template</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800;900&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="deck-stage.js"></script>
+<style>
+  :root {
+    --bg-primary: #0a0a0a; --bg-secondary: #1a1a1a;
+    --card-border: rgba(255,105,0,.18); --card-radius: 12px;
+    --text-secondary: rgba(255,255,255,.72); --text-tertiary: rgba(255,255,255,.5);
+    --accent-1: #FF6900; --accent-2: #ff9d4a; --accent-3: #ffb979;
+    --display-font: 'Inter Tight', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --body-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --serif-italic-font: 'Instrument Serif', 'Fraunces', Georgia, serif;
+    --mono-font: 'JetBrains Mono', 'DM Mono', 'Courier New', monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: #000; }
+  body { font-family: var(--body-font); color: #fff; -webkit-font-smoothing: antialiased; }
+  deck-stage > section { font-family: var(--body-font); width: 1920px; height: 1080px; position: relative; overflow: hidden; color: #fff;
+    background: radial-gradient(ellipse 110% 70% at 50% 110%, #2a1408 0%, var(--bg-secondary) 35%, var(--bg-primary) 70%, #050505 100%); }
+  .ember { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 35% at 78% 95%, rgba(255,105,0,.55) 0%, transparent 60%), radial-gradient(ellipse 80% 40% at 30% 105%, rgba(255,105,0,.22) 0%, transparent 55%), radial-gradient(circle at 82% 78%, rgba(255,157,74,.18) 0%, transparent 35%); opacity: .9; }
+  .grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.018) 1.5px, transparent 1.5px), linear-gradient(90deg, rgba(255,255,255,.018) 1.5px, transparent 1.5px); background-size: 120px 120px; }
+  .vig { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 50% 50%, transparent 50%, rgba(0,0,0,.55) 100%); }
+  .bl { position: absolute; bottom: 0; left: 0; right: 0; height: 1.5px; background: linear-gradient(90deg, transparent, var(--accent-1), transparent); opacity: .65; }
+  .th { position: absolute; top: 0; left: 0; right: 0; height: 1.5px; background: linear-gradient(90deg, transparent 20%, rgba(255,255,255,.08) 50%, transparent 80%); }
+  .cn { position: absolute; width: 33px; height: 33px; border: 0 solid rgba(255,105,0,.45); }
+  .cn.tl { top: 33px; left: 33px; border-top-width: 1.5px; border-left-width: 1.5px; } .cn.tr { top: 33px; right: 33px; border-top-width: 1.5px; border-right-width: 1.5px; } .cn.bl2 { bottom: 33px; left: 33px; border-bottom-width: 1.5px; border-left-width: 1.5px; }
+  .stage { position: absolute; inset: 0; padding: 84px 120px; z-index: 2; display: flex; flex-direction: column; }
+  .top { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-family: var(--display-font); font-size: 22px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; display: flex; align-items: center; gap: 18px; }
+  .logo-mark { width: 33px; height: 33px; border-radius: 9px; background: radial-gradient(circle at 30% 30%, #ffb979 0%, #FF6900 45%, #b03d00 100%); box-shadow: 0 0 21px rgba(255,105,0,.55), inset 0 1.5px 1.5px rgba(255,255,255,.4); }
+  .nav { font-family: var(--mono-font); font-size: 18px; opacity: .6; letter-spacing: .16em; text-transform: uppercase; display: flex; gap: 39px; }
+  .label { font-size: 20px; letter-spacing: .22em; color: var(--accent-2); font-weight: 600; text-transform: uppercase; display: inline-flex; align-items: center; gap: 18px; }
+  .label-dot { width: 11px; height: 11px; border-radius: 50%; background: var(--accent-1); box-shadow: 0 0 18px var(--accent-1), 0 0 36px rgba(255,105,0,.5); }
+  .headline { font-family: var(--display-font); font-size: 144px; font-weight: 700; letter-spacing: -.045em; line-height: .92; margin-top: 36px; }
+  .h2 { font-family: var(--display-font); font-size: 108px; font-weight: 700; letter-spacing: -.045em; line-height: .95; margin-top: 30px; }
+  .headline em, .h2 em { font-family: var(--serif-italic-font); font-style: italic; font-weight: 400; letter-spacing: -.025em; color: var(--accent-2); padding-right: 9px; }
+  .deck { font-size: 28px; line-height: 1.55; color: var(--text-secondary); max-width: 1000px; margin-top: 36px; letter-spacing: -.005em; }
+  .deck em { font-family: var(--serif-italic-font); font-style: italic; color: var(--accent-2); font-size: 31px; }
+  .stats { display: flex; gap: 78px; margin-top: 66px; }
+  .stat { position: relative; display: flex; flex-direction: column; gap: 12px; padding-left: 27px; }
+  .stat-tick { position: absolute; left: 0; top: 9px; width: 3px; height: 66px; background: linear-gradient(180deg, var(--accent-1), rgba(255,105,0,0)); }
+  .stat .num { font-family: var(--display-font); font-size: 84px; font-weight: 700; letter-spacing: -.04em; line-height: 1; }
+  .stat .num em { font-family: var(--serif-italic-font); font-style: italic; color: var(--accent-2); font-weight: 400; font-size: 44px; letter-spacing: -.02em; margin-left: 6px; }
+  .stat .l { font-size: 19px; color: var(--text-tertiary); letter-spacing: .22em; text-transform: uppercase; font-weight: 500; }
+  .stat .sub { font-family: var(--mono-font); font-size: 20px; color: var(--text-secondary); margin-top: 3px; }
+  .orb { position: absolute; border-radius: 50%; z-index: 4; background: radial-gradient(circle at 32% 28%, #fff2e0 0%, #ffb979 14%, #FF6900 42%, #c24800 75%, #3a1500 100%); box-shadow: 0 0 0 1.5px rgba(255,105,0,.35), 0 0 90px rgba(255,105,0,.55), 0 0 210px rgba(255,105,0,.35), inset 0 -30px 60px rgba(0,0,0,.55), inset 12px 30px 30px rgba(255,255,255,.18); }
+  .orb::after { content: ""; position: absolute; top: 11%; left: 16%; width: 30%; height: 17%; border-radius: 50%; background: radial-gradient(ellipse, rgba(255,255,255,.7) 0%, rgba(255,255,255,0) 70%); }
+  .rim { position: absolute; border-radius: 50%; border: 1.5px solid rgba(255,105,0,.18); z-index: 3; }
+  .ring { position: absolute; width: 120px; height: 120px; z-index: 5; }
+  .ring svg { width: 100%; height: 100%; }
+  .ring span { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-family: var(--mono-font); font-size: 24px; font-weight: 600; text-shadow: 0 0 12px rgba(0,0,0,.6); }
+  .spec { position: absolute; right: 120px; bottom: 84px; display: flex; align-items: center; gap: 15px; font-family: var(--mono-font); font-size: 18px; color: var(--text-tertiary); letter-spacing: .18em; text-transform: uppercase; z-index: 6; }
+  .spec i { width: 48px; height: 1.5px; background: var(--accent-2); opacity: .7; }
+  .footer { position: absolute; bottom: 33px; left: 120px; right: 120px; display: flex; justify-content: space-between; font-size: 18px; opacity: .55; letter-spacing: .18em; color: var(--text-secondary); text-transform: uppercase; z-index: 3; }
+  .card { background: linear-gradient(135deg, rgba(255,105,0,.06), rgba(255,157,74,.02)); border: 1.5px solid var(--card-border); border-radius: var(--card-radius); }
+  /* contents */
+  .rows { margin-top: 48px; width: 1260px; display: flex; flex-direction: column; gap: 18px; }
+  .row { display: flex; align-items: center; gap: 36px; padding: 24px 36px; }
+  .row .n { font-family: var(--mono-font); font-size: 28px; color: var(--accent-1); font-weight: 500; width: 66px; }
+  .row .t { font-family: var(--display-font); font-size: 48px; font-weight: 600; letter-spacing: -.03em; flex: 1; }
+  .row .p { font-family: var(--mono-font); font-size: 20px; letter-spacing: .16em; color: var(--text-tertiary); }
+  /* steps */
+  .steps { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px; margin-top: 99px; }
+  .steps::before { content: ""; position: absolute; left: 0; right: 0; top: 18px; height: 1.5px; background: linear-gradient(90deg, var(--accent-1), rgba(255,105,0,.15)); }
+  .step .dot { width: 36px; height: 36px; border-radius: 50%; background: var(--accent-1); box-shadow: 0 0 21px var(--accent-1), 0 0 48px rgba(255,105,0,.5); position: relative; }
+  .step:nth-child(2) .dot { background: var(--accent-2); opacity: .9; } .step:nth-child(3) .dot { background: var(--accent-3); opacity: .8; } .step:nth-child(4) .dot { background: #fff; opacity: .7; box-shadow: 0 0 21px rgba(255,255,255,.5); }
+  .step .k { font-family: var(--mono-font); font-size: 20px; letter-spacing: .2em; color: var(--accent-2); margin-top: 36px; }
+  .step h3 { font-family: var(--display-font); font-size: 54px; font-weight: 700; letter-spacing: -.035em; margin-top: 12px; }
+  .step p { font-size: 27px; line-height: 1.5; color: var(--text-secondary); margin-top: 14px; }
+  /* compare */
+  .cmp { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 54px; }
+  .col { padding: 42px 51px; }
+  .col.hi { border-color: rgba(255,105,0,.55); box-shadow: 0 0 90px rgba(255,105,0,.18) inset; }
+  .col .tag { font-family: var(--mono-font); font-size: 20px; letter-spacing: .2em; color: var(--accent-2); text-transform: uppercase; }
+  .col h3 { font-family: var(--display-font); font-size: 72px; font-weight: 700; letter-spacing: -.045em; margin: 12px 0 18px; }
+  .col h3 em { font-family: var(--serif-italic-font); font-style: italic; font-weight: 400; color: var(--accent-2); }
+  .bar { height: 12px; border-radius: 6px; background: rgba(255,255,255,.1); margin: 12px 0 6px; overflow: hidden; }
+  .bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--accent-1), var(--accent-3)); }
+  .bl-row { display: flex; justify-content: space-between; font-size: 26px; color: var(--text-secondary); margin-top: 21px; }
+  .bl-row b { font-family: var(--mono-font); color: #fff; font-weight: 500; }
+  .quote { font-family: var(--display-font); font-size: 100px; font-weight: 700; letter-spacing: -.045em; line-height: 1; max-width: 1400px; margin-top: 18px; }
+  .quote em { font-family: var(--serif-italic-font); font-style: italic; font-weight: 400; color: var(--accent-2); letter-spacing: -.025em; }
+  .qm { font-family: var(--serif-italic-font); font-size: 300px; line-height: .7; color: var(--accent-1); height: 150px; margin-top: 66px; }
+  .by { font-family: var(--mono-font); font-size: 21px; letter-spacing: .2em; color: var(--text-tertiary); text-transform: uppercase; margin-top: 48px; }
+</style>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+<section data-label="01 Cover">
+  <div class="ember"></div><div class="grid"></div><div class="vig"></div><div class="th"></div><div class="cn tl"></div><div class="cn tr"></div><div class="cn bl2"></div><div class="bl"></div><div class="rim" style="width:372px;height:372px;right:105.0px;bottom:105.0px"></div><div class="rim" style="width:312px;height:312px;right:135.0px;bottom:135.0px"></div><div class="orb" style="width:252px;height:252px;right:165px;bottom:165px"></div><div class="ring" style="bottom:195px;right:120px"><svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="34" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="3"/><circle cx="40" cy="40" r="34" fill="none" stroke="url(#og)" stroke-width="3" stroke-dasharray="192 214" stroke-linecap="round" transform="rotate(-90 40 40)"/><defs><linearGradient id="og" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#ffb979"/><stop offset="100%" stop-color="#FF6900"/></linearGradient></defs></svg><span>90%</span></div><div class="spec"><span>SoC · NX-2</span><i></i><span>3 nm</span></div>
+  <div class="stage"><div class="top"><div class="logo"><div class="logo-mark"></div>NOVA 17 PRO</div><div class="nav"><span>SPEC</span><span>GALLERY</span><span>PRE-ORDER</span></div></div>
+    <div class="label" style="margin-top:96px"><span class="label-dot"></span>PART 03 · ENGINEERING</div>
+    <h1 class="headline">Performance<br><em>without</em> limits</h1>
+    <p class="deck">The second-generation in-house NX-2 chip is built on a 3nm process, lifting NPU compute to <em>3.0T</em>. The silicon-carbon battery gains <em>22%</em> density, and 100W fast charging fills it in <em>1.5</em> hours — a full day of heavy use is no longer a wish.</p>
+    <div class="stats"><div class="stat"><div class="stat-tick"></div><div class="num">3.0T<em>tops</em></div><div class="l">NPU COMPUTE</div><div class="sub">+240% vs gen 1</div></div><div class="stat"><div class="stat-tick"></div><div class="num">5800<em>mAh</em></div><div class="l">BATTERY CAPACITY</div><div class="sub">Silicon-carbon · 22% density</div></div><div class="stat"><div class="stat-tick"></div><div class="num">1.5<em>h</em></div><div class="l">FULL CHARGE</div><div class="sub">100 W HyperCharge</div></div></div>
+  </div>
+  <div class="footer"><span>PART 03 — NOVA 17 PRO ENGINEERING</span><span>01 / 08 · NOVA</span></div>
+</section>
+<section data-label="02 Contents">
+  <div class="ember"></div><div class="grid"></div><div class="vig"></div><div class="th"></div><div class="cn tl"></div><div class="cn tr"></div><div class="cn bl2"></div><div class="bl"></div><div class="rim" style="width:330px;height:330px;right:120.0px;bottom:90.0px"></div><div class="rim" style="width:270px;height:270px;right:150.0px;bottom:120.0px"></div><div class="orb" style="width:210px;height:210px;right:180px;bottom:150px"></div>
+  <div class="stage"><div class="top"><div class="logo"><div class="logo-mark"></div>NOVA 17 PRO</div><div class="nav"><span>SPEC</span><span>GALLERY</span><span>PRE-ORDER</span></div></div>
+    <div class="label" style="margin-top:72px"><span class="label-dot"></span>AGENDA</div>
+    <h2 class="h2">What's <em>inside</em></h2>
+    <div class="rows">
+      <div class="row card"><span class="n">01</span><span class="t">The chip, rebuilt</span><span class="p">P. 03</span></div>
+      <div class="row card"><span class="n">02</span><span class="t">Numbers that matter</span><span class="p">P. 04</span></div>
+      <div class="row card"><span class="n">03</span><span class="t">From wafer to phone</span><span class="p">P. 05</span></div>
+      <div class="row card"><span class="n">04</span><span class="t">Generation over generation</span><span class="p">P. 06</span></div>
+    </div>
+  </div>
+  <div class="footer"><span>PART 03 — NOVA 17 PRO ENGINEERING</span><span>02 / 08 · NOVA</span></div>
+</section>
+<section data-label="03 Section Divider">
+  <div class="ember"></div><div class="grid"></div><div class="vig"></div><div class="th"></div><div class="cn tl"></div><div class="cn tr"></div><div class="cn bl2"></div><div class="bl"></div><div class="rim" style="width:600px;height:600px;right:90.0px;bottom:180.0px"></div><div class="rim" style="width:540px;height:540px;right:120.0px;bottom:210.0px"></div><div class="orb" style="width:480px;height:480px;right:150px;bottom:240px"></div>
+  <div class="stage"><div class="top"><div class="logo"><div class="logo-mark"></div>NOVA 17 PRO</div><div class="nav"><span>SPEC</span><span>GALLERY</span><span>PRE-ORDER</span></div></div>
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:center;padding-bottom:60px">
+      <div class="label"><span class="label-dot"></span>PART 04 · SILICON</div>
+      <h1 class="headline" style="font-size:210px">Built<br>on <em>3 nm.</em></h1>
+      <p class="deck">Smaller transistors, longer days, cooler hands.</p>
+    </div>
+  </div>
+  <div class="footer"><span>PART 04 — NOVA 17 PRO ENGINEERING</span><span>03 / 08 · NOVA</span></div>
+</section>
+<section data-label="04 Numbers">
+  <div class="ember"></div><div class="grid"></div><div class="vig"></div><div class="th"></div><div class="cn tl"></div><div class="cn tr"></div><div class="cn bl2"></div><div class="bl"></div><div class="rim" style="width:288px;height:288px;right:90.0px;bottom:60.0px"></div><div class="rim" style="width:228px;height:228px;right:120.0px;bottom:90.0px"></div><div class="orb" style="width:168px;height:168px;right:150px;bottom:120px"></div><div class="ring" style="bottom:200px;right:350px"><svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="34" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="3"/><circle cx="40" cy="40" r="34" fill="none" stroke="url(#og)" stroke-width="3" stroke-dasharray="192 214" stroke-linecap="round" transform="rotate(-90 40 40)"/><defs><linearGradient id="og" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#ffb979"/><stop offset="100%" stop-color="#FF6900"/></linearGradient></defs></svg><span>90%</span></div>
+  <div class="stage"><div class="top"><div class="logo"><div class="logo-mark"></div>NOVA 17 PRO</div><div class="nav"><span>SPEC</span><span>GALLERY</span><span>PRE-ORDER</span></div></div>
+    <div class="label" style="margin-top:72px"><span class="label-dot"></span>BY THE NUMBERS</div>
+    <h2 class="h2">Every figure, <em>measured</em></h2>
+    <div class="stats" style="gap:120px;margin-top:84px"><div class="stat"><div class="stat-tick"></div><div class="num">3.0T<em>tops</em></div><div class="l">NPU COMPUTE</div><div class="sub">+240% vs gen 1</div></div><div class="stat"><div class="stat-tick"></div><div class="num">5800<em>mAh</em></div><div class="l">BATTERY CAPACITY</div><div class="sub">Silicon-carbon · 22% density</div></div><div class="stat"><div class="stat-tick"></div><div class="num">1.5<em>h</em></div><div class="l">FULL CHARGE</div><div class="sub">100 W HyperCharge</div></div></div>
+  </div>
+  <div class="footer"><span>PART 04 — NOVA 17 PRO ENGINEERING</span><span>04 / 08 · NOVA</span></div>
+</section>
+<section data-label="05 Process Steps">
+  <div class="ember"></div><div class="grid"></div><div class="vig"></div><div class="th"></div><div class="cn tl"></div><div class="cn tr"></div><div class="cn bl2"></div><div class="bl"></div>
+  <div class="stage"><div class="top"><div class="logo"><div class="logo-mark"></div>NOVA 17 PRO</div><div class="nav"><span>SPEC</span><span>GALLERY</span><span>PRE-ORDER</span></div></div>
+    <div class="label" style="margin-top:72px"><span class="label-dot"></span>FROM WAFER TO PHONE</div>
+    <h2 class="h2">Four <em>stages</em> of build</h2>
+    <div class="steps">
+      <div class="step"><div class="dot"></div><div class="k">STAGE 01</div><h3>Design</h3><p>Architecture tuned for sustained, cool performance.</p></div>
+      <div class="step"><div class="dot"></div><div class="k">STAGE 02</div><h3>Fabricate</h3><p>Etched on a 3nm process with tight yields.</p></div>
+      <div class="step"><div class="dot"></div><div class="k">STAGE 03</div><h3>Integrate</h3><p>Paired with a silicon-carbon battery pack.</p></div>
+      <div class="step"><div class="dot"></div><div class="k">STAGE 04</div><h3>Ship</h3><p>Tested for a full day of heavy use.</p></div>
+    </div>
+  </div>
+  <div class="footer"><span>PART 05 — NOVA 17 PRO ENGINEERING</span><span>05 / 08 · NOVA</span></div>
+</section>
+<section data-label="06 Comparison">
+  <div class="ember"></div><div class="grid"></div><div class="vig"></div><div class="th"></div><div class="cn tl"></div><div class="cn tr"></div><div class="cn bl2"></div><div class="bl"></div>
+  <div class="stage"><div class="top"><div class="logo"><div class="logo-mark"></div>NOVA 17 PRO</div><div class="nav"><span>SPEC</span><span>GALLERY</span><span>PRE-ORDER</span></div></div>
+    <div class="label" style="margin-top:72px"><span class="label-dot"></span>GENERATION OVER GENERATION</div>
+    <h2 class="h2">Gen 1 <em>versus</em> Gen 2</h2>
+    <div class="cmp">
+      <div class="col card"><div class="tag">Previous</div><h3>Gen 1</h3>
+        <div class="bl-row"><span>NPU compute</span><b>0.9T</b></div><div class="bar"><i style="width:30%"></i></div>
+        <div class="bl-row"><span>Battery life</span><b>14 h</b></div><div class="bar"><i style="width:56%"></i></div>
+        <div class="bl-row"><span>Full charge</span><b>2.4 h</b></div><div class="bar"><i style="width:40%"></i></div></div>
+      <div class="col card hi"><div class="tag">Now</div><h3>Gen <em>2</em></h3>
+        <div class="bl-row"><span>NPU compute</span><b>3.0T</b></div><div class="bar"><i style="width:100%"></i></div>
+        <div class="bl-row"><span>Battery life</span><b>25 h</b></div><div class="bar"><i style="width:100%"></i></div>
+        <div class="bl-row"><span>Full charge</span><b>1.5 h</b></div><div class="bar"><i style="width:100%"></i></div></div>
+    </div>
+  </div>
+  <div class="footer"><span>PART 05 — NOVA 17 PRO ENGINEERING</span><span>06 / 08 · NOVA</span></div>
+</section>
+<section data-label="07 Quote">
+  <div class="ember"></div><div class="grid"></div><div class="vig"></div><div class="th"></div><div class="cn tl"></div><div class="cn tr"></div><div class="cn bl2"></div><div class="bl"></div><div class="rim" style="width:380px;height:380px;right:90.0px;bottom:70.0px"></div><div class="rim" style="width:320px;height:320px;right:120.0px;bottom:100.0px"></div><div class="orb" style="width:260px;height:260px;right:150px;bottom:130px"></div>
+  <div class="stage"><div class="top"><div class="logo"><div class="logo-mark"></div>NOVA 17 PRO</div><div class="nav"><span>SPEC</span><span>GALLERY</span><span>PRE-ORDER</span></div></div>
+    <div class="qm">&ldquo;</div>
+    <div class="quote">Speed is a feeling. Endurance is a <em>promise.</em></div>
+    <div class="by">— Lead silicon engineer</div>
+  </div>
+  <div class="footer"><span>PART 06 — NOVA 17 PRO ENGINEERING</span><span>07 / 08 · NOVA</span></div>
+</section>
+<section data-label="08 Closing">
+  <div class="ember"></div><div class="grid"></div><div class="vig"></div><div class="th"></div><div class="cn tl"></div><div class="cn tr"></div><div class="cn bl2"></div><div class="bl"></div><div class="rim" style="width:420px;height:420px;right:90.0px;bottom:110.0px"></div><div class="rim" style="width:360px;height:360px;right:120.0px;bottom:140.0px"></div><div class="orb" style="width:300px;height:300px;right:150px;bottom:170px"></div>
+  <div class="stage"><div class="top"><div class="logo"><div class="logo-mark"></div>NOVA 17 PRO</div><div class="nav"><span>SPEC</span><span>GALLERY</span><span>PRE-ORDER</span></div></div>
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:center;padding-bottom:60px">
+      <div class="label"><span class="label-dot"></span>THANK YOU</div>
+      <h1 class="headline" style="font-size:190px">Meet the<br><em>next</em> one.</h1>
+      <p class="deck">Pre-orders open today. hello@example.com</p>
+    </div>
+  </div>
+  <div class="footer"><span>PART 06 — NOVA 17 PRO ENGINEERING</span><span>08 / 08 · NOVA</span></div>
+</section>
+
+</deck-stage>
+</body>
+</html>

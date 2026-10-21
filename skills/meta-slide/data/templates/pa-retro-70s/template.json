@@ -1,0 +1,31 @@
+{
+  "slug": "pa-retro-70s",
+  "name": "Retro 70s",
+  "tagline": "Warm cream paper with brown, orange, mustard and vermilion stripe bands, sun discs, a vinyl record and chunky Bagel Fat One headlines (extended from a single-slide specimen)",
+  "mood": ["groovy", "warm", "nostalgic", "playful", "tactile"],
+  "occasion": ["cafe or restaurant brand story", "music or record-label pitch", "retail brand overview", "community event kickoff", "creative studio intro"],
+  "tone": ["friendly", "retro", "handcrafted"],
+  "formality": "low",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#f4e9d0",
+    "text": "#2a1810",
+    "accent": "#c14d3f",
+    "brown": "#6b4423",
+    "orange": "#e07a3e",
+    "mustard": "#d4a82a",
+    "description": "cream paper with seventies brown, orange, mustard and vermilion on near-black brown ink"
+  },
+  "typography": {
+    "display": "Bagel Fat One",
+    "body": "Inter",
+    "mono": "JetBrains Mono",
+    "style": "fat rounded display type with clean sans body and tracked mono labels"
+  },
+  "best_for": "Brand stories and friendly pitches that want warmth and personality: cafes, music, lifestyle and craft businesses. Works well when the speaker wants a nostalgic, human feel.",
+  "avoid_for": "Dense financial or technical reporting that needs a restrained, institutional look.",
+  "slide_count": 8,
+  "navigation": "deck-stage runtime",
+  "source": {"repo": "Akxan/ppt-agent-skill", "commit": "01825de", "path": "ppt-output/style-gallery/retro_70s.html", "license": "MIT"}
+}

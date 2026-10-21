@@ -1,0 +1,52 @@
+{
+  "tagline": "Electric violet, volt and ink pages with every edge cut on one twelve-degree angle: italic condensed capitals, skewed streaks and a volt band.",
+  "mood": [
+    "kinetic",
+    "athletic",
+    "loud",
+    "high-energy"
+  ],
+  "occasion": [
+    "sports or fitness launch",
+    "apparel or footwear drop",
+    "event or festival announcement",
+    "motion-design showreel",
+    "youth brand campaign"
+  ],
+  "tone": [
+    "urgent",
+    "dynamic",
+    "unapologetic"
+  ],
+  "formality": "low",
+  "density": "low",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#4B1DFF",
+    "text": "#FFFFFF",
+    "accent": "#D8FF2E",
+    "ink": "#0B0A14",
+    "deep": "#2A0FA3",
+    "muted": "#D3CAFF",
+    "coral": "#FF4A3D",
+    "foam": "#BBAEFF",
+    "description": "electric violet page, volt highlight, near-black third tone, coral for one chip per page at most"
+  },
+  "typography": {
+    "display": "Barlow Condensed",
+    "body": "Barlow",
+    "style": "always-italic uppercase condensed display at weight 900 with a medium Barlow body"
+  },
+  "best_for": "Launches and campaigns that should feel fast. Each slide takes one tone (violet, volt or ink) and one oversized word or number.",
+  "avoid_for": "Quiet or text-heavy material; the display is capitals only and tolerates very few words.",
+  "slug": "os-aero",
+  "name": "Aero Kinetic",
+  "slide_count": 10,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "open-slide/open-slide",
+    "commit": "1f18ab5",
+    "path": "apps/demo/themes/aero.md",
+    "license": "MIT"
+  }
+}

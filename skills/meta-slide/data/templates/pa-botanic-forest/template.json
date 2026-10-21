@@ -1,0 +1,51 @@
+{
+  "slug": "pa-botanic-forest",
+  "name": "Botanic Forest",
+  "tagline": "Deep forest-green gradient with a warm sunset glow, gold italic serif accents, mono labels and layered mountain silhouettes (extended from a single-slide specimen)",
+  "mood": [
+    "atmospheric",
+    "earthy",
+    "adventurous",
+    "quiet"
+  ],
+  "occasion": [
+    "outdoor brand story",
+    "travel or expedition report",
+    "sustainability and ESG talk",
+    "nature documentary pitch",
+    "founder story or keynote"
+  ],
+  "tone": [
+    "reflective",
+    "cinematic",
+    "warm"
+  ],
+  "formality": "medium",
+  "density": "low",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#1a2e1f",
+    "bg_deep": "#0a1410",
+    "text": "#e8efe2",
+    "accent": "#ff8c42",
+    "gold": "#e8b86d",
+    "moss": "#7a9a6f",
+    "description": "forest-green night gradient with warm orange sun glow, pale sage text and gold italic highlights"
+  },
+  "typography": {
+    "display": "Source Serif 4",
+    "body": "Inter",
+    "mono": "JetBrains Mono",
+    "style": "refined text serif with gold italic emphasis, neutral Inter body and tracked monospace labels"
+  },
+  "best_for": "Story-led talks about places, nature, brands with a field or craft side, and sustainability. Big serif headlines on a dark green ground feel calm and cinematic.",
+  "avoid_for": "Dense data reviews or bright, upbeat product launches where the dark, quiet mood works against the message.",
+  "slide_count": 7,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "Akxan/ppt-agent-skill",
+    "commit": "01825de",
+    "path": "ppt-output/style-gallery/botanic_forest.html",
+    "license": "MIT"
+  }
+}

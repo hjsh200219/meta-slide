@@ -1,0 +1,48 @@
+{
+  "slug": "fe-bold-signal",
+  "name": "Bold Signal",
+  "tagline": "Charcoal gradient stage with a tilted vermilion card, huge uppercase section numerals and orange-ruled panels.",
+  "mood": [
+    "confident",
+    "bold",
+    "high-impact",
+    "modern"
+  ],
+  "occasion": [
+    "product launch",
+    "founder pitch",
+    "keynote",
+    "brand reveal",
+    "sales kickoff"
+  ],
+  "tone": [
+    "assertive",
+    "energetic",
+    "punchy"
+  ],
+  "formality": "medium",
+  "density": "medium",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#151515",
+    "text": "#fff8f4",
+    "accent": "#ff5722",
+    "muted": "#b89d8f",
+    "description": "Near-black charcoal with warm off-white text and one vermilion accent."
+  },
+  "typography": {
+    "display": "Archivo Black",
+    "body": "Space Grotesk",
+    "style": "Heavy grotesque display over a neutral geometric sans."
+  },
+  "best_for": "High-impact decks that need one loud colour block on a dark stage. Works for launches and keynotes with short, punchy copy.",
+  "avoid_for": "Long dense reports where huge uppercase numerals would crowd the text.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/Down/Space, scroll-snap sections)",
+  "source": {
+    "repo": "archlizheng/frontend-slides-editable",
+    "commit": "e5663e6",
+    "path": "examples/generated/presets/bold-signal.html",
+    "license": "MIT"
+  }
+}

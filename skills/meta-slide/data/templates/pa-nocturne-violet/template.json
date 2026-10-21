@@ -1,0 +1,52 @@
+{
+  "slug": "pa-nocturne-violet",
+  "name": "Nocturne Violet",
+  "tagline": "Deep violet night with aurora glow, glassmorphic cards, serif-italic highlights and a glowing progress ring (extended from a single-slide specimen)",
+  "mood": [
+    "nocturnal",
+    "futuristic",
+    "creative",
+    "premium"
+  ],
+  "occasion": [
+    "SaaS product launch",
+    "design tool release notes",
+    "developer conference talk",
+    "startup demo day",
+    "AI product keynote"
+  ],
+  "tone": [
+    "modern",
+    "confident",
+    "dreamy"
+  ],
+  "formality": "medium",
+  "density": "medium",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#0a0612",
+    "bg_2": "#1a0d2e",
+    "text": "#ffffff",
+    "accent": "#9b64ff",
+    "accent_2": "#c4a8ff",
+    "accent_3": "#6d3df0",
+    "description": "near-black violet with purple glow accents and translucent glass panels"
+  },
+  "typography": {
+    "display": "Inter Tight",
+    "body": "Inter",
+    "italic": "Instrument Serif",
+    "mono": "JetBrains Mono",
+    "style": "heavy tight sans headlines with delicate serif-italic accents and mono captions"
+  },
+  "best_for": "Software and design product launches that want a premium dark look with glass cards and a few big numbers. Good for demo-day and release-note presentations.",
+  "avoid_for": "Print-first or formal institutional documents.",
+  "slide_count": 8,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "Akxan/ppt-agent-skill",
+    "commit": "01825de",
+    "path": "ppt-output/style-gallery/nocturne_violet.html",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "slug": "ns-soft-landing",
+  "name": "Soft Landing",
+  "tagline": "Off-white SaaS pages with indigo pill buttons, white cards and emerald accents",
+  "mood": [
+    "friendly",
+    "clean",
+    "product-led",
+    "light"
+  ],
+  "occasion": [
+    "SaaS product launch",
+    "landing-page style pitch",
+    "feature walkthrough",
+    "customer story",
+    "seed pitch"
+  ],
+  "tone": [
+    "approachable",
+    "modern",
+    "confident"
+  ],
+  "formality": "medium",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#faf9f7",
+    "text": "#1a1a2e",
+    "accent": "#6366f1",
+    "description": "Light Soft Landing palette: #faf9f7 background, #1a1a2e text, #6366f1 accent"
+  },
+  "typography": {
+    "display": "Figtree",
+    "body": "Figtree",
+    "style": "Figtree headings over Figtree body"
+  },
+  "best_for": "Soft Landing suits SaaS product launch and landing-page style pitch. It reads as friendly, clean, product-led.",
+  "avoid_for": "Formal regulated or conservative corporate decks.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/soft-landing.html",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "slug": "ns-swiss-grid",
+  "name": "Swiss Grid",
+  "tagline": "White grid with huge black numbers, a red vertical rule and square, and hairline data tables",
+  "mood": [
+    "rational",
+    "stark",
+    "typographic",
+    "international"
+  ],
+  "occasion": [
+    "design lecture",
+    "annual report",
+    "research findings",
+    "architecture studio",
+    "brand guidelines"
+  ],
+  "tone": [
+    "objective",
+    "rigorous",
+    "clear"
+  ],
+  "formality": "high",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#ffffff",
+    "text": "#000000",
+    "accent": "#d32f2f",
+    "description": "Light Swiss Grid palette: #ffffff background, #000000 text, #d32f2f accent"
+  },
+  "typography": {
+    "display": "Inter",
+    "body": "Inter",
+    "style": "Inter headings over Inter body"
+  },
+  "best_for": "Swiss Grid suits design lecture and annual report. It reads as rational, stark, typographic.",
+  "avoid_for": "Playful or casual talks where this look would feel too formal.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/swiss-grid.html",
+    "license": "MIT"
+  }
+}

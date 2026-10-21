@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Quarterly Review Paper — Deck Template</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script src="deck-stage.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+  :root{
+    --bg-paper:#f7f1e3; --bg-paper-deep:#efe7d2; --rule-line:#1a1a1a;
+    --rule-soft:rgba(26,26,26,.12); --rule-hair:rgba(26,26,26,.22);
+    --text-primary:#1a1a1a; --text-secondary:#404040; --text-caption:#666666; --accent-brick:#a0392b;
+    --display-font:'Playfair Display','Cheltenham','Iowan Old Style',Georgia,serif;
+    --body-font:'Source Serif 4','Iowan Old Style','Charter',Georgia,serif;
+    --mast-font:'Inter',-apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif;
+    --mono-font:'JetBrains Mono','IBM Plex Mono','Courier New',monospace;
+  }
+  html,body{margin:0;padding:0;background:#000}
+  deck-stage > section{
+    width:1920px;height:1080px;position:relative;overflow:hidden;box-sizing:border-box;
+    background:var(--bg-paper);color:var(--text-primary);font-family:var(--body-font);
+    font-feature-settings:'kern','liga','onum','pnum';text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;
+  }
+  section *{margin:0;padding:0;box-sizing:border-box}
+  .noise{position:absolute;inset:0;background-image:radial-gradient(circle at 18% 22%,rgba(160,57,43,.025) 0%,transparent 30%),radial-gradient(circle at 88% 78%,rgba(60,40,20,.04) 0%,transparent 35%);z-index:0}
+  .frame-inner{position:absolute;inset:54px;border:1px solid rgba(26,26,26,.08);z-index:1}
+  .stage{position:relative;z-index:2;width:100%;height:100%;padding:84px 108px 66px;display:flex;flex-direction:column}
+  .masthead{display:grid;grid-template-columns:1fr auto 1fr;align-items:end;padding-bottom:21px;border-bottom:3px solid var(--rule-line)}
+  .mast-l,.mast-r{font-family:var(--mast-font);font-size:17px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;padding-bottom:6px}
+  .mast-l{justify-self:start}.mast-r{justify-self:end;display:inline-flex;align-items:center;gap:15px}
+  .mast-t{font-family:var(--display-font);font-size:45px;font-weight:500;font-style:italic;letter-spacing:-.015em;line-height:1;justify-self:center}
+  .mast-r .dot{width:8px;height:8px;border-radius:50%;background:var(--accent-brick)}
+  .sub-mast{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding-top:12px;font-family:var(--mono-font);font-size:15px;color:var(--text-caption);letter-spacing:.14em;text-transform:uppercase}
+  .sub-mast .c{font-family:var(--mast-font);letter-spacing:.32em}.sub-mast .r{justify-self:end}
+  .label{font-family:var(--mast-font);font-size:18px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--accent-brick);display:inline-flex;align-items:center;gap:15px;margin-bottom:27px}
+  .label .rule{display:inline-block;width:33px;height:1px;background:var(--accent-brick)}
+  .hero{margin-top:36px;display:grid;grid-template-columns:1.45fr 1fr;column-gap:84px;align-items:end;padding-bottom:30px;border-bottom:1px solid var(--rule-hair)}
+  .headline{font-family:var(--display-font);font-size:132px;font-weight:600;letter-spacing:-.025em;line-height:.94}
+  .headline.m{font-size:100px}
+  .headline em,.hl{font-style:italic;font-weight:500;color:var(--accent-brick);letter-spacing:-.02em}
+  .deck{font-size:30px;line-height:1.55;color:var(--text-secondary);margin-bottom:9px}
+  .deck em{font-style:italic;color:var(--text-primary)}
+  .byline{font-family:var(--mast-font);font-size:17px;letter-spacing:.2em;text-transform:uppercase;color:var(--text-caption);font-weight:500;margin-top:27px;display:flex;align-items:center;gap:21px}
+  .byline .sep{width:6px;height:6px;background:var(--text-caption);border-radius:50%}
+  .byline strong{color:var(--text-primary);font-weight:600}
+  .cols{margin-top:39px;flex:1;columns:3;column-gap:54px;column-rule:1px solid var(--rule-soft);font-size:21px;line-height:1.5;text-align:justify;hyphens:auto}
+  .cols p{margin-bottom:14px;break-inside:avoid-column;orphans:2;widows:2}
+  .cols.drop p:first-child::first-letter{float:left;font-family:var(--display-font);font-size:96px;line-height:.86;font-weight:700;padding:9px 14px 0 0;color:var(--accent-brick)}
+  .col-head{font-family:var(--mast-font);font-size:15px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--text-caption);margin-bottom:12px;display:block}
+  .cols em{font-style:italic;color:var(--accent-brick)}
+  .pull{font-family:var(--display-font);font-style:italic;font-weight:500;font-size:34px;line-height:1.32;padding:9px 0 12px;border-top:1px solid var(--rule-hair);border-bottom:1px solid var(--rule-hair);margin:9px 0 15px;letter-spacing:-.01em;break-inside:avoid}
+  .fig{break-inside:avoid;margin-bottom:12px}
+  .bars{display:flex;align-items:flex-end;gap:9px;height:140px;border-bottom:1px solid var(--rule-line)}
+  .bars .bar{flex:1;background:var(--text-primary)}.bars .bar.brick{background:var(--accent-brick)}.bars .bar.soft{background:rgba(26,26,26,.28)}
+  .figcap{font-family:var(--mast-font);font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-caption);margin-top:9px;display:flex;justify-content:space-between}
+  .figcap .num{font-family:var(--mono-font);color:var(--text-primary);letter-spacing:0}
+  .footer{position:absolute;bottom:33px;left:108px;right:108px;display:flex;justify-content:space-between;align-items:center;padding-top:15px;border-top:1px solid var(--rule-hair);font-family:var(--mast-font);font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:var(--text-caption);z-index:3}
+  .footer .l,.footer .r{display:inline-flex;align-items:center;gap:18px}
+  .folio{font-family:var(--display-font);font-style:italic;font-weight:500;font-size:20px;color:var(--text-primary);letter-spacing:0;text-transform:none}
+  .crest{width:9px;height:9px;background:var(--accent-brick);transform:rotate(45deg)}
+  .page{position:relative;z-index:2;width:100%;height:100%;padding:84px 108px 130px;display:flex;flex-direction:column}
+  .toc{margin-top:57px;display:grid;grid-template-columns:1fr 1fr;column-gap:84px;border-top:2px solid var(--rule-line)}
+  .toc .it{display:grid;grid-template-columns:90px 1fr auto;align-items:baseline;padding:30px 0;border-bottom:1px solid var(--rule-hair)}
+  .toc .n{font-family:var(--display-font);font-style:italic;font-size:42px;color:var(--accent-brick)}
+  .toc .t{font-family:var(--display-font);font-size:42px;font-weight:500;letter-spacing:-.01em}
+  .toc .s{display:block;font-size:22px;color:var(--text-secondary);font-style:italic;margin-top:6px;font-family:var(--body-font)}
+  .toc .p{font-family:var(--mono-font);font-size:20px;color:var(--text-caption)}
+  .roman{font-family:var(--display-font);font-style:italic;font-weight:500;font-size:520px;line-height:.85;color:var(--accent-brick);letter-spacing:-.04em}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);margin-top:42px;border-top:2px solid var(--rule-line)}
+  .st{padding:36px 42px;border-left:1px solid var(--rule-hair)}.st:first-child{border-left:none;padding-left:0}
+  .st .v{font-family:var(--display-font);font-weight:600;font-size:150px;letter-spacing:-.04em;line-height:1}
+  .st .v em{font-style:italic;color:var(--accent-brick);font-weight:500}
+  .st .k{font-family:var(--mast-font);font-size:18px;letter-spacing:.22em;text-transform:uppercase;color:var(--text-caption);margin-top:15px}
+  .st .d{font-size:24px;line-height:1.5;color:var(--text-secondary);margin-top:12px}
+  .two{display:grid;grid-template-columns:1fr 1fr;column-gap:90px;margin-top:57px;flex:1}
+  .two .side{border-top:3px solid var(--rule-line);padding-top:27px}
+  .two .side.b{border-top-color:var(--accent-brick)}
+  .two h3{font-family:var(--display-font);font-size:64px;font-weight:600;letter-spacing:-.02em;line-height:1;margin-bottom:24px}
+  .two h3 em{font-style:italic;color:var(--accent-brick);font-weight:500}
+  .two ul{list-style:none;display:flex;flex-direction:column}
+  .two li{font-size:28px;line-height:1.45;padding:18px 0;border-bottom:1px solid var(--rule-hair)}
+  .qwrap{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:36px}
+  .q{font-family:var(--display-font);font-style:italic;font-weight:500;font-size:104px;line-height:1.12;letter-spacing:-.02em;max-width:1450px}
+  .q .hl{font-style:italic}
+  .qrule{width:120px;height:3px;background:var(--accent-brick)}
+</style>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+
+<section data-label="01 Cover">
+  <div class="noise"></div><div class="frame-inner"></div>
+
+  <div class="stage">
+    <div class="masthead"><div class="mast-l">Vol. 042 · Issue 03</div><div class="mast-t">The Quarterly Review</div><div class="mast-r"><span class="dot"></span>May · 2026</div></div>
+    <div class="sub-mast"><span>Established MCMXCIV</span><span class="c">Essays on Design, Industry &amp; the Built Environment</span><span class="r">Price — $14.00</span></div>
+    <div class="hero">
+      <div><div class="label"><span class="rule"></span>Research · Industry</div><h1 class="headline">The <em>Quiet</em><br>Revolution.</h1></div>
+      <div><p class="deck">After two decades of relentless optimisation, the design industry rediscovered <em>restraint</em> — and with it, a quieter way of building things that last.</p>
+        <div class="byline"><span>By <strong>Editorial Board</strong></span><span class="sep"></span><span>12 min read</span><span class="sep"></span><span>Field Notes</span></div></div>
+    </div>
+    <div class="cols drop">
+      <p><span class="col-head">I. The Return of Margin</span>Black ink on white paper was never an outdated medium; it simply stepped back and let the data breathe. For a decade every pixel was asked to carry the burden of conversion, tracking and recommendation. Today the most advanced studios are talking about whitespace, serifs and page rhythm again — the old virtues an algorithm once ruled “inefficient”.</p>
+      <p>Designers have realised that <em>over-design is itself a kind of fatigue</em>. When every interface shouts, quiet becomes the scarcest resource.</p>
+      <p class="pull">“Restraint is not<br>the absence of ambition.”</p>
+      <p><span class="col-head">II. Evidence in Numbers</span>In a joint 2025 survey, three studios in London, Kyoto and New York reported that removing non-essential motion and pop-ups raised average dwell time by 34% and subscription retention by 22%. The figures are not glamorous, but they point to one conclusion — the real currency of attention is trust.</p>
+      <div class="fig"><div class="bars"><div class="bar soft" style="height:38%"></div><div class="bar soft" style="height:48%"></div><div class="bar soft" style="height:54%"></div><div class="bar" style="height:66%"></div><div class="bar" style="height:74%"></div><div class="bar brick" style="height:92%"></div></div><div class="figcap"><span>2020 → 2025</span><span class="num">+34.2%</span></div></div>
+      <p><span class="col-head">III. A Slower Aesthetic</span>Cream paper, serif type and generous gutters are not nostalgia but a gentle resistance to today’s information density. They ask the reader to slow down, the author to take responsibility, and design to return to its first job: serving the content, not replacing it.</p>
+      
+    </div>
+  </div>
+  <div class="footer"><span class="l"><span class="crest"></span>Part 01 — The Quiet Revolution</span><span class="r"><span class="folio">i</span><span>01 / 08 · The Quarterly Review</span></span></div>
+</section>
+
+<section data-label="02 Contents">
+  <div class="noise"></div><div class="frame-inner"></div>
+
+  <div class="page">
+    <div class="masthead"><div class="mast-l">Vol. 042 · Issue 03</div><div class="mast-t">The Quarterly Review</div><div class="mast-r"><span class="dot"></span>May · 2026</div></div>
+    <div style="margin-top:51px"><div class="label"><span class="rule"></span>In this issue</div><h2 class="headline m">Contents</h2></div>
+    <div class="toc">
+      <div class="it"><span class="n">I.</span><span class="t">The Return of Margin<span class="s">Why whitespace came back</span></span><span class="p">03</span></div>
+      <div class="it"><span class="n">II.</span><span class="t">Three Reasons<span class="s">Why restraint wins</span></span><span class="p">04</span></div>
+      <div class="it"><span class="n">III.</span><span class="t">Evidence in Numbers<span class="s">What the studios measured</span></span><span class="p">05</span></div>
+      <div class="it"><span class="n">IV.</span><span class="t">Then &amp; Now<span class="s">Two ways of building</span></span><span class="p">06</span></div>
+      <div class="it"><span class="n">V.</span><span class="t">A Slower Aesthetic<span class="s">The closing argument</span></span><span class="p">07</span></div>
+      <div class="it"><span class="n">VI.</span><span class="t">Colophon<span class="s">Credits and contact</span></span><span class="p">08</span></div>
+    </div>
+  </div>
+  <div class="footer"><span class="l"><span class="crest"></span>Contents</span><span class="r"><span class="folio">ii</span><span>02 / 08 · The Quarterly Review</span></span></div>
+</section>
+
+<section data-label="03 Section Divider">
+  <div class="noise"></div><div class="frame-inner"></div>
+
+  <div class="page" style="justify-content:center;align-items:center;text-align:center;padding-bottom:120px">
+    <div class="label" style="margin-bottom:0"><span class="rule"></span>Part One<span class="rule"></span></div>
+    <div class="roman">I</div>
+    <div style="width:420px;border-top:3px solid var(--rule-line);margin:30px 0 30px"></div>
+    <h2 class="headline m">The Return of <em>Margin</em></h2>
+    <p class="deck" style="margin-top:24px;font-style:italic">Where the white space went — and why it came back.</p>
+  </div>
+  <div class="footer"><span class="l"><span class="crest"></span>Part 01</span><span class="r"><span class="folio">iii</span><span>03 / 08 · The Quarterly Review</span></span></div>
+</section>
+
+<section data-label="04 Essay Columns">
+  <div class="noise"></div><div class="frame-inner"></div>
+
+  <div class="page">
+    <div class="label"><span class="rule"></span>Feature · Essay</div>
+    <h2 class="headline m" style="margin-bottom:12px">Three reasons <em>restraint</em> wins</h2>
+    <div class="cols" style="font-size:26px;margin-top:36px;padding-top:30px;border-top:2px solid var(--rule-line)">
+      <p><span class="col-head">I. Attention</span>Interfaces compete for seconds. The ones that stop competing are the ones people return to, because nothing in them asks for anything the reader did not choose to give.</p>
+      <p><span class="col-head">II. Trust</span>Every removed pop-up is a small promise kept. Across the three studios, retention followed the accumulation of those promises more closely than it followed any feature release.</p>
+      <p><span class="col-head">III. Longevity</span>Serif type, wide margins and a paper-coloured ground age slowly. A page designed this way looks as correct in ten years as it does today, and costs far less to maintain.</p>
+    </div>
+  </div>
+  <div class="footer"><span class="l"><span class="crest"></span>Part 01 — The Quiet Revolution</span><span class="r"><span class="folio">iv</span><span>04 / 08 · The Quarterly Review</span></span></div>
+</section>
+
+<section data-label="05 Key Figures">
+  <div class="noise"></div><div class="frame-inner"></div>
+
+  <div class="page">
+    <div class="label"><span class="rule"></span>III. Evidence in Numbers</div>
+    <h2 class="headline m">What the studios <em>measured</em></h2>
+    <div class="stats">
+      <div class="st"><div class="v">+34<em>%</em></div><div class="k">Dwell time</div><div class="d">Average rise after non-essential motion was removed.</div></div>
+      <div class="st"><div class="v">+22<em>%</em></div><div class="k">Retention</div><div class="d">Subscription retention across the same cohorts.</div></div>
+      <div class="st"><div class="v">3<em>×</em></div><div class="k">Studios</div><div class="d">London, Kyoto and New York, surveyed in 2025.</div></div>
+    </div>
+    <div class="fig" style="margin-top:30px;max-width:760px"><div class="bars" style="height:150px"><div class="bar soft" style="height:38%"></div><div class="bar soft" style="height:48%"></div><div class="bar soft" style="height:54%"></div><div class="bar" style="height:66%"></div><div class="bar" style="height:74%"></div><div class="bar brick" style="height:92%"></div></div><div class="figcap"><span>2020 → 2025</span><span class="num">+34.2%</span></div></div>
+  </div>
+  <div class="footer"><span class="l"><span class="crest"></span>Part 02 — Evidence</span><span class="r"><span class="folio">v</span><span>05 / 08 · The Quarterly Review</span></span></div>
+</section>
+
+<section data-label="06 Comparison">
+  <div class="noise"></div><div class="frame-inner"></div>
+
+  <div class="page">
+    <div class="label"><span class="rule"></span>IV. Then &amp; Now</div>
+    <h2 class="headline m">Two ways of <em>building</em></h2>
+    <div class="two">
+      <div class="side"><h3>The optimised page</h3><ul><li>Every pixel carries a conversion target</li><li>Motion and pop-ups by default</li><li>Judged by clicks this week</li></ul></div>
+      <div class="side b"><h3>The <em>quiet</em> page</h3><ul><li>Margins, serifs and a clear rhythm</li><li>Motion only when it explains something</li><li>Judged by who is still reading next year</li></ul></div>
+    </div>
+  </div>
+  <div class="footer"><span class="l"><span class="crest"></span>Part 03 — Then &amp; Now</span><span class="r"><span class="folio">vi</span><span>06 / 08 · The Quarterly Review</span></span></div>
+</section>
+
+<section data-label="07 Pull Quote">
+  <div class="noise"></div><div class="frame-inner"></div>
+
+  <div class="page">
+    <div class="label"><span class="rule"></span>V. A Slower Aesthetic</div>
+    <div class="qwrap"><div class="qrule"></div><div class="q">“Real innovation often looks like a <span class="hl">return</span> to the starting point.”</div><div class="byline" style="margin-top:0"><span><strong>An editor</strong></span><span class="sep"></span><span>Field Notes</span></div></div>
+  </div>
+  <div class="footer"><span class="l"><span class="crest"></span>Part 03 — A Slower Aesthetic</span><span class="r"><span class="folio">vii</span><span>07 / 08 · The Quarterly Review</span></span></div>
+</section>
+
+<section data-label="08 Closing">
+  <div class="noise"></div><div class="frame-inner"></div>
+
+  <div class="page" style="justify-content:center;align-items:center;text-align:center;padding-bottom:120px">
+    <div class="mast-t" style="font-size:64px">The Quarterly Review</div>
+    <div style="width:420px;border-top:3px solid var(--rule-line);margin:39px 0"></div>
+    <h2 class="headline">Thank <em>you.</em></h2>
+    <p class="deck" style="margin-top:30px;font-style:italic">Letters to the editor: editors@example.com</p>
+    <div class="byline" style="margin-top:42px"><span>Vol. 042</span><span class="sep"></span><span>Issue 03</span><span class="sep"></span><span>May 2026</span></div>
+  </div>
+  <div class="footer"><span class="l"><span class="crest"></span>Colophon</span><span class="r"><span class="folio">viii</span><span>08 / 08 · The Quarterly Review</span></span></div>
+</section>
+
+</deck-stage>
+</body>
+</html>

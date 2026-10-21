@@ -1,0 +1,48 @@
+{
+  "slug": "fe-vintage-editorial",
+  "name": "Vintage Editorial",
+  "tagline": "Cream paper with high-contrast Fraunces italics, thin circle and line ornaments, and black label chips.",
+  "mood": [
+    "witty",
+    "editorial",
+    "characterful",
+    "warm"
+  ],
+  "occasion": [
+    "magazine-style feature",
+    "personal brand talk",
+    "culture or media pitch",
+    "founder story",
+    "design talk"
+  ],
+  "tone": [
+    "personable",
+    "stylish",
+    "confident"
+  ],
+  "formality": "medium",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#f5f3ee",
+    "text": "#1a1a1a",
+    "accent": "#1a1a1a",
+    "muted": "#7a6f63",
+    "description": "Cream paper with black ink; accents are black chips."
+  },
+  "typography": {
+    "display": "Fraunces",
+    "body": "Work Sans",
+    "style": "Soft-serif italic display with a plain grotesque body."
+  },
+  "best_for": "Personality-led decks with a printed-magazine feel. Works for stories, opinions and brand talks.",
+  "avoid_for": "Dense numeric dashboards.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/Down/Space, scroll-snap sections)",
+  "source": {
+    "repo": "archlizheng/frontend-slides-editable",
+    "commit": "e5663e6",
+    "path": "examples/generated/presets/vintage-editorial.html",
+    "license": "MIT"
+  }
+}

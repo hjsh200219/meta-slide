@@ -1,0 +1,49 @@
+{
+  "slug": "hp-theme-editorial-serif",
+  "name": "Theme · Editorial Serif",
+  "tagline": "Magazine feel with Playfair serif on a cream background",
+  "mood": [
+    "literary",
+    "elegant",
+    "warm",
+    "magazine"
+  ],
+  "occasion": [
+    "brand story",
+    "long-form talk",
+    "essay presentation",
+    "editorial pitch",
+    "culture talk"
+  ],
+  "tone": [
+    "thoughtful",
+    "refined",
+    "narrative"
+  ],
+  "formality": "medium",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#faf7f2",
+    "text": "#1b1410",
+    "accent": "#8a2a1c",
+    "accent2": "#c97a4a",
+    "surface": "#ffffff",
+    "description": "Theme tokens --bg, --text-1, --accent, --accent-2, --surface taken from editorial-serif.css"
+  },
+  "typography": {
+    "display": "Playfair Display",
+    "body": "Playfair Display",
+    "style": "Theme font tokens --font-display / --font-sans"
+  },
+  "best_for": "Text-rich storytelling talks that want a printed magazine look.",
+  "avoid_for": "Data dashboards.",
+  "slide_count": 22,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "assets/themes/editorial-serif.css + templates/single-page/*.html (22 layouts)",
+    "license": "MIT"
+  }
+}

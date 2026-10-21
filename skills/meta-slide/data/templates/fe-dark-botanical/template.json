@@ -1,0 +1,48 @@
+{
+  "slug": "fe-dark-botanical",
+  "name": "Dark Botanical",
+  "tagline": "Near-black stage with blurred rose and olive glows, italic Cormorant headings and warm copper accents.",
+  "mood": [
+    "elegant",
+    "moody",
+    "refined",
+    "quiet"
+  ],
+  "occasion": [
+    "luxury brand story",
+    "art or culture talk",
+    "wedding or event proposal",
+    "hospitality pitch",
+    "thought-leadership keynote"
+  ],
+  "tone": [
+    "sophisticated",
+    "contemplative",
+    "intimate"
+  ],
+  "formality": "medium-high",
+  "density": "low",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#0f0f0f",
+    "text": "#e8e4df",
+    "accent": "#d4a574",
+    "muted": "#a99f96",
+    "description": "Black with soft blurred glows and warm copper accent."
+  },
+  "typography": {
+    "display": "Cormorant",
+    "body": "IBM Plex Sans",
+    "style": "High-contrast italic serif headings with a clean humanist sans body."
+  },
+  "best_for": "Premium, atmospheric talks where mood matters more than data density. Fits brand storytelling and cultural topics.",
+  "avoid_for": "Data-heavy operational reviews.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/Down/Space, scroll-snap sections)",
+  "source": {
+    "repo": "archlizheng/frontend-slides-editable",
+    "commit": "e5663e6",
+    "path": "examples/generated/presets/dark-botanical.html",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "slug": "ns-soft-dreamy",
+  "name": "Soft Dreamy",
+  "tagline": "Warm beige mist with glowing circles, DM Serif headlines and frosted glass cards",
+  "mood": [
+    "dreamy",
+    "warm",
+    "calm",
+    "soft"
+  ],
+  "occasion": [
+    "lifestyle brand",
+    "wellness or beauty deck",
+    "storytelling talk",
+    "coaching session",
+    "boutique pitch"
+  ],
+  "tone": [
+    "gentle",
+    "intimate",
+    "soothing"
+  ],
+  "formality": "medium-low",
+  "density": "low",
+  "scheme": "light",
+  "palette": {
+    "bg": "#f0e8df",
+    "text": "#3a2e22",
+    "accent": "#c7a482",
+    "description": "Light Soft Dreamy palette: #f0e8df background, #3a2e22 text, #c7a482 accent"
+  },
+  "typography": {
+    "display": "DM Serif Display",
+    "body": "DM Sans",
+    "style": "DM Serif Display headings over DM Sans body"
+  },
+  "best_for": "Soft Dreamy suits lifestyle brand and wellness or beauty deck. It reads as dreamy, warm, calm.",
+  "avoid_for": "Dense data-heavy reports where the decorative look would compete with content.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/soft-dreamy.html",
+    "license": "MIT"
+  }
+}

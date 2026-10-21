@@ -1,0 +1,50 @@
+{
+  "slug": "ve-editorial-serif",
+  "name": "Editorial Serif",
+  "tagline": "Warm off-white page, huge Instrument Serif headlines, a single vermilion accent, mono labels and hairline-ruled KPI strips; follows dark mode.",
+  "mood": [
+    "editorial",
+    "calm",
+    "precise",
+    "modern"
+  ],
+  "occasion": [
+    "engineering review",
+    "quarterly business review",
+    "architecture proposal",
+    "product metrics readout",
+    "technical deep-dive",
+    "project retrospective"
+  ],
+  "tone": [
+    "analytical",
+    "measured",
+    "confident"
+  ],
+  "formality": "medium-high",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#fbfbf9",
+    "text": "#111111",
+    "accent": "#cc3418",
+    "surface": "#f1f0ec",
+    "border": "#e2e0da",
+    "description": "Paper white with ink text and one vermilion accent; a dark palette switches in with system dark mode."
+  },
+  "typography": {
+    "display": "Instrument Serif",
+    "body": "Instrument Sans",
+    "style": "Large display serif for headlines, neutral sans for reading text, JetBrains Mono for labels and numbers."
+  },
+  "best_for": "Evidence-led talks where a few strong headlines, KPI numbers and before and after contrasts carry the story. Gives engineering and strategy content an editorial calm.",
+  "avoid_for": "Playful, illustration-heavy or image-led presentations.",
+  "slide_count": 7,
+  "navigation": "inline keyboard handler (ArrowRight/Down/Space, scroll-snap, outline with O)",
+  "source": {
+    "repo": "nicobailon/visual-explainer",
+    "commit": "5f37886",
+    "path": "plugins/visual-explainer/templates/slide-deck.html (slides 4-7 added in the same style)",
+    "license": "MIT"
+  }
+}

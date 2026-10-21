@@ -1,0 +1,47 @@
+{
+  "slug": "ns-neon-cyber",
+  "name": "Neon Cyber",
+  "tagline": "Dark navy with cyan-to-magenta gradient headlines, glass cards and glowing metrics",
+  "mood": [
+    "cyber",
+    "techy",
+    "vivid",
+    "sleek"
+  ],
+  "occasion": [
+    "developer conference",
+    "AI product launch",
+    "security talk",
+    "infra roadmap",
+    "startup demo day"
+  ],
+  "tone": [
+    "modern",
+    "energetic",
+    "technical"
+  ],
+  "formality": "medium",
+  "density": "medium",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#0a0f1c",
+    "text": "#e0f0ff",
+    "accent": "#00ffcc",
+    "description": "Dark Neon Cyber palette: #0a0f1c background, #e0f0ff text, #00ffcc accent"
+  },
+  "typography": {
+    "display": "Space Grotesk",
+    "body": "Space Grotesk",
+    "style": "Space Grotesk headings over Space Grotesk body"
+  },
+  "best_for": "Neon Cyber suits developer conference and AI product launch. It reads as cyber, techy, vivid.",
+  "avoid_for": "Formal regulated or conservative corporate decks.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/neon-cyber.html",
+    "license": "MIT"
+  }
+}

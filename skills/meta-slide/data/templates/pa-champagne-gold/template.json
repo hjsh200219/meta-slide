@@ -1,0 +1,51 @@
+{
+  "slug": "pa-champagne-gold",
+  "name": "Champagne Gold",
+  "tagline": "Ivory-champagne paper with double gold frame, corner brackets, gradient-gold Playfair italics and centered diamond ornaments (extended from a single-slide specimen)",
+  "mood": [
+    "luxurious",
+    "elegant",
+    "ceremonial",
+    "refined"
+  ],
+  "occasion": [
+    "wedding or gala invitation",
+    "luxury brand presentation",
+    "awards ceremony",
+    "fine dining or hospitality pitch",
+    "heritage and jewelry brand story"
+  ],
+  "tone": [
+    "formal",
+    "romantic",
+    "timeless"
+  ],
+  "formality": "high",
+  "density": "low",
+  "scheme": "light",
+  "palette": {
+    "bg": "#faf6ed",
+    "bg_mid": "#f6efd9",
+    "text": "#2a2218",
+    "accent": "#c9a35a",
+    "gold_deep": "#b88d3a",
+    "gold_darker": "#8e6a25",
+    "gold_light": "#f5e8c8",
+    "description": "champagne ivory ground with ink-brown text and layered metallic gold accents"
+  },
+  "typography": {
+    "display": "Playfair Display",
+    "body": "Inter",
+    "style": "high-contrast italic serif with gold gradient fill and ultra-wide tracked uppercase labels"
+  },
+  "best_for": "Ceremonial and luxury moments: invitations, galas, awards, premium brand and hospitality presentations. Centered symmetric layouts with sparse text.",
+  "avoid_for": "Dense analytical or technical content, and casual or youthful topics.",
+  "slide_count": 7,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "Akxan/ppt-agent-skill",
+    "commit": "01825de",
+    "path": "ppt-output/style-gallery/champagne_gold.html",
+    "license": "MIT"
+  }
+}

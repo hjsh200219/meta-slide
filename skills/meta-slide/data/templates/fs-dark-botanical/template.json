@@ -1,0 +1,50 @@
+{
+  "tagline": "Warm gold and blush on near-black, with blurred abstract circles, thin vertical lines and italic Cormorant.",
+  "mood": [
+    "elegant",
+    "sophisticated",
+    "artistic",
+    "premium"
+  ],
+  "occasion": [
+    "luxury brand story",
+    "gallery or exhibition talk",
+    "investor letter",
+    "wedding or hospitality pitch",
+    "design portfolio"
+  ],
+  "tone": [
+    "refined",
+    "quiet",
+    "literary"
+  ],
+  "formality": "medium-high",
+  "density": "low",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#0f0f0f",
+    "text": "#e8e4df",
+    "text_secondary": "#9a9590",
+    "accent_warm": "#d4a574",
+    "accent_pink": "#e8b4b8",
+    "accent_gold": "#c9b896",
+    "description": "near-black ground with warm terracotta, pink and gold accents"
+  },
+  "typography": {
+    "display": "Cormorant",
+    "body": "IBM Plex Sans",
+    "style": "high-contrast display serif in italic over a light humanist sans"
+  },
+  "best_for": "Premium, artistic or hospitality stories told slowly with few words per slide. Centred layouts and soft glows keep it calm.",
+  "avoid_for": "Dense data decks or technical reviews; the low density and italic display will waste space.",
+  "slug": "fs-dark-botanical",
+  "name": "Dark Botanical",
+  "slide_count": 10,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "zarazhangrui/frontend-slides",
+    "commit": "9906a34",
+    "path": "STYLE_PRESETS.md",
+    "license": "MIT"
+  }
+}

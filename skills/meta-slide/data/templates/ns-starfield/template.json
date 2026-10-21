@@ -1,0 +1,47 @@
+{
+  "slug": "ns-starfield",
+  "name": "Starfield",
+  "tagline": "Deep space navy with purple-blue glow, gradient headlines and glass cards",
+  "mood": [
+    "cosmic",
+    "visionary",
+    "calm",
+    "futuristic"
+  ],
+  "occasion": [
+    "space or science talk",
+    "vision keynote",
+    "AI research talk",
+    "game universe pitch",
+    "startup moonshot"
+  ],
+  "tone": [
+    "inspiring",
+    "expansive",
+    "serious"
+  ],
+  "formality": "medium",
+  "density": "low",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#05051a",
+    "text": "#e8eaff",
+    "accent": "#8855ff",
+    "description": "Dark Starfield palette: #05051a background, #e8eaff text, #8855ff accent"
+  },
+  "typography": {
+    "display": "Exo 2",
+    "body": "Lexend",
+    "style": "Exo 2 headings over Lexend body"
+  },
+  "best_for": "Starfield suits space or science talk and vision keynote. It reads as cosmic, visionary, calm.",
+  "avoid_for": "Dense data-heavy reports where the decorative look would compete with content.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/starfield.html",
+    "license": "MIT"
+  }
+}

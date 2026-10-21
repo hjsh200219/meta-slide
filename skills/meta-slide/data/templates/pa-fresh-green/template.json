@@ -1,0 +1,50 @@
+{
+  "slug": "pa-fresh-green",
+  "name": "Fresh Green",
+  "tagline": "Cream paper with sage green and ochre, elegant serif headlines, hairline frame and botanical leaf accents (extended from a single-slide specimen)",
+  "mood": [
+    "calm",
+    "organic",
+    "refined",
+    "warm"
+  ],
+  "occasion": [
+    "wellness brand story",
+    "product catalogue",
+    "sustainability report",
+    "lifestyle or food presentation",
+    "boutique retail pitch"
+  ],
+  "tone": [
+    "gentle",
+    "editorial",
+    "natural"
+  ],
+  "formality": "medium",
+  "density": "low",
+  "scheme": "light",
+  "palette": {
+    "bg": "#f4ede0",
+    "text": "#2d3a1f",
+    "accent": "#859e5a",
+    "accent_deep": "#6b8344",
+    "accent2": "#a85b3a",
+    "card": "#f7f1e3",
+    "description": "Cream paper, forest-green ink, sage and ochre accents"
+  },
+  "typography": {
+    "display": "Source Serif 4",
+    "body": "Inter",
+    "style": "Light serif headlines with italic sage emphasis, tracked small-caps labels in Inter"
+  },
+  "best_for": "Good for natural, wellness and craft brands that need a quiet, premium tone. Generous whitespace lets product and story breathe.",
+  "avoid_for": "Avoid for data-heavy or high-energy technical talks.",
+  "slide_count": 7,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "Akxan/ppt-agent-skill",
+    "commit": "01825de",
+    "path": "ppt-output/style-gallery/fresh_green.html",
+    "license": "MIT"
+  }
+}

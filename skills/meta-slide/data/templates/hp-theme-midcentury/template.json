@@ -1,0 +1,49 @@
+{
+  "slug": "hp-theme-midcentury",
+  "name": "Theme · Midcentury",
+  "tagline": "Cream with mustard, teal and burnt orange and sharp geometry",
+  "mood": [
+    "retro",
+    "geometric",
+    "warm",
+    "vintage"
+  ],
+  "occasion": [
+    "design history talk",
+    "home and interior aesthetics",
+    "vintage brand story",
+    "museum presentation",
+    "retro product pitch"
+  ],
+  "tone": [
+    "nostalgic",
+    "stylish",
+    "calm"
+  ],
+  "formality": "medium",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#f3ead8",
+    "text": "#201810",
+    "accent": "#d4902a",
+    "accent2": "#2a7a7f",
+    "surface": "#f9f2e0",
+    "description": "Theme tokens --bg, --text-1, --accent, --accent-2, --surface taken from midcentury.css"
+  },
+  "typography": {
+    "display": "Playfair Display",
+    "body": "Inter",
+    "style": "Theme font tokens --font-display / --font-sans"
+  },
+  "best_for": "Design-history and retro brand talks with mid-century colours.",
+  "avoid_for": "Futuristic tech launches.",
+  "slide_count": 22,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "assets/themes/midcentury.css + templates/single-page/*.html (22 layouts)",
+    "license": "MIT"
+  }
+}

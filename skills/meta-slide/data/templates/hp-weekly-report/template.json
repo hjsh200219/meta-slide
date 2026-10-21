@@ -1,0 +1,49 @@
+{
+  "slug": "hp-weekly-report",
+  "name": "Weekly Report",
+  "tagline": "Near-white background, blue-to-teal accent, ruled dividers and tiny mono change tags",
+  "mood": [
+    "clear",
+    "measured",
+    "corporate",
+    "data-dense"
+  ],
+  "occasion": [
+    "team weekly readout",
+    "sprint review",
+    "skip-level update",
+    "shipped-items summary",
+    "KPI review"
+  ],
+  "tone": [
+    "factual",
+    "actionable",
+    "concise"
+  ],
+  "formality": "medium-high",
+  "density": "high",
+  "scheme": "light",
+  "palette": {
+    "bg": "#fafbfc",
+    "text": "#161e37",
+    "accent": "#2e63eb",
+    "accent2": "#0ea5b5",
+    "surface": "#ffffff",
+    "description": "Cool near-white with navy text, blue and teal accents"
+  },
+  "typography": {
+    "display": "Inter",
+    "body": "Inter",
+    "style": "Sans with monospace tags like FEAT and FIX"
+  },
+  "best_for": "Recurring status reports with KPI grids, shipped items, blockers and next steps. Skimmable at a glance.",
+  "avoid_for": "Emotional storytelling or brand showcase talks.",
+  "slide_count": 7,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "templates/full-decks/weekly-report",
+    "license": "MIT"
+  }
+}

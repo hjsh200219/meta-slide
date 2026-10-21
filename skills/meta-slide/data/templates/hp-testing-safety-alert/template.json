@@ -1,0 +1,49 @@
+{
+  "slug": "hp-testing-safety-alert",
+  "name": "Safety Alert Stripes",
+  "tagline": "White ground with red-black hazard stripes, strike-through words and traffic-light severity cards",
+  "mood": [
+    "urgent",
+    "high-contrast",
+    "serious",
+    "warning"
+  ],
+  "occasion": [
+    "security review",
+    "incident postmortem",
+    "risk assessment",
+    "red-team results",
+    "pre-launch safety evaluation"
+  ],
+  "tone": [
+    "alarming",
+    "direct",
+    "disciplined"
+  ],
+  "formality": "medium",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#fffaf7",
+    "text": "#14141a",
+    "accent": "#e0314a",
+    "amber": "#d97706",
+    "green": "#067647",
+    "description": "Warm white, ink black, alert red with amber and green levels"
+  },
+  "typography": {
+    "display": "Inter",
+    "body": "Inter",
+    "style": "Heavy sans with red tags, mono code blocks"
+  },
+  "best_for": "Making an audience feel the seriousness of safety, risk or incident topics. Severity levels and policy code fit natively.",
+  "avoid_for": "Light-hearted or celebratory topics.",
+  "slide_count": 8,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "templates/full-decks/testing-safety-alert",
+    "license": "MIT"
+  }
+}

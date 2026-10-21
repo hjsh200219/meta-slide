@@ -1,0 +1,49 @@
+{
+  "slug": "hp-theme-minimal-white",
+  "name": "Theme · Minimal White",
+  "tagline": "Restrained white with Inter, strong hierarchy and very light shadows",
+  "mood": [
+    "minimal",
+    "restrained",
+    "clean",
+    "neutral"
+  ],
+  "occasion": [
+    "internal report",
+    "one-on-one technical review",
+    "serious topic briefing",
+    "project update",
+    "training session"
+  ],
+  "tone": [
+    "neutral",
+    "serious",
+    "focused"
+  ],
+  "formality": "medium-high",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#ffffff",
+    "text": "#0c0d10",
+    "accent": "#111216",
+    "accent2": "#3b3f4a",
+    "surface": "#ffffff",
+    "description": "Theme tokens --bg, --text-1, --accent, --accent-2, --surface taken from minimal-white.css"
+  },
+  "typography": {
+    "display": "Inter",
+    "body": "Inter",
+    "style": "Theme font tokens --font-display / --font-sans"
+  },
+  "best_for": "Content-first decks that should never compete with the message.",
+  "avoid_for": "Brand-heavy or celebratory events.",
+  "slide_count": 22,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "assets/themes/minimal-white.css + templates/single-page/*.html (22 layouts)",
+    "license": "MIT"
+  }
+}

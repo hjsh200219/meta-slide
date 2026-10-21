@@ -1,0 +1,49 @@
+{
+  "slug": "hp-theme-catppuccin-mocha",
+  "name": "Theme · Catppuccin Mocha",
+  "tagline": "Dark Catppuccin palette with soft pastel accents",
+  "mood": [
+    "cozy",
+    "dark",
+    "geeky",
+    "pastel"
+  ],
+  "occasion": [
+    "internal tech sharing",
+    "long engineering session",
+    "developer meetup",
+    "code review talk",
+    "tooling demo"
+  ],
+  "tone": [
+    "friendly",
+    "focused",
+    "nerdy"
+  ],
+  "formality": "medium-low",
+  "density": "medium",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#1e1e2e",
+    "text": "#cdd6f4",
+    "accent": "#cba6f7",
+    "accent2": "#89b4fa",
+    "surface": "#313244",
+    "description": "Theme tokens --bg, --text-1, --accent, --accent-2, --surface taken from catppuccin-mocha.css"
+  },
+  "typography": {
+    "display": "Inter",
+    "body": "Inter",
+    "style": "Theme font tokens --font-display / --font-sans"
+  },
+  "best_for": "Developer talks in a dark room or long sessions where eye comfort matters.",
+  "avoid_for": "Print or bright-room projection.",
+  "slide_count": 22,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "assets/themes/catppuccin-mocha.css + templates/single-page/*.html (22 layouts)",
+    "license": "MIT"
+  }
+}

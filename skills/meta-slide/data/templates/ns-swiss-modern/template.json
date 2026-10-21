@@ -1,0 +1,47 @@
+{
+  "slug": "ns-swiss-modern",
+  "name": "Swiss Modern",
+  "tagline": "White pages with a red left rule, heavy Archivo headlines, red square marker and numbered lists",
+  "mood": [
+    "minimal",
+    "precise",
+    "strong",
+    "functional"
+  ],
+  "occasion": [
+    "corporate strategy",
+    "design principles talk",
+    "product roadmap",
+    "academic seminar",
+    "consulting readout"
+  ],
+  "tone": [
+    "clear",
+    "confident",
+    "neutral"
+  ],
+  "formality": "medium-high",
+  "density": "medium",
+  "scheme": "light",
+  "palette": {
+    "bg": "#f8f8f8",
+    "text": "#0a0a0a",
+    "accent": "#ff0000",
+    "description": "Light Swiss Modern palette: #f8f8f8 background, #0a0a0a text, #ff0000 accent"
+  },
+  "typography": {
+    "display": "Archivo",
+    "body": "Inter",
+    "style": "Archivo headings over Inter body"
+  },
+  "best_for": "Swiss Modern suits corporate strategy and design principles talk. It reads as minimal, precise, strong.",
+  "avoid_for": "Playful or casual talks where this look would feel too formal.",
+  "slide_count": 5,
+  "navigation": "inline keyboard handler (ArrowRight/ArrowLeft, click)",
+  "source": {
+    "repo": "codesstar/next-slide",
+    "commit": "e92c1b2",
+    "path": "styles/swiss-modern.html",
+    "license": "MIT"
+  }
+}

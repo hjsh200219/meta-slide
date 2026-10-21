@@ -1,0 +1,30 @@
+{
+  "slug": "pa-royal-red",
+  "name": "Royal Red",
+  "tagline": "Deep imperial crimson vignette with antique gold corner brackets, hairline rules, a vermilion seal and widely tracked Cormorant Garamond capitals (extended from a single-slide specimen)",
+  "mood": ["ceremonial", "regal", "solemn", "luxurious"],
+  "occasion": ["cultural heritage presentation", "museum or exhibition opening", "gala or awards ceremony", "luxury brand story", "anniversary or commemoration"],
+  "tone": ["formal", "dignified", "ceremonial"],
+  "formality": "high",
+  "density": "low",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#4a0606",
+    "text": "#fff8e7",
+    "accent": "#c9a960",
+    "bg_from": "#6b0a0a",
+    "bg_to": "#2d0303",
+    "seal": "#c0392b",
+    "description": "oxblood red radial gradient with antique gold accents, cream text and a vermilion seal"
+  },
+  "typography": {
+    "display": "Cormorant Garamond",
+    "body": "Inter",
+    "style": "high-contrast serif capitals with wide letter-spacing over a light clean sans body"
+  },
+  "best_for": "Ceremonial, heritage and luxury presentations that need gravity and a sense of occasion. Suits sparse, centered statements and a few strong numbers.",
+  "avoid_for": "Casual team updates or text-heavy working sessions where the heavy ceremony would feel out of place.",
+  "slide_count": 8,
+  "navigation": "deck-stage runtime",
+  "source": {"repo": "Akxan/ppt-agent-skill", "commit": "01825de", "path": "ppt-output/style-gallery/royal_red.html", "license": "MIT"}
+}

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Mono Brand Type Hero — Deck Template</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;800;900&display=swap" rel="stylesheet">
+<script src="deck-stage.js"></script>
+<style>
+html,body{margin:0;background:#1ED760}
+body{font-family:Archivo,sans-serif;color:#000}
+deck-stage>section{width:1920px;height:1080px;background:#1ED760;color:#000;position:relative;overflow:hidden;box-sizing:border-box;font-family:Archivo,sans-serif}
+deck-stage>section.k{background:#000;color:#fff}
+.g{color:#1ED760}
+.top{position:absolute;right:84px;top:58px;font:800 26px Archivo,sans-serif;letter-spacing:.14em;text-align:right;line-height:1.5}
+.top.l{right:auto;left:84px;text-align:left}
+.hero{position:absolute;left:84px;top:40px;font:900 420px/.9 Archivo,sans-serif;letter-spacing:-.07em}
+.hero span{display:block}
+.hero .b{margin-left:285px}
+.black{position:absolute;left:0;right:0;bottom:0;height:253px;background:#000;color:#1ED760}
+.black .n{position:absolute;left:84px;top:10px;font:900 224px/1 Archivo,sans-serif;letter-spacing:-.06em;font-variant-numeric:tabular-nums}
+.black .t{position:absolute;left:830px;top:88px;white-space:nowrap;font:900 64px/1.25 Archivo,sans-serif;color:#fff}
+.black .t em{font-style:normal;color:#1ED760}
+.black .s{position:absolute;right:84px;bottom:42px;text-align:right;font:500 26px/1.5 Archivo,sans-serif;color:#fff}
+
+.h{position:absolute;left:84px;top:100px;font:900 160px/.92 Archivo,sans-serif;letter-spacing:-.06em}
+.list{position:absolute;left:84px;right:84px;top:440px;border-top:6px solid #000}
+.li{display:flex;align-items:baseline;gap:50px;padding:26px 0;border-bottom:3px solid #000}
+.li span{font:900 56px Archivo,sans-serif;width:110px}
+.li b{font:900 72px Archivo,sans-serif;letter-spacing:-.03em}
+.li em{margin-left:auto;font:500 30px Archivo,sans-serif;font-style:normal}
+
+.bign{position:absolute;left:0;right:0;top:110px;text-align:center;font:900 640px/1 Archivo,sans-serif;letter-spacing:-.07em;color:#1ED760;font-variant-numeric:tabular-nums}
+.cap{position:absolute;left:0;right:0;top:780px;text-align:center;font:900 90px Archivo,sans-serif;letter-spacing:-.02em}
+.cap2{position:absolute;left:0;right:0;top:900px;text-align:center;font:500 34px Archivo,sans-serif;color:#aaa}
+
+.cols{position:absolute;left:84px;right:84px;top:520px;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:6px solid #000}
+.cols>div{padding:34px 40px 0 0;margin-right:40px;border-right:3px solid #000}
+.cols>div:last-child{border:0}
+.cols .k1{font:900 200px/1 Archivo,sans-serif;letter-spacing:-.07em}
+.cols h3{margin:10px 0 0;font:900 56px/1.1 Archivo,sans-serif;letter-spacing:-.03em}
+.cols p{margin:14px 0 0;font:500 30px/1.45 Archivo,sans-serif}
+
+.pan{position:absolute;top:0;bottom:0;width:960px;box-sizing:border-box;padding:150px 84px 0}
+.pan.a{left:0;background:#1ED760;color:#000}
+.pan.b{right:0;background:#000;color:#1ED760}
+.pan .lab{font:800 28px Archivo,sans-serif;letter-spacing:.14em}
+.pan .v{font:900 300px/1 Archivo,sans-serif;letter-spacing:-.07em;margin-top:30px;font-variant-numeric:tabular-nums}
+.pan p{margin:20px 0 0;font:500 38px/1.4 Archivo,sans-serif}
+
+.q{position:absolute;left:84px;right:84px;top:160px;font:900 140px/1 Archivo,sans-serif;letter-spacing:-.05em}
+.by{position:absolute;left:84px;bottom:90px;font:800 28px Archivo,sans-serif;letter-spacing:.14em}
+
+.endh{position:absolute;left:84px;top:50px;font:900 380px/.88 Archivo,sans-serif;letter-spacing:-.075em}
+</style>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+
+<section data-label="01 Cover">
+  <div class="hero"><span>Play</span><span class="b">loud.</span></div>
+  <div class="top">SLOW GROOVE RECORD SHOP<br>YEAR IN REVIEW 2026</div>
+  <div class="black"><div class="n">4812</div><div class="t">records,<br><em>taken home.</em></div><div class="s">Vinyl is 71%<br>Up 34% year on year</div></div>
+</section>
+
+<section data-label="02 Agenda">
+  <div class="top">SLOW GROOVE RECORD SHOP<br>2026</div>
+  <div class="h">The year,<br>in four.</div>
+  <div class="list">
+    <div class="li"><span>01</span><b>What sold</b><em>Top shelves</em></div>
+    <div class="li"><span>02</span><b>Who came</b><em>New regulars</em></div>
+    <div class="li"><span>03</span><b>What changed</b><em>Listening bar</em></div>
+    <div class="li"><span>04</span><b>What is next</b><em>2027</em></div>
+  </div>
+</section>
+
+<section data-label="03 Big Number" class="k">
+  <div class="top l" style="color:#fff">RECORDS SOLD<br>2026</div>
+  <div class="bign">4812</div>
+  <div class="cap">records, taken home.</div>
+  <div class="cap2">Vinyl 71%  ·  Used 18%  ·  CD 11%</div>
+</section>
+
+<section data-label="04 Three Moves">
+  <div class="top">SLOW GROOVE RECORD SHOP<br>HOW WE DID IT</div>
+  <div class="h" style="font-size:170px">Three moves.</div>
+  <div class="cols">
+    <div><div class="k1">1</div><h3>Open the crates</h3><p>Every record can be played in store before you buy.</p></div>
+    <div><div class="k1">2</div><h3>Stay open late</h3><p>Friday doors close at midnight, not at six.</p></div>
+    <div><div class="k1">3</div><h3>Trade in</h3><p>Bring one, take one, at fair store credit.</p></div>
+  </div>
+</section>
+
+<section data-label="05 Comparison">
+  <div class="pan a"><div class="lab">2025</div><div class="v">3590</div><p>Records sold, mostly CDs and new releases.</p></div>
+  <div class="pan b"><div class="lab">2026</div><div class="v">4812</div><p>Records sold, led by vinyl and used crates.</p></div>
+</section>
+
+<section data-label="06 Quote" class="k">
+  <div class="top l" style="color:#fff">CUSTOMER NOTE</div>
+  <div class="q">“I came for <span class="g">one record.</span> I stayed for the <span class="g">whole night.</span>”</div>
+  <div class="by" style="color:#fff">Regular since March · Friday listener</div>
+</section>
+
+<section data-label="07 Closing">
+  <div class="endh">Thank<br>you.</div>
+  <div class="top">SLOW GROOVE RECORD SHOP<br>SEE YOU AT THE CRATES</div>
+  <div class="black"><div class="n" style="font-size:130px;top:60px">#PlayLoud</div><div class="s" style="font-size:30px;bottom:96px">Open daily · until midnight on Fridays</div></div>
+</section>
+
+</deck-stage>
+</body>
+</html>

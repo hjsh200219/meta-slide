@@ -1,0 +1,49 @@
+{
+  "slug": "hp-graphify-dark-graph",
+  "name": "Dark Graph Glass",
+  "tagline": "Deep night gradient with drifting blurred orbs, glass cards and a knowledge-graph backdrop",
+  "mood": [
+    "futuristic",
+    "warm-tech",
+    "glassy",
+    "dark"
+  ],
+  "occasion": [
+    "developer tool launch",
+    "CLI product demo",
+    "data visualization talk",
+    "AI product intro",
+    "tech meetup"
+  ],
+  "tone": [
+    "innovative",
+    "friendly",
+    "technical"
+  ],
+  "formality": "medium-low",
+  "density": "medium",
+  "scheme": "dark",
+  "palette": {
+    "bg": "#06060c",
+    "text": "#f0ece4",
+    "accent": "#e8a87c",
+    "accent2": "#7eb8da",
+    "surface": "#0e1020",
+    "description": "Near-black blue with amber, mist blue, mint and lilac accents"
+  },
+  "typography": {
+    "display": "Inter",
+    "body": "Inter",
+    "style": "Sans headlines with rainbow gradient text and mono command lines"
+  },
+  "best_for": "Presenting developer tools, graph or data products in an AI-native, techy yet warm look. Good for live-demo talks.",
+  "avoid_for": "Formal board reports or print-friendly handouts.",
+  "slide_count": 8,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "templates/full-decks/graphify-dark-graph",
+    "license": "MIT"
+  }
+}

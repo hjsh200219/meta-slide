@@ -1,0 +1,48 @@
+{
+  "slug": "hp-knowledge-arch-blueprint",
+  "name": "Rust Blueprint Paper",
+  "tagline": "Cream paper with faint grid, rust-red single accent, hard black outlines and dashed feedback loops",
+  "mood": [
+    "architectural",
+    "serious",
+    "printed",
+    "restrained"
+  ],
+  "occasion": [
+    "system architecture review",
+    "technical whitepaper",
+    "data flow explanation",
+    "process breakdown",
+    "research briefing"
+  ],
+  "tone": [
+    "rigorous",
+    "authoritative",
+    "calm"
+  ],
+  "formality": "medium-high",
+  "density": "medium-high",
+  "scheme": "light",
+  "palette": {
+    "bg": "#F0EAE0",
+    "text": "#1a1a1a",
+    "accent": "#B5392A",
+    "line": "#cec8be",
+    "description": "Warm cream paper, ink black, rust red accent"
+  },
+  "typography": {
+    "display": "Inter",
+    "body": "Inter",
+    "style": "Heavy sans headlines, Playfair serif numbers, mono labels"
+  },
+  "best_for": "Explaining architectures and pipelines so they read like a proper white paper. Good for diagrams that may be screenshotted into documentation.",
+  "avoid_for": "Playful or colourful consumer content.",
+  "slide_count": 8,
+  "navigation": "html-ppt runtime.js (ArrowRight / Space, .is-active slides)",
+  "source": {
+    "repo": "lewislulu/html-ppt-skill",
+    "commit": "fd16290",
+    "path": "templates/full-decks/knowledge-arch-blueprint",
+    "license": "MIT"
+  }
+}

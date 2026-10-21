@@ -1,0 +1,50 @@
+{
+  "slug": "pa-minimal-gray",
+  "name": "Quarterly Review Paper",
+  "tagline": "Warm newsprint paper with a bold masthead, brick-red italics, hairline rules and justified serif columns (extended from a single-slide specimen)",
+  "mood": [
+    "editorial",
+    "literate",
+    "calm",
+    "authoritative"
+  ],
+  "occasion": [
+    "quarterly business review",
+    "industry essay or white paper",
+    "board memo walkthrough",
+    "research digest",
+    "design criticism talk"
+  ],
+  "tone": [
+    "thoughtful",
+    "traditional",
+    "measured"
+  ],
+  "formality": "medium-high",
+  "density": "high",
+  "scheme": "light",
+  "palette": {
+    "bg": "#f7f1e3",
+    "text": "#1a1a1a",
+    "accent": "#a0392b",
+    "text_secondary": "#404040",
+    "caption": "#666666",
+    "description": "cream newsprint with ink-black type and a single brick-red accent"
+  },
+  "typography": {
+    "display": "Playfair Display",
+    "body": "Source Serif 4",
+    "mono": "JetBrains Mono",
+    "style": "didone-style display serif, readable text serif, tiny tracked sans mastheads"
+  },
+  "best_for": "Text-rich talks that read like a magazine feature: reviews, essays, policy and strategy notes. Handles multi-column body copy and a small chart well.",
+  "avoid_for": "Fast, high-energy pitches with big imagery.",
+  "slide_count": 8,
+  "navigation": "deck-stage runtime",
+  "source": {
+    "repo": "Akxan/ppt-agent-skill",
+    "commit": "01825de",
+    "path": "ppt-output/style-gallery/minimal_gray.html",
+    "license": "MIT"
+  }
+}

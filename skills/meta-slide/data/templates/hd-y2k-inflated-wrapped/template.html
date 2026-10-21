@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Y2K Inflated Wrapped — Deck Template</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Anton&family=Archivo:wght@500;900&display=swap" rel="stylesheet">
+<script src="deck-stage.js"></script>
+<style>
+html,body{margin:0;padding:0;background:#000}
+body{font-family:"Archivo",sans-serif;color:#fff}
+deck-stage>section{width:1920px;height:1080px;position:relative;overflow:hidden;box-sizing:border-box;background:#FF2E93;color:#fff}
+.cy{position:absolute;right:0;top:0;width:690px;height:1080px;background:#00D9E8;clip-path:polygon(34% 0,100% 0,100% 100%,0 100%)}
+.or{position:absolute;left:0;bottom:0;width:100%;height:172px;background:#FF8A00}
+.or p{margin:0;position:absolute;left:110px;top:56px;font:900 48px "Archivo";color:#000;letter-spacing:.02em}
+.or b{position:absolute;right:90px;top:58px;font:400 44px "Archivo Black";color:#000}
+.kick{position:absolute;left:96px;top:72px;font:900 36px "Archivo";background:#000;padding:10px 26px;border-radius:48px;transform:rotate(-3deg)}
+.photo{position:absolute;right:90px;top:112px;width:464px;height:608px;border-radius:240px 240px 38px 38px;background:linear-gradient(160deg,#FF2E93,#2B1BFF);overflow:hidden}
+.photo i{position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,.14) 0 3px,transparent 3px 22px)}
+.photo span{position:absolute;left:0;right:0;bottom:26px;text-align:center;font:500 22px "Archivo";letter-spacing:.1em}
+.num{position:absolute;left:64px;top:210px;font:400 480px/1 "Archivo Black";letter-spacing:-.06em;color:#FFE600;text-shadow:3px 3px 0 #FF8A00,6px 6px 0 #FF8A00,9px 9px 0 #FF8A00,12px 12px 0 #FF8A00,15px 15px 0 #E0600A,18px 18px 0 #E0600A,21px 21px 0 #E0600A,24px 24px 0 #B03C00,27px 27px 0 #B03C00,30px 30px 0 #B03C00,33px 33px 0 #7A2400,36px 36px 0 #7A2400,39px 39px 0 #7A2400,46px 56px 48px rgba(0,0,0,.35);transform:perspective(1440px) rotateX(8deg) rotateZ(-5deg);transform-origin:left center;white-space:nowrap}
+.cap{position:absolute;left:108px;top:720px;font:900 96px/1.15 "Archivo"}
+.cap small{display:block;font:500 36px "Archivo";margin-top:16px}
+.disp{font-family:"Anton",sans-serif;text-transform:uppercase;line-height:.95;letter-spacing:.01em}
+.pill{display:inline-block;background:#000;color:#fff;font:900 36px "Archivo";padding:10px 28px;border-radius:48px;transform:rotate(-3deg)}
+.pg{position:absolute;right:90px;bottom:60px;font:400 40px "Archivo Black";color:#000}
+.ex{font-family:"Archivo Black";color:#FFE600;text-shadow:3px 3px 0 #FF8A00,6px 6px 0 #FF8A00,9px 9px 0 #E0600A,12px 12px 0 #E0600A,15px 15px 0 #B03C00,18px 18px 0 #B03C00,22px 30px 26px rgba(0,0,0,.35)}
+/* agenda */
+.ag{position:absolute;left:110px;top:230px;width:1100px}
+.ag div{display:flex;align-items:center;gap:40px;margin-bottom:44px;transform:rotate(-1.5deg)}
+.ag b{font:400 120px/1 "Archivo Black";color:#FFE600;text-shadow:4px 4px 0 #FF8A00,8px 8px 0 #B03C00;width:200px}
+.ag span{font:400 100px/1 "Anton";text-transform:uppercase}
+/* divider */
+.s3{background:#00D9E8!important}
+.s3 .big{position:absolute;left:100px;top:210px;font-size:250px;line-height:.95}
+.s3 .t{position:absolute;left:112px;top:660px;font:900 110px/1.05 "Archivo";color:#000;width:1300px}
+.s3 .blob{position:absolute;right:-120px;top:-120px;width:760px;height:760px;border-radius:50%;background:#FF2E93}
+/* list */
+.rows{position:absolute;left:110px;right:110px;top:250px}
+.row{display:flex;align-items:center;background:#fff;color:#000;border-radius:90px;height:170px;margin-bottom:30px;padding:0 70px;gap:50px;box-shadow:10px 12px 0 #000}
+.row:nth-child(2){background:#00D9E8}.row:nth-child(3){background:#FFE600}
+.row b{font:400 100px "Archivo Black";width:150px}
+.row span{font:900 62px "Archivo";flex:1}
+.row em{font:400 64px "Archivo Black";font-style:normal}
+/* compare */
+.s5 .l{position:absolute;left:0;top:0;width:50%;height:100%;background:#FF2E93}
+.s5 .r{position:absolute;right:0;top:0;width:60%;height:100%;background:#00D9E8;clip-path:polygon(24% 0,100% 0,100% 100%,0 100%)}
+.s5 .yr{position:absolute;top:120px;font:400 150px "Anton"}
+.s5 .v{position:absolute;top:340px;font:400 230px/1 "Archivo Black";letter-spacing:-.05em;white-space:nowrap}
+.s5 .d{position:absolute;top:700px;font:900 52px/1.2 "Archivo"}
+.s5 .vs{position:absolute;left:860px;top:150px;width:200px;height:200px;border-radius:50%;background:#000;color:#FFE600;font:400 84px/200px "Archivo Black";text-align:center;z-index:3;transform:rotate(-8deg)}
+/* quote */
+.s6{background:#FF8A00!important;color:#000!important}
+.s6 q{position:absolute;left:120px;top:150px;width:1520px;font:400 190px/1 "Anton";text-transform:uppercase;quotes:none}
+.s6 q i{font-style:normal;color:#fff;text-shadow:5px 5px 0 #000}
+.s6 .by{position:absolute;left:124px;bottom:110px;font:900 44px "Archivo"}
+.s6 .tag{position:absolute;right:100px;top:70px;width:200px;height:200px;border-radius:50%;background:#FF2E93;color:#fff;font:400 120px/200px "Archivo Black";text-align:center;transform:rotate(12deg)}
+/* close */
+.s7 .hash{position:absolute;left:100px;top:260px;font-size:190px;line-height:1}
+.s7 .sub{position:absolute;left:112px;top:790px;font:900 64px "Archivo"}
+.s7 .ring{position:absolute;right:130px;top:130px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff 0 6%,#FFE600 7% 30%,#FF8A00 60%,#B03C00)}
+</style></head><body>
+<deck-stage width="1920" height="1080">
+
+<section data-label="01 Cover">
+ <div class="cy"></div>
+ <div class="photo"><i></i><span>PORTRAIT · DUOTONE</span></div>
+ <div class="kick">YOUR 2026 CYCLING WRAPPED</div>
+ <div class="num">2847</div>
+ <div class="cap">Kilometers.<small>7% of the way around the Earth. You rode the whole city.</small></div>
+ <div class="or"><p>Favorite route: Riverside Greenway · 118 rides</p><b>#CYCLINGWRAPPED</b></div>
+</section>
+
+<section data-label="02 Contents">
+ <div class="cy" style="opacity:.9"></div>
+ <div class="kick">THE YEAR IN FOUR DROPS</div>
+ <div class="ag">
+  <div><b>01</b><span>Distance</span></div>
+  <div><b>02</b><span>Top routes</span></div>
+  <div><b>03</b><span>Year vs year</span></div>
+  <div><b>04</b><span>Next season</span></div>
+ </div>
+ <div class="or"><p>Scroll slowly. Screenshot everything.</p><b class="pg" style="position:absolute">02</b></div>
+</section>
+
+<section class="s3" data-label="03 Section Divider">
+ <div class="blob"></div>
+ <div class="kick" style="background:#000">CHAPTER 02</div>
+ <div class="big ex">TOP<br>ROUTES</div>
+ <div class="t" style="display:none"></div>
+ <div class="or"><p>Where your wheels spent the most time</p><b>02</b></div>
+</section>
+
+<section data-label="04 Top Routes">
+ <div class="kick">YOUR TOP THREE ROADS</div>
+ <div class="rows">
+  <div class="row"><b>01</b><span>Riverside Greenway</span><em>118 rides</em></div>
+  <div class="row"><b>02</b><span>Old Harbor Loop</span><em>74 rides</em></div>
+  <div class="row"><b>03</b><span>Hill Park Climb</span><em>51 rides</em></div>
+ </div>
+ <div class="or"><p>Total elevation gained: 21,400 m</p><b>#CYCLINGWRAPPED</b></div>
+</section>
+
+<section class="s5" data-label="05 Compare">
+ <div class="l"></div><div class="r"></div>
+ <div class="yr" style="left:100px">2025</div><div class="yr" style="right:100px;color:#000">2026</div>
+ <div class="v" style="left:70px;color:#FFE600;text-shadow:5px 5px 0 #FF8A00,10px 10px 0 #B03C00">1,960</div>
+ <div class="v" style="right:70px;color:#fff;text-shadow:5px 5px 0 #FF2E93,10px 10px 0 #2B1BFF">2,847</div>
+ <div class="d" style="left:100px">kilometers<br>ridden</div>
+ <div class="d" style="right:100px;text-align:right;color:#000">+45% more<br>kilometers</div>
+ <div class="vs">VS</div>
+ <div class="or"><p>Your best month: September · 412 km</p><b>#CYCLINGWRAPPED</b></div>
+</section>
+
+<section class="s6" data-label="06 Quote">
+ <div class="tag">!</div>
+ <q>You didn't just ride the city. You <i>rewrote the map.</i></q>
+ <div class="by">— Your 2026 cycling year, in one sentence</div>
+</section>
+
+<section class="s7" data-label="07 Closing">
+ <div class="cy"></div>
+ <div class="ring"></div>
+ <div class="kick">SEE YOU NEXT SEASON</div>
+ <div class="hash ex">THANKS<br>FOR RIDING</div>
+ <div class="or"><p>Share your wrapped and tag a friend to race</p><b>#CYCLINGWRAPPED</b></div>
+</section>
+
+</deck-stage>
+</body></html>
