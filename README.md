@@ -61,11 +61,11 @@ python3 skills/meta-slide/setup.py --force    # 새 키로 바꾸기 · --forget
 | 템플릿·인포그래픽 둘러보기 | `python3 skills/meta-slide/slide.py` (또는 `/meta-slide` 를 인자 없이) |
 | 발표 자료 만들기 | 「신사업 보고 슬라이드 만들어줘」 — 개요 점검 → 다섯 가지 고르기 → 덱 → 캡처 검사 |
 | SSH 로 붙어 있는데 내 PC 에서 보기 | `/meta-slide --local` |
-| 키 없이 만들기 | 「…슬라이드, Jev 없이」 → `--no-jev` 기본값(어두운 `cheil-dark-point`, 밝은 바탕은 `blue-professional`) |
+| 키 없이 만들기 | 「…슬라이드, Jev 없이」 → `--no-jev` 기본값(어두운 `broadside`, 밝은 바탕은 `blue-professional`) |
 
 | 고르는 것 | 후보 | 어떻게 |
 |---|---|---|
-| ① 덱 템플릿 | 231종 — 인터넷 MIT 230 + 사내 키노트 기반 `cheil-dark-point` | Jev choice — 많으면 묶음 예선 → 결승 |
+| ① 덱 템플릿 | 230종 — 인터넷 MIT | Jev choice — 많으면 묶음 예선 → 결승 |
 | ② 인포그래픽으로 보여 줄지 | 장마다 | Jev noul 0.6 이상 · 표지·간지·한 문장·요약은 제외 |
 | ③ 인포그래픽 | AntV Infographic 265종(276종 중 한글 렌더 검사 통과분) | Jev choice — 계열 → 모양 |
 | ④ 색 체계 | 161종 + 템플릿 원래 색 | Jev choice — 템플릿과 같은 바탕 밝기, 대비 기준 통과분만 |
@@ -76,7 +76,7 @@ python3 skills/meta-slide/setup.py --force    # 새 키로 바꾸기 · --forget
 ## 로컬 갤러리
 
 - `http://127.0.0.1:8766/` 에 띄우고 브라우저를 엽니다. 끄기 `Ctrl-C` · 다른 포트 `--port 9000` · 브라우저 안 열기 `--no-open`.
-- 탭 넷: **템플릿 231**(표지 썸네일 · 바탕·출처·장 구성으로 거르기 · 누르면 장 구성·색·원본 서체·만들기 명령, 「한글 서체 적용해 열기」·「원본 열기」) · **인포그래픽 265**(한글 예시로 실제 렌더) · **색 체계 161** · **한글 서체 17**.
+- 탭 넷: **템플릿 230**(표지 썸네일 · 바탕·출처·장 구성으로 거르기 · 누르면 장 구성·색·원본 서체·만들기 명령, 「한글 서체 적용해 열기」·「원본 열기」) · **인포그래픽 265**(한글 예시로 실제 렌더) · **색 체계 161** · **한글 서체 17**.
 - 실행할 때마다 `~/.cache/meta-slide/gallery/` 에 새로 만듭니다. 「한글 서체 적용해 열기」는 처음 누를 때 `~/.cache/meta-slide/preview/<id>/` 를 만듭니다.
 - **`--local`**: 원격 컴퓨터에 SSH 로 붙어 쓰는 경우, 그 컴퓨터의 Tailscale 주소(`http://<컴퓨터>.<tailnet>.ts.net:8766/`)에도 띄워 내 PC 브라우저에서 엽니다.
   - 들어올 수 있는 것은 **같은 Tailscale 계정의 기기**(내 PC·폰)뿐입니다. 같은 tailnet 의 다른 사람 기기는 403 입니다.
@@ -117,7 +117,6 @@ python3 skills/meta-slide/setup.py --force    # 새 키로 바꾸기 · --forget
 | 자원 | 출처 | 라이선스 |
 |---|---|---|
 | 덱 템플릿 230종 | codesstar/next-slide 57 · lewislulu/html-ppt-skill 50 · zarazhangrui/beautiful-html-templates 34 · Akxan/ppt-agent-skill 26 · alchaincyf/huashu-design 23 · zarazhangrui/frontend-slides 12 · archlizheng/frontend-slides-editable 11 · vigorX777/ppt-svg-generator 5 · hugohe3/ppt-master 4 · open-slide/open-slide 3 · edu-ai-builders/visual-cognition-slides 2 · FeeiCN/slide-writer 1 · nicobailon/visual-explainer 1 · WayneZhon/KingDee-PPT-Skill 1(벤토 구성만, 브랜드 표기 없음) | MIT |
-| 사내 템플릿 1종 | `cheil-dark-point` — 사내 Keynote 「전략적 Presentation 기법」의 바탕·간지·강조 방식 | 사내 |
 | 인포그래픽 | antvis/Infographic 0.2.20 | MIT |
 | 아이콘 | tabler/tabler-icons 3.49.0 | MIT |
 | 색 체계 | nextlevelbuilder/ui-ux-pro-max-skill colors.csv | MIT |
@@ -138,5 +137,5 @@ python3 skills/meta-slide/qa_infographics.py # 인포그래픽 전부 한글 렌
 python3 skills/meta-slide/build_thumbs.py    # 갤러리 표지 썸네일(data/thumbs/)
 ```
 
-- `qa_templates.py` 는 예시 글을 한글 견본으로 바꾼 뒤, 장마다 한글이 시스템 서체로 그려졌는지와 글이 장 밖으로 넘치거나 잘렸는지 봅니다. 2026-10-21 전수: 231종 2255장, 대체 서체 0 · 넘침 0.
+- `qa_templates.py` 는 예시 글을 한글 견본으로 바꾼 뒤, 장마다 한글이 시스템 서체로 그려졌는지와 글이 장 밖으로 넘치거나 잘렸는지 봅니다. 2026-10-21 전수: 당시 231종 2255장, 대체 서체 0 · 넘침 0(그중 사내 템플릿 1종 14장은 10-22 뺐습니다).
 - 템플릿을 넣거나 고친 뒤에는 그 템플릿만 다시 돌립니다: `build_index.py <id>` → `qa_templates.py <id>` → `build_thumbs.py <id>`.

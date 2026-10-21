@@ -3,7 +3,7 @@
 
   python3 build_index.py            # 전체(이미 있는 항목은 템플릿 파일이 그대로면 건너뜀)
   python3 build_index.py --force    # 전부 다시
-  python3 build_index.py neo-grid-bold cheil-dark-point
+  python3 build_index.py neo-grid-bold broadside
 
 Jev 로 나가는 것: 템플릿 예시 글(공개 MIT 템플릿·house 자리표시 글)뿐이다. Playwright(python) 필요.
 """

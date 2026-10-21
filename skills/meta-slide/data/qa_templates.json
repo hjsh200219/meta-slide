@@ -79,16 +79,6 @@
   "sheet": "cartesian/shots/sheet.png",
   "detail": []
  },
- "cheil-dark-point": {
-  "shots": 14,
-  "fallback_slides": [],
-  "fallback_fonts": [],
-  "overflow_slides": [],
-  "overflow_kinds": [],
-  "note": null,
-  "sheet": "cheil-dark-point/shots/sheet.png",
-  "detail": []
- },
  "cobalt-grid": {
   "shots": 8,
   "fallback_slides": [],

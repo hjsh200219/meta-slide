@@ -5,11 +5,11 @@ description: 발표 자료(슬라이드·PPT·덱)를 만들 때, 사내 「전�
 
 # meta-slide
 
-**원칙 정본 `data/principles.md`** — 사내 Keynote PDF 「전략적 Presentation 기법」(Slack EDB `F0CAQJP6PLK`, 373쪽) 요약, 쪽 번호 포함. 장 구성은 모두 이 원칙을 기준으로 한다. 작업 전에 읽는다.
+**원칙 정본 `data/principles.md`**(원칙만 — 그 PDF 의 바탕·색·서체·레이아웃은 옮기지 않는다. 디자인은 아래 인터넷 템플릿·색 체계·서체에서 고른다) — 사내 Keynote PDF 「전략적 Presentation 기법」(Slack EDB `F0CAQJP6PLK`, 373쪽) 요약, 쪽 번호 포함. 장 구성은 모두 이 원칙을 기준으로 한다. 작업 전에 읽는다.
 
 | 무엇 | 어디 | 출처·라이선스 |
 |---|---|---|
-| 덱 템플릿 | `data/templates/<slug>/`(인터넷) · `data/house/<slug>/`(사내 키노트 기반 `cheil-dark-point`) · 표지 썸네일 `data/thumbs/` | 저장소마다 MIT — 접두어 있는 196종은 각 폴더 `LICENSE`·`template.json` 의 `source`, 접두어 없는 beautiful-html-templates 34종은 `data/templates/LICENSE`·`SOURCE.md` 한 벌 |
+| 덱 템플릿 | `data/templates/<slug>/`(인터넷 230종) · 표지 썸네일 `data/thumbs/` | 저장소마다 MIT — 접두어 있는 196종은 각 폴더 `LICENSE`·`template.json` 의 `source`, 접두어 없는 beautiful-html-templates 34종은 `data/templates/LICENSE`·`SOURCE.md` 한 벌 |
 | 장 레이아웃 색인 | `data/index.json` | `build_index.py`(장마다 Jev 로 레이아웃 16종 표시) |
 | 인포그래픽 | `data/infographics/`(런타임 `infographic.min.js` · 목록 `catalog.json` 276종 중 쓸 수 있는 265종 · 예시 `examples.json`) | AntV Infographic 0.2.20 (MIT) · 아이콘 Tabler 3.49.0 (MIT) |
 | 색 체계 | `data/colors.json` 161종(밝은 125 · 어두운 36) | ui-ux-pro-max-skill colors.csv (MIT) |
@@ -34,7 +34,7 @@ Windows 는 `python3` 대신 `python`(또는 `py`)으로 부른다. 경로·인�
 
 ### `/meta-slide` 를 인자 없이 — 로컬 갤러리
 
-- `python3 $S` 를 **백그라운드로** 실행하고(서버가 계속 떠 있어야 한다) 찍힌 주소를 알린다. `http://127.0.0.1:8766/` — 탭 넷: 템플릿 231(표지 썸네일·바탕·출처·장 구성 거르기, 누르면 장 구성·색·원본 서체·「한글 서체 적용해 열기」·「원본 열기」·만들기 명령) · 인포그래픽 265(한글 예시로 실제 렌더) · 색 체계 161 · 한글 서체 17. 끄기 Ctrl-C · `--port` · `--no-open`.
+- `python3 $S` 를 **백그라운드로** 실행하고(서버가 계속 떠 있어야 한다) 찍힌 주소를 알린다. `http://127.0.0.1:8766/` — 탭 넷: 템플릿 230(표지 썸네일·바탕·출처·장 구성 거르기, 누르면 장 구성·색·원본 서체·「한글 서체 적용해 열기」·「원본 열기」·만들기 명령) · 인포그래픽 265(한글 예시로 실제 렌더) · 색 체계 161 · 한글 서체 17. 끄기 Ctrl-C · `--port` · `--no-open`.
 - 페이지는 매번 `~/.cache/meta-slide/gallery/` 에 다시 만든다. 「한글 서체 적용해 열기」는 처음 누를 때 `new`(기본 서체 Pretendard)로 `~/.cache/meta-slide/preview/<id>/` 를 만든다.
 - **`--local`**(사용자가 SSH 로 이 컴퓨터에 붙어 쓸 때 — 「내 PC 에서」·「로컬로」): `python3 $S --local` 을 백그라운드로 띄우면 127.0.0.1 과 이 컴퓨터의 Tailscale 주소에 함께 연다. **같은 Tailscale 계정 기기만** 들어오고(다른 사람 기기 403, Host 머리글 검사), 2시간 요청이 없으면 스스로 꺼진다. 출력 끝의 `LOCAL_URL=` 을 사용자 PC 크롬에서 연다 — claude-in-chrome `navigate(LOCAL_URL)`. 여러 브라우저가 붙어 있으면 `LOCAL_BROWSER=`(짝지은 PC 크롬 deviceId)로 `select_browser` 한 뒤 연다. 그 브라우저가 연결돼 있지 않으면 **다른 브라우저에 열지 말고** `LOCAL_URL` 을 링크로 답한다(이 컴퓨터의 브라우저에 열면 사용자가 못 본다). 포트를 다른 프로그램이 쓰면 다음 포트로 옮겨 그 주소를 찍는다. Tailscale 이 없으면 `--local` 은 열리지 않는다(오류 문구 그대로 알린다).
 
@@ -44,7 +44,7 @@ Windows 는 `python3` 대신 `python`(또는 `py`)으로 부른다. 경로·인�
 - 키가 없다는 오류(`JEV_API_KEY 없음`)가 나면 `/meta-slide:setup` 을 안내하거나 실행한다. **키를 채팅으로 받지 않는다** — `setup.py` 가 터미널이면 화면에 안 찍히는 입력, 아니면 OS 입력 창으로 받고, Jev 에 작은 질문 1번으로 확인한 뒤에만 저장한다. SSH 로 붙어 있으면 입력 창이 원격 화면에 떠서 못 보므로 사용자가 SSH 터미널에서 `python3 <이 스킬 폴더>/setup.py` 를 직접 실행한다.
 - 키 없이도 `--no-jev`(기본 템플릿·색·서체)로 덱을 만들 수 있다.
 
-⛔ `pick`·`outline --jev` 는 개요 글을 Jev(api.typesafe.ai)로 보낸다. 미공개 실적·개인정보·고객사 기밀이 든 개요는 `--no-jev`(기본값: 어두운 `cheil-dark-point`, `--scheme light` → `blue-professional`) 로 고르거나 사용자에게 `--template`·`--color` 를 받는다. `data/principles.md` 원문도 Jev 로 보내지 않는다. 인포그래픽은 장 안에서 로컬로만 렌더한다 — `meta-slide-ig.js` 가 AntV 기본 동작(아이콘을 weavefox.cn 검색 API 로, 서체를 antgroup CDN 에서)을 막고 로컬 Tabler 아이콘·덱 서체를 쓴다.
+⛔ `pick`·`outline --jev` 는 개요 글을 Jev(api.typesafe.ai)로 보낸다. 미공개 실적·개인정보·고객사 기밀이 든 개요는 `--no-jev`(기본값: 어두운 `broadside`, `--scheme light` → `blue-professional`) 로 고르거나, 개요 대신 수치·이름을 뺀 짧은 요약(누가·누구에게·어떤 분위기·화면 캡처가 많은지)만 담은 개요로 `pick` 하거나 사용자에게 `--template`·`--color` 를 받는다. `data/principles.md` 원문도 Jev 로 보내지 않는다. 인포그래픽은 장 안에서 로컬로만 렌더한다 — `meta-slide-ig.js` 가 AntV 기본 동작(아이콘을 weavefox.cn 검색 API 로, 서체를 antgroup CDN 에서)을 막고 로컬 Tabler 아이콘·덱 서체를 쓴다.
 
 ## 순서 — 원칙의 「일하는 순서」 + 다섯 가지 고르기
 
@@ -88,6 +88,6 @@ Windows 는 `python3` 대신 `python`(또는 `py`)으로 부른다. 경로·인�
 ## 템플릿·자원 추가
 
 - 인터넷 템플릿: `template.html` + `template.json`(slug·name·tagline·mood·occasion·tone·formality·density·scheme·palette·typography·best_for·avoid_for·source) + 원본 `LICENSE` 를 `data/templates/<접두어>-<slug>/` 에 넣고 `python3 build_index.py <slug>` → `python3 qa_templates.py <slug>`(한글 견본 글로 캡처해 대체 서체·넘침이 0 인지). 16:9·5장 이상·키보드 → 로 넘어감·원격 스크립트 없음·중국어 서체 없음. AGPL 등 사내 재배포가 곤란한 라이선스는 넣지 않는다(op7418/guizang-ppt-skill AGPL-3.0 제외).
-- 사내 템플릿: 실제 키노트·PPT 에서 바탕·간지·강조 방식만 옮겨 `data/house/<slug>/` 에 자리표시 글로(실제 내용·고객명 금지), `"source"`·`"house": true`.
+- 사내 템플릿은 두지 않는다. 원칙 자료(사내 Keynote PDF)의 바탕·색·서체·장식을 템플릿으로 옮기지 않는다(2026-10-22 사용자 지시 — 그렇게 만든 `cheil-dark-point` 를 뺐다).
 - 인포그래픽: AntV 판을 올리면 `build_infographics.py <antv package> <tabler package>` → `qa_infographics.py`(한글 예시로 전부 렌더해 영문 고정 문구·실패 표시).
 - 색 체계: `build_colors.py <colors.csv>`.

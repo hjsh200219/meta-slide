@@ -3,7 +3,7 @@
 
   python3 slide.py [--local] [--port 8766] [--no-open]       # 인자 없이 = 로컬 갤러리(템플릿·인포그래픽·색·서체) — serve.py
                                                            #   --local: SSH 로 붙은 내 PC 브라우저에서 열 주소(Tailscale)
-  python3 slide.py templates [--json]                      # 템플릿 목록(인터넷 MIT 230종 + 사내 키노트 기반 house)
+  python3 slide.py templates [--json]                      # 템플릿 목록(인터넷 MIT 230종)
   python3 slide.py layouts <템플릿>                         # 그 템플릿의 장(슬라이드)별 레이아웃 종류
   python3 slide.py pick <브리프|개요.md|-> [--n 3] [--scheme light|dark] [--template id] [--exclude a,b]
                           [--title-font id] [--body-font id] [--series 이름] [--no-jev] [--json]
@@ -31,7 +31,8 @@ TEMPLATE_DIRS = (os.path.join(DATA, "house"), os.path.join(DATA, "templates"))
 INDEX_PATH = os.path.join(DATA, "index.json")  # build_index.py 가 만든다(레이아웃·한국어 요약)
 FONTS_PATH = os.path.join(DATA, "fonts.json")
 HISTORY_PATH = os.environ.get("META_SLIDE_HISTORY", os.path.expanduser("~/.local/share/meta-slide/history.jsonl"))
-DEFAULT_TEMPLATE = {"light": "blue-professional", "dark": "cheil-dark-point", "mixed": "signal", None: "cheil-dark-point"}
+# 원칙 PDF 는 원칙만 쓴다 — 그 자료의 바탕·색·서체를 본뜬 템플릿은 두지 않는다(2026-10-22 사용자 지시). 기본값도 인터넷 MIT 템플릿.
+DEFAULT_TEMPLATE = {"light": "blue-professional", "dark": "broadside", "mixed": "signal", None: "broadside"}
 DEFAULT_FONTS = ("pretendard", "pretendard")
 HANGUL = re.compile(r"[가-힣]")
 
@@ -130,7 +131,7 @@ def load_index():
 
 
 def load_templates():
-    """slug → 메타. house(사내 키노트 기반)가 먼저, 그다음 인터넷 템플릿. index.json 의 한국어 요약·레이아웃을 합친다."""
+    """slug → 메타. house(사내 템플릿 — 지금은 없음)가 먼저, 그다음 인터넷 템플릿. index.json 의 한국어 요약·레이아웃을 합친다."""
     idx = load_index()
     out = {}
     for base in TEMPLATE_DIRS:
@@ -200,7 +201,7 @@ def series_hit(series, history):
 
 
 def keyword_pick(text, templates, scheme=None):
-    """Jev 를 못 쓸 때: 바탕 지정 > house 기본값."""
+    """Jev 를 못 쓸 때: 바탕 지정 > 기본값(인터넷 MIT 템플릿)."""
     slug = DEFAULT_TEMPLATE.get(scheme) or DEFAULT_TEMPLATE[None]
     return slug if slug in templates else next(iter(templates))
 

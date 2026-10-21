@@ -234,7 +234,7 @@ class NewDeck(unittest.TestCase):
         d = tempfile.mkdtemp()
         try:
             dest = os.path.join(d, "deck")
-            slide.cmd_new([dest, "--template", "cheil-dark-point", "--color", "financial-dashboard",
+            slide.cmd_new([dest, "--template", "broadside", "--color", "financial-dashboard",
                            "--title-font", "pretendard", "--body-font", "noto-sans-kr"])
             html = _read(os.path.join(dest, "deck.html"))
             self.assertIn('lang="ko"', html)
@@ -246,7 +246,7 @@ class NewDeck(unittest.TestCase):
             meta = json.loads(_read(os.path.join(dest, "meta-slide.json")))
             self.assertEqual(meta["color"], "financial-dashboard")
             self.assertGreater(meta["recolored"], 0)
-            for f in ("deck-stage.js", "meta-slide.js", "infographics/infographic.min.js", "infographics/icons.js"):
+            for f in ("meta-slide.js", "infographics/infographic.min.js", "infographics/icons.js"):  # deck-stage.js 는 그 런타임을 쓰는 템플릿만
                 self.assertTrue(os.path.exists(os.path.join(dest, f)), f)
         finally:
             shutil.rmtree(d)
