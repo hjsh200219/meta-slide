@@ -161,10 +161,12 @@ def main(argv):
 
 def serve_local(root, port):
     """127.0.0.1 + Tailscale IP 두 입구. 포트는 고정이어야 PC 가 늘 같은 주소로 연다 — 옛 갤러리가 잡고 있으면 끄고 연다."""
-    ip, dns, hosts, peers = localnet.allowlist(localnet.tailscale_status())
-    if ip is None:
-        print("tailscale 상태를 읽지 못해 --local 입구를 열지 않았습니다(tailscale status 확인)", file=sys.stderr)
+    status = localnet.tailscale_status()
+    why = localnet.refuse_reason(status)
+    if why:
+        print(f"--local 입구를 열지 않았습니다 — {why}", file=sys.stderr)
         return 1
+    ip, dns, hosts, peers = localnet.allowlist(status)
     pidfile = os.path.join(root, "serve.pid")
     port = localnet.pick_port(port, pidfile)
     if port is None:

@@ -181,6 +181,19 @@ class Gallery(unittest.TestCase):
         self.assertTrue(g.allowed("127.0.0.1", "127.0.0.1:8766"))
         self.assertFalse(localnet.Gate(8766).allowed("100.2.2.2", "127.0.0.1:8766"))  # --local 아니면 밖에서 못 들어옴
 
+    def test_tagged_nodes(self):  # 태그 기기는 tailnet 공용 UserID 를 함께 쓴다 — 같은 계정으로 보지 않는다
+        import localnet
+        peers = {"t": {"UserID": 1, "TailscaleIPs": ["100.4.4.4"], "Tags": ["tag:server"]},
+                 "a": {"UserID": 1, "TailscaleIPs": ["100.2.2.2"]}}
+        tagged_self = {"Self": {"UserID": 1, "TailscaleIPs": ["100.1.1.1"], "Tags": ["tag:server"]}, "Peer": peers}
+        self.assertTrue(localnet.refuse_reason(tagged_self))
+        self.assertIsNone(localnet.allowlist(tagged_self)[0])
+        ok = {"Self": {"UserID": 1, "TailscaleIPs": ["100.1.1.1"]}, "Peer": peers}
+        self.assertIsNone(localnet.refuse_reason(ok))
+        self.assertNotIn("100.4.4.4", localnet.allowlist(ok)[3])
+        self.assertIn("100.2.2.2", localnet.allowlist(ok)[3])
+        self.assertTrue(localnet.refuse_reason({}))
+
     def test_build_page(self):
         import serve
         d = tempfile.mkdtemp()

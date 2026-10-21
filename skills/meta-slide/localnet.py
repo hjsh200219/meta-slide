@@ -36,8 +36,24 @@ def tailscale_status():
     return {}
 
 
+def refuse_reason(status):
+    """--local 을 열면 안 되는 이유(없으면 None). 태그 기기는 사람 계정이 아니라 tailnet 공용 「tagged-devices」 UserID 를
+    함께 쓰므로, 이 기기에 태그가 있으면 「같은 계정」 판단이 다른 사람의 태그 기기까지 통과시킨다 — 열지 않는다(fail-closed)."""
+    me = status.get("Self") or {}
+    if not me:
+        return "tailscale 상태를 읽지 못했습니다(tailscale status 확인)"
+    if me.get("Tags"):
+        return "이 기기에 Tailscale 태그가 있어 같은 계정 기기만 받는 관문을 만들 수 없습니다 — 태그 없는 기기에서 실행하세요"
+    if me.get("UserID") is None or not [ip for ip in me.get("TailscaleIPs") or [] if ":" not in ip]:
+        return "이 기기의 Tailscale 계정·주소를 읽지 못했습니다(tailscale status 확인)"
+    return None
+
+
 def allowlist(status):
-    """`tailscale status --json` → (내 IPv4, 내 tailnet 이름, Host 로 받을 이름·IP, 들어올 수 있는 IP). 못 읽으면 (None, None, set(), set())."""
+    """`tailscale status --json` → (내 IPv4, 내 tailnet 이름, Host 로 받을 이름·IP, 들어올 수 있는 IP). 열면 안 되면 (None, None, set(), set()).
+    들어올 수 있는 IP = 이 기기와 UserID 가 같고 태그가 없는 기기(본인 PC·폰)와 이 기기 자신."""
+    if refuse_reason(status):
+        return None, None, set(), set()
     me = status.get("Self") or {}
     uid = me.get("UserID")
     ips = [ip for ip in me.get("TailscaleIPs") or [] if ":" not in ip]
@@ -47,7 +63,7 @@ def allowlist(status):
     hosts = {ips[0]} | ({dns, dns.split(".")[0]} if dns else set())
     peers = set(me.get("TailscaleIPs") or [])
     for peer in (status.get("Peer") or {}).values():
-        if peer.get("UserID") == uid:
+        if peer.get("UserID") == uid and not peer.get("Tags"):  # 태그 기기는 공용 UserID — 넣지 않는다
             peers |= set(peer.get("TailscaleIPs") or [])
     return ips[0], dns, hosts, peers
 
