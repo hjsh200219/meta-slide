@@ -108,7 +108,7 @@ python3 skills/meta-slide/setup.py --force    # 새 키로 바꾸기 · --forget
 
 ## 외부 전송
 
-- Jev(api.typesafe.ai)로 나가는 것: `pick`·`outline --jev` 의 개요 글, `build_index.py` 의 템플릿 예시 글, `setup.py` 의 키 확인용 짧은 문장. 원칙 문서 원문은 보내지 않습니다. 미공개 자료는 `--no-jev`.
+- Jev(api.typesafe.ai)로 나가는 것: `pick`·`outline --jev` 의 개요 글, `build_index.py` 의 템플릿 예시 글, `setup.py` 의 키 확인용 짧은 문장. 원칙 문서 원문은 보내지 않습니다. 개요에 사내 수치가 있어도 Jev 를 씁니다(같은 내용이 Claude 로도 가므로). `--no-jev` 는 키가 없을 때나 Jev 없이 하라고 할 때만.
 - 인포그래픽은 로컬에서 렌더합니다. AntV 기본 동작(아이콘을 weavefox.cn 검색 API 로, 서체를 antgroup CDN 에서)은 `meta-slide-ig.js` 가 막습니다.
 - 덱·갤러리는 웹 서체 CSS(fonts.googleapis.com · cdn.jsdelivr.net)를 불러옵니다.
 

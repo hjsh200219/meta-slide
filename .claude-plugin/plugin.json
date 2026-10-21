@@ -1,6 +1,6 @@
 {
   "name": "meta-slide",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "발표 자료를 사내 「전략적 Presentation 기법」 원칙대로 — Jev 가 덱 템플릿(인터넷 MIT 230종)·인포그래픽(AntV 265종)·색 체계(161종)·한글 서체(17종)를 내용에 맞춰 고르고, 덱을 만들어 장마다 캡처·자동 검사까지.",
   "author": { "name": "EDB Data Biz" },
   "license": "UNLICENSED",

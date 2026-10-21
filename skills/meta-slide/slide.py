@@ -13,7 +13,7 @@
   python3 slide.py record <덱폴더> [--series 이름] [--title 제목]        # 이력(비슷한 자료는 같은 템플릿)
   python3 slide.py history | fonts
 
-원칙 정본은 data/principles.md. Jev 로는 브리프·개요 글만 나간다(api.typesafe.ai) — 미공개·개인정보 자료는 --no-jev.
+원칙 정본은 data/principles.md. Jev 로는 브리프·개요 글만 나간다(api.typesafe.ai). --no-jev 는 키가 없거나 사용자가 Jev 없이 하라고 할 때만.
 표준 라이브러리만 쓴다. shots 만 Playwright(python) 와 Pillow 가 필요하다.
 """
 import json

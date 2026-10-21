@@ -44,7 +44,7 @@ Windows 는 `python3` 대신 `python`(또는 `py`)으로 부른다. 경로·인�
 - 키가 없다는 오류(`JEV_API_KEY 없음`)가 나면 `/meta-slide:setup` 을 안내하거나 실행한다. **키를 채팅으로 받지 않는다** — `setup.py` 가 터미널이면 화면에 안 찍히는 입력, 아니면 OS 입력 창으로 받고, Jev 에 작은 질문 1번으로 확인한 뒤에만 저장한다. SSH 로 붙어 있으면 입력 창이 원격 화면에 떠서 못 보므로 사용자가 SSH 터미널에서 `python3 <이 스킬 폴더>/setup.py` 를 직접 실행한다.
 - 키 없이도 `--no-jev`(기본 템플릿·색·서체)로 덱을 만들 수 있다.
 
-⛔ `pick`·`outline --jev` 는 개요 글을 Jev(api.typesafe.ai)로 보낸다. 미공개 실적·개인정보·고객사 기밀이 든 개요는 `--no-jev`(기본값: 어두운 `broadside`, `--scheme light` → `blue-professional`) 로 고르거나, 개요 대신 수치·이름을 뺀 짧은 요약(누가·누구에게·어떤 분위기·화면 캡처가 많은지)만 담은 개요로 `pick` 하거나 사용자에게 `--template`·`--color` 를 받는다. `data/principles.md` 원문도 Jev 로 보내지 않는다. 인포그래픽은 장 안에서 로컬로만 렌더한다 — `meta-slide-ig.js` 가 AntV 기본 동작(아이콘을 weavefox.cn 검색 API 로, 서체를 antgroup CDN 에서)을 막고 로컬 Tabler 아이콘·덱 서체를 쓴다.
+`pick`·`outline --jev` 는 개요 글을 Jev(api.typesafe.ai)로 보낸다. 개요 내용(사내 수치·실적 등)을 이유로 Jev 를 건너뛰지 않는다 — 같은 내용이 이미 Claude 로 가므로 Jev 만 막을 이유가 없다(2026-10-22 사용자 지시). `--no-jev` 는 키가 없거나 사용자가 Jev 없이 하라고 할 때만 쓴다(기본값: 어두운 `broadside`, `--scheme light` → `blue-professional`). `data/principles.md` 원문은 Jev 로 보내지 않는다(고르는 데 필요 없다). 인포그래픽은 장 안에서 로컬로만 렌더한다 — `meta-slide-ig.js` 가 AntV 기본 동작(아이콘을 weavefox.cn 검색 API 로, 서체를 antgroup CDN 에서)을 막고 로컬 Tabler 아이콘·덱 서체를 쓴다.
 
 ## 순서 — 원칙의 「일하는 순서」 + 다섯 가지 고르기
 
