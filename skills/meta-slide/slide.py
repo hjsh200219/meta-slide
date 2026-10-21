@@ -379,17 +379,21 @@ def ig_palette(t, text, system=None):
 
 IG_DIR = os.path.join(DATA, "infographics")
 IG_MIN = 0.6  # 「인포그래픽으로 보여 주면 더 잘 전달되는가」 예 확률이 이 이상인 장만
+IG_MIN_ASPECT = 1.3  # 인포그래픽 그림의 가로/세로 비율 하한(가로 장 기준)
 
 
 def load_ig():
     return json.loads(_read(os.path.join(IG_DIR, "catalog.json")))
 
 
-def ig_families(cat, usable_only=True):
-    """계열 → 모양 목록. usable_only 면 qa_infographics.py 가 ok 로 본 것만(영문 고정 문구·렌더 실패 제외)."""
+def ig_families(cat, usable_only=True, min_aspect=None):
+    """계열 → 모양 목록. usable_only 면 qa_infographics.py 가 ok 로 본 것만(영문 고정 문구·렌더 실패 제외).
+    min_aspect 면 그림 가로/세로 비율(qa_infographics.py 실측 aspect)이 그보다 작은 모양은 뺀다 — 모양이 하나도 안 남는 계열은 사라진다."""
     fam = {}
     for name, v in cat.items():
         if usable_only and v.get("qa", "ok") != "ok":
+            continue
+        if min_aspect and (v.get("aspect") or 0) < min_aspect:
             continue
         fam.setdefault(v["family"], {"desc": v["desc"].split(" · 모양")[0], "names": []})["names"].append(name)
     return fam
@@ -630,6 +634,7 @@ META_CSS = """/* meta-slide — 한글 서체·줄바꿈·자간 (principles.md:
 /* deck-stage 는 :host 에 시스템 서체를 걸어 장들이 body 서체를 못 물려받는다 — 바깥에서 덮는다 */
 deck-stage { font-family: %(deck)s; }
 body, body * { word-break: keep-all; overflow-wrap: break-word; line-break: strict; }
+.ms-ig foreignObject * { word-break: keep-all !important; }  /* AntV 가 글 칸에 break-all 을 박아 단어 중간에서 끊는다 */
 button, input, select, textarea { font-family: inherit; }  /* 양식 요소는 서체를 물려받지 않는다(브라우저 기본 서체 → 한글이 시스템 서체로) */
 """
 
@@ -927,7 +932,7 @@ def jev_slide_checks(slides, meta, layouts_avail=None, template=None):
     · ② 인포그래픽으로 보여 줄 만한가(noul) · ③ 어느 인포그래픽 계열(choice) → 그 계열 안 모양(choice, 둘째 호출). 장끼리 병렬."""
     jev = load_jev()
     cat = load_ig()
-    fams = ig_families(cat)
+    fams = ig_families(cat, min_aspect=IG_MIN_ASPECT)  # 16:9 장 — 세로로 긴 모양은 작게 그려져 못 읽는다(10-22 AX 덱 세로 타임라인)
     fam_opts = {k: f"{v['desc']} ({len(v['names'])}종)" for k, v in fams.items()}
     style = f"{template['name']} — {template.get('tagline', '')}" if template else ""
     opts = {k: v for k, v in LAYOUTS.items() if (not layouts_avail or k in layouts_avail)}
@@ -953,6 +958,8 @@ def jev_slide_checks(slides, meta, layouts_avail=None, template=None):
             text_first = {"cover", "divider", "statement", "quote", "summary", "closing", "agenda", "number"}
             if s["tag"] in text_first or (not s["tag"] and lay in text_first - {"number"}):
                 ig_p = out["infographic"] = None  # 글이 주인공인 장 — 원칙: 한 줄 메시지·요약은 글로
+            if s["tag"] == "image":
+                ig_p = out["infographic"] = None  # 화면·사진이 주인공인 장 — 인포그래픽으로 바꾸면 증거가 사라진다
             if ig_p is not None and ig_p >= IG_MIN and fam in fams:
                 names = fams[fam]["names"]
                 if len(names) == 1:
@@ -1031,6 +1038,9 @@ def cmd_outline(argv):
     if mapping:
         print(f"\n[장 레이아웃 → {tpl['slug']} 의 몇 번 장을 복제할지]")
         for m in mapping:
+            if m["use"] is None:  # 템플릿에 그 레이아웃도 대체할 장도 없다 — 같은 서체·색·장식 어휘로 새로 그린다
+                print(f"  {m['n']:>2}. {m['want']} ← 템플릿에 없음 — 같은 어휘로 새로 그림")
+                continue
             alt = "" if m["want"] == m["use"] else f" (원함 {m['want']} → 대체)"
             print(f"  {m['n']:>2}. {m['use']} ← 템플릿 {m['template_slide']}번 「{m['label']}」{alt}")
     if judged:
@@ -1108,8 +1118,27 @@ CHECK_JS = r"""() => {
       el.setAttribute('data-ms-k', String(k++)); ko.push({t: t.slice(0, 30), sym});
     }
   }
+  // 인포그래픽 가독성 — 가장 작은 글자(화면 px)·글끼리 겹침·칸을 넘친 글. 세로로 길거나 항목이 많은 모양은 장에서 작게 그려진다(10-22 AX 덱)
+  for (const ig of document.querySelectorAll('.ms-ig')) {
+    const svg = ig.querySelector('svg'); if (!svg || !svg.viewBox || !svg.viewBox.baseVal.width) continue;
+    const box = svg.getBoundingClientRect(); if (box.right <= 1 || box.bottom <= 1 || box.left >= W - 1 || box.top >= H - 1 || box.width < 1) continue;  // 지금 장에 보이는 것만
+    const vb = svg.viewBox.baseVal, sc = Math.min(box.width / vb.width, box.height / vb.height);
+    const name = ((ig.querySelector('script') || {}).textContent || '').trim().split('\n')[0].replace('infographic ', '');
+    const rs = [...svg.querySelectorAll('*')].filter(e => e.children.length === 0 && e.textContent.trim()).map(e => {
+      const rg = document.createRange(); rg.selectNodeContents(e); const b = rg.getBoundingClientRect(), bb = e.getBoundingClientRect();
+      return {px: parseFloat(getComputedStyle(e).fontSize) * sc, b, spill: bb.height > 0 && b.height > bb.height + 3}; });
+    if (!rs.length) continue;
+    const minpx = Math.min(...rs.map(x => x.px));
+    if (minpx < IG_MIN_PX) out.push({kind: 'ig-small', text: `${name} 가장 작은 글자 ${Math.round(minpx)}px`});
+    let over = rs.filter(x => x.spill).length;
+    for (let i = 0; i < rs.length; i++) for (let j = i + 1; j < rs.length; j++) {
+      const a = rs[i].b, c = rs[j].b, w = Math.min(a.right, c.right) - Math.max(a.left, c.left), h = Math.min(a.bottom, c.bottom) - Math.max(a.top, c.top);
+      if (w > 2 && h > 2 && w * h > 0.15 * Math.min(a.width * a.height, c.width * c.height)) over++;
+    }
+    if (over) out.push({kind: 'ig-overlap', text: `${name} 겹치거나 넘친 글 ${over}곳`});
+  }
   return {issues: out, ko};
-}"""
+}""".replace("IG_MIN_PX", "20")  # 1920 캔버스 기준 — 발표 화면에서 읽히는 하한
 
 
 def contact_sheet(paths, out, cols=4, width=480):
@@ -1282,7 +1311,7 @@ def cmd_ig(argv):
     """인포그래픽: 인자 없으면 계열 목록, 계열이면 그 모양 목록, 템플릿 이름이면 문법 예시."""
     args = positional(argv)
     cat = load_ig()
-    fams = ig_families(cat)
+    fams = ig_families(cat, min_aspect=IG_MIN_ASPECT)  # 16:9 장 — 세로로 긴 모양은 작게 그려져 못 읽는다(10-22 AX 덱 세로 타임라인)
     if not args:
         for k, v in sorted(fams.items(), key=lambda kv: -len(kv[1]["names"])):
             print(f"{k:30s} {len(v['names']):>3}종  {v['desc']}")

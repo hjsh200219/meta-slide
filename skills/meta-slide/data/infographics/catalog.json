@@ -3,1689 +3,1965 @@
   "family": "chart-bar",
   "field": "values",
   "desc": "가로 막대 그래프 — 항목별 크기 비교 · 모양: plain text",
+  "aspect": 2.04,
   "qa": "ok"
  },
  "chart-column-simple": {
   "family": "chart-column",
   "field": "values",
   "desc": "세로 막대 그래프 — 항목별 크기 비교 · 모양: simple",
+  "aspect": 0.95,
   "qa": "ok"
  },
  "chart-line-plain-text": {
   "family": "chart-line",
   "field": "values",
   "desc": "선 그래프 — 시간에 따른 추이 · 모양: plain text",
+  "aspect": 1.25,
   "qa": "ok"
  },
  "chart-pie-compact-card": {
   "family": "chart-pie",
   "field": "values",
   "desc": "원 그래프 — 전체 중 비중 · 모양: compact card",
+  "aspect": 1.82,
   "qa": "ok"
  },
  "chart-pie-donut-compact-card": {
   "family": "chart-pie",
   "field": "values",
   "desc": "원 그래프 — 전체 중 비중 · 모양: donut compact card",
+  "aspect": 1.82,
   "qa": "ok"
  },
  "chart-pie-donut-pill-badge": {
   "family": "chart-pie",
   "field": "values",
   "desc": "원 그래프 — 전체 중 비중 · 모양: donut pill badge",
+  "aspect": 1.53,
   "qa": "ok"
  },
  "chart-pie-donut-plain-text": {
   "family": "chart-pie",
   "field": "values",
   "desc": "원 그래프 — 전체 중 비중 · 모양: donut plain text",
+  "aspect": 1.56,
   "qa": "ok"
  },
  "chart-pie-pill-badge": {
   "family": "chart-pie",
   "field": "values",
   "desc": "원 그래프 — 전체 중 비중 · 모양: pill badge",
+  "aspect": 1.53,
   "qa": "ok"
  },
  "chart-pie-plain-text": {
   "family": "chart-pie",
   "field": "values",
   "desc": "원 그래프 — 전체 중 비중 · 모양: plain text",
+  "aspect": 1.56,
   "qa": "ok"
  },
  "chart-wordcloud": {
   "family": "chart-wordcloud",
   "field": "values",
   "desc": "워드 클라우드 — 키워드 빈도",
+  "aspect": 1.21,
   "qa": "ok"
  },
  "chart-wordcloud-rotate": {
   "family": "chart-wordcloud",
   "field": "values",
   "desc": "워드 클라우드 — 키워드 빈도 · 모양: rotate",
+  "aspect": 1.21,
   "qa": "ok"
  },
  "compare-binary-horizontal-badge-card-arrow": {
   "family": "compare-binary",
   "field": "compares",
   "desc": "두 쪽 비교 — A 안 vs B 안, 전후, 장단점(뿌리 정확히 2개) · 모양: horizontal badge card arrow",
-  "qa": "fixed_latin",
   "fixed_latin": [
    "ProsCons"
-  ]
+  ],
+  "aspect": 2.64,
+  "qa": "fixed_latin"
  },
  "compare-binary-horizontal-badge-card-fold": {
   "family": "compare-binary",
   "field": "compares",
   "desc": "두 쪽 비교 — A 안 vs B 안, 전후, 장단점(뿌리 정확히 2개) · 모양: horizontal badge card fold",
-  "qa": "fixed_latin",
   "fixed_latin": [
    "PROSCONS"
-  ]
+  ],
+  "aspect": 1.97,
+  "qa": "fixed_latin"
  },
  "compare-binary-horizontal-badge-card-vs": {
   "family": "compare-binary",
   "field": "compares",
   "desc": "두 쪽 비교 — A 안 vs B 안, 전후, 장단점(뿌리 정확히 2개) · 모양: horizontal badge card vs",
+  "aspect": 2.23,
   "qa": "ok"
  },
  "compare-binary-horizontal-compact-card-arrow": {
   "family": "compare-binary",
   "field": "compares",
   "desc": "두 쪽 비교 — A 안 vs B 안, 전후, 장단점(뿌리 정확히 2개) · 모양: horizontal compact card arrow",
-  "qa": "fixed_latin",
   "fixed_latin": [
    "ProsCons"
-  ]
+  ],
+  "aspect": 3.17,
+  "qa": "fixed_latin"
  },
  "compare-binary-horizontal-compact-card-fold": {
   "family": "compare-binary",
   "field": "compares",
   "desc": "두 쪽 비교 — A 안 vs B 안, 전후, 장단점(뿌리 정확히 2개) · 모양: horizontal compact card fold",
-  "qa": "fixed_latin",
   "fixed_latin": [
    "PROSCONS"
-  ]
+  ],
+  "aspect": 1.97,
+  "qa": "fixed_latin"
  },
  "compare-binary-horizontal-compact-card-vs": {
   "family": "compare-binary",
   "field": "compares",
   "desc": "두 쪽 비교 — A 안 vs B 안, 전후, 장단점(뿌리 정확히 2개) · 모양: horizontal compact card vs",
+  "aspect": 2.69,
   "qa": "ok"
  },
  "compare-binary-horizontal-simple-arrow": {
   "family": "compare-binary",
   "field": "compares",
   "desc": "두 쪽 비교 — A 안 vs B 안, 전후, 장단점(뿌리 정확히 2개) · 모양: horizontal simple arrow",
-  "qa": "fixed_latin",
   "fixed_latin": [
    "ProsCons"
-  ]
+  ],
+  "aspect": 3.53,
+  "qa": "fixed_latin"
  },
  "compare-binary-horizontal-simple-fold": {
   "family": "compare-binary",
   "field": "compares",
   "desc": "두 쪽 비교 — A 안 vs B 안, 전후, 장단점(뿌리 정확히 2개) · 모양: horizontal simple fold",
-  "qa": "fixed_latin",
   "fixed_latin": [
    "PROSCONS"
-  ]
+  ],
+  "aspect": 1.97,
+  "qa": "fixed_latin"
  },
  "compare-binary-horizontal-simple-vs": {
   "family": "compare-binary",
   "field": "compares",
   "desc": "두 쪽 비교 — A 안 vs B 안, 전후, 장단점(뿌리 정확히 2개) · 모양: horizontal simple vs",
+  "aspect": 3.61,
   "qa": "ok"
  },
  "compare-binary-horizontal-underline-text-arrow": {
   "family": "compare-binary",
   "field": "compares",
   "desc": "두 쪽 비교 — A 안 vs B 안, 전후, 장단점(뿌리 정확히 2개) · 모양: horizontal underline text arrow",
-  "qa": "fixed_latin",
   "fixed_latin": [
    "ProsCons"
-  ]
+  ],
+  "aspect": 3.53,
+  "qa": "fixed_latin"
  },
  "compare-binary-horizontal-underline-text-fold": {
   "family": "compare-binary",
   "field": "compares",
   "desc": "두 쪽 비교 — A 안 vs B 안, 전후, 장단점(뿌리 정확히 2개) · 모양: horizontal underline text fold",
-  "qa": "fixed_latin",
   "fixed_latin": [
    "PROSCONS"
-  ]
+  ],
+  "aspect": 1.97,
+  "qa": "fixed_latin"
  },
  "compare-binary-horizontal-underline-text-vs": {
   "family": "compare-binary",
   "field": "compares",
   "desc": "두 쪽 비교 — A 안 vs B 안, 전후, 장단점(뿌리 정확히 2개) · 모양: horizontal underline text vs",
+  "aspect": 3.54,
   "qa": "ok"
  },
  "compare-hierarchy-left-right-circle-node-pill-badge": {
   "family": "compare-hierarchy-left-right",
   "field": "compares",
   "desc": "좌우 계층 비교 — 두 대상을 항목별로 맞대어 비교(뿌리 2개) · 모양: circle node pill badge",
+  "aspect": 2.5,
   "qa": "ok"
  },
  "compare-hierarchy-left-right-circle-node-plain-text": {
   "family": "compare-hierarchy-left-right",
   "field": "compares",
   "desc": "좌우 계층 비교 — 두 대상을 항목별로 맞대어 비교(뿌리 2개) · 모양: circle node plain text",
+  "aspect": 3.56,
   "qa": "ok"
  },
  "compare-hierarchy-row-letter-card-compact-card": {
   "family": "compare",
   "field": "compares",
   "desc": "비교 · 모양: hierarchy row letter card compact card",
+  "aspect": 1.45,
   "qa": "ok"
  },
  "compare-hierarchy-row-letter-card-rounded-rect-node": {
   "family": "compare",
   "field": "compares",
   "desc": "비교 · 모양: hierarchy row letter card rounded rect node",
+  "aspect": 1.62,
   "qa": "ok"
  },
  "compare-quadrant-quarter-circular": {
   "family": "compare-quadrant",
   "field": "compares",
   "desc": "2x2 사분면 매트릭스 — 두 기준으로 나눈 네 영역 · 모양: quarter circular",
+  "aspect": 1.85,
   "qa": "ok"
  },
  "compare-quadrant-quarter-simple-card": {
   "family": "compare-quadrant",
   "field": "compares",
   "desc": "2x2 사분면 매트릭스 — 두 기준으로 나눈 네 영역 · 모양: quarter simple card",
+  "aspect": 0.88,
   "qa": "ok"
  },
  "compare-quadrant-simple-illus": {
   "family": "compare-quadrant",
   "field": "compares",
   "desc": "2x2 사분면 매트릭스 — 두 기준으로 나눈 네 영역 · 모양: simple illus",
+  "aspect": 0.63,
   "qa": "ok"
  },
  "compare-swot": {
   "family": "compare-swot",
   "field": "compares",
   "desc": "SWOT — 강점·약점·기회·위협",
+  "aspect": 3.89,
   "qa": "ok"
  },
  "hierarchy-mindmap-branch-gradient-capsule-item": {
   "family": "hierarchy-mindmap",
   "field": "root",
   "desc": "마인드맵 — 중심 주제에서 뻗는 생각 가지 · 모양: branch gradient capsule item",
+  "aspect": 5.22,
   "qa": "ok"
  },
  "hierarchy-mindmap-branch-gradient-circle-progress": {
   "family": "hierarchy-mindmap",
   "field": "root",
   "desc": "마인드맵 — 중심 주제에서 뻗는 생각 가지 · 모양: branch gradient circle progress",
+  "aspect": 1.81,
   "qa": "ok"
  },
  "hierarchy-mindmap-branch-gradient-compact-card": {
   "family": "hierarchy-mindmap",
   "field": "root",
   "desc": "마인드맵 — 중심 주제에서 뻗는 생각 가지 · 모양: branch gradient compact card",
+  "aspect": 4.92,
   "qa": "ok"
  },
  "hierarchy-mindmap-branch-gradient-lined-palette": {
   "family": "hierarchy-mindmap",
   "field": "root",
   "desc": "마인드맵 — 중심 주제에서 뻗는 생각 가지 · 모양: branch gradient lined palette",
+  "aspect": 4.45,
   "qa": "ok"
  },
  "hierarchy-mindmap-branch-gradient-rounded-rect": {
   "family": "hierarchy-mindmap",
   "field": "root",
   "desc": "마인드맵 — 중심 주제에서 뻗는 생각 가지 · 모양: branch gradient rounded rect",
+  "aspect": 8.48,
   "qa": "ok"
  },
  "hierarchy-mindmap-level-gradient-capsule-item": {
   "family": "hierarchy-mindmap",
   "field": "root",
   "desc": "마인드맵 — 중심 주제에서 뻗는 생각 가지 · 모양: level gradient capsule item",
+  "aspect": 5.22,
   "qa": "ok"
  },
  "hierarchy-mindmap-level-gradient-circle-progress": {
   "family": "hierarchy-mindmap",
   "field": "root",
   "desc": "마인드맵 — 중심 주제에서 뻗는 생각 가지 · 모양: level gradient circle progress",
+  "aspect": 1.81,
   "qa": "ok"
  },
  "hierarchy-mindmap-level-gradient-compact-card": {
   "family": "hierarchy-mindmap",
   "field": "root",
   "desc": "마인드맵 — 중심 주제에서 뻗는 생각 가지 · 모양: level gradient compact card",
+  "aspect": 4.92,
   "qa": "ok"
  },
  "hierarchy-mindmap-level-gradient-lined-palette": {
   "family": "hierarchy-mindmap",
   "field": "root",
   "desc": "마인드맵 — 중심 주제에서 뻗는 생각 가지 · 모양: level gradient lined palette",
+  "aspect": 4.45,
   "qa": "ok"
  },
  "hierarchy-mindmap-level-gradient-rounded-rect": {
   "family": "hierarchy-mindmap",
   "field": "root",
   "desc": "마인드맵 — 중심 주제에서 뻗는 생각 가지 · 모양: level gradient rounded rect",
+  "aspect": 8.48,
   "qa": "ok"
  },
  "hierarchy-structure": {
   "family": "hierarchy-structure",
   "field": "items",
   "desc": "구조도 — 층으로 쌓인 시스템·아키텍처 구성",
+  "aspect": 0.64,
   "qa": "ok"
  },
  "hierarchy-structure-mirror": {
   "family": "hierarchy-structure",
   "field": "items",
   "desc": "구조도 — 층으로 쌓인 시스템·아키텍처 구성 · 모양: mirror",
+  "aspect": 0.64,
   "qa": "ok"
  },
  "hierarchy-tree-bt-curved-line-badge-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: bt curved line badge card",
+  "aspect": 2.06,
   "qa": "ok"
  },
  "hierarchy-tree-bt-curved-line-capsule-item": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: bt curved line capsule item",
+  "aspect": 2.91,
   "qa": "ok"
  },
  "hierarchy-tree-bt-curved-line-compact-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: bt curved line compact card",
+  "aspect": 2.42,
   "qa": "ok"
  },
  "hierarchy-tree-bt-curved-line-ribbon-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: bt curved line ribbon card",
+  "aspect": 1.65,
   "qa": "ok"
  },
  "hierarchy-tree-bt-curved-line-rounded-rect-node": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: bt curved line rounded rect node",
+  "aspect": 4.16,
   "qa": "ok"
  },
  "hierarchy-tree-bt-dashed-arrow-badge-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: bt dashed arrow badge card",
+  "aspect": 2.06,
   "qa": "ok"
  },
  "hierarchy-tree-bt-dashed-arrow-capsule-item": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: bt dashed arrow capsule item",
+  "aspect": 2.91,
   "qa": "ok"
  },
  "hierarchy-tree-bt-dashed-arrow-compact-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: bt dashed arrow compact card",
+  "aspect": 2.42,
   "qa": "ok"
  },
  "hierarchy-tree-bt-dashed-arrow-ribbon-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: bt dashed arrow ribbon card",
+  "aspect": 1.65,
   "qa": "ok"
  },
  "hierarchy-tree-bt-dashed-arrow-rounded-rect-node": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: bt dashed arrow rounded rect node",
+  "aspect": 4.16,
   "qa": "ok"
  },
  "hierarchy-tree-bt-dashed-line-badge-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: bt dashed line badge card",
+  "aspect": 2.06,
   "qa": "ok"
  },
  "hierarchy-tree-bt-dashed-line-capsule-item": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: bt dashed line capsule item",
+  "aspect": 2.91,
   "qa": "ok"
  },
  "hierarchy-tree-bt-dashed-line-compact-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: bt dashed line compact card",
+  "aspect": 2.42,
   "qa": "ok"
  },
  "hierarchy-tree-bt-dashed-line-ribbon-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: bt dashed line ribbon card",
+  "aspect": 1.65,
   "qa": "ok"
  },
  "hierarchy-tree-bt-dashed-line-rounded-rect-node": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: bt dashed line rounded rect node",
+  "aspect": 4.16,
   "qa": "ok"
  },
  "hierarchy-tree-bt-distributed-origin-badge-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: bt distributed origin badge card",
+  "aspect": 2.06,
   "qa": "ok"
  },
  "hierarchy-tree-bt-distributed-origin-capsule-item": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: bt distributed origin capsule item",
+  "aspect": 2.91,
   "qa": "ok"
  },
  "hierarchy-tree-bt-distributed-origin-compact-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: bt distributed origin compact card",
+  "aspect": 2.42,
   "qa": "ok"
  },
  "hierarchy-tree-bt-distributed-origin-ribbon-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: bt distributed origin ribbon card",
+  "aspect": 1.65,
   "qa": "ok"
  },
  "hierarchy-tree-bt-distributed-origin-rounded-rect-node": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: bt distributed origin rounded rect node",
+  "aspect": 4.16,
   "qa": "ok"
  },
  "hierarchy-tree-bt-tech-style-badge-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: bt tech style badge card",
+  "aspect": 2.06,
   "qa": "ok"
  },
  "hierarchy-tree-bt-tech-style-capsule-item": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: bt tech style capsule item",
+  "aspect": 2.91,
   "qa": "ok"
  },
  "hierarchy-tree-bt-tech-style-compact-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: bt tech style compact card",
+  "aspect": 2.42,
   "qa": "ok"
  },
  "hierarchy-tree-bt-tech-style-ribbon-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: bt tech style ribbon card",
+  "aspect": 1.65,
   "qa": "ok"
  },
  "hierarchy-tree-bt-tech-style-rounded-rect-node": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: bt tech style rounded rect node",
+  "aspect": 4.16,
   "qa": "ok"
  },
  "hierarchy-tree-curved-line-badge-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: curved line badge card",
+  "aspect": 2.06,
   "qa": "ok"
  },
  "hierarchy-tree-curved-line-capsule-item": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: curved line capsule item",
+  "aspect": 2.91,
   "qa": "ok"
  },
  "hierarchy-tree-curved-line-compact-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: curved line compact card",
+  "aspect": 2.42,
   "qa": "ok"
  },
  "hierarchy-tree-curved-line-ribbon-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: curved line ribbon card",
+  "aspect": 1.65,
   "qa": "ok"
  },
  "hierarchy-tree-curved-line-rounded-rect-node": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: curved line rounded rect node",
+  "aspect": 4.16,
   "qa": "ok"
  },
  "hierarchy-tree-dashed-arrow-badge-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: dashed arrow badge card",
+  "aspect": 2.06,
   "qa": "ok"
  },
  "hierarchy-tree-dashed-arrow-capsule-item": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: dashed arrow capsule item",
+  "aspect": 2.91,
   "qa": "ok"
  },
  "hierarchy-tree-dashed-arrow-compact-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: dashed arrow compact card",
+  "aspect": 2.42,
   "qa": "ok"
  },
  "hierarchy-tree-dashed-arrow-ribbon-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: dashed arrow ribbon card",
+  "aspect": 1.65,
   "qa": "ok"
  },
  "hierarchy-tree-dashed-arrow-rounded-rect-node": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: dashed arrow rounded rect node",
+  "aspect": 4.16,
   "qa": "ok"
  },
  "hierarchy-tree-dashed-line-badge-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: dashed line badge card",
+  "aspect": 2.06,
   "qa": "ok"
  },
  "hierarchy-tree-dashed-line-capsule-item": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: dashed line capsule item",
+  "aspect": 2.91,
   "qa": "ok"
  },
  "hierarchy-tree-dashed-line-compact-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: dashed line compact card",
+  "aspect": 2.42,
   "qa": "ok"
  },
  "hierarchy-tree-dashed-line-ribbon-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: dashed line ribbon card",
+  "aspect": 1.65,
   "qa": "ok"
  },
  "hierarchy-tree-dashed-line-rounded-rect-node": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: dashed line rounded rect node",
+  "aspect": 4.16,
   "qa": "ok"
  },
  "hierarchy-tree-distributed-origin-badge-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: distributed origin badge card",
+  "aspect": 2.06,
   "qa": "ok"
  },
  "hierarchy-tree-distributed-origin-capsule-item": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: distributed origin capsule item",
+  "aspect": 2.91,
   "qa": "ok"
  },
  "hierarchy-tree-distributed-origin-compact-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: distributed origin compact card",
+  "aspect": 2.42,
   "qa": "ok"
  },
  "hierarchy-tree-distributed-origin-ribbon-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: distributed origin ribbon card",
+  "aspect": 1.65,
   "qa": "ok"
  },
  "hierarchy-tree-distributed-origin-rounded-rect-node": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: distributed origin rounded rect node",
+  "aspect": 4.16,
   "qa": "ok"
  },
  "hierarchy-tree-lr-curved-line-badge-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: lr curved line badge card",
+  "aspect": 1.71,
   "qa": "ok"
  },
  "hierarchy-tree-lr-curved-line-capsule-item": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: lr curved line capsule item",
+  "aspect": 2.39,
   "qa": "ok"
  },
  "hierarchy-tree-lr-curved-line-compact-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: lr curved line compact card",
+  "aspect": 2.05,
   "qa": "ok"
  },
  "hierarchy-tree-lr-curved-line-ribbon-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: lr curved line ribbon card",
+  "aspect": 1.33,
   "qa": "ok"
  },
  "hierarchy-tree-lr-curved-line-rounded-rect-node": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: lr curved line rounded rect node",
+  "aspect": 3.54,
   "qa": "ok"
  },
  "hierarchy-tree-lr-dashed-arrow-badge-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: lr dashed arrow badge card",
+  "aspect": 1.71,
   "qa": "ok"
  },
  "hierarchy-tree-lr-dashed-arrow-capsule-item": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: lr dashed arrow capsule item",
+  "aspect": 2.39,
   "qa": "ok"
  },
  "hierarchy-tree-lr-dashed-arrow-compact-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: lr dashed arrow compact card",
+  "aspect": 2.05,
   "qa": "ok"
  },
  "hierarchy-tree-lr-dashed-arrow-ribbon-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: lr dashed arrow ribbon card",
+  "aspect": 1.33,
   "qa": "ok"
  },
  "hierarchy-tree-lr-dashed-arrow-rounded-rect-node": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: lr dashed arrow rounded rect node",
+  "aspect": 3.54,
   "qa": "ok"
  },
  "hierarchy-tree-lr-dashed-line-badge-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: lr dashed line badge card",
+  "aspect": 1.71,
   "qa": "ok"
  },
  "hierarchy-tree-lr-dashed-line-capsule-item": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: lr dashed line capsule item",
+  "aspect": 2.39,
   "qa": "ok"
  },
  "hierarchy-tree-lr-dashed-line-compact-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: lr dashed line compact card",
+  "aspect": 2.05,
   "qa": "ok"
  },
  "hierarchy-tree-lr-dashed-line-ribbon-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: lr dashed line ribbon card",
+  "aspect": 1.33,
   "qa": "ok"
  },
  "hierarchy-tree-lr-dashed-line-rounded-rect-node": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: lr dashed line rounded rect node",
+  "aspect": 3.54,
   "qa": "ok"
  },
  "hierarchy-tree-lr-distributed-origin-badge-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: lr distributed origin badge card",
+  "aspect": 1.71,
   "qa": "ok"
  },
  "hierarchy-tree-lr-distributed-origin-capsule-item": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: lr distributed origin capsule item",
+  "aspect": 2.39,
   "qa": "ok"
  },
  "hierarchy-tree-lr-distributed-origin-compact-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: lr distributed origin compact card",
+  "aspect": 2.05,
   "qa": "ok"
  },
  "hierarchy-tree-lr-distributed-origin-ribbon-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: lr distributed origin ribbon card",
+  "aspect": 1.33,
   "qa": "ok"
  },
  "hierarchy-tree-lr-distributed-origin-rounded-rect-node": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: lr distributed origin rounded rect node",
+  "aspect": 3.54,
   "qa": "ok"
  },
  "hierarchy-tree-lr-tech-style-badge-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: lr tech style badge card",
+  "aspect": 1.71,
   "qa": "ok"
  },
  "hierarchy-tree-lr-tech-style-capsule-item": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: lr tech style capsule item",
+  "aspect": 2.39,
   "qa": "ok"
  },
  "hierarchy-tree-lr-tech-style-compact-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: lr tech style compact card",
+  "aspect": 2.05,
   "qa": "ok"
  },
  "hierarchy-tree-lr-tech-style-ribbon-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: lr tech style ribbon card",
+  "aspect": 1.33,
   "qa": "ok"
  },
  "hierarchy-tree-lr-tech-style-rounded-rect-node": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: lr tech style rounded rect node",
+  "aspect": 3.54,
   "qa": "ok"
  },
  "hierarchy-tree-rl-curved-line-badge-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: rl curved line badge card",
+  "aspect": 1.71,
   "qa": "ok"
  },
  "hierarchy-tree-rl-curved-line-capsule-item": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: rl curved line capsule item",
+  "aspect": 2.39,
   "qa": "ok"
  },
  "hierarchy-tree-rl-curved-line-compact-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: rl curved line compact card",
+  "aspect": 2.05,
   "qa": "ok"
  },
  "hierarchy-tree-rl-curved-line-ribbon-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: rl curved line ribbon card",
+  "aspect": 1.33,
   "qa": "ok"
  },
  "hierarchy-tree-rl-curved-line-rounded-rect-node": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: rl curved line rounded rect node",
+  "aspect": 3.54,
   "qa": "ok"
  },
  "hierarchy-tree-rl-dashed-arrow-badge-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: rl dashed arrow badge card",
+  "aspect": 1.71,
   "qa": "ok"
  },
  "hierarchy-tree-rl-dashed-arrow-capsule-item": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: rl dashed arrow capsule item",
+  "aspect": 2.39,
   "qa": "ok"
  },
  "hierarchy-tree-rl-dashed-arrow-compact-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: rl dashed arrow compact card",
+  "aspect": 2.05,
   "qa": "ok"
  },
  "hierarchy-tree-rl-dashed-arrow-ribbon-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: rl dashed arrow ribbon card",
+  "aspect": 1.33,
   "qa": "ok"
  },
  "hierarchy-tree-rl-dashed-arrow-rounded-rect-node": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: rl dashed arrow rounded rect node",
+  "aspect": 3.54,
   "qa": "ok"
  },
  "hierarchy-tree-rl-dashed-line-badge-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: rl dashed line badge card",
+  "aspect": 1.71,
   "qa": "ok"
  },
  "hierarchy-tree-rl-dashed-line-capsule-item": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: rl dashed line capsule item",
+  "aspect": 2.39,
   "qa": "ok"
  },
  "hierarchy-tree-rl-dashed-line-compact-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: rl dashed line compact card",
+  "aspect": 2.05,
   "qa": "ok"
  },
  "hierarchy-tree-rl-dashed-line-ribbon-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: rl dashed line ribbon card",
+  "aspect": 1.33,
   "qa": "ok"
  },
  "hierarchy-tree-rl-dashed-line-rounded-rect-node": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: rl dashed line rounded rect node",
+  "aspect": 3.54,
   "qa": "ok"
  },
  "hierarchy-tree-rl-distributed-origin-badge-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: rl distributed origin badge card",
+  "aspect": 1.71,
   "qa": "ok"
  },
  "hierarchy-tree-rl-distributed-origin-capsule-item": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: rl distributed origin capsule item",
+  "aspect": 2.39,
   "qa": "ok"
  },
  "hierarchy-tree-rl-distributed-origin-compact-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: rl distributed origin compact card",
+  "aspect": 2.05,
   "qa": "ok"
  },
  "hierarchy-tree-rl-distributed-origin-ribbon-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: rl distributed origin ribbon card",
+  "aspect": 1.33,
   "qa": "ok"
  },
  "hierarchy-tree-rl-distributed-origin-rounded-rect-node": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: rl distributed origin rounded rect node",
+  "aspect": 3.54,
   "qa": "ok"
  },
  "hierarchy-tree-rl-tech-style-badge-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: rl tech style badge card",
+  "aspect": 1.71,
   "qa": "ok"
  },
  "hierarchy-tree-rl-tech-style-capsule-item": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: rl tech style capsule item",
+  "aspect": 2.39,
   "qa": "ok"
  },
  "hierarchy-tree-rl-tech-style-compact-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: rl tech style compact card",
+  "aspect": 2.05,
   "qa": "ok"
  },
  "hierarchy-tree-rl-tech-style-ribbon-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: rl tech style ribbon card",
+  "aspect": 1.33,
   "qa": "ok"
  },
  "hierarchy-tree-rl-tech-style-rounded-rect-node": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: rl tech style rounded rect node",
+  "aspect": 3.54,
   "qa": "ok"
  },
  "hierarchy-tree-tech-style-badge-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: tech style badge card",
+  "aspect": 2.06,
   "qa": "ok"
  },
  "hierarchy-tree-tech-style-capsule-item": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: tech style capsule item",
+  "aspect": 2.91,
   "qa": "ok"
  },
  "hierarchy-tree-tech-style-compact-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: tech style compact card",
+  "aspect": 2.42,
   "qa": "ok"
  },
  "hierarchy-tree-tech-style-ribbon-card": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: tech style ribbon card",
+  "aspect": 1.65,
   "qa": "ok"
  },
  "hierarchy-tree-tech-style-rounded-rect-node": {
   "family": "hierarchy-tree",
   "field": "root",
   "desc": "계층 트리 — 조직도·분류 체계·상하 구조 · 모양: tech style rounded rect node",
+  "aspect": 4.16,
   "qa": "ok"
  },
  "list-column-done-list": {
   "family": "list-column",
   "field": "lists",
   "desc": "세로 목록 — 차례로 읽는 요점·체크리스트 · 모양: done list",
+  "aspect": 1.76,
   "qa": "ok"
  },
  "list-column-simple-vertical-arrow": {
   "family": "list-column",
   "field": "lists",
   "desc": "세로 목록 — 차례로 읽는 요점·체크리스트 · 모양: simple vertical arrow",
+  "aspect": 0.64,
   "qa": "ok"
  },
  "list-column-vertical-icon-arrow": {
   "family": "list-column",
   "field": "lists",
   "desc": "세로 목록 — 차례로 읽는 요점·체크리스트 · 모양: vertical icon arrow",
+  "aspect": 0.74,
   "qa": "ok"
  },
  "list-grid-badge-card": {
   "family": "list-grid",
   "field": "lists",
   "desc": "격자 카드 — 대등한 항목 4~9개 · 모양: badge card",
+  "aspect": 5.46,
   "qa": "ok"
  },
  "list-grid-candy-card-lite": {
   "family": "list-grid",
   "field": "lists",
   "desc": "격자 카드 — 대등한 항목 4~9개 · 모양: candy card lite",
+  "aspect": 4.92,
   "qa": "ok"
  },
  "list-grid-circular-progress": {
   "family": "list-grid",
   "field": "lists",
   "desc": "격자 카드 — 대등한 항목 4~9개 · 모양: circular progress",
+  "aspect": 2.2,
   "qa": "ok"
  },
  "list-grid-compact-card": {
   "family": "list-grid",
   "field": "lists",
   "desc": "격자 카드 — 대등한 항목 4~9개 · 모양: compact card",
+  "aspect": 6.61,
   "qa": "ok"
  },
  "list-grid-done-list": {
   "family": "list-grid",
   "field": "lists",
   "desc": "격자 카드 — 대등한 항목 4~9개 · 모양: done list",
+  "aspect": 14.14,
   "qa": "ok"
  },
  "list-grid-horizontal-icon-arrow": {
   "family": "list-grid",
   "field": "lists",
   "desc": "격자 카드 — 대등한 항목 4~9개 · 모양: horizontal icon arrow",
+  "aspect": 1.6,
   "qa": "ok"
  },
  "list-grid-progress-card": {
   "family": "list-grid",
   "field": "lists",
   "desc": "격자 카드 — 대등한 항목 4~9개 · 모양: progress card",
+  "aspect": 5.55,
   "qa": "ok"
  },
  "list-grid-ribbon-card": {
   "family": "list-grid",
   "field": "lists",
   "desc": "격자 카드 — 대등한 항목 4~9개 · 모양: ribbon card",
+  "aspect": 4.26,
   "qa": "ok"
  },
  "list-grid-simple": {
   "family": "list-grid",
   "field": "lists",
   "desc": "격자 카드 — 대등한 항목 4~9개 · 모양: simple",
+  "aspect": 5.98,
   "qa": "ok"
  },
  "list-pyramid-badge-card": {
   "family": "list",
   "field": "lists",
   "desc": "목록 — 대등한 요점 나열 · 모양: pyramid badge card",
+  "aspect": 1.89,
   "qa": "ok"
  },
  "list-pyramid-compact-card": {
   "family": "list",
   "field": "lists",
   "desc": "목록 — 대등한 요점 나열 · 모양: pyramid compact card",
+  "aspect": 2.33,
   "qa": "ok"
  },
  "list-pyramid-rounded-rect-node": {
   "family": "list",
   "field": "lists",
   "desc": "목록 — 대등한 요점 나열 · 모양: pyramid rounded rect node",
+  "aspect": 4.45,
   "qa": "ok"
  },
  "list-row-circular-progress": {
   "family": "list-row",
   "field": "lists",
   "desc": "가로 한 줄 목록 — 나란한 요점 3~5개 · 모양: circular progress",
+  "aspect": 2.15,
   "qa": "ok"
  },
  "list-row-horizontal-icon-arrow": {
   "family": "list-row",
   "field": "lists",
   "desc": "가로 한 줄 목록 — 나란한 요점 3~5개 · 모양: horizontal icon arrow",
+  "aspect": 1.6,
   "qa": "ok"
  },
  "list-row-horizontal-icon-line": {
   "family": "list-row",
   "field": "lists",
   "desc": "가로 한 줄 목록 — 나란한 요점 3~5개 · 모양: horizontal icon line",
+  "aspect": 2.52,
   "qa": "ok"
  },
  "list-row-simple-horizontal-arrow": {
   "family": "list-row",
   "field": "lists",
   "desc": "가로 한 줄 목록 — 나란한 요점 3~5개 · 모양: simple horizontal arrow",
+  "aspect": 1.99,
   "qa": "ok"
  },
  "list-row-simple-illus": {
   "family": "list-row",
   "field": "lists",
   "desc": "가로 한 줄 목록 — 나란한 요점 3~5개 · 모양: simple illus",
+  "aspect": 1.81,
   "qa": "ok"
  },
  "list-sector-half-plain-text": {
   "family": "list-sector",
   "field": "lists",
   "desc": "부채꼴 — 하나를 이루는 여러 구성 요소 · 모양: half plain text",
+  "aspect": 1.94,
   "qa": "ok"
  },
  "list-sector-plain-text": {
   "family": "list-sector",
   "field": "lists",
   "desc": "부채꼴 — 하나를 이루는 여러 구성 요소 · 모양: plain text",
+  "aspect": 0.97,
   "qa": "ok"
  },
  "list-sector-simple": {
   "family": "list-sector",
   "field": "lists",
   "desc": "부채꼴 — 하나를 이루는 여러 구성 요소 · 모양: simple",
+  "aspect": 0.97,
   "qa": "ok"
  },
  "list-waterfall-badge-card": {
   "family": "list-waterfall",
   "field": "lists",
   "desc": "폭포형 카드 — 높낮이가 다른 카드 목록 · 모양: badge card",
+  "aspect": 3.18,
   "qa": "ok"
  },
  "list-waterfall-compact-card": {
   "family": "list-waterfall",
   "field": "lists",
   "desc": "폭포형 카드 — 높낮이가 다른 카드 목록 · 모양: compact card",
+  "aspect": 3.55,
   "qa": "ok"
  },
  "list-zigzag-down-compact-card": {
   "family": "list-zigzag",
   "field": "lists",
   "desc": "지그재그 목록 · 모양: down compact card",
+  "aspect": 1.85,
   "qa": "ok"
  },
  "list-zigzag-down-simple": {
   "family": "list-zigzag",
   "field": "lists",
   "desc": "지그재그 목록 · 모양: down simple",
+  "aspect": 1.73,
   "qa": "ok"
  },
  "list-zigzag-up-compact-card": {
   "family": "list-zigzag",
   "field": "lists",
   "desc": "지그재그 목록 · 모양: up compact card",
+  "aspect": 1.84,
   "qa": "ok"
  },
  "list-zigzag-up-simple": {
   "family": "list-zigzag",
   "field": "lists",
   "desc": "지그재그 목록 · 모양: up simple",
+  "aspect": 1.72,
   "qa": "ok"
  },
  "quadrant-quarter-circular": {
   "family": "quadrant",
   "field": "items",
   "desc": "인포그래픽 · 모양: quarter circular",
+  "aspect": 1.85,
   "qa": "ok"
  },
  "quadrant-quarter-simple-card": {
   "family": "quadrant",
   "field": "items",
   "desc": "인포그래픽 · 모양: quarter simple card",
+  "aspect": 0.88,
   "qa": "ok"
  },
  "quadrant-simple-illus": {
   "family": "quadrant",
   "field": "items",
   "desc": "인포그래픽 · 모양: simple illus",
+  "aspect": 0.63,
   "qa": "ok"
  },
  "relation-circle-circular-progress": {
   "family": "relation",
   "field": "nodes+relations",
   "desc": "관계도 — 요소 사이의 연결 · 모양: circle circular progress",
+  "aspect": 0.85,
   "qa": "ok"
  },
  "relation-circle-icon-badge": {
   "family": "relation",
   "field": "nodes+relations",
   "desc": "관계도 — 요소 사이의 연결 · 모양: circle icon badge",
+  "aspect": 0.85,
   "qa": "ok"
  },
  "relation-dagre-flow-lr-animated-badge-card": {
   "family": "relation-dagre-flow",
   "field": "nodes+relations",
   "desc": "흐름도 — 노드와 화살표로 이은 의존·처리 흐름 · 모양: lr animated badge card",
+  "aspect": 6.75,
   "qa": "ok"
  },
  "relation-dagre-flow-lr-animated-capsule": {
   "family": "relation-dagre-flow",
   "field": "nodes+relations",
   "desc": "흐름도 — 노드와 화살표로 이은 의존·처리 흐름 · 모양: lr animated capsule",
+  "aspect": 9.43,
   "qa": "ok"
  },
  "relation-dagre-flow-lr-animated-compact-card": {
   "family": "relation-dagre-flow",
   "field": "nodes+relations",
   "desc": "흐름도 — 노드와 화살표로 이은 의존·처리 흐름 · 모양: lr animated compact card",
+  "aspect": 7.83,
   "qa": "ok"
  },
  "relation-dagre-flow-lr-animated-simple-circle-node": {
   "family": "relation-dagre-flow",
   "field": "nodes+relations",
   "desc": "흐름도 — 노드와 화살표로 이은 의존·처리 흐름 · 모양: lr animated simple circle node",
+  "aspect": 3.33,
   "qa": "ok"
  },
  "relation-dagre-flow-lr-badge-card": {
   "family": "relation-dagre-flow",
   "field": "nodes+relations",
   "desc": "흐름도 — 노드와 화살표로 이은 의존·처리 흐름 · 모양: lr badge card",
+  "aspect": 6.75,
   "qa": "ok"
  },
  "relation-dagre-flow-lr-compact-card": {
   "family": "relation-dagre-flow",
   "field": "nodes+relations",
   "desc": "흐름도 — 노드와 화살표로 이은 의존·처리 흐름 · 모양: lr compact card",
+  "aspect": 7.83,
   "qa": "ok"
  },
  "relation-dagre-flow-lr-simple-circle-node": {
   "family": "relation-dagre-flow",
   "field": "nodes+relations",
   "desc": "흐름도 — 노드와 화살표로 이은 의존·처리 흐름 · 모양: lr simple circle node",
+  "aspect": 3.33,
   "qa": "ok"
  },
  "relation-dagre-flow-tb-animated-badge-card": {
   "family": "relation-dagre-flow",
   "field": "nodes+relations",
   "desc": "흐름도 — 노드와 화살표로 이은 의존·처리 흐름 · 모양: tb animated badge card",
+  "aspect": 0.33,
   "qa": "ok"
  },
  "relation-dagre-flow-tb-animated-capsule": {
   "family": "relation-dagre-flow",
   "field": "nodes+relations",
   "desc": "흐름도 — 노드와 화살표로 이은 의존·처리 흐름 · 모양: tb animated capsule",
+  "aspect": 0.49,
   "qa": "ok"
  },
  "relation-dagre-flow-tb-animated-compact-card": {
   "family": "relation-dagre-flow",
   "field": "nodes+relations",
   "desc": "흐름도 — 노드와 화살표로 이은 의존·처리 흐름 · 모양: tb animated compact card",
+  "aspect": 0.38,
   "qa": "ok"
  },
  "relation-dagre-flow-tb-animated-simple-circle-node": {
   "family": "relation-dagre-flow",
   "field": "nodes+relations",
   "desc": "흐름도 — 노드와 화살표로 이은 의존·처리 흐름 · 모양: tb animated simple circle node",
+  "aspect": 0.24,
   "qa": "ok"
  },
  "relation-dagre-flow-tb-badge-card": {
   "family": "relation-dagre-flow",
   "field": "nodes+relations",
   "desc": "흐름도 — 노드와 화살표로 이은 의존·처리 흐름 · 모양: tb badge card",
+  "aspect": 0.33,
   "qa": "ok"
  },
  "relation-dagre-flow-tb-compact-card": {
   "family": "relation-dagre-flow",
   "field": "nodes+relations",
   "desc": "흐름도 — 노드와 화살표로 이은 의존·처리 흐름 · 모양: tb compact card",
+  "aspect": 0.38,
   "qa": "ok"
  },
  "relation-dagre-flow-tb-simple-circle-node": {
   "family": "relation-dagre-flow",
   "field": "nodes+relations",
   "desc": "흐름도 — 노드와 화살표로 이은 의존·처리 흐름 · 모양: tb simple circle node",
+  "aspect": 0.24,
   "qa": "ok"
  },
  "relation-network-icon-badge": {
   "family": "relation",
   "field": "nodes+relations",
   "desc": "관계도 — 요소 사이의 연결 · 모양: network icon badge",
+  "aspect": 0.57,
   "qa": "ok"
  },
  "relation-network-simple-circle-node": {
   "family": "relation",
   "field": "nodes+relations",
   "desc": "관계도 — 요소 사이의 연결 · 모양: network simple circle node",
+  "aspect": 0.59,
   "qa": "ok"
  },
  "sequence-ascending-stairs-3d-simple": {
   "family": "sequence-ascending",
   "field": "sequences",
   "desc": "오름 계단 — 단계가 올라가며 성장·발전 · 모양: stairs 3d simple",
+  "aspect": 1.46,
   "qa": "ok"
  },
  "sequence-ascending-stairs-3d-underline-text": {
   "family": "sequence-ascending",
   "field": "sequences",
   "desc": "오름 계단 — 단계가 올라가며 성장·발전 · 모양: stairs 3d underline text",
+  "aspect": 1.46,
   "qa": "ok"
  },
  "sequence-ascending-steps": {
   "family": "sequence-ascending",
   "field": "sequences",
   "desc": "오름 계단 — 단계가 올라가며 성장·발전 · 모양: steps",
+  "aspect": 1.67,
   "qa": "ok"
  },
  "sequence-circle-arrows-indexed-card": {
   "family": "sequence",
   "field": "sequences",
   "desc": "순서·단계 — 처음부터 끝까지 차례로 진행하는 과정 · 모양: circle arrows indexed card",
+  "aspect": 1.2,
   "qa": "ok"
  },
  "sequence-circular-simple": {
   "family": "sequence-circular",
   "field": "sequences",
   "desc": "순환 — 처음으로 되돌아가는 반복 과정·사이클 · 모양: simple",
+  "aspect": 1.33,
   "qa": "ok"
  },
  "sequence-circular-underline-text": {
   "family": "sequence-circular",
   "field": "sequences",
   "desc": "순환 — 처음으로 되돌아가는 반복 과정·사이클 · 모양: underline text",
+  "aspect": 1.29,
   "qa": "ok"
  },
  "sequence-color-snake-steps-horizontal-icon-line": {
   "family": "sequence-color-snake",
   "field": "sequences",
   "desc": "색이 바뀌는 뱀 모양 단계 · 모양: steps horizontal icon line",
+  "aspect": 2.52,
   "qa": "ok"
  },
  "sequence-color-snake-steps-simple-illus": {
   "family": "sequence-color-snake",
   "field": "sequences",
   "desc": "색이 바뀌는 뱀 모양 단계 · 모양: steps simple illus",
+  "aspect": 1.69,
   "qa": "ok"
  },
  "sequence-cylinders-3d-simple": {
   "family": "sequence-cylinders",
   "field": "sequences",
   "desc": "원통 3D — 단계·수준 · 모양: 3d simple",
+  "aspect": 2.03,
   "qa": "ok"
  },
  "sequence-filter-mesh-simple": {
   "family": "sequence-filter",
   "field": "sequences",
   "desc": "거름망 — 여러 단계로 걸러지는 과정 · 모양: mesh simple",
+  "aspect": 1.46,
   "qa": "ok"
  },
  "sequence-filter-mesh-underline-text": {
   "family": "sequence-filter",
   "field": "sequences",
   "desc": "거름망 — 여러 단계로 걸러지는 과정 · 모양: mesh underline text",
+  "aspect": 1.42,
   "qa": "ok"
  },
  "sequence-funnel-simple": {
   "family": "sequence-funnel",
   "field": "sequences",
   "desc": "깔때기 — 단계마다 줄어드는 전환·선별 과정 · 모양: simple",
+  "aspect": 2.37,
   "qa": "ok"
  },
  "sequence-horizontal-zigzag-horizontal-icon-line": {
   "family": "sequence-horizontal-zigzag",
   "field": "sequences",
   "desc": "가로 지그재그 단계 · 모양: horizontal icon line",
+  "aspect": 1.6,
   "qa": "ok"
  },
  "sequence-horizontal-zigzag-plain-text": {
   "family": "sequence-horizontal-zigzag",
   "field": "sequences",
   "desc": "가로 지그재그 단계 · 모양: plain text",
+  "aspect": 1.95,
   "qa": "ok"
  },
  "sequence-horizontal-zigzag-simple": {
   "family": "sequence-horizontal-zigzag",
   "field": "sequences",
   "desc": "가로 지그재그 단계 · 모양: simple",
+  "aspect": 2.15,
   "qa": "ok"
  },
  "sequence-horizontal-zigzag-simple-horizontal-arrow": {
   "family": "sequence-horizontal-zigzag",
   "field": "sequences",
   "desc": "가로 지그재그 단계 · 모양: simple horizontal arrow",
+  "aspect": 1.38,
   "qa": "ok"
  },
  "sequence-horizontal-zigzag-simple-illus": {
   "family": "sequence-horizontal-zigzag",
   "field": "sequences",
   "desc": "가로 지그재그 단계 · 모양: simple illus",
+  "aspect": 1.33,
   "qa": "ok"
  },
  "sequence-horizontal-zigzag-underline-text": {
   "family": "sequence-horizontal-zigzag",
   "field": "sequences",
   "desc": "가로 지그재그 단계 · 모양: underline text",
+  "aspect": 2.3,
   "qa": "ok"
  },
  "sequence-interaction-compact-animated-badge-card": {
   "family": "sequence-interaction",
   "field": "sequences+relations",
   "desc": "여러 역할·시스템이 주고받는 순서(스윔레인 상호작용) — sequences(레인) + relations · 모양: compact animated badge card",
+  "aspect": 1.59,
   "qa": "ok"
  },
  "sequence-interaction-compact-animated-capsule-item": {
   "family": "sequence-interaction",
   "field": "sequences+relations",
   "desc": "여러 역할·시스템이 주고받는 순서(스윔레인 상호작용) — sequences(레인) + relations · 모양: compact animated capsule item",
+  "aspect": 1.59,
   "qa": "ok"
  },
  "sequence-interaction-compact-animated-compact-card": {
   "family": "sequence-interaction",
   "field": "sequences+relations",
   "desc": "여러 역할·시스템이 주고받는 순서(스윔레인 상호작용) — sequences(레인) + relations · 모양: compact animated compact card",
+  "aspect": 1.6,
   "qa": "ok"
  },
  "sequence-interaction-compact-animated-rounded-rect-node": {
   "family": "sequence-interaction",
   "field": "sequences+relations",
   "desc": "여러 역할·시스템이 주고받는 순서(스윔레인 상호작용) — sequences(레인) + relations · 모양: compact animated rounded rect node",
+  "aspect": 1.59,
   "qa": "ok"
  },
  "sequence-interaction-compact-badge-card": {
   "family": "sequence-interaction",
   "field": "sequences+relations",
   "desc": "여러 역할·시스템이 주고받는 순서(스윔레인 상호작용) — sequences(레인) + relations · 모양: compact badge card",
+  "aspect": 1.59,
   "qa": "ok"
  },
  "sequence-interaction-compact-capsule-item": {
   "family": "sequence-interaction",
   "field": "sequences+relations",
   "desc": "여러 역할·시스템이 주고받는 순서(스윔레인 상호작용) — sequences(레인) + relations · 모양: compact capsule item",
+  "aspect": 1.59,
   "qa": "ok"
  },
  "sequence-interaction-compact-compact-card": {
   "family": "sequence-interaction",
   "field": "sequences+relations",
   "desc": "여러 역할·시스템이 주고받는 순서(스윔레인 상호작용) — sequences(레인) + relations · 모양: compact compact card",
+  "aspect": 1.6,
   "qa": "ok"
  },
  "sequence-interaction-compact-dashed-badge-card": {
   "family": "sequence-interaction",
   "field": "sequences+relations",
   "desc": "여러 역할·시스템이 주고받는 순서(스윔레인 상호작용) — sequences(레인) + relations · 모양: compact dashed badge card",
+  "aspect": 1.59,
   "qa": "ok"
  },
  "sequence-interaction-compact-dashed-capsule-item": {
   "family": "sequence-interaction",
   "field": "sequences+relations",
   "desc": "여러 역할·시스템이 주고받는 순서(스윔레인 상호작용) — sequences(레인) + relations · 모양: compact dashed capsule item",
+  "aspect": 1.59,
   "qa": "ok"
  },
  "sequence-interaction-compact-dashed-compact-card": {
   "family": "sequence-interaction",
   "field": "sequences+relations",
   "desc": "여러 역할·시스템이 주고받는 순서(스윔레인 상호작용) — sequences(레인) + relations · 모양: compact dashed compact card",
+  "aspect": 1.6,
   "qa": "ok"
  },
  "sequence-interaction-compact-dashed-rounded-rect-node": {
   "family": "sequence-interaction",
   "field": "sequences+relations",
   "desc": "여러 역할·시스템이 주고받는 순서(스윔레인 상호작용) — sequences(레인) + relations · 모양: compact dashed rounded rect node",
+  "aspect": 1.59,
   "qa": "ok"
  },
  "sequence-interaction-compact-rounded-rect-node": {
   "family": "sequence-interaction",
   "field": "sequences+relations",
   "desc": "여러 역할·시스템이 주고받는 순서(스윔레인 상호작용) — sequences(레인) + relations · 모양: compact rounded rect node",
+  "aspect": 1.59,
   "qa": "ok"
  },
  "sequence-interaction-default-animated-badge-card": {
   "family": "sequence-interaction",
   "field": "sequences+relations",
   "desc": "여러 역할·시스템이 주고받는 순서(스윔레인 상호작용) — sequences(레인) + relations · 모양: default animated badge card",
+  "aspect": 1.47,
   "qa": "ok"
  },
  "sequence-interaction-default-animated-capsule-item": {
   "family": "sequence-interaction",
   "field": "sequences+relations",
   "desc": "여러 역할·시스템이 주고받는 순서(스윔레인 상호작용) — sequences(레인) + relations · 모양: default animated capsule item",
+  "aspect": 1.47,
   "qa": "ok"
  },
  "sequence-interaction-default-animated-compact-card": {
   "family": "sequence-interaction",
   "field": "sequences+relations",
   "desc": "여러 역할·시스템이 주고받는 순서(스윔레인 상호작용) — sequences(레인) + relations · 모양: default animated compact card",
+  "aspect": 1.48,
   "qa": "ok"
  },
  "sequence-interaction-default-animated-rounded-rect-node": {
   "family": "sequence-interaction",
   "field": "sequences+relations",
   "desc": "여러 역할·시스템이 주고받는 순서(스윔레인 상호작용) — sequences(레인) + relations · 모양: default animated rounded rect node",
+  "aspect": 1.47,
   "qa": "ok"
  },
  "sequence-interaction-default-badge-card": {
   "family": "sequence-interaction",
   "field": "sequences+relations",
   "desc": "여러 역할·시스템이 주고받는 순서(스윔레인 상호작용) — sequences(레인) + relations · 모양: default badge card",
+  "aspect": 1.47,
   "qa": "ok"
  },
  "sequence-interaction-default-capsule-item": {
   "family": "sequence-interaction",
   "field": "sequences+relations",
   "desc": "여러 역할·시스템이 주고받는 순서(스윔레인 상호작용) — sequences(레인) + relations · 모양: default capsule item",
+  "aspect": 1.47,
   "qa": "ok"
  },
  "sequence-interaction-default-compact-card": {
   "family": "sequence-interaction",
   "field": "sequences+relations",
   "desc": "여러 역할·시스템이 주고받는 순서(스윔레인 상호작용) — sequences(레인) + relations · 모양: default compact card",
+  "aspect": 1.48,
   "qa": "ok"
  },
  "sequence-interaction-default-dashed-badge-card": {
   "family": "sequence-interaction",
   "field": "sequences+relations",
   "desc": "여러 역할·시스템이 주고받는 순서(스윔레인 상호작용) — sequences(레인) + relations · 모양: default dashed badge card",
+  "aspect": 1.47,
   "qa": "ok"
  },
  "sequence-interaction-default-dashed-capsule-item": {
   "family": "sequence-interaction",
   "field": "sequences+relations",
   "desc": "여러 역할·시스템이 주고받는 순서(스윔레인 상호작용) — sequences(레인) + relations · 모양: default dashed capsule item",
+  "aspect": 1.47,
   "qa": "ok"
  },
  "sequence-interaction-default-dashed-compact-card": {
   "family": "sequence-interaction",
   "field": "sequences+relations",
   "desc": "여러 역할·시스템이 주고받는 순서(스윔레인 상호작용) — sequences(레인) + relations · 모양: default dashed compact card",
+  "aspect": 1.48,
   "qa": "ok"
  },
  "sequence-interaction-default-dashed-rounded-rect-node": {
   "family": "sequence-interaction",
   "field": "sequences+relations",
   "desc": "여러 역할·시스템이 주고받는 순서(스윔레인 상호작용) — sequences(레인) + relations · 모양: default dashed rounded rect node",
+  "aspect": 1.47,
   "qa": "ok"
  },
  "sequence-interaction-default-rounded-rect-node": {
   "family": "sequence-interaction",
   "field": "sequences+relations",
   "desc": "여러 역할·시스템이 주고받는 순서(스윔레인 상호작용) — sequences(레인) + relations · 모양: default rounded rect node",
+  "aspect": 1.47,
   "qa": "ok"
  },
  "sequence-interaction-wide-animated-badge-card": {
   "family": "sequence-interaction",
   "field": "sequences+relations",
   "desc": "여러 역할·시스템이 주고받는 순서(스윔레인 상호작용) — sequences(레인) + relations · 모양: wide animated badge card",
+  "aspect": 1.36,
   "qa": "ok"
  },
  "sequence-interaction-wide-animated-capsule-item": {
   "family": "sequence-interaction",
   "field": "sequences+relations",
   "desc": "여러 역할·시스템이 주고받는 순서(스윔레인 상호작용) — sequences(레인) + relations · 모양: wide animated capsule item",
+  "aspect": 1.36,
   "qa": "ok"
  },
  "sequence-interaction-wide-animated-compact-card": {
   "family": "sequence-interaction",
   "field": "sequences+relations",
   "desc": "여러 역할·시스템이 주고받는 순서(스윔레인 상호작용) — sequences(레인) + relations · 모양: wide animated compact card",
+  "aspect": 1.37,
   "qa": "ok"
  },
  "sequence-interaction-wide-animated-rounded-rect-node": {
   "family": "sequence-interaction",
   "field": "sequences+relations",
   "desc": "여러 역할·시스템이 주고받는 순서(스윔레인 상호작용) — sequences(레인) + relations · 모양: wide animated rounded rect node",
+  "aspect": 1.36,
   "qa": "ok"
  },
  "sequence-interaction-wide-badge-card": {
   "family": "sequence-interaction",
   "field": "sequences+relations",
   "desc": "여러 역할·시스템이 주고받는 순서(스윔레인 상호작용) — sequences(레인) + relations · 모양: wide badge card",
+  "aspect": 1.36,
   "qa": "ok"
  },
  "sequence-interaction-wide-capsule-item": {
   "family": "sequence-interaction",
   "field": "sequences+relations",
   "desc": "여러 역할·시스템이 주고받는 순서(스윔레인 상호작용) — sequences(레인) + relations · 모양: wide capsule item",
+  "aspect": 1.36,
   "qa": "ok"
  },
  "sequence-interaction-wide-compact-card": {
   "family": "sequence-interaction",
   "field": "sequences+relations",
   "desc": "여러 역할·시스템이 주고받는 순서(스윔레인 상호작용) — sequences(레인) + relations · 모양: wide compact card",
+  "aspect": 1.37,
   "qa": "ok"
  },
  "sequence-interaction-wide-dashed-badge-card": {
   "family": "sequence-interaction",
   "field": "sequences+relations",
   "desc": "여러 역할·시스템이 주고받는 순서(스윔레인 상호작용) — sequences(레인) + relations · 모양: wide dashed badge card",
+  "aspect": 1.36,
   "qa": "ok"
  },
  "sequence-interaction-wide-dashed-capsule-item": {
   "family": "sequence-interaction",
   "field": "sequences+relations",
   "desc": "여러 역할·시스템이 주고받는 순서(스윔레인 상호작용) — sequences(레인) + relations · 모양: wide dashed capsule item",
+  "aspect": 1.36,
   "qa": "ok"
  },
  "sequence-interaction-wide-dashed-compact-card": {
   "family": "sequence-interaction",
   "field": "sequences+relations",
   "desc": "여러 역할·시스템이 주고받는 순서(스윔레인 상호작용) — sequences(레인) + relations · 모양: wide dashed compact card",
+  "aspect": 1.37,
   "qa": "ok"
  },
  "sequence-interaction-wide-dashed-rounded-rect-node": {
   "family": "sequence-interaction",
   "field": "sequences+relations",
   "desc": "여러 역할·시스템이 주고받는 순서(스윔레인 상호작용) — sequences(레인) + relations · 모양: wide dashed rounded rect node",
+  "aspect": 1.36,
   "qa": "ok"
  },
  "sequence-interaction-wide-rounded-rect-node": {
   "family": "sequence-interaction",
   "field": "sequences+relations",
   "desc": "여러 역할·시스템이 주고받는 순서(스윔레인 상호작용) — sequences(레인) + relations · 모양: wide rounded rect node",
+  "aspect": 1.36,
   "qa": "ok"
  },
  "sequence-mountain-underline-text": {
   "family": "sequence-mountain",
   "field": "sequences",
   "desc": "산 모양 — 단계별 고비·도전을 넘는 과정 · 모양: underline text",
+  "aspect": 1.31,
   "qa": "ok"
  },
  "sequence-pyramid-simple": {
   "family": "sequence-pyramid",
   "field": "sequences",
   "desc": "피라미드 — 아래에서 위로 쌓이는 위계·단계 · 모양: simple",
+  "aspect": 2.25,
   "qa": "ok"
  },
  "sequence-roadmap-vertical-badge-card": {
   "family": "sequence-roadmap",
   "field": "sequences",
   "desc": "로드맵 — 앞으로의 단계별 계획 · 모양: vertical badge card",
+  "aspect": 2.32,
   "qa": "ok"
  },
  "sequence-roadmap-vertical-pill-badge": {
   "family": "sequence-roadmap",
   "field": "sequences",
   "desc": "로드맵 — 앞으로의 단계별 계획 · 모양: vertical pill badge",
+  "aspect": 2.86,
   "qa": "ok"
  },
  "sequence-roadmap-vertical-plain-text": {
   "family": "sequence-roadmap",
   "field": "sequences",
   "desc": "로드맵 — 앞으로의 단계별 계획 · 모양: vertical plain text",
+  "aspect": 1.89,
   "qa": "ok"
  },
  "sequence-roadmap-vertical-quarter-circular": {
   "family": "sequence-roadmap",
   "field": "sequences",
   "desc": "로드맵 — 앞으로의 단계별 계획 · 모양: vertical quarter circular",
+  "aspect": 2.75,
   "qa": "ok"
  },
  "sequence-roadmap-vertical-quarter-simple-card": {
   "family": "sequence-roadmap",
   "field": "sequences",
   "desc": "로드맵 — 앞으로의 단계별 계획 · 모양: vertical quarter simple card",
+  "aspect": 2.04,
   "qa": "ok"
  },
  "sequence-roadmap-vertical-simple": {
   "family": "sequence-roadmap",
   "field": "sequences",
   "desc": "로드맵 — 앞으로의 단계별 계획 · 모양: vertical simple",
+  "aspect": 2.32,
   "qa": "ok"
  },
  "sequence-roadmap-vertical-underline-text": {
   "family": "sequence-roadmap",
   "field": "sequences",
   "desc": "로드맵 — 앞으로의 단계별 계획 · 모양: vertical underline text",
+  "aspect": 2.32,
   "qa": "ok"
  },
  "sequence-snake-steps-compact-card": {
   "family": "sequence-snake",
   "field": "sequences",
   "desc": "뱀 모양 단계 — 긴 순서를 굽이쳐 배치 · 모양: steps compact card",
+  "aspect": 6.94,
   "qa": "ok"
  },
  "sequence-snake-steps-pill-badge": {
   "family": "sequence-snake",
   "field": "sequences",
   "desc": "뱀 모양 단계 — 긴 순서를 굽이쳐 배치 · 모양: steps pill badge",
+  "aspect": 7.85,
   "qa": "ok"
  },
  "sequence-snake-steps-simple": {
   "family": "sequence-snake",
   "field": "sequences",
   "desc": "뱀 모양 단계 — 긴 순서를 굽이쳐 배치 · 모양: steps simple",
+  "aspect": 4.74,
   "qa": "ok"
  },
  "sequence-snake-steps-simple-illus": {
   "family": "sequence-snake",
   "field": "sequences",
   "desc": "뱀 모양 단계 — 긴 순서를 굽이쳐 배치 · 모양: steps simple illus",
+  "aspect": 1.94,
   "qa": "ok"
  },
  "sequence-snake-steps-underline-text": {
   "family": "sequence-snake",
   "field": "sequences",
   "desc": "뱀 모양 단계 — 긴 순서를 굽이쳐 배치 · 모양: steps underline text",
+  "aspect": 5.68,
   "qa": "ok"
  },
  "sequence-stairs-front-compact-card": {
   "family": "sequence-stairs",
   "field": "sequences",
   "desc": "계단 — 단계별 진행 · 모양: front compact card",
+  "aspect": 1.83,
   "qa": "ok"
  },
  "sequence-stairs-front-pill-badge": {
   "family": "sequence-stairs",
   "field": "sequences",
   "desc": "계단 — 단계별 진행 · 모양: front pill badge",
+  "aspect": 2.05,
   "qa": "ok"
  },
  "sequence-stairs-front-simple": {
   "family": "sequence-stairs",
   "field": "sequences",
   "desc": "계단 — 단계별 진행 · 모양: front simple",
+  "aspect": 1.84,
   "qa": "ok"
  },
  "sequence-steps-badge-card": {
   "family": "sequence",
   "field": "sequences",
   "desc": "순서·단계 — 처음부터 끝까지 차례로 진행하는 과정 · 모양: steps badge card",
+  "aspect": 4.25,
   "qa": "ok"
  },
  "sequence-steps-simple": {
   "family": "sequence",
   "field": "sequences",
   "desc": "순서·단계 — 처음부터 끝까지 차례로 진행하는 과정 · 모양: steps simple",
+  "aspect": 3.36,
   "qa": "ok"
  },
  "sequence-steps-simple-illus": {
   "family": "sequence",
   "field": "sequences",
   "desc": "순서·단계 — 처음부터 끝까지 차례로 진행하는 과정 · 모양: steps simple illus",
+  "aspect": 1.72,
   "qa": "ok"
  },
  "sequence-timeline-done-list": {
   "family": "sequence-timeline",
   "field": "sequences",
   "desc": "타임라인 — 날짜·연도 순 사건 · 모양: done list",
-  "qa": "fixed_latin",
   "fixed_latin": [
    "STEP"
-  ]
+  ],
+  "aspect": 2.74,
+  "qa": "fixed_latin"
  },
  "sequence-timeline-plain-text": {
   "family": "sequence-timeline",
   "field": "sequences",
   "desc": "타임라인 — 날짜·연도 순 사건 · 모양: plain text",
+  "aspect": 1.4,
   "qa": "ok"
  },
  "sequence-timeline-rounded-rect-node": {
   "family": "sequence-timeline",
   "field": "sequences",
   "desc": "타임라인 — 날짜·연도 순 사건 · 모양: rounded rect node",
-  "qa": "fixed_latin",
   "fixed_latin": [
    "STEP"
-  ]
+  ],
+  "aspect": 2.27,
+  "qa": "fixed_latin"
  },
  "sequence-timeline-simple": {
   "family": "sequence-timeline",
   "field": "sequences",
   "desc": "타임라인 — 날짜·연도 순 사건 · 모양: simple",
+  "aspect": 0.8,
   "qa": "ok"
  },
  "sequence-timeline-simple-illus": {
   "family": "sequence-timeline",
   "field": "sequences",
   "desc": "타임라인 — 날짜·연도 순 사건 · 모양: simple illus",
-  "qa": "fixed_latin",
   "fixed_latin": [
    "STEP"
-  ]
+  ],
+  "aspect": 0.32,
+  "qa": "fixed_latin"
  },
  "sequence-zigzag-pucks-3d-indexed-card": {
   "family": "sequence-zigzag",
   "field": "sequences",
   "desc": "지그재그 단계 · 모양: pucks 3d indexed card",
+  "aspect": 1.69,
   "qa": "ok"
  },
  "sequence-zigzag-pucks-3d-simple": {
   "family": "sequence-zigzag",
   "field": "sequences",
   "desc": "지그재그 단계 · 모양: pucks 3d simple",
+  "aspect": 1.99,
   "qa": "ok"
  },
  "sequence-zigzag-pucks-3d-underline-text": {
   "family": "sequence-zigzag",
   "field": "sequences",
   "desc": "지그재그 단계 · 모양: pucks 3d underline text",
+  "aspect": 1.91,
   "qa": "ok"
  },
  "sequence-zigzag-steps-underline-text": {
   "family": "sequence-zigzag",
   "field": "sequences",
   "desc": "지그재그 단계 · 모양: steps underline text",
+  "aspect": 1.57,
   "qa": "ok"
  }
 }

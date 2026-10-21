@@ -92,6 +92,21 @@ class Outline(unittest.TestCase):
         m = slide.map_layouts(slides, tpl)
         self.assertEqual([x["use"] for x in m], ["points", "points"])
 
+    def test_ig_families_min_aspect(self):
+        cat = {"a-tall": {"family": "a", "desc": "x · 모양: t", "qa": "ok", "aspect": 0.8},
+               "a-wide": {"family": "a", "desc": "x · 모양: w", "qa": "ok", "aspect": 2.5},
+               "b-tall": {"family": "b", "desc": "y · 모양: t", "qa": "ok", "aspect": 0.5}}
+        f = slide.ig_families(cat, min_aspect=1.3)
+        self.assertEqual(f["a"]["names"], ["a-wide"])
+        self.assertNotIn("b", f)  # 가로 모양이 없는 계열은 후보에서 빠진다
+        self.assertEqual(len(slide.ig_families(cat)), 2)
+
+    def test_layout_missing_is_none(self):
+        # 대체할 장도 없으면 use=None — outline 은 「템플릿에 없음 — 새로 그림」으로 찍는다
+        tpl = {"layouts": [{"i": 0, "layout": "cover", "label": "c"}, {"i": 1, "layout": "compare", "label": "v"}]}
+        _, _, slides = slide.parse_outline("## a {quote}\n")
+        self.assertIsNone(slide.map_layouts(slides, tpl)[0]["use"])
+
 
 class Colors(unittest.TestCase):
     def test_contrast(self):

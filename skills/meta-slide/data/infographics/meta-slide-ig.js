@@ -62,7 +62,7 @@ data
     var pal = [1, 2, 3, 4].map(function (i) { return cssVar('--ms-ig-' + i, ''); }).filter(Boolean);
     var font = cssVar('--ms-body', '').replace(/["']/g, '');
     var out = src.replace(/\s+$/, '') + '\ntheme\n';
-    if (pal.length) out += '  palette ' + pal.join(' ') + '\n';
+    if (pal.length) out += '  colorPrimary ' + pal[0] + '\n  palette ' + pal.join(' ') + '\n';  // 주색 — 없으면 AntV 기본 분홍(#FF356A)이 VS·화살표에 남는다
     if (font) out += '  base\n    text\n      font-family ' + font + '\n';
     return out;
   }

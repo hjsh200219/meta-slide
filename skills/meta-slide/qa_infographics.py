@@ -5,6 +5,7 @@
 - ok: 렌더 성공 · 그림 크기 0 아님
 - fixed_latin: 데이터에 없는 영문 낱말이 그림에 박혀 나옴(예: Pros/Cons) — 한국어 덱에서는 피한다
 - error: 렌더 예외
+- aspect: 그림의 가로/세로 비율(예시 데이터 기준) — outline --jev 가 가로 장에 세로로 긴 모양을 고르지 않게 쓴다
 outline --jev 는 ok 이고 fixed_latin 없는 것만 후보로 쓴다. Jev 호출 없음(로컬 렌더만).
 """
 import json
@@ -46,12 +47,15 @@ def main(argv):
               window.metaSlideRenderInfographics();
               setTimeout(() => {
                 const svg = box.querySelector('svg'); const r = svg ? svg.getBoundingClientRect() : {width: 0, height: 0};
-                done({state: box.getAttribute('data-ms-ig'), w: r.width, h: r.height, text: svg ? svg.textContent : ''});
+                const vb = svg && svg.viewBox && svg.viewBox.baseVal;  // 그림 자체의 가로세로 비율(상자 크기와 무관)
+                done({state: box.getAttribute('data-ms-ig'), w: r.width, h: r.height, text: svg ? svg.textContent : '',
+                      aspect: vb && vb.height ? vb.width / vb.height : 0});
               }, 350);
             })""", src)
             latin = sorted(set(re.findall(r"[A-Za-z]{3,}", res["text"])) - data_words)
             v = cat[name]
             v.pop("qa", None)
+            v["aspect"] = round(res["aspect"], 2)  # 1 보다 작으면 세로로 긴 그림 — 16:9 장에서는 작게 그려진다
             if res["state"] != "ok":
                 v["qa"] = "error"
             elif res["w"] < 10 or res["h"] < 10 or not re.search(r"[가-힣]", res["text"]):
