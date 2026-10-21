@@ -50,7 +50,7 @@ python3 skills/meta-slide/setup.py --force    # 새 키로 바꾸기 · --forget
 
 - 저장 위치: macOS 키체인(서비스 `typesafe-jev`) · Windows 자격 증명 관리자(`typesafe-jev/JEV_API_KEY`) · 그 밖 `~/.config/typesafe-jev/key`(0600).
 - 읽는 순서: 환경변수 `JEV_API_KEY` → 위 저장소 → `~/workspace/.env`.
-- **meta-motion 과 같은 저장소**라 한 번 저장하면 두 플러그인 모두 씁니다.
+- **meta-motion 과 같은 저장소**라 한 번 저장하면 두 플러그인 모두 씁니다. meta-slide 는 Jev 키만 씁니다(Fish Audio 키는 meta-motion 내레이션용이라 여기서는 묻지 않습니다).
 - 키는 채팅에 붙여 넣지 마세요. Claude 가 실행하면 OS 입력 창이 뜹니다. SSH 로 붙어 있으면 창이 원격 화면에 뜨므로 그 SSH 터미널에서 직접 실행하세요.
 - 키 발급: https://typesafe.ai (사내는 관리자에게 받습니다).
 

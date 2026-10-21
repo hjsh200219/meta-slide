@@ -150,21 +150,32 @@ class KeyStore(unittest.TestCase):
     def test_file_backend_roundtrip(self):  # 키체인·자격 증명 관리자를 끄고 파일 저장소만(모든 OS 공통 경로)
         import jev
         d = tempfile.mkdtemp()
-        saved = (jev._mac, jev._win_write, jev._win_read, jev._win_delete, jev.KEY_FILE)
+        saved = (jev._mac, jev._win_write, jev._win_read, jev._win_delete, jev.KEY_DIR)
         try:
-            jev._mac, jev._win_write, jev._win_read, jev._win_delete = (lambda: False), (lambda k: False), (lambda: None), (lambda: False)
-            jev.KEY_FILE = jev.Path(d) / "typesafe-jev" / "key"
-            self.assertEqual(jev.save_key(" test-key-0123456789 "), str(jev.KEY_FILE))
+            jev._mac, jev._win_write, jev._win_read, jev._win_delete = (lambda: False), (lambda t, a, v: False), (lambda t: None), (lambda t: False)
+            jev.KEY_DIR = jev.Path(d)
+            f = jev.Path(d) / "typesafe-jev" / "key"
+            self.assertEqual(jev.save_key(" test-key-0123456789 "), str(f))
             self.assertEqual(jev.stored_key()[0], "test-key-0123456789")
             if os.name != "nt":
-                self.assertEqual(os.stat(jev.KEY_FILE).st_mode & 0o777, 0o600)
-            self.assertEqual(jev.forget_key(), [str(jev.KEY_FILE)])
+                self.assertEqual(os.stat(f).st_mode & 0o777, 0o600)
+            fish = jev.save_secret("fish-audio", "FISH_AUDIO_API_KEY", "fish-key-0123456789")  # 서비스마다 따로
+            self.assertTrue(fish.endswith(os.path.join("fish-audio", "key")))
+            self.assertEqual(jev.stored_secret("fish-audio", "FISH_AUDIO_API_KEY")[0], "fish-key-0123456789")
+            self.assertEqual(jev.forget_key(), [str(f)])
             self.assertEqual(jev.stored_key(), (None, ""))
+            self.assertEqual(jev.stored_secret("fish-audio", "FISH_AUDIO_API_KEY")[0], "fish-key-0123456789")  # 다른 키는 그대로
             with self.assertRaises(jev.JevError):
                 jev.save_key("bad\nkey")
         finally:
-            jev._mac, jev._win_write, jev._win_read, jev._win_delete, jev.KEY_FILE = saved
+            jev._mac, jev._win_write, jev._win_read, jev._win_delete, jev.KEY_DIR = saved
             shutil.rmtree(d)
+
+
+class Setup(unittest.TestCase):
+    def test_slide_asks_jev_only(self):  # meta-slide 에는 narrate/ 가 없다 — Fish 키를 묻지 않는다
+        import setup
+        self.assertEqual(setup.plugin_keys(), ["jev"])
 
 
 class Gallery(unittest.TestCase):
