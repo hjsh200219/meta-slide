@@ -1502,6 +1502,35 @@ CHECK_JS = r"""() => {
       el.setAttribute('data-ms-k', String(k++)); ko.push({t: t.slice(0, 30), sym});
     }
   }
+  // 상자와 글 겹침 — 바탕·테두리가 있는 상자 위에 그 상자에 속하지 않은 글이 걸친 곳(10-23 AX 덱 흐름도 갈림 상자 위 결과 줄)
+  const boxes = [];
+  for (const el of document.querySelectorAll('body *')) {
+    if (el.closest('svg, script, style, template, .ms-ig')) continue;
+    if (el.checkVisibility && !el.checkVisibility({opacityProperty: true, visibilityProperty: true})) continue;  // deck-stage 는 모든 장을 겹쳐 두고 숨긴다
+    const r = el.getBoundingClientRect(); if (r.width < 60 || r.height < 40 || r.right <= 1 || r.bottom <= 1 || r.left >= W - 1 || r.top >= H - 1) continue;
+    if (r.width * r.height > 0.5 * W * H) continue;  // 장 배경 판
+    const cs = getComputedStyle(el);
+    const bg = cs.backgroundColor.match(/[\d.]+/g), bgOn = bg && (bg.length < 4 || parseFloat(bg[3]) > 0.05);
+    const sides = ['Top', 'Right', 'Bottom', 'Left'].filter(s => cs['border' + s + 'Style'] !== 'none' && parseFloat(cs['border' + s + 'Width']) >= 1).length;
+    if (cs.position === 'fixed' || !(bgOn || sides >= 3)) continue;
+    if (!(el.innerText || '').trim()) continue;  // 글이 든 카드끼리만 — 장식 도형 위에 일부러 얹은 글은 디자인이다
+    boxes.push({el, r});
+  }
+  const texts = [];
+  for (const el of document.querySelectorAll('body *')) {
+    const t = own(el).trim(); if (!t || el.closest('svg, script, style, template, .ms-ig, aside.notes, .notes')) continue;
+    if (el.checkVisibility && !el.checkVisibility({opacityProperty: true, visibilityProperty: true})) continue;
+    const r = el.getBoundingClientRect(); if (r.width < 1 || r.height < 1 || r.right <= 1 || r.bottom <= 1 || r.left >= W - 1 || r.top >= H - 1) continue;
+    const core = t.replace(/[\s.,:;!?'"()\[\]\/%+\-–—·•&@#*←→]/g, '');
+    if ((!HANGUL.test(t) && core.length <= 3) || core.length <= 2 || getComputedStyle(el).position === 'fixed') continue;  // 장 번호·화살표 같은 장식 글
+    texts.push({el, r, t});
+  }
+  let bo = 0;
+  for (const x of texts) for (const b of boxes) {
+    if (b.el.contains(x.el) || x.el.contains(b.el)) continue;
+    const w = Math.min(x.r.right, b.r.right) - Math.max(x.r.left, b.r.left), h = Math.min(x.r.bottom, b.r.bottom) - Math.max(x.r.top, b.r.top);
+    if (w > 2 && h > 2 && w * h > 0.3 * x.r.width * x.r.height) { if (bo++ < 3) out.push({kind: 'box-overlap', text: x.t.slice(0, 40)}); break; }
+  }
   // 인포그래픽 가독성 — 가장 작은 글자(화면 px)·글끼리 겹침·칸을 넘친 글. 세로로 길거나 항목이 많은 모양은 장에서 작게 그려진다(10-22 AX 덱)
   for (const ig of document.querySelectorAll('.ms-ig')) {
     const svg = ig.querySelector('svg'); if (!svg || !svg.viewBox || !svg.viewBox.baseVal.width) continue;

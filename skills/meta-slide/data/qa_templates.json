@@ -13,11 +13,26 @@
   "shots": 8,
   "fallback_slides": [],
   "fallback_fonts": [],
-  "overflow_slides": [],
-  "overflow_kinds": [],
+  "overflow_slides": [
+   3
+  ],
+  "overflow_kinds": [
+   "box-overlap"
+  ],
   "note": null,
   "sheet": "biennale-yellow/shots/sheet.png",
-  "detail": []
+  "detail": [
+   {
+    "n": 3,
+    "issues": [
+     {
+      "kind": "box-overlap",
+      "text": "03 / 08"
+     }
+    ],
+    "fallback": {}
+   }
+  ]
  },
  "block-frame": {
   "shots": 10,
@@ -333,11 +348,30 @@
   "shots": 10,
   "fallback_slides": [],
   "fallback_fonts": [],
-  "overflow_slides": [],
-  "overflow_kinds": [],
+  "overflow_slides": [
+   4
+  ],
+  "overflow_kinds": [
+   "box-overlap"
+  ],
   "note": null,
   "sheet": "fs-pastel-geometry/shots/sheet.png",
-  "detail": []
+  "detail": [
+   {
+    "n": 4,
+    "issues": [
+     {
+      "kind": "box-overlap",
+      "text": "인근거숫 자비교 정리"
+     },
+     {
+      "kind": "box-overlap",
+      "text": "04 / 10"
+     }
+    ],
+    "fallback": {}
+   }
+  ]
  },
  "fs-split-pastel": {
   "shots": 10,
@@ -523,11 +557,49 @@
   "shots": 7,
   "fallback_slides": [],
   "fallback_fonts": [],
-  "overflow_slides": [],
-  "overflow_kinds": [],
+  "overflow_slides": [
+   1,
+   7
+  ],
+  "overflow_kinds": [
+   "box-overlap"
+  ],
   "note": null,
   "sheet": "hd-irreverent-pop/shots/sheet.png",
-  "detail": []
+  "detail": [
+   {
+    "n": 1,
+    "issues": [
+     {
+      "kind": "box-overlap",
+      "text": "절도식요37 약간지구도헤드라"
+     },
+     {
+      "kind": "box-overlap",
+      "text": "인 근거숫자"
+     },
+     {
+      "kind": "box-overlap",
+      "text": "한생각.강약"
+     }
+    ],
+    "fallback": {}
+   },
+   {
+    "n": 7,
+    "issues": [
+     {
+      "kind": "box-overlap",
+      "text": "정리마무 리발표 자료"
+     },
+     {
+      "kind": "box-overlap",
+      "text": "핵심메시 004812"
+     }
+    ],
+    "fallback": {}
+   }
+  ]
  },
  "hd-mono-brand-type-hero": {
   "shots": 7,
@@ -963,11 +1035,26 @@
   "shots": 22,
   "fallback_slides": [],
   "fallback_fonts": [],
-  "overflow_slides": [],
-  "overflow_kinds": [],
+  "overflow_slides": [
+   2
+  ],
+  "overflow_kinds": [
+   "box-overlap"
+  ],
   "note": null,
   "sheet": "hp-theme-retro-tv/shots/sheet.png",
-  "detail": []
+  "detail": [
+   {
+    "n": 2,
+    "issues": [
+     {
+      "kind": "box-overlap",
+      "text": "인근-거숫"
+     }
+    ],
+    "fallback": {}
+   }
+  ]
  },
  "hp-theme-rose-pine": {
   "shots": 22,
@@ -1983,11 +2070,26 @@
   "shots": 8,
   "fallback_slides": [],
   "fallback_fonts": [],
-  "overflow_slides": [],
-  "overflow_kinds": [],
+  "overflow_slides": [
+   1
+  ],
+  "overflow_kinds": [
+   "box-overlap"
+  ],
   "note": null,
   "sheet": "pa-retro-70s/shots/sheet.png",
-  "detail": []
+  "detail": [
+   {
+    "n": 1,
+    "issues": [
+     {
+      "kind": "box-overlap",
+      "text": "마무리발 · 표자료핵 심메시 지 한장한생 각"
+     }
+    ],
+    "fallback": {}
+   }
+  ]
  },
  "pa-royal-red": {
   "shots": 8,
@@ -2173,11 +2275,45 @@
   "shots": 10,
   "fallback_slides": [],
   "fallback_fonts": [],
-  "overflow_slides": [],
-  "overflow_kinds": [],
+  "overflow_slides": [
+   7,
+   9
+  ],
+  "overflow_kinds": [
+   "box-overlap"
+  ],
   "note": null,
   "sheet": "retro-windows/shots/sheet.png",
-  "detail": []
+  "detail": [
+   {
+    "n": 7,
+    "issues": [
+     {
+      "kind": "box-overlap",
+      "text": "거숫자비 교정리 마무"
+     }
+    ],
+    "fallback": {}
+   },
+   {
+    "n": 9,
+    "issues": [
+     {
+      "kind": "box-overlap",
+      "text": "자비 교정리"
+     },
+     {
+      "kind": "box-overlap",
+      "text": "한생각강 약조절도"
+     },
+     {
+      "kind": "box-overlap",
+      "text": "라인 근거숫자"
+     }
+    ],
+    "fallback": {}
+   }
+  ]
  },
  "retro-zine": {
   "shots": 10,
@@ -2223,21 +2359,55 @@
   "shots": 12,
   "fallback_slides": [],
   "fallback_fonts": [],
-  "overflow_slides": [],
-  "overflow_kinds": [],
+  "overflow_slides": [
+   8
+  ],
+  "overflow_kinds": [
+   "box-overlap"
+  ],
   "note": null,
   "sheet": "soft-editorial/shots/sheet.png",
-  "detail": []
+  "detail": [
+   {
+    "n": 8,
+    "issues": [
+     {
+      "kind": "box-overlap",
+      "text": "도식요 29, 2026"
+     }
+    ],
+    "fallback": {}
+   }
+  ]
  },
  "stencil-tablet": {
   "shots": 11,
   "fallback_slides": [],
   "fallback_fonts": [],
-  "overflow_slides": [],
-  "overflow_kinds": [],
+  "overflow_slides": [
+   11
+  ],
+  "overflow_kinds": [
+   "box-overlap"
+  ],
   "note": null,
   "sheet": "stencil-tablet/shots/sheet.png",
-  "detail": []
+  "detail": [
+   {
+    "n": 11,
+    "issues": [
+     {
+      "kind": "box-overlap",
+      "text": "조절도 & 식요약간 지"
+     },
+     {
+      "kind": "box-overlap",
+      "text": "11 / 11"
+     }
+    ],
+    "fallback": {}
+   }
+  ]
  },
  "studio": {
   "shots": 12,
@@ -2293,10 +2463,33 @@
   "shots": 9,
   "fallback_slides": [],
   "fallback_fonts": [],
-  "overflow_slides": [],
-  "overflow_kinds": [],
+  "overflow_slides": [
+   7
+  ],
+  "overflow_kinds": [
+   "box-overlap"
+  ],
   "note": null,
   "sheet": "vellum/shots/sheet.png",
-  "detail": []
+  "detail": [
+   {
+    "n": 7,
+    "issues": [
+     {
+      "kind": "box-overlap",
+      "text": "07 / 09"
+     },
+     {
+      "kind": "box-overlap",
+      "text": "거숫 자비교정."
+     },
+     {
+      "kind": "box-overlap",
+      "text": "리마 무리발."
+     }
+    ],
+    "fallback": {}
+   }
+  ]
  }
 }
