@@ -1181,7 +1181,7 @@ def check_outline(meta, sections, slides, synopsis=None):
     """synopsis(전략 dict)가 있으면 그 전략의 기준(헤드라인·근거·본문 길이, 요약 위치, 사진 비중)으로 본다."""
     issues = []
     k = syn_knobs(synopsis)
-    by = f" — {synopsis['name_ko']} 기준" if synopsis else ""
+    by = f" — {synopsis['name_ko'].split('(')[0].strip()} 기준" if synopsis else ""  # 괄호 속 단계 나열은 빼고 짧게
     add = lambda lv, code, msg, n=None: issues.append({"level": lv, "code": code, "msg": msg, "slide": n})
     if not meta.get("title"):
         add("warn", "no-title", "머리말에 title 이 없습니다 — 표지 제목")
