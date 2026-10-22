@@ -285,6 +285,15 @@ class Shots(unittest.TestCase):
         self.assertIn("title, desc", slide.CHECK_JS)  # 그려지지 않는 접근성 글은 글자 크기 검사에서 뺀다
         self.assertIn(".ms-ig[data-ms-diagram] svg", slide.META_CSS)  # 도식 SVG 에 덱 서체
 
+    def test_layout_repeats(self):
+        flow = {"sig": "div.fl>div.nd", "img": 0, "text": 200}
+        sigs = [(n, flow) for n in (3, 5, 7, 9)] + [(4, {"sig": "div.fl>div.nd", "img": 1, "text": 200}),  # 큰 실제 화면 장은 뺀다
+                                                    (6, {"sig": "div.fl>div.nd", "img": 0, "text": 40}),   # 간지·한 문장 장도 뺀다
+                                                    (8, {"sig": "ig:chart-pie", "img": 0, "text": 200})]
+        self.assertEqual(slide.layout_repeats(sigs), [("div.fl>div.nd", [3, 5, 7, 9])])
+        self.assertEqual(slide.layout_repeats(sigs[:3]), [])  # 세 장까지는 괜찮다
+        self.assertIn("ig:", slide.LAYOUT_SIG_JS)
+
 
 class KeyStore(unittest.TestCase):
     def test_file_backend_roundtrip(self):  # 키체인·자격 증명 관리자를 끄고 파일 저장소만(모든 OS 공통 경로)

@@ -1607,6 +1607,48 @@ def contact_sheet(paths, out, cols=4, width=480):
     return out
 
 
+# 장의 «틀» — 같은 부모 아래 같은 꼴로 되풀이된 칸(가로 상자 줄·카드 격자 …)과 인포그래픽 계열. 10-23 AX 덱에서 흐름도 11장이
+# 모두 「가로 상자 4~5개 + 화살표」 한 틀이라 사용자 「몇몇 패턴만 반복되고 — 다양하게 + 적합한 것을」. 실제 화면이 큰 장은 화면이 주인공이라 뺀다.
+LAYOUT_SIG_JS = r"""() => {
+  const W = innerWidth, H = innerHeight, A = W * H, vis = [];
+  for (const el of document.querySelectorAll('body *')) {
+    if (el.closest('script, style, template, svg, aside.notes, .notes')) continue;
+    if (el.checkVisibility && !el.checkVisibility({opacityProperty: true, visibilityProperty: true})) continue;
+    const r = el.getBoundingClientRect(); if (r.right <= 1 || r.bottom <= 1 || r.left >= W - 1 || r.top >= H - 1) continue;
+    vis.push([el, r]);
+  }
+  let img = 0, text = 0; const units = new Set();
+  for (const [el, r] of vis) {
+    const a = Math.min(r.width, W) * Math.min(r.height, H);
+    if (el.tagName === 'IMG' && a > 0.2 * A) img = 1;
+    for (let n = el.firstChild; n; n = n.nextSibling) if (n.nodeType === 3) text += n.nodeValue.trim().length;
+  }
+  const key = e => e.tagName.toLowerCase() + (e.classList.length ? '.' + [...e.classList].sort()[0] : '');
+  const seen = new Set(vis.map(v => v[0]));
+  for (const [el, r] of vis) {
+    if (r.width * r.height < 0.004 * A || r.width * r.height > 0.5 * A) continue;
+    const p = el.parentElement; if (!p) continue;
+    const same = [...p.children].filter(c => seen.has(c) && key(c) === key(el)).length;
+    if (same >= 3 && (el.innerText || '').trim().length > 4) units.add(key(p) + '>' + key(el));
+  }
+  for (const s of document.querySelectorAll('script[type="text/x-infographic"]')) {
+    const box = s.parentElement && s.parentElement.getBoundingClientRect();
+    if (!box || box.right <= 1 || box.left >= W - 1 || box.bottom <= 1 || box.top >= H - 1) continue;
+    const m = s.textContent.match(/infographic\s+([a-z-]+)/); if (m) units.add('ig:' + m[1]);
+  }
+  return {sig: [...units].sort().join(' | '), img, text};
+}"""
+
+
+def layout_repeats(sigs, min_n=4):
+    """같은 틀이 min_n 장 이상이면 [(틀, [장 번호])]. 큰 실제 화면 장·글이 적은 장(표지·간지·한 문장)은 셈에서 뺀다."""
+    groups = {}
+    for n, s in sigs:
+        if s.get("sig") and not s.get("img") and s.get("text", 0) >= 120:
+            groups.setdefault(s["sig"], []).append(n)
+    return sorted(((k, v) for k, v in groups.items() if len(v) >= min_n), key=lambda x: -len(x[1]))
+
+
 def shots(deck, out_dir=None, pdf=False, wait_ms=700, ko_sample=False):
     from playwright.sync_api import sync_playwright
     deck = os.path.abspath(deck)
@@ -1637,6 +1679,7 @@ def shots(deck, out_dir=None, pdf=False, wait_ms=700, ko_sample=False):
         cdp.send("DOM.enable")
         cdp.send("CSS.enable")
         prev = None
+        sigs = []
         for i in range(n):
             if i:
                 pg.keyboard.press("ArrowRight")
@@ -1661,6 +1704,7 @@ def shots(deck, out_dir=None, pdf=False, wait_ms=700, ko_sample=False):
             prev = png
             report["shots"].append(path)
             chk = pg.evaluate(CHECK_JS)
+            sigs.append((i + 1, pg.evaluate(LAYOUT_SIG_JS)))
             for dg in pg.evaluate(DIAGRAM_SVG_JS):
                 for msg in verify_diagram(dg["name"], dg["svg"])[:4]:
                     chk["issues"].append({"kind": "diagram-math", "text": f"{dg['name']} {msg[:160]}"})
@@ -1699,6 +1743,7 @@ def shots(deck, out_dir=None, pdf=False, wait_ms=700, ko_sample=False):
                 ims[0].save(pdf_path, save_all=True, append_images=ims[1:], resolution=144)
                 report["pdf"] = pdf_path
         b.close()
+    report["layout_repeats"] = [{"layout": k, "slides": v} for k, v in layout_repeats(sigs)]
     report["sheet"] = contact_sheet(report["shots"], os.path.join(out_dir, "sheet.png"))
     return report
 
@@ -1725,7 +1770,10 @@ def cmd_shots(argv):
         if msgs:
             bad += 1
             print(f"  {s['n']:>2}장: " + " · ".join(msgs))
-    print("자동 검사: " + ("문제 없음" if not bad else f"{bad}장에 문제") + " — 그래도 sheet.png 를 눈으로 본다(강약·도식·자간)")
+    for rp in r.get("layout_repeats", []):
+        bad += 1
+        print(f"  틀 반복 {len(rp['slides'])}장({', '.join(map(str, rp['slides']))}): {rp['layout'][:90]} — 장마다 내용 구조(퍼짐·주고받음·갈림·비중·순환·계단·비교)에 맞는 ig·diagram 계열로 바꾼다")
+    print("자동 검사: " + ("문제 없음" if not bad else f"{bad}건 문제") + " — 그래도 sheet.png 를 눈으로 본다(강약·도식·자간)")
 
 
 # ── 목록·이력 ───────────────────────────────────────────────────
