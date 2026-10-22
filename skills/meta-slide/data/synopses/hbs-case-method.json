@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "slug": "hbs-case-method",
+  "name": "HBS Case Method",
+  "name_ko": "하버드 케이스 메소드(주인공의 딜레마 → 질문 → 토론 → 결정)",
+  "family": "세미나",
+  "inspired_by": "Harvard Business School 케이스 메소드 수업",
+  "tagline_ko": "결정을 앞둔 주인공의 상황을 주고, 질문을 던져 청중이 선택지를 토론하게 한 뒤, 실제 결정과 교훈을 공개한다",
+  "best_for_ko": "워크숍·리더십 교육·전략 토론 세미나·사후 학습 세션",
+  "avoid_for_ko": "일방 보고, 출시 행사",
+  "signals_ko": "사례·주인공·딜레마·당신이라면·토론·선택지",
+  "audience_ko": "관리자·교육생·토론 참가자",
+  "headline_style": "질문형 — 「당신이 김 약사라면 어떻게 하겠는가?」",
+  "beats": [
+    {
+      "id": "protagonist",
+      "name": "주인공과 딜레마",
+      "goal": "누가 어떤 결정을 앞두고 있나",
+      "layout": "image",
+      "section": "사례",
+      "required": true
+    },
+    {
+      "id": "facts",
+      "name": "사실",
+      "goal": "토론에 필요한 사실·숫자",
+      "layout": "points",
+      "section": "사례",
+      "required": true
+    },
+    {
+      "id": "question",
+      "name": "토론 질문",
+      "goal": "「당신이라면?」 질문 하나",
+      "layout": "statement",
+      "section": "토론",
+      "required": true
+    },
+    {
+      "id": "options",
+      "name": "선택지",
+      "goal": "청중이 낸 안을 나란히",
+      "layout": "compare",
+      "section": "토론",
+      "required": true
+    },
+    {
+      "id": "what-happened",
+      "name": "실제 결정",
+      "goal": "주인공이 실제로 한 일과 결과",
+      "layout": "timeline",
+      "section": "공개",
+      "required": false
+    },
+    {
+      "id": "lessons",
+      "name": "교훈",
+      "goal": "다른 결정에도 쓸 원칙",
+      "layout": "summary",
+      "section": "공개",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "답을 먼저 주지 않는다 — 질문이 중심",
+    "사실은 토론에 필요한 만큼만",
+    "선택지 장은 비워 두고 토론하며 채워도 된다",
+    "끝은 정답이 아니라 원칙"
+  ],
+  "knobs": {
+    "max_headline_chars": 40,
+    "max_bullets": 5,
+    "max_body_chars": 240,
+    "summary": "end",
+    "ig_min": 0.6,
+    "summary_words": "교훈|원칙|배운"
+  },
+  "layout_prefer": [
+    "statement",
+    "points",
+    "compare",
+    "timeline",
+    "summary"
+  ],
+  "template_hints": {
+    "scheme": "light",
+    "density": [
+      "medium"
+    ],
+    "style_ko": "단정한 강의형·질문 장은 큰 글자"
+  },
+  "source_ko": "Harvard Business School 케이스 메소드 — 주인공의 결정 상황을 두고 토론하는 수업 방식",
+  "example": "---\ntitle: 김 약사의 선택\npresenter: 교육팀 · 고객 성공 리더십 워크숍\naudience: 고객 성공 관리자\nsynopsis: hbs-case-method\n---\n# 사례\n## 김 약사는 자동 발주를 끌지 말지 정해야 한다 {image}\n## 결품은 줄었지만 재고 금액이 12% 늘었다 {points}\n# 토론\n## 당신이 담당자라면 김 약사에게 무엇을 권하겠는가 {statement}\n## 선택지는 셋 — 끄기, 기준 낮추기, 품목 나누기 {compare}\n# 공개\n## 실제로는 품목을 나눠 넉 달 뒤 재고를 되돌렸다 {timeline}\n## 교훈: 끄기 전에 나눠 본다 {summary}"
+}

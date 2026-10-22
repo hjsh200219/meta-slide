@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "slug": "storybrand-sb7",
+  "name": "StoryBrand SB7",
+  "name_ko": "스토리브랜드 SB7(고객이 영웅, 우리는 안내자)",
+  "family": "스토리",
+  "tagline_ko": "고객을 영웅으로, 우리를 안내자로 — 문제·계획·행동 요청·실패와 성공을 차례로 보여 준다",
+  "best_for_ko": "브랜드 소개·마케팅 메시지·랜딩 발표·고객 대상 제품 설명",
+  "avoid_for_ko": "내부 보고, 학술 발표",
+  "signals_ko": "고객·고민·도와드립니다·계획·지금 시작·「~하지 않으면」",
+  "audience_ko": "잠재 고객·파트너",
+  "headline_style": "고객이 주어 — 「약사님은 ~을 원한다」. 우리 자랑은 안내자의 자격 한 장에만",
+  "beats": [
+    {
+      "id": "hero",
+      "name": "영웅(고객)과 바라는 것",
+      "goal": "고객이 원하는 것 한 가지",
+      "layout": "statement",
+      "section": "영웅",
+      "required": true
+    },
+    {
+      "id": "problem",
+      "name": "문제",
+      "goal": "겉의 문제·속의 감정·옳지 않은 것",
+      "layout": "statement",
+      "section": "영웅",
+      "required": true
+    },
+    {
+      "id": "guide",
+      "name": "안내자",
+      "goal": "공감 한 줄 + 자격(숫자·추천)",
+      "layout": "quote",
+      "section": "안내자",
+      "required": true
+    },
+    {
+      "id": "plan",
+      "name": "계획",
+      "goal": "세 단계로 끝나는 길",
+      "layout": "diagram",
+      "section": "안내자",
+      "required": true
+    },
+    {
+      "id": "cta",
+      "name": "행동 요청",
+      "goal": "지금 할 한 가지",
+      "layout": "statement",
+      "section": "결말",
+      "required": true
+    },
+    {
+      "id": "failure",
+      "name": "피하는 실패",
+      "goal": "하지 않으면 잃는 것",
+      "layout": "number",
+      "section": "결말",
+      "required": false
+    },
+    {
+      "id": "success",
+      "name": "성공",
+      "goal": "바뀐 뒤의 모습",
+      "layout": "image",
+      "section": "결말",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "고객이 영웅 — 우리 회사 이야기는 안내자 자격 한 장뿐",
+    "계획은 세 단계 이내",
+    "행동 요청은 하나, 분명하게",
+    "실패와 성공을 둘 다 보여 준다"
+  ],
+  "knobs": {
+    "max_headline_chars": 32,
+    "max_bullets": 3,
+    "max_body_chars": 160,
+    "summary": "end",
+    "ig_min": 0.65,
+    "summary_words": "시작|성공|함께|행동",
+    "image_ratio_min": 0.1
+  },
+  "layout_prefer": [
+    "statement",
+    "diagram",
+    "image",
+    "quote",
+    "number"
+  ],
+  "template_hints": {
+    "scheme": null,
+    "density": [
+      "low",
+      "medium"
+    ],
+    "style_ko": "밝고 친근한 브랜드형·큰 사진·포인트 한 색"
+  },
+  "source_ko": "Donald Miller 『Building a StoryBrand』(2017) — SB7 프레임워크",
+  "example": "---\ntitle: 약사님은 약에 집중하세요\npresenter: 마케팅팀 · 약사가 자동 발주를 시작하게 한다\naudience: 잠재 고객 약사\nsynopsis: storybrand-sb7\n---\n# 영웅\n## 약사님은 손님에게 집중하고 싶다 {statement}\n## 그런데 밤마다 발주가 발목을 잡는다 {statement}\n# 안내자\n## 「저희도 그 밤을 보냈습니다」 — 3천 곳이 씁니다 {quote}\n## 연결 · 확인 · 승인, 세 단계면 된다 {diagram}\n# 결말\n## 오늘 무료 시범을 신청하세요 {statement}\n## 저녁 8시에 불 끄고 나가는 약국 {image}"
+}

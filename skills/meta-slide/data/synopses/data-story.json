@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "slug": "data-story",
+  "name": "Data Story",
+  "name_ko": "데이터 스토리(큰 생각 하나 → 근거 그래프 → 행동)",
+  "family": "데이터",
+  "inspired_by": "Cole Nussbaumer Knaflic — 『Storytelling with Data』 워크숍",
+  "tagline_ko": "한 문장 「큰 생각」을 정하고, 맥락·발견·의미를 그래프마다 하나씩 보여 행동으로 이어지게 한다",
+  "best_for_ko": "데이터 분석 결과 공유·대시보드 리뷰·지표 설명·인사이트 보고",
+  "avoid_for_ko": "감성 출시 행사, 지표가 없는 이야기",
+  "signals_ko": "지표·대시보드·추이·전환율·코호트·분석해 보니·인사이트",
+  "audience_ko": "의사결정자·실무 리더",
+  "headline_style": "그래프가 말하는 것을 문장으로 — 「재구매는 둘째 주에 무너진다」",
+  "beats": [
+    {
+      "id": "big-idea",
+      "name": "큰 생각",
+      "goal": "관점 + 걸린 것 + 한 문장",
+      "layout": "statement",
+      "section": "큰 생각",
+      "required": true
+    },
+    {
+      "id": "context",
+      "name": "맥락",
+      "goal": "기준선·비교 대상",
+      "layout": "chart",
+      "section": "근거",
+      "required": false
+    },
+    {
+      "id": "insight",
+      "name": "발견",
+      "goal": "그래프마다 하나의 발견 — 강조 색 한 곳",
+      "layout": "chart",
+      "section": "근거",
+      "required": true,
+      "count": "2~4장"
+    },
+    {
+      "id": "so-what",
+      "name": "의미",
+      "goal": "이 발견이 사업에 뜻하는 것",
+      "layout": "number",
+      "section": "의미",
+      "required": true
+    },
+    {
+      "id": "action",
+      "name": "행동",
+      "goal": "그래서 무엇을 하자",
+      "layout": "closing",
+      "section": "의미",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "그래프마다 발견 하나, 강조 색은 그 한 곳만",
+    "축·범례·눈금선을 덜어 낸다",
+    "헤드라인 = 그래프가 말하는 문장",
+    "「3분 이야기」로 말할 수 있을 때까지 줄인다"
+  ],
+  "knobs": {
+    "max_headline_chars": 44,
+    "max_bullets": 4,
+    "max_body_chars": 220,
+    "summary": "end",
+    "ig_min": 0.5,
+    "summary_words": "행동|하자|제안"
+  },
+  "layout_prefer": [
+    "chart",
+    "number",
+    "statement",
+    "compare"
+  ],
+  "template_hints": {
+    "scheme": "light",
+    "density": [
+      "medium"
+    ],
+    "style_ko": "흰 바탕·회색 그래프에 강조 한 색·장식 없음"
+  },
+  "source_ko": "Cole Nussbaumer Knaflic 『Storytelling with Data』(2015) — Big Idea·3분 이야기",
+  "example": "---\ntitle: 재구매는 둘째 주에 무너진다\npresenter: 데이터팀 · 2주 차 알림을 넣자\naudience: 제품 리더\nsynopsis: data-story\n---\n# 큰 생각\n## 2주 차에 알림을 넣으면 재구매를 지킬 수 있다 {statement}\n# 근거\n## 첫 주 재구매는 다른 서비스와 같다 {chart}\n## 둘째 주에 절반이 떠난다 {chart}\n# 의미\n## 둘째 주 이탈이 매출 손실의 60%다 {number}\n## 다음 달부터 2주 차 재고 알림을 시험하자 {closing}"
+}

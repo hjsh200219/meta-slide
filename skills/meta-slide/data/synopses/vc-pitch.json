@@ -1,0 +1,129 @@
+{
+  "version": 1,
+  "slug": "vc-pitch",
+  "name": "Investor Pitch",
+  "name_ko": "투자 유치 피치(문제 → 해법 → 시장 → 요청)",
+  "family": "투자",
+  "inspired_by": "Sequoia Capital·Guy Kawasaki",
+  "tagline_ko": "10~15장 안에 문제·해법·왜 지금·시장·사업 모델·팀·요청을 정해진 순서로 — 투자자가 찾는 칸을 빠짐없이",
+  "best_for_ko": "투자 유치·IR·데모데이·사업 공모·신사업 승인 요청. 사업 전체를 짧게 판단받아야 할 때",
+  "avoid_for_ko": "기존 사업 주간 보고, 교육, 제품 기능 상세 소개",
+  "signals_ko": "투자·시리즈·기업 가치·시장 규모·매출·성장률·경쟁사·팀·자금 사용처",
+  "audience_ko": "투자자·심사역·신사업 승인 위원회",
+  "headline_style": "한 줄 결론 + 숫자 — 「시장」 대신 「3조 원 시장의 4%가 이미 바꿀 준비가 됐다」",
+  "beats": [
+    {
+      "id": "purpose",
+      "name": "회사 한 줄",
+      "goal": "무엇을 하는 회사인지 한 문장",
+      "layout": "statement",
+      "section": "문제와 해법",
+      "required": true
+    },
+    {
+      "id": "problem",
+      "name": "문제",
+      "goal": "고객의 고통과 그 크기",
+      "layout": "statement",
+      "section": "문제와 해법",
+      "required": true
+    },
+    {
+      "id": "solution",
+      "name": "해법",
+      "goal": "우리 제품이 그 문제를 푸는 장면",
+      "layout": "image",
+      "section": "문제와 해법",
+      "required": true
+    },
+    {
+      "id": "why-now",
+      "name": "왜 지금",
+      "goal": "이 일이 지금 가능해진 변화",
+      "layout": "timeline",
+      "section": "문제와 해법",
+      "required": false
+    },
+    {
+      "id": "market",
+      "name": "시장",
+      "goal": "시장 크기와 우리가 먼저 잡을 몫",
+      "layout": "number",
+      "section": "시장과 사업",
+      "required": true
+    },
+    {
+      "id": "competition",
+      "name": "경쟁",
+      "goal": "대안과 나란히 — 우리가 이기는 축",
+      "layout": "compare",
+      "section": "시장과 사업",
+      "required": true
+    },
+    {
+      "id": "business-model",
+      "name": "사업 모델",
+      "goal": "누가 무엇에 얼마를 내나",
+      "layout": "diagram",
+      "section": "시장과 사업",
+      "required": true
+    },
+    {
+      "id": "traction",
+      "name": "성과",
+      "goal": "지금까지의 숫자 — 성장 곡선",
+      "layout": "chart",
+      "section": "시장과 사업",
+      "required": false
+    },
+    {
+      "id": "team",
+      "name": "팀",
+      "goal": "이 일을 할 수 있는 이유",
+      "layout": "team",
+      "section": "팀과 요청",
+      "required": true
+    },
+    {
+      "id": "ask",
+      "name": "재무 계획과 요청",
+      "goal": "얼마를 받아 무엇을 이루나 — 이정표",
+      "layout": "number",
+      "section": "팀과 요청",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "10~15장 · 20분 · 큰 글자(가와사키 10/20/30)",
+    "모든 장에 숫자 하나 이상 — 문제의 크기·시장·성장",
+    "경쟁은 2축 사분면이나 비교로 — 「경쟁 없음」은 쓰지 않는다",
+    "끝은 요약이 아니라 요청 금액·사용처·이정표"
+  ],
+  "knobs": {
+    "max_headline_chars": 36,
+    "max_bullets": 4,
+    "max_body_chars": 200,
+    "summary": "end",
+    "summary_words": "요청|투자|자금|함께|이정표",
+    "ig_min": 0.6
+  },
+  "layout_prefer": [
+    "number",
+    "chart",
+    "statement",
+    "compare",
+    "team",
+    "timeline",
+    "diagram"
+  ],
+  "template_hints": {
+    "scheme": null,
+    "density": [
+      "low",
+      "medium"
+    ],
+    "style_ko": "깔끔한 스타트업 톤 — 숫자를 크게 쓰는 격자·포인트 한 색"
+  },
+  "source_ko": "Sequoia Capital 사업 계획 구성(목적·문제·해법·왜 지금·시장·경쟁·제품·사업 모델·팀·재무) · Guy Kawasaki 10/20/30 규칙",
+  "example": "---\ntitle: 약국 재고를 스스로 움직이게\npresenter: 대표 · 시리즈 A 50억 원 유치\naudience: 투자 심사역\nsynopsis: vc-pitch\n---\n# 문제와 해법\n## 약국 재고를 스스로 주문하게 만드는 회사 {statement}\n## 전국 약국이 하루 40분을 발주에 쓴다 {statement}\n## 오토오더가 판매 기록으로 다음 주문을 만든다 {image}\n# 시장과 사업\n## 연 2조 원 의약품 발주의 첫 10%를 잡는다 {number}\n## 도매 앱과 달리 약국 판매 기록을 쓴다 {compare}\n## 약국 월 구독 + 도매 연동 수수료 {diagram}\n## 시범 120곳, 넉 달 만에 월 매출 4배 {chart}\n# 팀과 요청\n## 약국 프로그램을 10년 만든 팀 {team}\n## 50억 원으로 18개월 안에 3천 곳 {number}"
+}

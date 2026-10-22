@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "slug": "duarte-sparkline",
+  "name": "Sparkline Story",
+  "name_ko": "스파크라인 스토리(지금 ↔ 가능한 미래)",
+  "family": "스토리",
+  "inspired_by": "Nancy Duarte — 『Resonate』·TEDx 「The secret structure of great talks」",
+  "tagline_ko": "「지금 이렇다」와 「이렇게 될 수 있다」를 번갈아 보여 긴장을 쌓고, 행동 요청과 새로운 미래의 장면으로 끝낸다",
+  "best_for_ko": "변화 관리·조직 비전·타운홀·전략 공유·캠페인 결의. 청중의 생각과 행동을 바꿔야 할 때",
+  "avoid_for_ko": "짧은 수치 보고, 사실 전달 위주의 교육, 상세 제안서",
+  "signals_ko": "변화·전환·「우리는」·함께·미래·「지금까지는 / 앞으로는」·결심",
+  "audience_ko": "구성원 전체·파트너·커뮤니티",
+  "headline_style": "대비가 있는 문장 — 「지금은 ~, 앞으로는 ~」. 청중을 주어로",
+  "beats": [
+    {
+      "id": "what-is",
+      "name": "지금",
+      "goal": "청중이 겪는 지금의 모습",
+      "layout": "statement",
+      "section": "지금",
+      "required": true
+    },
+    {
+      "id": "what-could-be",
+      "name": "가능한 미래",
+      "goal": "바뀐 뒤의 모습 한 장면",
+      "layout": "statement",
+      "section": "지금",
+      "required": true
+    },
+    {
+      "id": "contrast",
+      "name": "지금과 미래 왕복",
+      "goal": "근거(숫자·사례·인용)를 끼우며 지금과 미래를 번갈아",
+      "layout": "compare",
+      "section": "넘어가는 길",
+      "required": true,
+      "count": "2~4번 왕복"
+    },
+    {
+      "id": "stakes",
+      "name": "잃는 것",
+      "goal": "바꾸지 않으면 잃는 것",
+      "layout": "number",
+      "section": "넘어가는 길",
+      "required": false
+    },
+    {
+      "id": "call",
+      "name": "행동 요청",
+      "goal": "청중이 내일부터 할 일 하나",
+      "layout": "statement",
+      "section": "함께",
+      "required": true
+    },
+    {
+      "id": "new-bliss",
+      "name": "새로운 미래",
+      "goal": "모두가 도착한 뒤의 장면",
+      "layout": "image",
+      "section": "함께",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "지금과 미래를 적어도 두 번 왕복한다 — 한 번만 보여 주면 긴장이 생기지 않는다",
+    "청중이 주인공, 발표자는 안내자",
+    "왕복 사이에 증거(숫자·사례·인용)를 한 장씩",
+    "끝은 요약 목록이 아니라 행동 요청과 미래의 장면"
+  ],
+  "knobs": {
+    "max_headline_chars": 34,
+    "max_bullets": 4,
+    "max_body_chars": 180,
+    "summary": "end",
+    "summary_words": "함께|시작|행동|미래|약속",
+    "ig_min": 0.7
+  },
+  "layout_prefer": [
+    "statement",
+    "compare",
+    "quote",
+    "image",
+    "number"
+  ],
+  "template_hints": {
+    "scheme": null,
+    "density": [
+      "low",
+      "medium"
+    ],
+    "style_ko": "감정을 담는 큰 사진·대비되는 두 색·여백"
+  },
+  "source_ko": "Nancy Duarte 『Resonate』(2010) 스파크라인 — What is / What could be · 행동 요청 · New bliss",
+  "example": "---\ntitle: 발주 없는 약국으로\npresenter: 운영본부장 · 전 지점이 자동 발주로 옮기도록 마음을 움직인다\naudience: 직영 약국 약사 전원\nsynopsis: duarte-sparkline\n---\n# 지금\n## 지금 우리는 문 닫고 한 시간을 발주에 쓴다 {statement}\n## 앞으로는 그 시간에 단골의 약을 챙긴다 {statement}\n# 넘어가는 길\n## 지금은 감으로, 앞으로는 판매 기록으로 주문한다 {compare}\n## 「처음엔 못 믿었는데, 2주 만에 손을 뗐어요」 {quote}\n## 바꾸지 않으면 한 해 240시간을 잃는다 {number}\n# 함께\n## 다음 달 1일, 각 지점이 한 품목부터 맡긴다 {statement}\n## 저녁 8시, 불 끄고 나가는 약국 {image}"
+}

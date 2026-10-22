@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "slug": "sebasi-15",
+  "name": "Sebasi 15-min Talk",
+  "name_ko": "세바시형 15분 강연(나의 장면 → 깨달음 → 당신에게)",
+  "family": "세미나",
+  "inspired_by": "CBS 「세상을 바꾸는 시간, 15분」(세바시) 강연 관행",
+  "tagline_ko": "발표자 자신의 구체적 장면으로 열고, 그 경험에서 얻은 깨달음을 한 문장으로, 청중의 삶에 옮겨 닫는 15분 강연",
+  "best_for_ko": "사내 강연·명사 초청 강연·경험 공유 세미나·북토크",
+  "avoid_for_ko": "데이터 보고, 판매 제안",
+  "signals_ko": "제 이야기·그때·깨달았습니다·여러분도·15분",
+  "audience_ko": "일반 청중·구성원",
+  "headline_style": "청중에게 말 걸듯 — 「여러분의 저녁은 몇 시에 시작되나요?」",
+  "beats": [
+    {
+      "id": "scene",
+      "name": "나의 장면",
+      "goal": "발표자가 겪은 구체적 장면",
+      "layout": "image",
+      "section": "나",
+      "required": true
+    },
+    {
+      "id": "struggle",
+      "name": "흔들림",
+      "goal": "그 장면에서 겪은 갈등·실패",
+      "layout": "statement",
+      "section": "나",
+      "required": true
+    },
+    {
+      "id": "realization",
+      "name": "깨달음",
+      "goal": "한 문장 깨달음",
+      "layout": "statement",
+      "section": "깨달음",
+      "required": true
+    },
+    {
+      "id": "evidence",
+      "name": "그 뒤의 변화",
+      "goal": "깨달음 뒤 달라진 것 — 숫자나 장면",
+      "layout": "number",
+      "section": "깨달음",
+      "required": false
+    },
+    {
+      "id": "you",
+      "name": "당신에게",
+      "goal": "청중의 삶에 옮기는 질문·제안",
+      "layout": "summary",
+      "section": "당신",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "15분, 15~25장",
+    "청중에게 질문을 던지며 말 걸듯",
+    "깨달음은 한 문장, 끝까지 같은 말",
+    "끝은 청중의 내일에 옮겨"
+  ],
+  "knobs": {
+    "max_headline_chars": 28,
+    "max_bullets": 2,
+    "max_body_chars": 120,
+    "summary": "end",
+    "ig_min": 0.85,
+    "summary_words": "여러분|당신|내일",
+    "image_ratio_min": 0.25
+  },
+  "layout_prefer": [
+    "image",
+    "statement",
+    "quote",
+    "number"
+  ],
+  "template_hints": {
+    "scheme": null,
+    "density": [
+      "low"
+    ],
+    "style_ko": "따뜻한 사진·큰 한글 제목"
+  },
+  "source_ko": "CBS 「세상을 바꾸는 시간, 15분」(2011~) 강연 형식",
+  "example": "---\ntitle: 저녁이 있는 약국\npresenter: 약사 · 사내 초청 강연\naudience: 구성원\nsynopsis: sebasi-15\n---\n# 나\n## 개업 첫해, 저는 매일 밤 11시에 퇴근했습니다 {image}\n## 아이 학예회를 세 번 놓쳤습니다 {statement}\n# 깨달음\n## 내가 붙잡고 있던 건 일이 아니라 불안이었다 {statement}\n## 발주를 맡긴 뒤 하루 40분이 생겼다 {number}\n# 당신\n## 여러분이 내려놓을 40분은 무엇입니까 {summary}"
+}

@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "slug": "pas",
+  "name": "Problem–Agitate–Solve",
+  "name_ko": "PAS(문제 → 자극 → 해결)",
+  "family": "카피 공식",
+  "tagline_ko": "문제를 꺼내고, 그 아픔을 키운 뒤, 해결책을 내민다 — 짧은 설득 발표의 기본 공식",
+  "best_for_ko": "짧은 영업 발표·제품 소개·랜딩 발표·내부 개선 제안 5~8장",
+  "avoid_for_ko": "중립적 정보 공유·교육·학술",
+  "signals_ko": "불편·고민·「~하신 적 있죠?」·해결·지금",
+  "audience_ko": "잠재 고객·내부 의사결정자",
+  "headline_style": "청중이 겪는 문제를 그 사람의 말로 — 질문형도 좋다",
+  "beats": [
+    {
+      "id": "problem",
+      "name": "문제",
+      "goal": "청중이 아는 문제 하나",
+      "layout": "statement",
+      "section": "문제",
+      "required": true
+    },
+    {
+      "id": "agitate",
+      "name": "자극",
+      "goal": "그 문제가 계속되면 생기는 일 — 숫자·장면",
+      "layout": "number",
+      "section": "문제",
+      "required": true,
+      "count": "1~2장"
+    },
+    {
+      "id": "solve",
+      "name": "해결",
+      "goal": "우리 해법이 그 아픔을 없애는 장면",
+      "layout": "image",
+      "section": "해결",
+      "required": true
+    },
+    {
+      "id": "proof",
+      "name": "증거",
+      "goal": "해결된 사례 하나",
+      "layout": "quote",
+      "section": "해결",
+      "required": false
+    },
+    {
+      "id": "cta",
+      "name": "행동",
+      "goal": "지금 할 한 가지",
+      "layout": "closing",
+      "section": "해결",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "문제는 하나만",
+    "자극은 과장 없이 사실·숫자로",
+    "해결은 문제와 같은 말로 되받는다",
+    "끝은 행동 하나"
+  ],
+  "knobs": {
+    "max_headline_chars": 30,
+    "max_bullets": 3,
+    "max_body_chars": 140,
+    "summary": "end",
+    "ig_min": 0.7,
+    "summary_words": "지금|시작|신청"
+  },
+  "layout_prefer": [
+    "statement",
+    "number",
+    "image",
+    "quote"
+  ],
+  "template_hints": {
+    "scheme": null,
+    "density": [
+      "low",
+      "medium"
+    ],
+    "style_ko": "대비가 강한 바탕·큰 숫자·포인트 한 색"
+  },
+  "source_ko": "카피라이팅 공식 PAS(Problem·Agitate·Solve)",
+  "example": "---\ntitle: 결품, 이제 그만\npresenter: 영업팀 · 약국에 자동 발주를 판다\naudience: 약국 약사\nsynopsis: pas\n---\n# 문제\n## 오늘도 「그 약 없어요」라고 말하셨나요? {statement}\n## 결품 한 번에 단골 한 명이 다른 약국으로 간다 {number}\n# 해결\n## 오토오더는 떨어지기 전에 주문한다 {image}\n## 「석 달째 결품 0건」 {quote}\n## 이번 주 무료 시범을 시작하세요 {closing}"
+}

@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "slug": "ted-big-idea",
+  "name": "Big Idea Talk",
+  "name_ko": "TED 형 한 아이디어 강연",
+  "family": "강연",
+  "inspired_by": "Chris Anderson — TED 큐레이터",
+  "tagline_ko": "개인 이야기로 열고 하나의 아이디어를 비유·사례로 쌓아, 청중이 가져갈 한 문장으로 닫는다",
+  "best_for_ko": "강연·세미나 기조·사내 인사이트 공유·북토크. 정보보다 관점을 바꾸는 것이 목적일 때",
+  "avoid_for_ko": "보고·제안·판매·교육 매뉴얼",
+  "signals_ko": "「제가 ~했을 때」·이야기·깨달음·「우리 모두」·「질문 하나」·「생각해 보면」",
+  "audience_ko": "일반 청중·구성원 전체",
+  "headline_style": "질문이나 짧은 깨달음 문장. 화면 글은 최소 — 사진과 한 문장",
+  "beats": [
+    {
+      "id": "story-hook",
+      "name": "이야기로 열기",
+      "goal": "발표자가 겪은 장면 하나",
+      "layout": "image",
+      "section": "이야기",
+      "required": true
+    },
+    {
+      "id": "idea",
+      "name": "한 아이디어",
+      "goal": "오늘 전할 생각 한 문장",
+      "layout": "statement",
+      "section": "이야기",
+      "required": true
+    },
+    {
+      "id": "why-care",
+      "name": "왜 중요한가",
+      "goal": "청중의 삶과 이어지는 숫자·사실",
+      "layout": "number",
+      "section": "아이디어",
+      "required": false
+    },
+    {
+      "id": "explain",
+      "name": "설명",
+      "goal": "비유·사례로 아이디어를 쌓는다",
+      "layout": "statement",
+      "section": "아이디어",
+      "required": true,
+      "count": "2~3장"
+    },
+    {
+      "id": "objection",
+      "name": "반론과 답",
+      "goal": "「그래도 ~하지 않나?」에 답하기",
+      "layout": "compare",
+      "section": "아이디어",
+      "required": false
+    },
+    {
+      "id": "takeaway",
+      "name": "가져갈 한 문장",
+      "goal": "처음 이야기로 돌아가 한 문장으로 닫기",
+      "layout": "summary",
+      "section": "닫기",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "아이디어는 하나 — 두 번째 아이디어가 나오면 뺀다",
+    "설명은 청중이 아는 것에 빗대어",
+    "화면은 사진·한 문장, 말은 노트로",
+    "끝은 처음 이야기로 돌아가 닫는다"
+  ],
+  "knobs": {
+    "max_headline_chars": 24,
+    "max_bullets": 2,
+    "max_body_chars": 100,
+    "summary": "end",
+    "summary_words": "가져갈|기억|한 문장|질문",
+    "ig_min": 0.8,
+    "image_ratio_min": 0.15
+  },
+  "layout_prefer": [
+    "statement",
+    "image",
+    "quote",
+    "number"
+  ],
+  "template_hints": {
+    "scheme": "dark",
+    "density": [
+      "low"
+    ],
+    "style_ko": "어두운 무대 바탕·큰 사진·한 문장·여백"
+  },
+  "source_ko": "Chris Anderson 『TED Talks: The Official TED Guide to Public Speaking』(2016) — 하나의 아이디어·관통선",
+  "example": "---\ntitle: 잊어도 되는 일\npresenter: 약사 출신 창업자 · 「잊어도 되는 일을 만들어야 사람이 남는다」\naudience: 약사 컨퍼런스 청중\nsynopsis: ted-big-idea\n---\n# 이야기\n## 개업 첫해, 저는 매일 밤 재고를 셌습니다 {image}\n## 좋은 도구는 일을 잊게 해 준다 {statement}\n# 아이디어\n## 약사 한 명이 한 해 240시간을 센다 {number}\n## 냉장고는 우리에게 얼음을 잊게 했다 {statement}\n## 「그래도 내 눈으로 봐야 안심된다」 {compare}\n# 닫기\n## 무엇을 잊어도 되게 만들 것인가 {summary}"
+}

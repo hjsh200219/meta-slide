@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "slug": "story-spine",
+  "name": "Story Spine",
+  "name_ko": "스토리 스파인(옛날 옛적에 → 그러던 어느 날 → 마침내)",
+  "family": "스토리",
+  "tagline_ko": "「평소에는 → 그러던 어느 날 → 그 때문에(반복) → 마침내 → 그 뒤로」의 이야기 뼈대로 변화를 들려준다",
+  "best_for_ko": "사례 발표·고객 성공 이야기·프로젝트 회고 발표·브랜드 이야기",
+  "avoid_for_ko": "수치 중심 보고, 여러 주장을 나열하는 제안",
+  "signals_ko": "그때·처음에는·그러다·결국·그 뒤로·이야기",
+  "audience_ko": "일반 청중·구성원",
+  "headline_style": "이야기의 한 박자를 한 문장으로 — 「그러던 어느 날, ~」",
+  "beats": [
+    {
+      "id": "once",
+      "name": "평소",
+      "goal": "주인공과 평소의 세계",
+      "layout": "image",
+      "section": "평소",
+      "required": true
+    },
+    {
+      "id": "every-day",
+      "name": "늘 그랬다",
+      "goal": "반복되던 일상·문제",
+      "layout": "statement",
+      "section": "평소",
+      "required": false
+    },
+    {
+      "id": "one-day",
+      "name": "그러던 어느 날",
+      "goal": "모든 것을 바꾼 사건",
+      "layout": "statement",
+      "section": "사건",
+      "required": true
+    },
+    {
+      "id": "because",
+      "name": "그 때문에",
+      "goal": "사건이 부른 일의 연쇄",
+      "layout": "timeline",
+      "section": "사건",
+      "required": true,
+      "count": "2~3장"
+    },
+    {
+      "id": "finally",
+      "name": "마침내",
+      "goal": "절정과 해결",
+      "layout": "statement",
+      "section": "결말",
+      "required": true
+    },
+    {
+      "id": "ever-since",
+      "name": "그 뒤로",
+      "goal": "달라진 지금과 교훈",
+      "layout": "summary",
+      "section": "결말",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "주인공 한 명을 끝까지 따라간다",
+    "「그 때문에」로 원인과 결과를 잇는다 — 「그리고」 나열 금지",
+    "절정 장은 사진이나 한 문장",
+    "끝은 교훈 한 줄"
+  ],
+  "knobs": {
+    "max_headline_chars": 34,
+    "max_bullets": 3,
+    "max_body_chars": 160,
+    "summary": "end",
+    "ig_min": 0.7,
+    "summary_words": "그 뒤로|교훈|이제",
+    "image_ratio_min": 0.15
+  },
+  "layout_prefer": [
+    "statement",
+    "image",
+    "timeline",
+    "quote"
+  ],
+  "template_hints": {
+    "scheme": null,
+    "density": [
+      "low",
+      "medium"
+    ],
+    "style_ko": "이야기책 같은 따뜻한 톤·사진·여백"
+  },
+  "source_ko": "Kenn Adams 의 Story Spine(1991) — Pixar 스토리보드 작가 Emma Coats 의 「22가지 이야기 규칙」으로 알려짐",
+  "example": "---\ntitle: 한 약국의 이야기\npresenter: 고객 성공팀 · 한 약국이 바뀐 과정을 이야기로\naudience: 사내 전체 회의\nsynopsis: story-spine\n---\n# 평소\n## 김 약사는 15년째 같은 동네 약국을 지켰다 {image}\n## 매일 밤 11시까지 재고를 셌다 {statement}\n# 사건\n## 그러던 어느 날, 독감 철에 해열제가 바닥났다 {statement}\n## 그 때문에 단골 열 명이 다른 약국으로 갔다 {timeline}\n# 결말\n## 마침내 그는 발주를 기계에 맡겼다 {statement}\n## 그 뒤로 그의 약국에는 결품이 없다 {summary}"
+}

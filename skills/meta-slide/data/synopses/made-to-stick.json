@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "slug": "made-to-stick",
+  "name": "Made to Stick SUCCESs",
+  "name_ko": "스틱(SUCCESs — 단순 → 의외 → 구체 → 신뢰 → 감정 → 이야기)",
+  "family": "세미나",
+  "inspired_by": "Chip Heath·Dan Heath — 『Made to Stick』(2007)",
+  "tagline_ko": "한 줄 핵심을 의외의 사실로 열고, 구체적 장면·믿을 만한 근거·감정·이야기를 차례로 붙여 머리에 박히게 한다",
+  "best_for_ko": "메시지를 기억시켜야 하는 발표 — 캠페인·교육 도입·조직 가치 공유·홍보",
+  "avoid_for_ko": "숫자 표 보고, 절차 교육",
+  "signals_ko": "기억·핵심 한 줄·의외로·실제 사례·이야기",
+  "audience_ko": "구성원·고객·일반 청중",
+  "headline_style": "속담처럼 짧은 한 줄 — 「결품 한 번, 단골 한 명」",
+  "beats": [
+    {
+      "id": "simple",
+      "name": "단순한 핵심",
+      "goal": "한 줄 속담 같은 핵심",
+      "layout": "statement",
+      "section": "핵심",
+      "required": true
+    },
+    {
+      "id": "unexpected",
+      "name": "의외의 사실",
+      "goal": "예상을 깨는 사실로 호기심",
+      "layout": "number",
+      "section": "핵심",
+      "required": true
+    },
+    {
+      "id": "concrete",
+      "name": "구체적 장면",
+      "goal": "손에 잡히는 장면·사물",
+      "layout": "image",
+      "section": "증거",
+      "required": true
+    },
+    {
+      "id": "credible",
+      "name": "믿을 근거",
+      "goal": "직접 확인할 수 있는 근거·사람",
+      "layout": "quote",
+      "section": "증거",
+      "required": true
+    },
+    {
+      "id": "emotional",
+      "name": "감정",
+      "goal": "한 사람의 이야기에 마음이 움직이게",
+      "layout": "image",
+      "section": "증거",
+      "required": false
+    },
+    {
+      "id": "story",
+      "name": "이야기와 되새김",
+      "goal": "따라 할 수 있는 이야기 + 핵심 한 줄 다시",
+      "layout": "summary",
+      "section": "닫기",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "핵심은 한 줄, 끝까지 같은 말로",
+    "통계보다 한 사람",
+    "추상어 대신 사물·장면",
+    "근거는 청중이 직접 확인할 수 있는 것"
+  ],
+  "knobs": {
+    "max_headline_chars": 30,
+    "max_bullets": 2,
+    "max_body_chars": 140,
+    "summary": "end",
+    "ig_min": 0.75,
+    "summary_words": "한 줄|기억|다시",
+    "image_ratio_min": 0.2
+  },
+  "layout_prefer": [
+    "statement",
+    "image",
+    "number",
+    "quote"
+  ],
+  "template_hints": {
+    "scheme": null,
+    "density": [
+      "low",
+      "medium"
+    ],
+    "style_ko": "큰 한 줄·사진·포인트 한 색"
+  },
+  "source_ko": "Chip Heath·Dan Heath 『Made to Stick』(2007) SUCCESs 원칙",
+  "example": "---\ntitle: 결품 한 번, 단골 한 명\npresenter: 고객 성공팀 · 영업 교육 도입\naudience: 영업팀\nsynopsis: made-to-stick\n---\n# 핵심\n## 결품 한 번, 단골 한 명 {statement}\n## 결품을 겪은 손님의 31%가 다음 달 다른 약국에 간다 {number}\n# 증거\n## 빈 칸이 된 해열제 진열대 {image}\n## 「그날 이후 그 손님을 못 봤어요」 — 김 약사 {quote}\n# 닫기\n## 결품 한 번, 단골 한 명 — 이 말로 시작하자 {summary}"
+}

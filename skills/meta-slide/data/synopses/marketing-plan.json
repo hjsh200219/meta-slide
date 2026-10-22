@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "slug": "marketing-plan",
+  "name": "Marketing Plan 3C·STP·4P",
+  "name_ko": "마케팅 기획서(3C → SWOT → STP → 4P)",
+  "family": "기획",
+  "tagline_ko": "환경 분석(3C·SWOT)에서 표적과 포지션(STP)을 정하고 실행(4P)과 예산·일정으로 — 한국 마케팅 기획서 정석",
+  "best_for_ko": "마케팅 전략 수립·연간 마케팅 계획·신제품 시장 진입 기획",
+  "avoid_for_ko": "짧은 보고, 감성 캠페인 PT(→ 광고 대행사 PT)",
+  "signals_ko": "3C·SWOT·타깃·포지셔닝·STP·4P·마케팅 믹스",
+  "audience_ko": "마케팅 책임자·경영진",
+  "headline_style": "분석 장도 결론 문장 — 「경쟁사는 체인에 강하고 개인 약국은 비어 있다」",
+  "beats": [
+    {
+      "id": "situation",
+      "name": "환경 분석(3C)",
+      "goal": "고객·경쟁·자사에서 나온 결론",
+      "layout": "points",
+      "section": "분석",
+      "required": true,
+      "count": "1~3장"
+    },
+    {
+      "id": "swot",
+      "name": "SWOT",
+      "goal": "강점·약점·기회·위협 한 장",
+      "layout": "diagram",
+      "section": "분석",
+      "required": false
+    },
+    {
+      "id": "stp",
+      "name": "표적·포지셔닝(STP)",
+      "goal": "누구에게 어떤 자리로",
+      "layout": "diagram",
+      "section": "전략",
+      "required": true
+    },
+    {
+      "id": "objective",
+      "name": "목표",
+      "goal": "마케팅 목표 수치",
+      "layout": "number",
+      "section": "전략",
+      "required": true
+    },
+    {
+      "id": "mix",
+      "name": "실행(4P)",
+      "goal": "제품·가격·유통·촉진",
+      "layout": "diagram",
+      "section": "실행",
+      "required": true
+    },
+    {
+      "id": "plan",
+      "name": "예산·일정",
+      "goal": "언제 얼마",
+      "layout": "timeline",
+      "section": "실행",
+      "required": true
+    },
+    {
+      "id": "kpi",
+      "name": "성과 지표",
+      "goal": "무엇으로 성공을 볼지",
+      "layout": "summary",
+      "section": "실행",
+      "required": false
+    }
+  ],
+  "rules_ko": [
+    "분석은 전략으로 이어지는 결론만 남긴다",
+    "표적은 하나로 좁힌다",
+    "4P 는 포지셔닝과 앞뒤가 맞게",
+    "목표와 성과 지표는 같은 숫자"
+  ],
+  "knobs": {
+    "max_headline_chars": 44,
+    "max_bullets": 5,
+    "max_body_chars": 260,
+    "summary": "end",
+    "ig_min": 0.5,
+    "summary_words": "지표|목표|정리"
+  },
+  "layout_prefer": [
+    "diagram",
+    "points",
+    "number",
+    "timeline",
+    "compare"
+  ],
+  "template_hints": {
+    "scheme": "light",
+    "density": [
+      "medium",
+      "medium-high"
+    ],
+    "style_ko": "단정한 기업형·사분면·도식"
+  },
+  "source_ko": "Kenichi Ohmae 3C · SWOT · Philip Kotler STP · E. Jerome McCarthy 4P",
+  "example": "---\ntitle: 2027 개인 약국 마케팅 계획\npresenter: 마케팅팀 · 개인 약국 시장 진입 계획\naudience: 마케팅 본부장\nsynopsis: marketing-plan\n---\n# 분석\n## 경쟁사는 체인에 강하고 개인 약국은 비어 있다 {points}\n# 전략\n## 하루 처방 100건 이하 동네 약국을 「밤이 짧아지는 도구」로 잡는다 {diagram}\n## 신규 개인 약국 1,200곳 {number}\n# 실행\n## 무료 석 달 · 약사회 제휴 · 커뮤니티 후기 {diagram}\n## 상반기 3억 원, 2월 개시 {timeline}"
+}

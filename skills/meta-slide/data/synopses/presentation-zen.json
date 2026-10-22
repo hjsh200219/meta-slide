@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "slug": "presentation-zen",
+  "name": "Presentation Zen",
+  "name_ko": "프레젠테이션 젠(절제·단순·자연 — 이야기 + 사진 + 한 줄)",
+  "family": "세미나",
+  "inspired_by": "Garr Reynolds — 『Presentation Zen』(2008)",
+  "tagline_ko": "컴퓨터를 켜기 전에 종이에서 이야기를 짜고, 장마다 고화질 사진과 짧은 글 한 줄로 — 덜어 내서 핵심만 남긴다",
+  "best_for_ko": "기조연설·브랜드 발표·디자인 강연·사내 공유회. 발표자가 말로 이끌 수 있을 때",
+  "avoid_for_ko": "인쇄해 읽는 자료(→ 따로 문서를 만든다), 표 검토 회의",
+  "signals_ko": "단순하게·핵심·이야기·사진·여백",
+  "audience_ko": "일반 청중·구성원",
+  "headline_style": "엘리베이터 테스트를 통과한 한 문장 — 장마다 그 문장의 한 조각",
+  "beats": [
+    {
+      "id": "core",
+      "name": "핵심 메시지",
+      "goal": "30초 안에 말할 수 있는 핵심(엘리베이터 테스트)",
+      "layout": "statement",
+      "section": "핵심",
+      "required": true
+    },
+    {
+      "id": "story",
+      "name": "이야기",
+      "goal": "핵심을 보여 주는 장면들 — 사진 한 장에 한 줄",
+      "layout": "image",
+      "section": "이야기",
+      "required": true,
+      "count": "5~15장"
+    },
+    {
+      "id": "evidence",
+      "name": "필요한 숫자",
+      "goal": "꼭 필요한 숫자 하나를 크게",
+      "layout": "number",
+      "section": "이야기",
+      "required": false
+    },
+    {
+      "id": "close",
+      "name": "핵심으로 돌아가기",
+      "goal": "처음 메시지를 다시",
+      "layout": "summary",
+      "section": "닫기",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "슬라이드 ≠ 배포 자료 — 자세한 것은 따로 문서로",
+    "사진은 화면 가득, 글은 한 줄",
+    "신호 대 잡음 — 로고·장식·글머리표를 뺀다",
+    "기획은 종이에서 먼저"
+  ],
+  "knobs": {
+    "max_headline_chars": 24,
+    "max_bullets": 1,
+    "max_body_chars": 80,
+    "summary": "end",
+    "ig_min": 0.85,
+    "summary_words": "핵심|다시|처음",
+    "image_ratio_min": 0.35
+  },
+  "layout_prefer": [
+    "image",
+    "statement",
+    "number"
+  ],
+  "template_hints": {
+    "scheme": null,
+    "density": [
+      "low"
+    ],
+    "style_ko": "여백 넓은 무지 바탕·화면 가득한 사진·가는 글자"
+  },
+  "source_ko": "Garr Reynolds 『Presentation Zen』(2008) — 절제·단순·자연, 엘리베이터 테스트, 슬라이드와 배포 자료 분리",
+  "example": "---\ntitle: 약국의 저녁\npresenter: 브랜드팀 · 브랜드 방향 공유\naudience: 전사\nsynopsis: presentation-zen\n---\n# 핵심\n## 우리는 약국에 저녁을 돌려준다 {statement}\n# 이야기\n## 밤 10시, 불 켜진 약국 {image}\n## 계산대 위 주문서 더미 {image}\n## 하루 40분 {number}\n## 저녁 8시, 불 끈 약국 {image}\n# 닫기\n## 약국에 저녁을 {summary}"
+}

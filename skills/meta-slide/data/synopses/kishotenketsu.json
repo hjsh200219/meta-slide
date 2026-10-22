@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "slug": "kishotenketsu",
+  "name": "Kishōtenketsu",
+  "name_ko": "기승전결",
+  "family": "스토리",
+  "tagline_ko": "일으키고(기) 이어 가다가(승) 뜻밖의 전환(전)으로 시선을 바꾼 뒤 하나로 맺는다(결) — 갈등 없이 반전으로 설득",
+  "best_for_ko": "칼럼형 발표·관점 전환 강연·사내 인사이트 공유·한국 청중 대상 이야기 발표",
+  "avoid_for_ko": "결론부터 들어야 하는 경영 보고, 상세 제안서",
+  "signals_ko": "그런데·사실은·뜻밖에·돌아보면·결국",
+  "audience_ko": "일반 청중·구성원",
+  "headline_style": "단계마다 한 문장 — 전(轉) 장은 짧고 강하게",
+  "beats": [
+    {
+      "id": "ki",
+      "name": "기(起)",
+      "goal": "익숙한 장면·주제를 연다",
+      "layout": "statement",
+      "section": "기",
+      "required": true
+    },
+    {
+      "id": "seung",
+      "name": "승(承)",
+      "goal": "그 장면을 이어 깊게",
+      "layout": "points",
+      "section": "승",
+      "required": true,
+      "count": "1~3장"
+    },
+    {
+      "id": "jeon",
+      "name": "전(轉)",
+      "goal": "뜻밖의 사실·관점 전환",
+      "layout": "statement",
+      "section": "전",
+      "required": true
+    },
+    {
+      "id": "gyeol",
+      "name": "결(結)",
+      "goal": "앞의 것을 하나로 묶는 결론",
+      "layout": "summary",
+      "section": "결",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "전(轉)은 앞과 다른 각도에서 — 반대 주장이 아니라 새로운 시선",
+    "전 장은 한 문장만 크게",
+    "결은 기의 장면과 이어서",
+    "각 단계를 간지로 나눠 리듬을 보인다"
+  ],
+  "knobs": {
+    "max_headline_chars": 36,
+    "max_bullets": 4,
+    "max_body_chars": 200,
+    "summary": "end",
+    "ig_min": 0.7,
+    "summary_words": "결국|하나로|그래서"
+  },
+  "layout_prefer": [
+    "statement",
+    "points",
+    "image",
+    "quote"
+  ],
+  "template_hints": {
+    "scheme": null,
+    "density": [
+      "low",
+      "medium"
+    ],
+    "style_ko": "차분한 동양적 여백·명조 계열 제목"
+  },
+  "source_ko": "한시 절구의 구성법 기승전결(起承轉結)",
+  "example": "---\ntitle: 재고는 숫자가 아니다\npresenter: 약사 출신 기획자 · 재고를 보는 관점을 바꾼다\naudience: 사내 세미나\nsynopsis: kishotenketsu\n---\n# 기\n## 약국의 밤은 재고를 세는 시간이다 {statement}\n# 승\n## 우리는 재고를 숫자로만 관리해 왔다 {points}\n# 전\n## 그런데 결품 한 건은 단골 한 명이었다 {statement}\n# 결\n## 재고 관리는 손님 관리다 {summary}"
+}

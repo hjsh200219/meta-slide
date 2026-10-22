@@ -1,0 +1,120 @@
+{
+  "version": 1,
+  "slug": "ad-agency-pitch",
+  "name": "Agency Pitch",
+  "name_ko": "광고 대행사 경쟁 PT(인사이트 → 빅 아이디어)",
+  "family": "광고",
+  "tagline_ko": "과제를 다시 정의하고 소비자 인사이트 한 줄에서 빅 아이디어(컨셉)를 터뜨린 뒤 실행 시안으로 보여 준다",
+  "best_for_ko": "캠페인·브랜드 제안, 마케팅 기획, 출시 컨셉 제안, 공모·경쟁 PT. 한 줄 컨셉과 감성 설득이 승부일 때",
+  "avoid_for_ko": "수치 근거로 결정을 받는 경영 보고, 학술 발표, 기능 상세 교육",
+  "signals_ko": "타깃·소비자·브랜드·캠페인·컨셉·카피·슬로건·크리에이티브·매체",
+  "audience_ko": "광고주 마케팅 책임자·브랜드 담당·심사위원",
+  "headline_style": "짧고 리듬 있는 카피체 — 헤드라인이 곧 말할 대사. 인사이트·컨셉 장은 한 줄만 크게",
+  "beats": [
+    {
+      "id": "task",
+      "name": "과제 재정의",
+      "goal": "광고주의 과제를 우리 말로 다시 — 「진짜 문제는 ~이다」",
+      "layout": "statement",
+      "section": "과제",
+      "required": true
+    },
+    {
+      "id": "context",
+      "name": "시장·브랜드 상황",
+      "goal": "경쟁·소비 흐름 속 브랜드의 자리, 짧게",
+      "layout": "points",
+      "section": "과제",
+      "required": false
+    },
+    {
+      "id": "insight",
+      "name": "소비자 인사이트",
+      "goal": "타깃이 말하지 않았지만 고개를 끄덕일 진실 한 줄",
+      "layout": "statement",
+      "section": "인사이트",
+      "required": true
+    },
+    {
+      "id": "strategy",
+      "name": "전략 방향(제안점)",
+      "goal": "인사이트에서 브랜드가 할 말 — 무엇을 믿게 할 것인가",
+      "layout": "statement",
+      "section": "인사이트",
+      "required": true
+    },
+    {
+      "id": "big-idea",
+      "name": "빅 아이디어(컨셉)",
+      "goal": "캠페인 전체를 묶는 한 단어·한 문장, 간지처럼 크게",
+      "layout": "divider",
+      "section": "아이디어",
+      "required": true
+    },
+    {
+      "id": "execution",
+      "name": "크리에이티브 실행",
+      "goal": "영상·인쇄·디지털 시안 — 이미지가 주인공, 글은 카피 한 줄",
+      "layout": "image",
+      "section": "아이디어",
+      "required": true,
+      "count": "3~6장"
+    },
+    {
+      "id": "media",
+      "name": "매체·IMC 전개",
+      "goal": "언제 어디서 어떻게 퍼뜨리나 — 흐름 한 장",
+      "layout": "timeline",
+      "section": "전개",
+      "required": false
+    },
+    {
+      "id": "effect",
+      "name": "기대 효과",
+      "goal": "목표 지표 하나를 크게",
+      "layout": "number",
+      "section": "전개",
+      "required": false
+    },
+    {
+      "id": "reprise",
+      "name": "컨셉 다시",
+      "goal": "빅 아이디어 한 줄로 끝맺기",
+      "layout": "closing",
+      "section": "전개",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "인사이트·컨셉 장은 한 줄 — 근거 목록을 붙이지 않는다",
+    "시안 장은 이미지가 화면 대부분, 글은 카피 한 줄",
+    "분석은 짧게(전체의 1/3 이내), 컨셉까지 빨리 간다",
+    "끝은 요약 목록이 아니라 컨셉 한 줄 반복"
+  ],
+  "knobs": {
+    "max_headline_chars": 30,
+    "max_bullets": 3,
+    "max_body_chars": 140,
+    "summary": "end",
+    "summary_words": "컨셉|빅 ?아이디어|한 줄|기억",
+    "ig_min": 0.75,
+    "image_ratio_min": 0.2
+  },
+  "layout_prefer": [
+    "statement",
+    "image",
+    "divider",
+    "quote",
+    "number"
+  ],
+  "template_hints": {
+    "scheme": null,
+    "density": [
+      "low",
+      "medium"
+    ],
+    "style_ko": "대담한 타이포·큰 이미지·강한 대비·여백 — 잡지·포스터 감성"
+  },
+  "source_ko": "어카운트 플래닝 관행(크리에이티브 브리프 — 과제·타깃·인사이트·제안점) · 국내 광고 대행사 경쟁 PT 구성",
+  "example": "---\ntitle: 약사님의 저녁을 돌려드립니다\npresenter: 크리에이티브팀 · 자동 발주 출시 캠페인 컨셉 「퇴근은 제시간에」를 판다\naudience: 광고주 마케팅팀\nsynopsis: ad-agency-pitch\n---\n# 과제\n## 진짜 문제는 재고가 아니라 약사의 저녁이다 {statement}\n# 인사이트\n## 「문 닫고 한 시간, 나는 아직 약국에 있다」 {statement}\n## 발주를 잊게 해 주는 브랜드가 된다 {statement}\n# 아이디어\n## 퇴근은 제시간에 {divider}\n## 밤 9시, 불 꺼진 약국 — 발주는 이미 끝났다 {image}\n## 라디오 30초 — 셔터 내리는 소리 {image}\n# 전개\n## 출시 첫 달, 약사 커뮤니티에서 시작해 TV 로 넓힌다 {timeline}\n## 퇴근은 제시간에 {closing}"
+}

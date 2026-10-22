@@ -1,0 +1,120 @@
+{
+  "version": 1,
+  "slug": "apple-keynote",
+  "name": "Keynote Reveal",
+  "name_ko": "애플 키노트(이미지·한 문장 중심)",
+  "family": "키노트",
+  "inspired_by": "Steve Jobs — Apple 키노트(2007 iPhone 발표 등)",
+  "tagline_ko": "한 장에 한 단어·한 숫자·한 사진. 이야기와 공개(reveal) 순간으로 끌고 가 청중이 한 문장을 기억하게 한다",
+  "best_for_ko": "제품·서비스 출시, 비전 발표, 컨퍼런스 기조연설, 홍보 발표. 발표자가 말로 끌고 가고 화면은 거드는 자리",
+  "avoid_for_ko": "인쇄해 돌려 읽는 보고서, 수치 표를 검토하는 회의, 세부 근거를 남겨야 하는 자료",
+  "signals_ko": "출시·발표·「소개합니다」·처음으로·경험·데모·가격·「그리고 하나 더」",
+  "audience_ko": "대규모 청중·고객·언론·전 직원",
+  "headline_style": "한글 20자 이내. 명사·숫자 중심의 짧은 문장, 형용사 하나로 끝나도 된다",
+  "beats": [
+    {
+      "id": "hook",
+      "name": "여는 장면",
+      "goal": "청중이 아는 불편·장면 하나 — 사진 또는 한 문장",
+      "layout": "image",
+      "section": "왜",
+      "required": true
+    },
+    {
+      "id": "villain",
+      "name": "문제(적)",
+      "goal": "지금 방식의 답답함을 한 문장으로",
+      "layout": "statement",
+      "section": "왜",
+      "required": true
+    },
+    {
+      "id": "reveal",
+      "name": "공개",
+      "goal": "제품·아이디어 이름을 화면 가득 — 사진 한 장",
+      "layout": "image",
+      "section": "무엇",
+      "required": true
+    },
+    {
+      "id": "three",
+      "name": "세 가지",
+      "goal": "핵심 가치를 셋으로 — 장마다 하나씩, 큰 사진·아이콘",
+      "layout": "statement",
+      "section": "무엇",
+      "required": true,
+      "count": "3장"
+    },
+    {
+      "id": "demo",
+      "name": "데모·사용 장면",
+      "goal": "실제 쓰는 화면이나 영상",
+      "layout": "image",
+      "section": "무엇",
+      "required": false
+    },
+    {
+      "id": "number",
+      "name": "숫자 한 방",
+      "goal": "기억할 숫자 하나를 크게(비교 대상 한 줄)",
+      "layout": "number",
+      "section": "얼마나",
+      "required": false
+    },
+    {
+      "id": "price",
+      "name": "가격·출시일",
+      "goal": "언제·얼마·어디서",
+      "layout": "number",
+      "section": "얼마나",
+      "required": false
+    },
+    {
+      "id": "one-more",
+      "name": "하나 더",
+      "goal": "기대를 넘는 마지막 공개(선택)",
+      "layout": "statement",
+      "section": "얼마나",
+      "required": false
+    },
+    {
+      "id": "recap",
+      "name": "한 문장 정리",
+      "goal": "세 가지를 한 장에 다시, 또는 슬로건 한 줄",
+      "layout": "summary",
+      "section": "얼마나",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "본문 글머리표를 쓰지 않는다 — 한 장 한 문장 또는 사진 한 장",
+    "설명은 노트(>)로, 화면에는 결과만",
+    "숫자는 비교 대상과 함께 크게(「2배 빠르게」)",
+    "장 수가 많아도 된다 — 넘기는 속도로 리듬을 만든다"
+  ],
+  "knobs": {
+    "max_headline_chars": 20,
+    "max_bullets": 1,
+    "max_body_chars": 60,
+    "summary": "end",
+    "summary_words": "정리|세 가지|한 문장",
+    "ig_min": 0.85,
+    "image_ratio_min": 0.25
+  },
+  "layout_prefer": [
+    "statement",
+    "image",
+    "number",
+    "compare",
+    "divider"
+  ],
+  "template_hints": {
+    "scheme": "dark",
+    "density": [
+      "low"
+    ],
+    "style_ko": "검은(또는 흰) 무지 바탕·거대한 글자·화면 가득한 사진·장식 없음"
+  },
+  "source_ko": "Carmine Gallo 『The Presentation Secrets of Steve Jobs』(3의 법칙·한 줄 헤드라인·악당과 영웅) · Apple 키노트 관행",
+  "example": "---\ntitle: 오토오더\npresenter: 제품 총괄 · 「발주를 잊어도 된다」 한 문장을 기억하게 한다\naudience: 약사 고객·언론\nsynopsis: apple-keynote\n---\n# 왜\n## 밤 10시, 아직 발주 중 {image}\n## 발주는 너무 오래 걸린다 {statement}\n# 무엇\n## 오토오더 {image}\n## 알아서 센다 {statement}\n## 알아서 주문한다 {statement}\n## 알아서 알려 준다 {statement}\n# 얼마나\n## 하루 40분 → 5분 {number}\n## 발주를 잊어도 된다 {summary}"
+}

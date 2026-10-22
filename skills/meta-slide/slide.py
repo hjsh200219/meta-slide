@@ -5,10 +5,12 @@
                                                            #   --local: SSH 로 붙은 내 PC 브라우저에서 열 주소(Tailscale)
   python3 slide.py templates [--json]                      # 템플릿 목록(인터넷 MIT 230종)
   python3 slide.py layouts <템플릿>                         # 그 템플릿의 장(슬라이드)별 레이아웃 종류
+  python3 slide.py synopsis [전략|원고.md|-] [--synopsis id] [--skeleton 개요.md] [--no-jev] [--json]
+                                                           # 시놉시스 전략 50종 — 원고에 맞는 장 구성 전략을 Jev 가 고른다
   python3 slide.py pick <브리프|개요.md|-> [--n 3] [--scheme light|dark] [--template id] [--exclude a,b]
                           [--title-font id] [--body-font id] [--series 이름] [--no-jev] [--json]
   python3 slide.py new <덱폴더> --template <id> [--title-font id] [--body-font id] [--brand '#hex'] [--force]
-  python3 slide.py outline <개요.md> [--template id] [--jev] [--json]   # 원칙 점검 + 헤드라인만 읽기 + 장별 레이아웃 대응
+  python3 slide.py outline <개요.md> [--template id] [--synopsis id] [--jev] [--json]   # 원칙 점검 + 헤드라인만 읽기 + 장별 레이아웃 대응
   python3 slide.py shots <덱.html> [--out 폴더] [--pdf] [--json]        # 장마다 캡처 + 넘침·대체 서체·자간 검사 + 한 장 모음
   python3 slide.py record <덱폴더> [--series 이름] [--title 제목]        # 이력(비슷한 자료는 같은 템플릿)
   python3 slide.py ig [계열|인포그래픽]                     # AntV 인포그래픽 목록·문법 예시
@@ -475,6 +477,206 @@ def ig_example(name, cat=None):
 
 # ── 큰 선택(옵션 255개 상한) ────────────────────────────────────
 
+# ── 시놉시스 전략: 스크립트 → (Jev 가 고른) 전략 → 개요.md ───────────
+# 전략 = 장 구성 순서(비트)·헤드라인 문체·장 규칙·점검 기준. 하나에 파일 하나(data/synopses/<slug>.json) — 추가는 파일만 넣는다.
+# Jev 는 고르기(choice)만 한다. 스크립트를 개요로 옮겨 쓰는 일은 Claude 가 그 전략의 비트대로 한다.
+
+SYNOPSIS_DIR = os.path.join(DATA, "synopses")
+DEFAULT_SYNOPSIS = "bluf-report"  # Jev 를 못 쓸 때 — 사내 발표에서 가장 흔한 「결론 먼저」
+SYN_KNOBS = {"max_headline_chars": 42, "max_bullets": 5, "max_body_chars": 260, "summary": "end", "summary_words": "",
+             "ig_min": IG_MIN, "image_ratio_min": 0}
+SYN_FIELDS = ("slug", "name", "name_ko", "family", "tagline_ko", "best_for_ko", "avoid_for_ko", "signals_ko", "audience_ko",
+              "headline_style", "beats", "rules_ko", "knobs", "layout_prefer", "template_hints", "source_ko", "example")
+
+
+def load_synopses():
+    out = {}
+    if not os.path.isdir(SYNOPSIS_DIR):
+        return out
+    for f in sorted(os.listdir(SYNOPSIS_DIR)):
+        if not f.endswith(".json"):
+            continue
+        try:
+            s = json.loads(_read(os.path.join(SYNOPSIS_DIR, f)))
+        except ValueError as e:
+            sys.stderr.write(f"slide.py: synopses/{f} 를 읽지 못해 건너뜀 ({e})\n")
+            continue
+        out[s["slug"]] = s
+    return out
+
+
+def synopsis_desc(s):
+    ins = f" | 본보기: {s['inspired_by']}" if s.get("inspired_by") else ""
+    return (f"{s['name_ko']}: {s['tagline_ko']} | 어울림: {s['best_for_ko']} | 원고 신호: {s['signals_ko']}"
+            f" | 청중: {s['audience_ko']} | 피할 곳: {s['avoid_for_ko']}{ins}")[:700]
+
+
+def syn_knobs(s):
+    return {**SYN_KNOBS, **((s or {}).get("knobs") or {})}
+
+
+def script_excerpt(text, n=6000):
+    """긴 원고는 앞 3/4 + 끝 1/4 — 요청·결론은 대개 끝에 있다."""
+    if len(text) <= n:
+        return text
+    head = n * 3 // 4
+    return text[:head] + "\n…(중략)…\n" + text[-(n - head):]
+
+
+def front_matter(text):
+    m = re.match(r"\s*---\n(.*?)\n---\n", text or "", re.S)
+    meta = {}
+    if m:
+        for line in m.group(1).splitlines():
+            if ":" in line:
+                k, v = line.split(":", 1)
+                meta[k.strip()] = v.strip()
+    return meta
+
+
+def pick_synopsis(text, synopsis=None, use_jev=True, series=None, history_path=None, n=3):
+    """우선순위: 사용자 지정 > 개요 머리말 synopsis: > 같은 시리즈 이력 > Jev(choice) > 기본값."""
+    syns = load_synopses()
+    if not syns:
+        raise SystemExit(f"시놉시스 전략이 없습니다: {SYNOPSIS_DIR}")
+    res = {"synopsis": None, "how": None, "confidence": None, "candidates": [], "jev_error": None}
+    fm = front_matter(text).get("synopsis")
+    hit = series_hit(series, load_history(history_path)) if series else None
+    if synopsis:
+        if synopsis not in syns:
+            raise SystemExit(f"없는 시놉시스 전략: {synopsis} (slide.py synopsis)")
+        res.update(synopsis=synopsis, how="user")
+    elif fm in syns:
+        res.update(synopsis=fm, how="outline")
+    elif hit and hit.get("synopsis") in syns:
+        res.update(synopsis=hit["synopsis"], how=f"series:{series}")
+    elif use_jev:
+        try:
+            jev = load_jev()
+            a = jev.ask({"script": script_excerpt(text)}, {"q": jev.choice(
+                "이 발표 원고(스크립트·대본·메모)를 슬라이드로 만들 때 가장 맞는 시놉시스(장 구성) 전략을 하나 고른다. "
+                "발표 목적(결정 요청·보고·판매·투자 유치·교육·관점 전환·비전 선포·기념)·듣는 사람·원고의 재료(수치 분석·개인 이야기·제품·연구 결과)·"
+                "발표 형식(길이·자리)으로 판단한다. 원고에 보이는 신호 낱말도 참고한다.",
+                {k: synopsis_desc(s) for k, s in syns.items()})}, timeout_s=90)
+            ch, conf = jev.choice_of(a, "q")
+            probs = (a.get("q") or {}).get("probabilities") or {}
+            if ch in syns:
+                res.update(synopsis=ch, how="jev", confidence=round(conf, 3))
+                res["candidates"] = [{"slug": k, "p": round(v, 3), "name": syns[k]["name_ko"]}
+                                     for k, v in sorted(probs.items(), key=lambda kv: -kv[1])[:max(n, 1)] if k in syns]
+        except Exception as e:
+            res["jev_error"] = f"{type(e).__name__}: {str(e)[:200]}"
+    if not res["synopsis"]:
+        res.update(synopsis=DEFAULT_SYNOPSIS if DEFAULT_SYNOPSIS in syns else next(iter(syns)), how="default")
+    s = syns[res["synopsis"]]
+    res["name"] = s["name_ko"]
+    if not res["candidates"]:
+        res["candidates"] = [{"slug": s["slug"], "p": None, "name": s["name_ko"]}]
+    return res
+
+
+def synopsis_recipe(s):
+    """사람·Claude 가 읽는 전략 설명(개요를 쓸 때 따를 것)."""
+    k = syn_knobs(s)
+    summ = {"front": "앞(첫 세 장 안)", "end": "끝", "none": "요구하지 않음"}.get(k["summary"], k["summary"])
+    hint = s.get("template_hints") or {}
+    lines = [f"■ {s['name_ko']}  [{s['slug']} · {s['family']}]", f"  {s['tagline_ko']}"]
+    if s.get("inspired_by"):
+        lines.append(f"  본보기: {s['inspired_by']}")
+    lines += [f"  어울림: {s['best_for_ko']}", f"  피할 곳: {s['avoid_for_ko']}", "",
+              f"[헤드라인 문체] {s['headline_style']}", "", "[장 구성 — 이 순서로 원고를 옮긴다 · * 는 꼭 있어야 할 단계]"]
+    sec = None
+    for i, b in enumerate(s["beats"], 1):
+        if b.get("section") != sec:
+            sec = b.get("section")
+            lines.append(f"  # {sec}")
+        cnt = f" · {b['count']}" if b.get("count") else ""
+        lines.append(f"  {i:>2}. {'*' if b.get('required') else ' '}{b['name']} {{{b['layout']}}}{cnt} — {b['goal']}")
+    lines += ["", "[장 규칙]"] + [f"  - {r}" for r in s.get("rules_ko", [])]
+    lines += ["", f"[점검 기준] 헤드라인 {k['max_headline_chars']}자 · 근거 {k['max_bullets']}개 · 본문 {k['max_body_chars']}자 · 요약 {summ}"
+              f" · 인포그래픽 적합 {k['ig_min']} 이상" + (f" · 사진 장 {int(k['image_ratio_min'] * 100)}% 이상" if k.get("image_ratio_min") else ""),
+              f"[선호 레이아웃] {' · '.join(s.get('layout_prefer', []))}",
+              f"[어울리는 덱] {hint.get('style_ko', '')}" + (f" · 바탕 {hint['scheme']}" if hint.get("scheme") else ""),
+              f"[출처] {s['source_ko']}"]
+    return "\n".join(lines)
+
+
+def synopsis_skeleton(s, meta=None):
+    """그 전략의 비트대로 빈 개요.md — 헤드라인 자리는 Claude 가 원고에서 결론 문장으로 바꾼다."""
+    meta = meta or {}
+    head = ["---", f"title: {meta.get('title', '발표 제목')}", f"subtitle: {meta.get('subtitle', '')}",
+            f"presenter: {meta.get('presenter', '발표자 · 이 문서의 핵심 한 문장')}", f"audience: {meta.get('audience', '듣는 사람')}",
+            f"date: {meta.get('date', time.strftime('%Y-%m-%d'))}", f"synopsis: {s['slug']}", "---"]
+    body, sec = [], None
+    for b in s["beats"]:
+        if b.get("section") != sec:
+            sec = b.get("section")
+            body += ["", f"# {sec}"]
+        body.append(f"## 「{b['name']}」 {b['goal']} {{{b['layout']}}}")
+        body.append(f"> 비트 {b['id']}{' · 꼭' if b.get('required') else ''}{' · ' + b['count'] if b.get('count') else ''} — 헤드라인을 원고의 결론 문장으로 바꾼다")
+    return "\n".join(head + body) + "\n"
+
+
+def cmd_synopsis(argv):
+    """synopsis                       — 전략 목록
+       synopsis <전략>                 — 그 전략의 장 구성·규칙·예시
+       synopsis <원고|개요.md|-> [--synopsis id] [--series 이름] [--no-jev] [--skeleton 개요.md [--force]] [--json]
+                                       — Jev 가 원고에 맞는 전략을 고르고 장 구성을 보여 준다"""
+    syns = load_synopses()
+    args = positional(argv)
+    if not args:
+        fams = {}
+        for s in syns.values():
+            fams.setdefault(s["family"], []).append(s)
+        if "--json" in argv:
+            print(json.dumps({k: {"name": s["name_ko"], "family": s["family"], "tagline": s["tagline_ko"]} for k, s in syns.items()},
+                             ensure_ascii=False, indent=2))
+            return
+        print(f"시놉시스 전략 {len(syns)}종 — 자세히: python3 slide.py synopsis <전략>")
+        for fam, ss in fams.items():
+            print(f"\n[{fam}]")
+            for s in ss:
+                ins = f"  ← {s['inspired_by']}" if s.get("inspired_by") else ""
+                print(f"  {s['slug']:28s} {s['name_ko']}{ins}")
+        return
+    if args[0] in syns and not os.path.isfile(args[0]):
+        s = syns[args[0]]
+        if "--json" in argv:
+            print(json.dumps(s, ensure_ascii=False, indent=2))
+            return
+        print(synopsis_recipe(s))
+        print("\n[예시 개요 — 같은 주제(약국 재고 자동 발주)를 이 전략으로]")
+        print("\n".join("  " + l for l in s.get("example", "").splitlines()))
+        return
+    text = read_text_arg(args[0])
+    if not text.strip():
+        raise SystemExit("원고가 비었습니다 — 파일·문장·- (stdin)")
+    r = pick_synopsis(text, synopsis=opt(argv, "--synopsis"), use_jev="--no-jev" not in argv, series=opt(argv, "--series"),
+                      history_path=opt(argv, "--history"), n=int(opt(argv, "--n", "3")))
+    s = syns[r["synopsis"]]
+    sk = opt(argv, "--skeleton")
+    if sk:
+        if os.path.exists(sk) and "--force" not in argv:
+            raise SystemExit(f"{sk} 가 이미 있습니다 — 다른 경로나 --force")
+        _write(sk, synopsis_skeleton(s, front_matter(text)))
+        r["skeleton"] = os.path.abspath(sk)
+    if "--json" in argv:
+        print(json.dumps({**r, "recipe": {k: s.get(k) for k in SYN_FIELDS}}, ensure_ascii=False, indent=2))
+        return
+    conf = f" 확신 {r['confidence']}" if r.get("confidence") is not None else ""
+    print(f"시놉시스 전략: {r['synopsis']} ({r['name']}) — 경로 {r['how']}{conf}")
+    if len(r["candidates"]) > 1:
+        print("후보: " + " · ".join(f"{c['slug']} {c['p']}" for c in r["candidates"]))
+    if r.get("jev_error"):
+        print(f"Jev 실패로 기본값 사용: {r['jev_error']}", file=sys.stderr)
+    print()
+    print(synopsis_recipe(s))
+    if sk:
+        print(f"\n빈 개요: {r['skeleton']}")
+    print(f"\n다음: 원고를 위 장 구성대로 개요.md 에 옮긴다(머리말 synopsis: {r['synopsis']}) → "
+          f"python3 {os.path.relpath(__file__)} outline 개요.md → pick 개요.md")
+
+
 def big_choice(jev, state, instr, options, timeout_s=90):
     """옵션이 많으면 묶음별 예선 → 결승. (고른 것, 확신, 상위 확률 목록)."""
     keys = list(options)
@@ -497,15 +699,17 @@ def big_choice(jev, state, instr, options, timeout_s=90):
 # ── pick: ① 템플릿 → ④ 색 체계 → ⑤ 서체 (② ③ 인포그래픽은 장마다 outline --jev) ──
 
 def pick(text, scheme=None, template_id=None, exclude=(), title_font=None, body_font=None, color=None, n=3, use_jev=True,
-         series=None, history_path=None):
+         series=None, history_path=None, synopsis=None):
     templates = load_templates()
+    syn = load_synopses().get(synopsis or front_matter(text).get("synopsis") or "")  # 개요 머리말 synopsis: 를 따른다
+    syn_hint = (syn or {}).get("template_hints") or {}
     fonts = load_fonts()
     colors = load_colors()
     cands = {k: t for k, t in templates.items() if k not in exclude and (not scheme or t.get("scheme") in (scheme, "mixed"))}
     if not cands:
         raise SystemExit("조건에 맞는 템플릿이 없습니다(--scheme·--exclude 확인)")
     res = {"how": None, "template": None, "template_confidence": None, "candidates": [], "color": None, "color_how": None,
-           "title_font": None, "body_font": None, "font_how": None, "jev_error": None}
+           "title_font": None, "body_font": None, "font_how": None, "jev_error": None, "synopsis": syn["slug"] if syn else None}
     hit = series_hit(series, load_history(history_path)) if series else None
     jev = None
     if use_jev:
@@ -525,10 +729,15 @@ def pick(text, scheme=None, template_id=None, exclude=(), title_font=None, body_
         color = color or hit.get("color")
     elif jev:
         try:
+            state = {"brief": text[:6000]}
+            if syn:  # 전략과 템플릿이 어긋나지 않게(애플 키노트 전략에 표 많은 보고서형 템플릿 등)
+                state["synopsis"] = (f"{syn['name_ko']} — {syn['tagline_ko']} | 어울리는 덱: {syn_hint.get('style_ko', '')}"
+                                     f" | 자주 쓰는 장: {', '.join(LAYOUTS[x].split(' — ')[0] for x in syn.get('layout_prefer', []) if x in LAYOUTS)}")
             ch, conf, ranked = big_choice(
-                jev, {"brief": text[:6000]},
+                jev, state,
                 "이 발표 자료의 브리프(목적·청중·내용)에 가장 잘 맞는 슬라이드 템플릿을 하나 고른다. 발표 목적·청중·분위기·격식·내용 밀도로 판단한다. "
-                "메시지를 가리지 않는 바탕(단색 + 포인트 한 색)을 가진 템플릿이 같은 조건이면 낫다.",
+                "메시지를 가리지 않는 바탕(단색 + 포인트 한 색)을 가진 템플릿이 같은 조건이면 낫다."
+                + (" 시놉시스 전략이 주어지면 그 전략의 화면 성격(글 밀도·사진 비중·자주 쓰는 장)을 잘 담는 템플릿을 고른다." if syn else ""),
                 {k: template_desc(t) for k, t in cands.items()})
             if ch in cands:
                 res.update(template=ch, template_confidence=round(conf, 3), how="jev")
@@ -536,7 +745,7 @@ def pick(text, scheme=None, template_id=None, exclude=(), title_font=None, body_
         except Exception as e:
             res["jev_error"] = f"template: {type(e).__name__}: {str(e)[:200]}"
     if not res["template"]:
-        res.update(template=keyword_pick(text, cands, scheme), how="default")
+        res.update(template=keyword_pick(text, cands, scheme or syn_hint.get("scheme")), how="default")
     tpl = templates[res["template"]]
     if not res["candidates"]:
         res["candidates"] = [{"slug": tpl["slug"], "p": None, "name": tpl["name"]}]
@@ -602,11 +811,14 @@ def cmd_pick(argv):
     exclude = tuple(x for x in (opt(argv, "--exclude", "") or "").split(",") if x)
     r = pick(text, scheme=opt(argv, "--scheme"), template_id=opt(argv, "--template"), exclude=exclude,
              title_font=opt(argv, "--title-font"), body_font=opt(argv, "--body-font"), color=opt(argv, "--color"), n=int(opt(argv, "--n", "3")),
-             use_jev="--no-jev" not in argv, series=opt(argv, "--series"), history_path=opt(argv, "--history"))
+             use_jev="--no-jev" not in argv, series=opt(argv, "--series"), history_path=opt(argv, "--history"),
+             synopsis=opt(argv, "--synopsis"))
     if "--json" in argv:
         print(json.dumps(r, ensure_ascii=False, indent=2))
         return
     fonts = load_fonts()
+    if r.get("synopsis"):
+        print(f"시놉시스 전략: {r['synopsis']} — 템플릿 고르기에 반영")
     conf = f" 확신 {r['template_confidence']}" if r.get("template_confidence") is not None else ""
     print(f"템플릿: {r['template']} ({r['template_name']}, {r['scheme']}) — 경로 {r['how']}{conf}")
     if len(r["candidates"]) > 1:
@@ -618,7 +830,7 @@ def cmd_pick(argv):
     if r.get("jev_error"):
         print(f"Jev 실패로 기본값 사용: {r['jev_error']}", file=sys.stderr)
     print(f"다음: python3 {os.path.relpath(__file__)} new <덱폴더> --template {r['template']} --color {r['color']} "
-          f"--title-font {r['title_font']} --body-font {r['body_font']}")
+          f"--title-font {r['title_font']} --body-font {r['body_font']}" + (f" --synopsis {r['synopsis']}" if r.get("synopsis") else ""))
 
 
 # ── new: 템플릿 복사 + 한글 서체·자간·줄바꿈 주입 ────────────────
@@ -857,6 +1069,9 @@ def cmd_new(argv):
     for f in (title_font, body_font):
         if f not in fonts:
             raise SystemExit(f"모르는 서체: {f} (slide.py fonts)")
+    synopsis = opt(argv, "--synopsis")
+    if synopsis and synopsis not in load_synopses():
+        raise SystemExit(f"모르는 시놉시스 전략: {synopsis} (slide.py synopsis)")
     if os.path.exists(dest) and os.listdir(dest) and "--force" not in argv:
         raise SystemExit(f"{dest} 가 비어 있지 않습니다 — 다른 폴더나 --force")
     os.makedirs(dest, exist_ok=True)
@@ -912,7 +1127,7 @@ def cmd_new(argv):
         META_CSS % {"title": fonts[title_font]["family"], "body": fonts[body_font]["family"], "deck": deck_font,
                     "igvars": " ".join(f"--ms-ig-{i + 1}: {c};" for i, c in enumerate(igpal)) + ig_on_var(igpal, ig_bg)})
     _write(os.path.join(dest, "meta-slide.js"), META_JS)
-    meta = {"template": slug, "template_name": t["name"], "color": color, "title_font": title_font, "body_font": body_font, "brand": brand,
+    meta = {"template": slug, "template_name": t["name"], "synopsis": synopsis, "color": color, "title_font": title_font, "body_font": body_font, "brand": brand,
             "ig_palette": igpal, "ig_on": ig_on(igpal, ig_bg),
             "created": time.strftime("%Y-%m-%dT%H:%M:%S%z"), **stats,
             "license": (t.get("source") or {}).get("repo", "zarazhangrui/beautiful-html-templates") + " (MIT)" if not t["house"] else "house(사내)"}
@@ -962,8 +1177,11 @@ def parse_outline(text):
     return meta, sections, slides
 
 
-def check_outline(meta, sections, slides):
+def check_outline(meta, sections, slides, synopsis=None):
+    """synopsis(전략 dict)가 있으면 그 전략의 기준(헤드라인·근거·본문 길이, 요약 위치, 사진 비중)으로 본다."""
     issues = []
+    k = syn_knobs(synopsis)
+    by = f" — {synopsis['name_ko']} 기준" if synopsis else ""
     add = lambda lv, code, msg, n=None: issues.append({"level": lv, "code": code, "msg": msg, "slide": n})
     if not meta.get("title"):
         add("warn", "no-title", "머리말에 title 이 없습니다 — 표지 제목")
@@ -976,26 +1194,38 @@ def check_outline(meta, sections, slides):
         if not h:
             add("error", "no-headline", "헤드라인이 비었습니다", s["n"])
             continue
-        if len(h) > 42:
-            add("warn", "long-headline", f"헤드라인 {len(h)}자 — 두 줄을 넘기면 핵심 줄만 크게, 세 줄이면 점층(p190~191)", s["n"])
+        if len(h) > k["max_headline_chars"]:
+            add("warn", "long-headline", f"헤드라인 {len(h)}자(기준 {k['max_headline_chars']}자{by}) — 두 줄을 넘기면 핵심 줄만 크게, 세 줄이면 점층(p190~191)", s["n"])
         bullets = [b for b in s["body"] if re.match(r"^([-*•]|\d+[.)])\s", b)]
-        if len(bullets) > 5:
-            add("warn", "too-many-points", f"근거 {len(bullets)}개 — 1 slide 1 idea: 핵심만 강조, 나머지는 박스·다음 장으로(p79)", s["n"])
+        if len(bullets) > k["max_bullets"]:
+            add("warn", "too-many-points", f"근거 {len(bullets)}개(기준 {k['max_bullets']}개{by}) — 1 slide 1 idea: 핵심만 강조, 나머지는 박스·다음 장·노트로(p79)", s["n"])
         if sum(1 for b in s["body"] if b.startswith("|")) >= 2:
             add("info", "table", "표가 있습니다 — 가능하면 그래프로, 안 되면 선을 최소화(p228)", s["n"])
         words = sum(len(b) for b in s["body"])
-        if words > 260:
-            add("warn", "dense", f"본문 {words}자 — 프리젠터가 말할 것을 노트(>)로 옮긴다", s["n"])
+        if words > k["max_body_chars"]:
+            add("warn", "dense", f"본문 {words}자(기준 {k['max_body_chars']}자{by}) — 프리젠터가 말할 것을 노트(>)로 옮긴다", s["n"])
     if slides:
         last = slides[-1]
-        is_sum = lambda s: s["tag"] == "summary" or re.search(r"요약|정리|결론|summary|오늘 드린", s["headline"], re.I)
-        tail = [s for s in slides[-3:] if is_sum(s)]
-        if not tail:
-            add("warn", "no-summary", "끝에 요약 장이 없습니다 — 마지막으로 요약하라(p82). ## 헤드라인 {summary}", last["n"])
+        pat = r"요약|정리|결론|summary|오늘 드린" + (f"|{k['summary_words']}" if k.get("summary_words") else "")
+        # 전략이 있으면 그 전략의 첫 단계·마지막 단원 장(행동 요청·컨셉 반복·미래 장면)도 요약 자리로 본다
+        beats = (synopsis or {}).get("beats") or []
+        last_sec = beats[-1].get("section") if beats else None
+        end_tags = {"summary"} | ({"closing"} | {b["layout"] for b in beats if b.get("section") == last_sec} if synopsis else set())
+        front_tags = {"summary"} | ({beats[0]["layout"]} if beats else set())
+        is_sum = lambda s, tags=end_tags: s["tag"] in tags or re.search(pat, s["headline"], re.I)
+        if k["summary"] == "front":
+            if not [s for s in slides[:3] if is_sum(s, front_tags)]:
+                add("warn", "no-front-summary", f"첫 세 장 안에 결론·요약 장이 없습니다{by} — 결론을 먼저 말한다. ## 헤드라인 {{summary}}", slides[0]["n"])
+        elif k["summary"] == "end" and not [s for s in slides[-3:] if is_sum(s)]:
+            add("warn", "no-summary", f"끝에 요약 장이 없습니다{by} — 마지막으로 요약하라(p82). ## 헤드라인 {{summary}}", last["n"])
+        if k.get("image_ratio_min"):
+            imgs = sum(1 for s in slides if s["tag"] == "image")
+            if imgs / len(slides) < k["image_ratio_min"]:
+                add("info", "few-images", f"사진·화면 장 {imgs}/{len(slides)}장{by} — 이 전략은 {int(k['image_ratio_min'] * 100)}% 이상이 사진 장이다({{image}})")
     return issues
 
 
-def jev_slide_checks(slides, meta, layouts_avail=None, template=None):
+def jev_slide_checks(slides, meta, layouts_avail=None, template=None, synopsis=None):
     """장마다 Jev: 한 장 한 메시지(noul) · 헤드라인이 메시지인가(noul) · 레이아웃(choice)
     · ② 인포그래픽으로 보여 줄 만한가(noul) · ③ 어느 인포그래픽 계열(choice) → 그 계열 안 모양(choice, 둘째 호출). 장끼리 병렬."""
     jev = load_jev()
@@ -1008,16 +1238,40 @@ def jev_slide_checks(slides, meta, layouts_avail=None, template=None):
     opts = {k: v for k, v in LAYOUTS.items() if (not layouts_avail or k in layouts_avail)}
     if len(opts) < 2:
         opts = dict(LAYOUTS)
+    k = syn_knobs(synopsis)
+    lay_instr = "이 슬라이드 내용을 가장 잘 보여 줄 장 레이아웃을 하나 고른다. 핵심이 둘 이상이면 도식, 숫자가 주인공이면 숫자·그래프, 표는 가능하면 그래프."
+    beat_opts = None
+    if synopsis:
+        pref = [LAYOUTS[x].split(" — ")[0] for x in synopsis.get("layout_prefer", []) if x in opts]
+        if pref:
+            lay_instr += f" 이 덱은 「{synopsis['name_ko']}」 전략이라 {', '.join(pref)} 장을 우선한다."
+        beat_opts = {b["id"]: f"{i}번째 단계 {b['name']} — {b['goal']} (주로 {LAYOUTS.get(b['layout'], b['layout']).split(' — ')[0]} 장"
+                              + (f", {b['count']}" if b.get("count") else "") + ")" for i, b in enumerate(synopsis["beats"], 1)}
+        beat_opts["none"] = "어느 단계에도 해당하지 않는 장(표지·덧붙임)"
+
+    heads = [x["headline"] for x in slides]
+    head_instr = "헤드라인이 「현황」「배경」 같은 주제 이름표가 아니라, 듣는 사람이 가져갈 결론·주장을 문장으로 말하는가?"
+    if synopsis:  # 전략마다 헤드라인 문체가 다르다(키노트의 장면·숫자 한 마디, 피치의 숫자 결론 …)
+        head_instr += f" 이 덱의 헤드라인 문체 규칙: {synopsis['headline_style']} — 이 규칙에 맞는 짧은 장면·숫자·질문 헤드라인은 예."
 
     def one(s):
         state = {"deck_title": meta.get("title", ""), "section": s["section"] or "", "headline": s["headline"],
                  "body": "\n".join(s["body"])[:1500]}
+        if synopsis:  # 단계는 위치·앞뒤 장과 함께 봐야 가려진다(따로 보면 「세 가지」 장이 「공개」로 보인다)
+            i = s["n"] - 1
+            state.update(position=f"{s['n']} / {len(slides)}장", layout_tag=s["tag"] or "",
+                         previous_headline=heads[i - 1] if i > 0 else "(없음 — 첫 장)",
+                         next_headline=heads[i + 1] if i + 1 < len(heads) else "(없음 — 마지막 장)",
+                         all_headlines="\n".join(f"{j + 1}. {h}" for j, h in enumerate(heads))[:1500])
         q = {"one_idea": jev.noul("이 슬라이드가 하나의 메시지(아이디어)만 전달하는가? 서로 다른 주장이 둘 이상 섞여 있으면 아니오."),
-             "message_headline": jev.noul("헤드라인이 「현황」「배경」 같은 주제 이름표가 아니라, 듣는 사람이 가져갈 결론·주장을 문장으로 말하는가?"),
-             "layout": jev.choice("이 슬라이드 내용을 가장 잘 보여 줄 장 레이아웃을 하나 고른다. 핵심이 둘 이상이면 도식, 숫자가 주인공이면 숫자·그래프, 표는 가능하면 그래프.", opts),
+             "message_headline": jev.noul(head_instr),
+             "layout": jev.choice(lay_instr, opts),
              "infographic": jev.noul("이 슬라이드의 본문이 단계·순서·흐름·비교·구성 요소·계층·관계·비중·추이처럼 구조가 있는 정보라서, "
                                      "글 목록 대신 인포그래픽(도식·차트)으로 보여 주면 더 빨리 이해되는가? 한 문장 주장·인용·표지·간지는 아니오."),
              "ig_family": jev.choice("이 슬라이드 본문을 인포그래픽으로 그린다면 가장 맞는 형태를 하나 고른다. 본문 항목의 관계(차례·대등·대립·포함·연결·수치)로 판단한다.", fam_opts)}
+        if beat_opts:
+            q["beat"] = jev.choice(f"이 슬라이드는 「{synopsis['name_ko']}」 시놉시스의 어느 단계에 해당하는가? 덱 전체 헤드라인 흐름에서 이 장의 위치·"
+                                   "앞뒤 장·헤드라인과 본문의 역할로 판단한다. 같은 단계가 여러 장 이어질 수 있다.", beat_opts)
         try:
             a = jev.ask(state, q, timeout_s=60)
             lay, lc = jev.choice_of(a, "layout")
@@ -1025,14 +1279,17 @@ def jev_slide_checks(slides, meta, layouts_avail=None, template=None):
             ig_p = jev.noul_of(a, "infographic")
             out = {"n": s["n"], "one_idea": jev.noul_of(a, "one_idea"), "message_headline": jev.noul_of(a, "message_headline"),
                    "layout": lay, "layout_confidence": round(lc, 3), "infographic": ig_p, "ig_family": fam, "ig_family_confidence": round(fc, 3)}
+            if beat_opts:
+                bt, bc = jev.choice_of(a, "beat")
+                out["beat"], out["beat_confidence"] = bt, round(bc, 3)
             text_first = {"cover", "divider", "statement", "quote", "summary", "closing", "agenda", "number"}
             if s["tag"] in text_first or (not s["tag"] and lay in text_first - {"number"}):
                 ig_p = out["infographic"] = None  # 글이 주인공인 장 — 원칙: 한 줄 메시지·요약은 글로
             if s["tag"] == "image":
                 ig_p = out["infographic"] = None  # 화면·사진이 주인공인 장 — 인포그래픽으로 바꾸면 증거가 사라진다
-            if ig_p is not None and ig_p >= IG_MIN and fam and fam.startswith(DIAGRAM_PREFIX) and fam[len(DIAGRAM_PREFIX):] in dgs:
+            if ig_p is not None and ig_p >= k["ig_min"] and fam and fam.startswith(DIAGRAM_PREFIX) and fam[len(DIAGRAM_PREFIX):] in dgs:
                 out["diagram"] = fam[len(DIAGRAM_PREFIX):]
-            elif ig_p is not None and ig_p >= IG_MIN and fam in fams:
+            elif ig_p is not None and ig_p >= k["ig_min"] and fam in fams:
                 names = fams[fam]["names"]
                 if len(names) == 1:
                     out["ig"] = names[0]
@@ -1048,6 +1305,29 @@ def jev_slide_checks(slides, meta, layouts_avail=None, template=None):
 
     with ThreadPoolExecutor(max_workers=6) as ex:
         return list(ex.map(one, slides))
+
+
+BEAT_MIN = 0.35  # 이 확신 미만인 단계 판정은 빠짐·순서 점검에 쓰지 않는다
+
+
+def beat_issues(syn, judged):
+    """Jev 가 장마다 고른 단계로: 꼭 있어야 할 단계가 빠졌는가 · 단계가 처음 나오는 순서가 전략과 다른가."""
+    order = {b["id"]: i for i, b in enumerate(syn["beats"])}
+    names = {b["id"]: b["name"] for b in syn["beats"]}
+    seen = [j["beat"] for j in judged if j.get("beat") in order and (j.get("beat_confidence") or 0) >= BEAT_MIN]
+    if not seen:
+        return []
+    out = []
+    missing = [b["name"] for b in syn["beats"] if b.get("required") and b["id"] not in seen]
+    if missing:
+        out.append({"level": "warn", "code": "beat-missing", "slide": None,
+                    "msg": f"「{syn['name_ko']}」의 꼭 있어야 할 단계가 안 보입니다: {', '.join(missing)} — 원고에서 찾아 장을 더하거나 다른 전략(slide.py synopsis)"})
+    firsts = list(dict.fromkeys(seen))
+    if firsts != sorted(firsts, key=order.get):
+        out.append({"level": "info", "code": "beat-order", "slide": None,
+                    "msg": "단계가 처음 나오는 순서가 전략과 다릅니다: " + " → ".join(names[b] for b in firsts)
+                           + " (전략 순서: " + " → ".join(names[b] for b in sorted(firsts, key=order.get)) + ")"})
+    return out
 
 
 def map_layouts(slides, template, judged=None):
@@ -1078,27 +1358,39 @@ def cmd_outline(argv):
     if not args:
         raise SystemExit("사용: outline <개요.md> [--template id] [--jev]")
     meta, sections, slides = parse_outline(read_text_arg(args[0]))
-    issues = check_outline(meta, sections, slides)
+    syns = load_synopses()
+    syn_id = opt(argv, "--synopsis") or meta.get("synopsis")
+    syn = syns.get(syn_id) if syn_id else None
+    issues = check_outline(meta, sections, slides, syn)
+    if syn_id and not syn:
+        issues.insert(0, {"level": "warn", "code": "unknown-synopsis", "msg": f"모르는 시놉시스 전략: {syn_id} (slide.py synopsis)", "slide": None})
     templates = load_templates()
     tpl = templates.get(opt(argv, "--template")) if opt(argv, "--template") else None
     judged = None
     if "--jev" in argv:
         avail = {x["layout"] for x in (tpl.get("layouts") or [])} if tpl else None
-        judged = jev_slide_checks(slides, meta, avail, tpl)
+        judged = jev_slide_checks(slides, meta, avail, tpl, syn)
+        slide_tag = {s["n"]: s["tag"] for s in slides}
         for j in judged:
             if j.get("error"):
                 issues.append({"level": "info", "code": "jev-error", "msg": j["error"], "slide": j["n"]})
                 continue
-            if j["one_idea"] is not None and j["one_idea"] < 0.5:
+            many_ok = slide_tag.get(j["n"]) in ("summary", "agenda")  # 요약·목차 장은 원래 여러 줄을 묶는다
+            if j["one_idea"] is not None and j["one_idea"] < 0.5 and not many_ok:
                 issues.append({"level": "warn", "code": "multi-idea", "msg": f"한 장에 메시지가 둘 이상으로 보입니다(Jev {j['one_idea']:.2f}) — 나누거나 도식화(p79·p81)", "slide": j["n"]})
-            if j["message_headline"] is not None and j["message_headline"] < 0.5:
+            caption_beat = syn and (j.get("beat_confidence") or 0) >= BEAT_MIN and \
+                {x["id"]: x["layout"] for x in syn["beats"]}.get(j.get("beat")) in ("image", "divider")  # 장면·제품명·컨셉 장 — 전략상 이름이 곧 메시지
+            if j["message_headline"] is not None and j["message_headline"] < 0.5 and not caption_beat:
                 issues.append({"level": "warn", "code": "label-headline", "msg": f"헤드라인이 이름표처럼 보입니다(Jev {j['message_headline']:.2f}) — 결론을 문장으로", "slide": j["n"]})
+        if syn:
+            issues += beat_issues(syn, judged)
     mapping = map_layouts(slides, tpl, judged) if tpl else None
     if "--json" in argv:
-        print(json.dumps({"meta": meta, "sections": sections, "slides": slides, "issues": issues, "jev": judged, "mapping": mapping},
-                         ensure_ascii=False, indent=2))
+        print(json.dumps({"meta": meta, "sections": sections, "slides": slides, "issues": issues, "jev": judged, "mapping": mapping,
+                          "synopsis": syn["slug"] if syn else None}, ensure_ascii=False, indent=2))
         return
-    print(f"■ {meta.get('title', '(제목 없음)')} — {len(slides)}장 · 간지 {len(sections)}개")
+    print(f"■ {meta.get('title', '(제목 없음)')} — {len(slides)}장 · 간지 {len(sections)}개"
+          + (f" · 시놉시스 {syn['name_ko']}" if syn else ""))
     print("\n[헤드라인만 읽기 — 이것만으로 스토리가 되면 OK (p94)]")
     sec = object()
     for s in slides:
@@ -1115,6 +1407,12 @@ def cmd_outline(argv):
                 continue
             alt = "" if m["want"] == m["use"] else f" (원함 {m['want']} → 대체)"
             print(f"  {m['n']:>2}. {m['use']} ← 템플릿 {m['template_slide']}번 「{m['label']}」{alt}")
+    if judged and syn:
+        names = {b["id"]: b["name"] for b in syn["beats"]}
+        print(f"\n[시놉시스 단계 — {syn['name_ko']}]")
+        for j in judged:
+            if j.get("beat"):
+                print(f"  {j['n']:>2}. {names.get(j['beat'], '(해당 없음)')}  ({j['beat_confidence']})")
     if judged:
         igs = [j for j in judged if j.get("ig") and j.get("infographic") is not None]
         print(f"\n[인포그래픽 — {len(igs)}장]" + ("" if igs else " 없음(글·숫자 장으로 충분)"))
@@ -1483,7 +1781,7 @@ def cmd_record(argv):
         raise SystemExit("사용: record <덱폴더> [--series 이름] [--title 제목]")
     m = json.loads(_read(os.path.join(args[0], "meta-slide.json")))
     row = {"at": time.strftime("%Y-%m-%dT%H:%M:%S%z"), "deck": os.path.abspath(args[0]), "series": opt(argv, "--series"),
-           "title": opt(argv, "--title", ""), "template": m["template"], "color": m.get("color"), "title_font": m["title_font"], "body_font": m["body_font"]}
+           "title": opt(argv, "--title", ""), "synopsis": opt(argv, "--synopsis") or m.get("synopsis"), "template": m["template"], "color": m.get("color"), "title_font": m["title_font"], "body_font": m["body_font"]}
     os.makedirs(os.path.dirname(HISTORY_PATH), exist_ok=True)
     with open(HISTORY_PATH, "a", encoding="utf-8") as f:
         f.write(json.dumps(row, ensure_ascii=False) + "\n")
@@ -1492,13 +1790,13 @@ def cmd_record(argv):
 
 def cmd_history(argv):
     for h in load_history():
-        print(f"{h['at'][:16]}  {h.get('series') or '-':14s} {h['template']:20s} {h['title_font']}/{h['body_font']}  {h.get('title', '')}")
+        print(f"{h['at'][:16]}  {h.get('series') or '-':14s} {(h.get('synopsis') or '-'):24s} {h['template']:20s} {h['title_font']}/{h['body_font']}  {h.get('title', '')}")
 
 
 def main(argv):
     utf8_console()
     cmds = {"templates": cmd_templates, "layouts": cmd_layouts, "pick": cmd_pick, "new": cmd_new, "outline": cmd_outline,
-            "shots": cmd_shots, "fonts": cmd_fonts, "colors": cmd_colors, "ig": cmd_ig, "diagram": cmd_diagram, "record": cmd_record, "history": cmd_history}
+            "shots": cmd_shots, "fonts": cmd_fonts, "colors": cmd_colors, "ig": cmd_ig, "diagram": cmd_diagram, "record": cmd_record, "history": cmd_history, "synopsis": cmd_synopsis}
     if not argv or argv[0].startswith("--") and argv[0] not in ("--help",):  # 인자 없이(옵션만) — 갤러리 띄우기
         import serve
         return serve.main(argv)

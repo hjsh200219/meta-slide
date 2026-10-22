@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "slug": "takahashi-method",
+  "name": "Takahashi Method",
+  "name_ko": "다카하시 메소드(거대한 글자만)",
+  "family": "속도형",
+  "inspired_by": "高橋征義 — 루비 컨퍼런스",
+  "tagline_ko": "그림도 글머리표도 없이 화면 가득한 큰 글자 몇 개만 — 말의 박자에 맞춰 빠르게 넘긴다",
+  "best_for_ko": "기술 컨퍼런스 라이트닝 토크·짧은 발표·준비 시간이 없는 발표. 말이 주인공이고 화면은 키워드만",
+  "avoid_for_ko": "수치 근거·도식이 필요한 보고, 인쇄해 읽는 자료",
+  "signals_ko": "라이트닝 토크·5분 발표·키워드·짧게 말씀드리면",
+  "audience_ko": "개발자·커뮤니티 청중",
+  "headline_style": "한 장에 한 단어~한 구절(한글 10자 안팎). 문장이 아니라 말의 키워드",
+  "beats": [
+    {
+      "id": "title",
+      "name": "제목 한 단어",
+      "goal": "발표 주제를 한 단어로",
+      "layout": "statement",
+      "section": "열기",
+      "required": true
+    },
+    {
+      "id": "point",
+      "name": "키워드",
+      "goal": "말하는 문장마다 키워드 한 장",
+      "layout": "statement",
+      "section": "본론",
+      "required": true,
+      "count": "장 수 제한 없음"
+    },
+    {
+      "id": "punch",
+      "name": "마지막 한 단어",
+      "goal": "기억할 단어 하나",
+      "layout": "summary",
+      "section": "닫기",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "화면에는 글자만 — 그림·글머리표·장식 없음",
+    "글자는 화면을 가득 채울 만큼 크게",
+    "말하는 속도로 넘긴다 — 한 장 몇 초",
+    "설명은 전부 말로(노트)"
+  ],
+  "knobs": {
+    "max_headline_chars": 12,
+    "max_bullets": 0,
+    "max_body_chars": 20,
+    "summary": "end",
+    "ig_min": 0.95,
+    "summary_words": "정리|한 단어|기억"
+  },
+  "layout_prefer": [
+    "statement",
+    "divider",
+    "number"
+  ],
+  "template_hints": {
+    "scheme": null,
+    "density": [
+      "low"
+    ],
+    "style_ko": "무지 바탕·거대한 굵은 글자 하나·장식 없음"
+  },
+  "source_ko": "高橋征義(다카하시 마사요시)가 2005년 루비 컨퍼런스에서 쓴 발표 방식",
+  "example": "---\ntitle: 발주를 잊자\npresenter: 개발자 · 자동 발주를 5분에 소개한다\naudience: 개발자 밋업\nsynopsis: takahashi-method\n---\n# 열기\n## 발주 {statement}\n# 본론\n## 매일 {statement}\n## 40분 {number}\n## 판매 기록 {statement}\n## 자동 {statement}\n# 닫기\n## 잊자 {summary}"
+}

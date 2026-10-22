@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "slug": "mlk-refrain-vision",
+  "name": "Refrain Vision Speech",
+  "name_ko": "MLK 형 반복 구절 비전 연설(현실 → 「나에게는 꿈이 있다」 → 함께)",
+  "family": "명연설",
+  "inspired_by": "Martin Luther King Jr. — 1963 「I Have a Dream」",
+  "tagline_ko": "엄중한 현실을 먼저 보이고, 같은 구절을 되풀이하며 꿈의 장면을 하나씩 쌓아, 모두가 함께하는 외침으로 끝낸다",
+  "best_for_ko": "비전 선포·창립 기념·캠페인 출정식·결의 대회",
+  "avoid_for_ko": "수치 보고, 기능 설명",
+  "signals_ko": "꿈·약속·「우리는」·반복되는 구절·함께·자유",
+  "audience_ko": "구성원 전체·지지자",
+  "headline_style": "되풀이 구절 + 장면 — 「언젠가 모든 약국이 ~하는 날」",
+  "beats": [
+    {
+      "id": "reality",
+      "name": "현실",
+      "goal": "지켜지지 않은 약속·지금의 아픔",
+      "layout": "statement",
+      "section": "현실",
+      "required": true
+    },
+    {
+      "id": "urgency",
+      "name": "지금이어야 하는 이유",
+      "goal": "미룰 수 없는 까닭",
+      "layout": "statement",
+      "section": "현실",
+      "required": false
+    },
+    {
+      "id": "dream",
+      "name": "꿈의 장면(되풀이)",
+      "goal": "같은 구절로 시작하는 장면을 하나씩",
+      "layout": "image",
+      "section": "꿈",
+      "required": true,
+      "count": "3~6장"
+    },
+    {
+      "id": "together",
+      "name": "함께의 외침",
+      "goal": "모두가 따라 할 구절",
+      "layout": "summary",
+      "section": "함께",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "같은 구절을 장마다 되풀이 — 화면 글도 같은 자리에",
+    "꿈은 추상어가 아니라 장면으로",
+    "현실은 짧고 무겁게, 꿈은 길게",
+    "끝은 청중이 함께 외칠 수 있는 짧은 구절"
+  ],
+  "knobs": {
+    "max_headline_chars": 30,
+    "max_bullets": 1,
+    "max_body_chars": 100,
+    "summary": "end",
+    "ig_min": 0.9,
+    "summary_words": "함께|우리|날",
+    "image_ratio_min": 0.3
+  },
+  "layout_prefer": [
+    "statement",
+    "image",
+    "quote"
+  ],
+  "template_hints": {
+    "scheme": "dark",
+    "density": [
+      "low"
+    ],
+    "style_ko": "어두운 바탕·큰 사진·같은 자리의 반복 구절"
+  },
+  "source_ko": "Martin Luther King Jr. 1963 워싱턴 행진 연설 — Nancy Duarte 『Resonate』의 분석 사례",
+  "example": "---\ntitle: 모든 약국의 저녁\npresenter: 대표 · 비전 선포식\naudience: 전 직원과 파트너\nsynopsis: mlk-refrain-vision\n---\n# 현실\n## 약사는 아직 밤마다 숫자를 센다 {statement}\n# 꿈\n## 언젠가 모든 약국이 8시에 불을 끄는 날 {image}\n## 언젠가 「그 약 없어요」가 사라지는 날 {image}\n## 언젠가 약사가 숫자 대신 사람을 보는 날 {image}\n# 함께\n## 그날을 우리가 만든다 {summary}"
+}

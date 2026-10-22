@@ -1,0 +1,92 @@
+{
+  "version": 1,
+  "slug": "psst-business-plan",
+  "name": "PSST Business Plan",
+  "name_ko": "PSST 사업계획 발표(문제 → 실현 → 성장 → 팀)",
+  "family": "투자",
+  "tagline_ko": "정부 창업 지원 사업계획서 양식 순서 — 문제 인식·실현 가능성·성장 전략·팀 구성 — 으로 발표 평가에 맞춘다",
+  "best_for_ko": "예비창업패키지·초기창업패키지 등 정부 지원 사업 발표 평가, 액셀러레이터 선발",
+  "avoid_for_ko": "민간 VC 피치(→ 투자 유치 피치), 사내 보고",
+  "signals_ko": "창업 아이템·문제 인식·실현 가능성·성장 전략·팀 구성·사업화",
+  "audience_ko": "정부 지원 사업 평가위원",
+  "headline_style": "평가 항목에 대한 결론 — 「개발 완료 80%, 시범 고객 12곳」",
+  "beats": [
+    {
+      "id": "problem",
+      "name": "문제 인식",
+      "goal": "창업 동기와 시장의 문제",
+      "layout": "statement",
+      "section": "Problem",
+      "required": true
+    },
+    {
+      "id": "solution",
+      "name": "실현 가능성",
+      "goal": "아이템과 개발 단계·차별성",
+      "layout": "image",
+      "section": "Solution",
+      "required": true
+    },
+    {
+      "id": "plan",
+      "name": "사업화 일정",
+      "goal": "협약 기간 안의 개발·출시 계획",
+      "layout": "timeline",
+      "section": "Solution",
+      "required": true
+    },
+    {
+      "id": "growth",
+      "name": "성장 전략",
+      "goal": "시장·고객 확보·수익 모델",
+      "layout": "chart",
+      "section": "Scale-up",
+      "required": true
+    },
+    {
+      "id": "funding",
+      "name": "자금 계획",
+      "goal": "사업비 사용처와 이후 투자",
+      "layout": "table",
+      "section": "Scale-up",
+      "required": false
+    },
+    {
+      "id": "team",
+      "name": "팀 구성",
+      "goal": "대표와 팀의 역량·채용 계획",
+      "layout": "team",
+      "section": "Team",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "간지 = 양식의 네 항목(P·S·S·T)",
+    "개발 진척도와 고객 반응을 숫자로",
+    "협약 기간 일정을 월 단위로",
+    "팀은 이 아이템을 할 이유로"
+  ],
+  "knobs": {
+    "max_headline_chars": 42,
+    "max_bullets": 5,
+    "max_body_chars": 240,
+    "summary": "none",
+    "ig_min": 0.6
+  },
+  "layout_prefer": [
+    "statement",
+    "timeline",
+    "chart",
+    "team",
+    "table"
+  ],
+  "template_hints": {
+    "scheme": "light",
+    "density": [
+      "medium"
+    ],
+    "style_ko": "단정한 공공 발표형·포인트 한 색"
+  },
+  "source_ko": "중소벤처기업부 창업 지원 사업 사업계획서 PSST 양식(문제 인식·실현 가능성·성장 전략·팀 구성)",
+  "example": "---\ntitle: 동네 약국 자동 발주\npresenter: 예비 창업자 · 초기창업패키지 발표 평가\naudience: 평가위원\nsynopsis: psst-business-plan\n---\n# Problem\n## 동네 약국은 하루 40분을 발주에 쓴다 {statement}\n# Solution\n## 판매 기록으로 주문을 만드는 앱 — 개발 80% {image}\n## 협약 10개월 안에 출시와 300곳 확보 {timeline}\n# Scale-up\n## 월 구독 3만 원, 2년 차 3천 곳 {chart}\n# Team\n## 약사 1명·개발자 2명, 약국 프로그램 경력 10년 {team}"
+}

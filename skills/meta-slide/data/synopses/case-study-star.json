@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "slug": "case-study-star",
+  "name": "Case Study STAR",
+  "name_ko": "사례 발표(STAR — 상황 → 과제 → 행동 → 결과)",
+  "family": "소개",
+  "tagline_ko": "상황과 과제를 짧게, 우리가 한 행동을 구체적으로, 결과를 숫자로 — 한 사례를 끝까지",
+  "best_for_ko": "고객 사례 발표·프로젝트 성과 발표·포트폴리오·수상 발표",
+  "avoid_for_ko": "여러 사례 나열, 미래 계획 위주 발표",
+  "signals_ko": "사례·프로젝트·우리가 한 일·결과·성과·배운 점",
+  "audience_ko": "잠재 고객·심사위원·채용 면접관",
+  "headline_style": "결과가 들어간 문장 — 「석 달 만에 결품을 절반으로 줄였다」",
+  "beats": [
+    {
+      "id": "situation",
+      "name": "상황",
+      "goal": "고객·프로젝트의 배경",
+      "layout": "statement",
+      "section": "상황",
+      "required": true
+    },
+    {
+      "id": "task",
+      "name": "과제",
+      "goal": "풀어야 했던 것과 목표",
+      "layout": "number",
+      "section": "상황",
+      "required": true
+    },
+    {
+      "id": "action",
+      "name": "행동",
+      "goal": "우리가 한 일 — 단계별",
+      "layout": "diagram",
+      "section": "행동",
+      "required": true,
+      "count": "1~3장"
+    },
+    {
+      "id": "result",
+      "name": "결과",
+      "goal": "목표 대비 숫자",
+      "layout": "chart",
+      "section": "결과",
+      "required": true
+    },
+    {
+      "id": "lesson",
+      "name": "배운 점",
+      "goal": "다른 곳에도 쓸 수 있는 교훈",
+      "layout": "summary",
+      "section": "결과",
+      "required": false
+    }
+  ],
+  "rules_ko": [
+    "첫 장에 결과 숫자를 미리 보여도 좋다",
+    "행동은 「우리」가 한 것만, 구체적으로",
+    "결과는 목표와 같은 지표로",
+    "고객 이름은 허락받은 것만"
+  ],
+  "knobs": {
+    "max_headline_chars": 38,
+    "max_bullets": 4,
+    "max_body_chars": 200,
+    "summary": "end",
+    "ig_min": 0.6,
+    "summary_words": "배운|교훈|결과"
+  },
+  "layout_prefer": [
+    "statement",
+    "diagram",
+    "chart",
+    "number",
+    "image"
+  ],
+  "template_hints": {
+    "scheme": null,
+    "density": [
+      "medium"
+    ],
+    "style_ko": "사진과 숫자가 잘 보이는 매거진형"
+  },
+  "source_ko": "STAR(Situation·Task·Action·Result) 사례 기술 방식",
+  "example": "---\ntitle: ○○체인 결품 절반 사례\npresenter: 고객 성공팀 · 사례 발표\naudience: 잠재 고객 체인\nsynopsis: case-study-star\n---\n# 상황\n## 40개 지점 체인, 독감 철마다 결품이 쏟아졌다 {statement}\n## 목표: 석 달 안에 결품률 8% → 4% {number}\n# 행동\n## 지점 연결 → 2주 학습 → 본부 기준 반영 {diagram}\n# 결과\n## 결품률 3.9%, 목표를 넘었다 {chart}"
+}

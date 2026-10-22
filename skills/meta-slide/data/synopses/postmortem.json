@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "slug": "postmortem",
+  "name": "Blameless Postmortem",
+  "name_ko": "장애·사고 회고(무슨 일 → 영향 → 원인 → 재발 방지)",
+  "family": "보고",
+  "tagline_ko": "누구 탓이 아니라 일어난 일과 원인, 재발 방지 조치를 차례로 — 비난 없는 사후 검토",
+  "best_for_ko": "서비스 장애 보고·사고 회고·프로젝트 실패 회고",
+  "avoid_for_ko": "판매·홍보 발표, 성과 자랑",
+  "signals_ko": "장애·사고·타임라인·영향·근본 원인·재발 방지·조치 항목",
+  "audience_ko": "엔지니어링 조직·경영진·고객 담당",
+  "headline_style": "사실과 숫자 — 「10월 3일 2시간 동안 발주 1,240건이 멈췄다」",
+  "beats": [
+    {
+      "id": "summary",
+      "name": "요약",
+      "goal": "무슨 일이 언제 얼마나 — 한 장",
+      "layout": "summary",
+      "section": "무슨 일",
+      "required": true
+    },
+    {
+      "id": "impact",
+      "name": "영향",
+      "goal": "고객·매출·데이터에 미친 영향",
+      "layout": "number",
+      "section": "무슨 일",
+      "required": true
+    },
+    {
+      "id": "timeline",
+      "name": "타임라인",
+      "goal": "감지·대응·복구 시각",
+      "layout": "timeline",
+      "section": "무슨 일",
+      "required": true
+    },
+    {
+      "id": "root-cause",
+      "name": "근본 원인",
+      "goal": "기여 요인과 근본 원인 — 사람이 아니라 구조",
+      "layout": "diagram",
+      "section": "원인",
+      "required": true
+    },
+    {
+      "id": "what-went-well",
+      "name": "잘된 것·아쉬운 것",
+      "goal": "대응에서 배운 것",
+      "layout": "compare",
+      "section": "원인",
+      "required": false
+    },
+    {
+      "id": "actions",
+      "name": "재발 방지 조치",
+      "goal": "조치·담당·기한",
+      "layout": "table",
+      "section": "조치",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "비난 없음 — 사람 이름 대신 역할과 구조",
+    "시각은 분 단위로",
+    "근본 원인은 하나가 아닐 수 있다 — 기여 요인을 함께",
+    "조치마다 담당과 기한"
+  ],
+  "knobs": {
+    "max_headline_chars": 46,
+    "max_bullets": 5,
+    "max_body_chars": 260,
+    "summary": "front",
+    "ig_min": 0.55
+  },
+  "layout_prefer": [
+    "timeline",
+    "number",
+    "diagram",
+    "table",
+    "summary"
+  ],
+  "template_hints": {
+    "scheme": "light",
+    "density": [
+      "medium",
+      "medium-high"
+    ],
+    "style_ko": "차분한 문서형·타임라인과 표"
+  },
+  "source_ko": "Google SRE 『Site Reliability Engineering』(2016) 「Postmortem Culture」 — 비난 없는 사후 검토",
+  "example": "---\ntitle: 10월 3일 발주 중단 회고\npresenter: 플랫폼팀 · 원인과 재발 방지를 공유\naudience: 개발·운영 전체\nsynopsis: postmortem\n---\n# 무슨 일\n## 10월 3일 14:10~16:05, 자동 발주 1,240건이 멈췄다 {summary}\n## 약국 310곳의 당일 입고가 하루 늦었다 {number}\n## 14:10 감지 → 14:40 원인 파악 → 16:05 복구 {timeline}\n# 원인\n## 도매 API 인증서 만료를 알릴 장치가 없었다 {diagram}\n# 조치\n## 만료 30일 전 알림 등 조치 4건, 11월까지 {table}"
+}

@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "slug": "golden-circle",
+  "name": "Golden Circle",
+  "name_ko": "골든 서클(왜 → 어떻게 → 무엇)",
+  "family": "스토리",
+  "inspired_by": "Simon Sinek — TEDx 「How great leaders inspire action」(2009)",
+  "tagline_ko": "「무엇을」이 아니라 「왜」에서 시작해 「어떻게」와 「무엇」으로 — 믿음에 공감한 사람이 움직이게",
+  "best_for_ko": "비전·미션 발표·창업 이야기·채용 설명회·브랜드 철학 소개",
+  "avoid_for_ko": "기능 비교·가격 협상·상세 기술 설명",
+  "signals_ko": "왜·믿습니다·미션·비전·우리가 존재하는 이유",
+  "audience_ko": "구성원·지원자·고객·파트너",
+  "headline_style": "믿음을 말하는 문장 — 「우리는 ~라고 믿는다」",
+  "beats": [
+    {
+      "id": "why",
+      "name": "왜",
+      "goal": "우리가 믿는 것·존재 이유",
+      "layout": "statement",
+      "section": "왜",
+      "required": true
+    },
+    {
+      "id": "how",
+      "name": "어떻게",
+      "goal": "그 믿음을 지키는 방식·원칙",
+      "layout": "diagram",
+      "section": "어떻게",
+      "required": true
+    },
+    {
+      "id": "what",
+      "name": "무엇",
+      "goal": "그래서 만든 것(제품·서비스)",
+      "layout": "image",
+      "section": "무엇",
+      "required": true
+    },
+    {
+      "id": "proof",
+      "name": "증거",
+      "goal": "믿음이 실제로 보인 순간",
+      "layout": "quote",
+      "section": "무엇",
+      "required": false
+    },
+    {
+      "id": "join",
+      "name": "함께하자",
+      "goal": "청중이 할 일",
+      "layout": "closing",
+      "section": "무엇",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "「무엇」부터 꺼내지 않는다 — 「왜」가 첫 장",
+    "어떻게는 원칙 셋 이내",
+    "제품 장은 사진 한 장",
+    "끝은 「왜」로 돌아가 함께하자"
+  ],
+  "knobs": {
+    "max_headline_chars": 32,
+    "max_bullets": 3,
+    "max_body_chars": 160,
+    "summary": "end",
+    "ig_min": 0.7,
+    "summary_words": "함께|왜|믿",
+    "image_ratio_min": 0.1
+  },
+  "layout_prefer": [
+    "statement",
+    "diagram",
+    "image",
+    "quote"
+  ],
+  "template_hints": {
+    "scheme": null,
+    "density": [
+      "low",
+      "medium"
+    ],
+    "style_ko": "큰 한 문장·여백·브랜드 색 한 가지"
+  },
+  "source_ko": "Simon Sinek 『Start with Why』(2009) 골든 서클",
+  "example": "---\ntitle: 우리가 발주를 없애는 이유\npresenter: 대표 · 채용 설명회에서 회사의 이유를 전한다\naudience: 지원자\nsynopsis: golden-circle\n---\n# 왜\n## 약사는 약 앞에 있어야 한다고 믿는다 {statement}\n# 어떻게\n## 반복되는 일은 전부 기계에 맡긴다 {diagram}\n# 무엇\n## 그래서 오토오더를 만들었다 {image}\n## 「발주를 잊은 지 석 달」 {quote}\n## 약사를 약 앞으로 돌려보낼 동료를 찾는다 {closing}"
+}

@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "slug": "monroe-sequence",
+  "name": "Monroe's Motivated Sequence",
+  "name_ko": "먼로 동기화 단계(주의 → 필요 → 만족 → 시각화 → 행동)",
+  "family": "카피 공식",
+  "tagline_ko": "주의를 끌고 필요를 보여 준 뒤 해법으로 채우고, 해법이 있을 때와 없을 때를 그려 행동을 부른다",
+  "best_for_ko": "정책 제안·공공 발표·내부 변화 설득·모금·캠페인 연설",
+  "avoid_for_ko": "단순 정보 공유, 기술 상세",
+  "signals_ko": "필요합니다·제안합니다·상상해 보세요·함께해 주십시오",
+  "audience_ko": "구성원·시민·위원회",
+  "headline_style": "단계의 역할이 드러나는 문장 — 시각화 장은 「~라고 상상해 보세요」",
+  "beats": [
+    {
+      "id": "attention",
+      "name": "주의",
+      "goal": "놀라운 사실·이야기·질문",
+      "layout": "image",
+      "section": "주의",
+      "required": true
+    },
+    {
+      "id": "need",
+      "name": "필요",
+      "goal": "문제가 청중에게 미치는 영향 — 근거와 함께",
+      "layout": "chart",
+      "section": "필요",
+      "required": true
+    },
+    {
+      "id": "satisfaction",
+      "name": "만족",
+      "goal": "필요를 채우는 해법과 작동 방식",
+      "layout": "diagram",
+      "section": "만족",
+      "required": true
+    },
+    {
+      "id": "visualization",
+      "name": "시각화",
+      "goal": "해법이 있을 때 / 없을 때의 미래",
+      "layout": "compare",
+      "section": "시각화",
+      "required": true
+    },
+    {
+      "id": "action",
+      "name": "행동",
+      "goal": "청중이 할 구체적 행동",
+      "layout": "closing",
+      "section": "행동",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "필요 단계는 근거(숫자·사례)로",
+    "만족 단계에서 예상 반론에 답한다",
+    "시각화는 있을 때와 없을 때를 둘 다",
+    "행동은 구체적으로 — 누가 언제 무엇을"
+  ],
+  "knobs": {
+    "max_headline_chars": 36,
+    "max_bullets": 4,
+    "max_body_chars": 200,
+    "summary": "end",
+    "ig_min": 0.6,
+    "summary_words": "행동|함께|참여|요청"
+  },
+  "layout_prefer": [
+    "statement",
+    "chart",
+    "diagram",
+    "compare",
+    "image"
+  ],
+  "template_hints": {
+    "scheme": null,
+    "density": [
+      "medium"
+    ],
+    "style_ko": "단정하고 신뢰감 있는 바탕·사진과 도식"
+  },
+  "source_ko": "Alan H. Monroe 의 동기화 단계(Monroe's Motivated Sequence, 1930년대 퍼듀 대학)",
+  "example": "---\ntitle: 지역 약국 공동 발주를 시작하자\npresenter: 약사회 · 공동 발주 참여를 설득\naudience: 지역 약사회 회원\nsynopsis: monroe-sequence\n---\n# 주의\n## 지난겨울, 우리 구 약국 절반이 해열제를 못 구했다 {image}\n# 필요\n## 혼자 주문하는 약국은 품귀 때 늘 뒤로 밀린다 {chart}\n# 만족\n## 공동 발주는 수요를 모아 도매에 먼저 알린다 {diagram}\n# 시각화\n## 함께하면 다음 겨울은 다르다 {compare}\n# 행동\n## 이달 말까지 참여 신청서를 내 달라 {closing}"
+}

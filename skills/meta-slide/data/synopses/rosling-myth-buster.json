@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "slug": "rosling-myth-buster",
+  "name": "Fact-based Myth Buster",
+  "name_ko": "로슬링형 데이터 반전(퀴즈 → 통념 → 움직이는 데이터 → 세계관)",
+  "family": "명연설",
+  "inspired_by": "Hans Rosling — TED 2006 「The best stats you've ever seen」·『Factfulness』",
+  "tagline_ko": "청중에게 먼저 퀴즈를 내 통념을 드러내고, 데이터를 하나씩 움직여 통념을 뒤집은 뒤, 새 관점으로 닫는다",
+  "best_for_ko": "데이터 강연·통계 공유·시장 오해 바로잡기·인식 개선 발표",
+  "avoid_for_ko": "데이터가 없는 이야기, 짧은 결정 보고",
+  "signals_ko": "다들 ~라고 생각하지만·실제 데이터는·퀴즈·추이·국가·인구",
+  "audience_ko": "일반 청중·임원·기자",
+  "headline_style": "통념과 사실의 대비 — 「우리는 개인 약국이 줄고 있다고 믿는다. 실제로는 늘었다」",
+  "beats": [
+    {
+      "id": "quiz",
+      "name": "퀴즈",
+      "goal": "청중이 답해 보는 질문 하나",
+      "layout": "statement",
+      "section": "통념",
+      "required": true
+    },
+    {
+      "id": "myth",
+      "name": "통념 드러내기",
+      "goal": "청중 대부분이 틀린 결과",
+      "layout": "number",
+      "section": "통념",
+      "required": true
+    },
+    {
+      "id": "data-reveal",
+      "name": "데이터 공개",
+      "goal": "축을 설명하고 한 점씩 움직여 보여 준다",
+      "layout": "chart",
+      "section": "사실",
+      "required": true,
+      "count": "2~4장"
+    },
+    {
+      "id": "why-wrong",
+      "name": "왜 틀렸나",
+      "goal": "통념이 생긴 이유",
+      "layout": "points",
+      "section": "사실",
+      "required": false
+    },
+    {
+      "id": "worldview",
+      "name": "새로운 관점",
+      "goal": "사실에 기반한 세계관 한 문장",
+      "layout": "summary",
+      "section": "관점",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "먼저 묻고 나중에 보여 준다",
+    "그래프는 축부터 설명하고 한 번에 한 점씩",
+    "청중을 탓하지 않는다 — 통념이 생긴 이유를 설명",
+    "끝은 숫자가 아니라 관점"
+  ],
+  "knobs": {
+    "max_headline_chars": 40,
+    "max_bullets": 3,
+    "max_body_chars": 160,
+    "summary": "end",
+    "ig_min": 0.5,
+    "summary_words": "관점|사실|세계"
+  },
+  "layout_prefer": [
+    "chart",
+    "number",
+    "statement",
+    "compare"
+  ],
+  "template_hints": {
+    "scheme": "dark",
+    "density": [
+      "low",
+      "medium"
+    ],
+    "style_ko": "어두운 바탕 위 밝은 데이터 점·큰 축 라벨"
+  },
+  "source_ko": "Hans Rosling TED 2006 「The best stats you've ever seen」 · 『Factfulness』(2018) 청중 퀴즈",
+  "example": "---\ntitle: 개인 약국은 사라지고 있을까\npresenter: 데이터팀 · 시장에 대한 오해를 바로잡는다\naudience: 전사 세미나\nsynopsis: rosling-myth-buster\n---\n# 통념\n## 퀴즈: 지난 10년 동네 약국 수는? {statement}\n## 여러분의 80%가 「줄었다」를 골랐다 {number}\n# 사실\n## 실제로는 11% 늘었다 {chart}\n## 줄어든 것은 약국이 아니라 약사의 시간이다 {chart}\n# 관점\n## 우리의 시장은 약국 수가 아니라 약사의 시간이다 {summary}"
+}

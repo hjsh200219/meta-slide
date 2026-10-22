@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "slug": "jobs-stanford-three-stories",
+  "name": "Three Stories Commencement",
+  "name_ko": "잡스 졸업 연설형(세 가지 이야기 → 한 마디)",
+  "family": "명연설",
+  "inspired_by": "Steve Jobs — 2005 스탠퍼드 졸업 연설",
+  "tagline_ko": "「오늘 세 가지 이야기를 하겠다」로 약속하고, 이야기마다 하나의 교훈을 남긴 뒤, 세 이야기를 묶는 한 마디로 닫는다",
+  "best_for_ko": "졸업·입학·창립 기념 연설, 퇴임·취임사, 개인 경험에서 교훈을 전하는 강연",
+  "avoid_for_ko": "데이터 보고, 판매 제안",
+  "signals_ko": "「제 이야기 세 가지」·인생·실패·배움·「돌이켜 보면」",
+  "audience_ko": "졸업생·구성원·일반 청중",
+  "headline_style": "이야기마다 교훈 한 문장 — 「점들은 뒤돌아볼 때만 이어진다」",
+  "beats": [
+    {
+      "id": "promise",
+      "name": "세 가지 약속",
+      "goal": "「오늘 세 가지 이야기를 하겠다」 — 지도",
+      "layout": "agenda",
+      "section": "약속",
+      "required": true
+    },
+    {
+      "id": "story-1",
+      "name": "첫째 이야기",
+      "goal": "장면 → 교훈 한 문장",
+      "layout": "image",
+      "section": "세 이야기",
+      "required": true
+    },
+    {
+      "id": "story-2",
+      "name": "둘째 이야기",
+      "goal": "장면 → 교훈 한 문장",
+      "layout": "image",
+      "section": "세 이야기",
+      "required": true
+    },
+    {
+      "id": "story-3",
+      "name": "셋째 이야기",
+      "goal": "가장 무거운 이야기 → 교훈",
+      "layout": "image",
+      "section": "세 이야기",
+      "required": true
+    },
+    {
+      "id": "send-off",
+      "name": "한 마디",
+      "goal": "세 이야기를 묶는 짧은 당부",
+      "layout": "summary",
+      "section": "닫기",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "이야기는 정확히 셋 — 처음에 약속한다",
+    "이야기마다 사진 한 장 + 교훈 한 문장",
+    "셋째가 가장 무겁게(점층)",
+    "끝은 짧은 당부 한 줄을 두 번"
+  ],
+  "knobs": {
+    "max_headline_chars": 28,
+    "max_bullets": 2,
+    "max_body_chars": 120,
+    "summary": "end",
+    "ig_min": 0.85,
+    "summary_words": "당부|한 마디|기억",
+    "image_ratio_min": 0.3
+  },
+  "layout_prefer": [
+    "image",
+    "statement",
+    "agenda",
+    "summary"
+  ],
+  "template_hints": {
+    "scheme": "dark",
+    "density": [
+      "low"
+    ],
+    "style_ko": "어두운 바탕·사진 한 장·한 문장"
+  },
+  "source_ko": "Steve Jobs 2005 스탠퍼드 졸업 연설 「Stay Hungry, Stay Foolish」 — 점 잇기·사랑과 상실·죽음의 세 이야기",
+  "example": "---\ntitle: 세 번의 밤\npresenter: 창업자 · 창립 10주년 연설\naudience: 전 직원\nsynopsis: jobs-stanford-three-stories\n---\n# 약속\n## 오늘 세 번의 밤 이야기를 하겠다 {agenda}\n# 세 이야기\n## 첫 밤: 혼자 재고를 세던 약국 — 불편은 기회였다 {image}\n## 둘째 밤: 서버가 멈춘 밤 — 고객이 우리를 지켰다 {image}\n## 셋째 밤: 문을 닫을 뻔한 밤 — 끝까지 남은 이유 {image}\n# 닫기\n## 약국의 밤을 짧게. 우리의 밤은 길어도 {summary}"
+}

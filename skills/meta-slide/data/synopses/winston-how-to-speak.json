@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "slug": "winston-how-to-speak",
+  "name": "How to Speak (MIT)",
+  "name_ko": "패트릭 윈스턴 「How to Speak」(약속 → 반복 → 울타리 → 기여로 닫기)",
+  "family": "세미나",
+  "inspired_by": "Patrick Winston — MIT 「How to Speak」 강의(IAP, 2018 녹화)",
+  "tagline_ko": "첫 5분에 청중이 얻을 것을 약속하고, 핵심을 여러 번 돌아 말하며 울타리를 쳐 다른 생각과 구분한 뒤, 「감사합니다」 대신 기여 장으로 닫는다",
+  "best_for_ko": "기술 세미나·연구실 발표·잡 토크·사내 기술 공유·강의",
+  "avoid_for_ko": "감성 캠페인, 짧은 축사",
+  "signals_ko": "세미나·기술·연구·우리가 보인 것·기여·질문",
+  "audience_ko": "엔지니어·연구자·학생",
+  "headline_style": "약속과 기여를 말하는 문장 — 「오늘 끝나면 결품 예측을 직접 고칠 수 있다」",
+  "beats": [
+    {
+      "id": "empowerment-promise",
+      "name": "약속",
+      "goal": "이 발표를 들으면 무엇을 할 수 있게 되나",
+      "layout": "statement",
+      "section": "약속",
+      "required": true
+    },
+    {
+      "id": "outline",
+      "name": "지도",
+      "goal": "갈 길을 보여 주는 한 장",
+      "layout": "agenda",
+      "section": "약속",
+      "required": false
+    },
+    {
+      "id": "cycle",
+      "name": "핵심 돌아보기",
+      "goal": "같은 핵심을 다른 각도로 세 번",
+      "layout": "diagram",
+      "section": "본론",
+      "required": true,
+      "count": "핵심마다 2~3장"
+    },
+    {
+      "id": "fence",
+      "name": "울타리",
+      "goal": "비슷해 보이는 다른 생각과 어떻게 다른가",
+      "layout": "compare",
+      "section": "본론",
+      "required": true
+    },
+    {
+      "id": "near-miss",
+      "name": "아깝게 틀린 예",
+      "goal": "맞는 것과 거의 맞는 것의 차이",
+      "layout": "compare",
+      "section": "본론",
+      "required": false
+    },
+    {
+      "id": "contributions",
+      "name": "기여",
+      "goal": "우리가 보인 것 목록 — 마지막 장에 계속 띄워 둔다",
+      "layout": "summary",
+      "section": "닫기",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "농담이 아니라 약속으로 시작",
+    "핵심을 세 번 돌아 말한다 — 청중의 주의는 자주 끊긴다",
+    "장에 글을 적게 — 말과 화면이 경쟁하지 않게",
+    "마지막 장은 「감사합니다·질문?」이 아니라 기여 목록"
+  ],
+  "knobs": {
+    "max_headline_chars": 40,
+    "max_bullets": 3,
+    "max_body_chars": 180,
+    "summary": "end",
+    "ig_min": 0.55,
+    "summary_words": "기여|보인 것|할 수 있"
+  },
+  "layout_prefer": [
+    "statement",
+    "diagram",
+    "compare",
+    "summary",
+    "agenda"
+  ],
+  "template_hints": {
+    "scheme": "light",
+    "density": [
+      "low",
+      "medium"
+    ],
+    "style_ko": "흰 바탕·도식 중심·장식 없음"
+  },
+  "source_ko": "Patrick Winston 「How to Speak」(MIT OpenCourseWare) — 약속으로 시작·순환·울타리·근접 오류·기여 장",
+  "example": "---\ntitle: 결품 예측 고치기\npresenter: 데이터 엔지니어 · 사내 기술 세미나\naudience: 개발자\nsynopsis: winston-how-to-speak\n---\n# 약속\n## 오늘 끝나면 결품 예측을 직접 고칠 수 있다 {statement}\n# 본론\n## 예측 = 평소 판매 + 계절 + 행사 {diagram}\n## 같은 식을 독감 철에 대 보면 {diagram}\n## 수요 예측과 다르다 — 우리는 「떨어지는 날」을 맞힌다 {compare}\n# 닫기\n## 기여: 세 항목 식 · 독감 철 보정 · 떨어지는 날 지표 {summary}"
+}

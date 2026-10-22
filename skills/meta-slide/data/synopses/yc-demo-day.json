@@ -1,0 +1,92 @@
+{
+  "version": 1,
+  "slug": "yc-demo-day",
+  "name": "YC Demo Day",
+  "name_ko": "YC 데모데이(2분 — 무엇 → 성과 → 통찰 → 요청)",
+  "family": "세미나",
+  "inspired_by": "Y Combinator 데모데이 · Michael Seibel 「How to pitch your company」",
+  "tagline_ko": "2분 안에: 무엇을 하는지 두 문장, 가장 좋은 숫자, 남들이 모르는 통찰, 시장·사업 모델, 팀, 요청 — 기억될 한 가지만 남긴다",
+  "best_for_ko": "데모데이·짧은 피치 대회·엘리베이터 피치·밋업 1~3분 소개",
+  "avoid_for_ko": "긴 IR 자료(→ 투자 유치 피치), 사내 보고",
+  "signals_ko": "2분·데모데이·성장률·「우리는 ~를 만든다」·투자자",
+  "audience_ko": "투자자·심사위원",
+  "headline_style": "아주 쉬운 말 — 「우리는 약국이 알아서 주문하게 만든다」",
+  "beats": [
+    {
+      "id": "what",
+      "name": "무엇",
+      "goal": "무엇을 하는지 엄마도 알 두 문장",
+      "layout": "statement",
+      "section": "무엇",
+      "required": true
+    },
+    {
+      "id": "traction",
+      "name": "성과",
+      "goal": "가장 인상적인 숫자 하나",
+      "layout": "number",
+      "section": "증거",
+      "required": true
+    },
+    {
+      "id": "insight",
+      "name": "통찰",
+      "goal": "우리가 알고 남들이 모르는 것",
+      "layout": "statement",
+      "section": "증거",
+      "required": true
+    },
+    {
+      "id": "market-model",
+      "name": "시장·사업 모델",
+      "goal": "얼마나 커질 수 있고 어떻게 버나",
+      "layout": "number",
+      "section": "증거",
+      "required": false
+    },
+    {
+      "id": "team",
+      "name": "팀",
+      "goal": "왜 우리인가 한 줄",
+      "layout": "team",
+      "section": "요청",
+      "required": false
+    },
+    {
+      "id": "ask",
+      "name": "요청·기억할 것",
+      "goal": "무엇을 원하고 무엇을 기억해 달라",
+      "layout": "closing",
+      "section": "요청",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "2분 · 6장 안팎",
+    "전문 용어 금지 — 처음 듣는 사람이 바로 알게",
+    "숫자는 가장 좋은 것 하나를 크게",
+    "끝에 기억할 한 가지를 다시"
+  ],
+  "knobs": {
+    "max_headline_chars": 28,
+    "max_bullets": 2,
+    "max_body_chars": 100,
+    "summary": "end",
+    "ig_min": 0.85,
+    "summary_words": "요청|기억|함께"
+  },
+  "layout_prefer": [
+    "statement",
+    "number",
+    "team"
+  ],
+  "template_hints": {
+    "scheme": null,
+    "density": [
+      "low"
+    ],
+    "style_ko": "아주 단순한 바탕·거대한 숫자"
+  },
+  "source_ko": "Y Combinator 데모데이 형식 · Michael Seibel 「How to pitch your company」(YC 블로그)",
+  "example": "---\ntitle: 오토오더\npresenter: 대표 · 데모데이 2분 피치\naudience: 투자자\nsynopsis: yc-demo-day\n---\n# 무엇\n## 우리는 약국이 알아서 주문하게 만든다 {statement}\n# 증거\n## 넉 달 만에 월 매출 4배 {number}\n## 약국 판매 기록이 도매 데이터보다 2주 빠르다 {statement}\n# 요청\n## 약국 프로그램을 10년 만든 팀 {team}\n## 50억 원 — 기억할 것: 약국 판매 기록 {closing}"
+}

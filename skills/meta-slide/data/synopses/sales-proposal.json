@@ -1,0 +1,120 @@
+{
+  "version": 1,
+  "slug": "sales-proposal",
+  "name": "Solution Proposal",
+  "name_ko": "B2B 제안서(고객 과제 → 해법 → 증거)",
+  "family": "제안",
+  "tagline_ko": "고객의 과제에서 시작해 해법·차별점·증거(사례·수치)·도입 일정과 비용으로 — 고객이 도입을 결정하게",
+  "best_for_ko": "영업 제안·입찰 제안·제휴 제안·솔루션 소개. 듣는 사람이 고객사이고 도입 여부를 판단할 때",
+  "avoid_for_ko": "사내 보고, 투자 유치, 학술 발표",
+  "signals_ko": "귀사·고객사·도입·구축·솔루션·레퍼런스·견적·일정·유지보수·서비스 수준",
+  "audience_ko": "고객사 실무 담당·구매·의사결정자·심사위원",
+  "headline_style": "고객이 주어인 결과 문장 — 「귀사는 ~을 ~만큼 줄인다」",
+  "beats": [
+    {
+      "id": "customer-goal",
+      "name": "고객 과제·목표",
+      "goal": "고객이 이루려는 것을 고객의 말로",
+      "layout": "statement",
+      "section": "과제",
+      "required": true
+    },
+    {
+      "id": "pain",
+      "name": "지금의 비용",
+      "goal": "지금 방식이 치르는 비용·불편을 숫자로",
+      "layout": "number",
+      "section": "과제",
+      "required": true
+    },
+    {
+      "id": "solution",
+      "name": "우리 해법",
+      "goal": "과제를 푸는 구조 한 장",
+      "layout": "diagram",
+      "section": "해법",
+      "required": true
+    },
+    {
+      "id": "how",
+      "name": "작동 방식",
+      "goal": "도입 후 하루가 어떻게 달라지나",
+      "layout": "diagram",
+      "section": "해법",
+      "required": false
+    },
+    {
+      "id": "differentiation",
+      "name": "차별점",
+      "goal": "다른 대안과 나란히 비교",
+      "layout": "compare",
+      "section": "해법",
+      "required": true
+    },
+    {
+      "id": "proof",
+      "name": "증거",
+      "goal": "비슷한 고객의 사례·수치·추천의 말",
+      "layout": "quote",
+      "section": "증거",
+      "required": true,
+      "count": "1~3장"
+    },
+    {
+      "id": "plan",
+      "name": "도입 일정",
+      "goal": "단계별 일정과 고객이 할 일",
+      "layout": "timeline",
+      "section": "실행",
+      "required": true
+    },
+    {
+      "id": "price",
+      "name": "비용·조건",
+      "goal": "가격·계약 조건·지원 범위",
+      "layout": "table",
+      "section": "실행",
+      "required": false
+    },
+    {
+      "id": "next",
+      "name": "다음 단계",
+      "goal": "회신·시범·계약까지의 다음 걸음",
+      "layout": "closing",
+      "section": "실행",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "우리 회사 소개는 뒤로 — 고객 과제가 먼저",
+    "모든 주장에 사례·수치 증거",
+    "차별점은 경쟁 대안과 나란히 비교",
+    "입찰이면 평가 항목 순서를 장 순서로 맞춘다"
+  ],
+  "knobs": {
+    "max_headline_chars": 42,
+    "max_bullets": 5,
+    "max_body_chars": 260,
+    "summary": "end",
+    "summary_words": "다음 단계|제안 요약|정리|요약",
+    "ig_min": 0.6
+  },
+  "layout_prefer": [
+    "diagram",
+    "points",
+    "compare",
+    "number",
+    "timeline",
+    "quote"
+  ],
+  "template_hints": {
+    "scheme": "light",
+    "density": [
+      "medium",
+      "medium-high"
+    ],
+    "style_ko": "신뢰감 있는 기업형·포인트 한 색·도식이 잘 들어가는 격자"
+  },
+  "source_ko": "솔루션 영업 제안서 관행(과제·해법·가치·증거·실행) · 공공·기업 입찰 제안서 평가 항목 구성",
+  "example": "---\ntitle: ○○약국 체인 자동 발주 도입 제안\npresenter: 영업팀 · 40개 지점 도입 계약을 받는다\naudience: 체인 본부 구매팀\nsynopsis: sales-proposal\n---\n# 과제\n## 귀사는 40개 지점의 결품을 본부에서 한눈에 줄이고 싶다 {statement}\n## 지금은 지점마다 하루 40분, 본부는 월말에야 결품을 안다 {number}\n# 해법\n## 판매 기록 → 예측 → 도매 주문이 지점마다 자동으로 돈다 {diagram}\n## 도매 앱과 달리 지점 판매 기록과 본부 기준을 함께 쓴다 {compare}\n# 증거\n## 비슷한 규모 체인이 석 달 만에 결품을 절반으로 줄였다 {quote}\n# 실행\n## 6주 안에 세 번에 나눠 40개 지점을 연다 {timeline}\n## 다음 주 두 지점 시범으로 시작한다 {closing}"
+}

@@ -1,0 +1,110 @@
+{
+  "version": 1,
+  "slug": "teaching-workshop",
+  "name": "Learning Session",
+  "name_ko": "교육·강의(목표 → 개념 → 예시 → 실습 → 정리)",
+  "family": "교육",
+  "tagline_ko": "배울 것을 먼저 말하고, 개념마다 예시와 확인 질문을 붙인 뒤 정리와 과제로 끝낸다",
+  "best_for_ko": "사내 교육·온보딩·워크숍·세미나·사용법 안내. 듣는 사람이 끝나고 직접 할 수 있어야 할 때",
+  "avoid_for_ko": "설득·판매·투자 유치, 결정을 받는 보고",
+  "signals_ko": "「배워 보겠습니다」·실습·예제·따라 하기·개념·용어·단계·퀴즈·과제",
+  "audience_ko": "신규 입사자·실무자·수강생",
+  "headline_style": "배우는 사람이 얻는 것 — 「~하면 ~할 수 있다」. 개념 장은 정의 한 문장",
+  "beats": [
+    {
+      "id": "objectives",
+      "name": "학습 목표",
+      "goal": "끝나면 할 수 있는 것 셋 이내",
+      "layout": "agenda",
+      "section": "시작",
+      "required": true
+    },
+    {
+      "id": "why",
+      "name": "왜 중요한가",
+      "goal": "이걸 모르면 생기는 일",
+      "layout": "statement",
+      "section": "시작",
+      "required": false
+    },
+    {
+      "id": "concept",
+      "name": "개념",
+      "goal": "개념 하나를 한 장 도식으로",
+      "layout": "diagram",
+      "section": "배우기",
+      "required": true,
+      "count": "개념마다 1장"
+    },
+    {
+      "id": "example",
+      "name": "예시",
+      "goal": "실제 화면·사례로 개념 확인",
+      "layout": "image",
+      "section": "배우기",
+      "required": true
+    },
+    {
+      "id": "practice",
+      "name": "실습·확인 질문",
+      "goal": "직접 해 보거나 답해 보기",
+      "layout": "points",
+      "section": "해 보기",
+      "required": true
+    },
+    {
+      "id": "pitfalls",
+      "name": "자주 하는 실수",
+      "goal": "틀린 예와 바른 예를 나란히",
+      "layout": "compare",
+      "section": "해 보기",
+      "required": false
+    },
+    {
+      "id": "recap",
+      "name": "정리",
+      "goal": "학습 목표와 같은 순서로 다시",
+      "layout": "summary",
+      "section": "정리",
+      "required": true
+    },
+    {
+      "id": "homework",
+      "name": "과제·참고",
+      "goal": "다음에 해 볼 것과 자료",
+      "layout": "closing",
+      "section": "정리",
+      "required": false
+    }
+  ],
+  "rules_ko": [
+    "개념 하나에 예시 하나 — 예시 없는 개념 장을 연달아 두지 않는다",
+    "15~20분마다 확인 질문·실습 장",
+    "용어는 처음 나올 때 한 줄 정의",
+    "끝 정리는 학습 목표와 같은 순서"
+  ],
+  "knobs": {
+    "max_headline_chars": 42,
+    "max_bullets": 5,
+    "max_body_chars": 260,
+    "summary": "end",
+    "ig_min": 0.55
+  },
+  "layout_prefer": [
+    "diagram",
+    "points",
+    "image",
+    "timeline",
+    "summary",
+    "compare"
+  ],
+  "template_hints": {
+    "scheme": "light",
+    "density": [
+      "medium"
+    ],
+    "style_ko": "밝고 친근한 바탕·읽기 쉬운 본문·단계 도식"
+  },
+  "source_ko": "Robert Gagné 『The Conditions of Learning』 9가지 수업 사태(주의·목표·회상·제시·안내·연습·피드백·평가·전이)를 줄인 구성",
+  "example": "---\ntitle: 자동 발주 처음 쓰기\npresenter: 고객지원팀 · 신규 약국이 첫 주문을 혼자 승인할 수 있게 한다\naudience: 신규 도입 약국 약사\nsynopsis: teaching-workshop\n---\n# 시작\n## 오늘 끝나면 세 가지를 혼자 할 수 있다 {agenda}\n# 배우기\n## 추천 주문은 지난 4주 판매와 현재 재고로 만든다 {diagram}\n## 화면에서 추천 수량은 이렇게 보인다 {image}\n# 해 보기\n## 직접 해 보기 — 감기약 세 품목 추천을 승인해 본다 {points}\n## 안전 재고를 0 으로 두면 결품이 난다 {compare}\n# 정리\n## 추천 보기 · 수량 고치기 · 승인 — 세 가지를 익혔다 {summary}"
+}

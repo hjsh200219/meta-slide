@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "slug": "carnegie-magic-formula",
+  "name": "Magic Formula",
+  "name_ko": "카네기 매직 포뮬러(사건 → 행동 → 이익)",
+  "family": "세미나",
+  "inspired_by": "Dale Carnegie — 『The Quick and Easy Way to Effective Speaking』",
+  "tagline_ko": "내가 겪은 생생한 사건 하나로 시작하고, 청중이 할 행동을 분명히 말한 뒤, 그 행동이 주는 이익으로 닫는다 — 짧은 행동 촉구 발표",
+  "best_for_ko": "3~5분 짧은 설득·조회 발언·사내 캠페인 공지·안전·보안 교육 도입",
+  "avoid_for_ko": "긴 분석 보고, 여러 주제 발표",
+  "signals_ko": "제가 겪은 일·그래서 부탁드립니다·그러면 ~하실 수 있습니다",
+  "audience_ko": "동료·구성원",
+  "headline_style": "사건은 장면, 행동은 동사, 이익은 청중의 말",
+  "beats": [
+    {
+      "id": "incident",
+      "name": "사건",
+      "goal": "내가 겪은 생생한 사건 하나 — 발표 시간의 대부분",
+      "layout": "image",
+      "section": "사건",
+      "required": true
+    },
+    {
+      "id": "action",
+      "name": "행동",
+      "goal": "청중이 할 구체적 행동 하나",
+      "layout": "statement",
+      "section": "행동",
+      "required": true
+    },
+    {
+      "id": "benefit",
+      "name": "이익",
+      "goal": "그 행동이 청중에게 주는 이익",
+      "layout": "summary",
+      "section": "이익",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "사건이 시간의 대부분 — 구체적인 장면·대사로",
+    "행동은 하나, 동사로, 바로 할 수 있게",
+    "이익은 청중 쪽에서",
+    "세 장이면 충분하다"
+  ],
+  "knobs": {
+    "max_headline_chars": 30,
+    "max_bullets": 2,
+    "max_body_chars": 120,
+    "summary": "end",
+    "ig_min": 0.9,
+    "summary_words": "이익|그러면|덕분",
+    "image_ratio_min": 0.3
+  },
+  "layout_prefer": [
+    "image",
+    "statement",
+    "summary"
+  ],
+  "template_hints": {
+    "scheme": null,
+    "density": [
+      "low"
+    ],
+    "style_ko": "사진 한 장·큰 글자"
+  },
+  "source_ko": "Dale Carnegie 『The Quick and Easy Way to Effective Speaking』 매직 포뮬러(Incident·Action·Benefit)",
+  "example": "---\ntitle: 안전 재고 하나만\npresenter: 고객지원팀 · 월례 회의 3분 발언\naudience: 영업·지원 전원\nsynopsis: carnegie-magic-formula\n---\n# 사건\n## 지난주 한 약사님이 독감 환자 열 명을 돌려보냈다 {image}\n# 행동\n## 방문하는 약국마다 안전 재고 하나만 확인해 달라 {statement}\n# 이익\n## 그러면 다음 주 해지 전화가 줄어든다 {summary}"
+}

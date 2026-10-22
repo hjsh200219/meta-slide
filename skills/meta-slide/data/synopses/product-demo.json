@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "slug": "product-demo",
+  "name": "Demo-led Pitch",
+  "name_ko": "데모 중심 발표(결과 먼저 → 시연 → 가치)",
+  "family": "소개",
+  "tagline_ko": "가장 멋진 결과 화면을 먼저 보여 주고, 거기까지 가는 과정을 시연한 뒤, 가치와 다음 단계로 — 「마지막 것을 먼저」",
+  "best_for_ko": "제품 시연·고객 데모 미팅·내부 시연회·해커톤 발표",
+  "avoid_for_ko": "제품이 아직 없는 기획, 수치 보고",
+  "signals_ko": "시연·데모·직접 보여 드리면·화면·클릭",
+  "audience_ko": "고객 실무자·평가자",
+  "headline_style": "화면이 보여 주는 결과 — 「처방이 들어오자 주문이 이미 끝나 있다」",
+  "beats": [
+    {
+      "id": "situation",
+      "name": "고객 상황",
+      "goal": "고객의 일과 문제 한 장",
+      "layout": "statement",
+      "section": "왜",
+      "required": true
+    },
+    {
+      "id": "last-thing-first",
+      "name": "결과 화면 먼저",
+      "goal": "가장 강한 결과 화면",
+      "layout": "image",
+      "section": "보기",
+      "required": true
+    },
+    {
+      "id": "demo",
+      "name": "시연",
+      "goal": "결과까지 가는 짧은 경로",
+      "layout": "image",
+      "section": "보기",
+      "required": true,
+      "count": "2~5장"
+    },
+    {
+      "id": "value",
+      "name": "가치",
+      "goal": "시간·비용으로 바꾼 효과",
+      "layout": "number",
+      "section": "가치",
+      "required": true
+    },
+    {
+      "id": "next",
+      "name": "다음 단계",
+      "goal": "시범·설치",
+      "layout": "closing",
+      "section": "가치",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "결과 화면을 첫 시연 장에",
+    "시연 경로는 짧게 — 클릭 수를 줄인다",
+    "화면 캡처에는 개인정보를 가린다",
+    "시연 실패에 대비한 캡처 장을 둔다"
+  ],
+  "knobs": {
+    "max_headline_chars": 32,
+    "max_bullets": 3,
+    "max_body_chars": 140,
+    "summary": "end",
+    "ig_min": 0.75,
+    "summary_words": "다음|시범|시작",
+    "image_ratio_min": 0.3
+  },
+  "layout_prefer": [
+    "image",
+    "statement",
+    "number"
+  ],
+  "template_hints": {
+    "scheme": null,
+    "density": [
+      "low",
+      "medium"
+    ],
+    "style_ko": "화면 캡처가 돋보이는 단색 바탕"
+  },
+  "source_ko": "Peter Cohan 『Great Demo!』 — 「Do the Last Thing First」",
+  "example": "---\ntitle: 오토오더 시연\npresenter: 솔루션 엔지니어 · 체인 실무자 데모\naudience: 체인 구매 담당\nsynopsis: product-demo\n---\n# 왜\n## 지점은 처방을 받고서야 재고가 없는 것을 안다 {statement}\n# 보기\n## 아침 9시, 오늘 주문이 이미 끝나 있다 {image}\n## 추천 수량을 고치고 승인하면 끝 {image}\n# 가치\n## 지점당 하루 35분 {number}\n## 다음 주 두 지점 시범 {closing}"
+}

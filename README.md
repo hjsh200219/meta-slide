@@ -59,12 +59,14 @@ python3 skills/meta-slide/setup.py --force    # 새 키로 바꾸기 · --forget
 | 하고 싶은 일 | 이렇게 |
 |---|---|
 | 템플릿·인포그래픽 둘러보기 | `python3 skills/meta-slide/slide.py` (또는 `/meta-slide` 를 인자 없이) |
+| 원고(스크립트)에서 시작 | 「이 원고로 슬라이드 만들어줘」 — Jev 가 시놉시스 전략(50종) 고르기 → 그 장 구성대로 개요 → 아래 순서 |
 | 발표 자료 만들기 | 「신사업 보고 슬라이드 만들어줘」 — 개요 점검 → 다섯 가지 고르기 → 덱 → 캡처 검사 |
 | SSH 로 붙어 있는데 내 PC 에서 보기 | `/meta-slide --local` |
 | 키 없이 만들기 | 「…슬라이드, Jev 없이」 → `--no-jev` 기본값(어두운 `broadside`, 밝은 바탕은 `blue-professional`) |
 
 | 고르는 것 | 후보 | 어떻게 |
 |---|---|---|
+| ⓪ 시놉시스 전략 | 50종 — 컨설팅·광고·키노트·투자·보고·제안·교육·학술·스토리·카피 공식·속도형·명연설·세미나 | Jev choice — 원고의 목적·청중·재료·형식으로. 장 구성(비트)·헤드라인 문체·점검 기준이 정해진다 |
 | ① 덱 템플릿 | 230종 — 인터넷 MIT | Jev choice — 많으면 묶음 예선 → 결승 |
 | ② 인포그래픽으로 보여 줄지 | 장마다 | Jev noul 0.6 이상 · 표지·간지·한 문장·요약은 제외 |
 | ③ 인포그래픽 | AntV Infographic 265종(276종 중 한글 렌더 검사 통과분) + 직접 그린 도식 10계열(AntV 에 없는 벤·폭포·꺾은선·기울기·레이더·트리맵·간트·레이어·피시본·히트맵) | Jev choice — 계열 → 모양. 직접 그린 도식은 Claude 가 `diagram` 규약대로 SVG 로 그린다 |
@@ -76,7 +78,7 @@ python3 skills/meta-slide/setup.py --force    # 새 키로 바꾸기 · --forget
 ## 로컬 갤러리
 
 - `http://127.0.0.1:8766/` 에 띄우고 브라우저를 엽니다. 끄기 `Ctrl-C` · 다른 포트 `--port 9000` · 브라우저 안 열기 `--no-open`.
-- 탭 넷: **템플릿 230**(표지 썸네일 · 바탕·출처·장 구성으로 거르기 · 누르면 장 구성·색·원본 서체·만들기 명령, 「한글 서체 적용해 열기」·「원본 열기」) · **인포그래픽 265**(한글 예시로 실제 렌더) · **색 체계 161** · **한글 서체 17**.
+- 탭 다섯: **시놉시스 50**(전략마다 장 구성·헤드라인 문체·규칙·같은 주제 예시 개요, 계열·이름·연설가로 거르기) · **템플릿 230**(표지 썸네일 · 바탕·출처·장 구성으로 거르기 · 누르면 장 구성·색·원본 서체·만들기 명령, 「한글 서체 적용해 열기」·「원본 열기」) · **인포그래픽 265**(한글 예시로 실제 렌더) · **색 체계 161** · **한글 서체 17**.
 - 실행할 때마다 `~/.cache/meta-slide/gallery/` 에 새로 만듭니다. 「한글 서체 적용해 열기」는 처음 누를 때 `~/.cache/meta-slide/preview/<id>/` 를 만듭니다.
 - **`--local`**: 원격 컴퓨터에 SSH 로 붙어 쓰는 경우, 그 컴퓨터의 Tailscale 주소(`http://<컴퓨터>.<tailnet>.ts.net:8766/`)에도 띄워 내 PC 브라우저에서 엽니다.
   - 들어올 수 있는 것은 **같은 Tailscale 계정의 기기**(내 PC·폰)뿐입니다. 같은 tailnet 의 다른 사람 기기는 403 입니다.
@@ -90,10 +92,12 @@ python3 skills/meta-slide/setup.py --force    # 새 키로 바꾸기 · --forget
 | 명령 | 하는 일 |
 |---|---|
 | `python3 $S [--local]` | 로컬 갤러리 |
+| `synopsis` · `synopsis <전략>` | 시놉시스 전략 목록 · 그 전략의 장 구성·규칙·같은 주제 예시 |
+| `synopsis 원고.md [--skeleton 개요.md]` | ⓪ Jev 가 원고에 맞는 전략을 고르고(후보 3) 장 구성을 보여 준다 · 빈 개요를 만든다 |
 | `outline 개요.md` | 원칙 점검(간지·한 장 한 메시지·글 양·요약) + 헤드라인만 읽기 |
 | `pick 개요.md [--no-jev]` | ① ④ ⑤ — 템플릿(후보 3)·색 체계·서체 |
 | `new 덱/ --template <id> --color <id\|template> --title-font <id> --body-font <id>` | 덱 만들기(한글 서체·색·인포그래픽 런타임 넣기) |
-| `outline 개요.md --template <id> --jev` | ② ③ + 장마다 한 메시지·헤드라인·레이아웃 |
+| `outline 개요.md --template <id> --jev` | ② ③ + 장마다 한 메시지·헤드라인·레이아웃 · 머리말 `synopsis:` 가 있으면 장마다 전략 단계를 판정해 빠진 단계·순서를 알린다 |
 | `ig <인포그래픽>` | 장에 붙일 인포그래픽 조각 |
 | `diagram [계열]` | AntV 에 없는 계열의 장표 규약(20px 이상·덱 색·서체)·배치 문법·수치 선언 규칙 |
 | `shots 덱/deck.html --pdf` | 장마다 캡처 · 넘침·잘림·대체 서체·인포그래픽 글자 크기·겹침·수치 도식 합계/척도/면적 검사 · `sheet.png` · `deck.pdf` |
@@ -109,7 +113,7 @@ python3 skills/meta-slide/setup.py --force    # 새 키로 바꾸기 · --forget
 
 ## 외부 전송
 
-- Jev(api.typesafe.ai)로 나가는 것: `pick`·`outline --jev` 의 개요 글, `build_index.py` 의 템플릿 예시 글, `setup.py` 의 키 확인용 짧은 문장. 원칙 문서 원문은 보내지 않습니다. 개요에 사내 수치가 있어도 Jev 를 씁니다(같은 내용이 Claude 로도 가므로). `--no-jev` 는 키가 없을 때나 Jev 없이 하라고 할 때만.
+- Jev(api.typesafe.ai)로 나가는 것: `synopsis` 의 원고(6천 자 — 앞 3/4 + 끝 1/4), `pick`·`outline --jev` 의 개요 글, `build_index.py` 의 템플릿 예시 글, `setup.py` 의 키 확인용 짧은 문장. 원칙 문서 원문은 보내지 않습니다. 개요에 사내 수치가 있어도 Jev 를 씁니다(같은 내용이 Claude 로도 가므로). `--no-jev` 는 키가 없을 때나 Jev 없이 하라고 할 때만.
 - 인포그래픽은 로컬에서 렌더합니다. AntV 기본 동작(아이콘을 weavefox.cn 검색 API 로, 서체를 antgroup CDN 에서)은 `meta-slide-ig.js` 가 막습니다.
 - 덱·갤러리는 웹 서체 CSS(fonts.googleapis.com · cdn.jsdelivr.net)를 불러옵니다.
 

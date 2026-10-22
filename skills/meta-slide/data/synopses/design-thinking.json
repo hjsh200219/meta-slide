@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "slug": "design-thinking",
+  "name": "Design Thinking Story",
+  "name_ko": "디자인 씽킹(공감 → 정의 → 아이디어 → 시제품 → 시험)",
+  "family": "기획",
+  "tagline_ko": "사용자를 관찰한 장면에서 문제를 다시 정의하고, 아이디어·시제품·시험 결과로 이어 가는 과정 발표",
+  "best_for_ko": "UX 리서치 공유·서비스 디자인 발표·해커톤·혁신 프로젝트 중간 발표",
+  "avoid_for_ko": "숫자로 결정받는 경영 보고, 판매 발표",
+  "signals_ko": "사용자 인터뷰·관찰·페르소나·여정 지도·HMW·시제품·사용성 시험",
+  "audience_ko": "제품·디자인 조직·이해관계자",
+  "headline_style": "사용자에게서 배운 문장 — 「약사는 재고가 아니라 단골을 걱정한다」",
+  "beats": [
+    {
+      "id": "empathize",
+      "name": "공감",
+      "goal": "관찰·인터뷰에서 본 장면",
+      "layout": "image",
+      "section": "이해",
+      "required": true
+    },
+    {
+      "id": "define",
+      "name": "문제 정의",
+      "goal": "「어떻게 하면 ~할 수 있을까」 한 문장",
+      "layout": "statement",
+      "section": "이해",
+      "required": true
+    },
+    {
+      "id": "ideate",
+      "name": "아이디어",
+      "goal": "넓게 낸 안과 고른 안",
+      "layout": "diagram",
+      "section": "만들기",
+      "required": false
+    },
+    {
+      "id": "prototype",
+      "name": "시제품",
+      "goal": "만든 것의 화면",
+      "layout": "image",
+      "section": "만들기",
+      "required": true
+    },
+    {
+      "id": "test",
+      "name": "시험 결과",
+      "goal": "사용자 반응과 수치",
+      "layout": "quote",
+      "section": "배우기",
+      "required": true
+    },
+    {
+      "id": "next",
+      "name": "다음 반복",
+      "goal": "고칠 것과 다음 시험",
+      "layout": "closing",
+      "section": "배우기",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "사용자 장면과 말로 시작",
+    "문제 정의는 「어떻게 하면」 한 문장",
+    "시제품은 화면으로",
+    "시험 결과는 좋은 것과 나쁜 것 모두"
+  ],
+  "knobs": {
+    "max_headline_chars": 38,
+    "max_bullets": 4,
+    "max_body_chars": 200,
+    "summary": "end",
+    "ig_min": 0.6,
+    "summary_words": "다음|반복|배운",
+    "image_ratio_min": 0.2
+  },
+  "layout_prefer": [
+    "image",
+    "statement",
+    "quote",
+    "diagram"
+  ],
+  "template_hints": {
+    "scheme": null,
+    "density": [
+      "low",
+      "medium"
+    ],
+    "style_ko": "밝은 바탕·사진과 포스트잇 같은 도식"
+  },
+  "source_ko": "Stanford d.school 디자인 씽킹 5단계(공감·정의·아이디어·시제품·시험)",
+  "example": "---\ntitle: 약사는 단골을 걱정한다\npresenter: UX 팀 · 리서치 결과와 시제품 공유\naudience: 제품 조직\nsynopsis: design-thinking\n---\n# 이해\n## 약사 12명의 밤을 따라다녔다 {image}\n## 어떻게 하면 단골의 약이 떨어지지 않게 할까 {statement}\n# 만들기\n## 단골 약 알림 시제품 {image}\n# 배우기\n## 「이건 매일 보겠다」 — 12명 중 10명 {quote}\n## 다음 주 알림 문구를 고쳐 다시 시험 {closing}"
+}

@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "slug": "public-bid",
+  "name": "Public RFP Proposal",
+  "name_ko": "공공 입찰 제안 발표(평가 항목 순서)",
+  "family": "제안",
+  "tagline_ko": "제안요청서의 평가 항목 순서대로 — 사업 이해·추진 전략·수행 방법·사업 관리·지원 — 심사위원이 점수를 매기기 쉽게",
+  "best_for_ko": "공공기관·지자체 입찰 제안 발표, 정부 과제 발표 평가",
+  "avoid_for_ko": "민간 감성 PT, 내부 보고",
+  "signals_ko": "제안요청서·평가 항목·사업 이해·추진 전략·수행 방안·품질 관리·하자 보수",
+  "audience_ko": "평가위원·발주 기관",
+  "headline_style": "평가 항목에 대한 우리 답 — 「요구 사항 42개를 전부 기존 기능으로 충족한다」",
+  "beats": [
+    {
+      "id": "understanding",
+      "name": "사업 이해",
+      "goal": "발주 기관의 목적과 핵심 요구",
+      "layout": "points",
+      "section": "사업 이해",
+      "required": true
+    },
+    {
+      "id": "strategy",
+      "name": "추진 전략",
+      "goal": "목표와 차별화 전략 한 장",
+      "layout": "diagram",
+      "section": "추진 전략",
+      "required": true
+    },
+    {
+      "id": "method",
+      "name": "수행 방법",
+      "goal": "요구 사항별 수행 방안",
+      "layout": "diagram",
+      "section": "수행 방법",
+      "required": true,
+      "count": "요구 묶음마다 1장"
+    },
+    {
+      "id": "compliance",
+      "name": "요구 사항 대응",
+      "goal": "요구 사항 충족 현황",
+      "layout": "table",
+      "section": "수행 방법",
+      "required": false
+    },
+    {
+      "id": "management",
+      "name": "사업 관리",
+      "goal": "일정·조직·품질·위험 관리",
+      "layout": "timeline",
+      "section": "사업 관리",
+      "required": true
+    },
+    {
+      "id": "support",
+      "name": "지원·유지보수",
+      "goal": "교육·하자 보수·사후 지원",
+      "layout": "points",
+      "section": "지원",
+      "required": true
+    },
+    {
+      "id": "summary",
+      "name": "제안 요약",
+      "goal": "왜 우리인가 세 가지",
+      "layout": "summary",
+      "section": "지원",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "장 순서 = 평가 항목 순서, 간지에 항목 이름과 배점",
+    "요구 사항 번호를 장 귀퉁이에",
+    "실적은 숫자와 기관명으로",
+    "발표 시간 안에 모든 항목을 다룬다"
+  ],
+  "knobs": {
+    "max_headline_chars": 46,
+    "max_bullets": 5,
+    "max_body_chars": 280,
+    "summary": "end",
+    "ig_min": 0.55,
+    "summary_words": "요약|왜 우리"
+  },
+  "layout_prefer": [
+    "diagram",
+    "points",
+    "table",
+    "timeline",
+    "number"
+  ],
+  "template_hints": {
+    "scheme": "light",
+    "density": [
+      "medium-high",
+      "high"
+    ],
+    "style_ko": "공공 문서형 흰 바탕·파랑 계열·표와 도식"
+  },
+  "source_ko": "국내 공공 제안요청서(RFP) 평가 항목 구성(사업 이해·추진 전략·수행 방법·사업 관리·지원) 관행",
+  "example": "---\ntitle: ○○시 공공심야약국 재고 연계 사업 제안\npresenter: 입찰팀 · 기술 평가 통과\naudience: 평가위원\nsynopsis: public-bid\n---\n# 사업 이해\n## 심야약국 18곳의 결품을 실시간으로 막는 것이 핵심이다 {points}\n# 추진 전략\n## 이미 쓰는 약국 프로그램에 붙여 3개월 안에 연다 {diagram}\n# 수행 방법\n## 요구 사항 42개를 기존 기능 38개 + 신규 4개로 충족한다 {table}\n# 사업 관리\n## 착수부터 안정화까지 12주 {timeline}\n# 지원\n## 왜 우리인가 — 실적 3천 곳 · 3개월 · 무상 보수 2년 {summary}"
+}

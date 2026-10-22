@@ -4,7 +4,7 @@
   python3 serve.py [--port 8766] [--no-open] [--out <폴더>] [--local]
   --local  SSH 로 붙은 사용자 PC 브라우저용 — 이 Mac 의 Tailscale 주소에도 띄운다(같은 Tailscale 계정 기기만 · 2시간 쉬면 꺼짐).
            마지막 줄 LOCAL_URL= 이 PC 에서 열 주소, LOCAL_BROWSER= 가 짝지은 PC 크롬(SKILL.md 대로 Claude 가 연다).
-탭 넷: 템플릿(썸네일·장 구성·색·서체·원본/한글 서체 미리보기) · 인포그래픽(한글 예시로 실제 렌더) · 색 체계 · 한글 서체.
+탭 다섯: 시놉시스 전략(장 구성·규칙·같은 주제 예시) · 템플릿(썸네일·장 구성·색·서체·원본/한글 서체 미리보기) · 인포그래픽(한글 예시로 실제 렌더) · 색 체계 · 한글 서체.
 갤러리 페이지는 매번 ~/.cache/meta-slide/gallery/ 에 다시 만든다(데이터를 고친 뒤에도 바로 보이게). 경로:
   /            갤러리            /data/...      repo 의 data/ 그대로(템플릿 원본·썸네일·인포그래픽 런타임)
   /preview/<id>/deck.html        그 템플릿에 `slide.py new`(기본 한글 서체)를 적용한 덱 — 처음 열 때 만든다
@@ -71,7 +71,8 @@ def gallery_data():
     colors = [dict(id=k, **v) for k, v in slide.load_colors().items()]
     fonts = [dict(id=k, **v) for k, v in slide.load_fonts().items()]
     layouts = {k: v.split(" — ")[0] for k, v in slide.LAYOUTS.items()}
-    return {"templates": ts, "igs": igs, "colors": colors, "fonts": fonts, "layouts": layouts}
+    syns = [{k: s.get(k) for k in slide.SYN_FIELDS + ("inspired_by",)} for s in slide.load_synopses().values()]
+    return {"templates": ts, "igs": igs, "colors": colors, "fonts": fonts, "layouts": layouts, "synopses": syns}
 
 
 def build(out_dir):
@@ -246,6 +247,11 @@ dialog{width:min(1100px,calc(100vw - 32px));max-height:calc(100dvh - 32px);borde
 dialog::backdrop{background:rgba(0,0,0,.55)}
 .dlg{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:0}
 .dlg img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;background:var(--chip)}
+.dlg.syn{grid-template-columns:1fr}
+.beats{display:flex;flex-wrap:wrap;gap:4px;align-items:center;font-size:12px;color:var(--sub)}
+.beats .req{color:var(--ink);font-weight:600}
+.beatlist{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:3px}
+pre.ex{white-space:pre-wrap;margin:0;font:12.5px/1.55 ui-monospace,Menlo,monospace;background:var(--chip);padding:12px;border-radius:8px}
 .dinfo{padding:18px 20px;display:flex;flex-direction:column;gap:10px;overflow:auto}
 .dinfo h2{margin:0;font-size:20px}
 .dinfo .row b{display:block;font-size:12px;color:var(--sub);font-weight:600;margin-bottom:2px}
@@ -260,14 +266,14 @@ code{font:12.5px ui-monospace,Menlo,monospace;background:var(--chip);padding:2px
 </head>
 <body>
 <header>
-  <div class="bar"><h1>meta-<b>slide</b> 갤러리</h1><span class="lead">Jev 가 고르는 다섯 가지 — 템플릿 · 인포그래픽 · 색 체계 · 한글 서체</span></div>
+  <div class="bar"><h1>meta-<b>slide</b> 갤러리</h1><span class="lead">Jev 가 고르는 것 — 시놉시스 전략 · 템플릿 · 인포그래픽 · 색 체계 · 한글 서체</span></div>
   <nav id="tabs"></nav>
 </header>
 <main id="main"></main>
 <dialog id="dlg"></dialog>
 <script>
 const D = /*DATA*/;
-const TABS = [['templates','템플릿',D.templates.length],['ig','인포그래픽',D.igs.length],['colors','색 체계',D.colors.length],['fonts','한글 서체',D.fonts.length]];
+const TABS = [['synopses','시놉시스',D.synopses.length],['templates','템플릿',D.templates.length],['ig','인포그래픽',D.igs.length],['colors','색 체계',D.colors.length],['fonts','한글 서체',D.fonts.length]];
 const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const SCHEME = {light:'밝은 바탕', dark:'어두운 바탕', mixed:'섞임'};
 const $ = s => document.querySelector(s);
@@ -332,6 +338,50 @@ function openTemplate(slug) {
   $('#dlg').showModal();
 }
 
+function viewSynopses() {
+  const fams = [...new Set(D.synopses.map(s => s.family))].map(f => [f, f + ' (' + D.synopses.filter(s => s.family === f).length + ')']);
+  $('#main').innerHTML = tools(`<input id="sq" type="search" placeholder="이름·쓰임·연설가 검색 (예: 투자, 강연, Jobs)" value="${esc(state.sq || '')}">
+    <select id="sf">${opts(fams, state.sf, '계열 전체')}</select>`) + '<div class="grid" id="grid"></div>';
+  const draw = () => {
+    const list = D.synopses.filter(s => match(state.sq, s.slug, s.name, s.name_ko, s.tagline_ko, s.best_for_ko, s.inspired_by || '', s.source_ko)
+      && (!state.sf || s.family === state.sf));
+    $('#count').textContent = `${list.length} / ${D.synopses.length}종 · 원고에 맞는 전략은 Jev 가 고른다`;
+    $('#grid').innerHTML = list.map(s => `<button class="card" data-slug="${esc(s.slug)}"><div class="body">
+      <div class="chips"><span class="chip">${esc(s.family)}</span></div>
+      <div class="name">${esc(s.name_ko)}</div>
+      ${s.inspired_by ? `<div class="meta">본보기: ${esc(s.inspired_by)}</div>` : ''}
+      <div class="meta">${esc(s.tagline_ko)}</div>
+      <div class="beats">${s.beats.map(b => `<span class="${b.required ? 'req' : ''}">${esc(b.name)}</span>`).join('<span>→</span>')}</div>
+      </div></button>`).join('') || '<p class="empty">맞는 전략이 없습니다.</p>';
+  };
+  ['sq', 'sf'].forEach(id => $('#' + id).addEventListener('input', e => { state[id] = e.target.value; save(); draw(); }));
+  $('#grid').addEventListener('click', e => { const c = e.target.closest('.card'); if (c) openSynopsis(c.dataset.slug); });
+  draw();
+}
+
+function openSynopsis(slug) {
+  const s = D.synopses.find(x => x.slug === slug); if (!s) return;
+  const k = s.knobs || {}, h = s.template_hints || {};
+  const cmd = `python3 slide.py synopsis ${s.slug}`;
+  $('#dlg').innerHTML = `<div class="dlg syn"><div class="dinfo"><h2>${esc(s.name_ko)}</h2><div class="meta">${esc(s.tagline_ko)}</div>
+    ${s.inspired_by ? `<div class="row"><b>본보기</b>${esc(s.inspired_by)}</div>` : ''}
+    <div class="row"><b>어울리는 자리</b>${esc(s.best_for_ko)}</div>
+    <div class="row"><b>피할 자리</b>${esc(s.avoid_for_ko)}</div>
+    <div class="row"><b>헤드라인 문체</b>${esc(s.headline_style)}</div>
+    <div class="row"><b>장 구성 (굵게 = 꼭 있어야 할 단계)</b><ol class="beatlist">${s.beats.map(b => `<li>${b.required ? '<strong>' : ''}${esc(b.name)}${b.required ? '</strong>' : ''}
+      <span class="meta">· ${esc(D.layouts[b.layout] || b.layout)}${b.count ? ' · ' + esc(b.count) : ''} — ${esc(b.goal)}</span></li>`).join('')}</ol></div>
+    <div class="row"><b>장 규칙</b><ol class="beatlist">${(s.rules_ko || []).map(r => `<li>${esc(r)}</li>`).join('')}</ol></div>
+    <div class="row"><b>점검 기준</b>헤드라인 ${k.max_headline_chars}자 · 근거 ${k.max_bullets}개 · 본문 ${k.max_body_chars}자 · 요약 ${({front: '앞', end: '끝', none: '없음'})[k.summary] || k.summary}</div>
+    <div class="row"><b>어울리는 덱</b>${esc(h.style_ko || '')}</div>
+    <div class="row"><b>출처</b>${esc(s.source_ko)}</div>
+    <div class="row"><b>예시 개요 — 모든 전략이 같은 주제(약국 재고 자동 발주)</b><pre class="ex">${esc(s.example)}</pre></div>
+    <div class="row"><b>보기</b><code>${esc(cmd)}</code></div></div>
+    <div class="acts"><button type="button" id="cp">명령 복사</button><button type="button" class="x" id="cl">닫기</button></div></div>`;
+  $('#cl').onclick = () => $('#dlg').close();
+  $('#cp').onclick = () => { navigator.clipboard && navigator.clipboard.writeText(cmd).then(() => { $('#cp').textContent = '복사됨'; }); };
+  $('#dlg').showModal();
+}
+
 let io = null;
 function viewIg() {
   const fams = [...new Set(D.igs.map(g => g.family))].map(f => [f, f + ' (' + D.igs.filter(g => g.family === f).length + ')']);
@@ -386,7 +436,7 @@ function viewFonts() {
 
 function route() {
   renderTabs();
-  ({templates: viewTemplates, ig: viewIg, colors: viewColors, fonts: viewFonts}[tab()] || viewTemplates)();
+  ({synopses: viewSynopses, templates: viewTemplates, ig: viewIg, colors: viewColors, fonts: viewFonts}[tab()] || viewTemplates)();
   window.scrollTo(0, 0);
 }
 addEventListener('hashchange', route);

@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "slug": "qbr",
+  "name": "Quarterly Business Review",
+  "name_ko": "분기 사업 리뷰(QBR — 목표 대비 → 잘된 것·안된 것 → 다음 분기)",
+  "family": "보고",
+  "tagline_ko": "목표 대비 성과를 먼저, 잘된 것과 안된 것, 지표 추이, 다음 분기 계획과 요청 순서로",
+  "best_for_ko": "분기·반기 리뷰·이사회 보고·고객사 정기 리뷰",
+  "avoid_for_ko": "단발 제안, 출시 행사",
+  "signals_ko": "분기·목표 대비·달성률·하이라이트·로우라이트·다음 분기",
+  "audience_ko": "경영진·이사회·고객사 책임자",
+  "headline_style": "달성률과 결론 — 「매출은 목표의 104%, 신규 약국은 82%에 그쳤다」",
+  "beats": [
+    {
+      "id": "scorecard",
+      "name": "목표 대비 성과",
+      "goal": "핵심 지표 3~5개의 달성률 한 장",
+      "layout": "number",
+      "section": "성과",
+      "required": true
+    },
+    {
+      "id": "highlights",
+      "name": "잘된 것",
+      "goal": "성과를 만든 일",
+      "layout": "points",
+      "section": "성과",
+      "required": true
+    },
+    {
+      "id": "lowlights",
+      "name": "안된 것",
+      "goal": "놓친 것과 이유 — 숨기지 않는다",
+      "layout": "points",
+      "section": "성과",
+      "required": true
+    },
+    {
+      "id": "trends",
+      "name": "지표 추이",
+      "goal": "분기별 흐름",
+      "layout": "chart",
+      "section": "성과",
+      "required": false
+    },
+    {
+      "id": "next-quarter",
+      "name": "다음 분기 계획",
+      "goal": "목표와 주요 과제",
+      "layout": "timeline",
+      "section": "다음",
+      "required": true
+    },
+    {
+      "id": "asks",
+      "name": "요청",
+      "goal": "필요한 결정·자원",
+      "layout": "closing",
+      "section": "다음",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "첫 장은 목표 대비 숫자",
+    "안된 것을 잘된 것만큼 다룬다",
+    "지난 분기 계획과 같은 지표로 비교",
+    "요청은 구체적으로"
+  ],
+  "knobs": {
+    "max_headline_chars": 44,
+    "max_bullets": 5,
+    "max_body_chars": 260,
+    "summary": "front",
+    "ig_min": 0.55,
+    "summary_words": "요청|다음 분기"
+  },
+  "layout_prefer": [
+    "number",
+    "chart",
+    "points",
+    "timeline",
+    "compare"
+  ],
+  "template_hints": {
+    "scheme": "light",
+    "density": [
+      "medium",
+      "medium-high"
+    ],
+    "style_ko": "흰 바탕·지표 카드·그래프"
+  },
+  "source_ko": "분기 사업 리뷰(QBR) 관행 — 하이라이트·로우라이트·다음 분기 계획",
+  "example": "---\ntitle: 3분기 사업 리뷰\npresenter: 사업본부 · 분기 성과와 4분기 계획 승인\naudience: 경영진\nsynopsis: qbr\n---\n# 성과\n## 매출 104%, 신규 약국 82% — 확산이 숙제다 {number}\n## 체인 두 곳 계약이 매출을 끌었다 {points}\n## 개인 약국 영업이 인력 부족으로 늦었다 {points}\n# 다음\n## 4분기는 개인 약국 400곳에 집중한다 {timeline}\n## 영업 인력 3명 충원을 요청한다 {closing}"
+}

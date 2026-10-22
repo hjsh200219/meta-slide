@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "slug": "internal-proposal",
+  "name": "Internal Proposal",
+  "name_ko": "사내 기획안·품의(배경 → 목적 → 내용 → 효과 → 예산·일정)",
+  "family": "보고",
+  "tagline_ko": "한국 기업 기획안 표준 순서 — 배경과 목적, 추진 내용, 기대 효과, 예산·일정, 요청 사항",
+  "best_for_ko": "사내 신규 기획·예산 품의·제도 도입·프로젝트 착수 승인",
+  "avoid_for_ko": "외부 고객 제안·출시 행사·강연",
+  "signals_ko": "기획안·품의·추진 배경·목적·추진 내용·기대 효과·소요 예산·추진 일정",
+  "audience_ko": "결재권자·유관 부서장",
+  "headline_style": "항목 이름 대신 그 항목의 결론 — 「추진 배경」이 아니라 「발주 시간이 매장 인건비의 8%다」",
+  "beats": [
+    {
+      "id": "background",
+      "name": "추진 배경",
+      "goal": "왜 지금 이 기획이 필요한가",
+      "layout": "points",
+      "section": "왜",
+      "required": true
+    },
+    {
+      "id": "objective",
+      "name": "목적·목표",
+      "goal": "무엇을 얼마나 바꿀 것인가 — 목표 수치",
+      "layout": "number",
+      "section": "왜",
+      "required": true
+    },
+    {
+      "id": "content",
+      "name": "추진 내용",
+      "goal": "무엇을 어떻게 — 범위와 방법",
+      "layout": "diagram",
+      "section": "무엇을",
+      "required": true,
+      "count": "1~3장"
+    },
+    {
+      "id": "effect",
+      "name": "기대 효과",
+      "goal": "정량·정성 효과",
+      "layout": "number",
+      "section": "무엇을",
+      "required": true
+    },
+    {
+      "id": "budget",
+      "name": "예산",
+      "goal": "항목별 소요 비용",
+      "layout": "table",
+      "section": "어떻게",
+      "required": false
+    },
+    {
+      "id": "schedule",
+      "name": "일정·조직",
+      "goal": "언제 누가",
+      "layout": "timeline",
+      "section": "어떻게",
+      "required": true
+    },
+    {
+      "id": "request",
+      "name": "요청 사항",
+      "goal": "결재·지원 요청",
+      "layout": "closing",
+      "section": "어떻게",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "항목 순서는 지키되 헤드라인은 결론 문장",
+    "목표와 기대 효과는 같은 지표로",
+    "예산 표는 합계를 크게, 상세는 부록",
+    "첫 장 앞에 한 장 요약을 붙이면 결재가 빠르다"
+  ],
+  "knobs": {
+    "max_headline_chars": 46,
+    "max_bullets": 5,
+    "max_body_chars": 280,
+    "summary": "end",
+    "ig_min": 0.6,
+    "summary_words": "요청|결재|승인|요약"
+  },
+  "layout_prefer": [
+    "points",
+    "number",
+    "diagram",
+    "timeline",
+    "table"
+  ],
+  "template_hints": {
+    "scheme": "light",
+    "density": [
+      "medium",
+      "medium-high"
+    ],
+    "style_ko": "흰 바탕·단정한 문서형·표와 도식"
+  },
+  "source_ko": "국내 기업 기획서·품의서 관행(추진 배경·목적·추진 내용·기대 효과·소요 예산·추진 일정)",
+  "example": "---\ntitle: 직영 약국 자동 발주 도입 기획안\npresenter: 운영기획팀 · 도입 예산 품의\naudience: 본부장\nsynopsis: internal-proposal\n---\n# 왜\n## 발주에 쓰는 시간이 직영 약국 인건비의 8%다 {points}\n## 연말까지 발주 시간을 80% 줄인다 {number}\n# 무엇을\n## 직영 12곳에 자동 발주를 연결하고 승인만 사람이 한다 {diagram}\n## 연 인건비 1억 2천만 원 절감, 결품 절반 {number}\n# 어떻게\n## 11월부터 세 번에 나눠 연다 {timeline}\n## 도입비 3천만 원 결재를 요청한다 {closing}"
+}

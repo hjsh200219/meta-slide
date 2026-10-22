@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "slug": "classical-rhetoric",
+  "name": "Classical Rhetoric",
+  "name_ko": "고전 수사학(서론 → 진술 → 논증 → 반박 → 결론)",
+  "family": "명연설",
+  "inspired_by": "Cicero·Aristotle — 고전 수사학의 배열(dispositio)과 에토스·파토스·로고스",
+  "tagline_ko": "신뢰를 얻는 서론, 사실 진술, 근거 논증, 반대 주장 반박, 감정에 호소하는 결론 — 2천 년 된 설득의 순서",
+  "best_for_ko": "토론·공청회·정책 설득·이사회 반대 의견 설득·법정형 발표",
+  "avoid_for_ko": "단순 공유, 감성 캠페인",
+  "signals_ko": "주장합니다·반대 의견·그러나·따라서·근거",
+  "audience_ko": "의사결정 위원회·반대 의견이 있는 청중",
+  "headline_style": "주장과 근거가 드러나는 문장",
+  "beats": [
+    {
+      "id": "exordium",
+      "name": "서론",
+      "goal": "발표자의 신뢰(에토스)와 청중의 호의",
+      "layout": "statement",
+      "section": "서론",
+      "required": true
+    },
+    {
+      "id": "narratio",
+      "name": "진술",
+      "goal": "다툼 없는 사실 정리",
+      "layout": "points",
+      "section": "진술",
+      "required": true
+    },
+    {
+      "id": "partitio",
+      "name": "논점 제시",
+      "goal": "증명할 논점 2~3개 예고",
+      "layout": "agenda",
+      "section": "진술",
+      "required": false
+    },
+    {
+      "id": "confirmatio",
+      "name": "논증",
+      "goal": "논점마다 근거(로고스)",
+      "layout": "chart",
+      "section": "논증",
+      "required": true,
+      "count": "논점마다 1장"
+    },
+    {
+      "id": "refutatio",
+      "name": "반박",
+      "goal": "가장 강한 반대 주장과 답",
+      "layout": "compare",
+      "section": "논증",
+      "required": true
+    },
+    {
+      "id": "peroratio",
+      "name": "결론",
+      "goal": "요약 + 감정 호소(파토스) + 요청",
+      "layout": "summary",
+      "section": "결론",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "가장 강한 반대 주장을 직접 꺼내 답한다",
+    "논점은 예고한 순서 그대로",
+    "사실 진술은 다툼 없는 것만",
+    "결론은 요약 + 감정 + 요청"
+  ],
+  "knobs": {
+    "max_headline_chars": 42,
+    "max_bullets": 4,
+    "max_body_chars": 220,
+    "summary": "end",
+    "ig_min": 0.6,
+    "summary_words": "따라서|요청|결론"
+  },
+  "layout_prefer": [
+    "points",
+    "chart",
+    "compare",
+    "statement",
+    "summary"
+  ],
+  "template_hints": {
+    "scheme": "light",
+    "density": [
+      "medium"
+    ],
+    "style_ko": "고전적 세리프·단정한 흰 바탕"
+  },
+  "source_ko": "Cicero 『De Inventione』의 배열(서론·진술·논점·논증·반박·결론) · Aristotle 『수사학』 에토스·파토스·로고스",
+  "example": "---\ntitle: 공동 발주를 의무로 하자\npresenter: 약사회 정책위원 · 반대가 있는 안건 설득\naudience: 약사회 이사회\nsynopsis: classical-rhetoric\n---\n# 서론\n## 저도 공동 발주를 반대했던 약사입니다 {statement}\n# 진술\n## 지난겨울 회원 약국 절반이 해열제를 못 구했다 {points}\n# 논증\n## 공동 발주 시범 지역은 결품이 40% 적었다 {chart}\n## 「자율이 낫다」는 반론 — 자율 참여율은 12%였다 {compare}\n# 결론\n## 다음 겨울 회원 약국을 위해 의무화를 의결해 달라 {summary}"
+}

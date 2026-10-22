@@ -1,0 +1,110 @@
+{
+  "version": 1,
+  "slug": "company-profile",
+  "name": "Company Profile",
+  "name_ko": "회사 소개서(미션 → 문제 → 제품 → 고객·성과 → 팀)",
+  "family": "소개",
+  "tagline_ko": "누구이고 왜 존재하는지, 어떤 문제를 무엇으로 풀고, 누가 쓰고 얼마나 성과를 냈는지, 연락처까지",
+  "best_for_ko": "회사 소개·협력사 첫 미팅·채용·언론 자료",
+  "avoid_for_ko": "특정 고객 맞춤 제안(→ B2B 제안서), 투자 유치(→ 투자 피치)",
+  "signals_ko": "회사 소개·설립·미션·주요 고객·연혁·수상·연락처",
+  "audience_ko": "협력사·고객·지원자·언론",
+  "headline_style": "회사 한 줄 정의와 숫자 — 「약국 3천 곳이 쓰는 재고 자동화 회사」",
+  "beats": [
+    {
+      "id": "one-liner",
+      "name": "한 줄 정의",
+      "goal": "무엇을 하는 회사인가",
+      "layout": "statement",
+      "section": "우리",
+      "required": true
+    },
+    {
+      "id": "mission",
+      "name": "미션",
+      "goal": "왜 존재하나",
+      "layout": "statement",
+      "section": "우리",
+      "required": false
+    },
+    {
+      "id": "problem",
+      "name": "푸는 문제",
+      "goal": "고객이 겪는 문제",
+      "layout": "statement",
+      "section": "하는 일",
+      "required": true
+    },
+    {
+      "id": "product",
+      "name": "제품·서비스",
+      "goal": "무엇으로 푸나",
+      "layout": "image",
+      "section": "하는 일",
+      "required": true,
+      "count": "1~3장"
+    },
+    {
+      "id": "customers",
+      "name": "고객·성과",
+      "goal": "누가 쓰고 무엇이 달라졌나",
+      "layout": "number",
+      "section": "성과",
+      "required": true
+    },
+    {
+      "id": "history",
+      "name": "연혁",
+      "goal": "주요 이정표",
+      "layout": "timeline",
+      "section": "성과",
+      "required": false
+    },
+    {
+      "id": "team",
+      "name": "팀",
+      "goal": "사람과 조직",
+      "layout": "team",
+      "section": "성과",
+      "required": false
+    },
+    {
+      "id": "contact",
+      "name": "연락처",
+      "goal": "다음 대화를 위한 연락처",
+      "layout": "closing",
+      "section": "성과",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "첫 장에 한 줄 정의와 대표 숫자",
+    "제품은 화면·사진으로",
+    "고객 로고·숫자는 허락받은 것만",
+    "끝은 연락처"
+  ],
+  "knobs": {
+    "max_headline_chars": 38,
+    "max_bullets": 4,
+    "max_body_chars": 200,
+    "summary": "none",
+    "ig_min": 0.6,
+    "image_ratio_min": 0.1
+  },
+  "layout_prefer": [
+    "statement",
+    "image",
+    "number",
+    "timeline",
+    "team"
+  ],
+  "template_hints": {
+    "scheme": null,
+    "density": [
+      "medium"
+    ],
+    "style_ko": "브랜드 색 한 가지·깔끔한 기업형"
+  },
+  "source_ko": "기업 회사 소개서 관행",
+  "example": "---\ntitle: 오토오더 회사 소개\npresenter: 사업개발팀 · 도매사 첫 미팅\naudience: 도매사 담당자\nsynopsis: company-profile\n---\n# 우리\n## 약국 3천 곳이 쓰는 재고 자동화 회사 {statement}\n# 하는 일\n## 약국은 하루 40분을 발주에 쓴다 {statement}\n## 판매 기록이 주문을 만든다 {image}\n# 성과\n## 3천 곳 · 결품 52% 감소 · 도매 5곳 연동 {number}\n## 함께할 도매사를 찾습니다 {closing}"
+}

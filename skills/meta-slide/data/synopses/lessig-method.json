@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "slug": "lessig-method",
+  "name": "Lessig Method",
+  "name_ko": "레식 메소드(말과 맞물린 고속 슬라이드)",
+  "family": "속도형",
+  "inspired_by": "Lawrence Lessig — 「Free Culture」 강연",
+  "tagline_ko": "말 한 구절마다 장이 바뀐다 — 단어·인용·사진이 말과 정확히 맞물려 리듬과 강조를 만든다",
+  "best_for_ko": "설득형 강연·주장 발표·짧은 기조연설. 발표자가 대본을 외워 리듬 있게 말할 수 있을 때",
+  "avoid_for_ko": "자료로 돌려 읽을 보고서, 즉흥 발표",
+  "signals_ko": "주장·「여러분」·반복되는 구절·인용·대비",
+  "audience_ko": "강연 청중",
+  "headline_style": "말의 한 구절을 그대로 — 한두 단어 또는 짧은 인용",
+  "beats": [
+    {
+      "id": "claim",
+      "name": "주장 선언",
+      "goal": "오늘의 주장 한 구절",
+      "layout": "statement",
+      "section": "주장",
+      "required": true
+    },
+    {
+      "id": "evidence",
+      "name": "증거 연타",
+      "goal": "인용·숫자·사진을 한 장씩 빠르게",
+      "layout": "quote",
+      "section": "증거",
+      "required": true,
+      "count": "10장 이상"
+    },
+    {
+      "id": "refrain",
+      "name": "되풀이 구절",
+      "goal": "같은 구절을 다시 보여 박자를 만든다",
+      "layout": "statement",
+      "section": "증거",
+      "required": false
+    },
+    {
+      "id": "conclusion",
+      "name": "결론 구절",
+      "goal": "주장을 한 번 더 — 행동으로",
+      "layout": "summary",
+      "section": "결론",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "말 한 구절에 장 하나 — 대본과 장을 1:1 로 맞춘다",
+    "인용은 원문 그대로, 출처를 작게",
+    "같은 구절을 반복해 박자를 만든다",
+    "장 수가 100장을 넘어도 된다"
+  ],
+  "knobs": {
+    "max_headline_chars": 16,
+    "max_bullets": 0,
+    "max_body_chars": 60,
+    "summary": "end",
+    "ig_min": 0.95,
+    "summary_words": "결론|다시|행동",
+    "image_ratio_min": 0.15
+  },
+  "layout_prefer": [
+    "statement",
+    "quote",
+    "image",
+    "number"
+  ],
+  "template_hints": {
+    "scheme": null,
+    "density": [
+      "low"
+    ],
+    "style_ko": "단색 바탕·큰 글자·인용과 사진이 번갈아"
+  },
+  "source_ko": "Lawrence Lessig 의 「Free Culture」 강연(2002~)에서 알려진 고속 슬라이드 방식",
+  "example": "---\ntitle: 발주는 사람의 일이 아니다\npresenter: 대표 · 자동화가 약사의 일을 되찾아 준다고 설득\naudience: 약사 컨퍼런스\nsynopsis: lessig-method\n---\n# 주장\n## 발주는 사람의 일이 아니다 {statement}\n# 증거\n## 「어젯밤에도 11시까지」 {quote}\n## 하루 40분 {number}\n## 한 해 240시간 {number}\n## 발주는 사람의 일이 아니다 {statement}\n# 결론\n## 이제 기계에 맡기자 {summary}"
+}

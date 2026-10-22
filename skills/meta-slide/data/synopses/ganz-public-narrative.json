@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "slug": "ganz-public-narrative",
+  "name": "Public Narrative",
+  "name_ko": "간츠 공공 내러티브(나의 이야기 → 우리의 이야기 → 지금의 이야기)",
+  "family": "세미나",
+  "inspired_by": "Marshall Ganz — 하버드 케네디스쿨 「Public Narrative」 강의 · 2008 오바마 캠프 조직 훈련",
+  "tagline_ko": "내가 왜 이 일을 하는지(나), 우리가 무엇을 함께 겪었고 지키는지(우리), 지금 무엇을 해야 하는지(지금)로 사람을 움직인다",
+  "best_for_ko": "조직 결성·노조·커뮤니티 모임·사내 변화 리더 발표·캠페인 발대식",
+  "avoid_for_ko": "제품 기능 소개, 분석 보고",
+  "signals_ko": "저는·우리는·지금·함께·선택·「왜 이 일을 하는가」",
+  "audience_ko": "동료·지지자·커뮤니티",
+  "headline_style": "나·우리·지금 단계의 한 문장 — 「저는 약국집 아들이었습니다」",
+  "beats": [
+    {
+      "id": "self",
+      "name": "나의 이야기",
+      "goal": "내가 이 일을 하게 된 선택의 순간",
+      "layout": "image",
+      "section": "나",
+      "required": true
+    },
+    {
+      "id": "us",
+      "name": "우리의 이야기",
+      "goal": "청중과 함께 겪은 일·공유하는 가치",
+      "layout": "statement",
+      "section": "우리",
+      "required": true
+    },
+    {
+      "id": "challenge",
+      "name": "지금의 도전",
+      "goal": "지금 마주한 위기와 선택",
+      "layout": "statement",
+      "section": "지금",
+      "required": true
+    },
+    {
+      "id": "hope",
+      "name": "희망의 근거",
+      "goal": "이길 수 있다는 근거 하나",
+      "layout": "number",
+      "section": "지금",
+      "required": false
+    },
+    {
+      "id": "action",
+      "name": "지금의 행동",
+      "goal": "오늘 밤 할 수 있는 구체적 행동",
+      "layout": "closing",
+      "section": "지금",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "나의 이야기는 선택의 순간 하나 — 이력 나열 금지",
+    "우리의 이야기는 청중이 겪은 일로",
+    "지금의 이야기는 긴급함 + 희망 + 행동",
+    "행동은 오늘 할 수 있는 한 가지"
+  ],
+  "knobs": {
+    "max_headline_chars": 32,
+    "max_bullets": 3,
+    "max_body_chars": 160,
+    "summary": "end",
+    "ig_min": 0.75,
+    "summary_words": "행동|오늘|함께|지금",
+    "image_ratio_min": 0.15
+  },
+  "layout_prefer": [
+    "statement",
+    "image",
+    "quote",
+    "number"
+  ],
+  "template_hints": {
+    "scheme": null,
+    "density": [
+      "low",
+      "medium"
+    ],
+    "style_ko": "사진·인물 중심·따뜻한 색"
+  },
+  "source_ko": "Marshall Ganz 「Public Narrative: Self, Us, Now」(하버드 케네디스쿨)",
+  "example": "---\ntitle: 우리가 약국을 지키는 이유\npresenter: 약사 출신 팀장 · 약사 자문단을 꾸린다\naudience: 약사 자문단 후보\nsynopsis: ganz-public-narrative\n---\n# 나\n## 저는 약국집 아들이었습니다 — 아버지의 밤을 봤습니다 {image}\n# 우리\n## 여기 있는 모두가 그 밤을 압니다 {statement}\n# 지금\n## 동네 약국이 버티느냐가 올해 결정됩니다 {statement}\n## 이미 300곳이 밤을 되찾았습니다 {number}\n## 오늘 자문단에 이름을 올려 주십시오 {closing}"
+}

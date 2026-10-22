@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "slug": "pecha-kucha",
+  "name": "Pecha Kucha / Ignite",
+  "name_ko": "페차쿠차·이그나이트(20장 자동 넘김)",
+  "family": "속도형",
+  "tagline_ko": "20장을 장마다 20초(이그나이트 15초) 자동으로 넘긴다 — 시간이 고정돼 이야기를 덜어 내게 만든다",
+  "best_for_ko": "행사·밋업·사내 공유회의 짧은 발표, 여러 발표자가 돌아가며 하는 자리",
+  "avoid_for_ko": "질문을 받으며 깊이 논의할 회의, 장 수를 늘려야 하는 상세 자료",
+  "signals_ko": "6분 40초·5분·20장·자동 넘김·공유회",
+  "audience_ko": "행사 청중·사내 구성원",
+  "headline_style": "장마다 사진 하나 + 짧은 한 구절 — 20초에 말할 수 있는 양",
+  "beats": [
+    {
+      "id": "open",
+      "name": "열기",
+      "goal": "누구이고 무엇을 말할지",
+      "layout": "image",
+      "section": "열기",
+      "required": true
+    },
+    {
+      "id": "story",
+      "name": "이야기 장",
+      "goal": "장마다 한 장면 — 20초 분량",
+      "layout": "image",
+      "section": "본론",
+      "required": true,
+      "count": "18장 안팎"
+    },
+    {
+      "id": "close",
+      "name": "닫기",
+      "goal": "가져갈 한 문장",
+      "layout": "summary",
+      "section": "닫기",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "정확히 20장(이그나이트도 20장)",
+    "장마다 사진 하나 + 한 구절",
+    "한 장에 20초(15초) — 그 안에 말할 수 있는 것만",
+    "장과 장 사이에 말이 끊기지 않게 이어지는 이야기로"
+  ],
+  "knobs": {
+    "max_headline_chars": 24,
+    "max_bullets": 1,
+    "max_body_chars": 60,
+    "summary": "end",
+    "ig_min": 0.85,
+    "image_ratio_min": 0.5
+  },
+  "layout_prefer": [
+    "image",
+    "statement",
+    "number",
+    "quote"
+  ],
+  "template_hints": {
+    "scheme": null,
+    "density": [
+      "low"
+    ],
+    "style_ko": "사진이 화면 가득·짧은 글 한 줄"
+  },
+  "source_ko": "Astrid Klein·Mark Dytham 의 PechaKucha(2003, 도쿄, 20×20초) · Ignite(2006, 20×15초)",
+  "example": "---\ntitle: 약국의 하루, 20장\npresenter: 약사 · 자동 발주 전후의 하루를 보여 준다\naudience: 사내 공유회\nsynopsis: pecha-kucha\n---\n# 열기\n## 약국의 하루를 20장으로 {image}\n# 본론\n## 아침 9시, 문을 연다 {image}\n## 밤 10시, 아직 발주 중 {image}\n## 이제 발주는 밤사이 끝난다 {image}\n# 닫기\n## 남은 40분은 손님의 것 {summary}"
+}

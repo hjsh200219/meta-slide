@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "slug": "challenger-sale",
+  "name": "Challenger Insight Sale",
+  "name_ko": "챌린저 세일(통념 뒤집기 → 새로운 방법)",
+  "family": "제안",
+  "tagline_ko": "고객이 미처 몰랐던 통찰로 통념을 뒤집고, 그 비용을 실감하게 한 뒤, 새로운 방법과 우리 해법으로 이끈다",
+  "best_for_ko": "통찰형 영업 발표·컨설팅형 제안·경쟁사와 비슷해 보일 때의 차별화",
+  "avoid_for_ko": "고객이 이미 구매를 정한 실무 협의, 내부 보고",
+  "signals_ko": "사실은·대부분 ~라고 생각하지만·숨은 비용·새로운 방식",
+  "audience_ko": "고객사 의사결정자",
+  "headline_style": "통념과 다른 주장 — 「결품의 원인은 수요가 아니라 발주 주기다」",
+  "beats": [
+    {
+      "id": "warmer",
+      "name": "공감",
+      "goal": "고객이 겪는 과제를 우리가 안다는 것",
+      "layout": "statement",
+      "section": "통념",
+      "required": true
+    },
+    {
+      "id": "reframe",
+      "name": "통념 뒤집기",
+      "goal": "고객이 몰랐던 통찰 한 문장",
+      "layout": "statement",
+      "section": "통념",
+      "required": true
+    },
+    {
+      "id": "rational-drowning",
+      "name": "숫자로 실감",
+      "goal": "그 통찰이 고객에게 치르게 하는 비용",
+      "layout": "chart",
+      "section": "비용",
+      "required": true
+    },
+    {
+      "id": "emotional-impact",
+      "name": "그들의 이야기",
+      "goal": "비슷한 고객이 겪은 일",
+      "layout": "quote",
+      "section": "비용",
+      "required": false
+    },
+    {
+      "id": "new-way",
+      "name": "새로운 방법",
+      "goal": "해법 이전에 일하는 방식부터",
+      "layout": "diagram",
+      "section": "새로운 방법",
+      "required": true
+    },
+    {
+      "id": "solution",
+      "name": "우리 해법",
+      "goal": "새로운 방법을 가장 잘하는 길",
+      "layout": "image",
+      "section": "새로운 방법",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "우리 제품은 마지막 장까지 꺼내지 않는다",
+    "통찰은 고객이 「몰랐다」고 느낄 것이어야 한다",
+    "비용은 고객의 숫자로",
+    "새로운 방법은 제품 없이도 성립하게"
+  ],
+  "knobs": {
+    "max_headline_chars": 38,
+    "max_bullets": 4,
+    "max_body_chars": 200,
+    "summary": "end",
+    "ig_min": 0.6,
+    "summary_words": "새로운|해법|함께"
+  },
+  "layout_prefer": [
+    "statement",
+    "chart",
+    "diagram",
+    "quote",
+    "image"
+  ],
+  "template_hints": {
+    "scheme": null,
+    "density": [
+      "medium"
+    ],
+    "style_ko": "단정한 기업형·대비 강한 한 문장 장"
+  },
+  "source_ko": "Matthew Dixon·Brent Adamson 『The Challenger Sale』(2011) — 통찰 판매 6단계",
+  "example": "---\ntitle: 결품은 수요가 아니라 주기의 문제다\npresenter: 영업팀 · 체인 본부의 통념을 바꾼다\naudience: 체인 본부 임원\nsynopsis: challenger-sale\n---\n# 통념\n## 독감 철 결품을 다들 수요 탓으로 본다 {statement}\n## 사실 결품의 70%는 주 1회 발주 주기에서 생긴다 {statement}\n# 비용\n## 주기 때문에 생긴 결품이 연 4억 원이다 {chart}\n# 새로운 방법\n## 주기가 아니라 재고가 떨어지는 순간에 주문한다 {diagram}\n## 오토오더는 그 순간을 매일 계산한다 {image}"
+}

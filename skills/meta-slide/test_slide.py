@@ -194,6 +194,80 @@ class Assets(unittest.TestCase):
         self.assertEqual(slide.verify_diagram("venn", "<svg></svg>"), [])  # 검증 없는 계열
 
 
+class Synopsis(unittest.TestCase):
+    """시놉시스 전략 — 원고 → (Jev) 전략 → 개요. Jev 호출 없이 데이터·점검·기본값만."""
+
+    def setUp(self):
+        self.syns = slide.load_synopses()
+
+    def test_archive_fields(self):  # 전략 파일마다 필수 칸 · 레이아웃은 닫힌 목록 · 비트 id 겹침 없음
+        self.assertGreaterEqual(len(self.syns), 40)
+        for k, s in self.syns.items():
+            for f in slide.SYN_FIELDS:
+                self.assertIn(f, s, f"{k}.{f}")
+            self.assertEqual(k, s["slug"])
+            ids = [b["id"] for b in s["beats"]]
+            self.assertEqual(len(ids), len(set(ids)), k)
+            self.assertTrue(any(b["required"] for b in s["beats"]), k)
+            for b in s["beats"]:
+                self.assertIn(b["layout"], slide.LAYOUTS, f"{k}.{b['id']}")
+            for x in s["layout_prefer"]:
+                self.assertIn(x, slide.LAYOUTS, k)
+            self.assertIn(slide.syn_knobs(s)["summary"], ("front", "end", "none"), k)
+            self.assertNotIn("p8", slide.synopsis_desc(s))  # Jev 로 가는 설명에 원칙 PDF 쪽 번호가 섞이지 않게
+
+    def test_examples_pass_own_checks(self):  # 전략의 예시 개요는 그 전략 기준 점검을 경고 없이 통과한다
+        for k, s in self.syns.items():
+            meta, sec, sl = slide.parse_outline(s["example"])
+            self.assertEqual(meta.get("synopsis"), k)
+            warns = [i["code"] for i in slide.check_outline(meta, sec, sl, s) if i["level"] != "info"]
+            self.assertEqual(warns, [], k)
+
+    def test_knobs_change_checks(self):  # 같은 개요라도 전략 기준이 바뀌면 경고가 바뀐다
+        meta, sec, sl = slide.parse_outline(OUTLINE)
+        base = [i["code"] for i in slide.check_outline(meta, sec, sl)]
+        apple = [i["code"] for i in slide.check_outline(meta, sec, sl, self.syns["apple-keynote"])]
+        bluf = [i["code"] for i in slide.check_outline(meta, sec, sl, self.syns["bluf-report"])]
+        self.assertEqual(base.count("too-many-points"), 1)
+        self.assertEqual(apple.count("too-many-points"), 2)  # 키노트는 근거 1개 — 근거 둘인 첫 장도 걸린다
+        self.assertIn("few-images", apple)
+        self.assertNotIn("no-front-summary", bluf)  # 3장짜리라 끝 요약도 첫 세 장 안
+        five = "# 가\n## 하나 {points}\n## 둘 {chart}\n## 셋 {chart}\n## 넷 {points}\n## 끝으로 정리 {summary}\n"
+        m5, s5, l5 = slide.parse_outline(five)
+        self.assertIn("no-front-summary", [i["code"] for i in slide.check_outline(m5, s5, l5, self.syns["bluf-report"])])  # BLUF 는 결론이 앞에
+        self.assertNotIn("no-summary", [i["code"] for i in slide.check_outline(m5, s5, l5)])
+
+    def test_pick_order_without_jev(self):
+        r = slide.pick_synopsis("아무 원고", use_jev=False)
+        self.assertEqual((r["synopsis"], r["how"]), (slide.DEFAULT_SYNOPSIS, "default"))
+        r = slide.pick_synopsis("---\nsynopsis: ted-big-idea\n---\n# a\n## b", use_jev=False)
+        self.assertEqual((r["synopsis"], r["how"]), ("ted-big-idea", "outline"))
+        r = slide.pick_synopsis("---\nsynopsis: ted-big-idea\n---\n", synopsis="vc-pitch", use_jev=False)
+        self.assertEqual(r["how"], "user")
+        with self.assertRaises(SystemExit):
+            slide.pick_synopsis("x", synopsis="없는-전략", use_jev=False)
+
+    def test_skeleton_roundtrip(self):  # 빈 개요는 다시 읽으면 전략의 비트 수·레이아웃 그대로
+        s = self.syns["consulting-pyramid"]
+        meta, sec, sl = slide.parse_outline(slide.synopsis_skeleton(s, {"title": "제목"}))
+        self.assertEqual(meta["synopsis"], "consulting-pyramid")
+        self.assertEqual([x["tag"] for x in sl], [b["layout"] for b in s["beats"]])
+        self.assertEqual(sec, list(dict.fromkeys(b["section"] for b in s["beats"])))
+
+    def test_beat_issues(self):
+        s = self.syns["apple-keynote"]
+        judged = [{"n": 1, "beat": "hook", "beat_confidence": 0.9}, {"n": 2, "beat": "three", "beat_confidence": 0.9},
+                  {"n": 3, "beat": "villain", "beat_confidence": 0.9}, {"n": 4, "beat": "reveal", "beat_confidence": 0.2}]
+        codes = {i["code"]: i["msg"] for i in slide.beat_issues(s, judged)}
+        self.assertIn("공개", codes["beat-missing"])  # 확신 낮은 판정은 빼고 본다
+        self.assertIn("beat-order", codes)
+
+    def test_script_excerpt_keeps_tail(self):
+        t = "가" * 9000 + "요청"
+        self.assertTrue(slide.script_excerpt(t).endswith("요청"))
+        self.assertLessEqual(len(slide.script_excerpt(t)), 6020)
+
+
 class Shots(unittest.TestCase):
     def test_fit_and_capture_scripts(self):
         self.assertIn("window.metaSlideFit", slide.META_JS)
@@ -274,6 +348,8 @@ class Gallery(unittest.TestCase):
             self.assertTrue(all(t["thumb"] for t in data["templates"]), [t["slug"] for t in data["templates"] if not t["thumb"]])
             self.assertEqual(len(data["igs"]), sum(1 for v in slide.load_ig().values() if v.get("qa", "ok") == "ok"))
             self.assertIn("data/infographics/meta-slide-ig.js", html)
+            self.assertEqual(len(data["synopses"]), len(slide.load_synopses()))
+            self.assertIn("viewSynopses", html)
             self.assertNotIn("</script><", html.split("const D = ")[1].split(";\nconst TABS")[0])  # 자료 안 </ 는 이스케이프
         finally:
             shutil.rmtree(d)

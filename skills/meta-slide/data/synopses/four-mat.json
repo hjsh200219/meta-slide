@@ -1,0 +1,83 @@
+{
+  "version": 1,
+  "slug": "four-mat",
+  "name": "4MAT",
+  "name_ko": "4MAT(왜 → 무엇 → 어떻게 → 만약에)",
+  "family": "교육",
+  "tagline_ko": "왜 배워야 하는지, 무엇인지, 어떻게 하는지, 만약 이렇게 쓰면 어떨지 — 네 가지 학습 성향을 차례로 채운다",
+  "best_for_ko": "짧은 교육·사내 지식 공유·신기능 안내·세미나",
+  "avoid_for_ko": "설득·판매, 결정 보고",
+  "signals_ko": "왜 알아야 하나·개념·방법·응용·이렇게도 쓸 수 있다",
+  "audience_ko": "실무자·수강생",
+  "headline_style": "네 질문에 대한 답 문장",
+  "beats": [
+    {
+      "id": "why",
+      "name": "왜",
+      "goal": "이걸 알면 무엇이 달라지나",
+      "layout": "statement",
+      "section": "왜",
+      "required": true
+    },
+    {
+      "id": "what",
+      "name": "무엇",
+      "goal": "개념·사실",
+      "layout": "diagram",
+      "section": "무엇",
+      "required": true
+    },
+    {
+      "id": "how",
+      "name": "어떻게",
+      "goal": "단계·실습",
+      "layout": "points",
+      "section": "어떻게",
+      "required": true
+    },
+    {
+      "id": "what-if",
+      "name": "만약에",
+      "goal": "다른 상황에 응용·질문",
+      "layout": "statement",
+      "section": "만약에",
+      "required": true
+    },
+    {
+      "id": "recap",
+      "name": "정리",
+      "goal": "네 가지를 한 장에",
+      "layout": "summary",
+      "section": "만약에",
+      "required": false
+    }
+  ],
+  "rules_ko": [
+    "네 질문을 순서대로 — 간지로 나눈다",
+    "「왜」를 건너뛰지 않는다",
+    "「어떻게」는 따라 할 수 있게",
+    "「만약에」에서 청중 질문을 받는다"
+  ],
+  "knobs": {
+    "max_headline_chars": 40,
+    "max_bullets": 5,
+    "max_body_chars": 240,
+    "summary": "end",
+    "ig_min": 0.55
+  },
+  "layout_prefer": [
+    "statement",
+    "diagram",
+    "points",
+    "summary"
+  ],
+  "template_hints": {
+    "scheme": "light",
+    "density": [
+      "medium"
+    ],
+    "style_ko": "밝고 친근한 교육형"
+  },
+  "source_ko": "Bernice McCarthy 의 4MAT 학습 모형(1980)",
+  "example": "---\ntitle: 안전 재고 바로 쓰기\npresenter: 고객지원팀 · 기능 교육\naudience: 도입 약국\nsynopsis: four-mat\n---\n# 왜\n## 안전 재고만 맞춰도 결품의 절반이 사라진다 {statement}\n# 무엇\n## 안전 재고 = 평소 판매 + 들쑥날쑥한 만큼의 여유 {diagram}\n# 어떻게\n## 품목 화면에서 세 번 눌러 바꾼다 {points}\n# 만약에\n## 독감 철에는 여유를 두 배로 {statement}"
+}

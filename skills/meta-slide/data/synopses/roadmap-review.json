@@ -1,0 +1,100 @@
+{
+  "version": 1,
+  "slug": "roadmap-review",
+  "name": "Roadmap Review",
+  "name_ko": "로드맵 공유(비전 → 테마 → 지금·다음·나중)",
+  "family": "보고",
+  "tagline_ko": "비전과 테마를 먼저 말하고, 「지금·다음·나중」 세 칸으로 무엇을 언제 하는지와 의존·요청을 공유한다",
+  "best_for_ko": "제품 로드맵 공유·연간 계획 발표·파트너 로드맵 설명회",
+  "avoid_for_ko": "단발 이슈 보고, 감성 캠페인",
+  "signals_ko": "로드맵·분기별·테마·우선순위·출시 예정·의존성",
+  "audience_ko": "구성원·영업·파트너·고객",
+  "headline_style": "테마가 주는 결과 — 「약국이 재고를 보지 않아도 되게」",
+  "beats": [
+    {
+      "id": "vision",
+      "name": "비전",
+      "goal": "1년 뒤 고객이 겪을 변화",
+      "layout": "statement",
+      "section": "방향",
+      "required": true
+    },
+    {
+      "id": "themes",
+      "name": "테마",
+      "goal": "그 변화를 만드는 큰 줄기 3개 이내",
+      "layout": "diagram",
+      "section": "방향",
+      "required": true
+    },
+    {
+      "id": "now",
+      "name": "지금",
+      "goal": "이번 분기에 하는 것",
+      "layout": "points",
+      "section": "로드맵",
+      "required": true
+    },
+    {
+      "id": "next",
+      "name": "다음",
+      "goal": "다음 분기에 할 것",
+      "layout": "points",
+      "section": "로드맵",
+      "required": true
+    },
+    {
+      "id": "later",
+      "name": "나중",
+      "goal": "검토 중인 것",
+      "layout": "points",
+      "section": "로드맵",
+      "required": false
+    },
+    {
+      "id": "timeline",
+      "name": "전체 일정",
+      "goal": "한 장 로드맵",
+      "layout": "timeline",
+      "section": "로드맵",
+      "required": false
+    },
+    {
+      "id": "asks",
+      "name": "의존·요청",
+      "goal": "다른 팀에 필요한 것",
+      "layout": "closing",
+      "section": "요청",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "날짜보다 순서와 테마 — 먼 미래일수록 넓게",
+    "항목마다 고객이 얻는 결과를 붙인다",
+    "의존 관계는 숨기지 않는다",
+    "한 장 로드맵을 꼭 넣는다"
+  ],
+  "knobs": {
+    "max_headline_chars": 40,
+    "max_bullets": 5,
+    "max_body_chars": 240,
+    "summary": "end",
+    "ig_min": 0.55,
+    "summary_words": "요청|의존|함께"
+  },
+  "layout_prefer": [
+    "timeline",
+    "diagram",
+    "points",
+    "statement"
+  ],
+  "template_hints": {
+    "scheme": null,
+    "density": [
+      "medium"
+    ],
+    "style_ko": "단정한 바탕·로드맵 격자·테마 색 구분"
+  },
+  "source_ko": "제품 관리 관행 — Now·Next·Later 로드맵(Janna Bastow, ProdPad)",
+  "example": "---\ntitle: 2027 오토오더 로드맵\npresenter: 제품팀 · 내년 방향 공유\naudience: 전사\nsynopsis: roadmap-review\n---\n# 방향\n## 약국이 재고를 보지 않아도 되는 한 해 {statement}\n## 예측 · 연동 · 자동 승인 세 줄기 {diagram}\n# 로드맵\n## 지금: 도매 5곳 연동을 끝낸다 {points}\n## 다음: 독감 철 예측을 넣는다 {points}\n# 요청\n## 영업팀은 도매 계약 일정을 1월까지 알려 달라 {closing}"
+}

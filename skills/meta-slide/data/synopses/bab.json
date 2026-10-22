@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "slug": "bab",
+  "name": "Before–After–Bridge",
+  "name_ko": "BAB(전 → 후 → 다리)",
+  "family": "카피 공식",
+  "tagline_ko": "지금(전)과 바뀐 뒤(후)를 나란히 보여 주고, 그 사이를 잇는 다리로 우리 해법을 놓는다",
+  "best_for_ko": "도입 효과 발표·개선 제안·전후 비교가 분명한 제품 소개",
+  "avoid_for_ko": "변화가 작거나 전후 비교가 어려운 주제",
+  "signals_ko": "전후·도입 전/후·바뀌었다·이렇게 달라집니다",
+  "audience_ko": "고객·의사결정자",
+  "headline_style": "전과 후를 같은 형식의 문장으로 맞세운다",
+  "beats": [
+    {
+      "id": "before",
+      "name": "전",
+      "goal": "지금의 모습·비용",
+      "layout": "statement",
+      "section": "전과 후",
+      "required": true
+    },
+    {
+      "id": "after",
+      "name": "후",
+      "goal": "바뀐 뒤의 모습",
+      "layout": "statement",
+      "section": "전과 후",
+      "required": true
+    },
+    {
+      "id": "compare",
+      "name": "나란히",
+      "goal": "전후를 한 장에 — 숫자로",
+      "layout": "compare",
+      "section": "전과 후",
+      "required": false
+    },
+    {
+      "id": "bridge",
+      "name": "다리",
+      "goal": "전에서 후로 건너가는 방법 = 우리 해법",
+      "layout": "diagram",
+      "section": "다리",
+      "required": true
+    },
+    {
+      "id": "cta",
+      "name": "건너가기",
+      "goal": "첫걸음",
+      "layout": "closing",
+      "section": "다리",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "전과 후는 같은 지표로 비교",
+    "후는 구체적 장면으로",
+    "다리는 세 단계 이내",
+    "끝은 첫걸음 하나"
+  ],
+  "knobs": {
+    "max_headline_chars": 32,
+    "max_bullets": 3,
+    "max_body_chars": 160,
+    "summary": "end",
+    "ig_min": 0.65,
+    "summary_words": "시작|첫걸음|건너"
+  },
+  "layout_prefer": [
+    "compare",
+    "statement",
+    "diagram",
+    "number",
+    "image"
+  ],
+  "template_hints": {
+    "scheme": null,
+    "density": [
+      "low",
+      "medium"
+    ],
+    "style_ko": "두 색 대비·나란한 비교 격자"
+  },
+  "source_ko": "카피라이팅 공식 BAB(Before·After·Bridge)",
+  "example": "---\ntitle: 발주 40분 → 5분\npresenter: 영업팀 · 도입 효과를 보여 준다\naudience: 체인 본부\nsynopsis: bab\n---\n# 전과 후\n## 지금: 지점마다 하루 40분, 감으로 주문 {statement}\n## 도입 후: 하루 5분, 판매 기록으로 주문 {statement}\n## 결품률 8.1% → 3.9% {compare}\n# 다리\n## 연결 → 학습 2주 → 자동 승인 {diagram}\n## 다음 주 두 지점부터 {closing}"
+}

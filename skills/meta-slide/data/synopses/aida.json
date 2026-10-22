@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "slug": "aida",
+  "name": "AIDA",
+  "name_ko": "AIDA(주목 → 흥미 → 욕구 → 행동)",
+  "family": "카피 공식",
+  "tagline_ko": "눈길을 끌고, 흥미를 붙이고, 갖고 싶게 만든 뒤, 행동하게 한다 — 판매·홍보 발표의 고전 공식",
+  "best_for_ko": "제품 홍보·판매 발표·행사 홍보·모금 발표",
+  "avoid_for_ko": "의사결정 보고·교육·학술",
+  "signals_ko": "놀라운·새로운·혜택·한정·지금 신청",
+  "audience_ko": "잠재 고객·일반 청중",
+  "headline_style": "단계마다 다른 톤 — 주목은 놀라움, 욕구는 혜택, 행동은 명령형",
+  "beats": [
+    {
+      "id": "attention",
+      "name": "주목",
+      "goal": "놀라운 숫자·사진·질문 하나",
+      "layout": "image",
+      "section": "주목",
+      "required": true
+    },
+    {
+      "id": "interest",
+      "name": "흥미",
+      "goal": "어떻게 그게 가능한지 — 짧은 설명",
+      "layout": "diagram",
+      "section": "흥미",
+      "required": true
+    },
+    {
+      "id": "desire",
+      "name": "욕구",
+      "goal": "청중이 얻는 혜택과 장면",
+      "layout": "image",
+      "section": "욕구",
+      "required": true,
+      "count": "1~3장"
+    },
+    {
+      "id": "action",
+      "name": "행동",
+      "goal": "지금 할 일·조건·기한",
+      "layout": "closing",
+      "section": "행동",
+      "required": true
+    }
+  ],
+  "rules_ko": [
+    "첫 장에서 눈길을 잡지 못하면 나머지는 안 읽힌다",
+    "흥미 단계는 짧게 — 기능 설명이 길면 욕구가 식는다",
+    "욕구는 기능이 아니라 혜택",
+    "행동은 하나, 기한과 함께"
+  ],
+  "knobs": {
+    "max_headline_chars": 30,
+    "max_bullets": 3,
+    "max_body_chars": 140,
+    "summary": "end",
+    "ig_min": 0.7,
+    "summary_words": "지금|신청|시작|기한",
+    "image_ratio_min": 0.2
+  },
+  "layout_prefer": [
+    "image",
+    "statement",
+    "number",
+    "diagram"
+  ],
+  "template_hints": {
+    "scheme": null,
+    "density": [
+      "low",
+      "medium"
+    ],
+    "style_ko": "포스터형·큰 사진·강한 포인트 색"
+  },
+  "source_ko": "E. St. Elmo Lewis 의 AIDA 모형(1898)",
+  "example": "---\ntitle: 발주 0분\npresenter: 마케팅팀 · 박람회 부스 발표\naudience: 박람회 방문 약사\nsynopsis: aida\n---\n# 주목\n## 발주에 쓰는 시간, 0분 {image}\n# 흥미\n## 판매 기록이 다음 주문을 만든다 {diagram}\n# 욕구\n## 저녁 8시 퇴근 {image}\n# 행동\n## 박람회 기간 신청하면 석 달 무료 {closing}"
+}
