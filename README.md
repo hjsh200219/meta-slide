@@ -67,7 +67,7 @@ python3 skills/meta-slide/setup.py --force    # 새 키로 바꾸기 · --forget
 |---|---|---|
 | ① 덱 템플릿 | 230종 — 인터넷 MIT | Jev choice — 많으면 묶음 예선 → 결승 |
 | ② 인포그래픽으로 보여 줄지 | 장마다 | Jev noul 0.6 이상 · 표지·간지·한 문장·요약은 제외 |
-| ③ 인포그래픽 | AntV Infographic 265종(276종 중 한글 렌더 검사 통과분) | Jev choice — 계열 → 모양 |
+| ③ 인포그래픽 | AntV Infographic 265종(276종 중 한글 렌더 검사 통과분) + 직접 그린 도식 10계열(AntV 에 없는 벤·폭포·꺾은선·기울기·레이더·트리맵·간트·레이어·피시본·히트맵) | Jev choice — 계열 → 모양. 직접 그린 도식은 Claude 가 `diagram` 규약대로 SVG 로 그린다 |
 | ④ 색 체계 | 161종 + 템플릿 원래 색 | Jev choice — 템플릿과 같은 바탕 밝기, 대비 기준 통과분만 |
 | ⑤ 한글 서체 | 17종(제목·본문) | Jev choice — 템플릿 영문 서체 성격에 맞춰 |
 
@@ -95,7 +95,8 @@ python3 skills/meta-slide/setup.py --force    # 새 키로 바꾸기 · --forget
 | `new 덱/ --template <id> --color <id\|template> --title-font <id> --body-font <id>` | 덱 만들기(한글 서체·색·인포그래픽 런타임 넣기) |
 | `outline 개요.md --template <id> --jev` | ② ③ + 장마다 한 메시지·헤드라인·레이아웃 |
 | `ig <인포그래픽>` | 장에 붙일 인포그래픽 조각 |
-| `shots 덱/deck.html --pdf` | 장마다 캡처 · 넘침·잘림·대체 서체 검사 · `sheet.png` · `deck.pdf` |
+| `diagram [계열]` | AntV 에 없는 계열의 장표 규약(20px 이상·덱 색·서체)·배치 문법·수치 선언 규칙 |
+| `shots 덱/deck.html --pdf` | 장마다 캡처 · 넘침·잘림·대체 서체·인포그래픽 글자 크기·겹침·수치 도식 합계/척도/면적 검사 · `sheet.png` · `deck.pdf` |
 | `record 덱/ --series <이름>` · `history` | 이력(같은 시리즈는 같은 템플릿·색·서체) |
 | `templates` · `layouts <id>` · `colors` · `fonts` | 목록 |
 
@@ -119,6 +120,7 @@ python3 skills/meta-slide/setup.py --force    # 새 키로 바꾸기 · --forget
 | 덱 템플릿 230종 | codesstar/next-slide 57 · lewislulu/html-ppt-skill 50 · zarazhangrui/beautiful-html-templates 34 · Akxan/ppt-agent-skill 26 · alchaincyf/huashu-design 23 · zarazhangrui/frontend-slides 12 · archlizheng/frontend-slides-editable 11 · vigorX777/ppt-svg-generator 5 · hugohe3/ppt-master 4 · open-slide/open-slide 3 · edu-ai-builders/visual-cognition-slides 2 · FeeiCN/slide-writer 1 · nicobailon/visual-explainer 1 · WayneZhon/KingDee-PPT-Skill 1(벤토 구성만, 브랜드 표기 없음) | MIT |
 | 인포그래픽 | antvis/Infographic 0.2.20 | MIT |
 | 아이콘 | tabler/tabler-icons 3.49.0 | MIT |
+| 도식 배치 문법·수치 검증 10계열 | cathrynlavery/diagram-design `7a12007`(스킬 2.6) — `data/diagrams/SOURCE.md` | MIT |
 | 색 체계 | nextlevelbuilder/ui-ux-pro-max-skill colors.csv | MIT |
 | 한글 서체 | Google Fonts · Pretendard | SIL OFL |
 | 덱 런타임 | beautiful-html-templates `deck-stage.js` | MIT |
@@ -131,9 +133,10 @@ python3 skills/meta-slide/setup.py --force    # 새 키로 바꾸기 · --forget
 ## 시험·자료 다시 만들기
 
 ```bash
-python3 skills/meta-slide/test_slide.py      # 결정론 부분 23건(Jev·네트워크 없음)
+python3 skills/meta-slide/test_slide.py      # 결정론 부분 28건(Jev·네트워크 없음)
 python3 skills/meta-slide/qa_templates.py    # 템플릿 전부를 한글 견본 글로 캡처·검사 → data/qa_templates.json
 python3 skills/meta-slide/qa_infographics.py # 인포그래픽 전부 한글 렌더 검사
+python3 skills/meta-slide/build_diagrams.py <diagram-design 저장소>  # 직접 그린 도식 참조(data/diagrams/)
 python3 skills/meta-slide/build_thumbs.py    # 갤러리 표지 썸네일(data/thumbs/)
 ```
 

@@ -11,6 +11,8 @@
   python3 slide.py outline <개요.md> [--template id] [--jev] [--json]   # 원칙 점검 + 헤드라인만 읽기 + 장별 레이아웃 대응
   python3 slide.py shots <덱.html> [--out 폴더] [--pdf] [--json]        # 장마다 캡처 + 넘침·대체 서체·자간 검사 + 한 장 모음
   python3 slide.py record <덱폴더> [--series 이름] [--title 제목]        # 이력(비슷한 자료는 같은 템플릿)
+  python3 slide.py ig [계열|인포그래픽]                     # AntV 인포그래픽 목록·문법 예시
+  python3 slide.py diagram [계열]                          # AntV 에 없는 계열(벤·폭포·기울기·레이더·트리맵 …) — 직접 그릴 규약·배치 문법
   python3 slide.py history | fonts
 
 원칙 정본은 data/principles.md. Jev 로는 브리프·개요 글만 나간다(api.typesafe.ai). --no-jev 는 키가 없거나 사용자가 Jev 없이 하라고 할 때만.
@@ -399,6 +401,45 @@ def ig_families(cat, usable_only=True, min_aspect=None):
     return fam
 
 
+DIAGRAM_DIR = os.path.join(DATA, "diagrams")
+DIAGRAM_PREFIX = "draw:"  # Jev 계열 후보에서 AntV 계열과 구분 — 런타임이 아니라 Claude 가 SVG 로 직접 그린다
+
+# 직접 그린 도식의 장표 규약 — data/diagrams/examples 원본은 문서용(8~14px·hex 색·Geist 서체)이라 그대로 옮기면 shots 검사에 걸린다
+DIAGRAM_RULES = """[장표 규약 — 원본 문서·예시보다 우선]
+- 그릇: <div class="ms-ig" data-ms-diagram="<계열>"> 안에 인라인 <svg>. viewBox 를 그릇 크기(px)와 같게(예 0 0 1680 620) 해서 SVG 숫자 = 화면 px 로 그린다.
+- 글자: 모든 정보성 글자 20px 이상, 주 라벨 28~32px, 수치 강조는 더 크게. 넘치면 글자를 줄이지 말고 항목을 줄이거나 장을 나눈다.
+- 서체: <text> 에 font-family 를 쓰지 않는다(덱 서체를 물려받는다). 원본 예시의 'Geist'·'Instrument Serif'·Mono 대문자 꼬리표는 옮기지 않는다.
+- 색: 글자·선·면은 currentColor(장 글자색 — 밝은·어두운 덱 모두 맞는다), 강조는 var(--ms-ig-1)(덱 주색) 한두 곳만. 흐린 면은 fill-opacity·stroke-opacity 로. hex 색을 쓰지 않는다(--ms-ig-2.. 는 덱마다 있거나 글자색과 같다).
+- 한글 두 줄은 의미 단위에서 <tspan x=".." dy="1.2em"> 로 직접 끊는다. <title>·<desc> 는 넣어도 된다(검사에서 뺀다).
+- 수치 도식(폭포·기울기·트리맵)은 원본 문서의 data-* 선언 규칙을 지킨다 — shots 가 verify/ 스크립트로 합계·척도·면적을 대조한다.
+- 원본 예시(examples/)는 영문·hex 색 참고용이다. 붙여 넣지 말고 배치 문법만 따라 새로 그린다."""
+
+
+def load_diagrams():
+    return json.loads(_read(os.path.join(DIAGRAM_DIR, "catalog.json")))
+
+
+def diagram_doc(key, cat=None):
+    """그 계열의 유형 문서에서 배치 문법 부분만(예시 목록·다른 변형 절은 뺀다)."""
+    d = (cat or load_diagrams())[key]
+    text = _read(os.path.join(DIAGRAM_DIR, "types", d["doc"]))
+    if d.get("start"):
+        text = text[text.index(d["start"]):]
+    for stop in [d.get("stop"), "## Examples"]:
+        if stop and stop in text[1:]:
+            text = text[:text.index(stop, 1)]
+    return text.strip()
+
+
+def diagram_contract(key, cat=None):
+    """수치 검증 스크립트 머리말(무엇을 data-* 로 선언해야 하는지). 검증이 없는 계열은 빈 문자열."""
+    d = (cat or load_diagrams())[key]
+    if not d.get("verify"):
+        return ""
+    m = re.search(r'"""(.*?)"""', _read(os.path.join(DIAGRAM_DIR, "verify", d["verify"])), re.S)
+    return m[1].strip() if m else ""
+
+
 def ig_example(name, cat=None):
     cat = cat or load_ig()
     ex = json.loads(_read(os.path.join(IG_DIR, "examples.json")))
@@ -633,6 +674,7 @@ META_CSS = """/* meta-slide — 한글 서체·줄바꿈·자간 (principles.md:
 .ms-ig { box-sizing: border-box; }
 /* deck-stage 는 :host 에 시스템 서체를 걸어 장들이 body 서체를 못 물려받는다 — 바깥에서 덮는다 */
 deck-stage { font-family: %(deck)s; }
+.ms-ig[data-ms-diagram] svg { font-family: %(deck)s; }  /* 직접 그린 도식 — 템플릿이 body 에 서체를 안 두면 SVG 글자가 Times(한글 대체 서체)로 그려진다 */
 body, body * { word-break: keep-all; overflow-wrap: break-word; line-break: strict; }
 .ms-ig foreignObject * { word-break: keep-all !important; }  /* AntV 가 글 칸에 break-all 을 박아 단어 중간에서 끊는다 */
 button, input, select, textarea { font-family: inherit; }  /* 양식 요소는 서체를 물려받지 않는다(브라우저 기본 서체 → 한글이 시스템 서체로) */
@@ -934,6 +976,8 @@ def jev_slide_checks(slides, meta, layouts_avail=None, template=None):
     cat = load_ig()
     fams = ig_families(cat, min_aspect=IG_MIN_ASPECT)  # 16:9 장 — 세로로 긴 모양은 작게 그려져 못 읽는다(10-22 AX 덱 세로 타임라인)
     fam_opts = {k: f"{v['desc']} ({len(v['names'])}종)" for k, v in fams.items()}
+    dgs = load_diagrams()  # AntV 에 없는 계열 — 고르면 Claude 가 data/diagrams 문법으로 직접 그린다
+    fam_opts.update({DIAGRAM_PREFIX + k: f"{v['desc']} (직접 그림)" for k, v in dgs.items()})
     style = f"{template['name']} — {template.get('tagline', '')}" if template else ""
     opts = {k: v for k, v in LAYOUTS.items() if (not layouts_avail or k in layouts_avail)}
     if len(opts) < 2:
@@ -960,7 +1004,9 @@ def jev_slide_checks(slides, meta, layouts_avail=None, template=None):
                 ig_p = out["infographic"] = None  # 글이 주인공인 장 — 원칙: 한 줄 메시지·요약은 글로
             if s["tag"] == "image":
                 ig_p = out["infographic"] = None  # 화면·사진이 주인공인 장 — 인포그래픽으로 바꾸면 증거가 사라진다
-            if ig_p is not None and ig_p >= IG_MIN and fam in fams:
+            if ig_p is not None and ig_p >= IG_MIN and fam and fam.startswith(DIAGRAM_PREFIX) and fam[len(DIAGRAM_PREFIX):] in dgs:
+                out["diagram"] = fam[len(DIAGRAM_PREFIX):]
+            elif ig_p is not None and ig_p >= IG_MIN and fam in fams:
                 names = fams[fam]["names"]
                 if len(names) == 1:
                     out["ig"] = names[0]
@@ -1049,6 +1095,12 @@ def cmd_outline(argv):
         for j in igs:
             print(f"  {j['n']:>2}. {j['ig']}  (인포그래픽 적합 {j['infographic']:.2f} · 계열 {j['ig_family']} {j['ig_family_confidence']})"
                   f" — 예시: python3 slide.py ig {j['ig']}")
+        drs = [j for j in judged if j.get("diagram") and j.get("infographic") is not None]
+        if drs:
+            print(f"\n[직접 그린 도식 — {len(drs)}장] AntV 에 없는 계열 — 규약·배치 문법대로 인라인 SVG")
+            for j in drs:
+                print(f"  {j['n']:>2}. {j['diagram']}  (인포그래픽 적합 {j['infographic']:.2f} · 계열 확신 {j['ig_family_confidence']})"
+                      f" — python3 slide.py diagram {j['diagram']}")
     print("\n[점검]" + (" 문제 없음" if not issues else ""))
     for i in issues:
         where = f"{i['slide']}장 " if i.get("slide") else ""
@@ -1123,8 +1175,9 @@ CHECK_JS = r"""() => {
     const svg = ig.querySelector('svg'); if (!svg || !svg.viewBox || !svg.viewBox.baseVal.width) continue;
     const box = svg.getBoundingClientRect(); if (box.right <= 1 || box.bottom <= 1 || box.left >= W - 1 || box.top >= H - 1 || box.width < 1) continue;  // 지금 장에 보이는 것만
     const vb = svg.viewBox.baseVal, sc = Math.min(box.width / vb.width, box.height / vb.height);
-    const name = ((ig.querySelector('script') || {}).textContent || '').trim().split('\n')[0].replace('infographic ', '');
-    const rs = [...svg.querySelectorAll('*')].filter(e => e.children.length === 0 && e.textContent.trim()).map(e => {
+    const name = ig.dataset.msDiagram || ((ig.querySelector('script') || {}).textContent || '').trim().split('\n')[0].replace('infographic ', '');
+    // <title>·<desc>·<defs> 안 글은 그려지지 않는다 — 직접 그린 도식의 접근성 글이 「작은 글자」로 잡히지 않게
+    const rs = [...svg.querySelectorAll('*')].filter(e => e.children.length === 0 && e.textContent.trim() && !e.closest('title, desc, defs, metadata')).map(e => {
       const rg = document.createRange(); rg.selectNodeContents(e); const b = rg.getBoundingClientRect(), bb = e.getBoundingClientRect();
       return {px: parseFloat(getComputedStyle(e).fontSize) * sc, b, spill: bb.height > 0 && b.height > bb.height + 3}; });
     if (!rs.length) continue;
@@ -1139,6 +1192,33 @@ CHECK_JS = r"""() => {
   }
   return {issues: out, ko};
 }""".replace("IG_MIN_PX", "20")  # 1920 캔버스 기준 — 발표 화면에서 읽히는 하한
+
+
+# 지금 장에 보이는 직접 그린 도식의 SVG 원문 — 수치 검증(verify/)에 넘긴다
+DIAGRAM_SVG_JS = """() => [...document.querySelectorAll('.ms-ig[data-ms-diagram]')].map(ig => {
+  const svg = ig.querySelector('svg'); if (!svg) return null;
+  const b = svg.getBoundingClientRect(); if (b.width < 1 || b.right <= 1 || b.bottom <= 1 || b.left >= innerWidth - 1 || b.top >= innerHeight - 1) return null;
+  return {name: ig.dataset.msDiagram, svg: svg.outerHTML};
+}).filter(Boolean)"""
+
+
+def verify_diagram(name, svg, cat=None):
+    """직접 그린 수치 도식(폭포·기울기·트리맵)을 원본 검증 스크립트로 대조한다. 문제 문장 목록(없으면 빈 목록)."""
+    import subprocess
+    import tempfile
+    d = (cat or load_diagrams()).get(name)
+    if not d or not d.get("verify"):
+        return []
+    with tempfile.TemporaryDirectory() as td:
+        f = os.path.join(td, f"{name}.html")
+        _write(f, "<!DOCTYPE html><html><body>" + svg + "</body></html>")
+        r = subprocess.run([sys.executable, "-I", os.path.join(DIAGRAM_DIR, "verify", d["verify"]), f],
+                           capture_output=True, text=True, encoding="utf-8", timeout=60)
+    if r.returncode == 0:
+        return []
+    lines = [ln.replace(f, "").strip(" :-") for ln in (r.stdout + r.stderr).splitlines()]
+    lines = [ln for ln in lines if ln and not ln.startswith("OK") and ln != "FAIL"]
+    return lines or [f"검증 실패(종료 코드 {r.returncode})"]
 
 
 def contact_sheet(paths, out, cols=4, width=480):
@@ -1212,6 +1292,9 @@ def shots(deck, out_dir=None, pdf=False, wait_ms=700, ko_sample=False):
             prev = png
             report["shots"].append(path)
             chk = pg.evaluate(CHECK_JS)
+            for dg in pg.evaluate(DIAGRAM_SVG_JS):
+                for msg in verify_diagram(dg["name"], dg["svg"])[:4]:
+                    chk["issues"].append({"kind": "diagram-math", "text": f"{dg['name']} {msg[:160]}"})
             used = {}
             if chk["ko"]:
                 doc = cdp.send("DOM.getDocument", {"depth": -1})
@@ -1337,6 +1420,32 @@ def cmd_ig(argv):
     raise SystemExit(f"모르는 계열·템플릿: {a}")
 
 
+def cmd_diagram(argv):
+    """직접 그린 도식: 인자 없으면 계열 목록, 계열이면 장표 규약 + 배치 문법 + 수치 선언 규칙."""
+    args = positional(argv)
+    cat = load_diagrams()
+    if not args:
+        for k, v in cat.items():
+            print(f"{k:12s} {v['desc']} · {v['limit']}" + (" · 수치 검증" if v.get("verify") else ""))
+        print(f"\n{len(cat)}계열 — AntV 에 없는 것만 · 배치 문법 diagram-design (MIT, data/diagrams/SOURCE.md) · python3 slide.py diagram <계열>")
+        return
+    k = args[0]
+    if k not in cat:
+        raise SystemExit(f"모르는 계열: {k} — python3 slide.py diagram 으로 목록")
+    d = cat[k]
+    print(f"# {k} — {d['desc']} · 장 하나에 {d['limit']}(넘으면 장을 나눈다)")
+    print(DIAGRAM_RULES)
+    print(f'\n[그릇] <div class="ms-ig" data-ms-diagram="{k}" style="width:100%; height:620px; margin-top:28px">'
+          f'<svg viewBox="0 0 1680 620" width="100%" height="100%" role="img">…</svg></div>')
+    print(f"\n[배치 문법 — data/diagrams/types/{d['doc']}] (영문 원문 · px 값은 문서 크기라 위 규약의 글자 크기로 키운다)\n")
+    print(diagram_doc(k, cat))
+    c = diagram_contract(k, cat)
+    if c:
+        print(f"\n[수치 선언 — shots 가 verify/{d['verify']} 로 대조]\n")
+        print(c)
+    print(f"\n[원본 예시] data/diagrams/examples/{d['example']} (참고용 — 붙여 넣지 않는다)")
+
+
 def cmd_fonts(argv):
     for k, f in load_fonts().items():
         print(f"{k:22s} {f['role']:5s} {f['kind']:7s} {f['name']} — {f['desc'][:60]}")
@@ -1363,7 +1472,7 @@ def cmd_history(argv):
 def main(argv):
     utf8_console()
     cmds = {"templates": cmd_templates, "layouts": cmd_layouts, "pick": cmd_pick, "new": cmd_new, "outline": cmd_outline,
-            "shots": cmd_shots, "fonts": cmd_fonts, "colors": cmd_colors, "ig": cmd_ig, "record": cmd_record, "history": cmd_history}
+            "shots": cmd_shots, "fonts": cmd_fonts, "colors": cmd_colors, "ig": cmd_ig, "diagram": cmd_diagram, "record": cmd_record, "history": cmd_history}
     if not argv or argv[0].startswith("--") and argv[0] not in ("--help",):  # 인자 없이(옵션만) — 갤러리 띄우기
         import serve
         return serve.main(argv)

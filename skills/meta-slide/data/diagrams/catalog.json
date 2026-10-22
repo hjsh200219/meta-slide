@@ -1,0 +1,112 @@
+{
+ "venn": {
+  "family": "venn",
+  "desc": "벤 다이어그램 — 2~3개 집합의 겹침·공통 영역(「A 와 B 가 만나는 곳」)",
+  "doc": "type-venn.md",
+  "start": null,
+  "stop": null,
+  "example": "example-venn.html",
+  "verify": null,
+  "limit": "집합 3개까지",
+  "aspect": 2.08
+ },
+ "waterfall": {
+  "family": "waterfall",
+  "desc": "폭포 차트 — 시작값에서 항목별 증감을 거쳐 끝값으로(예산·매출·인원 증감 다리)",
+  "doc": "type-waterfall.md",
+  "start": null,
+  "stop": null,
+  "example": "example-waterfall.html",
+  "verify": "verify-waterfall.py",
+  "limit": "막대 8개까지(소계 1개)",
+  "aspect": 2.0
+ },
+ "line": {
+  "family": "line",
+  "desc": "꺾은선 그래프 — 시간에 따른 연속 추이",
+  "doc": "type-line.md",
+  "start": null,
+  "stop": "## Variants",
+  "example": "example-line.html",
+  "verify": null,
+  "limit": "계열 3개까지",
+  "aspect": 2.0
+ },
+ "slopegraph": {
+  "family": "slopegraph",
+  "desc": "기울기 그래프 — 두 시점 사이 항목별 변화(전후 비교)",
+  "doc": "type-line.md",
+  "start": "### Slopegraph",
+  "stop": "### Ridgeline",
+  "example": "example-slopegraph.html",
+  "verify": "verify-slopegraph.py",
+  "limit": "항목 4~6개(3개 이하는 문장·막대가 낫다)",
+  "aspect": 2.0
+ },
+ "radar": {
+  "family": "radar",
+  "desc": "레이더 차트 — 여러 대상을 3~5개 기준 점수로 비교",
+  "doc": "type-radar.md",
+  "start": null,
+  "stop": null,
+  "example": "example-radar.html",
+  "verify": null,
+  "limit": "축 5개 · 대상 3개까지",
+  "aspect": 2.0
+ },
+ "treemap": {
+  "family": "treemap",
+  "desc": "트리맵 — 전체 중 비중(면적 크기가 이야기)",
+  "doc": "type-treemap.md",
+  "start": null,
+  "stop": "## Variants",
+  "example": "example-treemap.html",
+  "verify": "verify-treemap.py",
+  "limit": "칸 8개까지",
+  "aspect": 2.0
+ },
+ "gantt": {
+  "family": "gantt",
+  "desc": "간트 차트 — 작업·단계의 기간 일정",
+  "doc": "type-gantt.md",
+  "start": null,
+  "stop": null,
+  "example": "example-gantt.html",
+  "verify": null,
+  "limit": "행 6개까지",
+  "aspect": 2.0
+ },
+ "layers": {
+  "family": "layers",
+  "desc": "레이어 스택 — 아래에서 위로 쌓인 계층(기술 스택·통제 층·추상 수준)",
+  "doc": "type-layers.md",
+  "start": null,
+  "stop": null,
+  "example": "example-layers.html",
+  "verify": null,
+  "limit": "층 5개까지",
+  "aspect": 2.0
+ },
+ "fishbone": {
+  "family": "fishbone",
+  "desc": "피시본 — 한 결과의 원인을 범주별로(근본 원인 분석)",
+  "doc": "type-fishbone.md",
+  "start": null,
+  "stop": null,
+  "example": "example-fishbone.html",
+  "verify": null,
+  "limit": "범주 4개 · 범주마다 원인 2개까지",
+  "aspect": 2.47
+ },
+ "heatmap": {
+  "family": "heatmap",
+  "desc": "히트맵 — 행×열 교차 값의 세기(색 농도가 값)",
+  "doc": "type-heatmap.md",
+  "start": null,
+  "stop": null,
+  "example": "example-heatmap.html",
+  "verify": null,
+  "limit": "6행 × 6열까지",
+  "aspect": 2.0
+ }
+}

@@ -153,12 +153,50 @@ class Assets(unittest.TestCase):
         self.assertIn("infographic compare-swot", slide.ig_example("compare-swot", cat))
 
 
+    def test_diagram_catalog(self):  # 직접 그린 도식 — AntV 에 없는 계열만 · 문서·예시·검증 파일이 다 있다
+        cat = slide.load_diagrams()
+        self.assertGreaterEqual(len(cat), 10)
+        antv = set(slide.ig_families(slide.load_ig(), usable_only=False))
+        for k, d in cat.items():
+            self.assertNotIn(k, antv)
+            self.assertTrue(os.path.exists(os.path.join(slide.DIAGRAM_DIR, "types", d["doc"])), k)
+            self.assertTrue(os.path.exists(os.path.join(slide.DIAGRAM_DIR, "examples", d["example"])), k)
+            if d.get("verify"):
+                self.assertTrue(os.path.exists(os.path.join(slide.DIAGRAM_DIR, "verify", d["verify"])), k)
+            self.assertGreaterEqual(d["aspect"], slide.IG_MIN_ASPECT, k)
+        self.assertTrue(os.path.exists(os.path.join(slide.DIAGRAM_DIR, "LICENSE")))
+        slope = slide.diagram_doc("slopegraph", cat)
+        self.assertTrue(slope.startswith("### Slopegraph"))
+        self.assertNotIn("### Ridgeline", slope)
+        self.assertNotIn("## Examples", slide.diagram_doc("venn", cat))
+        self.assertIn("data-role", slide.diagram_contract("waterfall", cat))
+
+    def test_verify_diagram_waterfall(self):  # 덱 변수 색·한글 이름·20px 라벨에서 합계 보존을 잡는다
+        def svg(end):
+            return ('<svg viewBox="0 0 600 340">'
+                    '<rect x="60" y="200" width="100" height="100" fill="currentColor" stroke="currentColor" data-role="total" data-value="10" data-name="시작"/>'
+                    '<text x="110" y="192" font-size="24" text-anchor="middle">10</text>'
+                    '<line x1="160" y1="200" x2="200" y2="200" stroke="currentColor" data-carry="10"/>'
+                    '<rect x="200" y="150" width="100" height="50" fill="var(--ms-ig-1)" stroke="var(--ms-ig-1)" data-role="delta" data-value="+5" data-name="신규"/>'
+                    '<text x="250" y="142" font-size="24" text-anchor="middle">+5</text>'
+                    '<line x1="300" y1="150" x2="340" y2="150" stroke="currentColor" data-carry="15"/>'
+                    f'<rect x="340" y="150" width="100" height="150" fill="currentColor" stroke="currentColor" data-role="total" data-value="{end}" data-name="끝"/>'
+                    f'<text x="390" y="142" font-size="24" text-anchor="middle">{end}</text></svg>')
+        self.assertEqual(slide.verify_diagram("waterfall", svg(15)), [])
+        bad = slide.verify_diagram("waterfall", svg(16))
+        self.assertTrue(bad and any("conserve" in m for m in bad), bad)
+        self.assertEqual(slide.verify_diagram("venn", "<svg></svg>"), [])  # 검증 없는 계열
+
+
 class Shots(unittest.TestCase):
     def test_fit_and_capture_scripts(self):
         self.assertIn("window.metaSlideFit", slide.META_JS)
         self.assertIn("pushedOut", slide.META_JS)
         self.assertIn("finish()", slide.FINISH_ANIM_JS)
         self.assertIn("const deco", slide.CHECK_JS)
+        self.assertIn("msDiagram", slide.CHECK_JS)  # 직접 그린 도식 이름
+        self.assertIn("title, desc", slide.CHECK_JS)  # 그려지지 않는 접근성 글은 글자 크기 검사에서 뺀다
+        self.assertIn(".ms-ig[data-ms-diagram] svg", slide.META_CSS)  # 도식 SVG 에 덱 서체
 
 
 class KeyStore(unittest.TestCase):

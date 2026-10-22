@@ -12,6 +12,7 @@ description: 발표 자료(슬라이드·PPT·덱)를 만들 때, 사내 「전�
 | 덱 템플릿 | `data/templates/<slug>/`(인터넷 230종) · 표지 썸네일 `data/thumbs/` | 저장소마다 MIT — 접두어 있는 196종은 각 폴더 `LICENSE`·`template.json` 의 `source`, 접두어 없는 beautiful-html-templates 34종은 `data/templates/LICENSE`·`SOURCE.md` 한 벌 |
 | 장 레이아웃 색인 | `data/index.json` | `build_index.py`(장마다 Jev 로 레이아웃 16종 표시) |
 | 인포그래픽 | `data/infographics/`(런타임 `infographic.min.js` · 목록 `catalog.json` 276종 중 쓸 수 있는 265종 · 예시 `examples.json`) | AntV Infographic 0.2.20 (MIT) · 아이콘 Tabler 3.49.0 (MIT) |
+| 직접 그린 도식 | `data/diagrams/`(AntV 에 없는 10계열 — 벤·폭포·꺾은선·기울기·레이더·트리맵·간트·레이어·피시본·히트맵: 유형 문서 `types/` · 영문 원본 예시 `examples/` · 수치 검증 `verify/` 3종) | cathrynlavery/diagram-design `7a12007` (MIT) · `SOURCE.md` |
 | 색 체계 | `data/colors.json` 161종(밝은 125 · 어두운 36) | ui-ux-pro-max-skill colors.csv (MIT) |
 | 한글 서체 | `data/fonts.json` 17종 | Google Fonts·Pretendard (OFL) — 굴림·바탕 없음 |
 
@@ -23,6 +24,7 @@ python3 $S pick 개요.md                                      # Jev ①④⑤ �
 python3 $S new 덱폴더 --template <id> --color <id|template> --title-font <id> --body-font <id> [--brand '#hex']
 python3 $S outline 개요.md --template <id> --jev            # Jev ②③ + 장마다 한 메시지·헤드라인·레이아웃 → 템플릿 몇 번 장
 python3 $S ig <인포그래픽>                                    # 그 인포그래픽의 문법 예시(장에 붙일 조각)
+python3 $S diagram [계열]                                    # AntV 에 없는 계열 — 장표 규약 + 배치 문법 + 수치 선언(직접 SVG 로 그림)
 python3 $S shots 덱폴더/deck.html --pdf                      # 장마다 캡처 + 자동 검사 + sheet.png + deck.pdf
 python3 $S record 덱폴더 --series <이름> --title <제목>       # 이력 — 다음 같은 시리즈는 같은 템플릿·색·서체
 python3 $S history                                           # 이력 보기
@@ -72,15 +74,16 @@ Windows 는 `python3` 대신 `python`(또는 `py`)으로 부른다. 경로·인�
    - 색(④): `--color <id>` 면 HTML·CSS 의 색 값을 역할대로 바꾼다 — 무채색은 바탕↔글자 사이 위치를 지켜 체계의 바탕·글자 색 사이로, 유채색은 많이 쓰인 순서대로 주색·강조·보조로(원래 명도는 지킨다). `--brand '#hex'` 는 포인트 색 하나만 브랜드 색(12% 톤 다운, p171)으로.
    - 서체(⑤): 모든 `font-family`·`--*font*` 선언(HTML 과 복사된 CSS 파일)의 템플릿 웹 서체 뒤·시스템 서체 앞에 한글 서체를 끼운다(제목 계열 → 제목 서체, 나머지 → 본문 서체). 영문은 템플릿 서체, 한글은 고른 서체로 그려진다.
    - `meta-slide.css`(단어 중간 줄바꿈 금지 `keep-all` · deck-stage 시스템 서체 덮기 · 인포그래픽 색 `--ms-ig-1..4`) · `meta-slide.js`(한글 글자의 넓은 자간 0.06em 초과 → 0.01em, 좁은 줄간격 → 1.18 — p187 · 40px 이상 한글 제목이 장 밖으로 넘치거나 아래 글을 밀어내면 글자 크기를 최소 55~70%까지 줄임 `data-ms-fit`) · `infographics/` 런타임을 붙인다.
-6. **`outline --template <id> --jev` — ② ③ + 장 점검**. 장마다 Jev 가 한 장 한 메시지인가·헤드라인이 메시지인가(noul), 레이아웃(그 템플릿에 있는 종류만, choice)을 판정하고, **② 인포그래픽으로 보여 주면 더 잘 전달되는가**(noul, 0.6 이상 — 표지·간지·한 문장·인용·요약·마무리·숫자 장은 제외: 원칙상 글이 주인공) → **③ 계열**(순서·깔때기·피라미드·순환·타임라인·로드맵·격자·2자 비교·SWOT·사분면·트리·마인드맵·흐름도·그래프 …)(가로 장에서 작게 그려지는 세로로 긴 모양 — `catalog.json` 의 실측 `aspect` 1.3 미만 — 은 후보에서 뺀다) → **그 계열 안 모양**(덱 스타일을 같이 보여 주고 choice)을 고른다. 출력: 템플릿 몇 번 장을 복제할지 + 인포그래픽을 넣을 장과 이름.
+6. **`outline --template <id> --jev` — ② ③ + 장 점검**. 장마다 Jev 가 한 장 한 메시지인가·헤드라인이 메시지인가(noul), 레이아웃(그 템플릿에 있는 종류만, choice)을 판정하고, **② 인포그래픽으로 보여 주면 더 잘 전달되는가**(noul, 0.6 이상 — 표지·간지·한 문장·인용·요약·마무리·숫자 장은 제외: 원칙상 글이 주인공) → **③ 계열**(순서·깔때기·피라미드·순환·타임라인·로드맵·격자·2자 비교·SWOT·사분면·트리·마인드맵·흐름도·그래프 …)(가로 장에서 작게 그려지는 세로로 긴 모양 — `catalog.json` 의 실측 `aspect` 1.3 미만 — 은 후보에서 뺀다) → **그 계열 안 모양**(덱 스타일을 같이 보여 주고 choice)을 고른다. 계열 후보에는 AntV 에 없는 **직접 그린 도식** 10계열(`draw:` — 벤·폭포·꺾은선·기울기·레이더·트리맵·간트·레이어·피시본·히트맵)이 같이 들어간다. 출력: 템플릿 몇 번 장을 복제할지 + 인포그래픽을 넣을 장과 이름 + 「직접 그린 도식」 장과 계열.
 7. **덱 채우기**(Claude 가 직접 편집) — 대응표대로 템플릿 장(`<section>`·`.slide`)을 복제·배치하고 글을 바꾼 뒤 쓰지 않는 장은 지운다.
    - **지킨다**: 서체 선언·`:root` 변수 구조·격자·장 클래스·장식·내비게이션 런타임. 템플릿에 없는 레이아웃이 필요하면 같은 서체·색·장식 어휘로 새로 그린다.
    - **바꾼다**: 제목·본문·숫자·이름·날짜·장 번호·자리표시 이미지(같은 크기로). 템플릿 예시 문구(영어·중국어)가 남지 않게 한다.
    - **인포그래픽 장**: `python3 $S ig <이름>` 이 주는 조각(`<div class="ms-ig">` + `<script type="text/x-infographic">`)을 헤드라인 아래에 넣고 데이터만 그 장 내용으로 바꾼다. 흐름형 장은 블록(`width:100%; height:560~620px`), 1920x1080 좌표 장(deck-stage)은 `position:absolute` 로 헤드라인과 겹치지 않게. `theme` 블록은 쓰지 않는다(덱 색·서체가 자동). 아이콘은 영어 낱말(`rocket`·`chart line`)로 — 로컬 Tabler 에서 찾는다. 인포그래픽 안의 글도 한 줄 짧게.
+   - **직접 그린 도식 장**(2026-10-22 diagram-design 참조 도입): `python3 $S diagram <계열>` 의 장표 규약·배치 문법을 읽고 `<div class="ms-ig" data-ms-diagram="<계열>">` 안에 인라인 SVG 를 새로 그린다. viewBox = 그릇 px · 글자 20px 이상(주 라벨 28~32px) · `font-family` 를 쓰지 않음(덱 서체 — `meta-slide.css` 가 지정) · 색은 `currentColor` 와 강조 `var(--ms-ig-1)` 한두 곳 · 한글 두 줄은 `<tspan>`. 계열마다 장 하나의 상한(벤 3집합·폭포 8막대·레이더 5축·간트 6행 …)을 넘으면 글자를 줄이지 말고 장을 나눈다. 폭포·기울기·트리맵은 문서의 `data-*` 선언을 지킨다. `examples/` 원본은 영문·hex·8~14px 문서용이라 붙여 넣지 않는다.
    - **원칙 적용**: 장마다 헤드라인 하나 · 강조는 핵심 단어만(굵게 또는 포인트 색, 한 장에 한두 곳) · 두 줄이면 핵심 줄만 크게, 세 줄이면 점층(가장 중요한 것 맨 아래, p190~191) · 핵심이 둘 이상이면 도식 · 표는 그래프로, 안 되면 선 최소화 · 간지는 같은 레이아웃에 색만 바꿔 반복(p173) · 허전한 장은 아이콘·실루엣·뒤에 깐 그림(p198).
    - **한국어 줄바꿈은 직접 지정**(2026-10-21 사용자 「세 / 미나로」 지적): 제목·카드 문구가 두 줄이면 의미 단위에서 `<br>`. `keep-all` 은 단어 중간 끊김만 막는다.
    - 실제 화면 캡처를 넣으면 개인 이름·사진·약국명 같은 개인정보는 가린다.
-8. **`shots --pdf`** — Playwright 로 장마다 1920x1080 캡처, `sheet.png`, `deck.pdf`, `report.json`. 캡처 전에 등장 애니메이션을 끝 상태로 돌린다. 자동 검사: 화면 밖·잘린 글(「01」「26」처럼 두세 글자 장식은 제외), **한글이 고른 서체가 아닌 시스템 서체로 그려진 장**(CDP 실측). **인포그래픽 가독성**: `ig-small`(가장 작은 글자가 1920 캔버스에서 20px 미만) · `ig-overlap`(글끼리 겹치거나 칸을 넘침) — 같은 계열의 다른 모양으로 바꿔 다시 `shots`, 계열 안에 통과하는 모양이 없으면 그 장은 인포그래픽을 빼고 템플릿 어휘로 도식을 그린다(Jev 판정은 그대로 보고에 적는다). plain-text 모양은 desc 를 그리지 않으므로 날짜·설명을 label 에 붙인다. 통과해도 `sheet.png` 를 직접 보고 강약·도식·자간·인포그래픽 겹침·남은 예시 문구를 확인한다. 고치면 다시 `shots`.
+8. **`shots --pdf`** — Playwright 로 장마다 1920x1080 캡처, `sheet.png`, `deck.pdf`, `report.json`. 캡처 전에 등장 애니메이션을 끝 상태로 돌린다. 자동 검사: 화면 밖·잘린 글(「01」「26」처럼 두세 글자 장식은 제외), **한글이 고른 서체가 아닌 시스템 서체로 그려진 장**(CDP 실측). **인포그래픽 가독성**: `ig-small`(가장 작은 글자가 1920 캔버스에서 20px 미만) · `ig-overlap`(글끼리 겹치거나 칸을 넘침) — 같은 계열의 다른 모양으로 바꿔 다시 `shots`, 계열 안에 통과하는 모양이 없으면 그 장은 인포그래픽을 빼고 템플릿 어휘로 도식을 그린다(Jev 판정은 그대로 보고에 적는다). plain-text 모양은 desc 를 그리지 않으므로 날짜·설명을 label 에 붙인다. 직접 그린 도식도 같은 `ig-small`·`ig-overlap` 을 받고(`<title>`·`<desc>` 는 제외), 폭포·기울기·트리맵은 `diagram-math`(원본 `verify/` 스크립트로 합계 보존·양쪽 같은 척도·면적=비율 대조)도 받는다 — 걸리면 항목을 줄이거나 값·좌표를 고쳐 다시 그린다. 통과해도 `sheet.png` 를 직접 보고 강약·도식·자간·인포그래픽 겹침·남은 예시 문구를 확인한다. 고치면 다시 `shots`.
 9. **보고 첫 줄**: 템플릿 id·이름 · 색 체계 · 제목/본문 서체 · 장 수 · 인포그래픽 장 수, 각 고른 경로(user·series·jev·default)와 확신도. 그다음 `deck.html`·`deck.pdf`·`sheet.png` 경로. 끝나면 `record`.
 
 공유가 필요하면 `deck.pdf` 를 보내거나, 덱 폴더를 Artifact 로 게시한다(`deck.html` + `files` 에 같은 폴더의 js·css·자산).
@@ -90,4 +93,5 @@ Windows 는 `python3` 대신 `python`(또는 `py`)으로 부른다. 경로·인�
 - 인터넷 템플릿: `template.html` + `template.json`(slug·name·tagline·mood·occasion·tone·formality·density·scheme·palette·typography·best_for·avoid_for·source) + 원본 `LICENSE` 를 `data/templates/<접두어>-<slug>/` 에 넣고 `python3 build_index.py <slug>` → `python3 qa_templates.py <slug>`(한글 견본 글로 캡처해 대체 서체·넘침이 0 인지). 16:9·5장 이상·키보드 → 로 넘어감·원격 스크립트 없음·중국어 서체 없음. AGPL 등 사내 재배포가 곤란한 라이선스는 넣지 않는다(op7418/guizang-ppt-skill AGPL-3.0 제외).
 - 사내 템플릿은 두지 않는다. 원칙 자료(사내 Keynote PDF)의 바탕·색·서체·장식을 템플릿으로 옮기지 않는다(2026-10-22 사용자 지시 — 그렇게 만든 `cheil-dark-point` 를 뺐다).
 - 인포그래픽: AntV 판을 올리면 `build_infographics.py <antv package> <tabler package>` → `qa_infographics.py`(한글 예시로 전부 렌더해 영문 고정 문구·실패 표시).
+- 직접 그린 도식: diagram-design 판을 올리면 `build_diagrams.py <저장소>`(계열 목록·`verify-waterfall.py` 패치는 그 파일의 `DIAGRAMS`·`PATCHES`). AntV 에 이미 있는 계열(사분면·순환·피라미드·깔때기·타임라인)은 넣지 않는다.
 - 색 체계: `build_colors.py <colors.csv>`.
