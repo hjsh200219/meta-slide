@@ -1529,7 +1529,15 @@ CHECK_JS = r"""() => {
   for (const x of texts) for (const b of boxes) {
     if (b.el.contains(x.el) || x.el.contains(b.el)) continue;
     const w = Math.min(x.r.right, b.r.right) - Math.max(x.r.left, b.r.left), h = Math.min(x.r.bottom, b.r.bottom) - Math.max(x.r.top, b.r.top);
-    if (w > 2 && h > 2 && w * h > 0.3 * x.r.width * x.r.height) { if (bo++ < 3) out.push({kind: 'box-overlap', text: x.t.slice(0, 40)}); break; }
+    if (!(w > 2 && h > 2 && w * h > 0.3 * x.r.width * x.r.height)) continue;
+    // 판 안에 통째로 들어간 글(장 번호·창 안 글)은 그 판의 글과 부딪칠 때만 — 가장자리에 걸친 글은 그대로 겹침
+    if (w * h > 0.95 * x.r.width * x.r.height && !texts.some(y => y !== x && b.el.contains(y.el) && !y.el.contains(x.el) && !x.el.contains(y.el) &&
+        Math.min(x.r.right, y.r.right) - Math.max(x.r.left, y.r.left) > 2 && Math.min(x.r.bottom, y.r.bottom) - Math.max(x.r.top, y.r.top) > 2)) continue;
+    // 자기 바탕을 깔고 얹은 글(테두리 위 이름표·카드 위 스티커)은 디자인이다
+    let lab = false;
+    for (let e = x.el; e && !e.contains(b.el); e = e.parentElement) { const c = getComputedStyle(e).backgroundColor.match(/[\d.]+/g); if (c && (c.length < 4 || parseFloat(c[3]) > 0.5)) { lab = true; break; } }
+    if (lab) continue;
+    if (bo++ < 3) out.push({kind: 'box-overlap', text: x.t.slice(0, 40)}); break;
   }
   // 인포그래픽 가독성 — 가장 작은 글자(화면 px)·글끼리 겹침·칸을 넘친 글. 세로로 길거나 항목이 많은 모양은 장에서 작게 그려진다(10-22 AX 덱)
   for (const ig of document.querySelectorAll('.ms-ig')) {
