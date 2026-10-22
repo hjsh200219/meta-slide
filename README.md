@@ -133,7 +133,7 @@ python3 skills/meta-slide/setup.py --force    # 새 키로 바꾸기 · --forget
 ## 시험·자료 다시 만들기
 
 ```bash
-python3 skills/meta-slide/test_slide.py      # 결정론 부분 28건(Jev·네트워크 없음)
+python3 skills/meta-slide/test_slide.py      # 결정론 부분 29건(Jev·네트워크 없음)
 python3 skills/meta-slide/qa_templates.py    # 템플릿 전부를 한글 견본 글로 캡처·검사 → data/qa_templates.json
 python3 skills/meta-slide/qa_infographics.py # 인포그래픽 전부 한글 렌더 검사
 python3 skills/meta-slide/build_diagrams.py <diagram-design 저장소>  # 직접 그린 도식 참조(data/diagrams/)

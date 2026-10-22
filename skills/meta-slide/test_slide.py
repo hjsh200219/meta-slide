@@ -171,6 +171,12 @@ class Assets(unittest.TestCase):
         self.assertNotIn("## Examples", slide.diagram_doc("venn", cat))
         self.assertIn("data-role", slide.diagram_contract("waterfall", cat))
 
+    def test_ig_on(self):  # 강조 면 위 글자색 — 바탕과 섞인 색으로 고른다(어두운 덱 주황 반투명 칸에 검은 글자가 묻혔다)
+        self.assertEqual(slide.ig_on(["#E85D26"], "#111111"), ("#111111", 0.9))
+        self.assertEqual(slide.ig_on(["#1E2BFA"], "#FDFAE7"), ("#FFFFFF", 0.75))
+        self.assertEqual(slide.ig_on(["var(--x)"], "#111111"), (None, None))
+        self.assertIn("--ms-ig-on-from: 0.9;", slide.ig_on_var(["#E85D26"], "#111111"))
+
     def test_verify_diagram_waterfall(self):  # 덱 변수 색·한글 이름·20px 라벨에서 합계 보존을 잡는다
         def svg(end):
             return ('<svg viewBox="0 0 600 340">'

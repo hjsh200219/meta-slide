@@ -410,9 +410,34 @@ DIAGRAM_RULES = """[장표 규약 — 원본 문서·예시보다 우선]
 - 글자: 모든 정보성 글자 20px 이상, 주 라벨 28~32px, 수치 강조는 더 크게. 넘치면 글자를 줄이지 말고 항목을 줄이거나 장을 나눈다.
 - 서체: <text> 에 font-family 를 쓰지 않는다(덱 서체를 물려받는다). 원본 예시의 'Geist'·'Instrument Serif'·Mono 대문자 꼬리표는 옮기지 않는다.
 - 색: 글자·선·면은 currentColor(장 글자색 — 밝은·어두운 덱 모두 맞는다), 강조는 var(--ms-ig-1)(덱 주색) 한두 곳만. 흐린 면은 fill-opacity·stroke-opacity 로. hex 색을 쓰지 않는다(--ms-ig-2.. 는 덱마다 있거나 글자색과 같다).
+- 강조색 면 위 글자: 면의 fill-opacity 가 덱의 --ms-ig-on-from(meta-slide.css·meta-slide.json ig_on) 이상이면 fill="var(--ms-ig-on)", 미만이면 currentColor. 반투명 면은 바탕과 섞인 색으로 계산한 값이라 히트맵처럼 농도가 바뀌는 칸도 이 기준으로 칸마다 고른다(밝은 덱 파란 면 위 검은 글자·어두운 덱 주황 반투명 칸 위 검은 글자가 둘 다 묻혔다).
 - 한글 두 줄은 의미 단위에서 <tspan x=".." dy="1.2em"> 로 직접 끊는다. <title>·<desc> 는 넣어도 된다(검사에서 뺀다).
 - 수치 도식(폭포·기울기·트리맵)은 원본 문서의 data-* 선언 규칙을 지킨다 — shots 가 verify/ 스크립트로 합계·척도·면적을 대조한다.
 - 원본 예시(examples/)는 영문·hex 색 참고용이다. 붙여 넣지 말고 배치 문법만 따라 새로 그린다."""
+
+
+def ig_on(igpal, bg=None):
+    """강조색(--ms-ig-1) 면 위에 얹는 글자색과, 그 색이 currentColor 보다 나아지는 면 농도(fill-opacity) 하한.
+    반투명 강조 면은 바탕과 섞인 색으로 대비를 잰다 — 어두운 덱의 주황 반투명 칸은 검은 글자가 묻힌다(10-22 시험 히트맵)."""
+    hexre = r"#[0-9a-fA-F]{6}"
+    if not igpal or not re.fullmatch(hexre, igpal[0]):
+        return None, None
+    acc = igpal[0]
+    on = max(("#FFFFFF", "#111111"), key=lambda c: contrast(c, acc))
+    if not (bg and re.fullmatch(hexre, bg)):
+        return on, 0.85
+    other = "#111111" if on == "#FFFFFF" else "#FFFFFF"
+    mix = lambda a: "#" + "".join(f"{round(x * a + y * (1 - a)):02x}" for x, y in zip(_rgb(acc), _rgb(bg)))
+    for k in range(1, 21):
+        a = k / 20
+        if contrast(on, mix(a)) >= contrast(other, mix(a)):
+            return on, a
+    return on, 1.0
+
+
+def ig_on_var(igpal, bg=None):
+    on, a = ig_on(igpal, bg)
+    return f" --ms-ig-on: {on}; --ms-ig-on-from: {a};" if on else ""
 
 
 def load_diagrams():
@@ -864,6 +889,7 @@ def cmd_new(argv):
             txt = _read(f)
             _write(f, apply_recolor(txt, mapping))
     igpal = ig_palette(t, alltext, system)
+    ig_bg = (system or {}).get("bg") or (t.get("palette") or {}).get("bg") or (template_roles(t, alltext) or {}).get("bg")
     typo = t.get("typography") or {}
     css_decls = 0
     for f in css_files:  # 서체를 별도 CSS 파일에 둔 템플릿(html-ppt 등)
@@ -884,10 +910,10 @@ def cmd_new(argv):
     deck_font = (f"'{body_latin}', " if body_latin else "") + f"'{fonts[body_font]['family']}', sans-serif"
     _write(os.path.join(dest, "meta-slide.css"), 
         META_CSS % {"title": fonts[title_font]["family"], "body": fonts[body_font]["family"], "deck": deck_font,
-                    "igvars": " ".join(f"--ms-ig-{i + 1}: {c};" for i, c in enumerate(igpal))})
+                    "igvars": " ".join(f"--ms-ig-{i + 1}: {c};" for i, c in enumerate(igpal)) + ig_on_var(igpal, ig_bg)})
     _write(os.path.join(dest, "meta-slide.js"), META_JS)
     meta = {"template": slug, "template_name": t["name"], "color": color, "title_font": title_font, "body_font": body_font, "brand": brand,
-            "ig_palette": igpal,
+            "ig_palette": igpal, "ig_on": ig_on(igpal, ig_bg),
             "created": time.strftime("%Y-%m-%dT%H:%M:%S%z"), **stats,
             "license": (t.get("source") or {}).get("repo", "zarazhangrui/beautiful-html-templates") + " (MIT)" if not t["house"] else "house(사내)"}
     _write(os.path.join(dest, "meta-slide.json"), json.dumps(meta, ensure_ascii=False, indent=2))
