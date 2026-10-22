@@ -934,6 +934,11 @@ META_JS = r"""/* meta-slide — 한글이 든 글자 요소의 넓은 자간·�
       if (ls > fs * 0.06) { el.style.letterSpacing = '0.01em'; el.setAttribute('data-ms-fix', 'tracking'); }
       var lh = cs.lineHeight === 'normal' ? fs * 1.2 : parseFloat(cs.lineHeight);
       if (lh < fs * 1.12 && el.getBoundingClientRect().height > lh * 1.5) { el.style.lineHeight = '1.18'; el.setAttribute('data-ms-fix', 'leading'); }
+      // 고정폭 서체가 먼저인 한글 글(꼬리말·라벨): 띄어쓰기가 고정폭(0.6em)이라 낱말 사이가 벌어진다 — 한글 본문 서체를 앞에 세운다
+      var first = (cs.fontFamily.split(',')[0] || '').replace(/["']/g, '');
+      if (/mono|code|courier|consol/i.test(first) && /[가-힣]\s+[가-힣]/.test(ownText(el))) {
+        el.style.fontFamily = 'var(--ms-body), ' + cs.fontFamily; el.setAttribute('data-ms-fix', 'mono-kr');
+      }
     }
   }
   // 큰 제목 한글이 장 밖으로 넘치면 글자 크기를 줄인다(영문 압축 서체 기준으로 잡은 크기가 한글에서는 넓다). 보이는 장만 잴 수 있어 장을 넘길 때마다 다시 돈다.
