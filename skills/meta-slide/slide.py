@@ -1541,6 +1541,7 @@ CHECK_JS = r"""() => {
   }
   // 인포그래픽 가독성 — 가장 작은 글자(화면 px)·글끼리 겹침·칸을 넘친 글. 세로로 길거나 항목이 많은 모양은 장에서 작게 그려진다(10-22 AX 덱)
   for (const ig of document.querySelectorAll('.ms-ig')) {
+    if (ig.checkVisibility && !ig.checkVisibility({opacityProperty: true, visibilityProperty: true})) continue;  // deck-stage 는 모든 장을 겹쳐 두고 숨긴다(10-23 AX 덱 — 숨은 장의 인포그래픽이 모든 장에 잡힘)
     const svg = ig.querySelector('svg'); if (!svg || !svg.viewBox || !svg.viewBox.baseVal.width) continue;
     const box = svg.getBoundingClientRect(); if (box.right <= 1 || box.bottom <= 1 || box.left >= W - 1 || box.top >= H - 1 || box.width < 1) continue;  // 지금 장에 보이는 것만
     const vb = svg.viewBox.baseVal, sc = Math.min(box.width / vb.width, box.height / vb.height);
@@ -1564,7 +1565,7 @@ CHECK_JS = r"""() => {
 
 
 # 지금 장에 보이는 직접 그린 도식의 SVG 원문 — 수치 검증(verify/)에 넘긴다
-DIAGRAM_SVG_JS = """() => [...document.querySelectorAll('.ms-ig[data-ms-diagram]')].map(ig => {
+DIAGRAM_SVG_JS = """() => [...document.querySelectorAll('.ms-ig[data-ms-diagram]')].filter((e => !e.checkVisibility || e.checkVisibility({opacityProperty: true, visibilityProperty: true}))).map(ig => {
   const svg = ig.querySelector('svg'); if (!svg) return null;
   const b = svg.getBoundingClientRect(); if (b.width < 1 || b.right <= 1 || b.bottom <= 1 || b.left >= innerWidth - 1 || b.top >= innerHeight - 1) return null;
   return {name: ig.dataset.msDiagram, svg: svg.outerHTML};
@@ -1633,6 +1634,7 @@ LAYOUT_SIG_JS = r"""() => {
   }
   for (const s of document.querySelectorAll('script[type="text/x-infographic"]')) {
     const box = s.parentElement && s.parentElement.getBoundingClientRect();
+    if (s.parentElement.checkVisibility && !s.parentElement.checkVisibility({opacityProperty: true, visibilityProperty: true})) continue;
     if (!box || box.right <= 1 || box.left >= W - 1 || box.bottom <= 1 || box.top >= H - 1) continue;
     const m = s.textContent.match(/infographic\s+([a-z-]+)/); if (m) units.add('ig:' + m[1]);
   }
