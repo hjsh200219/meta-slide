@@ -902,7 +902,10 @@ def rewrite_fonts(text, display_family, body_family, title_kr, body_kr, whole_cs
         return css(text), count[0]
     # <style> 블록 안(서체 이름에 큰따옴표가 올 수 있다)과 style="…" 속성 안(큰따옴표가 경계)을 따로 고친다
     out = re.sub(r"(<style[^>]*>)(.*?)(</style>)", lambda m: m.group(1) + css(m.group(2)) + m.group(3), text, flags=re.S | re.I)
-    out = re.sub(r'(\sstyle=")([^"]*)(")', lambda m: m.group(1) + css(m.group(2)) + m.group(3), out, flags=re.I)
+    # <script> 안의 style="…" 은 JS 문자열 조각이다 — 따옴표를 넣으면 스크립트가 깨진다(10-23 hd-narrative-sparkline 웨이브 그림)
+    parts = re.split(r"(<script\b[^>]*>.*?</script>)", out, flags=re.S | re.I)
+    out = "".join(p if i % 2 else re.sub(r'(\sstyle=")([^"]*)(")', lambda m: m.group(1) + css(m.group(2)) + m.group(3), p, flags=re.I)
+                  for i, p in enumerate(parts))
     return out, count[0]
 
 
@@ -1650,6 +1653,7 @@ def shots(deck, out_dir=None, pdf=False, wait_ms=700, ko_sample=False):
             ims = [Image.open(s).convert("RGB") for s in report["shots"]]
             if ims:
                 pdf_path = os.path.join(out_dir, "deck.pdf")
+                Image.init()  # PDF 저장기가 JPEG 저장기를 빌려 쓰는데, 일부 판 Pillow 는 그 플러그인을 미리 등록하지 않는다(KeyError: JPEG)
                 ims[0].save(pdf_path, save_all=True, append_images=ims[1:], resolution=144)
                 report["pdf"] = pdf_path
         b.close()

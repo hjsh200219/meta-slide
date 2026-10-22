@@ -62,6 +62,13 @@ class FontInsert(unittest.TestCase):
         self.assertIn("--font-display:'A', 'T', serif", out)
         self.assertIn("--font-sans:'B', 'BB', sans-serif", out)
 
+    def test_script_strings_untouched(self):  # JS 문자열 속 style="…" 에 따옴표를 넣으면 스크립트가 깨진다
+        html = """<p style="font-family:'Inter',sans-serif">a</p><script>a+='<text style="font-family:\\'Geist Mono\\',monospace">'</script>"""
+        out, n = slide.rewrite_fonts(html, "Inter", "Inter", "Pretendard", "Pretendard")
+        self.assertEqual(n, 1)
+        self.assertIn("'Inter', 'Pretendard', sans-serif", out)
+        self.assertIn(html.split("<script>")[1], out)
+
     def test_short_font_var(self):  # 이름에 font 가 없어도 값이 서체 목록이면
         out, n = slide.rewrite_fonts(":root{--fd:'Sora', sans-serif;--fb:'DM', sans-serif;--bg:#000;--x: a, b}", "Sora", "DM", "T", "B", whole_css=True)
         self.assertIn("--fd:'Sora', 'T', sans-serif", out)
