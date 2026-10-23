@@ -57,11 +57,27 @@ data
     return v || fallback;
   }
 
-  function withTheme(src) {
+  // 인포그래픽이 놓인 자리의 실제 바탕색(투명이면 부모로 올라간다). AntV 는 colorBg 로 어두운 바탕인지 판단해 글자·칸 색을 정하는데,
+  // 넘기지 않으면 흰 바탕으로 보고 어두운 글자를 그려 어두운 덱에서 글이 안 보였다(10-23 AX 덱 트리·레인·비교·흐름도).
+  function bgOf(el) {
+    var v = cssVar('--ms-ig-bg', '');
+    if (v) return v;
+    for (var e = el; e && e.nodeType === 1; e = e.parentElement) {
+      var m = getComputedStyle(e).backgroundColor.match(/[\d.]+/g);
+      if (m && (m.length < 4 || parseFloat(m[3]) > 0.5)) {
+        return '#' + m.slice(0, 3).map(function (x) { return ('0' + Math.round(+x).toString(16)).slice(-2); }).join('');
+      }
+    }
+    return '';
+  }
+
+  function withTheme(src, el) {
     if (/^theme\b/m.test(src)) return src;
     var pal = [1, 2, 3, 4].map(function (i) { return cssVar('--ms-ig-' + i, ''); }).filter(Boolean);
     var font = cssVar('--ms-body', '').replace(/["']/g, '');
+    var bg = el ? bgOf(el) : '';
     var out = src.replace(/\s+$/, '') + '\ntheme\n';
+    if (bg) out += '  colorBg ' + bg + '\n';
     if (pal.length) out += '  colorPrimary ' + pal[0] + '\n  palette ' + pal.join(' ') + '\n';  // 주색 — 없으면 AntV 기본 분홍(#FF356A)이 VS·화살표에 남는다
     if (font) out += '  base\n    text\n      font-family ' + font + '\n';
     return out;
@@ -74,7 +90,7 @@ data
     for (var i = 0; i < els.length; i++) {
       var el = els[i], s = el.querySelector('script[type="text/x-infographic"]');
       if (!s) continue;
-      var src = withTheme(s.textContent.replace(/^\n+/, ''));
+      var src = withTheme(s.textContent.replace(/^\n+/, ''), el);
       var host = el.querySelector('.ms-ig-host');
       if (!host) { host = document.createElement('div'); host.className = 'ms-ig-host'; host.style.cssText = 'width:100%;height:100%'; el.appendChild(host); }
       host.replaceChildren();

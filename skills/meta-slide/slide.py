@@ -1629,8 +1629,12 @@ LAYOUT_SIG_JS = r"""() => {
   for (const [el, r] of vis) {
     if (r.width * r.height < 0.004 * A || r.width * r.height > 0.5 * A) continue;
     const p = el.parentElement; if (!p) continue;
-    const same = [...p.children].filter(c => seen.has(c) && key(c) === key(el)).length;
-    if (same >= 3 && (el.innerText || '').trim().length > 4) units.add(key(p) + '>' + key(el));
+    const sib = [...p.children].filter(c => seen.has(c) && key(c) === key(el));
+    if (sib.length < 3 || (el.innerText || '').trim().length <= 4) continue;
+    // 배치 모양까지 본다 — 한 줄(가로 상자 줄)·한 열·행×열. 같은 상자 부품으로 그린 트리·스윔레인·순환은 서로 다른 틀이다
+    const rows = new Set(sib.map(c => Math.round(c.getBoundingClientRect().top / 40))).size;
+    const cols = new Set(sib.map(c => Math.round(c.getBoundingClientRect().left / 40))).size;
+    units.add(key(p) + '>' + key(el) + '@' + (rows === 1 ? 'row' : cols === 1 ? 'col' : rows + 'x' + cols));
   }
   for (const s of document.querySelectorAll('script[type="text/x-infographic"]')) {
     const box = s.parentElement && s.parentElement.getBoundingClientRect();
