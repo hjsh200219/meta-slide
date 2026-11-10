@@ -6,7 +6,7 @@
 python3 skills/meta-slide/slide.py      # 인자 없이 → 템플릿·인포그래픽·색·서체 갤러리를 로컬 브라우저로 연다
 ```
 
-> 비공개 repo · 사내용입니다. 원칙 요약(`data/principles.md`)은 사내 자료라 밖으로 보내지 않습니다.
+> 공개 repo입니다(2026-11-10 공개 전환). 원칙 요약(`data/principles.md`)은 사내 「전략적 Presentation 기법」 Keynote를 요약한 것입니다.
 
 ## 목차
 
@@ -30,7 +30,7 @@ claude plugin install meta-slide@meta-slide
 | 필요한 것 | 어디에 | 없으면 |
 |---|---|---|
 | Python 3.9 이상(표준 라이브러리) | 전부 | 동작 안 함 |
-| 이 repo 협업자(collaborator) 권한 · GitHub 로그인된 git | 설치 | `git ls-remote https://github.com/hjsh200219/meta-slide.git` 로 확인 |
+| git(공개 repo라 GitHub 로그인·협업자 권한 불필요) | 설치 | `git ls-remote https://github.com/hjsh200219/meta-slide.git` 로 확인 |
 | Jev(TypeSafe) API 키 | `pick`·`outline --jev`(Jev 가 고르기) | `--no-jev` 로 기본값만 — [키 저장](#처음-한-번--jev-키-저장) |
 | Playwright(python) + Chromium · Pillow | `shots`(캡처·검사·PDF)·QA 스크립트 | `python3 -m pip install --user playwright pillow` → `python3 -m playwright install chromium` |
 | Tailscale | `--local`(SSH 로 붙은 내 PC 에서 갤러리 보기) | `--local` 만 안 됨 |
