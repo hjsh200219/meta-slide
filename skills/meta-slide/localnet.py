@@ -119,6 +119,18 @@ def _read_pid(pidfile):
         return None
 
 
+def _is_ours(pid):
+    """그 pid 가 지금도 이 도구의 서버인가 — pidfile 이 남은 채 pid 가 다른 프로그램에 재사용됐으면 끄지 않는다.
+    명령줄에 서버 스크립트 이름이 있는지로 본다. 확인할 수 없으면(Windows·ps 실패) 남의 것으로 보고 다음 포트로 넘어간다."""
+    if os.name == "nt":
+        return False
+    try:
+        cmd = subprocess.run(["ps", "-p", str(pid), "-o", "command="], capture_output=True, text=True, timeout=5).stdout
+    except (OSError, subprocess.SubprocessError):
+        return False
+    return any(n in cmd for n in ("serve.py", "motion.py", "slide.py", "meta-slide", "meta-motion"))
+
+
 def claim(pidfile, port):
     """이 서버가 그 포트를 쓴다고 적는다 — 다음 실행이 옛 서버를 알아보고 끈다(다른 프로그램은 건드리지 않게)."""
     os.makedirs(os.path.dirname(pidfile), exist_ok=True)
@@ -134,7 +146,7 @@ def free_port(port, pidfile):
     if not pids:
         return True
     mine = _read_pid(pidfile)
-    if mine is None or mine == os.getpid() or pids != [mine]:
+    if mine is None or mine == os.getpid() or pids != [mine] or not _is_ours(mine):
         return False
     if os.name == "nt":
         subprocess.run(["taskkill", "/PID", str(mine), "/F"], capture_output=True)
